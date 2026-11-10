@@ -1,0 +1,119 @@
+{
+  "Title": "Security update for openssl-3",
+  "Tracking": {
+    "ID": "SUSE-SU-2025:20417-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2025-06-13T10:47:24Z",
+    "CurrentReleaseDate": "2025-06-13T10:47:24Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2025-06-13T10:47:24Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for openssl-3",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for openssl-3 fixes the following issues:\n\n- CVE-2025-27587: Fixed Minerva side channel vulnerability in P-384 (bsc#1240366)\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "SUSE-SLE-Micro-6.1-146",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "libopenssl-3-devel-3.1.4-slfo.1.1_5.1",
+        "RelatesToProductReference": "SUSE Linux Micro 6.1",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl-3-fips-provider-3.1.4-slfo.1.1_5.1",
+        "RelatesToProductReference": "SUSE Linux Micro 6.1",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libopenssl3-3.1.4-slfo.1.1_5.1",
+        "RelatesToProductReference": "SUSE Linux Micro 6.1",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "openssl-3-3.1.4-slfo.1.1_5.1",
+        "RelatesToProductReference": "SUSE Linux Micro 6.1",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2025/suse-su-202520417-1/",
+      "Description": "Link for SUSE-SU-2025:20417-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-updates/2025-June/040398.html",
+      "Description": "E-Mail link for SUSE-SU-2025:20417-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1240366",
+      "Description": "SUSE Bug 1240366"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2025-27587/",
+      "Description": "SUSE CVE CVE-2025-27587 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2025-27587",
+      "Description": "OpenSSL 3.0.0 through 3.3.2 on the PowerPC architecture is vulnerable to a Minerva attack, exploitable by measuring the time of signing of random messages using the EVP_DigestSign API, and then using the private key to extract the K value (nonce) from the signatures. Next, based on the bit size of the extracted nonce, one can compare the signing time of full-sized nonces to signatures that used smaller nonces, via statistical tests. There is a side-channel in the P-364 curve that allows private key extraction (also, there is a dependency between the bit size of K and the size of the side channel). NOTE: This CVE is disputed because the OpenSSL security policy explicitly notes that any side channels which require same physical system to be detected are outside of the threat model for the software. The timing signal is so small that it is infeasible to be detected without having the attacking process running on the same physical system.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2025-27587.html",
+          "Description": "CVE-2025-27587"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1240366",
+          "Description": "SUSE Bug 1240366"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "SUSE Linux Micro 6.1:libopenssl-3-devel-3.1.4-slfo.1.1_5.1",
+            "SUSE Linux Micro 6.1:libopenssl-3-fips-provider-3.1.4-slfo.1.1_5.1",
+            "SUSE Linux Micro 6.1:libopenssl3-3.1.4-slfo.1.1_5.1",
+            "SUSE Linux Micro 6.1:openssl-3-3.1.4-slfo.1.1_5.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}

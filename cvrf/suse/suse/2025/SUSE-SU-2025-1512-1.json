@@ -1,0 +1,1187 @@
+{
+  "Title": "Security update for apparmor",
+  "Tracking": {
+    "ID": "SUSE-SU-2025:1512-1",
+    "Status": "Final",
+    "Version": "1",
+    "InitialReleaseDate": "2025-05-07T19:36:38Z",
+    "CurrentReleaseDate": "2025-05-07T19:36:38Z",
+    "RevisionHistory": [
+      {
+        "Number": "1",
+        "Date": "2025-05-07T19:36:38Z",
+        "Description": "current"
+      }
+    ]
+  },
+  "Notes": [
+    {
+      "Text": "Security update for apparmor",
+      "Title": "Topic",
+      "Type": "Summary"
+    },
+    {
+      "Text": "This update for apparmor fixes the following issues:\n\n- Add dac_read_search capability for unix_chkpwd to allow it to read the shadow\n  file even if it has 000 permissions. This is needed after the CVE-2024-10041\n  fix in PAM. (bsc#1241678)\n",
+      "Title": "Details",
+      "Type": "General"
+    },
+    {
+      "Text": "The CVRF data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+      "Title": "Terms of Use",
+      "Type": "Legal Disclaimer"
+    },
+    {
+      "Text": "Container suse/sle-micro/5.5:latest-2025-1512,Container suse/sle-micro/base-5.5:latest-2025-1512,Container suse/sle-micro/kvm-5.5:latest-2025-1512,Container suse/sle-micro/rt-5.5:latest-2025-1512,Image SLES15-SP5-Azure-3P-2025-1512,Image SLES15-SP5-Azure-Basic-2025-1512,Image SLES15-SP5-Azure-Standard-2025-1512,Image SLES15-SP5-BYOS-Azure-2025-1512,Image SLES15-SP5-BYOS-EC2-2025-1512,Image SLES15-SP5-BYOS-GCE-2025-1512,Image SLES15-SP5-CHOST-BYOS-Aliyun-2025-1512,Image SLES15-SP5-CHOST-BYOS-Azure-2025-1512,Image SLES15-SP5-CHOST-BYOS-EC2-2025-1512,Image SLES15-SP5-CHOST-BYOS-GCE-2025-1512,Image SLES15-SP5-CHOST-BYOS-GDC-2025-1512,Image SLES15-SP5-CHOST-BYOS-SAP-CCloud-2025-1512,Image SLES15-SP5-EC2-2025-1512,Image SLES15-SP5-GCE-2025-1512,Image SLES15-SP5-HPC-Azure-2025-1512,Image SLES15-SP5-HPC-BYOS-Azure-2025-1512,Image SLES15-SP5-HPC-BYOS-EC2-2025-1512,Image SLES15-SP5-HPC-BYOS-GCE-2025-1512,Image SLES15-SP5-Hardened-BYOS-Azure-2025-1512,Image SLES15-SP5-Hardened-BYOS-EC2-2025-1512,Image SLES15-SP5-Hardened-BYOS-GCE-2025-1512,Image SLES15-SP5-Manager-Proxy-5-0-BYOS-2025-1512,Image SLES15-SP5-Manager-Proxy-5-0-BYOS-Azure-2025-1512,Image SLES15-SP5-Manager-Proxy-5-0-BYOS-EC2-2025-1512,Image SLES15-SP5-Manager-Proxy-5-0-BYOS-GCE-2025-1512,Image SLES15-SP5-Manager-Server-5-0-2025-1512,Image SLES15-SP5-Manager-Server-5-0-Azure-llc-2025-1512,Image SLES15-SP5-Manager-Server-5-0-Azure-ltd-2025-1512,Image SLES15-SP5-Manager-Server-5-0-BYOS-2025-1512,Image SLES15-SP5-Manager-Server-5-0-BYOS-Azure-2025-1512,Image SLES15-SP5-Manager-Server-5-0-BYOS-EC2-2025-1512,Image SLES15-SP5-Manager-Server-5-0-BYOS-GCE-2025-1512,Image SLES15-SP5-Manager-Server-5-0-EC2-llc-2025-1512,Image SLES15-SP5-Manager-Server-5-0-EC2-ltd-2025-1512,Image SLES15-SP5-Micro-5-5-2025-1512,Image SLES15-SP5-Micro-5-5-Azure-2025-1512,Image SLES15-SP5-Micro-5-5-BYOS-2025-1512,Image SLES15-SP5-Micro-5-5-BYOS-Azure-2025-1512,Image SLES15-SP5-Micro-5-5-BYOS-EC2-2025-1512,Image SLES15-SP5-Micro-5-5-BYOS-GCE-2025-1512,Image SLES15-SP5-Micro-5-5-EC2-2025-1512,Image SLES15-SP5-Micro-5-5-GCE-2025-1512,Image SLES15-SP5-SAP-Azure-3P-2025-1512,Image SLES15-SP5-SAP-Azure-LI-BYOS-2025-1512,Image SLES15-SP5-SAP-Azure-LI-BYOS-Production-2025-1512,Image SLES15-SP5-SAP-Azure-VLI-BYOS-2025-1512,Image SLES15-SP5-SAP-Azure-VLI-BYOS-Production-2025-1512,Image SLES15-SP5-SAP-BYOS-Azure-2025-1512,Image SLES15-SP5-SAP-BYOS-EC2-2025-1512,Image SLES15-SP5-SAP-BYOS-GCE-2025-1512,Image SLES15-SP5-SAP-Hardened-Azure-2025-1512,Image SLES15-SP5-SAP-Hardened-BYOS-Azure-2025-1512,Image SLES15-SP5-SAP-Hardened-BYOS-EC2-2025-1512,Image SLES15-SP5-SAP-Hardened-BYOS-GCE-2025-1512,Image SLES15-SP5-SAP-Hardened-GCE-2025-1512,Image SLES15-SP5-SAPCAL-Azure-2025-1512,Image SLES15-SP5-SAPCAL-EC2-2025-1512,Image SLES15-SP5-SAPCAL-GCE-2025-1512,SUSE-2025-1512,SUSE-SLE-Micro-5.5-2025-1512,SUSE-SLE-Product-HPC-15-SP5-ESPOS-2025-1512,SUSE-SLE-Product-HPC-15-SP5-LTSS-2025-1512,SUSE-SLE-Product-SLES-15-SP5-LTSS-2025-1512,SUSE-SLE-Product-SLES_SAP-15-SP5-2025-1512",
+      "Title": "Patchnames",
+      "Type": "Details"
+    }
+  ],
+  "ProductTree": {
+    "Relationships": [
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Container suse/sle-micro/5.5:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Container suse/sle-micro/base-5.5:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Container suse/sle-micro/base-5.5:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Container suse/sle-micro/kvm-5.5:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Container suse/sle-micro/rt-5.5:latest",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Azure-Basic",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Azure-Basic",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Azure-Standard",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Azure-Standard",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-CHOST-BYOS-Aliyun",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-CHOST-BYOS-Aliyun",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-CHOST-BYOS-Aliyun",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-CHOST-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-CHOST-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-CHOST-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-CHOST-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-CHOST-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-CHOST-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-CHOST-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-CHOST-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-CHOST-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-CHOST-BYOS-GDC",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-CHOST-BYOS-GDC",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-CHOST-BYOS-GDC",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-CHOST-BYOS-SAP-CCloud",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-CHOST-BYOS-SAP-CCloud",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-CHOST-BYOS-SAP-CCloud",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-HPC-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-HPC-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-HPC-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-HPC-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-HPC-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-HPC-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-HPC-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-HPC-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Hardened-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Hardened-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Hardened-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Hardened-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Manager-Proxy-5-0-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Manager-Proxy-5-0-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Manager-Proxy-5-0-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Manager-Proxy-5-0-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Manager-Server-5-0",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Manager-Server-5-0-Azure-llc",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Manager-Server-5-0-Azure-ltd",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Manager-Server-5-0-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Manager-Server-5-0-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Manager-Server-5-0-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Manager-Server-5-0-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Manager-Server-5-0-EC2-llc",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Manager-Server-5-0-EC2-ltd",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Micro-5-5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Micro-5-5-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Micro-5-5-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Micro-5-5-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Micro-5-5-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Micro-5-5-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Micro-5-5-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-Micro-5-5-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Azure-3P",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Azure-LI-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Azure-LI-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Azure-LI-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Azure-LI-BYOS-Production",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Azure-LI-BYOS-Production",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Azure-LI-BYOS-Production",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Azure-VLI-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Azure-VLI-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Azure-VLI-BYOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Azure-VLI-BYOS-Production",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Azure-VLI-BYOS-Production",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Azure-VLI-BYOS-Production",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Hardened-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Hardened-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Hardened-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Hardened-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Hardened-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Hardened-BYOS-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Hardened-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Hardened-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Hardened-BYOS-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Hardened-BYOS-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Hardened-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Hardened-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAP-Hardened-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAPCAL-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAPCAL-Azure",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAPCAL-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAPCAL-EC2",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAPCAL-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "Image SLES15-SP5-SAPCAL-GCE",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apache2-mod_apparmor-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-docs-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-lang-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-profiles-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-utils-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-utils-lang-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor-devel-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-32bit-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "pam_apparmor-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "pam_apparmor-32bit-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "perl-apparmor-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python3-apparmor-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apache2-mod_apparmor-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-docs-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-lang-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-profiles-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-utils-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-utils-lang-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor-devel-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-32bit-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "pam_apparmor-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "pam_apparmor-32bit-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "perl-apparmor-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python3-apparmor-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Micro 5.5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Micro 5.5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "pam_apparmor-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Micro 5.5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apache2-mod_apparmor-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-docs-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-lang-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-profiles-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-utils-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-utils-lang-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor-devel-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-32bit-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "pam_apparmor-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "pam_apparmor-32bit-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "perl-apparmor-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python3-apparmor-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apache2-mod_apparmor-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-abstractions-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-docs-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-parser-lang-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-profiles-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-utils-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "apparmor-utils-lang-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor-devel-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "libapparmor1-32bit-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "pam_apparmor-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "pam_apparmor-32bit-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "perl-apparmor-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+        "RelationType": "Default Component Of"
+      },
+      {
+        "ProductReference": "python3-apparmor-3.0.4-150500.11.18.1",
+        "RelatesToProductReference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+        "RelationType": "Default Component Of"
+      }
+    ]
+  },
+  "References": [
+    {
+      "URL": "https://www.suse.com/support/update/announcement/2025/suse-su-20251512-1/",
+      "Description": "Link for SUSE-SU-2025:1512-1"
+    },
+    {
+      "URL": "https://lists.suse.com/pipermail/sle-updates/2025-May/039188.html",
+      "Description": "E-Mail link for SUSE-SU-2025:1512-1"
+    },
+    {
+      "URL": "https://www.suse.com/support/security/rating/",
+      "Description": "SUSE Security Ratings"
+    },
+    {
+      "URL": "https://bugzilla.suse.com/1241678",
+      "Description": "SUSE Bug 1241678"
+    },
+    {
+      "URL": "https://www.suse.com/security/cve/CVE-2024-10041/",
+      "Description": "SUSE CVE CVE-2024-10041 page"
+    }
+  ],
+  "Vulnerabilities": [
+    {
+      "CVE": "CVE-2024-10041",
+      "Description": "A vulnerability was found in PAM. The secret information is stored in memory, where the attacker can trigger the victim program to execute by sending characters to its standard input (stdin). As this occurs, the attacker can train the branch predictor to execute an ROP chain speculatively. This flaw could result in leaked passwords, such as those found in /etc/shadow while performing authentications.",
+      "Threats": [
+        {
+          "Type": "Impact",
+          "Severity": "moderate"
+        }
+      ],
+      "References": [
+        {
+          "URL": "https://www.suse.com/security/cve/CVE-2024-10041.html",
+          "Description": "CVE-2024-10041"
+        },
+        {
+          "URL": "https://bugzilla.suse.com/1232234",
+          "Description": "SUSE Bug 1232234"
+        }
+      ],
+      "ProductStatuses": [
+        {
+          "Type": "Fixed",
+          "ProductID": [
+            "Container suse/sle-micro/5.5:latest:libapparmor1-3.0.4-150500.11.18.1",
+            "Container suse/sle-micro/base-5.5:latest:apparmor-parser-3.0.4-150500.11.18.1",
+            "Container suse/sle-micro/base-5.5:latest:libapparmor1-3.0.4-150500.11.18.1",
+            "Container suse/sle-micro/kvm-5.5:latest:libapparmor1-3.0.4-150500.11.18.1",
+            "Container suse/sle-micro/rt-5.5:latest:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Azure-3P:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Azure-3P:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Azure-Basic:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Azure-Basic:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Azure-Standard:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Azure-Standard:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-BYOS-Azure:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-BYOS-Azure:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-BYOS-EC2:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-BYOS-EC2:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-BYOS-GCE:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-BYOS-GCE:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-CHOST-BYOS-Aliyun:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-CHOST-BYOS-Aliyun:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-CHOST-BYOS-Aliyun:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-CHOST-BYOS-Azure:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-CHOST-BYOS-Azure:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-CHOST-BYOS-Azure:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-CHOST-BYOS-EC2:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-CHOST-BYOS-EC2:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-CHOST-BYOS-EC2:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-CHOST-BYOS-GCE:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-CHOST-BYOS-GCE:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-CHOST-BYOS-GCE:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-CHOST-BYOS-GDC:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-CHOST-BYOS-GDC:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-CHOST-BYOS-GDC:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-CHOST-BYOS-SAP-CCloud:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-CHOST-BYOS-SAP-CCloud:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-CHOST-BYOS-SAP-CCloud:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-EC2:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-EC2:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-GCE:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-GCE:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-HPC-Azure:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-HPC-Azure:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-HPC-BYOS-Azure:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-HPC-BYOS-Azure:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-HPC-BYOS-EC2:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-HPC-BYOS-EC2:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-HPC-BYOS-GCE:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-HPC-BYOS-GCE:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Hardened-BYOS-Azure:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Hardened-BYOS-Azure:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Hardened-BYOS-EC2:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Hardened-BYOS-EC2:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Hardened-BYOS-GCE:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Hardened-BYOS-GCE:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Manager-Proxy-5-0-BYOS-Azure:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Manager-Proxy-5-0-BYOS-EC2:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Manager-Proxy-5-0-BYOS-GCE:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Manager-Proxy-5-0-BYOS:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Manager-Server-5-0-Azure-llc:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Manager-Server-5-0-Azure-ltd:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Manager-Server-5-0-BYOS-Azure:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Manager-Server-5-0-BYOS-EC2:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Manager-Server-5-0-BYOS-GCE:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Manager-Server-5-0-BYOS:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Manager-Server-5-0-EC2-llc:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Manager-Server-5-0-EC2-ltd:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Manager-Server-5-0:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Micro-5-5-Azure:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Micro-5-5-BYOS-Azure:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Micro-5-5-BYOS-EC2:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Micro-5-5-BYOS-GCE:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Micro-5-5-BYOS:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Micro-5-5-EC2:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Micro-5-5-GCE:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-Micro-5-5:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Azure-3P:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Azure-3P:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Azure-3P:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Azure-LI-BYOS-Production:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Azure-LI-BYOS-Production:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Azure-LI-BYOS-Production:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Azure-LI-BYOS:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Azure-LI-BYOS:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Azure-LI-BYOS:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Azure-VLI-BYOS-Production:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Azure-VLI-BYOS-Production:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Azure-VLI-BYOS-Production:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Azure-VLI-BYOS:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Azure-VLI-BYOS:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Azure-VLI-BYOS:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-BYOS-Azure:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-BYOS-Azure:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-BYOS-Azure:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-BYOS-EC2:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-BYOS-EC2:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-BYOS-EC2:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-BYOS-GCE:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-BYOS-GCE:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-BYOS-GCE:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Hardened-Azure:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Hardened-Azure:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Hardened-Azure:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Hardened-BYOS-Azure:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Hardened-BYOS-Azure:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Hardened-BYOS-Azure:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Hardened-BYOS-EC2:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Hardened-BYOS-EC2:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Hardened-BYOS-EC2:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Hardened-BYOS-GCE:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Hardened-BYOS-GCE:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Hardened-BYOS-GCE:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Hardened-GCE:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Hardened-GCE:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAP-Hardened-GCE:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAPCAL-Azure:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAPCAL-Azure:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAPCAL-EC2:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAPCAL-EC2:libapparmor1-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAPCAL-GCE:apparmor-parser-3.0.4-150500.11.18.1",
+            "Image SLES15-SP5-SAPCAL-GCE:libapparmor1-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:apache2-mod_apparmor-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:apparmor-docs-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:apparmor-parser-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:apparmor-parser-lang-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:apparmor-profiles-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:apparmor-utils-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:apparmor-utils-lang-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:libapparmor-devel-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:libapparmor1-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:libapparmor1-32bit-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:pam_apparmor-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:pam_apparmor-32bit-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:perl-apparmor-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:python3-apparmor-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:apache2-mod_apparmor-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:apparmor-docs-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:apparmor-parser-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:apparmor-parser-lang-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:apparmor-profiles-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:apparmor-utils-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:apparmor-utils-lang-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:libapparmor-devel-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:libapparmor1-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:libapparmor1-32bit-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:pam_apparmor-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:pam_apparmor-32bit-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:perl-apparmor-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:python3-apparmor-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Micro 5.5:apparmor-parser-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Micro 5.5:libapparmor1-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Micro 5.5:pam_apparmor-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:apache2-mod_apparmor-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:apparmor-docs-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:apparmor-parser-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:apparmor-parser-lang-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:apparmor-profiles-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:apparmor-utils-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:apparmor-utils-lang-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:libapparmor-devel-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:libapparmor1-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:libapparmor1-32bit-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:pam_apparmor-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:pam_apparmor-32bit-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:perl-apparmor-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:python3-apparmor-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:apache2-mod_apparmor-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:apparmor-abstractions-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:apparmor-docs-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:apparmor-parser-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:apparmor-parser-lang-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:apparmor-profiles-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:apparmor-utils-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:apparmor-utils-lang-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:libapparmor-devel-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:libapparmor1-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:libapparmor1-32bit-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:pam_apparmor-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:pam_apparmor-32bit-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:perl-apparmor-3.0.4-150500.11.18.1",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:python3-apparmor-3.0.4-150500.11.18.1"
+          ]
+        }
+      ],
+      "CVSSScoreSets": {}
+    }
+  ]
+}
