@@ -1,0 +1,1311 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for cyrus-imapd",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for cyrus-imapd fixes the following issues:\n\nChanges in cyrus-imapd:\n\n- cyrus-imapd don't start because of missing \"Requires=var-run.mount\" from systemd (bsc#1251788)\n  Remove var-run.mount from Requires and After\n\n- update to version 3.8.6 (bugfix release)\n  VUL-0: CVE-2025-49812: cyrus-imapd: Opossum Attack Application Layer\n  Desynchronization using Opportunistic TLS (bsc#1246165)\n  The industry is deprecating STARTTLS (aka opportunistic TLS) in favor of\n  implicit TLS over a dedicated port.  STARTTLS is now disabled by default.\n  * Fixed issue #5477: master: tighten up pidfile/etc handling (bsc#1241543)\n    VUL-0: cyrus-imapd: privilege drop happens too late, opening attack vectors from cyrus to root\n  * Fixed issue #5450: fix zoneinfo_db code for GCC 15 (thanks Yadd)\n  * Fixed issue #5309: deadlock on shutdown (thanks Mark Cammidge)\n  * Fixed issue #5424: recognise service-specific SASL options in\n    ``cyr_info conf-lint``\n  * Fixed issue #5420: fix double-free in http_admin (thanks Wolfgang Breyha)\n  * Fixed issue #5460: pop3d: add basic prometheus support (thanks Wolfgang\n    Breyha)\n  * Fixed issue #5454: httpd fails to parse OpenSSL version for status string\n\n- update to version 3.8.5 (bugfix release)\n  * Fixed Issue #5029: check for unexpected extra tiny-tests directories\n  * Fixed Issue #5148: added --enable-release-checks configure option for use when building releases\n  * Fixed Issue #4489: calendar-color \"changes\" namespace (thanks Дилян Палаузов)\n  * Fixed Issue #5009: various portability warnings and nits\n  * Fixed Issue #5050: iTIP line endings (thanks Дилян Палаузов)\n  * Fixed Issue #5052: iMIP line endings (thanks Дилян Палаузов)\n  * Fixed Issue #5072: http_cgi use after free (thanks Дилян Палаузов)\n  * Fixed Issue #5094: httpd crash when PROPFIND url is /dav/calendars\n  * Fixed Issue #5118: broken language checks for \"zr-hant\" and \"sr-me\"\n  * Fixed Issue #5047: proxying UID SEARCH\n\n- CVE-2025-23394: cyrus-imapd: daily-backup.sh allows escalation from cyrus to root (bsc#1241536)\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-318",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_20962-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1241536",
+        "url": "https://bugzilla.suse.com/1241536"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1241543",
+        "url": "https://bugzilla.suse.com/1241543"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246165",
+        "url": "https://bugzilla.suse.com/1246165"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1251788",
+        "url": "https://bugzilla.suse.com/1251788"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-23394 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-23394/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-49812 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-49812/"
+      }
+    ],
+    "title": "Security update for cyrus-imapd",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:34:54Z",
+      "generator": {
+        "date": "2026-06-12T18:46:10Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:20962-1",
+      "initial_release_date": "2026-06-12T18:46:10Z",
+      "revision_history": [
+        {
+          "date": "2026-06-12T18:46:10Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-06-12T18:46:10Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T20:37:30Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:40:10Z",
+          "number": "4",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:34:54Z",
+          "number": "5",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "5"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cyradm-0:3.8.6-bp160.1.1.aarch64",
+                "product": {
+                  "name": "cyradm-0:3.8.6-bp160.1.1.aarch64",
+                  "product_id": "cyradm-0:3.8.6-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/cyradm@3.8.6-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cyrus-imapd-0:3.8.6-bp160.1.1.aarch64",
+                "product": {
+                  "name": "cyrus-imapd-0:3.8.6-bp160.1.1.aarch64",
+                  "product_id": "cyrus-imapd-0:3.8.6-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cyrus:imap:3.8.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cyrus-imapd@3.8.6-bp160.1.1?arch=aarch64\u0026upstream=cyrus-imapd-0:3.8.6-bp160.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cyrus-imapd-devel-0:3.8.6-bp160.1.1.aarch64",
+                "product": {
+                  "name": "cyrus-imapd-devel-0:3.8.6-bp160.1.1.aarch64",
+                  "product_id": "cyrus-imapd-devel-0:3.8.6-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cyrus:imap:3.8.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cyrus-imapd-devel@3.8.6-bp160.1.1?arch=aarch64\u0026upstream=cyrus-imapd-0:3.8.6-bp160.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cyrus-imapd-snmp-0:3.8.6-bp160.1.1.aarch64",
+                "product": {
+                  "name": "cyrus-imapd-snmp-0:3.8.6-bp160.1.1.aarch64",
+                  "product_id": "cyrus-imapd-snmp-0:3.8.6-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/cyrus-imapd-snmp@3.8.6-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.aarch64",
+                "product": {
+                  "name": "cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.aarch64",
+                  "product_id": "cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/cyrus-imapd-snmp-mibs@3.8.6-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cyrus-imapd-utils-0:3.8.6-bp160.1.1.aarch64",
+                "product": {
+                  "name": "cyrus-imapd-utils-0:3.8.6-bp160.1.1.aarch64",
+                  "product_id": "cyrus-imapd-utils-0:3.8.6-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/cyrus-imapd-utils@3.8.6-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcyrus0-0:3.8.6-bp160.1.1.aarch64",
+                "product": {
+                  "name": "libcyrus0-0:3.8.6-bp160.1.1.aarch64",
+                  "product_id": "libcyrus0-0:3.8.6-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libcyrus0@3.8.6-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.aarch64",
+                "product": {
+                  "name": "perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.aarch64",
+                  "product_id": "perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/perl-Cyrus-Annotator@3.8.6-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.aarch64",
+                "product": {
+                  "name": "perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.aarch64",
+                  "product_id": "perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cyrus:imap:3.8.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/perl-Cyrus-IMAP@3.8.6-bp160.1.1?arch=aarch64\u0026upstream=cyrus-imapd-0:3.8.6-bp160.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.aarch64",
+                "product": {
+                  "name": "perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.aarch64",
+                  "product_id": "perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cyrus:imap:3.8.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/perl-Cyrus-SIEVE-managesieve@3.8.6-bp160.1.1?arch=aarch64\u0026upstream=cyrus-imapd-0:3.8.6-bp160.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cyradm-0:3.8.6-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "cyradm-0:3.8.6-bp160.1.1.ppc64le",
+                  "product_id": "cyradm-0:3.8.6-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/cyradm@3.8.6-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cyrus-imapd-0:3.8.6-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "cyrus-imapd-0:3.8.6-bp160.1.1.ppc64le",
+                  "product_id": "cyrus-imapd-0:3.8.6-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cyrus:imap:3.8.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cyrus-imapd@3.8.6-bp160.1.1?arch=ppc64le\u0026upstream=cyrus-imapd-0:3.8.6-bp160.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cyrus-imapd-devel-0:3.8.6-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "cyrus-imapd-devel-0:3.8.6-bp160.1.1.ppc64le",
+                  "product_id": "cyrus-imapd-devel-0:3.8.6-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cyrus:imap:3.8.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cyrus-imapd-devel@3.8.6-bp160.1.1?arch=ppc64le\u0026upstream=cyrus-imapd-0:3.8.6-bp160.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cyrus-imapd-snmp-0:3.8.6-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "cyrus-imapd-snmp-0:3.8.6-bp160.1.1.ppc64le",
+                  "product_id": "cyrus-imapd-snmp-0:3.8.6-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/cyrus-imapd-snmp@3.8.6-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.ppc64le",
+                  "product_id": "cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/cyrus-imapd-snmp-mibs@3.8.6-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cyrus-imapd-utils-0:3.8.6-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "cyrus-imapd-utils-0:3.8.6-bp160.1.1.ppc64le",
+                  "product_id": "cyrus-imapd-utils-0:3.8.6-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/cyrus-imapd-utils@3.8.6-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcyrus0-0:3.8.6-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "libcyrus0-0:3.8.6-bp160.1.1.ppc64le",
+                  "product_id": "libcyrus0-0:3.8.6-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libcyrus0@3.8.6-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.ppc64le",
+                  "product_id": "perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/perl-Cyrus-Annotator@3.8.6-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.ppc64le",
+                  "product_id": "perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cyrus:imap:3.8.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/perl-Cyrus-IMAP@3.8.6-bp160.1.1?arch=ppc64le\u0026upstream=cyrus-imapd-0:3.8.6-bp160.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.ppc64le",
+                  "product_id": "perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cyrus:imap:3.8.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/perl-Cyrus-SIEVE-managesieve@3.8.6-bp160.1.1?arch=ppc64le\u0026upstream=cyrus-imapd-0:3.8.6-bp160.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cyradm-0:3.8.6-bp160.1.1.s390x",
+                "product": {
+                  "name": "cyradm-0:3.8.6-bp160.1.1.s390x",
+                  "product_id": "cyradm-0:3.8.6-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/cyradm@3.8.6-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cyrus-imapd-0:3.8.6-bp160.1.1.s390x",
+                "product": {
+                  "name": "cyrus-imapd-0:3.8.6-bp160.1.1.s390x",
+                  "product_id": "cyrus-imapd-0:3.8.6-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cyrus:imap:3.8.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cyrus-imapd@3.8.6-bp160.1.1?arch=s390x\u0026upstream=cyrus-imapd-0:3.8.6-bp160.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cyrus-imapd-devel-0:3.8.6-bp160.1.1.s390x",
+                "product": {
+                  "name": "cyrus-imapd-devel-0:3.8.6-bp160.1.1.s390x",
+                  "product_id": "cyrus-imapd-devel-0:3.8.6-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cyrus:imap:3.8.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cyrus-imapd-devel@3.8.6-bp160.1.1?arch=s390x\u0026upstream=cyrus-imapd-0:3.8.6-bp160.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cyrus-imapd-snmp-0:3.8.6-bp160.1.1.s390x",
+                "product": {
+                  "name": "cyrus-imapd-snmp-0:3.8.6-bp160.1.1.s390x",
+                  "product_id": "cyrus-imapd-snmp-0:3.8.6-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/cyrus-imapd-snmp@3.8.6-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.s390x",
+                "product": {
+                  "name": "cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.s390x",
+                  "product_id": "cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/cyrus-imapd-snmp-mibs@3.8.6-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cyrus-imapd-utils-0:3.8.6-bp160.1.1.s390x",
+                "product": {
+                  "name": "cyrus-imapd-utils-0:3.8.6-bp160.1.1.s390x",
+                  "product_id": "cyrus-imapd-utils-0:3.8.6-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/cyrus-imapd-utils@3.8.6-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcyrus0-0:3.8.6-bp160.1.1.s390x",
+                "product": {
+                  "name": "libcyrus0-0:3.8.6-bp160.1.1.s390x",
+                  "product_id": "libcyrus0-0:3.8.6-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libcyrus0@3.8.6-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.s390x",
+                "product": {
+                  "name": "perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.s390x",
+                  "product_id": "perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/perl-Cyrus-Annotator@3.8.6-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.s390x",
+                "product": {
+                  "name": "perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.s390x",
+                  "product_id": "perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cyrus:imap:3.8.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/perl-Cyrus-IMAP@3.8.6-bp160.1.1?arch=s390x\u0026upstream=cyrus-imapd-0:3.8.6-bp160.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.s390x",
+                "product": {
+                  "name": "perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.s390x",
+                  "product_id": "perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cyrus:imap:3.8.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/perl-Cyrus-SIEVE-managesieve@3.8.6-bp160.1.1?arch=s390x\u0026upstream=cyrus-imapd-0:3.8.6-bp160.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cyradm-0:3.8.6-bp160.1.1.x86_64",
+                "product": {
+                  "name": "cyradm-0:3.8.6-bp160.1.1.x86_64",
+                  "product_id": "cyradm-0:3.8.6-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/cyradm@3.8.6-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cyrus-imapd-0:3.8.6-bp160.1.1.x86_64",
+                "product": {
+                  "name": "cyrus-imapd-0:3.8.6-bp160.1.1.x86_64",
+                  "product_id": "cyrus-imapd-0:3.8.6-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cyrus:imap:3.8.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cyrus-imapd@3.8.6-bp160.1.1?arch=x86_64\u0026upstream=cyrus-imapd-0:3.8.6-bp160.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cyrus-imapd-devel-0:3.8.6-bp160.1.1.x86_64",
+                "product": {
+                  "name": "cyrus-imapd-devel-0:3.8.6-bp160.1.1.x86_64",
+                  "product_id": "cyrus-imapd-devel-0:3.8.6-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cyrus:imap:3.8.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cyrus-imapd-devel@3.8.6-bp160.1.1?arch=x86_64\u0026upstream=cyrus-imapd-0:3.8.6-bp160.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cyrus-imapd-snmp-0:3.8.6-bp160.1.1.x86_64",
+                "product": {
+                  "name": "cyrus-imapd-snmp-0:3.8.6-bp160.1.1.x86_64",
+                  "product_id": "cyrus-imapd-snmp-0:3.8.6-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/cyrus-imapd-snmp@3.8.6-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.x86_64",
+                "product": {
+                  "name": "cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.x86_64",
+                  "product_id": "cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/cyrus-imapd-snmp-mibs@3.8.6-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cyrus-imapd-utils-0:3.8.6-bp160.1.1.x86_64",
+                "product": {
+                  "name": "cyrus-imapd-utils-0:3.8.6-bp160.1.1.x86_64",
+                  "product_id": "cyrus-imapd-utils-0:3.8.6-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/cyrus-imapd-utils@3.8.6-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcyrus0-0:3.8.6-bp160.1.1.x86_64",
+                "product": {
+                  "name": "libcyrus0-0:3.8.6-bp160.1.1.x86_64",
+                  "product_id": "libcyrus0-0:3.8.6-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libcyrus0@3.8.6-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.x86_64",
+                "product": {
+                  "name": "perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.x86_64",
+                  "product_id": "perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/perl-Cyrus-Annotator@3.8.6-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.x86_64",
+                "product": {
+                  "name": "perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.x86_64",
+                  "product_id": "perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cyrus:imap:3.8.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/perl-Cyrus-IMAP@3.8.6-bp160.1.1?arch=x86_64\u0026upstream=cyrus-imapd-0:3.8.6-bp160.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.x86_64",
+                "product": {
+                  "name": "perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.x86_64",
+                  "product_id": "perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cyrus:imap:3.8.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/perl-Cyrus-SIEVE-managesieve@3.8.6-bp160.1.1?arch=x86_64\u0026upstream=cyrus-imapd-0:3.8.6-bp160.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyradm-0:3.8.6-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.aarch64"
+        },
+        "product_reference": "cyradm-0:3.8.6-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyradm-0:3.8.6-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.ppc64le"
+        },
+        "product_reference": "cyradm-0:3.8.6-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyradm-0:3.8.6-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.s390x"
+        },
+        "product_reference": "cyradm-0:3.8.6-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyradm-0:3.8.6-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.x86_64"
+        },
+        "product_reference": "cyradm-0:3.8.6-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyrus-imapd-0:3.8.6-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.aarch64"
+        },
+        "product_reference": "cyrus-imapd-0:3.8.6-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyrus-imapd-0:3.8.6-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.ppc64le"
+        },
+        "product_reference": "cyrus-imapd-0:3.8.6-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyrus-imapd-0:3.8.6-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.s390x"
+        },
+        "product_reference": "cyrus-imapd-0:3.8.6-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyrus-imapd-0:3.8.6-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.x86_64"
+        },
+        "product_reference": "cyrus-imapd-0:3.8.6-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyrus-imapd-devel-0:3.8.6-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.aarch64"
+        },
+        "product_reference": "cyrus-imapd-devel-0:3.8.6-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyrus-imapd-devel-0:3.8.6-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.ppc64le"
+        },
+        "product_reference": "cyrus-imapd-devel-0:3.8.6-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyrus-imapd-devel-0:3.8.6-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.s390x"
+        },
+        "product_reference": "cyrus-imapd-devel-0:3.8.6-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyrus-imapd-devel-0:3.8.6-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.x86_64"
+        },
+        "product_reference": "cyrus-imapd-devel-0:3.8.6-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyrus-imapd-snmp-0:3.8.6-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.aarch64"
+        },
+        "product_reference": "cyrus-imapd-snmp-0:3.8.6-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyrus-imapd-snmp-0:3.8.6-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.ppc64le"
+        },
+        "product_reference": "cyrus-imapd-snmp-0:3.8.6-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyrus-imapd-snmp-0:3.8.6-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.s390x"
+        },
+        "product_reference": "cyrus-imapd-snmp-0:3.8.6-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyrus-imapd-snmp-0:3.8.6-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.x86_64"
+        },
+        "product_reference": "cyrus-imapd-snmp-0:3.8.6-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.aarch64"
+        },
+        "product_reference": "cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.ppc64le"
+        },
+        "product_reference": "cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.s390x"
+        },
+        "product_reference": "cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.x86_64"
+        },
+        "product_reference": "cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyrus-imapd-utils-0:3.8.6-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.aarch64"
+        },
+        "product_reference": "cyrus-imapd-utils-0:3.8.6-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyrus-imapd-utils-0:3.8.6-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.ppc64le"
+        },
+        "product_reference": "cyrus-imapd-utils-0:3.8.6-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyrus-imapd-utils-0:3.8.6-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.s390x"
+        },
+        "product_reference": "cyrus-imapd-utils-0:3.8.6-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cyrus-imapd-utils-0:3.8.6-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.x86_64"
+        },
+        "product_reference": "cyrus-imapd-utils-0:3.8.6-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcyrus0-0:3.8.6-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.aarch64"
+        },
+        "product_reference": "libcyrus0-0:3.8.6-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcyrus0-0:3.8.6-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.ppc64le"
+        },
+        "product_reference": "libcyrus0-0:3.8.6-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcyrus0-0:3.8.6-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.s390x"
+        },
+        "product_reference": "libcyrus0-0:3.8.6-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcyrus0-0:3.8.6-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.x86_64"
+        },
+        "product_reference": "libcyrus0-0:3.8.6-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.aarch64"
+        },
+        "product_reference": "perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.ppc64le"
+        },
+        "product_reference": "perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.s390x"
+        },
+        "product_reference": "perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.x86_64"
+        },
+        "product_reference": "perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.aarch64"
+        },
+        "product_reference": "perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.ppc64le"
+        },
+        "product_reference": "perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.s390x"
+        },
+        "product_reference": "perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.x86_64"
+        },
+        "product_reference": "perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.aarch64"
+        },
+        "product_reference": "perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.ppc64le"
+        },
+        "product_reference": "perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.s390x"
+        },
+        "product_reference": "perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.x86_64"
+        },
+        "product_reference": "perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-23394",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-23394"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A UNIX Symbolic Link (Symlink) Following vulnerability in openSUSE Tumbleweed cyrus-imapd allows escalation from cyrus to root.This issue affects openSUSE Tumbleweed  cyrus-imapd before 3.8.4-2.1.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-23394",
+          "url": "https://www.suse.com/security/cve/CVE-2025-23394"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1241536 for CVE-2025-23394",
+          "url": "https://bugzilla.suse.com/1241536"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-12T18:46:10Z",
+          "details": "critical"
+        }
+      ],
+      "title": "CVE-2025-23394"
+    },
+    {
+      "cve": "CVE-2025-49812",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-49812"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In some mod_ssl configurations on Apache HTTP Server versions through to 2.4.63, an HTTP desynchronisation attack allows a man-in-the-middle attacker to hijack an HTTP session via a TLS upgrade.\n\nOnly configurations using \"SSLEngine optional\" to enable TLS upgrades are affected. Users are recommended to upgrade to version 2.4.64, which removes support for TLS upgrade.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-49812",
+          "url": "https://www.suse.com/security/cve/CVE-2025-49812"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246161 for CVE-2025-49812",
+          "url": "https://bugzilla.suse.com/1246161"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1261312 for CVE-2025-49812",
+          "url": "https://bugzilla.suse.com/1261312"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:H/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:cyradm-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:cyrus-imapd-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:cyrus-imapd-devel-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:cyrus-imapd-snmp-mibs-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:cyrus-imapd-utils-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libcyrus0-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:perl-Cyrus-Annotator-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:perl-Cyrus-IMAP-0:3.8.6-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:perl-Cyrus-SIEVE-managesieve-0:3.8.6-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-12T18:46:10Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-49812"
+    }
+  ]
+}

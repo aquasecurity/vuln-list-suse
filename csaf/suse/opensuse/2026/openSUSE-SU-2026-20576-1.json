@@ -1,0 +1,222 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for python-Flask-HTTPAuth",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for python-Flask-HTTPAuth fixes the following issues:\n\nChanges in python-Flask-HTTPAuth:\n\n- CVE-2026-34531: Do not accept empty tokens (bsc#1261355)\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-194",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_20576-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1261355",
+        "url": "https://bugzilla.suse.com/1261355"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-34531 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-34531/"
+      }
+    ],
+    "title": "Security update for python-Flask-HTTPAuth",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:30:37Z",
+      "generator": {
+        "date": "2026-04-13T08:30:29Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:20576-1",
+      "initial_release_date": "2026-04-13T08:30:29Z",
+      "revision_history": [
+        {
+          "date": "2026-04-13T08:30:29Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:33:25Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:36:04Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:30:37Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "python313-Flask-HTTPAuth-0:4.8.0-bp160.2.1.noarch",
+                "product": {
+                  "name": "python313-Flask-HTTPAuth-0:4.8.0-bp160.2.1.noarch",
+                  "product_id": "python313-Flask-HTTPAuth-0:4.8.0-bp160.2.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/python313-Flask-HTTPAuth@4.8.0-bp160.2.1?arch=noarch"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python313-Flask-HTTPAuth-0:4.8.0-bp160.2.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:python313-Flask-HTTPAuth-0:4.8.0-bp160.2.1.noarch"
+        },
+        "product_reference": "python313-Flask-HTTPAuth-0:4.8.0-bp160.2.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-34531",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-34531"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Flask-HTTPAuth provides Basic, Digest and Token HTTP authentication for Flask routes. Prior to version 4.8.1, in a situation where the client makes a request to a token protected resource without passing a token, or passing an empty token, Flask-HTTPAuth would invoke the application's token verification callback function with the token argument set to an empty string. If the application had any users in its database with an empty string set as their token, then it could potentially authenticate the client request against any of those users. This issue has been patched in version 4.8.1.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-Flask-HTTPAuth-0:4.8.0-bp160.2.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-34531",
+          "url": "https://www.suse.com/security/cve/CVE-2026-34531"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1261355 for CVE-2026-34531",
+          "url": "https://bugzilla.suse.com/1261355"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-Flask-HTTPAuth-0:4.8.0-bp160.2.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.2,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-Flask-HTTPAuth-0:4.8.0-bp160.2.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-04-13T08:30:29Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-34531"
+    }
+  ]
+}

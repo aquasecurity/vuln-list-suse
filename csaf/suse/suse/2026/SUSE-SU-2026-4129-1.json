@@ -1,0 +1,1112 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "critical"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for libzypp, zypper",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for libzypp, zypper fixes the following issues:\n\nSecurity issue fixed:\n\n- invalidating legacy libzypp unsigned-repository cache state [LIBZYPP-LEGACY-CACHE-01] (bsc#1274625).\n- hasCredentials() requires both username AND password to be non-empty (bsc#1273242).\n- GPG Key hints in repoindex.xml require at least a long id to allow auto-import (bsc#1271730).\n\nNon security issues fixed:\n\n- Econf parser adds tags in drop-in files outside any section to [main] (bsc#1272534).\n- libzypp: X-ZYpp-AnonymousId header anomaly (bsc#1268321).\n- Need zypper option to disable services to fix Dockerfile builds in OBS (bsc#1257249).\n- zypper loads repository data and installed packages prior to checking for required arguments (bsc#1274091).\n- Zypper patch doesn't give enough details about conflicts (bsc#1277790).\n- dependency issue for package 'python3-vsts-cd-manager' after starting the upgrade (bsc#1261038).\n\nChanges for libzypp:\n\n- Update to version 17.38.15:\n\n  - Prevent libgpgme from launching gpg-agents; we don't need them.\n  - defaultLoadSystem: Hand out the ZYpp::Ptr as return value.\n  - Replace popen cat/zcat with solv_xfopen for testcase loaders\n    (fixes #749)\n  - zypp: Improve Testcase Loading for MCP Tools.\n  - spec: Remove useless %bcond visibility_hidden (is always ON in\n    cmake)\n  - zypp.conf: add solver.NoUpdateProvide (default: false) option.\n\nChanges for zypper:\n\n- Update to version 1.14.101.\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2026-4129,SUSE-SLE-INSTALLER-15-SP5-2026-4129,SUSE-SLE-Micro-5.5-2026-4129,SUSE-SLE-Product-HPC-15-SP5-ESPOS-2026-4129,SUSE-SLE-Product-HPC-15-SP5-LTSS-2026-4129,SUSE-SLE-Product-SLES-15-SP5-LTSS-2026-4129,SUSE-SLE-Product-SLES_SAP-15-SP5-2026-4129",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2026_4129-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2026:4129-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-20264129-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2026:4129-1",
+        "url": "https://lists.suse.com/pipermail/sle-security-updates/2026-September/029008.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1257249",
+        "url": "https://bugzilla.suse.com/1257249"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1261038",
+        "url": "https://bugzilla.suse.com/1261038"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1268321",
+        "url": "https://bugzilla.suse.com/1268321"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1271730",
+        "url": "https://bugzilla.suse.com/1271730"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1272534",
+        "url": "https://bugzilla.suse.com/1272534"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273242",
+        "url": "https://bugzilla.suse.com/1273242"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1274091",
+        "url": "https://bugzilla.suse.com/1274091"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1274625",
+        "url": "https://bugzilla.suse.com/1274625"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1277790",
+        "url": "https://bugzilla.suse.com/1277790"
+      }
+    ],
+    "title": "Security update for libzypp, zypper",
+    "tracking": {
+      "current_release_date": "2026-09-17T16:48:13Z",
+      "generator": {
+        "date": "2026-09-11T06:52:57Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2026:4129-1",
+      "initial_release_date": "2026-09-11T06:52:57Z",
+      "revision_history": [
+        {
+          "date": "2026-09-11T06:52:57Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-15T07:41:49Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T19:54:22Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T20:57:13Z",
+          "number": "4",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T16:48:13Z",
+          "number": "5",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "5"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libzypp-0:17.38.15-150500.6.77.1.aarch64",
+                "product": {
+                  "name": "libzypp-0:17.38.15-150500.6.77.1.aarch64",
+                  "product_id": "libzypp-0:17.38.15-150500.6.77.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp@17.38.15-150500.6.77.1?arch=aarch64\u0026upstream=libzypp-0:17.38.15-150500.6.77.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libzypp-devel-0:17.38.15-150500.6.77.1.aarch64",
+                "product": {
+                  "name": "libzypp-devel-0:17.38.15-150500.6.77.1.aarch64",
+                  "product_id": "libzypp-devel-0:17.38.15-150500.6.77.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp-devel@17.38.15-150500.6.77.1?arch=aarch64\u0026upstream=libzypp-0:17.38.15-150500.6.77.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libzypp-devel-doc-0:17.38.15-150500.6.77.1.aarch64",
+                "product": {
+                  "name": "libzypp-devel-doc-0:17.38.15-150500.6.77.1.aarch64",
+                  "product_id": "libzypp-devel-doc-0:17.38.15-150500.6.77.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp-devel-doc@17.38.15-150500.6.77.1?arch=aarch64\u0026upstream=libzypp-0:17.38.15-150500.6.77.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "zypper-0:1.14.101-150500.6.48.1.aarch64",
+                "product": {
+                  "name": "zypper-0:1.14.101-150500.6.48.1.aarch64",
+                  "product_id": "zypper-0:1.14.101-150500.6.48.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:zypper:1.14.101:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/zypper@1.14.101-150500.6.48.1?arch=aarch64\u0026upstream=zypper-0:1.14.101-150500.6.48.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libzypp-0:17.38.15-150500.6.77.1.i586",
+                "product": {
+                  "name": "libzypp-0:17.38.15-150500.6.77.1.i586",
+                  "product_id": "libzypp-0:17.38.15-150500.6.77.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp@17.38.15-150500.6.77.1?arch=i586\u0026upstream=libzypp-0:17.38.15-150500.6.77.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libzypp-devel-0:17.38.15-150500.6.77.1.i586",
+                "product": {
+                  "name": "libzypp-devel-0:17.38.15-150500.6.77.1.i586",
+                  "product_id": "libzypp-devel-0:17.38.15-150500.6.77.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp-devel@17.38.15-150500.6.77.1?arch=i586\u0026upstream=libzypp-0:17.38.15-150500.6.77.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libzypp-devel-doc-0:17.38.15-150500.6.77.1.i586",
+                "product": {
+                  "name": "libzypp-devel-doc-0:17.38.15-150500.6.77.1.i586",
+                  "product_id": "libzypp-devel-doc-0:17.38.15-150500.6.77.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp-devel-doc@17.38.15-150500.6.77.1?arch=i586\u0026upstream=libzypp-0:17.38.15-150500.6.77.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "zypper-0:1.14.101-150500.6.48.1.i586",
+                "product": {
+                  "name": "zypper-0:1.14.101-150500.6.48.1.i586",
+                  "product_id": "zypper-0:1.14.101-150500.6.48.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:zypper:1.14.101:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/zypper@1.14.101-150500.6.48.1?arch=i586\u0026upstream=zypper-0:1.14.101-150500.6.48.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "i586"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "zypper-aptitude-0:1.14.101-150500.6.48.1.noarch",
+                "product": {
+                  "name": "zypper-aptitude-0:1.14.101-150500.6.48.1.noarch",
+                  "product_id": "zypper-aptitude-0:1.14.101-150500.6.48.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:zypper:1.14.101:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/zypper-aptitude@1.14.101-150500.6.48.1?arch=noarch\u0026upstream=zypper-0:1.14.101-150500.6.48.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "zypper-log-0:1.14.101-150500.6.48.1.noarch",
+                "product": {
+                  "name": "zypper-log-0:1.14.101-150500.6.48.1.noarch",
+                  "product_id": "zypper-log-0:1.14.101-150500.6.48.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:zypper:1.14.101:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/zypper-log@1.14.101-150500.6.48.1?arch=noarch\u0026upstream=zypper-0:1.14.101-150500.6.48.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "zypper-needs-restarting-0:1.14.101-150500.6.48.1.noarch",
+                "product": {
+                  "name": "zypper-needs-restarting-0:1.14.101-150500.6.48.1.noarch",
+                  "product_id": "zypper-needs-restarting-0:1.14.101-150500.6.48.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:zypper:1.14.101:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/zypper-needs-restarting@1.14.101-150500.6.48.1?arch=noarch\u0026upstream=zypper-0:1.14.101-150500.6.48.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libzypp-0:17.38.15-150500.6.77.1.ppc64le",
+                "product": {
+                  "name": "libzypp-0:17.38.15-150500.6.77.1.ppc64le",
+                  "product_id": "libzypp-0:17.38.15-150500.6.77.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp@17.38.15-150500.6.77.1?arch=ppc64le\u0026upstream=libzypp-0:17.38.15-150500.6.77.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libzypp-devel-0:17.38.15-150500.6.77.1.ppc64le",
+                "product": {
+                  "name": "libzypp-devel-0:17.38.15-150500.6.77.1.ppc64le",
+                  "product_id": "libzypp-devel-0:17.38.15-150500.6.77.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp-devel@17.38.15-150500.6.77.1?arch=ppc64le\u0026upstream=libzypp-0:17.38.15-150500.6.77.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libzypp-devel-doc-0:17.38.15-150500.6.77.1.ppc64le",
+                "product": {
+                  "name": "libzypp-devel-doc-0:17.38.15-150500.6.77.1.ppc64le",
+                  "product_id": "libzypp-devel-doc-0:17.38.15-150500.6.77.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp-devel-doc@17.38.15-150500.6.77.1?arch=ppc64le\u0026upstream=libzypp-0:17.38.15-150500.6.77.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "zypper-0:1.14.101-150500.6.48.1.ppc64le",
+                "product": {
+                  "name": "zypper-0:1.14.101-150500.6.48.1.ppc64le",
+                  "product_id": "zypper-0:1.14.101-150500.6.48.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:zypper:1.14.101:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/zypper@1.14.101-150500.6.48.1?arch=ppc64le\u0026upstream=zypper-0:1.14.101-150500.6.48.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libzypp-0:17.38.15-150500.6.77.1.s390x",
+                "product": {
+                  "name": "libzypp-0:17.38.15-150500.6.77.1.s390x",
+                  "product_id": "libzypp-0:17.38.15-150500.6.77.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp@17.38.15-150500.6.77.1?arch=s390x\u0026upstream=libzypp-0:17.38.15-150500.6.77.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libzypp-devel-0:17.38.15-150500.6.77.1.s390x",
+                "product": {
+                  "name": "libzypp-devel-0:17.38.15-150500.6.77.1.s390x",
+                  "product_id": "libzypp-devel-0:17.38.15-150500.6.77.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp-devel@17.38.15-150500.6.77.1?arch=s390x\u0026upstream=libzypp-0:17.38.15-150500.6.77.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libzypp-devel-doc-0:17.38.15-150500.6.77.1.s390x",
+                "product": {
+                  "name": "libzypp-devel-doc-0:17.38.15-150500.6.77.1.s390x",
+                  "product_id": "libzypp-devel-doc-0:17.38.15-150500.6.77.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp-devel-doc@17.38.15-150500.6.77.1?arch=s390x\u0026upstream=libzypp-0:17.38.15-150500.6.77.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "zypper-0:1.14.101-150500.6.48.1.s390x",
+                "product": {
+                  "name": "zypper-0:1.14.101-150500.6.48.1.s390x",
+                  "product_id": "zypper-0:1.14.101-150500.6.48.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:zypper:1.14.101:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/zypper@1.14.101-150500.6.48.1?arch=s390x\u0026upstream=zypper-0:1.14.101-150500.6.48.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libzypp-0:17.38.15-150500.6.77.1.x86_64",
+                "product": {
+                  "name": "libzypp-0:17.38.15-150500.6.77.1.x86_64",
+                  "product_id": "libzypp-0:17.38.15-150500.6.77.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp@17.38.15-150500.6.77.1?arch=x86_64\u0026upstream=libzypp-0:17.38.15-150500.6.77.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libzypp-devel-0:17.38.15-150500.6.77.1.x86_64",
+                "product": {
+                  "name": "libzypp-devel-0:17.38.15-150500.6.77.1.x86_64",
+                  "product_id": "libzypp-devel-0:17.38.15-150500.6.77.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp-devel@17.38.15-150500.6.77.1?arch=x86_64\u0026upstream=libzypp-0:17.38.15-150500.6.77.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libzypp-devel-doc-0:17.38.15-150500.6.77.1.x86_64",
+                "product": {
+                  "name": "libzypp-devel-doc-0:17.38.15-150500.6.77.1.x86_64",
+                  "product_id": "libzypp-devel-doc-0:17.38.15-150500.6.77.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp-devel-doc@17.38.15-150500.6.77.1?arch=x86_64\u0026upstream=libzypp-0:17.38.15-150500.6.77.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "zypper-0:1.14.101-150500.6.48.1.x86_64",
+                "product": {
+                  "name": "zypper-0:1.14.101-150500.6.48.1.x86_64",
+                  "product_id": "zypper-0:1.14.101-150500.6.48.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:zypper:1.14.101:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/zypper@1.14.101-150500.6.48.1?arch=x86_64\u0026upstream=zypper-0:1.14.101-150500.6.48.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Installer Updates 15 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Installer Updates 15 SP5",
+                  "product_id": "SUSE Linux Enterprise Installer Updates 15 SP5"
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP5",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Desktop 15 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Desktop 15 SP5",
+                  "product_id": "SUSE Linux Enterprise Desktop 15 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sled:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP5",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Micro 5.5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Micro 5.5",
+                  "product_id": "SUSE Linux Enterprise Micro 5.5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-micro:5.5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc-espos:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc-ltss:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles-ltss:15:sp5"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.aarch64 as component of SUSE Linux Enterprise Installer Updates 15 SP5",
+          "product_id": "SUSE Linux Enterprise Installer Updates 15 SP5:libzypp-0:17.38.15-150500.6.77.1.aarch64"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Installer Updates 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.ppc64le as component of SUSE Linux Enterprise Installer Updates 15 SP5",
+          "product_id": "SUSE Linux Enterprise Installer Updates 15 SP5:libzypp-0:17.38.15-150500.6.77.1.ppc64le"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Installer Updates 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.s390x as component of SUSE Linux Enterprise Installer Updates 15 SP5",
+          "product_id": "SUSE Linux Enterprise Installer Updates 15 SP5:libzypp-0:17.38.15-150500.6.77.1.s390x"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Installer Updates 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.x86_64 as component of SUSE Linux Enterprise Installer Updates 15 SP5",
+          "product_id": "SUSE Linux Enterprise Installer Updates 15 SP5:libzypp-0:17.38.15-150500.6.77.1.x86_64"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Installer Updates 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.aarch64 as component of SUSE Linux Enterprise Installer Updates 15 SP5",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5:libzypp-0:17.38.15-150500.6.77.1.aarch64"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.ppc64le as component of SUSE Linux Enterprise Installer Updates 15 SP5",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5:libzypp-0:17.38.15-150500.6.77.1.ppc64le"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.s390x as component of SUSE Linux Enterprise Installer Updates 15 SP5",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5:libzypp-0:17.38.15-150500.6.77.1.s390x"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.x86_64 as component of SUSE Linux Enterprise Installer Updates 15 SP5",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5:libzypp-0:17.38.15-150500.6.77.1.x86_64"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.aarch64 as component of SUSE Linux Enterprise Installer Updates 15 SP5",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP5:libzypp-0:17.38.15-150500.6.77.1.aarch64"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.ppc64le as component of SUSE Linux Enterprise Installer Updates 15 SP5",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP5:libzypp-0:17.38.15-150500.6.77.1.ppc64le"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.s390x as component of SUSE Linux Enterprise Installer Updates 15 SP5",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP5:libzypp-0:17.38.15-150500.6.77.1.s390x"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.x86_64 as component of SUSE Linux Enterprise Installer Updates 15 SP5",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP5:libzypp-0:17.38.15-150500.6.77.1.x86_64"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.aarch64 as component of SUSE Linux Enterprise Installer Updates 15 SP5",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5:libzypp-0:17.38.15-150500.6.77.1.aarch64"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.ppc64le as component of SUSE Linux Enterprise Installer Updates 15 SP5",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5:libzypp-0:17.38.15-150500.6.77.1.ppc64le"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.s390x as component of SUSE Linux Enterprise Installer Updates 15 SP5",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5:libzypp-0:17.38.15-150500.6.77.1.s390x"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.x86_64 as component of SUSE Linux Enterprise Installer Updates 15 SP5",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5:libzypp-0:17.38.15-150500.6.77.1.x86_64"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.aarch64 as component of SUSE Linux Enterprise Installer Updates 15 SP5",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5:libzypp-0:17.38.15-150500.6.77.1.aarch64"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.ppc64le as component of SUSE Linux Enterprise Installer Updates 15 SP5",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5:libzypp-0:17.38.15-150500.6.77.1.ppc64le"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.s390x as component of SUSE Linux Enterprise Installer Updates 15 SP5",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5:libzypp-0:17.38.15-150500.6.77.1.s390x"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.x86_64 as component of SUSE Linux Enterprise Installer Updates 15 SP5",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5:libzypp-0:17.38.15-150500.6.77.1.x86_64"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.aarch64 as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:libzypp-0:17.38.15-150500.6.77.1.aarch64"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.ppc64le as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:libzypp-0:17.38.15-150500.6.77.1.ppc64le"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.s390x as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:libzypp-0:17.38.15-150500.6.77.1.s390x"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.x86_64 as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:libzypp-0:17.38.15-150500.6.77.1.x86_64"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-0:1.14.101-150500.6.48.1.aarch64 as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:zypper-0:1.14.101-150500.6.48.1.aarch64"
+        },
+        "product_reference": "zypper-0:1.14.101-150500.6.48.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-0:1.14.101-150500.6.48.1.ppc64le as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:zypper-0:1.14.101-150500.6.48.1.ppc64le"
+        },
+        "product_reference": "zypper-0:1.14.101-150500.6.48.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-0:1.14.101-150500.6.48.1.s390x as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:zypper-0:1.14.101-150500.6.48.1.s390x"
+        },
+        "product_reference": "zypper-0:1.14.101-150500.6.48.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-0:1.14.101-150500.6.48.1.x86_64 as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:zypper-0:1.14.101-150500.6.48.1.x86_64"
+        },
+        "product_reference": "zypper-0:1.14.101-150500.6.48.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-needs-restarting-0:1.14.101-150500.6.48.1.noarch as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:zypper-needs-restarting-0:1.14.101-150500.6.48.1.noarch"
+        },
+        "product_reference": "zypper-needs-restarting-0:1.14.101-150500.6.48.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:libzypp-0:17.38.15-150500.6.77.1.aarch64"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:libzypp-0:17.38.15-150500.6.77.1.x86_64"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-devel-0:17.38.15-150500.6.77.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:libzypp-devel-0:17.38.15-150500.6.77.1.aarch64"
+        },
+        "product_reference": "libzypp-devel-0:17.38.15-150500.6.77.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-devel-0:17.38.15-150500.6.77.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:libzypp-devel-0:17.38.15-150500.6.77.1.x86_64"
+        },
+        "product_reference": "libzypp-devel-0:17.38.15-150500.6.77.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-0:1.14.101-150500.6.48.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:zypper-0:1.14.101-150500.6.48.1.aarch64"
+        },
+        "product_reference": "zypper-0:1.14.101-150500.6.48.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-0:1.14.101-150500.6.48.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:zypper-0:1.14.101-150500.6.48.1.x86_64"
+        },
+        "product_reference": "zypper-0:1.14.101-150500.6.48.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-log-0:1.14.101-150500.6.48.1.noarch as component of SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:zypper-log-0:1.14.101-150500.6.48.1.noarch"
+        },
+        "product_reference": "zypper-log-0:1.14.101-150500.6.48.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-needs-restarting-0:1.14.101-150500.6.48.1.noarch as component of SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:zypper-needs-restarting-0:1.14.101-150500.6.48.1.noarch"
+        },
+        "product_reference": "zypper-needs-restarting-0:1.14.101-150500.6.48.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:libzypp-0:17.38.15-150500.6.77.1.aarch64"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:libzypp-0:17.38.15-150500.6.77.1.x86_64"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-devel-0:17.38.15-150500.6.77.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:libzypp-devel-0:17.38.15-150500.6.77.1.aarch64"
+        },
+        "product_reference": "libzypp-devel-0:17.38.15-150500.6.77.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-devel-0:17.38.15-150500.6.77.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:libzypp-devel-0:17.38.15-150500.6.77.1.x86_64"
+        },
+        "product_reference": "libzypp-devel-0:17.38.15-150500.6.77.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-0:1.14.101-150500.6.48.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:zypper-0:1.14.101-150500.6.48.1.aarch64"
+        },
+        "product_reference": "zypper-0:1.14.101-150500.6.48.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-0:1.14.101-150500.6.48.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:zypper-0:1.14.101-150500.6.48.1.x86_64"
+        },
+        "product_reference": "zypper-0:1.14.101-150500.6.48.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-log-0:1.14.101-150500.6.48.1.noarch as component of SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:zypper-log-0:1.14.101-150500.6.48.1.noarch"
+        },
+        "product_reference": "zypper-log-0:1.14.101-150500.6.48.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-needs-restarting-0:1.14.101-150500.6.48.1.noarch as component of SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:zypper-needs-restarting-0:1.14.101-150500.6.48.1.noarch"
+        },
+        "product_reference": "zypper-needs-restarting-0:1.14.101-150500.6.48.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:libzypp-0:17.38.15-150500.6.77.1.aarch64"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:libzypp-0:17.38.15-150500.6.77.1.ppc64le"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.s390x as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:libzypp-0:17.38.15-150500.6.77.1.s390x"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.15-150500.6.77.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:libzypp-0:17.38.15-150500.6.77.1.x86_64"
+        },
+        "product_reference": "libzypp-0:17.38.15-150500.6.77.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-devel-0:17.38.15-150500.6.77.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:libzypp-devel-0:17.38.15-150500.6.77.1.aarch64"
+        },
+        "product_reference": "libzypp-devel-0:17.38.15-150500.6.77.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-devel-0:17.38.15-150500.6.77.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:libzypp-devel-0:17.38.15-150500.6.77.1.ppc64le"
+        },
+        "product_reference": "libzypp-devel-0:17.38.15-150500.6.77.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-devel-0:17.38.15-150500.6.77.1.s390x as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:libzypp-devel-0:17.38.15-150500.6.77.1.s390x"
+        },
+        "product_reference": "libzypp-devel-0:17.38.15-150500.6.77.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-devel-0:17.38.15-150500.6.77.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:libzypp-devel-0:17.38.15-150500.6.77.1.x86_64"
+        },
+        "product_reference": "libzypp-devel-0:17.38.15-150500.6.77.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-0:1.14.101-150500.6.48.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:zypper-0:1.14.101-150500.6.48.1.aarch64"
+        },
+        "product_reference": "zypper-0:1.14.101-150500.6.48.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-0:1.14.101-150500.6.48.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:zypper-0:1.14.101-150500.6.48.1.ppc64le"
+        },
+        "product_reference": "zypper-0:1.14.101-150500.6.48.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-0:1.14.101-150500.6.48.1.s390x as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:zypper-0:1.14.101-150500.6.48.1.s390x"
+        },
+        "product_reference": "zypper-0:1.14.101-150500.6.48.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-0:1.14.101-150500.6.48.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:zypper-0:1.14.101-150500.6.48.1.x86_64"
+        },
+        "product_reference": "zypper-0:1.14.101-150500.6.48.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-log-0:1.14.101-150500.6.48.1.noarch as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:zypper-log-0:1.14.101-150500.6.48.1.noarch"
+        },
+        "product_reference": "zypper-log-0:1.14.101-150500.6.48.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-needs-restarting-0:1.14.101-150500.6.48.1.noarch as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:zypper-needs-restarting-0:1.14.101-150500.6.48.1.noarch"
+        },
+        "product_reference": "zypper-needs-restarting-0:1.14.101-150500.6.48.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      }
+    ]
+  }
+}

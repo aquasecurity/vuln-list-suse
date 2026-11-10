@@ -1,0 +1,2417 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for 389-ds",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for 389-ds fixes the following issues:\n\nUpdate to version 3.0.6~git382.7a51ea5f5.\n\nSecurity issues fixed:\n\n- CVE-2026-11610: heap buffer overflow in the SASL I/O layer via a crafted oversized LDAP UNBIND packet (bsc#1270695).\n- CVE-2026-11611: unbounded memory growth allowed by the Content Synchronization persistent search plugin when an\n  authenticated client stops reading sync responses (bsc#1267975).\n- CVE-2026-11774: integer overflow in the SASL I/O layer leading to heap buffer overflow via crafted SASL packet\n  length prefixes  (bsc#1268298).\n- CVE-2026-11785: type confusion in the SSO token handler can cause partial stack address information disclosure\n  in LDAP responses to authenticated users (bsc#1268065).\n- CVE-2026-11786: out-of-bounds read in the LDIF parser when processing attribute types with trailing semicolons\n  during database import (bsc#1268064).\n- CVE-2026-11787: heap buffer overread due to missing checks in string filter parsing (bsc#1268062).\n- CVE-2026-11788: server crash due to missing allocation failure checks in the dereference control plugin\n  (bsc#1268057).\n- CVE-2026-11789: integer underflow in the SMD5 password storage plugin leading to a buffer overflow via a crafted\n  password hash (bsc#1268058).\n- CVE-2026-11790: excessive CPU consumption during authentication due to improper upper bounds enforcement in the\n  PBKDF2-SHA256 password storage plugin (bsc#1268060).\n- CVE-2026-11791: use-after-free in the schema reload mechanism can be triggered while concurrent LDAP query traffic\n  is active (bsc#1268047).\n- CVE-2026-11792: heap buffer overflow when audit logging is enabled and short cleartext passwords are logged\n  (bsc#1268046).\n- CVE-2026-11793: stack buffer overflow leading to crash via crafted credentials with an oversized algorithm ID\n  (bsc#1268041).\n- CVE-2026-11884: heap buffer overflow leading to crash when serializing objectclass definitions (bsc#1268115).\n- CVE-2026-12528: heap buffer overflow during ACI parsing via malformed ACI strings (bsc#1268491).\n\nOther updates and bugfixes:\n\n- Version 3.0.6~git382.7a51ea5f5:\n  * Issue 7711 - Fix typo in accountpolicy --login-history-size help text (#7713)\n  * Issue 7688 - BUG - partial address leak in sso token (#7689)\n  * Issue 7705 - With memberOfEntryScope set, deferred memberOf skips MODIFY operations (#7706)\n  * Issue 7698 - Fix silent entry loss in LMDB bulk import waiter handling (#7699)\n  * Issue 7666 - Replication performance degradation during total init on high-latency storage (#7667)\n  * Issue 7201 - Syscall overhead in LMDB import writer thread (#7204)\n  * Issue 7645 - Add runtime LeakSanitizer leak check (#7646)\n  * Issue 7714 - UI - sass import rules are deprecated\n  * Issue 7658 - Heap Buffer Overflow in sasl_io_recv() via Padded SASL UNBIND\n  * Issue 7710 - MemberOf deferred update - Use condvar instead of sleep loop\n  * Issue 7637 - UI - Using Arrow Keys in New Object Wizard Resulted in DOM Reload\n  * Issue 7578 - schema - attribute refcount is not maintained properly\n  * Issue 7605 - Harden CI test ports against ephemeral allocation (#7692)\n  * Issue 7528 - Retry the CI image pull instead of failing the job (#7691)\n  * Backport Issue 7519 -- ignore obsolete entrydn when entryrdn is in use (#7657)\n  * Issue 7460 - MOD_REPLACE on groups/link attributes modifies overlap targets (#7461)\n  * Issue 7505 - RFE - CLI - add feature to determine which password policy applies to a user\n  * Issue 7670 - BDB range searches intermittently fail with err=1 under write load (#7671)\n  * Issue 7108 - Fix shutdown crash in entry cache destruction (#7163)\n  * Issue 7284 - Creating local password policy succeeds with incorrect passwordInHistory value (#7662)\n  * Issue 7284 - Automated test for creating local password policy with incorrect passwordInHistory value (#7608)\n  * Issue 7200 - repl-agmt create doesn't set some parameters (#7663)\n  * Issue 7573 - Post-import cache autotuning does not recompute entry cache size (#7574)\n\n- Version 3.0.6~git359.953dc780a:\n  * Issue 7470 - dsctl localhost tls import-server-key-cert fails with 'expected str, bytes or os.PathLike object, not NoneType' (#7477)\n\n- Version 3.0.6~git356.e6c148b60:\n  * Issue 7611 - PBKDF2 password verification should reject invalid iteration count (#7613)\n  * Issue 7558 - Total init sends the suffix entry twice (#7640)\n  * Issue 7635 - Integer Underflow in {SMD5} Password Comparison (#7636)\n  * Issue 7406 - Fix ldap-agent SNMP stats file loading (#7630)\n  * Issue 7621 - Stack Buffer Overflow in Password checkPrefix\n  * Issue 7623 - Heap Buffer Overflow in 389-ds-base Audit Log Password Masking\n  * Issue 7602 - CI - lib389 user compare fails due to parentid mismatch (#7603)\n  * Issue 7537 - CI - Fix replication log monitoring parser/timing failures (#7592)\n  * Issue 7593 - Fix testimony docstring for SASL overflow test (#7606)\n  * Issue 7530 - CI - Stabilize DNA plugin replication tests timing out in CI (#7572)\n  * Issue 7593 - Reject invalid SASL packet length values in sasl_io_start_packet (#7594)\n  * Issue 3555 - UI - Fix audit issue with npm - ws, js-yaml, babel/core (#7599)\n  * Bump fast-uri from 3.1.0 to 3.1.2 in /src/cockpit/389-console (#7487)\n  * Update dependency uuid to v14 [SECURITY] (#7456)\n  * Update cockpit-389-ds-npm (major) (#7448)\n  * Issue 7263 - UI - Use cockpit.file API for temporary file writes (#7590)\n  * Issue 7541 - Add invalid ACL text header regression test (#7591)\n  * Issue 7554 - UI - Revise local password policy layout\n  * Issue 7521 - UI - make changes for cockpit API updates\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-1547",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_21691-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1267975",
+        "url": "https://bugzilla.suse.com/1267975"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1268041",
+        "url": "https://bugzilla.suse.com/1268041"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1268046",
+        "url": "https://bugzilla.suse.com/1268046"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1268047",
+        "url": "https://bugzilla.suse.com/1268047"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1268057",
+        "url": "https://bugzilla.suse.com/1268057"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1268058",
+        "url": "https://bugzilla.suse.com/1268058"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1268060",
+        "url": "https://bugzilla.suse.com/1268060"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1268062",
+        "url": "https://bugzilla.suse.com/1268062"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1268064",
+        "url": "https://bugzilla.suse.com/1268064"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1268065",
+        "url": "https://bugzilla.suse.com/1268065"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1268115",
+        "url": "https://bugzilla.suse.com/1268115"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1268298",
+        "url": "https://bugzilla.suse.com/1268298"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1268491",
+        "url": "https://bugzilla.suse.com/1268491"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269120",
+        "url": "https://bugzilla.suse.com/1269120"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1270695",
+        "url": "https://bugzilla.suse.com/1270695"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-11610 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-11610/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-11611 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-11611/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-11774 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-11774/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-11785 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-11785/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-11786 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-11786/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-11787 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-11787/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-11788 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-11788/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-11789 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-11789/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-11790 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-11790/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-11791 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-11791/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-11792 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-11792/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-11793 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-11793/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-11884 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-11884/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-12528 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-12528/"
+      }
+    ],
+    "title": "Security update for 389-ds",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:42:53Z",
+      "generator": {
+        "date": "2026-08-30T14:40:58Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:21691-1",
+      "initial_release_date": "2026-08-30T14:40:58Z",
+      "revision_history": [
+        {
+          "date": "2026-08-30T14:40:58Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:46:25Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:47:22Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:42:53Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+                "product": {
+                  "name": "389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+                  "product_id": "389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:redhat:389_directory_server:3.0.6~git382.7a51ea5f5:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/389-ds@3.0.6~git382.7a51ea5f5-160000.1.1?arch=aarch64\u0026upstream=389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+                "product": {
+                  "name": "389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+                  "product_id": "389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:redhat:389_directory_server:3.0.6~git382.7a51ea5f5:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/389-ds-devel@3.0.6~git382.7a51ea5f5-160000.1.1?arch=aarch64\u0026upstream=389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+                "product": {
+                  "name": "389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+                  "product_id": "389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:redhat:389_directory_server:3.0.6~git382.7a51ea5f5:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/389-ds-snmp@3.0.6~git382.7a51ea5f5-160000.1.1?arch=aarch64\u0026upstream=389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+                "product": {
+                  "name": "lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+                  "product_id": "lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:redhat:389_directory_server:3.0.6~git382.7a51ea5f5:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/lib389@3.0.6~git382.7a51ea5f5-160000.1.1?arch=aarch64\u0026upstream=389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+                "product": {
+                  "name": "libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+                  "product_id": "libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:redhat:389_directory_server:3.0.6~git382.7a51ea5f5:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsvrcore0@3.0.6~git382.7a51ea5f5-160000.1.1?arch=aarch64\u0026upstream=389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+                "product": {
+                  "name": "389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+                  "product_id": "389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:redhat:389_directory_server:3.0.6~git382.7a51ea5f5:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/389-ds@3.0.6~git382.7a51ea5f5-160000.1.1?arch=ppc64le\u0026upstream=389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+                "product": {
+                  "name": "389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+                  "product_id": "389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:redhat:389_directory_server:3.0.6~git382.7a51ea5f5:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/389-ds-devel@3.0.6~git382.7a51ea5f5-160000.1.1?arch=ppc64le\u0026upstream=389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+                "product": {
+                  "name": "389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+                  "product_id": "389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:redhat:389_directory_server:3.0.6~git382.7a51ea5f5:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/389-ds-snmp@3.0.6~git382.7a51ea5f5-160000.1.1?arch=ppc64le\u0026upstream=389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+                "product": {
+                  "name": "lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+                  "product_id": "lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:redhat:389_directory_server:3.0.6~git382.7a51ea5f5:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/lib389@3.0.6~git382.7a51ea5f5-160000.1.1?arch=ppc64le\u0026upstream=389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+                "product": {
+                  "name": "libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+                  "product_id": "libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:redhat:389_directory_server:3.0.6~git382.7a51ea5f5:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsvrcore0@3.0.6~git382.7a51ea5f5-160000.1.1?arch=ppc64le\u0026upstream=389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+                "product": {
+                  "name": "389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+                  "product_id": "389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:redhat:389_directory_server:3.0.6~git382.7a51ea5f5:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/389-ds@3.0.6~git382.7a51ea5f5-160000.1.1?arch=s390x\u0026upstream=389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+                "product": {
+                  "name": "389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+                  "product_id": "389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:redhat:389_directory_server:3.0.6~git382.7a51ea5f5:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/389-ds-devel@3.0.6~git382.7a51ea5f5-160000.1.1?arch=s390x\u0026upstream=389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+                "product": {
+                  "name": "389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+                  "product_id": "389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:redhat:389_directory_server:3.0.6~git382.7a51ea5f5:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/389-ds-snmp@3.0.6~git382.7a51ea5f5-160000.1.1?arch=s390x\u0026upstream=389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+                "product": {
+                  "name": "lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+                  "product_id": "lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:redhat:389_directory_server:3.0.6~git382.7a51ea5f5:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/lib389@3.0.6~git382.7a51ea5f5-160000.1.1?arch=s390x\u0026upstream=389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+                "product": {
+                  "name": "libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+                  "product_id": "libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:redhat:389_directory_server:3.0.6~git382.7a51ea5f5:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsvrcore0@3.0.6~git382.7a51ea5f5-160000.1.1?arch=s390x\u0026upstream=389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+                "product": {
+                  "name": "389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+                  "product_id": "389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:redhat:389_directory_server:3.0.6~git382.7a51ea5f5:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/389-ds@3.0.6~git382.7a51ea5f5-160000.1.1?arch=x86_64\u0026upstream=389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+                "product": {
+                  "name": "389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+                  "product_id": "389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:redhat:389_directory_server:3.0.6~git382.7a51ea5f5:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/389-ds-devel@3.0.6~git382.7a51ea5f5-160000.1.1?arch=x86_64\u0026upstream=389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+                "product": {
+                  "name": "389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+                  "product_id": "389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:redhat:389_directory_server:3.0.6~git382.7a51ea5f5:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/389-ds-snmp@3.0.6~git382.7a51ea5f5-160000.1.1?arch=x86_64\u0026upstream=389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+                "product": {
+                  "name": "lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+                  "product_id": "lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:redhat:389_directory_server:3.0.6~git382.7a51ea5f5:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/lib389@3.0.6~git382.7a51ea5f5-160000.1.1?arch=x86_64\u0026upstream=389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+                "product": {
+                  "name": "libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+                  "product_id": "libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:redhat:389_directory_server:3.0.6~git382.7a51ea5f5:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsvrcore0@3.0.6~git382.7a51ea5f5-160000.1.1?arch=x86_64\u0026upstream=389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64"
+        },
+        "product_reference": "389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le"
+        },
+        "product_reference": "389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x"
+        },
+        "product_reference": "389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+        },
+        "product_reference": "389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64"
+        },
+        "product_reference": "389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le"
+        },
+        "product_reference": "389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x"
+        },
+        "product_reference": "389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+        },
+        "product_reference": "389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64"
+        },
+        "product_reference": "389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le"
+        },
+        "product_reference": "389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x"
+        },
+        "product_reference": "389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+        },
+        "product_reference": "389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64"
+        },
+        "product_reference": "lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le"
+        },
+        "product_reference": "lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x"
+        },
+        "product_reference": "lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+        },
+        "product_reference": "lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64"
+        },
+        "product_reference": "libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le"
+        },
+        "product_reference": "libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x"
+        },
+        "product_reference": "libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+        },
+        "product_reference": "libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-11610",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-11610"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A heap buffer overflow flaw was found in the SASL I/O layer of 389 Directory Server\n(389-ds-base). After a successful SASL bind with integrity protection (SSF \u003e 0),\nan authenticated attacker can send a specially crafted oversized LDAP UNBIND packet\nthat is copied into a 512-byte heap receive buffer without a bounds check in\nsasl_io_recv() in sasl_io.c. This allows up to approximately 2 megabytes of\nattacker-controlled data to overflow the buffer, causing a denial of service (server\ncrash). In FreeIPA and Red Hat Identity Management deployments, any domain user with\na valid Kerberos ticket, any enrolled host, or any service account can trigger this\nvulnerability over the network after authenticating via GSSAPI.\nThe vulnerable code path has existed since approximately 2013 (389-ds-base 1.3.2) and\nwas not addressed by the CVE-2025-14905 fix, which patched a separate heap overflow\nin schema.c only.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-11610",
+          "url": "https://www.suse.com/security/cve/CVE-2026-11610"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1270695 for CVE-2026-11610",
+          "url": "https://bugzilla.suse.com/1270695"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1271913 for CVE-2026-11610",
+          "url": "https://bugzilla.suse.com/1271913"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-30T14:40:58Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-11610"
+    },
+    {
+      "cve": "CVE-2026-11611",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-11611"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in 389 Directory Server. The Content Synchronization persistent search plugin allows unbounded memory growth when an authenticated client stops reading sync responses, enabling denial of service. Additional race conditions in plugin thread lifecycle can cause crashes during connection teardown or shutdown.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-11611",
+          "url": "https://www.suse.com/security/cve/CVE-2026-11611"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1267975 for CVE-2026-11611",
+          "url": "https://bugzilla.suse.com/1267975"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-30T14:40:58Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-11611"
+    },
+    {
+      "cve": "CVE-2026-11774",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-11774"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An integer overflow flaw was found in the SASL I/O layer of 389 Directory Server (389-ds-base). In sasl_io_start_packet(), adding sizeof(uint32_t) to a crafted SASL packet length prefix of 0xFFFFFFFC causes unsigned wraparound to zero, bypassing the nsslapd-maxsasliosize limit and leading to a heap buffer overflow of up to approximately 2 megabytes of attacker-controlled data. After a successful SASL bind with integrity protection (SSF \u003e 0), a remote attacker can cause a Denial of Service (DoS) or achieve Remote Code Execution (RCE). In FreeIPA and Red Hat Identity Management deployments, any domain user with a valid Kerberos ticket, enrolled host, or service account can trigger this vulnerability over the network. This flaw is independent of CVE-2025-14905, which patched schema.c only and did not modify sasl_io.c.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-11774",
+          "url": "https://www.suse.com/security/cve/CVE-2026-11774"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268298 for CVE-2026-11774",
+          "url": "https://bugzilla.suse.com/1268298"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1271913 for CVE-2026-11774",
+          "url": "https://bugzilla.suse.com/1271913"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1279864 for CVE-2026-11774",
+          "url": "https://bugzilla.suse.com/1279864"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.6,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-30T14:40:58Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-11774"
+    },
+    {
+      "cve": "CVE-2026-11785",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-11785"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in 389 Directory Server. A type confusion in the SSO token extended operation handler causes partial stack address information to be disclosed in LDAP responses to authenticated users.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-11785",
+          "url": "https://www.suse.com/security/cve/CVE-2026-11785"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268065 for CVE-2026-11785",
+          "url": "https://bugzilla.suse.com/1268065"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-30T14:40:58Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-11785"
+    },
+    {
+      "cve": "CVE-2026-11786",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-11786"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in 389 Directory Server. The LDIF parser reads past the end of a heap buffer when processing attribute types with trailing semicolons during database import, causing an out-of-bounds read detectable under memory instrumentation.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-11786",
+          "url": "https://www.suse.com/security/cve/CVE-2026-11786"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268064 for CVE-2026-11786",
+          "url": "https://bugzilla.suse.com/1268064"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:L/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-30T14:40:58Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-11786"
+    },
+    {
+      "cve": "CVE-2026-11787",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-11787"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in 389 Directory Server. The ldap_utf8prev() function reads bytes before the start of a buffer without bounds checking, causing a heap buffer over-read in string filter parsing that may influence internal filter processing behavior.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-11787",
+          "url": "https://www.suse.com/security/cve/CVE-2026-11787"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268062 for CVE-2026-11787",
+          "url": "https://bugzilla.suse.com/1268062"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-30T14:40:58Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-11787"
+    },
+    {
+      "cve": "CVE-2026-11788",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-11788"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in 389 Directory Server. The dereference control plugin does not check for allocation failure before using a BER structure, allowing an unauthenticated remote attacker to crash the LDAP server when the system is under memory pressure.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-11788",
+          "url": "https://www.suse.com/security/cve/CVE-2026-11788"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268057 for CVE-2026-11788",
+          "url": "https://bugzilla.suse.com/1268057"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-30T14:40:58Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-11788"
+    },
+    {
+      "cve": "CVE-2026-11789",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-11789"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in 389 Directory Server. The SMD5 password storage plugin performs unsigned integer underflow when computing salt length from a crafted password hash shorter than 16 bytes, causing a buffer over-read that crashes the LDAP server during authentication.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-11789",
+          "url": "https://www.suse.com/security/cve/CVE-2026-11789"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268058 for CVE-2026-11789",
+          "url": "https://bugzilla.suse.com/1268058"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268060 for CVE-2026-11789",
+          "url": "https://bugzilla.suse.com/1268060"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-30T14:40:58Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-11789"
+    },
+    {
+      "cve": "CVE-2026-11790",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-11790"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in 389 Directory Server. The PBKDF2-SHA256 password storage plugin does not enforce an upper bound on the iteration count extracted from stored password hashes. A privileged attacker who can modify a user's password hash can cause excessive CPU consumption during authentication, resulting in denial of service.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-11790",
+          "url": "https://www.suse.com/security/cve/CVE-2026-11790"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268060 for CVE-2026-11790",
+          "url": "https://bugzilla.suse.com/1268060"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-30T14:40:58Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-11790"
+    },
+    {
+      "cve": "CVE-2026-11791",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-11791"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in 389 Directory Server. During schema reload, the attr_syntax_swap_ht() function unconditionally frees attribute syntax information nodes, bypassing the refcount-based deferred deletion used elsewhere in the attribute syntax subsystem. If an administrator triggers schema reload while concurrent LDAP query traffic is active, worker threads may access freed memory, resulting in use-after-free or double-free and a denial of service (server crash).",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-11791",
+          "url": "https://www.suse.com/security/cve/CVE-2026-11791"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1258727 for CVE-2026-11791",
+          "url": "https://bugzilla.suse.com/1258727"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268047 for CVE-2026-11791",
+          "url": "https://bugzilla.suse.com/1268047"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:L/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-30T14:40:58Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-11791"
+    },
+    {
+      "cve": "CVE-2026-11792",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-11792"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A heap buffer overflow flaw was found in 389 Directory Server. When audit logging is enabled, the create_masked_entry_string() function in auditlog.c copies a fixed-length password mask into a precisely-sized heap buffer without checking available space. If a short cleartext password is logged (requiring non-default CLEAR password storage or a compromised replication peer), the copy overflows the buffer, corrupting heap memory and audit log output.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-11792",
+          "url": "https://www.suse.com/security/cve/CVE-2026-11792"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268046 for CVE-2026-11792",
+          "url": "https://bugzilla.suse.com/1268046"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 3.3,
+            "baseSeverity": "LOW",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:N/I:L/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-30T14:40:58Z",
+          "details": "low"
+        }
+      ],
+      "title": "CVE-2026-11792"
+    },
+    {
+      "cve": "CVE-2026-11793",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-11793"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A stack buffer overflow flaw was found in 389 Directory Server. The checkPrefix() function in pw.c copies an attacker-controlled algorithm ID into a 256-byte stack buffer without bounds checking when parsing reversible-encrypted attribute values. An attacker with Directory Manager privileges can crash the LDAP server by storing a crafted credential with an oversized algorithm ID. FORTIFY_SOURCE mitigates this to denial of service only.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-11793",
+          "url": "https://www.suse.com/security/cve/CVE-2026-11793"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268041 for CVE-2026-11793",
+          "url": "https://bugzilla.suse.com/1268041"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-30T14:40:58Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-11793"
+    },
+    {
+      "cve": "CVE-2026-11884",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-11884"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A heap buffer overflow flaw was found in 389 Directory Server. When serializing objectclass definitions, the oc_superior (SUP) field length is omitted from buffer size calculations in read_schema_dse() and schema_oc_to_string(), but the field is still written via strcat(). An attacker with Directory Manager privileges, or a compromised replication supplier, can trigger a server crash by creating objectclasses with long SUP values. This is an incomplete fix variant of CVE-2025-14905.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-11884",
+          "url": "https://www.suse.com/security/cve/CVE-2026-11884"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268115 for CVE-2026-11884",
+          "url": "https://bugzilla.suse.com/1268115"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-30T14:40:58Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-11884"
+    },
+    {
+      "cve": "CVE-2026-12528",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-12528"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in 389 Directory Server in the __aclp__normalize_acltxt() function of aclparse.c. A malformed ACI (Access Control Instruction) string can trigger heap-buffer-overflow writes and reads during ACI parsing. The function fails to validate that the ACI keyword has sufficient length after whitespace stripping, leading to a 1-byte out-of-bounds write and subsequent out-of-bounds reads. An authenticated user with write access to the aci attribute could send a crafted ACI value to silently corrupt heap memory in the directory server process.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-12528",
+          "url": "https://www.suse.com/security/cve/CVE-2026-12528"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268491 for CVE-2026-12528",
+          "url": "https://bugzilla.suse.com/1268491"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-devel-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:389-ds-snmp-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lib389-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsvrcore0-0:3.0.6~git382.7a51ea5f5-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-30T14:40:58Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-12528"
+    }
+  ]
+}

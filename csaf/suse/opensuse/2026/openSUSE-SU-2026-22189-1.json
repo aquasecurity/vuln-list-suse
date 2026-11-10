@@ -1,0 +1,1356 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for shadowsocks-rust, shadowsocks-libev",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for shadowsocks-rust, shadowsocks-libev fixes the following issues:\n\nChanges in shadowsocks-rust:\n\n- Fix SELinux denial (name_connect) when forwarding outbound TCP traffic\n  (boo#1284975)\n\n- Fix: Unable to bind ports below 1024 with SELinux enabled (boo#1284025)\n\n- Update version to 1.25.0\n  * Allow chaining ssserver to another SOCKS5/HTTP/HTTPS proxy\n  * Expose user_key() on CryptoStream and ProxyServerStream, lets callers\n    identify which multi-user identity was authenticated after an AEAD-2022 handshake\n  * EIH (Extended Identity Header) support\n  * local-http: Support HTTP Basic auth\n  * service: Outbound UDP relay through SOCKS5-only chains. UDP traffic can\n    now be relayed through proxy chains when all hops are SOCKS5. Chains containing\n    HTTP/HTTPS hops will emit a startup warning and UDP traffic will bypass the chain.\n  * socket2::Socket with socket2::SockRef\n  * Fix bugs\n    * CVE-2026-25541 and boo#1274441\n    * CVE-2026-93599, CVE-2026-93602, CVE-2026-93601, CVE-2026-93600 and boo#1282208\n    * CVE-2026-25541 and boo#1274441\n\n  * Fix some issues (CVE-2025-3416, boo#1242615)\n- Update vendor, fix boo#1215658 and CVE-2023-42811\n\nChanges in shadowsocks-libev:\n\n- Fix SELinux denial (name_connect) when forwarding outbound TCP traffic\n  (boo#1284975)\n\n- Fix build for Leap 16.1+: switch BuildRequires from mbedtls-devel to\n  mbedtls-3-devel Tumbleweed, don't do this work on Leap 16\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-697",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_22189-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1242615",
+        "url": "https://bugzilla.suse.com/1242615"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1274441",
+        "url": "https://bugzilla.suse.com/1274441"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1282208",
+        "url": "https://bugzilla.suse.com/1282208"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1284025",
+        "url": "https://bugzilla.suse.com/1284025"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1284975",
+        "url": "https://bugzilla.suse.com/1284975"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-3416 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-3416/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-25541 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-25541/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-93599 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-93599/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-93600 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-93600/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-93601 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-93601/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-93602 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-93602/"
+      }
+    ],
+    "title": "Security update for shadowsocks-rust, shadowsocks-libev",
+    "tracking": {
+      "current_release_date": "2026-10-31T17:19:44Z",
+      "generator": {
+        "date": "2026-10-26T16:52:43Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:22189-1",
+      "initial_release_date": "2026-10-26T16:52:43Z",
+      "revision_history": [
+        {
+          "date": "2026-10-26T16:52:43Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-10-31T17:19:44Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+                "product": {
+                  "name": "libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+                  "product_id": "libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libshadowsocks-libev2@3.3.6-bp160.3.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+                "product": {
+                  "name": "shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+                  "product_id": "shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/shadowsocks-libev@3.3.6-bp160.3.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+                "product": {
+                  "name": "shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+                  "product_id": "shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/shadowsocks-libev-devel@3.3.6-bp160.3.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+                "product": {
+                  "name": "shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+                  "product_id": "shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/shadowsocks-rust@1.25.0-bp160.1.1?arch=aarch64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+                "product": {
+                  "name": "shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+                  "product_id": "shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/shadowsocks-libev-apparmor@3.3.6-bp160.3.1?arch=noarch"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+                "product": {
+                  "name": "shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+                  "product_id": "shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/shadowsocks-libev-doc@3.3.6-bp160.3.1?arch=noarch"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+                "product": {
+                  "name": "shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+                  "product_id": "shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/shadowsocks-libev-selinux@3.3.6-bp160.3.1?arch=noarch"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+                "product": {
+                  "name": "shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+                  "product_id": "shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/shadowsocks-rust-apparmor@1.25.0-bp160.1.1?arch=noarch"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch",
+                "product": {
+                  "name": "shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch",
+                  "product_id": "shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/shadowsocks-rust-selinux@1.25.0-bp160.1.1?arch=noarch"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+                "product": {
+                  "name": "libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+                  "product_id": "libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libshadowsocks-libev2@3.3.6-bp160.3.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+                "product": {
+                  "name": "shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+                  "product_id": "shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/shadowsocks-libev@3.3.6-bp160.3.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+                "product": {
+                  "name": "shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+                  "product_id": "shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/shadowsocks-libev-devel@3.3.6-bp160.3.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+                  "product_id": "shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/shadowsocks-rust@1.25.0-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+                "product": {
+                  "name": "libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+                  "product_id": "libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libshadowsocks-libev2@3.3.6-bp160.3.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+                "product": {
+                  "name": "shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+                  "product_id": "shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/shadowsocks-libev@3.3.6-bp160.3.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+                "product": {
+                  "name": "shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+                  "product_id": "shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/shadowsocks-libev-devel@3.3.6-bp160.3.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+                "product": {
+                  "name": "shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+                  "product_id": "shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/shadowsocks-rust@1.25.0-bp160.1.1?arch=s390x"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+                "product": {
+                  "name": "libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+                  "product_id": "libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libshadowsocks-libev2@3.3.6-bp160.3.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+                "product": {
+                  "name": "shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+                  "product_id": "shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/shadowsocks-libev@3.3.6-bp160.3.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+                "product": {
+                  "name": "shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+                  "product_id": "shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/shadowsocks-libev-devel@3.3.6-bp160.3.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+                "product": {
+                  "name": "shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+                  "product_id": "shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/shadowsocks-rust@1.25.0-bp160.1.1?arch=x86_64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64"
+        },
+        "product_reference": "libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le"
+        },
+        "product_reference": "libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x"
+        },
+        "product_reference": "libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64"
+        },
+        "product_reference": "libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64"
+        },
+        "product_reference": "shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le"
+        },
+        "product_reference": "shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shadowsocks-libev-0:3.3.6-bp160.3.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.s390x"
+        },
+        "product_reference": "shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64"
+        },
+        "product_reference": "shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch"
+        },
+        "product_reference": "shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64"
+        },
+        "product_reference": "shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le"
+        },
+        "product_reference": "shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x"
+        },
+        "product_reference": "shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64"
+        },
+        "product_reference": "shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch"
+        },
+        "product_reference": "shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch"
+        },
+        "product_reference": "shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64"
+        },
+        "product_reference": "shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le"
+        },
+        "product_reference": "shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shadowsocks-rust-0:1.25.0-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.s390x"
+        },
+        "product_reference": "shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64"
+        },
+        "product_reference": "shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch"
+        },
+        "product_reference": "shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch"
+        },
+        "product_reference": "shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-3416",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-3416"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in OpenSSL's handling of the properties argument in certain functions. This vulnerability can allow use-after-free exploitation, which may result in undefined behavior or incorrect property parsing, leading to OpenSSL treating the input as an empty string.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-3416",
+          "url": "https://www.suse.com/security/cve/CVE-2025-3416"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1242599 for CVE-2025-3416",
+          "url": "https://bugzilla.suse.com/1242599"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 3.7,
+            "baseSeverity": "LOW",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-26T16:52:43Z",
+          "details": "low"
+        }
+      ],
+      "title": "CVE-2025-3416"
+    },
+    {
+      "cve": "CVE-2026-25541",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-25541"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Bytes is a utility library for working with bytes. From version 1.2.1 to before 1.11.1, Bytes is vulnerable to integer overflow in BytesMut::reserve. In the unique reclaim path of BytesMut::reserve, if the condition \"v_capacity \u003e= new_cap + offset\" uses an unchecked addition. When new_cap + offset overflows usize in release builds, this condition may incorrectly pass, causing self.cap to be set to a value that exceeds the actual allocated capacity. Subsequent APIs such as spare_capacity_mut() then trust this corrupted cap value and may create out-of-bounds slices, leading to UB. This behavior is observable in release builds (integer overflow wraps), whereas debug builds panic due to overflow checks. This issue has been patched in version 1.11.1.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-25541",
+          "url": "https://www.suse.com/security/cve/CVE-2026-25541"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1271347 for CVE-2026-25541",
+          "url": "https://bugzilla.suse.com/1271347"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-26T16:52:43Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-25541"
+    },
+    {
+      "cve": "CVE-2026-93599",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-93599"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rustls-webpki through 0.103.12 (and 0.104.0-alpha releases before 0.104.0-alpha.7) contains a reachable panic in bit_string_flags() in src/der.rs. The input guard fails to reject a named-bit BIT STRING whose content is exactly [0x00] (zero padding bits and no data bytes), so raw_bits.len() - 1 underflows on the empty slice and the subsequent index operation panics (subtract-with-overflow in debug, index-out-of-bounds in release). The condition is reachable through the public API BorrowedCertRevocationList::from_der() when a CRL contains an issuingDistributionPoint extension with such an onlySomeReasons value. Exploitation requires an application that explicitly opts in to CRL revocation checking by passing RevocationOptions to verify_for_usage() and that parses CRL bytes obtained from a source the attacker can influence; the default rustls configuration, which does not use RevocationOptions, is unaffected. A crafted CRL causes a denial of service via the panic. Fixed in 0.103.13 and 0.104.0-alpha.7.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-93599",
+          "url": "https://www.suse.com/security/cve/CVE-2026-93599"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1282202 for CVE-2026-93599",
+          "url": "https://bugzilla.suse.com/1282202"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-26T16:52:43Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-93599"
+    },
+    {
+      "cve": "CVE-2026-93600",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-93600"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rustls-webpki (rustls/webpki) versions 0.101.0 through 0.103.11 and 0.104.0-alpha releases before 0.104.0-alpha.6 ignore X.509 name constraints that apply to URI names, causing such constraints to be accepted rather than enforced. Because name constraints are restrictions on otherwise properly issued certificates, the flaw is only reachable after successful signature verification and requires a misissued certificate to exploit; the library also provides no API for asserting URI names, and URI name constraints are otherwise unimplemented. Versions 0.103.12 and 0.104.0-alpha.6 reject URI name constraints unconditionally.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-93600",
+          "url": "https://www.suse.com/security/cve/CVE-2026-93600"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1282202 for CVE-2026-93600",
+          "url": "https://bugzilla.suse.com/1282202"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 2.2,
+            "baseSeverity": "LOW",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:N/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-26T16:52:43Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-93600"
+    },
+    {
+      "cve": "CVE-2026-93601",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-93601"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rustls-webpki (the Rust webpki fork used by rustls) versions \u003e= 0.101.0 and prior to 0.103.12 and 0.104.0-alpha.6 incorrectly accepted permitted-subtree DNS name constraints for certificates asserting a wildcard name. For example, a name constraint of accept.example.com was treated as satisfied by a certificate for *.example.com, which could feasibly assert reject.example.com - a name outside the permitted subtree. Because name constraints are restrictions applied to otherwise properly issued certificates, the issue is only reachable after signature verification succeeds and requires a misissued wildcard certificate to exploit.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-93601",
+          "url": "https://www.suse.com/security/cve/CVE-2026-93601"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1282202 for CVE-2026-93601",
+          "url": "https://bugzilla.suse.com/1282202"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:N/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-26T16:52:43Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-93601"
+    },
+    {
+      "cve": "CVE-2026-93602",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-93602"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rustls-webpki versions before 0.103.10 and 0.104.0-alpha.5 contain faulty CRL authority-matching logic that compares only the first distributionPoint against each CRL's IssuingDistributionPoint, ignoring additional distributionPoints. Attackers with a compromised trusted issuing authority can present revoked certificates that pass revocation checks under UnknownStatusPolicy::Allow, or cause incorrect errors under the default deny policy.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+          "openSUSE Leap 16.0:shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-93602",
+          "url": "https://www.suse.com/security/cve/CVE-2026-93602"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1282202 for CVE-2026-93602",
+          "url": "https://bugzilla.suse.com/1282202"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:libshadowsocks-libev2-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-apparmor-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-libev-devel-0:3.3.6-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-libev-doc-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-libev-selinux-0:3.3.6-bp160.3.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:shadowsocks-rust-0:1.25.0-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:shadowsocks-rust-apparmor-0:1.25.0-bp160.1.1.noarch",
+            "openSUSE Leap 16.0:shadowsocks-rust-selinux-0:1.25.0-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-26T16:52:43Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-93602"
+    }
+  ]
+}

@@ -1,0 +1,919 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for hamlib",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for hamlib fixes the following issues:\n\nChanges in hamlib:\n\n- Update to 4.7.2:\n  * Fix IC-7600/IC-7610 clock commands\n  * Icom: Add CWR to modes eligible for DSP filtering\n  * Kenwood: New model Hamgeek uSGX\n  * Various fixes for Skywatcher, DX-SR8, FT-710, FTX-1, IC-705, X6100\n  * rigctld: Fix send_raw stack out-of-bounds write and\n    uninitialized memory CVE-2026-54634 (boo#1268628)\n  * rigctld: Fix stack/heap overflow primitive in\n    read_string_generic + auth bypass in rigctld + weak password\n    handling (boo#1268629)\n\n- Update to 4.7.1:\n  * Various compiler and portability fixes\n  * Fix rig port timeout\n  * Fix various FTX-1 meter, level and CTCSS table\n  * Add power off capability to Flrig backend\n  * Add SWR to supported 'get levels' for K3/K4\n  * Add get_split_vfo to TS-850 backend\n  * New simplecat backend\n  * Fix and generalize clock handling for Icom radios\n  * Fix Yaesu attenuator levels and LVL_KEYSPD reinitialization\n  * Add new rig model Harris PRC-138\n  * Various FT-710 fixes, eespecially handling SH format and RX bandwidth\n  * Ensure FT-710 simulator rejects RF command\n  * Fix low power calculation for K3/K3S\n  * Fix FTX-1 SH bandwidth command in set/get_mode\n\n- Update to 4.7.0:\n  * Revamp Kenwood voice memory handler - Fixes TS-890S \u0026 TS-990S\n  * libusb is now detected using the pkg-config facility.\n  * Functions rig_get_conf, rot_get_conf, amp_get_conf deprecated\n    use *_get_conf2() instead\n  * rig_set_trn and rig_get_trn deprecated.\n  * Many fixes for SWIG binding generation and improved Python\n    support and testing\n  * Fix AGC for IC-R75, fix AGC for all Icom rigs\n  * New Drake R8 backend\n  * New AF6SA WRC rotator backend\n  * New Yaesu FTX-1 model support (alpha)\n  * Update QRPLabs QMX backend for max serial rate of 230400 bps\n  * Updates to Icom IC-F8101\n  * New rig model Icom ID-52A/W Plus\n  * Fix memory leaks in rigctld and rigctltcp\n  * Fix Skywatcher backend for firmware that doesn't echo commands\n  * Additional Yaesu FTX-1 capabilities\n  * Add extended commands for the IC-7300MK2--\n  * Revert updating FLRig model name\n  * Add manual pages for rigctltcp, rigtestlibusb, rigtestmcast,\n    and rigtestmcastrx\n  * Pause building rigfreqwalk as the code does not align with the\n    required commandline parameters\n  * Developer visible changes, code moves and refactoring\n\n- Update to 4.6.5:\n  * Update Kenwood CW buffer max message size, fix one byte buffer\n    overrun\n  * Fix segmentation Faults\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-350",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_21155-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1268628",
+        "url": "https://bugzilla.suse.com/1268628"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1268629",
+        "url": "https://bugzilla.suse.com/1268629"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-54634 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-54634/"
+      }
+    ],
+    "title": "Security update for hamlib",
+    "tracking": {
+      "current_release_date": "2026-09-18T09:18:37Z",
+      "generator": {
+        "date": "2026-06-23T16:20:31Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:21155-1",
+      "initial_release_date": "2026-06-23T16:20:31Z",
+      "revision_history": [
+        {
+          "date": "2026-06-23T16:20:31Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:40:05Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:42:09Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:37:03Z",
+          "number": "4",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-18T09:18:37Z",
+          "number": "5",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "5"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "hamlib-0:4.7.2-bp160.1.1.aarch64",
+                "product": {
+                  "name": "hamlib-0:4.7.2-bp160.1.1.aarch64",
+                  "product_id": "hamlib-0:4.7.2-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/hamlib@4.7.2-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "hamlib-devel-0:4.7.2-bp160.1.1.aarch64",
+                "product": {
+                  "name": "hamlib-devel-0:4.7.2-bp160.1.1.aarch64",
+                  "product_id": "hamlib-devel-0:4.7.2-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/hamlib-devel@4.7.2-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libhamlib++4-0:4.7.2-bp160.1.1.aarch64",
+                "product": {
+                  "name": "libhamlib++4-0:4.7.2-bp160.1.1.aarch64",
+                  "product_id": "libhamlib++4-0:4.7.2-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libhamlib++4@4.7.2-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libhamlib4-0:4.7.2-bp160.1.1.aarch64",
+                "product": {
+                  "name": "libhamlib4-0:4.7.2-bp160.1.1.aarch64",
+                  "product_id": "libhamlib4-0:4.7.2-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libhamlib4@4.7.2-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "lua-Hamliblua-0:4.7.2-bp160.1.1.aarch64",
+                "product": {
+                  "name": "lua-Hamliblua-0:4.7.2-bp160.1.1.aarch64",
+                  "product_id": "lua-Hamliblua-0:4.7.2-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/lua-Hamliblua@4.7.2-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "perl-Hamlib-0:4.7.2-bp160.1.1.aarch64",
+                "product": {
+                  "name": "perl-Hamlib-0:4.7.2-bp160.1.1.aarch64",
+                  "product_id": "perl-Hamlib-0:4.7.2-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/perl-Hamlib@4.7.2-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python3-Hamlib-0:4.7.2-bp160.1.1.aarch64",
+                "product": {
+                  "name": "python3-Hamlib-0:4.7.2-bp160.1.1.aarch64",
+                  "product_id": "python3-Hamlib-0:4.7.2-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/python3-Hamlib@4.7.2-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "tcl-Hamlib-0:4.7.2-bp160.1.1.aarch64",
+                "product": {
+                  "name": "tcl-Hamlib-0:4.7.2-bp160.1.1.aarch64",
+                  "product_id": "tcl-Hamlib-0:4.7.2-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/tcl-Hamlib@4.7.2-bp160.1.1?arch=aarch64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "hamlib-0:4.7.2-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "hamlib-0:4.7.2-bp160.1.1.ppc64le",
+                  "product_id": "hamlib-0:4.7.2-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/hamlib@4.7.2-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "hamlib-devel-0:4.7.2-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "hamlib-devel-0:4.7.2-bp160.1.1.ppc64le",
+                  "product_id": "hamlib-devel-0:4.7.2-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/hamlib-devel@4.7.2-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libhamlib++4-0:4.7.2-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "libhamlib++4-0:4.7.2-bp160.1.1.ppc64le",
+                  "product_id": "libhamlib++4-0:4.7.2-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libhamlib++4@4.7.2-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libhamlib4-0:4.7.2-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "libhamlib4-0:4.7.2-bp160.1.1.ppc64le",
+                  "product_id": "libhamlib4-0:4.7.2-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libhamlib4@4.7.2-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "lua-Hamliblua-0:4.7.2-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "lua-Hamliblua-0:4.7.2-bp160.1.1.ppc64le",
+                  "product_id": "lua-Hamliblua-0:4.7.2-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/lua-Hamliblua@4.7.2-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "perl-Hamlib-0:4.7.2-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "perl-Hamlib-0:4.7.2-bp160.1.1.ppc64le",
+                  "product_id": "perl-Hamlib-0:4.7.2-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/perl-Hamlib@4.7.2-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python3-Hamlib-0:4.7.2-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "python3-Hamlib-0:4.7.2-bp160.1.1.ppc64le",
+                  "product_id": "python3-Hamlib-0:4.7.2-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/python3-Hamlib@4.7.2-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "tcl-Hamlib-0:4.7.2-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "tcl-Hamlib-0:4.7.2-bp160.1.1.ppc64le",
+                  "product_id": "tcl-Hamlib-0:4.7.2-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/tcl-Hamlib@4.7.2-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "hamlib-0:4.7.2-bp160.1.1.s390x",
+                "product": {
+                  "name": "hamlib-0:4.7.2-bp160.1.1.s390x",
+                  "product_id": "hamlib-0:4.7.2-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/hamlib@4.7.2-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "hamlib-devel-0:4.7.2-bp160.1.1.s390x",
+                "product": {
+                  "name": "hamlib-devel-0:4.7.2-bp160.1.1.s390x",
+                  "product_id": "hamlib-devel-0:4.7.2-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/hamlib-devel@4.7.2-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libhamlib++4-0:4.7.2-bp160.1.1.s390x",
+                "product": {
+                  "name": "libhamlib++4-0:4.7.2-bp160.1.1.s390x",
+                  "product_id": "libhamlib++4-0:4.7.2-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libhamlib++4@4.7.2-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libhamlib4-0:4.7.2-bp160.1.1.s390x",
+                "product": {
+                  "name": "libhamlib4-0:4.7.2-bp160.1.1.s390x",
+                  "product_id": "libhamlib4-0:4.7.2-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libhamlib4@4.7.2-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "lua-Hamliblua-0:4.7.2-bp160.1.1.s390x",
+                "product": {
+                  "name": "lua-Hamliblua-0:4.7.2-bp160.1.1.s390x",
+                  "product_id": "lua-Hamliblua-0:4.7.2-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/lua-Hamliblua@4.7.2-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "perl-Hamlib-0:4.7.2-bp160.1.1.s390x",
+                "product": {
+                  "name": "perl-Hamlib-0:4.7.2-bp160.1.1.s390x",
+                  "product_id": "perl-Hamlib-0:4.7.2-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/perl-Hamlib@4.7.2-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python3-Hamlib-0:4.7.2-bp160.1.1.s390x",
+                "product": {
+                  "name": "python3-Hamlib-0:4.7.2-bp160.1.1.s390x",
+                  "product_id": "python3-Hamlib-0:4.7.2-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/python3-Hamlib@4.7.2-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "tcl-Hamlib-0:4.7.2-bp160.1.1.s390x",
+                "product": {
+                  "name": "tcl-Hamlib-0:4.7.2-bp160.1.1.s390x",
+                  "product_id": "tcl-Hamlib-0:4.7.2-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/tcl-Hamlib@4.7.2-bp160.1.1?arch=s390x"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "hamlib-0:4.7.2-bp160.1.1.x86_64",
+                "product": {
+                  "name": "hamlib-0:4.7.2-bp160.1.1.x86_64",
+                  "product_id": "hamlib-0:4.7.2-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/hamlib@4.7.2-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "hamlib-devel-0:4.7.2-bp160.1.1.x86_64",
+                "product": {
+                  "name": "hamlib-devel-0:4.7.2-bp160.1.1.x86_64",
+                  "product_id": "hamlib-devel-0:4.7.2-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/hamlib-devel@4.7.2-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libhamlib++4-0:4.7.2-bp160.1.1.x86_64",
+                "product": {
+                  "name": "libhamlib++4-0:4.7.2-bp160.1.1.x86_64",
+                  "product_id": "libhamlib++4-0:4.7.2-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libhamlib++4@4.7.2-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libhamlib4-0:4.7.2-bp160.1.1.x86_64",
+                "product": {
+                  "name": "libhamlib4-0:4.7.2-bp160.1.1.x86_64",
+                  "product_id": "libhamlib4-0:4.7.2-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libhamlib4@4.7.2-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "lua-Hamliblua-0:4.7.2-bp160.1.1.x86_64",
+                "product": {
+                  "name": "lua-Hamliblua-0:4.7.2-bp160.1.1.x86_64",
+                  "product_id": "lua-Hamliblua-0:4.7.2-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/lua-Hamliblua@4.7.2-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "perl-Hamlib-0:4.7.2-bp160.1.1.x86_64",
+                "product": {
+                  "name": "perl-Hamlib-0:4.7.2-bp160.1.1.x86_64",
+                  "product_id": "perl-Hamlib-0:4.7.2-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/perl-Hamlib@4.7.2-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python3-Hamlib-0:4.7.2-bp160.1.1.x86_64",
+                "product": {
+                  "name": "python3-Hamlib-0:4.7.2-bp160.1.1.x86_64",
+                  "product_id": "python3-Hamlib-0:4.7.2-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/python3-Hamlib@4.7.2-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "tcl-Hamlib-0:4.7.2-bp160.1.1.x86_64",
+                "product": {
+                  "name": "tcl-Hamlib-0:4.7.2-bp160.1.1.x86_64",
+                  "product_id": "tcl-Hamlib-0:4.7.2-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/tcl-Hamlib@4.7.2-bp160.1.1?arch=x86_64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "hamlib-0:4.7.2-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:hamlib-0:4.7.2-bp160.1.1.aarch64"
+        },
+        "product_reference": "hamlib-0:4.7.2-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "hamlib-0:4.7.2-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:hamlib-0:4.7.2-bp160.1.1.ppc64le"
+        },
+        "product_reference": "hamlib-0:4.7.2-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "hamlib-0:4.7.2-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:hamlib-0:4.7.2-bp160.1.1.s390x"
+        },
+        "product_reference": "hamlib-0:4.7.2-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "hamlib-0:4.7.2-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:hamlib-0:4.7.2-bp160.1.1.x86_64"
+        },
+        "product_reference": "hamlib-0:4.7.2-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "hamlib-devel-0:4.7.2-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:hamlib-devel-0:4.7.2-bp160.1.1.aarch64"
+        },
+        "product_reference": "hamlib-devel-0:4.7.2-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "hamlib-devel-0:4.7.2-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:hamlib-devel-0:4.7.2-bp160.1.1.ppc64le"
+        },
+        "product_reference": "hamlib-devel-0:4.7.2-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "hamlib-devel-0:4.7.2-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:hamlib-devel-0:4.7.2-bp160.1.1.s390x"
+        },
+        "product_reference": "hamlib-devel-0:4.7.2-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "hamlib-devel-0:4.7.2-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:hamlib-devel-0:4.7.2-bp160.1.1.x86_64"
+        },
+        "product_reference": "hamlib-devel-0:4.7.2-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libhamlib++4-0:4.7.2-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libhamlib++4-0:4.7.2-bp160.1.1.aarch64"
+        },
+        "product_reference": "libhamlib++4-0:4.7.2-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libhamlib++4-0:4.7.2-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libhamlib++4-0:4.7.2-bp160.1.1.ppc64le"
+        },
+        "product_reference": "libhamlib++4-0:4.7.2-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libhamlib++4-0:4.7.2-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libhamlib++4-0:4.7.2-bp160.1.1.s390x"
+        },
+        "product_reference": "libhamlib++4-0:4.7.2-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libhamlib++4-0:4.7.2-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libhamlib++4-0:4.7.2-bp160.1.1.x86_64"
+        },
+        "product_reference": "libhamlib++4-0:4.7.2-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libhamlib4-0:4.7.2-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libhamlib4-0:4.7.2-bp160.1.1.aarch64"
+        },
+        "product_reference": "libhamlib4-0:4.7.2-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libhamlib4-0:4.7.2-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libhamlib4-0:4.7.2-bp160.1.1.ppc64le"
+        },
+        "product_reference": "libhamlib4-0:4.7.2-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libhamlib4-0:4.7.2-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libhamlib4-0:4.7.2-bp160.1.1.s390x"
+        },
+        "product_reference": "libhamlib4-0:4.7.2-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libhamlib4-0:4.7.2-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libhamlib4-0:4.7.2-bp160.1.1.x86_64"
+        },
+        "product_reference": "libhamlib4-0:4.7.2-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "lua-Hamliblua-0:4.7.2-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:lua-Hamliblua-0:4.7.2-bp160.1.1.aarch64"
+        },
+        "product_reference": "lua-Hamliblua-0:4.7.2-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "lua-Hamliblua-0:4.7.2-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:lua-Hamliblua-0:4.7.2-bp160.1.1.ppc64le"
+        },
+        "product_reference": "lua-Hamliblua-0:4.7.2-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "lua-Hamliblua-0:4.7.2-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:lua-Hamliblua-0:4.7.2-bp160.1.1.s390x"
+        },
+        "product_reference": "lua-Hamliblua-0:4.7.2-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "lua-Hamliblua-0:4.7.2-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:lua-Hamliblua-0:4.7.2-bp160.1.1.x86_64"
+        },
+        "product_reference": "lua-Hamliblua-0:4.7.2-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Hamlib-0:4.7.2-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Hamlib-0:4.7.2-bp160.1.1.aarch64"
+        },
+        "product_reference": "perl-Hamlib-0:4.7.2-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Hamlib-0:4.7.2-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Hamlib-0:4.7.2-bp160.1.1.ppc64le"
+        },
+        "product_reference": "perl-Hamlib-0:4.7.2-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Hamlib-0:4.7.2-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Hamlib-0:4.7.2-bp160.1.1.s390x"
+        },
+        "product_reference": "perl-Hamlib-0:4.7.2-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Hamlib-0:4.7.2-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Hamlib-0:4.7.2-bp160.1.1.x86_64"
+        },
+        "product_reference": "perl-Hamlib-0:4.7.2-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python3-Hamlib-0:4.7.2-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:python3-Hamlib-0:4.7.2-bp160.1.1.aarch64"
+        },
+        "product_reference": "python3-Hamlib-0:4.7.2-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python3-Hamlib-0:4.7.2-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:python3-Hamlib-0:4.7.2-bp160.1.1.ppc64le"
+        },
+        "product_reference": "python3-Hamlib-0:4.7.2-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python3-Hamlib-0:4.7.2-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:python3-Hamlib-0:4.7.2-bp160.1.1.s390x"
+        },
+        "product_reference": "python3-Hamlib-0:4.7.2-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python3-Hamlib-0:4.7.2-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:python3-Hamlib-0:4.7.2-bp160.1.1.x86_64"
+        },
+        "product_reference": "python3-Hamlib-0:4.7.2-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "tcl-Hamlib-0:4.7.2-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:tcl-Hamlib-0:4.7.2-bp160.1.1.aarch64"
+        },
+        "product_reference": "tcl-Hamlib-0:4.7.2-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "tcl-Hamlib-0:4.7.2-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:tcl-Hamlib-0:4.7.2-bp160.1.1.ppc64le"
+        },
+        "product_reference": "tcl-Hamlib-0:4.7.2-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "tcl-Hamlib-0:4.7.2-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:tcl-Hamlib-0:4.7.2-bp160.1.1.s390x"
+        },
+        "product_reference": "tcl-Hamlib-0:4.7.2-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "tcl-Hamlib-0:4.7.2-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:tcl-Hamlib-0:4.7.2-bp160.1.1.x86_64"
+        },
+        "product_reference": "tcl-Hamlib-0:4.7.2-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-54634",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-54634"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Hamlib is a ham radio control library for radios, rotators, and amplifiers. Prior to 4.7.2, the unauthenticated rigctld send_raw command on TCP port 4532 reaches rigctl_send_raw() in tests/rigctl_parse.c, which writes a NUL byte at buf[buf_len + 1] outside its 200-byte stack buffer, and rig_send_raw() in src/rig.c, which copies reply_len - 1 bytes instead of the actual nbytes received. A remote client can send the CR terminator with a short payload to trigger both flaws in one command under the default no-password configuration. The out-of-bounds write can crash the daemon or corrupt adjacent stack memory, while the oversized copy can return up to 198 bytes of uninitialized stack data to the client. This issue is fixed in version 4.7.2.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:hamlib-0:4.7.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:hamlib-0:4.7.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:hamlib-0:4.7.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:hamlib-0:4.7.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:hamlib-devel-0:4.7.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:hamlib-devel-0:4.7.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:hamlib-devel-0:4.7.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:hamlib-devel-0:4.7.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libhamlib++4-0:4.7.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libhamlib++4-0:4.7.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libhamlib++4-0:4.7.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libhamlib++4-0:4.7.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libhamlib4-0:4.7.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libhamlib4-0:4.7.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libhamlib4-0:4.7.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libhamlib4-0:4.7.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:lua-Hamliblua-0:4.7.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:lua-Hamliblua-0:4.7.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:lua-Hamliblua-0:4.7.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:lua-Hamliblua-0:4.7.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:perl-Hamlib-0:4.7.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:perl-Hamlib-0:4.7.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:perl-Hamlib-0:4.7.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:perl-Hamlib-0:4.7.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:python3-Hamlib-0:4.7.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:python3-Hamlib-0:4.7.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:python3-Hamlib-0:4.7.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:python3-Hamlib-0:4.7.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:tcl-Hamlib-0:4.7.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:tcl-Hamlib-0:4.7.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:tcl-Hamlib-0:4.7.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:tcl-Hamlib-0:4.7.2-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-54634",
+          "url": "https://www.suse.com/security/cve/CVE-2026-54634"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268628 for CVE-2026-54634",
+          "url": "https://bugzilla.suse.com/1268628"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:hamlib-0:4.7.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:hamlib-0:4.7.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:hamlib-0:4.7.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:hamlib-0:4.7.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:hamlib-devel-0:4.7.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:hamlib-devel-0:4.7.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:hamlib-devel-0:4.7.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:hamlib-devel-0:4.7.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libhamlib++4-0:4.7.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libhamlib++4-0:4.7.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libhamlib++4-0:4.7.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libhamlib++4-0:4.7.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libhamlib4-0:4.7.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libhamlib4-0:4.7.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libhamlib4-0:4.7.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libhamlib4-0:4.7.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:lua-Hamliblua-0:4.7.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:lua-Hamliblua-0:4.7.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:lua-Hamliblua-0:4.7.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:lua-Hamliblua-0:4.7.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:perl-Hamlib-0:4.7.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:perl-Hamlib-0:4.7.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:perl-Hamlib-0:4.7.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:perl-Hamlib-0:4.7.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:python3-Hamlib-0:4.7.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:python3-Hamlib-0:4.7.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:python3-Hamlib-0:4.7.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:python3-Hamlib-0:4.7.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:tcl-Hamlib-0:4.7.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:tcl-Hamlib-0:4.7.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:tcl-Hamlib-0:4.7.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:tcl-Hamlib-0:4.7.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-23T16:20:31Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-54634"
+    }
+  ]
+}

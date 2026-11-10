@@ -1,0 +1,232 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for python-pytest-html",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for python-pytest-html fixes the following issues:\n\nChanges in python-pytest-html:\n\n- CVE-2026-9277: shell-quote: improper escaping of newlines (bsc#1266254)\n  Update the vendored shell-quote to 1.8.4 node_modules\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-278",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_20839-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1266254",
+        "url": "https://bugzilla.suse.com/1266254"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-9277 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-9277/"
+      }
+    ],
+    "title": "Security update for python-pytest-html",
+    "tracking": {
+      "current_release_date": "2026-09-30T15:57:58Z",
+      "generator": {
+        "date": "2026-05-28T12:20:45Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:20839-1",
+      "initial_release_date": "2026-05-28T12:20:45Z",
+      "revision_history": [
+        {
+          "date": "2026-05-28T12:20:45Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:35:53Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:38:50Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:33:30Z",
+          "number": "4",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-30T15:57:58Z",
+          "number": "5",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "5"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "python313-pytest-html-0:4.1.1-bp160.2.1.noarch",
+                "product": {
+                  "name": "python313-pytest-html-0:4.1.1-bp160.2.1.noarch",
+                  "product_id": "python313-pytest-html-0:4.1.1-bp160.2.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/python313-pytest-html@4.1.1-bp160.2.1?arch=noarch"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python313-pytest-html-0:4.1.1-bp160.2.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:python313-pytest-html-0:4.1.1-bp160.2.1.noarch"
+        },
+        "product_reference": "python313-pytest-html-0:4.1.1-bp160.2.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-9277",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-9277"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "shell-quote's `quote()` function did not validate object-token inputs against the operator model used by `parse()`. The `.op` field was backslash-escaped character by character using `/(.)/g`, which in JavaScript does not match line terminators (\\n, \\r, U+2028, U+2029). A line terminator in `.op` therefore passed through unescaped into the output; POSIX shells treat a literal newline as a command separator, so any content after it would execute as a second command. The vulnerable code path is reachable in two ways: (1) direct construction of `{ op: '...\\n...' }` from external input, and (2) via `parse(cmd, envFn)` when `envFn` returns object tokens whose `.op` is attacker-influenced. Both are documented API surface. Fixed by replacing the per-character escape with strict shape validation: `.op` must match the parser's control-operator allowlist; `{ op: 'glob', pattern }` validates `pattern` and forbids line terminators; `{ comment }` validates `comment` and forbids line terminators; any other object shape throws `TypeError`.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-pytest-html-0:4.1.1-bp160.2.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-9277",
+          "url": "https://www.suse.com/security/cve/CVE-2026-9277"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266249 for CVE-2026-9277",
+          "url": "https://bugzilla.suse.com/1266249"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1283424 for CVE-2026-9277",
+          "url": "https://bugzilla.suse.com/1283424"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-pytest-html-0:4.1.1-bp160.2.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-pytest-html-0:4.1.1-bp160.2.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-05-28T12:20:45Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-9277"
+    }
+  ]
+}

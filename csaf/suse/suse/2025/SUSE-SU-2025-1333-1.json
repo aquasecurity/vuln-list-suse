@@ -1,0 +1,2749 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for cosign",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for cosign fixes the following issues:\n\n- CVE-2024-6104: cosign: hashicorp/go-retryablehttp: Fixed sensitive information disclosure to log file (bsc#1227031)\n- CVE-2024-51744: cosign: github.com/golang-jwt/jwt/v4: Fixed bad documentation of error handling in ParseWithClaims leading to potentially dangerous situations (bsc#1232985)\n- CVE-2025-27144: cosign: github.com/go-jose/go-jose/v4,github.com/go-jose/go-jose/v3: Fixed denial of service in Go JOSE's Parsing (bsc#1237682)\n- CVE-2025-22870: cosign: golang.org/x/net/proxy: Fixed proxy bypass using IPv6 zone IDs (bsc#1238693)\n- CVE-2025-22868: cosign: golang.org/x/oauth2/jws: Fixed unexpected memory consumption during token parsing (bsc#1239204)\n- CVE-2025-22869: cosign: golang.org/x/crypto/ssh: Fixed denial of service in the Key Exchange (bsc#1239337)\n\nOther fixes:\n\n- Update to version 2.5.0 (jsc#SLE-23476):\n  * Update sigstore-go to pick up bug fixes (#4150)\n  * Update golangci-lint to v2, update golangci-lint-action (#4143)\n  * Feat/non filename completions (#4115)\n  * update builder to use go1.24.1 (#4116)\n  * Add support for new bundle specification for attesting/verifying OCI image attestations (#3889)\n  * Remove cert log line (#4113)\n  * cmd/cosign/cli: fix typo in ignoreTLogMessage (#4111)\n  * bump to latest scaffolding release for testing (#4099)\n  * increase 2e2_test docker compose tiemout to 180s (#4091)\n  * Fix replace with compliant image mediatype (#4077)\n  * Add TSA certificate related flags and fields for cosign attest (#4079)\n\n- Update to version 2.4.3 (jsc#SLE-23476):\n  * Enable fetching signatures without remote get. (#4047)\n  * Bump sigstore/sigstore to support KMS plugins (#4073)\n  * sort properly Go imports (#4071)\n  * sync comment with parameter name in function signature (#4063)\n  * fix go imports order to be alphabetical (#4062)\n  * fix comment typo and imports order (#4061)\n  * Feat/file flag completion improvements (#4028)\n  * Udpate builder to use go1.23.6 (#4052)\n  * Refactor verifyNewBundle into library function (#4013)\n  * fix parsing error in --only for cosign copy (#4049)\n  * Fix codeowners syntax, add dep-maintainers (#4046)\n\n- Update to version 2.4.2 (jsc#SLE-23476):\n  - Updated open-policy-agent to 1.1.0 library (#4036)\n     -  Note that only Rego v0 policies are supported at this time\n  - Add UseSignedTimestamps to CheckOpts, refactor TSA options (#4006)\n  - Add support for verifying root checksum in cosign initialize (#3953)\n  - Detect if user supplied a valid protobuf bundle (#3931)\n  - Add a log message if user doesn't provide --trusted-root (#3933)\n  - Support mTLS towards container registry (#3922)\n  - Add bundle create helper command (#3901)\n  - Add trusted-root create helper command (#3876)\n  Bug Fixes:\n  - fix: set tls config while retaining other fields from default http transport (#4007)\n  - policy fuzzer: ignore known panics (#3993)\n  - Fix for multiple WithRemote options (#3982)\n  - Add nightly conformance test workflow (#3979)\n  - Fix copy --only for signatures + update/align docs (#3904)\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2025-1333,SUSE-SLE-Module-Basesystem-15-SP6-2025-1333,SUSE-SLE-Product-HPC-15-SP4-ESPOS-2025-1333,SUSE-SLE-Product-HPC-15-SP4-LTSS-2025-1333,SUSE-SLE-Product-HPC-15-SP5-ESPOS-2025-1333,SUSE-SLE-Product-HPC-15-SP5-LTSS-2025-1333,SUSE-SLE-Product-SLES-15-SP4-LTSS-2025-1333,SUSE-SLE-Product-SLES-15-SP5-LTSS-2025-1333,SUSE-SLE-Product-SLES_SAP-15-SP4-2025-1333,SUSE-SLE-Product-SLES_SAP-15-SP5-2025-1333,SUSE-SLE-Product-SUSE-Manager-Proxy-4.3-2025-1333,SUSE-SLE-Product-SUSE-Manager-Server-4.3-2025-1333,openSUSE-SLE-15.6-2025-1333",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_1333-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:1333-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-20251333-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:1333-1",
+        "url": "https://lists.suse.com/pipermail/sle-updates/2025-April/039052.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1227031",
+        "url": "https://bugzilla.suse.com/1227031"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1232985",
+        "url": "https://bugzilla.suse.com/1232985"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1237682",
+        "url": "https://bugzilla.suse.com/1237682"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1238693",
+        "url": "https://bugzilla.suse.com/1238693"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1239204",
+        "url": "https://bugzilla.suse.com/1239204"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1239337",
+        "url": "https://bugzilla.suse.com/1239337"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-51744 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-51744/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-6104 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-6104/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-22868 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-22868/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-22869 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-22869/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-22870 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-22870/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-27144 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-27144/"
+      }
+    ],
+    "title": "Security update for cosign",
+    "tracking": {
+      "current_release_date": "2026-09-20T18:04:34Z",
+      "generator": {
+        "date": "2025-04-17T01:38:19Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:1333-1",
+      "initial_release_date": "2025-04-17T01:38:19Z",
+      "revision_history": [
+        {
+          "date": "2025-04-17T01:38:19Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T18:04:34Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+                "product": {
+                  "name": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+                  "product_id": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sigstore:cosign:2.5.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cosign@2.5.0-150400.3.27.1?arch=aarch64\u0026upstream=cosign-0:2.5.0-150400.3.27.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cosign-0:2.5.0-150400.3.27.1.i586",
+                "product": {
+                  "name": "cosign-0:2.5.0-150400.3.27.1.i586",
+                  "product_id": "cosign-0:2.5.0-150400.3.27.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sigstore:cosign:2.5.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cosign@2.5.0-150400.3.27.1?arch=i586\u0026upstream=cosign-0:2.5.0-150400.3.27.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "i586"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cosign-bash-completion-0:2.5.0-150400.3.27.1.noarch",
+                "product": {
+                  "name": "cosign-bash-completion-0:2.5.0-150400.3.27.1.noarch",
+                  "product_id": "cosign-bash-completion-0:2.5.0-150400.3.27.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sigstore:cosign:2.5.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cosign-bash-completion@2.5.0-150400.3.27.1?arch=noarch\u0026upstream=cosign-0:2.5.0-150400.3.27.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cosign-fish-completion-0:2.5.0-150400.3.27.1.noarch",
+                "product": {
+                  "name": "cosign-fish-completion-0:2.5.0-150400.3.27.1.noarch",
+                  "product_id": "cosign-fish-completion-0:2.5.0-150400.3.27.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sigstore:cosign:2.5.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cosign-fish-completion@2.5.0-150400.3.27.1?arch=noarch\u0026upstream=cosign-0:2.5.0-150400.3.27.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cosign-zsh-completion-0:2.5.0-150400.3.27.1.noarch",
+                "product": {
+                  "name": "cosign-zsh-completion-0:2.5.0-150400.3.27.1.noarch",
+                  "product_id": "cosign-zsh-completion-0:2.5.0-150400.3.27.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sigstore:cosign:2.5.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cosign-zsh-completion@2.5.0-150400.3.27.1?arch=noarch\u0026upstream=cosign-0:2.5.0-150400.3.27.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cosign-0:2.5.0-150400.3.27.1.ppc64le",
+                "product": {
+                  "name": "cosign-0:2.5.0-150400.3.27.1.ppc64le",
+                  "product_id": "cosign-0:2.5.0-150400.3.27.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sigstore:cosign:2.5.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cosign@2.5.0-150400.3.27.1?arch=ppc64le\u0026upstream=cosign-0:2.5.0-150400.3.27.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cosign-0:2.5.0-150400.3.27.1.s390x",
+                "product": {
+                  "name": "cosign-0:2.5.0-150400.3.27.1.s390x",
+                  "product_id": "cosign-0:2.5.0-150400.3.27.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sigstore:cosign:2.5.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cosign@2.5.0-150400.3.27.1?arch=s390x\u0026upstream=cosign-0:2.5.0-150400.3.27.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+                "product": {
+                  "name": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+                  "product_id": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sigstore:cosign:2.5.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cosign@2.5.0-150400.3.27.1?arch=x86_64\u0026upstream=cosign-0:2.5.0-150400.3.27.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-basesystem:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Desktop 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Desktop 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Desktop 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sled:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc-espos:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc-ltss:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP4",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP4",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc-espos:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc-ltss:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP5",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles-ltss:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP4",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP4",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "Open Enterprise Server 23.4",
+                "product": {
+                  "name": "Open Enterprise Server 23.4",
+                  "product_id": "Open Enterprise Server 23.4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:novell,inc:OES:23.4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "Open Enterprise Server 24.4",
+                "product": {
+                  "name": "Open Enterprise Server 24.4",
+                  "product_id": "Open Enterprise Server 24.4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:novell,inc:OES:24.4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles-ltss:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP5",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Manager Proxy 4.3",
+                "product": {
+                  "name": "SUSE Manager Proxy 4.3",
+                  "product_id": "SUSE Manager Proxy 4.3",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:suse-manager-proxy:4.3"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Manager Server 4.3",
+                "product": {
+                  "name": "SUSE Manager Server 4.3",
+                  "product_id": "SUSE Manager Server 4.3",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:suse-manager-server:4.3"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 15.6",
+                "product": {
+                  "name": "openSUSE Leap 15.6",
+                  "product_id": "openSUSE Leap 15.6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:opensuse:leap:15.6"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.s390x as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.s390x as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.s390x as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.aarch64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.ppc64le"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.ppc64le",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.s390x as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.s390x"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.s390x",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.aarch64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.ppc64le"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.ppc64le",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.s390x as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.s390x"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.s390x",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.s390x as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.s390x as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.s390x as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of SUSE Manager Proxy 4.3",
+          "product_id": "SUSE Manager Proxy 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Proxy 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.ppc64le as component of SUSE Manager Server 4.3",
+          "product_id": "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.ppc64le"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Server 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.s390x as component of SUSE Manager Server 4.3",
+          "product_id": "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.s390x"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.s390x",
+        "relates_to_product_reference": "SUSE Manager Server 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of SUSE Manager Server 4.3",
+          "product_id": "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Server 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.aarch64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.aarch64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.ppc64le as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.ppc64le"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.s390x as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.s390x"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:2.5.0-150400.3.27.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        },
+        "product_reference": "cosign-0:2.5.0-150400.3.27.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2024-51744",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-51744"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "golang-jwt is a Go implementation of JSON Web Tokens. Unclear documentation of the error behavior in `ParseWithClaims` can lead to situation where users are potentially not checking errors in the way they should be. Especially, if a token is both expired and invalid, the errors returned by `ParseWithClaims` return both error codes. If users only check for the `jwt.ErrTokenExpired ` using `error.Is`, they will ignore the embedded `jwt.ErrTokenSignatureInvalid` and thus potentially accept invalid tokens. A fix has been back-ported with the error handling logic from the `v5` branch to the `v4` branch. In this logic, the `ParseWithClaims` function will immediately return in \"dangerous\" situations (e.g., an invalid signature), limiting the combined errors only to situations where the signature is valid, but further validation failed (e.g., if the signature is valid, but is expired AND has the wrong audience). This fix is part of the 4.5.1 release. We are aware that this changes the behaviour of an established function and is not 100 % backwards compatible, so updating to 4.5.1 might break your code. In case you cannot update to 4.5.0, please make sure that you are properly checking for all errors (\"dangerous\" ones first), so that you are not running in the case detailed above.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Manager Proxy 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-51744",
+          "url": "https://www.suse.com/security/cve/CVE-2024-51744"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1232936 for CVE-2024-51744",
+          "url": "https://bugzilla.suse.com/1232936"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Proxy 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 3.1,
+            "baseSeverity": "LOW",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Proxy 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-04-17T01:38:19Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-51744"
+    },
+    {
+      "cve": "CVE-2024-6104",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-6104"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "go-retryablehttp prior to 0.7.7 did not sanitize urls when writing them to its log file. This could lead to go-retryablehttp writing sensitive HTTP basic auth credentials to its log file. This vulnerability, CVE-2024-6104, was fixed in go-retryablehttp 0.7.7.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Manager Proxy 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-6104",
+          "url": "https://www.suse.com/security/cve/CVE-2024-6104"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1227024 for CVE-2024-6104",
+          "url": "https://bugzilla.suse.com/1227024"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Proxy 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:C/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Proxy 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-04-17T01:38:19Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-6104"
+    },
+    {
+      "cve": "CVE-2025-22868",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-22868"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An attacker can pass a malicious malformed token which causes unexpected memory to be consumed during parsing.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Manager Proxy 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-22868",
+          "url": "https://www.suse.com/security/cve/CVE-2025-22868"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1239185 for CVE-2025-22868",
+          "url": "https://bugzilla.suse.com/1239185"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1239186 for CVE-2025-22868",
+          "url": "https://bugzilla.suse.com/1239186"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Proxy 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Proxy 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-04-17T01:38:19Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-22868"
+    },
+    {
+      "cve": "CVE-2025-22869",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-22869"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "SSH servers which implement file transfer protocols are vulnerable to a denial of service attack from clients which complete the key exchange slowly, or not at all, causing pending content to be read into memory, but never transmitted.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Manager Proxy 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-22869",
+          "url": "https://www.suse.com/security/cve/CVE-2025-22869"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1239322 for CVE-2025-22869",
+          "url": "https://bugzilla.suse.com/1239322"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Proxy 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Proxy 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-04-17T01:38:19Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-22869"
+    },
+    {
+      "cve": "CVE-2025-22870",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-22870"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Matching of hosts against proxy patterns can improperly treat an IPv6 zone ID as a hostname component. For example, when the NO_PROXY environment variable is set to \"*.example.com\", a request to \"[::1%25.example.com]:80` will incorrectly match and not be proxied.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Manager Proxy 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-22870",
+          "url": "https://www.suse.com/security/cve/CVE-2025-22870"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1238572 for CVE-2025-22870",
+          "url": "https://bugzilla.suse.com/1238572"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1238611 for CVE-2025-22870",
+          "url": "https://bugzilla.suse.com/1238611"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Proxy 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Proxy 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-04-17T01:38:19Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-22870"
+    },
+    {
+      "cve": "CVE-2025-27144",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-27144"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Go JOSE provides an implementation of the Javascript Object Signing and Encryption set of standards in Go, including support for JSON Web Encryption (JWE), JSON Web Signature (JWS), and JSON Web Token (JWT) standards. In versions on the 4.x branch prior to version 4.0.5, when parsing compact JWS or JWE input, Go JOSE could use excessive memory. The code used strings.Split(token, \".\") to split JWT tokens, which is vulnerable to excessive memory consumption when processing maliciously crafted tokens with a large number of `.` characters.  An attacker could exploit this by sending numerous malformed tokens, leading to memory exhaustion and a Denial of Service. Version 4.0.5 fixes this issue. As a workaround, applications could pre-validate that payloads passed to Go JOSE do not contain an excessive number of `.` characters.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Manager Proxy 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.s390x",
+          "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-27144",
+          "url": "https://www.suse.com/security/cve/CVE-2025-27144"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1237608 for CVE-2025-27144",
+          "url": "https://bugzilla.suse.com/1237608"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1237609 for CVE-2025-27144",
+          "url": "https://bugzilla.suse.com/1237609"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Proxy 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 23.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "Open Enterprise Server 24.4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Proxy 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "SUSE Manager Server 4.3:cosign-0:2.5.0-150400.3.27.1.x86_64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.aarch64",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.ppc64le",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.s390x",
+            "openSUSE Leap 15.6:cosign-0:2.5.0-150400.3.27.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-04-17T01:38:19Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-27144"
+    }
+  ]
+}

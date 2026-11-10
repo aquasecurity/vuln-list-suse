@@ -1,0 +1,223 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for python-FontTools",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for python-FontTools fixes the following issues:\n\n- CVE-2025-66034: Fixed arbitrary file write vulnerability that could lead to remote code execution (bsc#1254366).\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-204",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_20119-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1254366",
+        "url": "https://bugzilla.suse.com/1254366"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-66034 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-66034/"
+      }
+    ],
+    "title": "Security update for python-FontTools",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:26:10Z",
+      "generator": {
+        "date": "2026-01-28T09:58:53Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:20119-1",
+      "initial_release_date": "2026-01-28T09:58:53Z",
+      "revision_history": [
+        {
+          "date": "2026-01-28T09:58:53Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:29:37Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:32:19Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:26:10Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "python313-FontTools-0:4.53.1-160000.3.1.noarch",
+                "product": {
+                  "name": "python313-FontTools-0:4.53.1-160000.3.1.noarch",
+                  "product_id": "python313-FontTools-0:4.53.1-160000.3.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:fonttools:fonttools:4.53.1:*:*:*:*:python:*:*",
+                    "purl": "pkg:rpm/suse/python313-FontTools@4.53.1-160000.3.1?arch=noarch\u0026upstream=python-FontTools-0:4.53.1-160000.3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python313-FontTools-0:4.53.1-160000.3.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:python313-FontTools-0:4.53.1-160000.3.1.noarch"
+        },
+        "product_reference": "python313-FontTools-0:4.53.1-160000.3.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-66034",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-66034"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "fontTools is a library for manipulating fonts, written in Python. In versions from 4.33.0 to before 4.60.2, the fonttools varLib (or python3 -m fontTools.varLib) script has an arbitrary file write vulnerability that leads to remote code execution when a malicious .designspace file is processed. The vulnerability affects the main() code path of fontTools.varLib, used by the fonttools varLib CLI and any code that invokes fontTools.varLib.main(). This issue has been patched in version 4.60.2.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-FontTools-0:4.53.1-160000.3.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-66034",
+          "url": "https://www.suse.com/security/cve/CVE-2025-66034"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1254366 for CVE-2025-66034",
+          "url": "https://bugzilla.suse.com/1254366"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-FontTools-0:4.53.1-160000.3.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:C/C:N/I:H/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-FontTools-0:4.53.1-160000.3.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-01-28T09:58:53Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-66034"
+    }
+  ]
+}

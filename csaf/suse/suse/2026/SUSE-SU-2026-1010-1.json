@@ -1,0 +1,1520 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update 5.0.7 for Multi-Linux Manager Server",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update fixes the following issues:\n\nbranch-network-formula:\n\n- Update to version 1.1.0 \n  * Enable containers on SLE15SP7\n  * Exclude podman interfaces from sysctl setting\n\ncobbler:\n\n- Compatibility fixes for tftpboot directory setup\n\ninter-server-sync:\n\n- Version 0.3.10-0\n  * Write log to a rotated file without rsyslog and logrotate\n  * Recreate cobbler entries on the import (bsc#1220899)\n  * remove support for 4.2 file based pillars\n  * use correct hostname detection for 5.x servers\n    (bsc#1253322)\n\njose4j:\n\n- CVE-2024-29371: Safeguard against excessive resource utilization by\n  restricting the size of data during JWE payload decompression (bsc#1255298)\n\nliberate-formula:\n\n- Version 0.1.2\n  * Add option to prevent logo packages from being installed \n\nspacecmd:\n\n- Version 5.0.15-0\n  * Fix typo in spacecmd help ca-cert flag (bsc#1253174)\n  * Convert cached IDs to int (bsc#1251995)\n  * Fix spacecmd binary file upload (bsc#1253659)\n\nspacewalk-backend:\n\n- Version 5.0.17-0\n  * Fix reposync mediaproduct fetch when\n    URL contains auth token (bsc#1252388)\n\nspacewalk-certs-tools:\n\n- Version 5.0.13-0\n  * Fix bootstrap script for SLM 6.2 (bsc#1257992)\n  * Fix failing bootstrap with bootstrap script on SLES 16\n    and SL Micro 6.2 (bsc#1256991)\n\nspacewalk-client-tools:\n\n- Version 5.0.12-0\n  * Update translation strings\n\nspacewalk-config:\n\n- Version 5.0.9-0\n  * Enable HSTS in Apache config (bsc#1255176)\n  * Force SameSite=Lax on all Set-Cookie headers (bsc#1253711)\n\nspacewalk-java:\n\n- Version 5.0.31-0\n  * Commit DB changes before refreshing pillar for SSH push minions\n    (bsc#1253712)\n  * Fix http proxy verification (bsc#1253501)\n  * Fix: Broken URL in API docs (bsc#1244177)\n  * Fix crash in ubuntu errata sync on deleted channel ids\n    (bsc#1250561)\n  * Fix dnf updateinfo showing wrong severity for\n    security updates (bsc#1252937)\n  * Add details on config channels and state order in UI\n    (bsc#1253285)\n  * fix reposync crashing at metadata generation (bsc#1257538)\n  * Block multiple versions of the same package\n    from being locked (bsc#1246315)\n  * Use PackageEvr instead of string for fix_version (bsc#1252638)\n  * Add multi-thread support for message queue (bsc#1247722)\n  * Fix ungrouped systems list menu item (bsc#1254251)\n\nspacewalk-proxy:\n\n- Version 5.0.8-0\n  * Disable listing the content of /icons (bsc#1247544)\n\nspacewalk-proxy-installer:\n\n- Version 5.0.3-0\n  * Configure squid replacement policy properly before cache dir\n    (bsc#1253773)\n\nspacewalk-web:\n\n- Version 5.0.26-0\n  * Update web UI dependencies\n  * Add details on config channels and state order in UI\n    (bsc#1253285)\n\nsusemanager:\n\n- Version 5.0.17-0\n  * Fix the product ids of client tools channels\n  * Fixed the package name to correct one (bsc#1255089)\n\nsusemanager-build-keys:\n\n- Add openSUSE Backports for SUSE Linux 16 key (bsc#1257255)\n\nsusemanager-docs_en:\n\n- Updated the screenshots in multiple sections in Installation and Upgrade Guide\n- Reformatted storage-scripts table to use plain paragraphs instead of bullet\n  lists to fix po4a extraction issue causing missing bullets in CJK translations\n- Added a warning for all instances where mgradm upgrade podman is used\n- Added section about container-based Kiwi image build support to Administration\n  guide (bsc#1251865)\n- Included global GPG decryption for pillar data in specialized guide\n  (bsc#1255743)\n- CIS removed from list of supported OpenSCAP profiles\n- Changes example for the third-party repository GPG keys (bsc#1255857)\n- Added SLE16 and openSUSE Leap 16 as supported clients\n- Explained how to generate the proxy certificates on a peripheral server\n  (bsc#1249425)\n- Improved procedure formatting for better clarity in Administration Guide\n  (bsc#1253660)\n- Added links to man pages for createrepo_c and reprepro to Administration\n  Guide (bsc#1237181)\n- Added missing options to command example in Installation and Upgrade Guide\n  (bsc#1252908)\n- Added non-SUSE URLs to requirements in installation and Upgrade Guide\n  (bsc#1252665)\n- Fixed typo for command options in Reference Guide (bsc#1253174)\n- Added additional step for client deletion in Client Configuration Guide\n  (bsc#1253249)\n- Clarified server config option for spacemd in Refrence Guide (bsc#1253197)\n- Changed the installation instructions to use product instead of packages\n  (bsc#1249041) \n\nsusemanager-schema:\n\n- Version 5.0.18-0\n  * Refactor oval related tables (bsc#1252638)\n  * Increase size of column 'context' on tables\n    'suseappstream' and 'suseserverappstream' (bsc#1255653)\n  * Add leftovers of partially missing ARMHF for Debian (bsc#1248783)\n\nsusemanager-sls:\n\n- Version 5.0.21-0\n  * Fix error on shutdown for sles 12 (bsc#1255634)\n  * Fix bootstrap for SLM 6.2 and newer (bsc#1257992)\n  * Make mgr_events salt engine non-blocking on reading events\n  * Avoid losing the events on DB connection issues (bsc#1252098)\n\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2026-1010,SUSE-SUSE-Manager-Proxy-5.0-2026-1010,SUSE-SUSE-Manager-Retail-Branch-Server-5.0-2026-1010,SUSE-SUSE-Manager-Server-5.0-2026-1010",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2026_1010-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2026:1010-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-20261010-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2026:1010-1",
+        "url": "https://lists.suse.com/pipermail/sle-security-updates/2026-March/024920.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1220899",
+        "url": "https://bugzilla.suse.com/1220899"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1237181",
+        "url": "https://bugzilla.suse.com/1237181"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1244177",
+        "url": "https://bugzilla.suse.com/1244177"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246315",
+        "url": "https://bugzilla.suse.com/1246315"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1247544",
+        "url": "https://bugzilla.suse.com/1247544"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1247722",
+        "url": "https://bugzilla.suse.com/1247722"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1248783",
+        "url": "https://bugzilla.suse.com/1248783"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1249041",
+        "url": "https://bugzilla.suse.com/1249041"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1249425",
+        "url": "https://bugzilla.suse.com/1249425"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1250561",
+        "url": "https://bugzilla.suse.com/1250561"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1251865",
+        "url": "https://bugzilla.suse.com/1251865"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1251995",
+        "url": "https://bugzilla.suse.com/1251995"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1252098",
+        "url": "https://bugzilla.suse.com/1252098"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1252388",
+        "url": "https://bugzilla.suse.com/1252388"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1252638",
+        "url": "https://bugzilla.suse.com/1252638"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1252665",
+        "url": "https://bugzilla.suse.com/1252665"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1252908",
+        "url": "https://bugzilla.suse.com/1252908"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1252937",
+        "url": "https://bugzilla.suse.com/1252937"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1253174",
+        "url": "https://bugzilla.suse.com/1253174"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1253197",
+        "url": "https://bugzilla.suse.com/1253197"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1253249",
+        "url": "https://bugzilla.suse.com/1253249"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1253285",
+        "url": "https://bugzilla.suse.com/1253285"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1253322",
+        "url": "https://bugzilla.suse.com/1253322"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1253501",
+        "url": "https://bugzilla.suse.com/1253501"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1253659",
+        "url": "https://bugzilla.suse.com/1253659"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1253660",
+        "url": "https://bugzilla.suse.com/1253660"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1253711",
+        "url": "https://bugzilla.suse.com/1253711"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1253712",
+        "url": "https://bugzilla.suse.com/1253712"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1253773",
+        "url": "https://bugzilla.suse.com/1253773"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1254251",
+        "url": "https://bugzilla.suse.com/1254251"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1255089",
+        "url": "https://bugzilla.suse.com/1255089"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1255176",
+        "url": "https://bugzilla.suse.com/1255176"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1255298",
+        "url": "https://bugzilla.suse.com/1255298"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1255634",
+        "url": "https://bugzilla.suse.com/1255634"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1255653",
+        "url": "https://bugzilla.suse.com/1255653"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1255743",
+        "url": "https://bugzilla.suse.com/1255743"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1255857",
+        "url": "https://bugzilla.suse.com/1255857"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1256991",
+        "url": "https://bugzilla.suse.com/1256991"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1257255",
+        "url": "https://bugzilla.suse.com/1257255"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1257538",
+        "url": "https://bugzilla.suse.com/1257538"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1257992",
+        "url": "https://bugzilla.suse.com/1257992"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-29371 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-29371/"
+      }
+    ],
+    "title": "Security update 5.0.7 for Multi-Linux Manager Server",
+    "tracking": {
+      "current_release_date": "2026-09-17T14:54:32Z",
+      "generator": {
+        "date": "2026-03-25T10:10:02Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2026:1010-1",
+      "initial_release_date": "2026-03-25T10:10:02Z",
+      "revision_history": [
+        {
+          "date": "2026-03-25T10:10:02Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T18:23:43Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T19:11:03Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T14:54:32Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-aarch64-proxy-httpd-image-0:5.0.7-7.30.13.aarch64",
+                "product": {
+                  "name": "suse-manager-5.0-aarch64-proxy-httpd-image-0:5.0.7-7.30.13.aarch64",
+                  "product_id": "suse-manager-5.0-aarch64-proxy-httpd-image-0:5.0.7-7.30.13.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-aarch64-proxy-httpd-image@5.0.7-7.30.13?arch=aarch64\u0026upstream=proxy-httpd-image-0:5.0.7-7.30.13.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-aarch64-proxy-salt-broker-image-0:5.0.7-7.32.15.aarch64",
+                "product": {
+                  "name": "suse-manager-5.0-aarch64-proxy-salt-broker-image-0:5.0.7-7.32.15.aarch64",
+                  "product_id": "suse-manager-5.0-aarch64-proxy-salt-broker-image-0:5.0.7-7.32.15.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-aarch64-proxy-salt-broker-image@5.0.7-7.32.15?arch=aarch64\u0026upstream=proxy-salt-broker-image-0:5.0.7-7.32.15.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-aarch64-proxy-squid-image-0:5.0.7-7.30.6.aarch64",
+                "product": {
+                  "name": "suse-manager-5.0-aarch64-proxy-squid-image-0:5.0.7-7.30.6.aarch64",
+                  "product_id": "suse-manager-5.0-aarch64-proxy-squid-image-0:5.0.7-7.30.6.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-aarch64-proxy-squid-image@5.0.7-7.30.6?arch=aarch64\u0026upstream=proxy-squid-image-0:5.0.7-7.30.6.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-aarch64-proxy-ssh-image-0:5.0.7-7.30.5.aarch64",
+                "product": {
+                  "name": "suse-manager-5.0-aarch64-proxy-ssh-image-0:5.0.7-7.30.5.aarch64",
+                  "product_id": "suse-manager-5.0-aarch64-proxy-ssh-image-0:5.0.7-7.30.5.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-aarch64-proxy-ssh-image@5.0.7-7.30.5?arch=aarch64\u0026upstream=proxy-ssh-image-0:5.0.7-7.30.5.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-aarch64-proxy-tftpd-image-0:5.0.7-7.30.5.aarch64",
+                "product": {
+                  "name": "suse-manager-5.0-aarch64-proxy-tftpd-image-0:5.0.7-7.30.5.aarch64",
+                  "product_id": "suse-manager-5.0-aarch64-proxy-tftpd-image-0:5.0.7-7.30.5.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-aarch64-proxy-tftpd-image@5.0.7-7.30.5?arch=aarch64\u0026upstream=proxy-tftpd-image-0:5.0.7-7.30.5.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-aarch64-server-attestation-image-0:5.0.7-6.34.5.aarch64",
+                "product": {
+                  "name": "suse-manager-5.0-aarch64-server-attestation-image-0:5.0.7-6.34.5.aarch64",
+                  "product_id": "suse-manager-5.0-aarch64-server-attestation-image-0:5.0.7-6.34.5.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-aarch64-server-attestation-image@5.0.7-6.34.5?arch=aarch64\u0026upstream=server-attestation-image-0:5.0.7-6.34.5.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-aarch64-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.aarch64",
+                "product": {
+                  "name": "suse-manager-5.0-aarch64-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.aarch64",
+                  "product_id": "suse-manager-5.0-aarch64-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-aarch64-server-hub-xmlrpc-api-image@5.0.7-6.30.7?arch=aarch64\u0026upstream=server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-aarch64-server-image-0:5.0.7-7.37.12.aarch64",
+                "product": {
+                  "name": "suse-manager-5.0-aarch64-server-image-0:5.0.7-7.37.12.aarch64",
+                  "product_id": "suse-manager-5.0-aarch64-server-image-0:5.0.7-7.37.12.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-aarch64-server-image@5.0.7-7.37.12?arch=aarch64\u0026upstream=server-image-0:5.0.7-7.37.12.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-aarch64-server-migration-14-16-image-0:5.0.7-7.30.7.aarch64",
+                "product": {
+                  "name": "suse-manager-5.0-aarch64-server-migration-14-16-image-0:5.0.7-7.30.7.aarch64",
+                  "product_id": "suse-manager-5.0-aarch64-server-migration-14-16-image-0:5.0.7-7.30.7.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-aarch64-server-migration-14-16-image@5.0.7-7.30.7?arch=aarch64\u0026upstream=server-migration-14-16-image-0:5.0.7-7.30.7.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-ppc64le-proxy-httpd-image-0:5.0.7-7.30.13.ppc64le",
+                "product": {
+                  "name": "suse-manager-5.0-ppc64le-proxy-httpd-image-0:5.0.7-7.30.13.ppc64le",
+                  "product_id": "suse-manager-5.0-ppc64le-proxy-httpd-image-0:5.0.7-7.30.13.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-ppc64le-proxy-httpd-image@5.0.7-7.30.13?arch=ppc64le\u0026upstream=proxy-httpd-image-0:5.0.7-7.30.13.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-ppc64le-proxy-salt-broker-image-0:5.0.7-7.32.15.ppc64le",
+                "product": {
+                  "name": "suse-manager-5.0-ppc64le-proxy-salt-broker-image-0:5.0.7-7.32.15.ppc64le",
+                  "product_id": "suse-manager-5.0-ppc64le-proxy-salt-broker-image-0:5.0.7-7.32.15.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-ppc64le-proxy-salt-broker-image@5.0.7-7.32.15?arch=ppc64le\u0026upstream=proxy-salt-broker-image-0:5.0.7-7.32.15.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-ppc64le-proxy-squid-image-0:5.0.7-7.30.6.ppc64le",
+                "product": {
+                  "name": "suse-manager-5.0-ppc64le-proxy-squid-image-0:5.0.7-7.30.6.ppc64le",
+                  "product_id": "suse-manager-5.0-ppc64le-proxy-squid-image-0:5.0.7-7.30.6.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-ppc64le-proxy-squid-image@5.0.7-7.30.6?arch=ppc64le\u0026upstream=proxy-squid-image-0:5.0.7-7.30.6.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-ppc64le-proxy-ssh-image-0:5.0.7-7.30.5.ppc64le",
+                "product": {
+                  "name": "suse-manager-5.0-ppc64le-proxy-ssh-image-0:5.0.7-7.30.5.ppc64le",
+                  "product_id": "suse-manager-5.0-ppc64le-proxy-ssh-image-0:5.0.7-7.30.5.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-ppc64le-proxy-ssh-image@5.0.7-7.30.5?arch=ppc64le\u0026upstream=proxy-ssh-image-0:5.0.7-7.30.5.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-ppc64le-proxy-tftpd-image-0:5.0.7-7.30.5.ppc64le",
+                "product": {
+                  "name": "suse-manager-5.0-ppc64le-proxy-tftpd-image-0:5.0.7-7.30.5.ppc64le",
+                  "product_id": "suse-manager-5.0-ppc64le-proxy-tftpd-image-0:5.0.7-7.30.5.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-ppc64le-proxy-tftpd-image@5.0.7-7.30.5?arch=ppc64le\u0026upstream=proxy-tftpd-image-0:5.0.7-7.30.5.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-ppc64le-server-attestation-image-0:5.0.7-6.34.5.ppc64le",
+                "product": {
+                  "name": "suse-manager-5.0-ppc64le-server-attestation-image-0:5.0.7-6.34.5.ppc64le",
+                  "product_id": "suse-manager-5.0-ppc64le-server-attestation-image-0:5.0.7-6.34.5.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-ppc64le-server-attestation-image@5.0.7-6.34.5?arch=ppc64le\u0026upstream=server-attestation-image-0:5.0.7-6.34.5.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-ppc64le-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.ppc64le",
+                "product": {
+                  "name": "suse-manager-5.0-ppc64le-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.ppc64le",
+                  "product_id": "suse-manager-5.0-ppc64le-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-ppc64le-server-hub-xmlrpc-api-image@5.0.7-6.30.7?arch=ppc64le\u0026upstream=server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-ppc64le-server-image-0:5.0.7-7.37.12.ppc64le",
+                "product": {
+                  "name": "suse-manager-5.0-ppc64le-server-image-0:5.0.7-7.37.12.ppc64le",
+                  "product_id": "suse-manager-5.0-ppc64le-server-image-0:5.0.7-7.37.12.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-ppc64le-server-image@5.0.7-7.37.12?arch=ppc64le\u0026upstream=server-image-0:5.0.7-7.37.12.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-ppc64le-server-migration-14-16-image-0:5.0.7-7.30.7.ppc64le",
+                "product": {
+                  "name": "suse-manager-5.0-ppc64le-server-migration-14-16-image-0:5.0.7-7.30.7.ppc64le",
+                  "product_id": "suse-manager-5.0-ppc64le-server-migration-14-16-image-0:5.0.7-7.30.7.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-ppc64le-server-migration-14-16-image@5.0.7-7.30.7?arch=ppc64le\u0026upstream=server-migration-14-16-image-0:5.0.7-7.30.7.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-s390x-proxy-httpd-image-0:5.0.7-7.30.13.s390x",
+                "product": {
+                  "name": "suse-manager-5.0-s390x-proxy-httpd-image-0:5.0.7-7.30.13.s390x",
+                  "product_id": "suse-manager-5.0-s390x-proxy-httpd-image-0:5.0.7-7.30.13.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-s390x-proxy-httpd-image@5.0.7-7.30.13?arch=s390x\u0026upstream=proxy-httpd-image-0:5.0.7-7.30.13.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-s390x-proxy-salt-broker-image-0:5.0.7-7.32.15.s390x",
+                "product": {
+                  "name": "suse-manager-5.0-s390x-proxy-salt-broker-image-0:5.0.7-7.32.15.s390x",
+                  "product_id": "suse-manager-5.0-s390x-proxy-salt-broker-image-0:5.0.7-7.32.15.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-s390x-proxy-salt-broker-image@5.0.7-7.32.15?arch=s390x\u0026upstream=proxy-salt-broker-image-0:5.0.7-7.32.15.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-s390x-proxy-squid-image-0:5.0.7-7.30.6.s390x",
+                "product": {
+                  "name": "suse-manager-5.0-s390x-proxy-squid-image-0:5.0.7-7.30.6.s390x",
+                  "product_id": "suse-manager-5.0-s390x-proxy-squid-image-0:5.0.7-7.30.6.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-s390x-proxy-squid-image@5.0.7-7.30.6?arch=s390x\u0026upstream=proxy-squid-image-0:5.0.7-7.30.6.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-s390x-proxy-ssh-image-0:5.0.7-7.30.5.s390x",
+                "product": {
+                  "name": "suse-manager-5.0-s390x-proxy-ssh-image-0:5.0.7-7.30.5.s390x",
+                  "product_id": "suse-manager-5.0-s390x-proxy-ssh-image-0:5.0.7-7.30.5.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-s390x-proxy-ssh-image@5.0.7-7.30.5?arch=s390x\u0026upstream=proxy-ssh-image-0:5.0.7-7.30.5.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-s390x-proxy-tftpd-image-0:5.0.7-7.30.5.s390x",
+                "product": {
+                  "name": "suse-manager-5.0-s390x-proxy-tftpd-image-0:5.0.7-7.30.5.s390x",
+                  "product_id": "suse-manager-5.0-s390x-proxy-tftpd-image-0:5.0.7-7.30.5.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-s390x-proxy-tftpd-image@5.0.7-7.30.5?arch=s390x\u0026upstream=proxy-tftpd-image-0:5.0.7-7.30.5.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-s390x-server-attestation-image-0:5.0.7-6.34.5.s390x",
+                "product": {
+                  "name": "suse-manager-5.0-s390x-server-attestation-image-0:5.0.7-6.34.5.s390x",
+                  "product_id": "suse-manager-5.0-s390x-server-attestation-image-0:5.0.7-6.34.5.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-s390x-server-attestation-image@5.0.7-6.34.5?arch=s390x\u0026upstream=server-attestation-image-0:5.0.7-6.34.5.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-s390x-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.s390x",
+                "product": {
+                  "name": "suse-manager-5.0-s390x-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.s390x",
+                  "product_id": "suse-manager-5.0-s390x-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-s390x-server-hub-xmlrpc-api-image@5.0.7-6.30.7?arch=s390x\u0026upstream=server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-s390x-server-image-0:5.0.7-7.37.12.s390x",
+                "product": {
+                  "name": "suse-manager-5.0-s390x-server-image-0:5.0.7-7.37.12.s390x",
+                  "product_id": "suse-manager-5.0-s390x-server-image-0:5.0.7-7.37.12.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-s390x-server-image@5.0.7-7.37.12?arch=s390x\u0026upstream=server-image-0:5.0.7-7.37.12.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-s390x-server-migration-14-16-image-0:5.0.7-7.30.7.s390x",
+                "product": {
+                  "name": "suse-manager-5.0-s390x-server-migration-14-16-image-0:5.0.7-7.30.7.s390x",
+                  "product_id": "suse-manager-5.0-s390x-server-migration-14-16-image-0:5.0.7-7.30.7.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-s390x-server-migration-14-16-image@5.0.7-7.30.7?arch=s390x\u0026upstream=server-migration-14-16-image-0:5.0.7-7.30.7.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-x86_64-proxy-httpd-image-0:5.0.7-7.30.13.x86_64",
+                "product": {
+                  "name": "suse-manager-5.0-x86_64-proxy-httpd-image-0:5.0.7-7.30.13.x86_64",
+                  "product_id": "suse-manager-5.0-x86_64-proxy-httpd-image-0:5.0.7-7.30.13.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-x86_64-proxy-httpd-image@5.0.7-7.30.13?arch=x86_64\u0026upstream=proxy-httpd-image-0:5.0.7-7.30.13.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-x86_64-proxy-salt-broker-image-0:5.0.7-7.32.15.x86_64",
+                "product": {
+                  "name": "suse-manager-5.0-x86_64-proxy-salt-broker-image-0:5.0.7-7.32.15.x86_64",
+                  "product_id": "suse-manager-5.0-x86_64-proxy-salt-broker-image-0:5.0.7-7.32.15.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-x86_64-proxy-salt-broker-image@5.0.7-7.32.15?arch=x86_64\u0026upstream=proxy-salt-broker-image-0:5.0.7-7.32.15.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-x86_64-proxy-squid-image-0:5.0.7-7.30.6.x86_64",
+                "product": {
+                  "name": "suse-manager-5.0-x86_64-proxy-squid-image-0:5.0.7-7.30.6.x86_64",
+                  "product_id": "suse-manager-5.0-x86_64-proxy-squid-image-0:5.0.7-7.30.6.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-x86_64-proxy-squid-image@5.0.7-7.30.6?arch=x86_64\u0026upstream=proxy-squid-image-0:5.0.7-7.30.6.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-x86_64-proxy-ssh-image-0:5.0.7-7.30.5.x86_64",
+                "product": {
+                  "name": "suse-manager-5.0-x86_64-proxy-ssh-image-0:5.0.7-7.30.5.x86_64",
+                  "product_id": "suse-manager-5.0-x86_64-proxy-ssh-image-0:5.0.7-7.30.5.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-x86_64-proxy-ssh-image@5.0.7-7.30.5?arch=x86_64\u0026upstream=proxy-ssh-image-0:5.0.7-7.30.5.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-x86_64-proxy-tftpd-image-0:5.0.7-7.30.5.x86_64",
+                "product": {
+                  "name": "suse-manager-5.0-x86_64-proxy-tftpd-image-0:5.0.7-7.30.5.x86_64",
+                  "product_id": "suse-manager-5.0-x86_64-proxy-tftpd-image-0:5.0.7-7.30.5.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-x86_64-proxy-tftpd-image@5.0.7-7.30.5?arch=x86_64\u0026upstream=proxy-tftpd-image-0:5.0.7-7.30.5.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-x86_64-server-attestation-image-0:5.0.7-6.34.5.x86_64",
+                "product": {
+                  "name": "suse-manager-5.0-x86_64-server-attestation-image-0:5.0.7-6.34.5.x86_64",
+                  "product_id": "suse-manager-5.0-x86_64-server-attestation-image-0:5.0.7-6.34.5.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-x86_64-server-attestation-image@5.0.7-6.34.5?arch=x86_64\u0026upstream=server-attestation-image-0:5.0.7-6.34.5.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-x86_64-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.x86_64",
+                "product": {
+                  "name": "suse-manager-5.0-x86_64-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.x86_64",
+                  "product_id": "suse-manager-5.0-x86_64-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-x86_64-server-hub-xmlrpc-api-image@5.0.7-6.30.7?arch=x86_64\u0026upstream=server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-x86_64-server-image-0:5.0.7-7.37.12.x86_64",
+                "product": {
+                  "name": "suse-manager-5.0-x86_64-server-image-0:5.0.7-7.37.12.x86_64",
+                  "product_id": "suse-manager-5.0-x86_64-server-image-0:5.0.7-7.37.12.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-x86_64-server-image@5.0.7-7.37.12?arch=x86_64\u0026upstream=server-image-0:5.0.7-7.37.12.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "suse-manager-5.0-x86_64-server-migration-14-16-image-0:5.0.7-7.30.7.x86_64",
+                "product": {
+                  "name": "suse-manager-5.0-x86_64-server-migration-14-16-image-0:5.0.7-7.30.7.x86_64",
+                  "product_id": "suse-manager-5.0-x86_64-server-migration-14-16-image-0:5.0.7-7.30.7.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/suse-manager-5.0-x86_64-server-migration-14-16-image@5.0.7-7.30.7?arch=x86_64\u0026upstream=server-migration-14-16-image-0:5.0.7-7.30.7.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Manager Proxy 5.0",
+                "product": {
+                  "name": "SUSE Manager Proxy 5.0",
+                  "product_id": "SUSE Manager Proxy 5.0",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:suse-manager-proxy:5.0"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Manager Retail Branch Server Extension 5.0",
+                "product": {
+                  "name": "SUSE Manager Retail Branch Server Extension 5.0",
+                  "product_id": "SUSE Manager Retail Branch Server Extension 5.0",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:suse-manager-retail-branch-server:5.0"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Manager Server 5.0",
+                "product": {
+                  "name": "SUSE Manager Server 5.0",
+                  "product_id": "SUSE Manager Server 5.0",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:suse-manager-server:5.0"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-aarch64-proxy-httpd-image-0:5.0.7-7.30.13.aarch64 as component of SUSE Manager Proxy 5.0",
+          "product_id": "SUSE Manager Proxy 5.0:suse-manager-5.0-aarch64-proxy-httpd-image-0:5.0.7-7.30.13.aarch64"
+        },
+        "product_reference": "suse-manager-5.0-aarch64-proxy-httpd-image-0:5.0.7-7.30.13.aarch64",
+        "relates_to_product_reference": "SUSE Manager Proxy 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-aarch64-proxy-salt-broker-image-0:5.0.7-7.32.15.aarch64 as component of SUSE Manager Proxy 5.0",
+          "product_id": "SUSE Manager Proxy 5.0:suse-manager-5.0-aarch64-proxy-salt-broker-image-0:5.0.7-7.32.15.aarch64"
+        },
+        "product_reference": "suse-manager-5.0-aarch64-proxy-salt-broker-image-0:5.0.7-7.32.15.aarch64",
+        "relates_to_product_reference": "SUSE Manager Proxy 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-aarch64-proxy-squid-image-0:5.0.7-7.30.6.aarch64 as component of SUSE Manager Proxy 5.0",
+          "product_id": "SUSE Manager Proxy 5.0:suse-manager-5.0-aarch64-proxy-squid-image-0:5.0.7-7.30.6.aarch64"
+        },
+        "product_reference": "suse-manager-5.0-aarch64-proxy-squid-image-0:5.0.7-7.30.6.aarch64",
+        "relates_to_product_reference": "SUSE Manager Proxy 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-aarch64-proxy-ssh-image-0:5.0.7-7.30.5.aarch64 as component of SUSE Manager Proxy 5.0",
+          "product_id": "SUSE Manager Proxy 5.0:suse-manager-5.0-aarch64-proxy-ssh-image-0:5.0.7-7.30.5.aarch64"
+        },
+        "product_reference": "suse-manager-5.0-aarch64-proxy-ssh-image-0:5.0.7-7.30.5.aarch64",
+        "relates_to_product_reference": "SUSE Manager Proxy 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-aarch64-proxy-tftpd-image-0:5.0.7-7.30.5.aarch64 as component of SUSE Manager Proxy 5.0",
+          "product_id": "SUSE Manager Proxy 5.0:suse-manager-5.0-aarch64-proxy-tftpd-image-0:5.0.7-7.30.5.aarch64"
+        },
+        "product_reference": "suse-manager-5.0-aarch64-proxy-tftpd-image-0:5.0.7-7.30.5.aarch64",
+        "relates_to_product_reference": "SUSE Manager Proxy 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-ppc64le-proxy-httpd-image-0:5.0.7-7.30.13.ppc64le as component of SUSE Manager Proxy 5.0",
+          "product_id": "SUSE Manager Proxy 5.0:suse-manager-5.0-ppc64le-proxy-httpd-image-0:5.0.7-7.30.13.ppc64le"
+        },
+        "product_reference": "suse-manager-5.0-ppc64le-proxy-httpd-image-0:5.0.7-7.30.13.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Proxy 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-ppc64le-proxy-salt-broker-image-0:5.0.7-7.32.15.ppc64le as component of SUSE Manager Proxy 5.0",
+          "product_id": "SUSE Manager Proxy 5.0:suse-manager-5.0-ppc64le-proxy-salt-broker-image-0:5.0.7-7.32.15.ppc64le"
+        },
+        "product_reference": "suse-manager-5.0-ppc64le-proxy-salt-broker-image-0:5.0.7-7.32.15.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Proxy 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-ppc64le-proxy-squid-image-0:5.0.7-7.30.6.ppc64le as component of SUSE Manager Proxy 5.0",
+          "product_id": "SUSE Manager Proxy 5.0:suse-manager-5.0-ppc64le-proxy-squid-image-0:5.0.7-7.30.6.ppc64le"
+        },
+        "product_reference": "suse-manager-5.0-ppc64le-proxy-squid-image-0:5.0.7-7.30.6.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Proxy 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-ppc64le-proxy-ssh-image-0:5.0.7-7.30.5.ppc64le as component of SUSE Manager Proxy 5.0",
+          "product_id": "SUSE Manager Proxy 5.0:suse-manager-5.0-ppc64le-proxy-ssh-image-0:5.0.7-7.30.5.ppc64le"
+        },
+        "product_reference": "suse-manager-5.0-ppc64le-proxy-ssh-image-0:5.0.7-7.30.5.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Proxy 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-ppc64le-proxy-tftpd-image-0:5.0.7-7.30.5.ppc64le as component of SUSE Manager Proxy 5.0",
+          "product_id": "SUSE Manager Proxy 5.0:suse-manager-5.0-ppc64le-proxy-tftpd-image-0:5.0.7-7.30.5.ppc64le"
+        },
+        "product_reference": "suse-manager-5.0-ppc64le-proxy-tftpd-image-0:5.0.7-7.30.5.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Proxy 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-s390x-proxy-httpd-image-0:5.0.7-7.30.13.s390x as component of SUSE Manager Proxy 5.0",
+          "product_id": "SUSE Manager Proxy 5.0:suse-manager-5.0-s390x-proxy-httpd-image-0:5.0.7-7.30.13.s390x"
+        },
+        "product_reference": "suse-manager-5.0-s390x-proxy-httpd-image-0:5.0.7-7.30.13.s390x",
+        "relates_to_product_reference": "SUSE Manager Proxy 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-s390x-proxy-salt-broker-image-0:5.0.7-7.32.15.s390x as component of SUSE Manager Proxy 5.0",
+          "product_id": "SUSE Manager Proxy 5.0:suse-manager-5.0-s390x-proxy-salt-broker-image-0:5.0.7-7.32.15.s390x"
+        },
+        "product_reference": "suse-manager-5.0-s390x-proxy-salt-broker-image-0:5.0.7-7.32.15.s390x",
+        "relates_to_product_reference": "SUSE Manager Proxy 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-s390x-proxy-squid-image-0:5.0.7-7.30.6.s390x as component of SUSE Manager Proxy 5.0",
+          "product_id": "SUSE Manager Proxy 5.0:suse-manager-5.0-s390x-proxy-squid-image-0:5.0.7-7.30.6.s390x"
+        },
+        "product_reference": "suse-manager-5.0-s390x-proxy-squid-image-0:5.0.7-7.30.6.s390x",
+        "relates_to_product_reference": "SUSE Manager Proxy 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-s390x-proxy-ssh-image-0:5.0.7-7.30.5.s390x as component of SUSE Manager Proxy 5.0",
+          "product_id": "SUSE Manager Proxy 5.0:suse-manager-5.0-s390x-proxy-ssh-image-0:5.0.7-7.30.5.s390x"
+        },
+        "product_reference": "suse-manager-5.0-s390x-proxy-ssh-image-0:5.0.7-7.30.5.s390x",
+        "relates_to_product_reference": "SUSE Manager Proxy 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-s390x-proxy-tftpd-image-0:5.0.7-7.30.5.s390x as component of SUSE Manager Proxy 5.0",
+          "product_id": "SUSE Manager Proxy 5.0:suse-manager-5.0-s390x-proxy-tftpd-image-0:5.0.7-7.30.5.s390x"
+        },
+        "product_reference": "suse-manager-5.0-s390x-proxy-tftpd-image-0:5.0.7-7.30.5.s390x",
+        "relates_to_product_reference": "SUSE Manager Proxy 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-x86_64-proxy-httpd-image-0:5.0.7-7.30.13.x86_64 as component of SUSE Manager Proxy 5.0",
+          "product_id": "SUSE Manager Proxy 5.0:suse-manager-5.0-x86_64-proxy-httpd-image-0:5.0.7-7.30.13.x86_64"
+        },
+        "product_reference": "suse-manager-5.0-x86_64-proxy-httpd-image-0:5.0.7-7.30.13.x86_64",
+        "relates_to_product_reference": "SUSE Manager Proxy 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-x86_64-proxy-salt-broker-image-0:5.0.7-7.32.15.x86_64 as component of SUSE Manager Proxy 5.0",
+          "product_id": "SUSE Manager Proxy 5.0:suse-manager-5.0-x86_64-proxy-salt-broker-image-0:5.0.7-7.32.15.x86_64"
+        },
+        "product_reference": "suse-manager-5.0-x86_64-proxy-salt-broker-image-0:5.0.7-7.32.15.x86_64",
+        "relates_to_product_reference": "SUSE Manager Proxy 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-x86_64-proxy-squid-image-0:5.0.7-7.30.6.x86_64 as component of SUSE Manager Proxy 5.0",
+          "product_id": "SUSE Manager Proxy 5.0:suse-manager-5.0-x86_64-proxy-squid-image-0:5.0.7-7.30.6.x86_64"
+        },
+        "product_reference": "suse-manager-5.0-x86_64-proxy-squid-image-0:5.0.7-7.30.6.x86_64",
+        "relates_to_product_reference": "SUSE Manager Proxy 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-x86_64-proxy-ssh-image-0:5.0.7-7.30.5.x86_64 as component of SUSE Manager Proxy 5.0",
+          "product_id": "SUSE Manager Proxy 5.0:suse-manager-5.0-x86_64-proxy-ssh-image-0:5.0.7-7.30.5.x86_64"
+        },
+        "product_reference": "suse-manager-5.0-x86_64-proxy-ssh-image-0:5.0.7-7.30.5.x86_64",
+        "relates_to_product_reference": "SUSE Manager Proxy 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-x86_64-proxy-tftpd-image-0:5.0.7-7.30.5.x86_64 as component of SUSE Manager Proxy 5.0",
+          "product_id": "SUSE Manager Proxy 5.0:suse-manager-5.0-x86_64-proxy-tftpd-image-0:5.0.7-7.30.5.x86_64"
+        },
+        "product_reference": "suse-manager-5.0-x86_64-proxy-tftpd-image-0:5.0.7-7.30.5.x86_64",
+        "relates_to_product_reference": "SUSE Manager Proxy 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-aarch64-proxy-httpd-image-0:5.0.7-7.30.13.aarch64 as component of SUSE Manager Retail Branch Server Extension 5.0",
+          "product_id": "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-aarch64-proxy-httpd-image-0:5.0.7-7.30.13.aarch64"
+        },
+        "product_reference": "suse-manager-5.0-aarch64-proxy-httpd-image-0:5.0.7-7.30.13.aarch64",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server Extension 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-aarch64-proxy-salt-broker-image-0:5.0.7-7.32.15.aarch64 as component of SUSE Manager Retail Branch Server Extension 5.0",
+          "product_id": "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-aarch64-proxy-salt-broker-image-0:5.0.7-7.32.15.aarch64"
+        },
+        "product_reference": "suse-manager-5.0-aarch64-proxy-salt-broker-image-0:5.0.7-7.32.15.aarch64",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server Extension 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-aarch64-proxy-squid-image-0:5.0.7-7.30.6.aarch64 as component of SUSE Manager Retail Branch Server Extension 5.0",
+          "product_id": "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-aarch64-proxy-squid-image-0:5.0.7-7.30.6.aarch64"
+        },
+        "product_reference": "suse-manager-5.0-aarch64-proxy-squid-image-0:5.0.7-7.30.6.aarch64",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server Extension 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-aarch64-proxy-ssh-image-0:5.0.7-7.30.5.aarch64 as component of SUSE Manager Retail Branch Server Extension 5.0",
+          "product_id": "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-aarch64-proxy-ssh-image-0:5.0.7-7.30.5.aarch64"
+        },
+        "product_reference": "suse-manager-5.0-aarch64-proxy-ssh-image-0:5.0.7-7.30.5.aarch64",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server Extension 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-aarch64-proxy-tftpd-image-0:5.0.7-7.30.5.aarch64 as component of SUSE Manager Retail Branch Server Extension 5.0",
+          "product_id": "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-aarch64-proxy-tftpd-image-0:5.0.7-7.30.5.aarch64"
+        },
+        "product_reference": "suse-manager-5.0-aarch64-proxy-tftpd-image-0:5.0.7-7.30.5.aarch64",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server Extension 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-ppc64le-proxy-httpd-image-0:5.0.7-7.30.13.ppc64le as component of SUSE Manager Retail Branch Server Extension 5.0",
+          "product_id": "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-ppc64le-proxy-httpd-image-0:5.0.7-7.30.13.ppc64le"
+        },
+        "product_reference": "suse-manager-5.0-ppc64le-proxy-httpd-image-0:5.0.7-7.30.13.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server Extension 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-ppc64le-proxy-salt-broker-image-0:5.0.7-7.32.15.ppc64le as component of SUSE Manager Retail Branch Server Extension 5.0",
+          "product_id": "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-ppc64le-proxy-salt-broker-image-0:5.0.7-7.32.15.ppc64le"
+        },
+        "product_reference": "suse-manager-5.0-ppc64le-proxy-salt-broker-image-0:5.0.7-7.32.15.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server Extension 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-ppc64le-proxy-squid-image-0:5.0.7-7.30.6.ppc64le as component of SUSE Manager Retail Branch Server Extension 5.0",
+          "product_id": "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-ppc64le-proxy-squid-image-0:5.0.7-7.30.6.ppc64le"
+        },
+        "product_reference": "suse-manager-5.0-ppc64le-proxy-squid-image-0:5.0.7-7.30.6.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server Extension 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-ppc64le-proxy-ssh-image-0:5.0.7-7.30.5.ppc64le as component of SUSE Manager Retail Branch Server Extension 5.0",
+          "product_id": "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-ppc64le-proxy-ssh-image-0:5.0.7-7.30.5.ppc64le"
+        },
+        "product_reference": "suse-manager-5.0-ppc64le-proxy-ssh-image-0:5.0.7-7.30.5.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server Extension 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-ppc64le-proxy-tftpd-image-0:5.0.7-7.30.5.ppc64le as component of SUSE Manager Retail Branch Server Extension 5.0",
+          "product_id": "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-ppc64le-proxy-tftpd-image-0:5.0.7-7.30.5.ppc64le"
+        },
+        "product_reference": "suse-manager-5.0-ppc64le-proxy-tftpd-image-0:5.0.7-7.30.5.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server Extension 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-s390x-proxy-httpd-image-0:5.0.7-7.30.13.s390x as component of SUSE Manager Retail Branch Server Extension 5.0",
+          "product_id": "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-s390x-proxy-httpd-image-0:5.0.7-7.30.13.s390x"
+        },
+        "product_reference": "suse-manager-5.0-s390x-proxy-httpd-image-0:5.0.7-7.30.13.s390x",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server Extension 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-s390x-proxy-salt-broker-image-0:5.0.7-7.32.15.s390x as component of SUSE Manager Retail Branch Server Extension 5.0",
+          "product_id": "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-s390x-proxy-salt-broker-image-0:5.0.7-7.32.15.s390x"
+        },
+        "product_reference": "suse-manager-5.0-s390x-proxy-salt-broker-image-0:5.0.7-7.32.15.s390x",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server Extension 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-s390x-proxy-squid-image-0:5.0.7-7.30.6.s390x as component of SUSE Manager Retail Branch Server Extension 5.0",
+          "product_id": "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-s390x-proxy-squid-image-0:5.0.7-7.30.6.s390x"
+        },
+        "product_reference": "suse-manager-5.0-s390x-proxy-squid-image-0:5.0.7-7.30.6.s390x",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server Extension 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-s390x-proxy-ssh-image-0:5.0.7-7.30.5.s390x as component of SUSE Manager Retail Branch Server Extension 5.0",
+          "product_id": "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-s390x-proxy-ssh-image-0:5.0.7-7.30.5.s390x"
+        },
+        "product_reference": "suse-manager-5.0-s390x-proxy-ssh-image-0:5.0.7-7.30.5.s390x",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server Extension 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-s390x-proxy-tftpd-image-0:5.0.7-7.30.5.s390x as component of SUSE Manager Retail Branch Server Extension 5.0",
+          "product_id": "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-s390x-proxy-tftpd-image-0:5.0.7-7.30.5.s390x"
+        },
+        "product_reference": "suse-manager-5.0-s390x-proxy-tftpd-image-0:5.0.7-7.30.5.s390x",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server Extension 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-x86_64-proxy-httpd-image-0:5.0.7-7.30.13.x86_64 as component of SUSE Manager Retail Branch Server Extension 5.0",
+          "product_id": "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-x86_64-proxy-httpd-image-0:5.0.7-7.30.13.x86_64"
+        },
+        "product_reference": "suse-manager-5.0-x86_64-proxy-httpd-image-0:5.0.7-7.30.13.x86_64",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server Extension 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-x86_64-proxy-salt-broker-image-0:5.0.7-7.32.15.x86_64 as component of SUSE Manager Retail Branch Server Extension 5.0",
+          "product_id": "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-x86_64-proxy-salt-broker-image-0:5.0.7-7.32.15.x86_64"
+        },
+        "product_reference": "suse-manager-5.0-x86_64-proxy-salt-broker-image-0:5.0.7-7.32.15.x86_64",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server Extension 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-x86_64-proxy-squid-image-0:5.0.7-7.30.6.x86_64 as component of SUSE Manager Retail Branch Server Extension 5.0",
+          "product_id": "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-x86_64-proxy-squid-image-0:5.0.7-7.30.6.x86_64"
+        },
+        "product_reference": "suse-manager-5.0-x86_64-proxy-squid-image-0:5.0.7-7.30.6.x86_64",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server Extension 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-x86_64-proxy-ssh-image-0:5.0.7-7.30.5.x86_64 as component of SUSE Manager Retail Branch Server Extension 5.0",
+          "product_id": "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-x86_64-proxy-ssh-image-0:5.0.7-7.30.5.x86_64"
+        },
+        "product_reference": "suse-manager-5.0-x86_64-proxy-ssh-image-0:5.0.7-7.30.5.x86_64",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server Extension 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-x86_64-proxy-tftpd-image-0:5.0.7-7.30.5.x86_64 as component of SUSE Manager Retail Branch Server Extension 5.0",
+          "product_id": "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-x86_64-proxy-tftpd-image-0:5.0.7-7.30.5.x86_64"
+        },
+        "product_reference": "suse-manager-5.0-x86_64-proxy-tftpd-image-0:5.0.7-7.30.5.x86_64",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server Extension 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-aarch64-server-attestation-image-0:5.0.7-6.34.5.aarch64 as component of SUSE Manager Server 5.0",
+          "product_id": "SUSE Manager Server 5.0:suse-manager-5.0-aarch64-server-attestation-image-0:5.0.7-6.34.5.aarch64"
+        },
+        "product_reference": "suse-manager-5.0-aarch64-server-attestation-image-0:5.0.7-6.34.5.aarch64",
+        "relates_to_product_reference": "SUSE Manager Server 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-aarch64-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.aarch64 as component of SUSE Manager Server 5.0",
+          "product_id": "SUSE Manager Server 5.0:suse-manager-5.0-aarch64-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.aarch64"
+        },
+        "product_reference": "suse-manager-5.0-aarch64-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.aarch64",
+        "relates_to_product_reference": "SUSE Manager Server 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-aarch64-server-image-0:5.0.7-7.37.12.aarch64 as component of SUSE Manager Server 5.0",
+          "product_id": "SUSE Manager Server 5.0:suse-manager-5.0-aarch64-server-image-0:5.0.7-7.37.12.aarch64"
+        },
+        "product_reference": "suse-manager-5.0-aarch64-server-image-0:5.0.7-7.37.12.aarch64",
+        "relates_to_product_reference": "SUSE Manager Server 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-aarch64-server-migration-14-16-image-0:5.0.7-7.30.7.aarch64 as component of SUSE Manager Server 5.0",
+          "product_id": "SUSE Manager Server 5.0:suse-manager-5.0-aarch64-server-migration-14-16-image-0:5.0.7-7.30.7.aarch64"
+        },
+        "product_reference": "suse-manager-5.0-aarch64-server-migration-14-16-image-0:5.0.7-7.30.7.aarch64",
+        "relates_to_product_reference": "SUSE Manager Server 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-ppc64le-server-attestation-image-0:5.0.7-6.34.5.ppc64le as component of SUSE Manager Server 5.0",
+          "product_id": "SUSE Manager Server 5.0:suse-manager-5.0-ppc64le-server-attestation-image-0:5.0.7-6.34.5.ppc64le"
+        },
+        "product_reference": "suse-manager-5.0-ppc64le-server-attestation-image-0:5.0.7-6.34.5.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Server 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-ppc64le-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.ppc64le as component of SUSE Manager Server 5.0",
+          "product_id": "SUSE Manager Server 5.0:suse-manager-5.0-ppc64le-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.ppc64le"
+        },
+        "product_reference": "suse-manager-5.0-ppc64le-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Server 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-ppc64le-server-image-0:5.0.7-7.37.12.ppc64le as component of SUSE Manager Server 5.0",
+          "product_id": "SUSE Manager Server 5.0:suse-manager-5.0-ppc64le-server-image-0:5.0.7-7.37.12.ppc64le"
+        },
+        "product_reference": "suse-manager-5.0-ppc64le-server-image-0:5.0.7-7.37.12.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Server 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-ppc64le-server-migration-14-16-image-0:5.0.7-7.30.7.ppc64le as component of SUSE Manager Server 5.0",
+          "product_id": "SUSE Manager Server 5.0:suse-manager-5.0-ppc64le-server-migration-14-16-image-0:5.0.7-7.30.7.ppc64le"
+        },
+        "product_reference": "suse-manager-5.0-ppc64le-server-migration-14-16-image-0:5.0.7-7.30.7.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Server 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-s390x-server-attestation-image-0:5.0.7-6.34.5.s390x as component of SUSE Manager Server 5.0",
+          "product_id": "SUSE Manager Server 5.0:suse-manager-5.0-s390x-server-attestation-image-0:5.0.7-6.34.5.s390x"
+        },
+        "product_reference": "suse-manager-5.0-s390x-server-attestation-image-0:5.0.7-6.34.5.s390x",
+        "relates_to_product_reference": "SUSE Manager Server 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-s390x-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.s390x as component of SUSE Manager Server 5.0",
+          "product_id": "SUSE Manager Server 5.0:suse-manager-5.0-s390x-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.s390x"
+        },
+        "product_reference": "suse-manager-5.0-s390x-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.s390x",
+        "relates_to_product_reference": "SUSE Manager Server 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-s390x-server-image-0:5.0.7-7.37.12.s390x as component of SUSE Manager Server 5.0",
+          "product_id": "SUSE Manager Server 5.0:suse-manager-5.0-s390x-server-image-0:5.0.7-7.37.12.s390x"
+        },
+        "product_reference": "suse-manager-5.0-s390x-server-image-0:5.0.7-7.37.12.s390x",
+        "relates_to_product_reference": "SUSE Manager Server 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-s390x-server-migration-14-16-image-0:5.0.7-7.30.7.s390x as component of SUSE Manager Server 5.0",
+          "product_id": "SUSE Manager Server 5.0:suse-manager-5.0-s390x-server-migration-14-16-image-0:5.0.7-7.30.7.s390x"
+        },
+        "product_reference": "suse-manager-5.0-s390x-server-migration-14-16-image-0:5.0.7-7.30.7.s390x",
+        "relates_to_product_reference": "SUSE Manager Server 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-x86_64-server-attestation-image-0:5.0.7-6.34.5.x86_64 as component of SUSE Manager Server 5.0",
+          "product_id": "SUSE Manager Server 5.0:suse-manager-5.0-x86_64-server-attestation-image-0:5.0.7-6.34.5.x86_64"
+        },
+        "product_reference": "suse-manager-5.0-x86_64-server-attestation-image-0:5.0.7-6.34.5.x86_64",
+        "relates_to_product_reference": "SUSE Manager Server 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-x86_64-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.x86_64 as component of SUSE Manager Server 5.0",
+          "product_id": "SUSE Manager Server 5.0:suse-manager-5.0-x86_64-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.x86_64"
+        },
+        "product_reference": "suse-manager-5.0-x86_64-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.x86_64",
+        "relates_to_product_reference": "SUSE Manager Server 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-x86_64-server-image-0:5.0.7-7.37.12.x86_64 as component of SUSE Manager Server 5.0",
+          "product_id": "SUSE Manager Server 5.0:suse-manager-5.0-x86_64-server-image-0:5.0.7-7.37.12.x86_64"
+        },
+        "product_reference": "suse-manager-5.0-x86_64-server-image-0:5.0.7-7.37.12.x86_64",
+        "relates_to_product_reference": "SUSE Manager Server 5.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "suse-manager-5.0-x86_64-server-migration-14-16-image-0:5.0.7-7.30.7.x86_64 as component of SUSE Manager Server 5.0",
+          "product_id": "SUSE Manager Server 5.0:suse-manager-5.0-x86_64-server-migration-14-16-image-0:5.0.7-7.30.7.x86_64"
+        },
+        "product_reference": "suse-manager-5.0-x86_64-server-migration-14-16-image-0:5.0.7-7.30.7.x86_64",
+        "relates_to_product_reference": "SUSE Manager Server 5.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2024-29371",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-29371"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In jose4j before 0.9.6, an attacker can cause a Denial-of-Service (DoS) condition by crafting a malicious JSON Web Encryption (JWE) token with an exceptionally high compression ratio. When this token is processed by the server, it results in significant memory allocation and processing time during decompression.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Manager Proxy 5.0:suse-manager-5.0-aarch64-proxy-httpd-image-0:5.0.7-7.30.13.aarch64",
+          "SUSE Manager Proxy 5.0:suse-manager-5.0-aarch64-proxy-salt-broker-image-0:5.0.7-7.32.15.aarch64",
+          "SUSE Manager Proxy 5.0:suse-manager-5.0-aarch64-proxy-squid-image-0:5.0.7-7.30.6.aarch64",
+          "SUSE Manager Proxy 5.0:suse-manager-5.0-aarch64-proxy-ssh-image-0:5.0.7-7.30.5.aarch64",
+          "SUSE Manager Proxy 5.0:suse-manager-5.0-aarch64-proxy-tftpd-image-0:5.0.7-7.30.5.aarch64",
+          "SUSE Manager Proxy 5.0:suse-manager-5.0-ppc64le-proxy-httpd-image-0:5.0.7-7.30.13.ppc64le",
+          "SUSE Manager Proxy 5.0:suse-manager-5.0-ppc64le-proxy-salt-broker-image-0:5.0.7-7.32.15.ppc64le",
+          "SUSE Manager Proxy 5.0:suse-manager-5.0-ppc64le-proxy-squid-image-0:5.0.7-7.30.6.ppc64le",
+          "SUSE Manager Proxy 5.0:suse-manager-5.0-ppc64le-proxy-ssh-image-0:5.0.7-7.30.5.ppc64le",
+          "SUSE Manager Proxy 5.0:suse-manager-5.0-ppc64le-proxy-tftpd-image-0:5.0.7-7.30.5.ppc64le",
+          "SUSE Manager Proxy 5.0:suse-manager-5.0-s390x-proxy-httpd-image-0:5.0.7-7.30.13.s390x",
+          "SUSE Manager Proxy 5.0:suse-manager-5.0-s390x-proxy-salt-broker-image-0:5.0.7-7.32.15.s390x",
+          "SUSE Manager Proxy 5.0:suse-manager-5.0-s390x-proxy-squid-image-0:5.0.7-7.30.6.s390x",
+          "SUSE Manager Proxy 5.0:suse-manager-5.0-s390x-proxy-ssh-image-0:5.0.7-7.30.5.s390x",
+          "SUSE Manager Proxy 5.0:suse-manager-5.0-s390x-proxy-tftpd-image-0:5.0.7-7.30.5.s390x",
+          "SUSE Manager Proxy 5.0:suse-manager-5.0-x86_64-proxy-httpd-image-0:5.0.7-7.30.13.x86_64",
+          "SUSE Manager Proxy 5.0:suse-manager-5.0-x86_64-proxy-salt-broker-image-0:5.0.7-7.32.15.x86_64",
+          "SUSE Manager Proxy 5.0:suse-manager-5.0-x86_64-proxy-squid-image-0:5.0.7-7.30.6.x86_64",
+          "SUSE Manager Proxy 5.0:suse-manager-5.0-x86_64-proxy-ssh-image-0:5.0.7-7.30.5.x86_64",
+          "SUSE Manager Proxy 5.0:suse-manager-5.0-x86_64-proxy-tftpd-image-0:5.0.7-7.30.5.x86_64",
+          "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-aarch64-proxy-httpd-image-0:5.0.7-7.30.13.aarch64",
+          "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-aarch64-proxy-salt-broker-image-0:5.0.7-7.32.15.aarch64",
+          "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-aarch64-proxy-squid-image-0:5.0.7-7.30.6.aarch64",
+          "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-aarch64-proxy-ssh-image-0:5.0.7-7.30.5.aarch64",
+          "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-aarch64-proxy-tftpd-image-0:5.0.7-7.30.5.aarch64",
+          "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-ppc64le-proxy-httpd-image-0:5.0.7-7.30.13.ppc64le",
+          "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-ppc64le-proxy-salt-broker-image-0:5.0.7-7.32.15.ppc64le",
+          "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-ppc64le-proxy-squid-image-0:5.0.7-7.30.6.ppc64le",
+          "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-ppc64le-proxy-ssh-image-0:5.0.7-7.30.5.ppc64le",
+          "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-ppc64le-proxy-tftpd-image-0:5.0.7-7.30.5.ppc64le",
+          "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-s390x-proxy-httpd-image-0:5.0.7-7.30.13.s390x",
+          "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-s390x-proxy-salt-broker-image-0:5.0.7-7.32.15.s390x",
+          "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-s390x-proxy-squid-image-0:5.0.7-7.30.6.s390x",
+          "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-s390x-proxy-ssh-image-0:5.0.7-7.30.5.s390x",
+          "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-s390x-proxy-tftpd-image-0:5.0.7-7.30.5.s390x",
+          "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-x86_64-proxy-httpd-image-0:5.0.7-7.30.13.x86_64",
+          "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-x86_64-proxy-salt-broker-image-0:5.0.7-7.32.15.x86_64",
+          "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-x86_64-proxy-squid-image-0:5.0.7-7.30.6.x86_64",
+          "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-x86_64-proxy-ssh-image-0:5.0.7-7.30.5.x86_64",
+          "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-x86_64-proxy-tftpd-image-0:5.0.7-7.30.5.x86_64",
+          "SUSE Manager Server 5.0:suse-manager-5.0-aarch64-server-attestation-image-0:5.0.7-6.34.5.aarch64",
+          "SUSE Manager Server 5.0:suse-manager-5.0-aarch64-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.aarch64",
+          "SUSE Manager Server 5.0:suse-manager-5.0-aarch64-server-image-0:5.0.7-7.37.12.aarch64",
+          "SUSE Manager Server 5.0:suse-manager-5.0-aarch64-server-migration-14-16-image-0:5.0.7-7.30.7.aarch64",
+          "SUSE Manager Server 5.0:suse-manager-5.0-ppc64le-server-attestation-image-0:5.0.7-6.34.5.ppc64le",
+          "SUSE Manager Server 5.0:suse-manager-5.0-ppc64le-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.ppc64le",
+          "SUSE Manager Server 5.0:suse-manager-5.0-ppc64le-server-image-0:5.0.7-7.37.12.ppc64le",
+          "SUSE Manager Server 5.0:suse-manager-5.0-ppc64le-server-migration-14-16-image-0:5.0.7-7.30.7.ppc64le",
+          "SUSE Manager Server 5.0:suse-manager-5.0-s390x-server-attestation-image-0:5.0.7-6.34.5.s390x",
+          "SUSE Manager Server 5.0:suse-manager-5.0-s390x-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.s390x",
+          "SUSE Manager Server 5.0:suse-manager-5.0-s390x-server-image-0:5.0.7-7.37.12.s390x",
+          "SUSE Manager Server 5.0:suse-manager-5.0-s390x-server-migration-14-16-image-0:5.0.7-7.30.7.s390x",
+          "SUSE Manager Server 5.0:suse-manager-5.0-x86_64-server-attestation-image-0:5.0.7-6.34.5.x86_64",
+          "SUSE Manager Server 5.0:suse-manager-5.0-x86_64-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.x86_64",
+          "SUSE Manager Server 5.0:suse-manager-5.0-x86_64-server-image-0:5.0.7-7.37.12.x86_64",
+          "SUSE Manager Server 5.0:suse-manager-5.0-x86_64-server-migration-14-16-image-0:5.0.7-7.30.7.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-29371",
+          "url": "https://www.suse.com/security/cve/CVE-2024-29371"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1255298 for CVE-2024-29371",
+          "url": "https://bugzilla.suse.com/1255298"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-aarch64-proxy-httpd-image-0:5.0.7-7.30.13.aarch64",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-aarch64-proxy-salt-broker-image-0:5.0.7-7.32.15.aarch64",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-aarch64-proxy-squid-image-0:5.0.7-7.30.6.aarch64",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-aarch64-proxy-ssh-image-0:5.0.7-7.30.5.aarch64",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-aarch64-proxy-tftpd-image-0:5.0.7-7.30.5.aarch64",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-ppc64le-proxy-httpd-image-0:5.0.7-7.30.13.ppc64le",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-ppc64le-proxy-salt-broker-image-0:5.0.7-7.32.15.ppc64le",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-ppc64le-proxy-squid-image-0:5.0.7-7.30.6.ppc64le",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-ppc64le-proxy-ssh-image-0:5.0.7-7.30.5.ppc64le",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-ppc64le-proxy-tftpd-image-0:5.0.7-7.30.5.ppc64le",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-s390x-proxy-httpd-image-0:5.0.7-7.30.13.s390x",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-s390x-proxy-salt-broker-image-0:5.0.7-7.32.15.s390x",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-s390x-proxy-squid-image-0:5.0.7-7.30.6.s390x",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-s390x-proxy-ssh-image-0:5.0.7-7.30.5.s390x",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-s390x-proxy-tftpd-image-0:5.0.7-7.30.5.s390x",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-x86_64-proxy-httpd-image-0:5.0.7-7.30.13.x86_64",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-x86_64-proxy-salt-broker-image-0:5.0.7-7.32.15.x86_64",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-x86_64-proxy-squid-image-0:5.0.7-7.30.6.x86_64",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-x86_64-proxy-ssh-image-0:5.0.7-7.30.5.x86_64",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-x86_64-proxy-tftpd-image-0:5.0.7-7.30.5.x86_64",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-aarch64-proxy-httpd-image-0:5.0.7-7.30.13.aarch64",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-aarch64-proxy-salt-broker-image-0:5.0.7-7.32.15.aarch64",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-aarch64-proxy-squid-image-0:5.0.7-7.30.6.aarch64",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-aarch64-proxy-ssh-image-0:5.0.7-7.30.5.aarch64",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-aarch64-proxy-tftpd-image-0:5.0.7-7.30.5.aarch64",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-ppc64le-proxy-httpd-image-0:5.0.7-7.30.13.ppc64le",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-ppc64le-proxy-salt-broker-image-0:5.0.7-7.32.15.ppc64le",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-ppc64le-proxy-squid-image-0:5.0.7-7.30.6.ppc64le",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-ppc64le-proxy-ssh-image-0:5.0.7-7.30.5.ppc64le",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-ppc64le-proxy-tftpd-image-0:5.0.7-7.30.5.ppc64le",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-s390x-proxy-httpd-image-0:5.0.7-7.30.13.s390x",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-s390x-proxy-salt-broker-image-0:5.0.7-7.32.15.s390x",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-s390x-proxy-squid-image-0:5.0.7-7.30.6.s390x",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-s390x-proxy-ssh-image-0:5.0.7-7.30.5.s390x",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-s390x-proxy-tftpd-image-0:5.0.7-7.30.5.s390x",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-x86_64-proxy-httpd-image-0:5.0.7-7.30.13.x86_64",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-x86_64-proxy-salt-broker-image-0:5.0.7-7.32.15.x86_64",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-x86_64-proxy-squid-image-0:5.0.7-7.30.6.x86_64",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-x86_64-proxy-ssh-image-0:5.0.7-7.30.5.x86_64",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-x86_64-proxy-tftpd-image-0:5.0.7-7.30.5.x86_64",
+            "SUSE Manager Server 5.0:suse-manager-5.0-aarch64-server-attestation-image-0:5.0.7-6.34.5.aarch64",
+            "SUSE Manager Server 5.0:suse-manager-5.0-aarch64-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.aarch64",
+            "SUSE Manager Server 5.0:suse-manager-5.0-aarch64-server-image-0:5.0.7-7.37.12.aarch64",
+            "SUSE Manager Server 5.0:suse-manager-5.0-aarch64-server-migration-14-16-image-0:5.0.7-7.30.7.aarch64",
+            "SUSE Manager Server 5.0:suse-manager-5.0-ppc64le-server-attestation-image-0:5.0.7-6.34.5.ppc64le",
+            "SUSE Manager Server 5.0:suse-manager-5.0-ppc64le-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.ppc64le",
+            "SUSE Manager Server 5.0:suse-manager-5.0-ppc64le-server-image-0:5.0.7-7.37.12.ppc64le",
+            "SUSE Manager Server 5.0:suse-manager-5.0-ppc64le-server-migration-14-16-image-0:5.0.7-7.30.7.ppc64le",
+            "SUSE Manager Server 5.0:suse-manager-5.0-s390x-server-attestation-image-0:5.0.7-6.34.5.s390x",
+            "SUSE Manager Server 5.0:suse-manager-5.0-s390x-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.s390x",
+            "SUSE Manager Server 5.0:suse-manager-5.0-s390x-server-image-0:5.0.7-7.37.12.s390x",
+            "SUSE Manager Server 5.0:suse-manager-5.0-s390x-server-migration-14-16-image-0:5.0.7-7.30.7.s390x",
+            "SUSE Manager Server 5.0:suse-manager-5.0-x86_64-server-attestation-image-0:5.0.7-6.34.5.x86_64",
+            "SUSE Manager Server 5.0:suse-manager-5.0-x86_64-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.x86_64",
+            "SUSE Manager Server 5.0:suse-manager-5.0-x86_64-server-image-0:5.0.7-7.37.12.x86_64",
+            "SUSE Manager Server 5.0:suse-manager-5.0-x86_64-server-migration-14-16-image-0:5.0.7-7.30.7.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-aarch64-proxy-httpd-image-0:5.0.7-7.30.13.aarch64",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-aarch64-proxy-salt-broker-image-0:5.0.7-7.32.15.aarch64",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-aarch64-proxy-squid-image-0:5.0.7-7.30.6.aarch64",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-aarch64-proxy-ssh-image-0:5.0.7-7.30.5.aarch64",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-aarch64-proxy-tftpd-image-0:5.0.7-7.30.5.aarch64",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-ppc64le-proxy-httpd-image-0:5.0.7-7.30.13.ppc64le",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-ppc64le-proxy-salt-broker-image-0:5.0.7-7.32.15.ppc64le",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-ppc64le-proxy-squid-image-0:5.0.7-7.30.6.ppc64le",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-ppc64le-proxy-ssh-image-0:5.0.7-7.30.5.ppc64le",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-ppc64le-proxy-tftpd-image-0:5.0.7-7.30.5.ppc64le",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-s390x-proxy-httpd-image-0:5.0.7-7.30.13.s390x",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-s390x-proxy-salt-broker-image-0:5.0.7-7.32.15.s390x",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-s390x-proxy-squid-image-0:5.0.7-7.30.6.s390x",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-s390x-proxy-ssh-image-0:5.0.7-7.30.5.s390x",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-s390x-proxy-tftpd-image-0:5.0.7-7.30.5.s390x",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-x86_64-proxy-httpd-image-0:5.0.7-7.30.13.x86_64",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-x86_64-proxy-salt-broker-image-0:5.0.7-7.32.15.x86_64",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-x86_64-proxy-squid-image-0:5.0.7-7.30.6.x86_64",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-x86_64-proxy-ssh-image-0:5.0.7-7.30.5.x86_64",
+            "SUSE Manager Proxy 5.0:suse-manager-5.0-x86_64-proxy-tftpd-image-0:5.0.7-7.30.5.x86_64",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-aarch64-proxy-httpd-image-0:5.0.7-7.30.13.aarch64",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-aarch64-proxy-salt-broker-image-0:5.0.7-7.32.15.aarch64",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-aarch64-proxy-squid-image-0:5.0.7-7.30.6.aarch64",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-aarch64-proxy-ssh-image-0:5.0.7-7.30.5.aarch64",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-aarch64-proxy-tftpd-image-0:5.0.7-7.30.5.aarch64",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-ppc64le-proxy-httpd-image-0:5.0.7-7.30.13.ppc64le",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-ppc64le-proxy-salt-broker-image-0:5.0.7-7.32.15.ppc64le",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-ppc64le-proxy-squid-image-0:5.0.7-7.30.6.ppc64le",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-ppc64le-proxy-ssh-image-0:5.0.7-7.30.5.ppc64le",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-ppc64le-proxy-tftpd-image-0:5.0.7-7.30.5.ppc64le",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-s390x-proxy-httpd-image-0:5.0.7-7.30.13.s390x",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-s390x-proxy-salt-broker-image-0:5.0.7-7.32.15.s390x",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-s390x-proxy-squid-image-0:5.0.7-7.30.6.s390x",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-s390x-proxy-ssh-image-0:5.0.7-7.30.5.s390x",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-s390x-proxy-tftpd-image-0:5.0.7-7.30.5.s390x",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-x86_64-proxy-httpd-image-0:5.0.7-7.30.13.x86_64",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-x86_64-proxy-salt-broker-image-0:5.0.7-7.32.15.x86_64",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-x86_64-proxy-squid-image-0:5.0.7-7.30.6.x86_64",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-x86_64-proxy-ssh-image-0:5.0.7-7.30.5.x86_64",
+            "SUSE Manager Retail Branch Server Extension 5.0:suse-manager-5.0-x86_64-proxy-tftpd-image-0:5.0.7-7.30.5.x86_64",
+            "SUSE Manager Server 5.0:suse-manager-5.0-aarch64-server-attestation-image-0:5.0.7-6.34.5.aarch64",
+            "SUSE Manager Server 5.0:suse-manager-5.0-aarch64-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.aarch64",
+            "SUSE Manager Server 5.0:suse-manager-5.0-aarch64-server-image-0:5.0.7-7.37.12.aarch64",
+            "SUSE Manager Server 5.0:suse-manager-5.0-aarch64-server-migration-14-16-image-0:5.0.7-7.30.7.aarch64",
+            "SUSE Manager Server 5.0:suse-manager-5.0-ppc64le-server-attestation-image-0:5.0.7-6.34.5.ppc64le",
+            "SUSE Manager Server 5.0:suse-manager-5.0-ppc64le-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.ppc64le",
+            "SUSE Manager Server 5.0:suse-manager-5.0-ppc64le-server-image-0:5.0.7-7.37.12.ppc64le",
+            "SUSE Manager Server 5.0:suse-manager-5.0-ppc64le-server-migration-14-16-image-0:5.0.7-7.30.7.ppc64le",
+            "SUSE Manager Server 5.0:suse-manager-5.0-s390x-server-attestation-image-0:5.0.7-6.34.5.s390x",
+            "SUSE Manager Server 5.0:suse-manager-5.0-s390x-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.s390x",
+            "SUSE Manager Server 5.0:suse-manager-5.0-s390x-server-image-0:5.0.7-7.37.12.s390x",
+            "SUSE Manager Server 5.0:suse-manager-5.0-s390x-server-migration-14-16-image-0:5.0.7-7.30.7.s390x",
+            "SUSE Manager Server 5.0:suse-manager-5.0-x86_64-server-attestation-image-0:5.0.7-6.34.5.x86_64",
+            "SUSE Manager Server 5.0:suse-manager-5.0-x86_64-server-hub-xmlrpc-api-image-0:5.0.7-6.30.7.x86_64",
+            "SUSE Manager Server 5.0:suse-manager-5.0-x86_64-server-image-0:5.0.7-7.37.12.x86_64",
+            "SUSE Manager Server 5.0:suse-manager-5.0-x86_64-server-migration-14-16-image-0:5.0.7-7.30.7.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-03-25T10:10:02Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2024-29371"
+    }
+  ]
+}

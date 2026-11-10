@@ -1,0 +1,2200 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for openQA, os-autoinst, openQA-devel-container",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for openQA, os-autoinst, openQA-devel-container fixes the following issues:\n\nChanges in openQA:\n\n- Update to version 5.1771422749.560a3b26:\n  * fix(mcp): set navbar check expression to read-only\n  * feat: support inverted result filters in /tests/overview\n  * fix(test): Enable helm install-chart test again\n  * git subrepo pull (merge) --force external/os-autoinst-common\n  * feat: Make allowed hosts for SCENARIO_DEFINITIONS_YAML_FILE configurable\n  * test: Consider everything under `lib/OpenQA/Shared/` covered\n  * fix: Provide specific error message if job was removed `enqueue_…_track`\n  * refactor: Remove useless error message in `enqueue_and_keep_track`\n  * test: Cover case of successful executing in `enqueue_and_keep_track`\n  * refactor: Simplify error handling of `enqueue_and_keep_track`\n  * test: Cover error handling of `enqueue_and_keep_track`\n  * test: Consider shared session controller fully covered\n  * refactor: Avoid duplications in sessions controller\n  * refactor: Use signatures in session controller code\n  * test: Cover error handling in case of a bad CRSF token\n  * test: Cover test route for session\n  * fix(worker): reject jobs explicitly when worker is stopping\n  * feat: Remove workaround for codecov and gpg\n  * feat: Switch to Leap 16 in Helm charts\n  * feat: Switch to Leap 16.0 in openqa_data container\n  * feat: Replace all Leap 15.6 with 16.0 in docs and scripts\n  * test: Cover showing special image when backend has terminated\n  * fix: Use new apachectl command\n  * Update openQA containers to Leap 16.0\n  * test: Extend tests for controller handling live view\n  * refactor: Move throttling into its own function\n  * feat(throttling): throttle jobs resources based on parameters size\n  * refactor: Avoid repeated use of `$t-\u003eapp-\u003eminion` in gru tasks tests\n  * feat: Allow archiving jobs with infinite important storage durations\n  * feat: Flag jobs without results as archived for consistency\n  * feat: Remove one corner case preventing jobs from being archived\n\n- Update to version 5.1770718745.ce2072d3:\n  * feat(ui): use clickable test overview summary counts for quick filtering\n  * build(Makefile): fix uninterruptable tests\n  * docs: Mention caveats of `…_cleanup_max_free_percentage` setting\n  * test(25-cache-service): fix race conditions\n  * test(ui/21-admin-needles): properly wait for modal dialog and deletion\n  * test(ui/13-admin): properly wait for API key deletion\n  * test(40-openqa-clone-job): properly isolate from system config\n  * test(15-asset): bump timeout to current runtime\n  * chore: fix CVE-2026-25547 (boo#1257852) by overriding minimatch\n  * build(deps-dev): bump @eslint from 9.36.0 to 9.38.0\n  * fix(eslint): correct style to be eslint-9.38 compliant\n  * build(deps-dev): bump @eslint-community/regexpp from 4.12.1 to 4.12.2\n  * build(deps-dev): bump @eslint/config-array from 0.21.0 to 0.21.1\n  * build(deps-dev): bump @eslint/object-schema from 2.1.6 to 2.1.7\n  * refactor: Improve variable names in function to determine expired jobs\n  * test: Improve name of subtest for archiving\n  * test: Verify that archiving works regardless of logs/results present\n  * Dependency cron 2026-02-06\n  * Bump js-yaml from 4.1.0 to 4.1.1\n  * build(deps): bump ace-builds from 1.43.3 to 1.43.4\n\n- Update to version 5.1770308102.12dfd0e4:\n  * fix: Configure sudoers correctly in Leap 16\n  * Also use devel:openQA/16.0 in dependency bot workflow\n  * test: Consider all controller code covered\n  * refactor: Remove unused \"group connect\" endpoints\n  * test: Cover `openqa_jobs_by_worker` field of InfluxDB endpoint\n  * test: Cover all cases of search of audit log table\n  * refactor: Simplify function to render audit log index page\n  * test: Add test for `eventid` parameter of audit log page\n  * test: Cover remaining lines of `Asset.pm`\n\n- Update to version 5.1769644379.ef069e9d:\n\nChanges in os-autoinst:\n\n- Update to version 5.1771353921.c8005c9:\n  * git subrepo pull (merge) --force external/os-autoinst-common\n  * style: Fix crop.py style issues\n  * workaround: Remove \"get_mempolicy\" warning from qemu-img output\n  * parse_extra_log: Allow passing additional args to upload_logs\n  * refactor: Distinguish tests by the script path in `loadtest`\n  * refactor: Simplify approach for avoiding redefine warnings\n\n- Update to version 5.1770715824.6a80a85:\n  * style: Fix crop.py style issues\n  * workaround: Remove \"get_mempolicy\" warning from qemu-img output\n  * parse_extra_log: Allow passing additional args to upload_logs\n  * refactor: Distinguish tests by the script path in `loadtest`\n  * refactor: Simplify approach for avoiding redefine warnings\n  * test: Allow running tests with `Test::Warnings\u003c0.033`\n  * test: Format test of `loadtestdir` in a more compact way\n\n- Update to version 5.1770127521.c249fe9:\n  * refactor: Distinguish tests by the script path in `loadtest`\n  * refactor: Simplify approach for avoiding redefine warnings\n  * test: Allow running tests with `Test::Warnings\u003c0.033`\n  * test: Format test of `loadtestdir` in a more compact way\n  * test: Use `ENABLE_MODERN_PERL_FEATURES=1` in test suite\n  * feat: Allow enabling strict/warnings/signatures globally\n  * fix: Improve wrong comment about enablement of modern Perl features\n\nChanges in openQA-devel-container:\n\n- Update to version 5.1771422749.560a3b26b:\n  * Update to latest openQA version\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-139",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_20261-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1257852",
+        "url": "https://bugzilla.suse.com/1257852"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-25547 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-25547/"
+      }
+    ],
+    "title": "Security update for openQA, os-autoinst, openQA-devel-container",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:27:25Z",
+      "generator": {
+        "date": "2026-02-23T19:35:27Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:20261-1",
+      "initial_release_date": "2026-02-23T19:35:27Z",
+      "revision_history": [
+        {
+          "date": "2026-02-23T19:35:27Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-02-23T19:35:27Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T20:30:34Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:33:20Z",
+          "number": "4",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:27:25Z",
+          "number": "5",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "5"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "openQA-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                "product": {
+                  "name": "openQA-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_id": "openQA-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA@5.1771422749.560a3b26-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                "product": {
+                  "name": "openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_id": "openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-auto-update@5.1771422749.560a3b26-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                "product": {
+                  "name": "openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_id": "openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-bootstrap@5.1771422749.560a3b26-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-client-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                "product": {
+                  "name": "openQA-client-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_id": "openQA-client-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-client@5.1771422749.560a3b26-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-common-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                "product": {
+                  "name": "openQA-common-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_id": "openQA-common-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-common@5.1771422749.560a3b26-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                "product": {
+                  "name": "openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_id": "openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-continuous-update@5.1771422749.560a3b26-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                "product": {
+                  "name": "openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_id": "openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-devel@5.1771422749.560a3b26-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                "product": {
+                  "name": "openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_id": "openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-doc@5.1771422749.560a3b26-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                "product": {
+                  "name": "openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_id": "openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-local-db@5.1771422749.560a3b26-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                "product": {
+                  "name": "openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_id": "openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-mcp@5.1771422749.560a3b26-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                "product": {
+                  "name": "openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_id": "openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-munin@5.1771422749.560a3b26-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                "product": {
+                  "name": "openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_id": "openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-python-scripts@5.1771422749.560a3b26-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                "product": {
+                  "name": "openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_id": "openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-single-instance@5.1771422749.560a3b26-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                "product": {
+                  "name": "openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_id": "openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-single-instance-nginx@5.1771422749.560a3b26-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                "product": {
+                  "name": "openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_id": "openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-worker@5.1771422749.560a3b26-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+                "product": {
+                  "name": "os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+                  "product_id": "os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst@5.1771353921.c8005c9-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+                "product": {
+                  "name": "os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+                  "product_id": "os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-devel@5.1771353921.c8005c9-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+                "product": {
+                  "name": "os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+                  "product_id": "os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-ipmi-deps@5.1771353921.c8005c9-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+                "product": {
+                  "name": "os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+                  "product_id": "os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-openvswitch@5.1771353921.c8005c9-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+                "product": {
+                  "name": "os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+                  "product_id": "os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-s390-deps@5.1771353921.c8005c9-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+                "product": {
+                  "name": "os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+                  "product_id": "os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-swtpm@5.1771353921.c8005c9-bp160.1.1?arch=aarch64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "openQA-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "openQA-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_id": "openQA-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA@5.1771422749.560a3b26-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_id": "openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-auto-update@5.1771422749.560a3b26-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_id": "openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-bootstrap@5.1771422749.560a3b26-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-client-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "openQA-client-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_id": "openQA-client-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-client@5.1771422749.560a3b26-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-common-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "openQA-common-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_id": "openQA-common-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-common@5.1771422749.560a3b26-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_id": "openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-continuous-update@5.1771422749.560a3b26-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_id": "openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-devel@5.1771422749.560a3b26-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_id": "openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-doc@5.1771422749.560a3b26-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_id": "openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-local-db@5.1771422749.560a3b26-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_id": "openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-mcp@5.1771422749.560a3b26-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_id": "openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-munin@5.1771422749.560a3b26-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_id": "openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-python-scripts@5.1771422749.560a3b26-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_id": "openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-single-instance@5.1771422749.560a3b26-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_id": "openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-single-instance-nginx@5.1771422749.560a3b26-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_id": "openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-worker@5.1771422749.560a3b26-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+                  "product_id": "os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst@5.1771353921.c8005c9-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+                  "product_id": "os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-devel@5.1771353921.c8005c9-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+                  "product_id": "os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-ipmi-deps@5.1771353921.c8005c9-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+                  "product_id": "os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-openvswitch@5.1771353921.c8005c9-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+                  "product_id": "os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-s390-deps@5.1771353921.c8005c9-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+                  "product_id": "os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-swtpm@5.1771353921.c8005c9-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "openQA-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                "product": {
+                  "name": "openQA-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_id": "openQA-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA@5.1771422749.560a3b26-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                "product": {
+                  "name": "openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_id": "openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-auto-update@5.1771422749.560a3b26-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                "product": {
+                  "name": "openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_id": "openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-bootstrap@5.1771422749.560a3b26-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-client-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                "product": {
+                  "name": "openQA-client-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_id": "openQA-client-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-client@5.1771422749.560a3b26-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-common-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                "product": {
+                  "name": "openQA-common-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_id": "openQA-common-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-common@5.1771422749.560a3b26-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                "product": {
+                  "name": "openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_id": "openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-continuous-update@5.1771422749.560a3b26-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                "product": {
+                  "name": "openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_id": "openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-devel@5.1771422749.560a3b26-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                "product": {
+                  "name": "openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_id": "openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-doc@5.1771422749.560a3b26-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                "product": {
+                  "name": "openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_id": "openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-local-db@5.1771422749.560a3b26-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                "product": {
+                  "name": "openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_id": "openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-mcp@5.1771422749.560a3b26-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                "product": {
+                  "name": "openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_id": "openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-munin@5.1771422749.560a3b26-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                "product": {
+                  "name": "openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_id": "openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-python-scripts@5.1771422749.560a3b26-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                "product": {
+                  "name": "openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_id": "openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-single-instance@5.1771422749.560a3b26-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                "product": {
+                  "name": "openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_id": "openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-single-instance-nginx@5.1771422749.560a3b26-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                "product": {
+                  "name": "openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_id": "openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-worker@5.1771422749.560a3b26-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+                "product": {
+                  "name": "os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+                  "product_id": "os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst@5.1771353921.c8005c9-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+                "product": {
+                  "name": "os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+                  "product_id": "os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-devel@5.1771353921.c8005c9-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+                "product": {
+                  "name": "os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+                  "product_id": "os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-ipmi-deps@5.1771353921.c8005c9-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+                "product": {
+                  "name": "os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+                  "product_id": "os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-openvswitch@5.1771353921.c8005c9-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+                "product": {
+                  "name": "os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+                  "product_id": "os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-s390-deps@5.1771353921.c8005c9-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+                "product": {
+                  "name": "os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+                  "product_id": "os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-swtpm@5.1771353921.c8005c9-bp160.1.1?arch=s390x"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "openQA-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                "product": {
+                  "name": "openQA-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_id": "openQA-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA@5.1771422749.560a3b26-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                "product": {
+                  "name": "openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_id": "openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-auto-update@5.1771422749.560a3b26-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                "product": {
+                  "name": "openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_id": "openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-bootstrap@5.1771422749.560a3b26-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-client-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                "product": {
+                  "name": "openQA-client-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_id": "openQA-client-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-client@5.1771422749.560a3b26-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-common-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                "product": {
+                  "name": "openQA-common-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_id": "openQA-common-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-common@5.1771422749.560a3b26-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                "product": {
+                  "name": "openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_id": "openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-continuous-update@5.1771422749.560a3b26-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                "product": {
+                  "name": "openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_id": "openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-devel@5.1771422749.560a3b26-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                "product": {
+                  "name": "openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_id": "openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-doc@5.1771422749.560a3b26-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                "product": {
+                  "name": "openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_id": "openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-local-db@5.1771422749.560a3b26-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                "product": {
+                  "name": "openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_id": "openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-mcp@5.1771422749.560a3b26-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                "product": {
+                  "name": "openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_id": "openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-munin@5.1771422749.560a3b26-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                "product": {
+                  "name": "openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_id": "openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-python-scripts@5.1771422749.560a3b26-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                "product": {
+                  "name": "openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_id": "openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-single-instance@5.1771422749.560a3b26-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                "product": {
+                  "name": "openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_id": "openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-single-instance-nginx@5.1771422749.560a3b26-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                "product": {
+                  "name": "openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_id": "openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/openQA-worker@5.1771422749.560a3b26-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                "product": {
+                  "name": "os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                  "product_id": "os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst@5.1771353921.c8005c9-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                "product": {
+                  "name": "os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                  "product_id": "os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-devel@5.1771353921.c8005c9-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                "product": {
+                  "name": "os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                  "product_id": "os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-ipmi-deps@5.1771353921.c8005c9-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                "product": {
+                  "name": "os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                  "product_id": "os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-openvswitch@5.1771353921.c8005c9-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-qemu-kvm-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                "product": {
+                  "name": "os-autoinst-qemu-kvm-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                  "product_id": "os-autoinst-qemu-kvm-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-qemu-kvm@5.1771353921.c8005c9-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-qemu-x86-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                "product": {
+                  "name": "os-autoinst-qemu-x86-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                  "product_id": "os-autoinst-qemu-x86-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-qemu-x86@5.1771353921.c8005c9-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                "product": {
+                  "name": "os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                  "product_id": "os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-s390-deps@5.1771353921.c8005c9-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                "product": {
+                  "name": "os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                  "product_id": "os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/os-autoinst-swtpm@5.1771353921.c8005c9-bp160.1.1?arch=x86_64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-0:5.1771422749.560a3b26-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-0:5.1771422749.560a3b26-bp160.1.1.aarch64"
+        },
+        "product_reference": "openQA-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-0:5.1771422749.560a3b26-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-0:5.1771422749.560a3b26-bp160.1.1.ppc64le"
+        },
+        "product_reference": "openQA-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-0:5.1771422749.560a3b26-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-0:5.1771422749.560a3b26-bp160.1.1.s390x"
+        },
+        "product_reference": "openQA-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-0:5.1771422749.560a3b26-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-0:5.1771422749.560a3b26-bp160.1.1.x86_64"
+        },
+        "product_reference": "openQA-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.aarch64"
+        },
+        "product_reference": "openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.ppc64le"
+        },
+        "product_reference": "openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.s390x"
+        },
+        "product_reference": "openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.x86_64"
+        },
+        "product_reference": "openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.aarch64"
+        },
+        "product_reference": "openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.ppc64le"
+        },
+        "product_reference": "openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.s390x"
+        },
+        "product_reference": "openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.x86_64"
+        },
+        "product_reference": "openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-client-0:5.1771422749.560a3b26-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-client-0:5.1771422749.560a3b26-bp160.1.1.aarch64"
+        },
+        "product_reference": "openQA-client-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-client-0:5.1771422749.560a3b26-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-client-0:5.1771422749.560a3b26-bp160.1.1.ppc64le"
+        },
+        "product_reference": "openQA-client-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-client-0:5.1771422749.560a3b26-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-client-0:5.1771422749.560a3b26-bp160.1.1.s390x"
+        },
+        "product_reference": "openQA-client-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-client-0:5.1771422749.560a3b26-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-client-0:5.1771422749.560a3b26-bp160.1.1.x86_64"
+        },
+        "product_reference": "openQA-client-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-common-0:5.1771422749.560a3b26-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-common-0:5.1771422749.560a3b26-bp160.1.1.aarch64"
+        },
+        "product_reference": "openQA-common-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-common-0:5.1771422749.560a3b26-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-common-0:5.1771422749.560a3b26-bp160.1.1.ppc64le"
+        },
+        "product_reference": "openQA-common-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-common-0:5.1771422749.560a3b26-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-common-0:5.1771422749.560a3b26-bp160.1.1.s390x"
+        },
+        "product_reference": "openQA-common-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-common-0:5.1771422749.560a3b26-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-common-0:5.1771422749.560a3b26-bp160.1.1.x86_64"
+        },
+        "product_reference": "openQA-common-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.aarch64"
+        },
+        "product_reference": "openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.ppc64le"
+        },
+        "product_reference": "openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.s390x"
+        },
+        "product_reference": "openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.x86_64"
+        },
+        "product_reference": "openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.aarch64"
+        },
+        "product_reference": "openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.ppc64le"
+        },
+        "product_reference": "openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.s390x"
+        },
+        "product_reference": "openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.x86_64"
+        },
+        "product_reference": "openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.aarch64"
+        },
+        "product_reference": "openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.ppc64le"
+        },
+        "product_reference": "openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.s390x"
+        },
+        "product_reference": "openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.x86_64"
+        },
+        "product_reference": "openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.aarch64"
+        },
+        "product_reference": "openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.ppc64le"
+        },
+        "product_reference": "openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.s390x"
+        },
+        "product_reference": "openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.x86_64"
+        },
+        "product_reference": "openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.aarch64"
+        },
+        "product_reference": "openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.ppc64le"
+        },
+        "product_reference": "openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.s390x"
+        },
+        "product_reference": "openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.x86_64"
+        },
+        "product_reference": "openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.aarch64"
+        },
+        "product_reference": "openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.ppc64le"
+        },
+        "product_reference": "openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.s390x"
+        },
+        "product_reference": "openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.x86_64"
+        },
+        "product_reference": "openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.aarch64"
+        },
+        "product_reference": "openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.ppc64le"
+        },
+        "product_reference": "openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.s390x"
+        },
+        "product_reference": "openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.x86_64"
+        },
+        "product_reference": "openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.aarch64"
+        },
+        "product_reference": "openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.ppc64le"
+        },
+        "product_reference": "openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.s390x"
+        },
+        "product_reference": "openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.x86_64"
+        },
+        "product_reference": "openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.aarch64"
+        },
+        "product_reference": "openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.ppc64le"
+        },
+        "product_reference": "openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.s390x"
+        },
+        "product_reference": "openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.x86_64"
+        },
+        "product_reference": "openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.aarch64"
+        },
+        "product_reference": "openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.ppc64le"
+        },
+        "product_reference": "openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.s390x"
+        },
+        "product_reference": "openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.x86_64"
+        },
+        "product_reference": "openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.aarch64"
+        },
+        "product_reference": "os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.ppc64le"
+        },
+        "product_reference": "os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.s390x"
+        },
+        "product_reference": "os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.x86_64"
+        },
+        "product_reference": "os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.aarch64"
+        },
+        "product_reference": "os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.ppc64le"
+        },
+        "product_reference": "os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.s390x"
+        },
+        "product_reference": "os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.x86_64"
+        },
+        "product_reference": "os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.aarch64"
+        },
+        "product_reference": "os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.ppc64le"
+        },
+        "product_reference": "os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.s390x"
+        },
+        "product_reference": "os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.x86_64"
+        },
+        "product_reference": "os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.aarch64"
+        },
+        "product_reference": "os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.ppc64le"
+        },
+        "product_reference": "os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.s390x"
+        },
+        "product_reference": "os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.x86_64"
+        },
+        "product_reference": "os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-qemu-kvm-0:5.1771353921.c8005c9-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-qemu-kvm-0:5.1771353921.c8005c9-bp160.1.1.x86_64"
+        },
+        "product_reference": "os-autoinst-qemu-kvm-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-qemu-x86-0:5.1771353921.c8005c9-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-qemu-x86-0:5.1771353921.c8005c9-bp160.1.1.x86_64"
+        },
+        "product_reference": "os-autoinst-qemu-x86-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.aarch64"
+        },
+        "product_reference": "os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.ppc64le"
+        },
+        "product_reference": "os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.s390x"
+        },
+        "product_reference": "os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.x86_64"
+        },
+        "product_reference": "os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.aarch64"
+        },
+        "product_reference": "os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.ppc64le"
+        },
+        "product_reference": "os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.s390x"
+        },
+        "product_reference": "os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.x86_64"
+        },
+        "product_reference": "os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-25547",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-25547"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "@isaacs/brace-expansion is a hybrid CJS/ESM TypeScript fork of brace-expansion. Prior to version 5.0.1, @isaacs/brace-expansion is vulnerable to a denial of service (DoS) issue caused by unbounded brace range expansion. When an attacker provides a pattern containing repeated numeric brace ranges, the library attempts to eagerly generate every possible combination synchronously. Because the expansion grows exponentially, even a small input can consume excessive CPU and memory and may crash the Node.js process. This issue has been patched in version 5.0.1.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:openQA-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:openQA-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:openQA-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:openQA-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:openQA-client-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:openQA-client-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:openQA-client-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:openQA-client-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:openQA-common-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:openQA-common-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:openQA-common-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:openQA-common-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:os-autoinst-qemu-kvm-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:os-autoinst-qemu-x86-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-25547",
+          "url": "https://www.suse.com/security/cve/CVE-2026-25547"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1257834 for CVE-2026-25547",
+          "url": "https://bugzilla.suse.com/1257834"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:openQA-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-client-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-client-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-client-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-client-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-common-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-common-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-common-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-common-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:os-autoinst-qemu-kvm-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:os-autoinst-qemu-x86-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:openQA-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-auto-update-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-bootstrap-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-client-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-client-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-client-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-client-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-common-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-common-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-common-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-common-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-continuous-update-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-devel-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-doc-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-local-db-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-mcp-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-munin-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-python-scripts-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-single-instance-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-single-instance-nginx-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:openQA-worker-0:5.1771422749.560a3b26-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:os-autoinst-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:os-autoinst-devel-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:os-autoinst-ipmi-deps-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:os-autoinst-openvswitch-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:os-autoinst-qemu-kvm-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:os-autoinst-qemu-x86-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:os-autoinst-s390-deps-0:5.1771353921.c8005c9-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:os-autoinst-swtpm-0:5.1771353921.c8005c9-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-02-23T19:35:27Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-25547"
+    }
+  ]
+}

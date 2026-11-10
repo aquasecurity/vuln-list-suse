@@ -1,0 +1,825 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for openCryptoki",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for openCryptoki fixes the following issues:\n\nUpgrade openCryptoki to 3.26 (jsc#PED-14609)\n\nSecurity fixes:\n\n - CVE-2026-22791: supplying malformed compressed EC public key can lead to heap corruption or denial-of-service (bsc#1256673).\n - CVE-2026-23893: Privilege Escalation or Data Exposure via Symlink Following (bsc#1257116).\n\nOther fixes:\n\n  * Soft: Add support for RSA keys up to 16K bits.\n  * CCA: Add support for RSA keys up to 8K bits (requires CCA v8.4 or v7.6 or later).\n  * p11sak: Add support for generating RSA keys up to 16K bits.\n  * Soft/ICA: Add support for SHA512/224 and SHA512/256 key derivation mechanism (CKM_SHA512_224_KEY_DERIVATION and CKM_SHA512_256_KEY_DERIVATION).\n  * Soft/ICA/CCA/EP11: Add support for SHA-HMAC key types CKK_SHAxxx_HMAC and key gen mechanisms CKM_SHAxxx_KEY_GEN.\n  * p11sak: Add support for SHA-HMAC key types and key generation.\n  * p11sak: Add support for key wrap and unwrap commands to export and import private and secret keys by means of key wrapping/unwrapping\n    with various key wrapping mechanism.\n  * p11kmip: Add support for using an HSM-protected TLS client key via a PKCS#11 provider.\n  * p11sak: Add support for exporting non-sensitive private keys to password protected PEM files.\n  * Add support for canceling an operation via NULL mechanism pointer at C_XxxInit() call as an alternative to C_SessionCancel() (PKCS#11 v3.0).\n  * EP11: Add support for pairing friendly BLS12-381 EC curve for sign/verify using CKM_IBM_ECDSA_OTHER and signature/public key aggregation using CKM_IBM_EC_AGGREGATE.\n  * p11sak: Add support for generating BLS12-381 EC keys.\n  * EP11: Add support for IBM-specific ML-DSA and ML-KEM key types and mechanisms (requires an EP11 host library v4.2 or later, and\n    a CEX8P crypto card with firmware v9.6 or later on IBM z17, and v8.39 or later on IBM z16).\n  * CCA: Add support for IBM-specific ML-DSA and ML-KEM key types and mechanisms (requires CCA v8.4 or later).\n  * Soft: Add support for IBM-specific ML-DSA and ML-KEM key types and mechanisms (requires OpenSSL 3.5 or later, or the OQS-provider must be configured).\n  * p11sak: Add support for IBM-specific ML-DSA and ML-KEM key types.\n  * Bug fixes.\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-SLES-16.0-284",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2026_20434-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2026:20434-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-202620434-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2026:20434-1",
+        "url": "https://lists.suse.com/pipermail/sle-security-updates/2026-February/024341.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1256673",
+        "url": "https://bugzilla.suse.com/1256673"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1257116",
+        "url": "https://bugzilla.suse.com/1257116"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-22791 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-22791/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-23893 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-23893/"
+      }
+    ],
+    "title": "Security update for openCryptoki",
+    "tracking": {
+      "current_release_date": "2026-09-17T15:25:50Z",
+      "generator": {
+        "date": "2026-02-13T17:44:22Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2026:20434-1",
+      "initial_release_date": "2026-02-13T17:44:22Z",
+      "revision_history": [
+        {
+          "date": "2026-02-13T17:44:22Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-02-13T17:44:22Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-02-13T17:44:22Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T18:39:55Z",
+          "number": "4",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T19:30:32Z",
+          "number": "5",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T15:25:50Z",
+          "number": "6",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "6"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "openCryptoki-0:3.26.0-160000.1.1.aarch64",
+                "product": {
+                  "name": "openCryptoki-0:3.26.0-160000.1.1.aarch64",
+                  "product_id": "openCryptoki-0:3.26.0-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opencryptoki_project:opencryptoki:3.26.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openCryptoki@3.26.0-160000.1.1?arch=aarch64\u0026upstream=openCryptoki-0:3.26.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64",
+                "product": {
+                  "name": "openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64",
+                  "product_id": "openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opencryptoki_project:opencryptoki:3.26.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openCryptoki-64bit@3.26.0-160000.1.1?arch=aarch64\u0026upstream=openCryptoki-0:3.26.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openCryptoki-devel-0:3.26.0-160000.1.1.aarch64",
+                "product": {
+                  "name": "openCryptoki-devel-0:3.26.0-160000.1.1.aarch64",
+                  "product_id": "openCryptoki-devel-0:3.26.0-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opencryptoki_project:opencryptoki:3.26.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openCryptoki-devel@3.26.0-160000.1.1?arch=aarch64\u0026upstream=openCryptoki-0:3.26.0-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "openCryptoki-0:3.26.0-160000.1.1.ppc64le",
+                "product": {
+                  "name": "openCryptoki-0:3.26.0-160000.1.1.ppc64le",
+                  "product_id": "openCryptoki-0:3.26.0-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opencryptoki_project:opencryptoki:3.26.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openCryptoki@3.26.0-160000.1.1?arch=ppc64le\u0026upstream=openCryptoki-0:3.26.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le",
+                "product": {
+                  "name": "openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le",
+                  "product_id": "openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opencryptoki_project:opencryptoki:3.26.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openCryptoki-64bit@3.26.0-160000.1.1?arch=ppc64le\u0026upstream=openCryptoki-0:3.26.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le",
+                "product": {
+                  "name": "openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le",
+                  "product_id": "openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opencryptoki_project:opencryptoki:3.26.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openCryptoki-devel@3.26.0-160000.1.1?arch=ppc64le\u0026upstream=openCryptoki-0:3.26.0-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "openCryptoki-0:3.26.0-160000.1.1.s390x",
+                "product": {
+                  "name": "openCryptoki-0:3.26.0-160000.1.1.s390x",
+                  "product_id": "openCryptoki-0:3.26.0-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opencryptoki_project:opencryptoki:3.26.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openCryptoki@3.26.0-160000.1.1?arch=s390x\u0026upstream=openCryptoki-0:3.26.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openCryptoki-64bit-0:3.26.0-160000.1.1.s390x",
+                "product": {
+                  "name": "openCryptoki-64bit-0:3.26.0-160000.1.1.s390x",
+                  "product_id": "openCryptoki-64bit-0:3.26.0-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opencryptoki_project:opencryptoki:3.26.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openCryptoki-64bit@3.26.0-160000.1.1?arch=s390x\u0026upstream=openCryptoki-0:3.26.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openCryptoki-devel-0:3.26.0-160000.1.1.s390x",
+                "product": {
+                  "name": "openCryptoki-devel-0:3.26.0-160000.1.1.s390x",
+                  "product_id": "openCryptoki-devel-0:3.26.0-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opencryptoki_project:opencryptoki:3.26.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openCryptoki-devel@3.26.0-160000.1.1?arch=s390x\u0026upstream=openCryptoki-0:3.26.0-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "openCryptoki-0:3.26.0-160000.1.1.x86_64",
+                "product": {
+                  "name": "openCryptoki-0:3.26.0-160000.1.1.x86_64",
+                  "product_id": "openCryptoki-0:3.26.0-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opencryptoki_project:opencryptoki:3.26.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openCryptoki@3.26.0-160000.1.1?arch=x86_64\u0026upstream=openCryptoki-0:3.26.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64",
+                "product": {
+                  "name": "openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64",
+                  "product_id": "openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opencryptoki_project:opencryptoki:3.26.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openCryptoki-64bit@3.26.0-160000.1.1?arch=x86_64\u0026upstream=openCryptoki-0:3.26.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openCryptoki-devel-0:3.26.0-160000.1.1.x86_64",
+                "product": {
+                  "name": "openCryptoki-devel-0:3.26.0-160000.1.1.x86_64",
+                  "product_id": "openCryptoki-devel-0:3.26.0-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opencryptoki_project:opencryptoki:3.26.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openCryptoki-devel@3.26.0-160000.1.1?arch=x86_64\u0026upstream=openCryptoki-0:3.26.0-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 16.0",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 16.0",
+                  "product_id": "SUSE Linux Enterprise Server 16.0",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:16:16.0:server"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP applications 16.0",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP applications 16.0",
+                  "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:16:16.0:server-sap"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-0:3.26.0-160000.1.1.aarch64 as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.aarch64"
+        },
+        "product_reference": "openCryptoki-0:3.26.0-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-0:3.26.0-160000.1.1.ppc64le as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.ppc64le"
+        },
+        "product_reference": "openCryptoki-0:3.26.0-160000.1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-0:3.26.0-160000.1.1.s390x as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.s390x"
+        },
+        "product_reference": "openCryptoki-0:3.26.0-160000.1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-0:3.26.0-160000.1.1.x86_64 as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.x86_64"
+        },
+        "product_reference": "openCryptoki-0:3.26.0-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64 as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64"
+        },
+        "product_reference": "openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le"
+        },
+        "product_reference": "openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-64bit-0:3.26.0-160000.1.1.s390x as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.s390x"
+        },
+        "product_reference": "openCryptoki-64bit-0:3.26.0-160000.1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64 as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64"
+        },
+        "product_reference": "openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-devel-0:3.26.0-160000.1.1.aarch64 as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.aarch64"
+        },
+        "product_reference": "openCryptoki-devel-0:3.26.0-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le"
+        },
+        "product_reference": "openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-devel-0:3.26.0-160000.1.1.s390x as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.s390x"
+        },
+        "product_reference": "openCryptoki-devel-0:3.26.0-160000.1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-devel-0:3.26.0-160000.1.1.x86_64 as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.x86_64"
+        },
+        "product_reference": "openCryptoki-devel-0:3.26.0-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-0:3.26.0-160000.1.1.aarch64 as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.aarch64"
+        },
+        "product_reference": "openCryptoki-0:3.26.0-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-0:3.26.0-160000.1.1.ppc64le as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.ppc64le"
+        },
+        "product_reference": "openCryptoki-0:3.26.0-160000.1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-0:3.26.0-160000.1.1.s390x as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.s390x"
+        },
+        "product_reference": "openCryptoki-0:3.26.0-160000.1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-0:3.26.0-160000.1.1.x86_64 as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.x86_64"
+        },
+        "product_reference": "openCryptoki-0:3.26.0-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64 as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64"
+        },
+        "product_reference": "openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le"
+        },
+        "product_reference": "openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-64bit-0:3.26.0-160000.1.1.s390x as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.s390x"
+        },
+        "product_reference": "openCryptoki-64bit-0:3.26.0-160000.1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64 as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64"
+        },
+        "product_reference": "openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-devel-0:3.26.0-160000.1.1.aarch64 as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.aarch64"
+        },
+        "product_reference": "openCryptoki-devel-0:3.26.0-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le"
+        },
+        "product_reference": "openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-devel-0:3.26.0-160000.1.1.s390x as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.s390x"
+        },
+        "product_reference": "openCryptoki-devel-0:3.26.0-160000.1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openCryptoki-devel-0:3.26.0-160000.1.1.x86_64 as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.x86_64"
+        },
+        "product_reference": "openCryptoki-devel-0:3.26.0-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-22791",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-22791"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "openCryptoki is a PKCS#11 library and tools for Linux and AIX. In 3.25.0 and 3.26.0, there is a heap buffer overflow vulnerability in the CKM_ECDH_AES_KEY_WRAP implementation allows an attacker with local access to cause out-of-bounds writes in the host process by supplying a compressed EC public key and invoking C_WrapKey. This can lead to heap corruption, or denial-of-service.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-22791",
+          "url": "https://www.suse.com/security/cve/CVE-2026-22791"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1256673 for CVE-2026-22791",
+          "url": "https://bugzilla.suse.com/1256673"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.1,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-02-13T17:44:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-22791"
+    },
+    {
+      "cve": "CVE-2026-23893",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-23893"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "openCryptoki is a PKCS#11 library and provides tooling for Linux and AIX. Versions 2.3.2 and above are vulnerable to symlink-following when running in privileged contexts. A token-group user can redirect file operations to arbitrary filesystem targets by planting symlinks in group-writable token directories, resulting in privilege escalation or data exposure. Token and lock directories are 0770 (group-writable for token users), so any token-group member can plant files and symlinks inside them. When run as root, the base code handling token directory file access, as well as several openCryptoki tools used for administrative purposes, may reset ownership or permissions on existing files inside the token directories. An attacker with token-group membership can exploit the system when an administrator runs a PKCS#11 application or administrative tool that performs chown on files inside the token directory during normal maintenance. This issue is fixed in commit 5e6e4b4, but has not been included in a released version at the time of publication.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-23893",
+          "url": "https://www.suse.com/security/cve/CVE-2026-23893"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1257116 for CVE-2026-23893",
+          "url": "https://bugzilla.suse.com/1257116"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.8,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-0:3.26.0-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-0:3.26.0-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-64bit-0:3.26.0-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:openCryptoki-devel-0:3.26.0-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-02-13T17:44:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-23893"
+    }
+  ]
+}

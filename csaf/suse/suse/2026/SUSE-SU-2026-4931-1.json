@@ -1,0 +1,664 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for rust-keylime",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for rust-keylime fixes the following issue:\n\n- CVE-2026-115905: zip: security control bypass via parser differential between central directory and local headers\n  (bsc#1287921)\n- CVE-2026-115906: zip: authentication bypass in AES encrypted entries due to improper HMAC verification (bsc#1287921)\n- CVE-2026-115907: zip: denial of service via unbounded memory allocation in legacy decoders (bsc#1287921)\n- CVE-2026-115908: zip: path traversal via lexical symlink validation during extraction (bsc#1287921)\n- CVE-2026-115909: zip: denial of service via uncontrolled memory allocation on symlink targets (bsc#1287921)\n\nChanges for rust-keylime:\n\n- Update to version 0.2.10+12:\n * log Agent UUID at push agent startup\n * Limit actix-web workers\n * Fix clippy needless_late_init warnings\n * Unwrap OCTET STRING wrapped EK certificates\n * build(deps): bump rand from 0.9.4 to 0.10.1\n * build(deps): bump glob from 0.3.3 to 0.3.4\n * build(deps): bump reqwest from 0.13.3 to 0.13.4\n * Check shutdown marker inside ml_extend loop\n * Fix clippy useless_borrows_in_formatting warnings\n * build(deps): bump tokio from 1.52.2 to 1.53.1\n * Fix payload key upgrade regression by falling back to mTLS key\n * Accept any RSA key size for payload encryption\n * Bump version to 0.2.10\n * keylime: use runtime OpenSSL algorithm detection instead of compile-time symbols\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2026-4931,SUSE-SLE-Micro-5.5-2026-4931",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2026_4931-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2026:4931-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-20264931-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2026:4931-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-20264931-1/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1287921",
+        "url": "https://bugzilla.suse.com/1287921"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-115905 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-115905/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-115906 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-115906/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-115907 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-115907/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-115908 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-115908/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-115909 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-115909/"
+      }
+    ],
+    "title": "Security update for rust-keylime",
+    "tracking": {
+      "current_release_date": "2026-10-30T11:39:34Z",
+      "generator": {
+        "date": "2026-10-29T08:53:48Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2026:4931-1",
+      "initial_release_date": "2026-10-29T08:53:48Z",
+      "revision_history": [
+        {
+          "date": "2026-10-29T08:53:48Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-10-30T11:39:34Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "keylime-ima-policy-0:0.2.10+12-150500.3.22.1.aarch64",
+                "product": {
+                  "name": "keylime-ima-policy-0:0.2.10+12-150500.3.22.1.aarch64",
+                  "product_id": "keylime-ima-policy-0:0.2.10+12-150500.3.22.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/keylime-ima-policy@0.2.10+12-150500.3.22.1?arch=aarch64\u0026upstream=rust-keylime-0:0.2.10+12-150500.3.22.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64",
+                "product": {
+                  "name": "rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64",
+                  "product_id": "rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/rust-keylime@0.2.10+12-150500.3.22.1?arch=aarch64\u0026upstream=rust-keylime-0:0.2.10+12-150500.3.22.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "keylime-ima-policy-0:0.2.10+12-150500.3.22.1.ppc64le",
+                "product": {
+                  "name": "keylime-ima-policy-0:0.2.10+12-150500.3.22.1.ppc64le",
+                  "product_id": "keylime-ima-policy-0:0.2.10+12-150500.3.22.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/keylime-ima-policy@0.2.10+12-150500.3.22.1?arch=ppc64le\u0026upstream=rust-keylime-0:0.2.10+12-150500.3.22.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le",
+                "product": {
+                  "name": "rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le",
+                  "product_id": "rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/rust-keylime@0.2.10+12-150500.3.22.1?arch=ppc64le\u0026upstream=rust-keylime-0:0.2.10+12-150500.3.22.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "keylime-ima-policy-0:0.2.10+12-150500.3.22.1.s390x",
+                "product": {
+                  "name": "keylime-ima-policy-0:0.2.10+12-150500.3.22.1.s390x",
+                  "product_id": "keylime-ima-policy-0:0.2.10+12-150500.3.22.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/keylime-ima-policy@0.2.10+12-150500.3.22.1?arch=s390x\u0026upstream=rust-keylime-0:0.2.10+12-150500.3.22.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "rust-keylime-0:0.2.10+12-150500.3.22.1.s390x",
+                "product": {
+                  "name": "rust-keylime-0:0.2.10+12-150500.3.22.1.s390x",
+                  "product_id": "rust-keylime-0:0.2.10+12-150500.3.22.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/rust-keylime@0.2.10+12-150500.3.22.1?arch=s390x\u0026upstream=rust-keylime-0:0.2.10+12-150500.3.22.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "keylime-ima-policy-0:0.2.10+12-150500.3.22.1.x86_64",
+                "product": {
+                  "name": "keylime-ima-policy-0:0.2.10+12-150500.3.22.1.x86_64",
+                  "product_id": "keylime-ima-policy-0:0.2.10+12-150500.3.22.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/keylime-ima-policy@0.2.10+12-150500.3.22.1?arch=x86_64\u0026upstream=rust-keylime-0:0.2.10+12-150500.3.22.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64",
+                "product": {
+                  "name": "rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64",
+                  "product_id": "rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/rust-keylime@0.2.10+12-150500.3.22.1?arch=x86_64\u0026upstream=rust-keylime-0:0.2.10+12-150500.3.22.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Micro 5.5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Micro 5.5",
+                  "product_id": "SUSE Linux Enterprise Micro 5.5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-micro:5.5"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64 as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64"
+        },
+        "product_reference": "rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le"
+        },
+        "product_reference": "rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "rust-keylime-0:0.2.10+12-150500.3.22.1.s390x as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.s390x"
+        },
+        "product_reference": "rust-keylime-0:0.2.10+12-150500.3.22.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64 as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64"
+        },
+        "product_reference": "rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-115905",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-115905"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "zip is a zip library for Rust that supports reading and writing simple ZIP files. Through 9.0.4, ZipArchive treats Central Directory File Header filenames as authoritative while ZipStreamReader extracts using Local File Header filenames without reconciling the duplicate metadata in src/read/stream.rs. A crafted archive can therefore appear benign to a component that inspects the central directory but cause a streaming extractor to write a different attacker-selected path and content, potentially overwriting files used by a downstream service. This issue is fixed in version 9.0.5.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le",
+          "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.s390x",
+          "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-115905",
+          "url": "https://www.suse.com/security/cve/CVE-2026-115905"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1287906 for CVE-2026-115905",
+          "url": "https://bugzilla.suse.com/1287906"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.s390x",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.4,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.s390x",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-29T08:53:48Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-115905"
+    },
+    {
+      "cve": "CVE-2026-115906",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-115906"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "zip is a zip library for Rust that supports reading and writing simple ZIP files. From 0.6.0 until 9.0.0, the AES entry reader in src/aes.rs verifies its HMAC only when the attacker-controlled data counter reaches zero. If the underlying bounded reader reaches the real end of the archive while data_remaining is still positive, or if an encrypted entry has no payload, the reader can return a clean end of stream without reading and comparing the authentication tag. Applications using by_index_decrypt, by_name_decrypt, by_path_decrypt, or password-enabled by_index_with_options can therefore accept modified plaintext without an authentication error. This issue is fixed in version 9.0.0.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le",
+          "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.s390x",
+          "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-115906",
+          "url": "https://www.suse.com/security/cve/CVE-2026-115906"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1287906 for CVE-2026-115906",
+          "url": "https://bugzilla.suse.com/1287906"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.s390x",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.s390x",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-29T08:53:48Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-115906"
+    },
+    {
+      "cve": "CVE-2026-115907",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-115907"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "zip is a zip library for Rust that supports reading and writing simple ZIP files. From 5.1.0 until 9.0.0, applications built with the legacy-zip feature can reserve output capacity from an attacker-controlled ZIP64 uncompressed size before validating the compressed stream. The ShrinkDecoder path in src/legacy/shrink.rs can panic with a capacity overflow during ZipArchive::extract, and the Reduce and Implode decoders contain the same unbounded preallocation pattern. An unhandled panic can terminate an archive-processing service. This issue is fixed in version 9.0.0.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le",
+          "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.s390x",
+          "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-115907",
+          "url": "https://www.suse.com/security/cve/CVE-2026-115907"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1287906 for CVE-2026-115907",
+          "url": "https://bugzilla.suse.com/1287906"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.s390x",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.s390x",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-29T08:53:48Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-115907"
+    },
+    {
+      "cve": "CVE-2026-115908",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-115908"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "zip is a zip library for Rust that supports reading and writing simple ZIP files. From 7.2.0 until 9.0.0, ZipArchive::extract and ZipArchive::extract_unwrapped_root_dir use safe_prepare_path in src/read/zipfile.rs and simplified_components in src/path.rs to validate symbolic link targets with a lexical prefix comparison rather than resolving each intermediate link. An attacker who knows or can guess the absolute extraction destination can create a chain whose apparent target remains under the destination while an intermediate symlink resolves outside it, allowing attacker-controlled files to be created or overwritten with the extracting process's privileges. On Windows, discarded drive and UNC prefixes can permit a single-link escape when the process has SeCreateSymbolicLinkPrivilege, such as through administrator rights or Developer Mode. This regression is distinct from CVE-2025-29787. This issue is fixed in version 9.0.0.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le",
+          "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.s390x",
+          "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-115908",
+          "url": "https://www.suse.com/security/cve/CVE-2026-115908"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1287906 for CVE-2026-115908",
+          "url": "https://bugzilla.suse.com/1287906"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.s390x",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.4,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.s390x",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-29T08:53:48Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-115908"
+    },
+    {
+      "cve": "CVE-2026-115909",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-115909"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "zip is a zip library for Rust that supports reading and writing simple ZIP files. From 1.3.0 until 9.0.0, ZipArchive::extract in src/read/mod.rs calls Vec::with_capacity for a symbolic link target using the attacker-controlled ZIP64 uncompressed_size before reading entry data. A small archive can request an impossible capacity, causing the infallible allocation path to abort the process before the entry is validated. The failure cannot be contained with catch_unwind or a worker thread, allowing repeated denial of service in archive-processing applications. This issue is fixed in version 9.0.0.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le",
+          "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.s390x",
+          "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-115909",
+          "url": "https://www.suse.com/security/cve/CVE-2026-115909"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1287906 for CVE-2026-115909",
+          "url": "https://bugzilla.suse.com/1287906"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.s390x",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.ppc64le",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.s390x",
+            "SUSE Linux Enterprise Micro 5.5:rust-keylime-0:0.2.10+12-150500.3.22.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-29T08:53:48Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-115909"
+    }
+  ]
+}

@@ -1,0 +1,797 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for python-Django",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for python-Django fixes the following issues\n\n- CVE-2026-3902: headers spoofing by exploiting an ambiguous mapping of two header variants in `ASGIRequest` requests\n  (bsc#1261729).\n- CVE-2026-4277: permissions on inline model instances were not validated on submission of forged POST data in\n  GenericInlineModelAdmin (bsc#1261731).\n- CVE-2026-4292: admin changelist forms using ModelAdmin.list_editable incorrectly allowed new instances to be created\n  via forged POST data (bsc#1261732).\n- CVE-2026-5766: potential denial-of-service vulnerability in ASGI requests via file upload limit bypass (bsc#1264153).\n- CVE-2026-6907: potential exposure of private data due to incorrect handling of `Vary: *` in `UpdateCacheMiddleware`\n  (bsc#1264152).\n- CVE-2026-33033: denial of service via missing or understated Content-Length header in ASGI requests (bsc#1261722).\n- CVE-2026-33034: ASGI requests with a missing or understated Content-Length header could bypass the\n  `DATA_UPLOAD_MAX_MEMORY_SIZE` limit when reading HttpRequest.body (bsc#1261724).\n- CVE-2026-35192: session fixation via public cached pages and `SESSION_SAVE_EVERY_REQUEST` (bsc#1264154).\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2026-1740,SUSE-SLE-Module-Packagehub-Subpackages-15-SP7-2026-1740",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2026_1740-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2026:1740-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-20261740-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2026:1740-1",
+        "url": "https://lists.suse.com/pipermail/sle-updates/2026-May/046301.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1261722",
+        "url": "https://bugzilla.suse.com/1261722"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1261724",
+        "url": "https://bugzilla.suse.com/1261724"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1261729",
+        "url": "https://bugzilla.suse.com/1261729"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1261731",
+        "url": "https://bugzilla.suse.com/1261731"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1261732",
+        "url": "https://bugzilla.suse.com/1261732"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1264152",
+        "url": "https://bugzilla.suse.com/1264152"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1264153",
+        "url": "https://bugzilla.suse.com/1264153"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1264154",
+        "url": "https://bugzilla.suse.com/1264154"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-33033 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-33033/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-33034 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-33034/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-35192 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-35192/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-3902 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-3902/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-4277 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-4277/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-4292 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-4292/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-5766 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-5766/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-6907 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-6907/"
+      }
+    ],
+    "title": "Security update for python-Django",
+    "tracking": {
+      "current_release_date": "2026-09-17T15:01:36Z",
+      "generator": {
+        "date": "2026-05-07T07:00:32Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2026:1740-1",
+      "initial_release_date": "2026-05-07T07:00:32Z",
+      "revision_history": [
+        {
+          "date": "2026-05-07T07:00:32Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T18:31:50Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T19:20:57Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T15:01:36Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "python311-Django-0:4.2.11-150600.3.56.1.noarch",
+                "product": {
+                  "name": "python311-Django-0:4.2.11-150600.3.56.1.noarch",
+                  "product_id": "python311-Django-0:4.2.11-150600.3.56.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:djangoproject:django:4.2.11:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/python311-Django@4.2.11-150600.3.56.1?arch=noarch\u0026upstream=python-Django-0:4.2.11-150600.3.56.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Package Hub 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Package Hub 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:packagehub:15:sp7"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python311-Django-0:4.2.11-150600.3.56.1.noarch as component of SUSE Linux Enterprise Module for Package Hub 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+        },
+        "product_reference": "python311-Django-0:4.2.11-150600.3.56.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP7"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-33033",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-33033"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An issue was discovered in 6.0 before 6.0.4, 5.2 before 5.2.13, and 4.2 before 4.2.30.\n`MultiPartParser` allows remote attackers to degrade performance by submitting multipart uploads with `Content-Transfer-Encoding: base64` including excessive whitespace.\nEarlier, unsupported Django series (such as 5.0.x, 4.1.x, and 3.2.x) were not evaluated and may also be affected.\nDjango would like to thank Seokchan Yoon for reporting this issue.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-33033",
+          "url": "https://www.suse.com/security/cve/CVE-2026-33033"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1261722 for CVE-2026-33033",
+          "url": "https://bugzilla.suse.com/1261722"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1261732 for CVE-2026-33033",
+          "url": "https://bugzilla.suse.com/1261732"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-05-07T07:00:32Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-33033"
+    },
+    {
+      "cve": "CVE-2026-33034",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-33034"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An issue was discovered in 6.0 before 6.0.4, 5.2 before 5.2.13, and 4.2 before 4.2.30.\nASGI requests with a missing or understated `Content-Length` header could\r\nbypass the `DATA_UPLOAD_MAX_MEMORY_SIZE` limit when reading\r\n`HttpRequest.body`, allowing remote attackers to load an unbounded request body into\r\nmemory.\nEarlier, unsupported Django series (such as 5.0.x, 4.1.x, and 3.2.x) were not evaluated and may also be affected.\nDjango would like to thank Superior for reporting this issue.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-33034",
+          "url": "https://www.suse.com/security/cve/CVE-2026-33034"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1261724 for CVE-2026-33034",
+          "url": "https://bugzilla.suse.com/1261724"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1261732 for CVE-2026-33034",
+          "url": "https://bugzilla.suse.com/1261732"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-05-07T07:00:32Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-33034"
+    },
+    {
+      "cve": "CVE-2026-35192",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-35192"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An issue was discovered in 6.0 before 6.0.5 and 5.2 before 5.2.14.\nResponse headers do not vary on cookies if a session is not modified, but `SESSION_SAVE_EVERY_REQUEST` is `True`. A remote attacker can steal a user's session after that user visits a cached public page.\nEarlier, unsupported Django series (such as 5.0.x, 4.1.x, and 3.2.x) were not evaluated and may also be affected.\nDjango would like to thank Cantina for reporting this issue.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-35192",
+          "url": "https://www.suse.com/security/cve/CVE-2026-35192"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1264152 for CVE-2026-35192",
+          "url": "https://bugzilla.suse.com/1264152"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1264153 for CVE-2026-35192",
+          "url": "https://bugzilla.suse.com/1264153"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1264154 for CVE-2026-35192",
+          "url": "https://bugzilla.suse.com/1264154"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.2,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-05-07T07:00:32Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-35192"
+    },
+    {
+      "cve": "CVE-2026-3902",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-3902"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An issue was discovered in 6.0 before 6.0.4, 5.2 before 5.2.13, and 4.2 before 4.2.30.\n`ASGIRequest` allows a remote attacker to spoof headers by exploiting an ambiguous mapping of two header variants (with hyphens or with underscores) to a single version with underscores.\nEarlier, unsupported Django series (such as 5.0.x, 4.1.x, and 3.2.x) were not evaluated and may also be affected.\nDjango would like to thank Tarek Nakkouch for reporting this issue.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-3902",
+          "url": "https://www.suse.com/security/cve/CVE-2026-3902"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1261729 for CVE-2026-3902",
+          "url": "https://bugzilla.suse.com/1261729"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1261732 for CVE-2026-3902",
+          "url": "https://bugzilla.suse.com/1261732"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-05-07T07:00:32Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-3902"
+    },
+    {
+      "cve": "CVE-2026-4277",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-4277"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An issue was discovered in 6.0 before 6.0.4, 5.2 before 5.2.13, and 4.2 before 4.2.30.\nAdd permissions on inline model instances were not validated on submission of\r\nforged `POST` data in `GenericInlineModelAdmin`.\nEarlier, unsupported Django series (such as 5.0.x, 4.1.x, and 3.2.x) were not evaluated and may also be affected.\nDjango would like to thank N05ec@LZU-DSLab for reporting this issue.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-4277",
+          "url": "https://www.suse.com/security/cve/CVE-2026-4277"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1261731 for CVE-2026-4277",
+          "url": "https://bugzilla.suse.com/1261731"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1261732 for CVE-2026-4277",
+          "url": "https://bugzilla.suse.com/1261732"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-05-07T07:00:32Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-4277"
+    },
+    {
+      "cve": "CVE-2026-4292",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-4292"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An issue was discovered in 6.0 before 6.0.4, 5.2 before 5.2.13, and 4.2 before 4.2.30.\nAdmin changelist forms using `ModelAdmin.list_editable` incorrectly allowed new\r\ninstances to be created via forged `POST` data.\nEarlier, unsupported Django series (such as 5.0.x, 4.1.x, and 3.2.x) were not evaluated and may also be affected.\nDjango would like to thank Cantina for reporting this issue.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-4292",
+          "url": "https://www.suse.com/security/cve/CVE-2026-4292"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1261732 for CVE-2026-4292",
+          "url": "https://bugzilla.suse.com/1261732"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 2.7,
+            "baseSeverity": "LOW",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-05-07T07:00:32Z",
+          "details": "low"
+        }
+      ],
+      "title": "CVE-2026-4292"
+    },
+    {
+      "cve": "CVE-2026-5766",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-5766"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An issue was discovered in 6.0 before 6.0.5 and 5.2 before 5.2.14.\nASGI requests with a missing or understated `Content-Length` header can bypass the `FILE_UPLOAD_MAX_MEMORY_SIZE` limit, potentially loading large files into memory and causing service degradation.\r\n \r\nAs a reminder, Django expects a limit to be configured at the web server level rather than solely relying on `FILE_UPLOAD_MAX_MEMORY_SIZE`.\nEarlier, unsupported Django series (such as 5.0.x, 4.1.x, and 3.2.x) were not evaluated and may also be affected.\nDjango would like to thank Kyle Agronick for reporting this issue.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-5766",
+          "url": "https://www.suse.com/security/cve/CVE-2026-5766"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1264152 for CVE-2026-5766",
+          "url": "https://bugzilla.suse.com/1264152"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1264153 for CVE-2026-5766",
+          "url": "https://bugzilla.suse.com/1264153"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1264154 for CVE-2026-5766",
+          "url": "https://bugzilla.suse.com/1264154"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-05-07T07:00:32Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-5766"
+    },
+    {
+      "cve": "CVE-2026-6907",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-6907"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An issue was discovered in 6.0 before 6.0.5 and 5.2 before 5.2.14.\n`django.middleware.cache.UpdateCacheMiddleware` erroneously caches requests where the `Vary` header contained an asterisk (`'*'`). This can lead to private data being stored and served.\nEarlier, unsupported Django series (such as 5.0.x, 4.1.x, and 3.2.x) were not evaluated and may also be affected.\nDjango would like to thank Ahmad Sadeddin for reporting this issue.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-6907",
+          "url": "https://www.suse.com/security/cve/CVE-2026-6907"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1264152 for CVE-2026-6907",
+          "url": "https://bugzilla.suse.com/1264152"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1264153 for CVE-2026-6907",
+          "url": "https://bugzilla.suse.com/1264153"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1264154 for CVE-2026-6907",
+          "url": "https://bugzilla.suse.com/1264154"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:python311-Django-0:4.2.11-150600.3.56.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-05-07T07:00:32Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-6907"
+    }
+  ]
+}

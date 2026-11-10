@@ -1,0 +1,422 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "low"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for loupe",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for loupe fixes the following issue\n\n- CVE-2025-58160: tracing-subscriber: untrusted input containing ANSI escape sequences can lead to terminal\n  manipulation (bsc#1249009).\n\nChanges for loupe:\n\n- Update to version 48.2:\n\n - Check if the is-hidden property is available before reading\n it.\n - Considerably increased speed for listing other images in\n folders, especially for remote locations. This allows for\n switching to other images to become available much quicker.\n - Fix panics, probably occuring when using an action like\n 'copy', and then closing the window. The crash causes all\n other windows to close.\n - The creation date for images that don't provide a timezone\n was displayed as if the recorded date and time was in UTC.\n - Zooming in would not work via the zoom menu, if the resulting\n zoom state would still fit the image inside the window.\n\n- Update to version 48.1:\n\n - Crash when closing the window, probably in the exact moment\n when the animnation for hiding controls starts.\n - Editing does not work correctly if PNGs or JPEGs are already\n rotated via an Exif orientation entry before editing.\n - Printed pages don't contain anything or garbled output. This\n is a temporary workaround for\n \u003chttps://gitlab.gnome.org/GNOME/gtk/-/issues/7464\u003e, using the\n cairo renderer for the rotation and scaling of the image in\n the print preparation.\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-SLES-16.0-1096",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2026_22380-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2026:22380-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-202622380-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2026:22380-1",
+        "url": "https://lists.suse.com/pipermail/sle-updates/2026-July/047759.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1249009",
+        "url": "https://bugzilla.suse.com/1249009"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-58160 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-58160/"
+      }
+    ],
+    "title": "Security update for loupe",
+    "tracking": {
+      "current_release_date": "2026-09-17T15:58:01Z",
+      "generator": {
+        "date": "2026-06-28T08:44:40Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2026:22380-1",
+      "initial_release_date": "2026-06-28T08:44:40Z",
+      "revision_history": [
+        {
+          "date": "2026-06-28T08:44:40Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T19:11:05Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T20:00:23Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T15:58:01Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "loupe-0:48.2-160000.1.1.aarch64",
+                "product": {
+                  "name": "loupe-0:48.2-160000.1.1.aarch64",
+                  "product_id": "loupe-0:48.2-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/loupe@48.2-160000.1.1?arch=aarch64\u0026upstream=loupe-0:48.2-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "loupe-lang-0:48.2-160000.1.1.noarch",
+                "product": {
+                  "name": "loupe-lang-0:48.2-160000.1.1.noarch",
+                  "product_id": "loupe-lang-0:48.2-160000.1.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/loupe-lang@48.2-160000.1.1?arch=noarch\u0026upstream=loupe-0:48.2-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "loupe-0:48.2-160000.1.1.ppc64le",
+                "product": {
+                  "name": "loupe-0:48.2-160000.1.1.ppc64le",
+                  "product_id": "loupe-0:48.2-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/loupe@48.2-160000.1.1?arch=ppc64le\u0026upstream=loupe-0:48.2-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "loupe-0:48.2-160000.1.1.s390x",
+                "product": {
+                  "name": "loupe-0:48.2-160000.1.1.s390x",
+                  "product_id": "loupe-0:48.2-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/loupe@48.2-160000.1.1?arch=s390x\u0026upstream=loupe-0:48.2-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "loupe-0:48.2-160000.1.1.x86_64",
+                "product": {
+                  "name": "loupe-0:48.2-160000.1.1.x86_64",
+                  "product_id": "loupe-0:48.2-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/loupe@48.2-160000.1.1?arch=x86_64\u0026upstream=loupe-0:48.2-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 16.0",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 16.0",
+                  "product_id": "SUSE Linux Enterprise Server 16.0",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:16:16.0:server"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP applications 16.0",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP applications 16.0",
+                  "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:16:16.0:server-sap"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "loupe-0:48.2-160000.1.1.aarch64 as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:loupe-0:48.2-160000.1.1.aarch64"
+        },
+        "product_reference": "loupe-0:48.2-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "loupe-0:48.2-160000.1.1.ppc64le as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:loupe-0:48.2-160000.1.1.ppc64le"
+        },
+        "product_reference": "loupe-0:48.2-160000.1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "loupe-0:48.2-160000.1.1.s390x as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:loupe-0:48.2-160000.1.1.s390x"
+        },
+        "product_reference": "loupe-0:48.2-160000.1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "loupe-0:48.2-160000.1.1.x86_64 as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:loupe-0:48.2-160000.1.1.x86_64"
+        },
+        "product_reference": "loupe-0:48.2-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "loupe-lang-0:48.2-160000.1.1.noarch as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:loupe-lang-0:48.2-160000.1.1.noarch"
+        },
+        "product_reference": "loupe-lang-0:48.2-160000.1.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "loupe-0:48.2-160000.1.1.aarch64 as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:loupe-0:48.2-160000.1.1.aarch64"
+        },
+        "product_reference": "loupe-0:48.2-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "loupe-0:48.2-160000.1.1.ppc64le as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:loupe-0:48.2-160000.1.1.ppc64le"
+        },
+        "product_reference": "loupe-0:48.2-160000.1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "loupe-0:48.2-160000.1.1.s390x as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:loupe-0:48.2-160000.1.1.s390x"
+        },
+        "product_reference": "loupe-0:48.2-160000.1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "loupe-0:48.2-160000.1.1.x86_64 as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:loupe-0:48.2-160000.1.1.x86_64"
+        },
+        "product_reference": "loupe-0:48.2-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "loupe-lang-0:48.2-160000.1.1.noarch as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:loupe-lang-0:48.2-160000.1.1.noarch"
+        },
+        "product_reference": "loupe-lang-0:48.2-160000.1.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-58160",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-58160"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "tracing is a framework for instrumenting Rust programs to collect structured, event-based diagnostic information. Prior to version 0.3.20, tracing-subscriber was vulnerable to ANSI escape sequence injection attacks. Untrusted user input containing ANSI escape sequences could be injected into terminal output when logged, potentially allowing attackers to manipulate terminal title bars, clear screens or modify terminal display, and potentially mislead users through terminal manipulation. tracing-subscriber version 0.3.20 fixes this vulnerability by escaping ANSI control characters when writing events to destinations that may be printed to the terminal. A workaround involves avoiding printing logs to terminal emulators without escaping ANSI control sequences.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server 16.0:loupe-0:48.2-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:loupe-0:48.2-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:loupe-0:48.2-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:loupe-0:48.2-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server 16.0:loupe-lang-0:48.2-160000.1.1.noarch",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:loupe-0:48.2-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:loupe-0:48.2-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:loupe-0:48.2-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:loupe-0:48.2-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:loupe-lang-0:48.2-160000.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-58160",
+          "url": "https://www.suse.com/security/cve/CVE-2025-58160"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1249007 for CVE-2025-58160",
+          "url": "https://bugzilla.suse.com/1249007"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server 16.0:loupe-0:48.2-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:loupe-0:48.2-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:loupe-0:48.2-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:loupe-0:48.2-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server 16.0:loupe-lang-0:48.2-160000.1.1.noarch",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:loupe-0:48.2-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:loupe-0:48.2-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:loupe-0:48.2-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:loupe-0:48.2-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:loupe-lang-0:48.2-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 3.1,
+            "baseSeverity": "LOW",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server 16.0:loupe-0:48.2-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:loupe-0:48.2-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:loupe-0:48.2-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:loupe-0:48.2-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server 16.0:loupe-lang-0:48.2-160000.1.1.noarch",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:loupe-0:48.2-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:loupe-0:48.2-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:loupe-0:48.2-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:loupe-0:48.2-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:loupe-lang-0:48.2-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-28T08:44:40Z",
+          "details": "low"
+        }
+      ],
+      "title": "CVE-2025-58160"
+    }
+  ]
+}

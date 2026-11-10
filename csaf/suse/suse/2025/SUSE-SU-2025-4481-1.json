@@ -1,0 +1,531 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for golang-github-prometheus-alertmanager",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for golang-github-prometheus-alertmanager fixes the following issues:\n\n- Update to version 0.28.1 (jsc#PED-13285):\n  * Improved performance of inhibition rules when using Equal\n    labels.\n  * Improve the documentation on escaping in UTF-8 matchers.\n  * Update alertmanager_config_hash metric help to document the\n    hash is not cryptographically strong.\n  * Fix panic in amtool when using --verbose.\n  * Fix templating of channel field for Rocket.Chat.\n  * Fix rocketchat_configs written as rocket_configs in docs.\n  * Fix usage for --enable-feature flag.\n  * Trim whitespace from OpsGenie API Key.\n  * Fix Jira project template not rendered when searching for\n    existing issues.\n  * Fix subtle bug in JSON/YAML encoding of inhibition rules that\n    would cause Equal labels to be omitted.\n  * Fix header for slack_configs in docs.\n  * Fix weight and wrap of Microsoft Teams notifications.\n- Upgrade to version 0.28.0:\n  * CVE-2025-47908: Bump github.com/rs/cors (bsc#1247748).\n  * Templating errors in the SNS integration now return an error.\n  * Adopt log/slog, drop go-kit/log.\n  * Add a new Microsoft Teams integration based on Flows.\n  * Add a new Rocket.Chat integration.\n  * Add a new Jira integration.\n  * Add support for GOMEMLIMIT, enable it via the feature flag\n    --enable-feature=auto-gomemlimit.\n  * Add support for GOMAXPROCS, enable it via the feature flag\n    --enable-feature=auto-gomaxprocs.\n  * Add support for limits of silences including the maximum number\n    of active and pending silences, and the maximum size per\n    silence (in bytes). You can use the flags\n    --silences.max-silences and --silences.max-silence-size-bytes\n    to set them accordingly.\n  * Muted alerts now show whether they are suppressed or not in\n    both the /api/v2/alerts endpoint and the Alertmanager UI.\n- Upgrade to version 0.27.0:\n  * API: Removal of all api/v1/ endpoints. These endpoints\n    now log and return a deprecation message and respond with a\n    status code of 410.\n  * UTF-8 Support: Introduction of support for any UTF-8\n    character as part of label names and matchers.\n  * Discord Integration: Enforce max length in message.\n  * Metrics: Introduced the experimental feature flag\n    --enable-feature=receiver-name-in-metrics to include the\n    receiver name.\n  * Metrics: Introduced a new gauge named\n    alertmanager_inhibition_rules that counts the number of\n    configured inhibition rules.\n  * Metrics: Introduced a new counter named\n    alertmanager_alerts_supressed_total that tracks muted alerts,\n    it contains a reason label to indicate the source of the mute.\n  * Discord Integration: Introduced support for webhook_url_file.\n  * Microsoft Teams Integration: Introduced support for\n    webhook_url_file.\n  * Microsoft Teams Integration: Add support for summary.\n  * Metrics: Notification metrics now support two new values for\n    the label reason, contextCanceled and contextDeadlineExceeded.\n  * Email Integration: Contents of auth_password_file are now\n    trimmed of prefixed and suffixed whitespace.\n  * amtool: Fixes the error scheme required for webhook url when\n    using amtool with --alertmanager.url.\n  * Mixin: Fix AlertmanagerFailedToSendAlerts,\n    AlertmanagerClusterFailedToSendAlerts, and\n    AlertmanagerClusterFailedToSendAlerts to make sure they ignore\n    the reason label.\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2025-4481,SUSE-SLE-Manager-Tools-15-2025-4481,SUSE-SLE-Module-Packagehub-Subpackages-15-SP6-2025-4481,SUSE-SLE-Module-Packagehub-Subpackages-15-SP7-2025-4481,SUSE-SLE-Product-SUSE-Manager-Proxy-4.3-LTS-2025-4481,openSUSE-SLE-15.6-2025-4481",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_4481-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:4481-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-20254481-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:4481-1",
+        "url": "https://lists.suse.com/pipermail/sle-security-updates/2025-December/023615.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1247748",
+        "url": "https://bugzilla.suse.com/1247748"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-47908 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-47908/"
+      }
+    ],
+    "title": "Security update for golang-github-prometheus-alertmanager",
+    "tracking": {
+      "current_release_date": "2026-09-20T18:33:41Z",
+      "generator": {
+        "date": "2025-12-18T12:18:50Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:4481-1",
+      "initial_release_date": "2025-12-18T12:18:50Z",
+      "revision_history": [
+        {
+          "date": "2025-12-18T12:18:50Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T18:33:41Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64",
+                "product": {
+                  "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64",
+                  "product_id": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:prometheus:alertmanager:0.28.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-alertmanager@0.28.1-150100.4.28.2?arch=aarch64\u0026upstream=golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.i586",
+                "product": {
+                  "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.i586",
+                  "product_id": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:prometheus:alertmanager:0.28.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-alertmanager@0.28.1-150100.4.28.2?arch=i586\u0026upstream=golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "i586"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le",
+                "product": {
+                  "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le",
+                  "product_id": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:prometheus:alertmanager:0.28.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-alertmanager@0.28.1-150100.4.28.2?arch=ppc64le\u0026upstream=golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x",
+                "product": {
+                  "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x",
+                  "product_id": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:prometheus:alertmanager:0.28.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-alertmanager@0.28.1-150100.4.28.2?arch=s390x\u0026upstream=golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64",
+                "product": {
+                  "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64",
+                  "product_id": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:prometheus:alertmanager:0.28.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-alertmanager@0.28.1-150100.4.28.2?arch=x86_64\u0026upstream=golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Manager Client Tools 15",
+                "product": {
+                  "name": "SUSE Manager Client Tools 15",
+                  "product_id": "SUSE Manager Client Tools 15"
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Package Hub 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Package Hub 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:packagehub:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Package Hub 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Package Hub 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:packagehub:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Manager Proxy LTS 4.3",
+                "product": {
+                  "name": "SUSE Manager Proxy LTS 4.3",
+                  "product_id": "SUSE Manager Proxy LTS 4.3",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:suse-manager-proxy-lts:4.3"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 15.6",
+                "product": {
+                  "name": "openSUSE Leap 15.6",
+                  "product_id": "openSUSE Leap 15.6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:opensuse:leap:15.6"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64 as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64 as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64 as component of SUSE Linux Enterprise Module for Package Hub 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le as component of SUSE Linux Enterprise Module for Package Hub 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x as component of SUSE Linux Enterprise Module for Package Hub 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64 as component of SUSE Linux Enterprise Module for Package Hub 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64 as component of SUSE Linux Enterprise Module for Package Hub 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP7:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le as component of SUSE Linux Enterprise Module for Package Hub 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP7:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x as component of SUSE Linux Enterprise Module for Package Hub 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP7:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64 as component of SUSE Linux Enterprise Module for Package Hub 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP7:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64 as component of SUSE Manager Proxy LTS 4.3",
+          "product_id": "SUSE Manager Proxy LTS 4.3:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64",
+        "relates_to_product_reference": "SUSE Manager Proxy LTS 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-47908",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-47908"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Middleware causes a prohibitive amount of heap allocations when processing malicious preflight requests that include a Access-Control-Request-Headers (ACRH) header whose value contains many commas. This behavior can be abused by attackers to produce undue load on the middleware/server as an attempt to cause a denial of service.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP7:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP7:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP7:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP7:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64",
+          "SUSE Manager Client Tools 15:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64",
+          "SUSE Manager Client Tools 15:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le",
+          "SUSE Manager Client Tools 15:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x",
+          "SUSE Manager Client Tools 15:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64",
+          "SUSE Manager Proxy LTS 4.3:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64",
+          "openSUSE Leap 15.6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64",
+          "openSUSE Leap 15.6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le",
+          "openSUSE Leap 15.6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x",
+          "openSUSE Leap 15.6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-47908",
+          "url": "https://www.suse.com/security/cve/CVE-2025-47908"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1247746 for CVE-2025-47908",
+          "url": "https://bugzilla.suse.com/1247746"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64",
+            "SUSE Manager Client Tools 15:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64",
+            "SUSE Manager Client Tools 15:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le",
+            "SUSE Manager Client Tools 15:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x",
+            "SUSE Manager Client Tools 15:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64",
+            "SUSE Manager Proxy LTS 4.3:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64",
+            "openSUSE Leap 15.6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64",
+            "openSUSE Leap 15.6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le",
+            "openSUSE Leap 15.6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x",
+            "openSUSE Leap 15.6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP7:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64",
+            "SUSE Manager Client Tools 15:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64",
+            "SUSE Manager Client Tools 15:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le",
+            "SUSE Manager Client Tools 15:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x",
+            "SUSE Manager Client Tools 15:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64",
+            "SUSE Manager Proxy LTS 4.3:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64",
+            "openSUSE Leap 15.6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.aarch64",
+            "openSUSE Leap 15.6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.ppc64le",
+            "openSUSE Leap 15.6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.s390x",
+            "openSUSE Leap 15.6:golang-github-prometheus-alertmanager-0:0.28.1-150100.4.28.2.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-12-18T12:18:50Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-47908"
+    }
+  ]
+}

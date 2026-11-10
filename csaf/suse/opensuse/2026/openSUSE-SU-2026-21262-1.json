@@ -1,0 +1,611 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for hauler",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for hauler fixes the following issues:\n\nChanges in hauler:\n\n- update to 2.0.1 (bsc#1269433, CVE-2026-48702):\n  * bump go to 1.26.4 to squash CVE noise\n  * Full v2 Release notes: https://github.com/hauler-\n    dev/hauler/releases/tag/v2.0.0\n\n- update to 2.0.0:\n  * `v2.0.0` is a **major** release. It replaces Hauler's entire\n    OCI plumbing... the ORAS v1 dependency and the in-house\n    cosign fork with a native containerd based implementation,\n    drops the deprecated `v1alpha1` API, and layers on a\n    meaningful set of new capabilities and reliability fixes on\n    top of that new foundation.\n  * **Removed the ORAS v1 dependency** - push/pull is now driven\n    directly by containerd's docker resolver and `google/go-\n    containerregistry`, new `pkg/content/registry.go`\n    (`RegistryTarget`) and `pkg/content/types.go` (`Target`\n    interface, `IoContentWriter`) replaces what ORAS used to own.\n  * **Removed the hauler-maintained cosign fork** - `pkg/cosign`\n    is now a thin verify only wrapper around upstream\n    `sigstore/cosign/v3`. Images are added through a native\n    `s.AddImage()` path in `pkg/store`\n  * **Added OCI 1.1 Referrers support** - signatures,\n    attestations, and SBOMs are discovered both via the classic\n    cosign tag convention (`sha256-.sig` / `.att` / `.sbom`) and\n    the modern Referrers API, then correctly through the OCI\n    layout\n\n- update x/net to v0.55.0 (bsc#1266602, CVE-2026-39821,\n     bsc#1267150, CVE-2026-25680, CVE-2026-42502, CVE-2026-27136,\n     CVE-2026-25681, CVE-2026-42506)\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-391",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_21262-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1267150",
+        "url": "https://bugzilla.suse.com/1267150"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269433",
+        "url": "https://bugzilla.suse.com/1269433"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-25680 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-25680/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-25681 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-25681/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-27136 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-27136/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-42502 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-42502/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-42506 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-42506/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-48702 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-48702/"
+      }
+    ],
+    "title": "Security update for hauler",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:38:06Z",
+      "generator": {
+        "date": "2026-07-06T09:02:35Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:21262-1",
+      "initial_release_date": "2026-07-06T09:02:35Z",
+      "revision_history": [
+        {
+          "date": "2026-07-06T09:02:35Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:41:18Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:43:08Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:38:06Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "hauler-0:2.0.1-bp160.1.1.aarch64",
+                "product": {
+                  "name": "hauler-0:2.0.1-bp160.1.1.aarch64",
+                  "product_id": "hauler-0:2.0.1-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/hauler@2.0.1-bp160.1.1?arch=aarch64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "hauler-0:2.0.1-bp160.1.1.x86_64",
+                "product": {
+                  "name": "hauler-0:2.0.1-bp160.1.1.x86_64",
+                  "product_id": "hauler-0:2.0.1-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/hauler@2.0.1-bp160.1.1?arch=x86_64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "hauler-0:2.0.1-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.aarch64"
+        },
+        "product_reference": "hauler-0:2.0.1-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "hauler-0:2.0.1-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.x86_64"
+        },
+        "product_reference": "hauler-0:2.0.1-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-25680",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-25680"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Parsing arbitrary HTML can consume excessive CPU time, possibly leading to denial of service.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-25680",
+          "url": "https://www.suse.com/security/cve/CVE-2026-25680"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1267044 for CVE-2026-25680",
+          "url": "https://bugzilla.suse.com/1267044"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-07-06T09:02:35Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-25680"
+    },
+    {
+      "cve": "CVE-2026-25681",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-25681"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Parsing arbitrary HTML which is then rendered using Render can result in an unexpected HTML tree. This can be leveraged to execute XSS attacks in applications that attempt to sanitize input HTML before rendering.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-25681",
+          "url": "https://www.suse.com/security/cve/CVE-2026-25681"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1267044 for CVE-2026-25681",
+          "url": "https://bugzilla.suse.com/1267044"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.1,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-07-06T09:02:35Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-25681"
+    },
+    {
+      "cve": "CVE-2026-27136",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-27136"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Parsing arbitrary HTML which is then rendered using Render can result in an unexpected HTML tree. This can be leveraged to execute XSS attacks in applications that attempt to sanitize input HTML before rendering.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-27136",
+          "url": "https://www.suse.com/security/cve/CVE-2026-27136"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1267044 for CVE-2026-27136",
+          "url": "https://bugzilla.suse.com/1267044"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.1,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-07-06T09:02:35Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-27136"
+    },
+    {
+      "cve": "CVE-2026-42502",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-42502"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Parsing arbitrary HTML which is then rendered using Render can result in an unexpected HTML tree. This can be leveraged to execute XSS attacks in applications that attempt to sanitize input HTML before rendering.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-42502",
+          "url": "https://www.suse.com/security/cve/CVE-2026-42502"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1267044 for CVE-2026-42502",
+          "url": "https://bugzilla.suse.com/1267044"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.1,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-07-06T09:02:35Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-42502"
+    },
+    {
+      "cve": "CVE-2026-42506",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-42506"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Parsing arbitrary HTML which is then rendered using Render can result in an unexpected HTML tree. This can be leveraged to execute XSS attacks in applications that attempt to sanitize input HTML before rendering.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-42506",
+          "url": "https://www.suse.com/security/cve/CVE-2026-42506"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1267044 for CVE-2026-42506",
+          "url": "https://bugzilla.suse.com/1267044"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.1,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-07-06T09:02:35Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-42506"
+    },
+    {
+      "cve": "CVE-2026-48702",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-48702"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Rekor is a software supply chain transparency log. Starting in version 0.3.0 and prior to version 1.5.2, the `Package.Unmarshal()` function in `pkg/types/alpine/apk.go` decompresses the signature and control gzip members of an APK file into in-memory buffers without bounding the total decompressed size. The existing `max_apk_metadata_size` check (default 1MB) is only applied to individual tar entry header sizes after decompression completes, so it does not prevent a decompression bomb from consuming unbounded heap memory. An attacker can craft a gzip stream that compresses at a ~1000:1 ratio (e.g., 2MB compressed zeros -\u003e 2GB decompressed). When submitted as spec.package.content in an Alpine `ProposedEntry`, the server decompresses the full payload into memory during request processing, triggering a fatal Go runtime out-of-memory error or OS OOM-kill that cannot be caught by the server's recover() middleware. This is reachable via two unauthenticated endpoints, `POST /api/v1/log/entries (createLogEntry)` and `POST /api/v1/log/entries/retrieve (searchLogQuery)`. Both invoke `V001Entry.Canonicalize()` -\u003e `fetchExternalEntities()` -\u003e `apk.Unmarshal(packageData)`, which performs the unbounded decompression. Version 1.5.2 patches the issue. There is no effective workaround. Setting `max_request_body_size` reduces but does not eliminate exposure due to the ~1000:1 compression ratio (a 1MB body limit still allows ~1GB heap allocation). Setting `max_apk_metadata_size` has no effect on this vulnerability since the check is applied after decompression.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-48702",
+          "url": "https://www.suse.com/security/cve/CVE-2026-48702"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269425 for CVE-2026-48702",
+          "url": "https://bugzilla.suse.com/1269425"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:hauler-0:2.0.1-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-07-06T09:02:35Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-48702"
+    }
+  ]
+}

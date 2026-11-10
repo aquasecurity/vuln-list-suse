@@ -1,0 +1,2193 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for netty, netty-tcnative",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for netty, netty-tcnative fixes the following issues:\n\n- CVE-2025-24970: incorrect validation of packets by SslHandler can lead to a native crash. (bsc#1237037)\n- CVE-2025-25193: unsafe reading of environment files can lead to an application crash. (bsc#1237038)\n\nUpdate to netty version 4.1.118 and netty-tcnative version 2.0.70 Final.\n    \nOther fixes:\n\n- Fix recycling in CodecOutputList.    \n- StreamBufferingEncoder: do not send header frame with priority by default.\n- Notify event loop termination future of unexpected exceptions.\n- Fix AccessControlException in GlobalEventExecutor.\n- AdaptivePoolingAllocator: round chunk sizes up and reduce chunk release frequency.\n- Support BouncyCastle FIPS for reading PEM files.\n- Dns: correctly encode DnsPtrRecord.\n- Provide Brotli settings without com.aayushatharva.brotli4j dependency.\n- Make DefaultResourceLeak more resilient against OOM.\n- OpenSslSession: add support to defensively check for peer certs.\n- SslHandler: ensure buffers are never leaked when wrap(...) produces SSLException.\n- Correcly handle comments appended to nameserver declarations.\n- PcapWriteHandler: apply fixes so that the handler can append to an existing PCAP file when writing the global header.\n- PcapWriteHandler: allow output of PCAP files larger than 2GB.\n- Fix bugs in BoundedInputStream.\n- Fix HTTP header validation bug.\n- AdaptivePoolingAllocator: fix possible race condition in method offerToQueue(...).\n- AdaptivePoolingAllocator: make sure the sentinel object Magazine.MAGAZINE_FREED not be replaced.\n- Only try to use Zstd and Brotli if the native libs can be loaded.\n- Bump BlockHound version to 1.0.10.RELEASE.\n- Add details to TooLongFrameException message.\n- AdaptivePoolingAllocator: correctly reuse chunks.\n- AdaptivePoolingAllocator: don't fail when we run on a host with 1 core.\n- AdaptivePoolingAllocator: correctly re-use central queue chunks and avoid OOM issue.\n- Fix several memory management (leaks and missing checks) issues.\n    \n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2025-590,SUSE-SLE-Module-Development-Tools-15-SP6-2025-590,SUSE-SLE-Module-Packagehub-Subpackages-15-SP6-2025-590,SUSE-SLE-Product-HPC-15-SP3-LTSS-2025-590,SUSE-SLE-Product-HPC-15-SP4-ESPOS-2025-590,SUSE-SLE-Product-HPC-15-SP4-LTSS-2025-590,SUSE-SLE-Product-HPC-15-SP5-ESPOS-2025-590,SUSE-SLE-Product-HPC-15-SP5-LTSS-2025-590,SUSE-SLE-Product-SLES-15-SP3-LTSS-2025-590,SUSE-SLE-Product-SLES-15-SP4-LTSS-2025-590,SUSE-SLE-Product-SLES-15-SP5-LTSS-2025-590,SUSE-SLE-Product-SLES_SAP-15-SP3-2025-590,SUSE-SLE-Product-SLES_SAP-15-SP4-2025-590,SUSE-SLE-Product-SLES_SAP-15-SP5-2025-590,SUSE-Storage-7.1-2025-590,openSUSE-SLE-15.6-2025-590",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_0590-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:0590-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-20250590-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:0590-1",
+        "url": "https://lists.suse.com/pipermail/sle-security-updates/2025-February/020377.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1237037",
+        "url": "https://bugzilla.suse.com/1237037"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1237038",
+        "url": "https://bugzilla.suse.com/1237038"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-24970 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-24970/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-25193 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-25193/"
+      }
+    ],
+    "title": "Security update for netty, netty-tcnative",
+    "tracking": {
+      "current_release_date": "2026-09-20T17:55:53Z",
+      "generator": {
+        "date": "2025-02-19T10:34:01Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:0590-1",
+      "initial_release_date": "2025-02-19T10:34:01Z",
+      "revision_history": [
+        {
+          "date": "2025-02-19T10:34:01Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T17:55:53Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "netty-0:4.1.118-150200.4.29.2.aarch64",
+                "product": {
+                  "name": "netty-0:4.1.118-150200.4.29.2.aarch64",
+                  "product_id": "netty-0:4.1.118-150200.4.29.2.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:netty:netty:4.1.118:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/netty@4.1.118-150200.4.29.2?arch=aarch64\u0026upstream=netty-0:4.1.118-150200.4.29.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+                "product": {
+                  "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+                  "product_id": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:netty:netty:2.0.70:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/netty-tcnative@2.0.70-150200.3.25.1?arch=aarch64\u0026upstream=netty-tcnative-0:2.0.70-150200.3.25.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "netty-tcnative-openssl-dynamic-0:2.0.70-150200.3.25.1.aarch64",
+                "product": {
+                  "name": "netty-tcnative-openssl-dynamic-0:2.0.70-150200.3.25.1.aarch64",
+                  "product_id": "netty-tcnative-openssl-dynamic-0:2.0.70-150200.3.25.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/netty-tcnative-openssl-dynamic@2.0.70-150200.3.25.1?arch=aarch64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "netty-0:4.1.118-150200.4.29.2.i586",
+                "product": {
+                  "name": "netty-0:4.1.118-150200.4.29.2.i586",
+                  "product_id": "netty-0:4.1.118-150200.4.29.2.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:netty:netty:4.1.118:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/netty@4.1.118-150200.4.29.2?arch=i586\u0026upstream=netty-0:4.1.118-150200.4.29.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "netty-tcnative-0:2.0.70-150200.3.25.1.i586",
+                "product": {
+                  "name": "netty-tcnative-0:2.0.70-150200.3.25.1.i586",
+                  "product_id": "netty-tcnative-0:2.0.70-150200.3.25.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:netty:netty:2.0.70:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/netty-tcnative@2.0.70-150200.3.25.1?arch=i586\u0026upstream=netty-tcnative-0:2.0.70-150200.3.25.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "netty-tcnative-openssl-dynamic-0:2.0.70-150200.3.25.1.i586",
+                "product": {
+                  "name": "netty-tcnative-openssl-dynamic-0:2.0.70-150200.3.25.1.i586",
+                  "product_id": "netty-tcnative-openssl-dynamic-0:2.0.70-150200.3.25.1.i586",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/netty-tcnative-openssl-dynamic@2.0.70-150200.3.25.1?arch=i586"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "i586"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "netty-bom-0:4.1.118-150200.4.29.2.noarch",
+                "product": {
+                  "name": "netty-bom-0:4.1.118-150200.4.29.2.noarch",
+                  "product_id": "netty-bom-0:4.1.118-150200.4.29.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/netty-bom@4.1.118-150200.4.29.2?arch=noarch"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "netty-javadoc-0:4.1.118-150200.4.29.2.noarch",
+                "product": {
+                  "name": "netty-javadoc-0:4.1.118-150200.4.29.2.noarch",
+                  "product_id": "netty-javadoc-0:4.1.118-150200.4.29.2.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:netty:netty:4.1.118:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/netty-javadoc@4.1.118-150200.4.29.2?arch=noarch\u0026upstream=netty-0:4.1.118-150200.4.29.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "netty-parent-0:4.1.118-150200.4.29.2.noarch",
+                "product": {
+                  "name": "netty-parent-0:4.1.118-150200.4.29.2.noarch",
+                  "product_id": "netty-parent-0:4.1.118-150200.4.29.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/netty-parent@4.1.118-150200.4.29.2?arch=noarch"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "netty-tcnative-javadoc-0:2.0.70-150200.3.25.1.noarch",
+                "product": {
+                  "name": "netty-tcnative-javadoc-0:2.0.70-150200.3.25.1.noarch",
+                  "product_id": "netty-tcnative-javadoc-0:2.0.70-150200.3.25.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:netty:netty:2.0.70:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/netty-tcnative-javadoc@2.0.70-150200.3.25.1?arch=noarch\u0026upstream=netty-tcnative-0:2.0.70-150200.3.25.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "netty-0:4.1.118-150200.4.29.2.ppc64le",
+                "product": {
+                  "name": "netty-0:4.1.118-150200.4.29.2.ppc64le",
+                  "product_id": "netty-0:4.1.118-150200.4.29.2.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:netty:netty:4.1.118:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/netty@4.1.118-150200.4.29.2?arch=ppc64le\u0026upstream=netty-0:4.1.118-150200.4.29.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+                "product": {
+                  "name": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+                  "product_id": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:netty:netty:2.0.70:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/netty-tcnative@2.0.70-150200.3.25.1?arch=ppc64le\u0026upstream=netty-tcnative-0:2.0.70-150200.3.25.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "netty-tcnative-openssl-dynamic-0:2.0.70-150200.3.25.1.ppc64le",
+                "product": {
+                  "name": "netty-tcnative-openssl-dynamic-0:2.0.70-150200.3.25.1.ppc64le",
+                  "product_id": "netty-tcnative-openssl-dynamic-0:2.0.70-150200.3.25.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/netty-tcnative-openssl-dynamic@2.0.70-150200.3.25.1?arch=ppc64le"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "netty-0:4.1.118-150200.4.29.2.s390x",
+                "product": {
+                  "name": "netty-0:4.1.118-150200.4.29.2.s390x",
+                  "product_id": "netty-0:4.1.118-150200.4.29.2.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:netty:netty:4.1.118:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/netty@4.1.118-150200.4.29.2?arch=s390x\u0026upstream=netty-0:4.1.118-150200.4.29.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+                "product": {
+                  "name": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+                  "product_id": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:netty:netty:2.0.70:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/netty-tcnative@2.0.70-150200.3.25.1?arch=s390x\u0026upstream=netty-tcnative-0:2.0.70-150200.3.25.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "netty-tcnative-openssl-dynamic-0:2.0.70-150200.3.25.1.s390x",
+                "product": {
+                  "name": "netty-tcnative-openssl-dynamic-0:2.0.70-150200.3.25.1.s390x",
+                  "product_id": "netty-tcnative-openssl-dynamic-0:2.0.70-150200.3.25.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/netty-tcnative-openssl-dynamic@2.0.70-150200.3.25.1?arch=s390x"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "netty-0:4.1.118-150200.4.29.2.x86_64",
+                "product": {
+                  "name": "netty-0:4.1.118-150200.4.29.2.x86_64",
+                  "product_id": "netty-0:4.1.118-150200.4.29.2.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:netty:netty:4.1.118:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/netty@4.1.118-150200.4.29.2?arch=x86_64\u0026upstream=netty-0:4.1.118-150200.4.29.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+                "product": {
+                  "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+                  "product_id": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:netty:netty:2.0.70:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/netty-tcnative@2.0.70-150200.3.25.1?arch=x86_64\u0026upstream=netty-tcnative-0:2.0.70-150200.3.25.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "netty-tcnative-openssl-dynamic-0:2.0.70-150200.3.25.1.x86_64",
+                "product": {
+                  "name": "netty-tcnative-openssl-dynamic-0:2.0.70-150200.3.25.1.x86_64",
+                  "product_id": "netty-tcnative-openssl-dynamic-0:2.0.70-150200.3.25.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/netty-tcnative-openssl-dynamic@2.0.70-150200.3.25.1?arch=x86_64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Development Tools 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Development Tools 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-development-tools:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Desktop 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Desktop 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Desktop 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sled:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Package Hub 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Package Hub 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:packagehub:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc-ltss:15:sp3"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP3",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP3",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP3",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc:15:sp3"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc-espos:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc-ltss:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP4",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP4",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc-espos:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc-ltss:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP5",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP3-LTSS",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP3-LTSS",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP3-LTSS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles-ltss:15:sp3"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP3",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP3",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP3",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp3"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP3",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP3",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP3",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp3"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles-ltss:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP4",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP4",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "Open Enterprise Server 23.4",
+                "product": {
+                  "name": "Open Enterprise Server 23.4",
+                  "product_id": "Open Enterprise Server 23.4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:novell,inc:OES:23.4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "Open Enterprise Server 24.4",
+                "product": {
+                  "name": "Open Enterprise Server 24.4",
+                  "product_id": "Open Enterprise Server 24.4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:novell,inc:OES:24.4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles-ltss:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP5",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Enterprise Storage 7.1",
+                "product": {
+                  "name": "SUSE Enterprise Storage 7.1",
+                  "product_id": "SUSE Enterprise Storage 7.1",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:ses:7.1"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 15.6",
+                "product": {
+                  "name": "openSUSE Leap 15.6",
+                  "product_id": "openSUSE Leap 15.6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:opensuse:leap:15.6"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise Module for Development Tools 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le as component of SUSE Linux Enterprise Module for Development Tools 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x as component of SUSE Linux Enterprise Module for Development Tools 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise Module for Development Tools 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Development Tools 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise Module for Development Tools 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le as component of SUSE Linux Enterprise Module for Development Tools 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x as component of SUSE Linux Enterprise Module for Development Tools 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise Module for Development Tools 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise Module for Development Tools 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le as component of SUSE Linux Enterprise Module for Development Tools 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x as component of SUSE Linux Enterprise Module for Development Tools 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise Module for Development Tools 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise Module for Development Tools 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le as component of SUSE Linux Enterprise Module for Development Tools 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x as component of SUSE Linux Enterprise Module for Development Tools 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise Module for Development Tools 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-0:4.1.118-150200.4.29.2.aarch64 as component of SUSE Linux Enterprise Module for Package Hub 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.aarch64"
+        },
+        "product_reference": "netty-0:4.1.118-150200.4.29.2.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-0:4.1.118-150200.4.29.2.ppc64le as component of SUSE Linux Enterprise Module for Package Hub 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.ppc64le"
+        },
+        "product_reference": "netty-0:4.1.118-150200.4.29.2.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-0:4.1.118-150200.4.29.2.s390x as component of SUSE Linux Enterprise Module for Package Hub 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.s390x"
+        },
+        "product_reference": "netty-0:4.1.118-150200.4.29.2.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-0:4.1.118-150200.4.29.2.x86_64 as component of SUSE Linux Enterprise Module for Package Hub 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.x86_64"
+        },
+        "product_reference": "netty-0:4.1.118-150200.4.29.2.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-javadoc-0:4.1.118-150200.4.29.2.noarch as component of SUSE Linux Enterprise Module for Package Hub 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-javadoc-0:4.1.118-150200.4.29.2.noarch"
+        },
+        "product_reference": "netty-javadoc-0:4.1.118-150200.4.29.2.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP3-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP3-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP3-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP3-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x as component of SUSE Linux Enterprise Server 15 SP3-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP3-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP3-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP3-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP3-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP3-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x as component of SUSE Linux Enterprise Server 15 SP3-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.s390x"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP3-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP3-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP3-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x as component of SUSE Linux Enterprise Server 15 SP3-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.s390x"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP3-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.s390x"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.s390x"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of SUSE Enterprise Storage 7.1",
+          "product_id": "SUSE Enterprise Storage 7.1:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "SUSE Enterprise Storage 7.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of SUSE Enterprise Storage 7.1",
+          "product_id": "SUSE Enterprise Storage 7.1:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "SUSE Enterprise Storage 7.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-0:4.1.118-150200.4.29.2.aarch64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.aarch64"
+        },
+        "product_reference": "netty-0:4.1.118-150200.4.29.2.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-0:4.1.118-150200.4.29.2.ppc64le as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.ppc64le"
+        },
+        "product_reference": "netty-0:4.1.118-150200.4.29.2.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-0:4.1.118-150200.4.29.2.s390x as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.s390x"
+        },
+        "product_reference": "netty-0:4.1.118-150200.4.29.2.s390x",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-0:4.1.118-150200.4.29.2.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.x86_64"
+        },
+        "product_reference": "netty-0:4.1.118-150200.4.29.2.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-javadoc-0:4.1.118-150200.4.29.2.noarch as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:netty-javadoc-0:4.1.118-150200.4.29.2.noarch"
+        },
+        "product_reference": "netty-javadoc-0:4.1.118-150200.4.29.2.noarch",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64"
+        },
+        "product_reference": "netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "netty-tcnative-javadoc-0:2.0.70-150200.3.25.1.noarch as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:netty-tcnative-javadoc-0:2.0.70-150200.3.25.1.noarch"
+        },
+        "product_reference": "netty-tcnative-javadoc-0:2.0.70-150200.3.25.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-24970",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-24970"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Netty, an asynchronous, event-driven network application framework, has a vulnerability starting in version 4.1.91.Final and prior to version 4.1.118.Final. When a special crafted packet is received via SslHandler it doesn't correctly handle validation of such a packet in all cases which can lead to a native crash. Version 4.1.118.Final contains a patch. As workaround its possible to either disable the usage of the native SSLEngine or change the code manually.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Enterprise Storage 7.1:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Enterprise Storage 7.1:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.aarch64",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.ppc64le",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.s390x",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.x86_64",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-javadoc-0:4.1.118-150200.4.29.2.noarch",
+          "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.aarch64",
+          "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.ppc64le",
+          "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.s390x",
+          "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.x86_64",
+          "openSUSE Leap 15.6:netty-javadoc-0:4.1.118-150200.4.29.2.noarch",
+          "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "openSUSE Leap 15.6:netty-tcnative-javadoc-0:2.0.70-150200.3.25.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-24970",
+          "url": "https://www.suse.com/security/cve/CVE-2025-24970"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1237037 for CVE-2025-24970",
+          "url": "https://bugzilla.suse.com/1237037"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Enterprise Storage 7.1:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Enterprise Storage 7.1:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.aarch64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.ppc64le",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.s390x",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-javadoc-0:4.1.118-150200.4.29.2.noarch",
+            "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.aarch64",
+            "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.ppc64le",
+            "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.s390x",
+            "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.x86_64",
+            "openSUSE Leap 15.6:netty-javadoc-0:4.1.118-150200.4.29.2.noarch",
+            "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "openSUSE Leap 15.6:netty-tcnative-javadoc-0:2.0.70-150200.3.25.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Enterprise Storage 7.1:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Enterprise Storage 7.1:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.aarch64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.ppc64le",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.s390x",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-javadoc-0:4.1.118-150200.4.29.2.noarch",
+            "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.aarch64",
+            "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.ppc64le",
+            "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.s390x",
+            "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.x86_64",
+            "openSUSE Leap 15.6:netty-javadoc-0:4.1.118-150200.4.29.2.noarch",
+            "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "openSUSE Leap 15.6:netty-tcnative-javadoc-0:2.0.70-150200.3.25.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-19T10:34:01Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-24970"
+    },
+    {
+      "cve": "CVE-2025-25193",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-25193"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Netty, an asynchronous, event-driven network application framework, has a vulnerability in versions up to and including 4.1.118.Final. An unsafe reading of environment file could potentially cause a denial of service in Netty. When loaded on an Windows application, Netty attempts to load a file that does not exist. If an attacker creates such a large file, the Netty application crash. A similar issue was previously reported as CVE-2024-47535. This issue was fixed, but the fix was incomplete in that null-bytes were not counted against the input limit. Commit d1fbda62d3a47835d3fb35db8bd42ecc205a5386 contains an updated fix.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Enterprise Storage 7.1:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Enterprise Storage 7.1:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.aarch64",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.ppc64le",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.s390x",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.x86_64",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-javadoc-0:4.1.118-150200.4.29.2.noarch",
+          "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.aarch64",
+          "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.ppc64le",
+          "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.s390x",
+          "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.x86_64",
+          "openSUSE Leap 15.6:netty-javadoc-0:4.1.118-150200.4.29.2.noarch",
+          "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+          "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+          "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+          "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+          "openSUSE Leap 15.6:netty-tcnative-javadoc-0:2.0.70-150200.3.25.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-25193",
+          "url": "https://www.suse.com/security/cve/CVE-2025-25193"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1237038 for CVE-2025-25193",
+          "url": "https://bugzilla.suse.com/1237038"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Enterprise Storage 7.1:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Enterprise Storage 7.1:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.aarch64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.ppc64le",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.s390x",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-javadoc-0:4.1.118-150200.4.29.2.noarch",
+            "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.aarch64",
+            "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.ppc64le",
+            "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.s390x",
+            "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.x86_64",
+            "openSUSE Leap 15.6:netty-javadoc-0:4.1.118-150200.4.29.2.noarch",
+            "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "openSUSE Leap 15.6:netty-tcnative-javadoc-0:2.0.70-150200.3.25.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "Open Enterprise Server 23.4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "Open Enterprise Server 24.4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Enterprise Storage 7.1:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Enterprise Storage 7.1:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Module for Development Tools 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.aarch64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.ppc64le",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.s390x",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-0:4.1.118-150200.4.29.2.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:netty-javadoc-0:4.1.118-150200.4.29.2.noarch",
+            "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP3-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.aarch64",
+            "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.ppc64le",
+            "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.s390x",
+            "openSUSE Leap 15.6:netty-0:4.1.118-150200.4.29.2.x86_64",
+            "openSUSE Leap 15.6:netty-javadoc-0:4.1.118-150200.4.29.2.noarch",
+            "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.aarch64",
+            "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.ppc64le",
+            "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.s390x",
+            "openSUSE Leap 15.6:netty-tcnative-0:2.0.70-150200.3.25.1.x86_64",
+            "openSUSE Leap 15.6:netty-tcnative-javadoc-0:2.0.70-150200.3.25.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-19T10:34:01Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-25193"
+    }
+  ]
+}

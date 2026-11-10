@@ -1,0 +1,816 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "critical"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for mosquitto",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for mosquitto fixes the following issues:\n\nChanges in mosquitto:\n\n- update to 2.0.23 (boo#1258671)\n  * Fix handling of disconnected sessions for `per_listener_settings\n    true`\n  * Check return values of openssl *_get_ex_data() and\n    *_set_ex_data() to prevent possible crash. This could occur only\n    in extremely unlikely situations\n  * Check return value of openssl ASN1_string_[get0_]data()\n    functions for NULL. This prevents a crash in case of incorrect\n    certificate handling in openssl\n  * Fix potential crash on startup if a malicious/corrupt\n    persistence file from mosquitto 1.5 or earlier is loaded\n  * Limit auto_id_prefix to 50 characters\n\n- Update to version 2.0.22\n  Broker\n  * Bridge: Fix idle_timeout never occurring for lazy bridges.\n  * Fix case where max_queued_messages = 0 was not treated as\n    unlimited.\n  * Fix --version exit code and output.\n  * Fix crash on receiving a $CONTROL message over a bridge, if\n    per_listener_settings is set true and the bridge is carrying\n    out topic remapping.\n  * Fix incorrect reference clock being selected on startup on\n    Linux. Closes #3238.\n  * Fix reporting of client disconnections being incorrectly\n    attributed to \"out of memory\".\n  * Fix compilation when using WITH_OLD_KEEPALIVE.\n  * Fix problems with secure websockets.\n  * Fix crash on exit when using WITH_EPOLL=no.\n  * Fix clients being incorrectly expired when they have\n    keepalive == max_keepalive. Closes #3226, #3286.\n  Dynamic security plugin\n  * Fix mismatch memory free when saving config which caused\n    memory tracking to be incorrect.\n  Client library\n  * Fix C++ symbols being removed when compiled with link time\n    optimisation.\n  * TLS error handling was incorrectly setting a protocol error\n    for non-TLS errors. This would cause the mosquitto_loop_start()\n    thread to exit if no broker was available on the first\n    connection attempt. This has been fixed. Closes #3258.\n  * Fix linker errors on some architectures using cmake.\n\n- Update to version 2.0.21\n  Broker\n  * Fix clients sending a RESERVED packet not being quickly\n    disconnected.\n  * Fix bind_interface producing an error when used with an\n    interface that has an IPv6 link-local address and no other\n    IPv6 addresses.\n  * Fix mismatched wrapped/unwrapped memory alloc/free in\n    properties.\n  * Fix allow_anonymous false not being applied in local only mode.\n  * Add retain_expiry_interval option to fix expired retained\n    message not being removed from memory if they are not\n    subscribed to.\n  * Produce an error if invalid combinations of\n    cafile/capath/certfile/keyfile are used.\n  * Backport keepalive checking from develop to fix problems in\n    current implementation.\n  Client library\n  * Fix potential deadlock in mosquitto_sub if -W is used.\n  Apps\n  * mosquitto_ctrl dynsec now also allows -i to specify a clientid\n    as well as -c. This matches the documentation which states -i.\n  Tests\n  * Fix 08-ssl-connect-cert-auth-expired and\n    08-ssl-connect-cert-auth-revoked tests when under load.\n\n- systemd service: Wait till the network got setup to avoid\n  startup failure.\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-138",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_20260-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1232635",
+        "url": "https://bugzilla.suse.com/1232635"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1232636",
+        "url": "https://bugzilla.suse.com/1232636"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1258671",
+        "url": "https://bugzilla.suse.com/1258671"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-10525 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-10525/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-3935 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-3935/"
+      }
+    ],
+    "title": "Security update for mosquitto",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:27:24Z",
+      "generator": {
+        "date": "2026-02-23T18:17:43Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:20260-1",
+      "initial_release_date": "2026-02-23T18:17:43Z",
+      "revision_history": [
+        {
+          "date": "2026-02-23T18:17:43Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:30:33Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:33:20Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:27:24Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libmosquitto1-0:2.0.23-bp160.1.1.aarch64",
+                "product": {
+                  "name": "libmosquitto1-0:2.0.23-bp160.1.1.aarch64",
+                  "product_id": "libmosquitto1-0:2.0.23-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmosquitto1@2.0.23-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libmosquittopp1-0:2.0.23-bp160.1.1.aarch64",
+                "product": {
+                  "name": "libmosquittopp1-0:2.0.23-bp160.1.1.aarch64",
+                  "product_id": "libmosquittopp1-0:2.0.23-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmosquittopp1@2.0.23-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mosquitto-0:2.0.23-bp160.1.1.aarch64",
+                "product": {
+                  "name": "mosquitto-0:2.0.23-bp160.1.1.aarch64",
+                  "product_id": "mosquitto-0:2.0.23-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mqtt:mqtt:2.0.23:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/mosquitto@2.0.23-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mosquitto-clients-0:2.0.23-bp160.1.1.aarch64",
+                "product": {
+                  "name": "mosquitto-clients-0:2.0.23-bp160.1.1.aarch64",
+                  "product_id": "mosquitto-clients-0:2.0.23-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mosquitto-clients@2.0.23-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mosquitto-devel-0:2.0.23-bp160.1.1.aarch64",
+                "product": {
+                  "name": "mosquitto-devel-0:2.0.23-bp160.1.1.aarch64",
+                  "product_id": "mosquitto-devel-0:2.0.23-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mosquitto-devel@2.0.23-bp160.1.1?arch=aarch64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libmosquitto1-0:2.0.23-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "libmosquitto1-0:2.0.23-bp160.1.1.ppc64le",
+                  "product_id": "libmosquitto1-0:2.0.23-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmosquitto1@2.0.23-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libmosquittopp1-0:2.0.23-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "libmosquittopp1-0:2.0.23-bp160.1.1.ppc64le",
+                  "product_id": "libmosquittopp1-0:2.0.23-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmosquittopp1@2.0.23-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mosquitto-0:2.0.23-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "mosquitto-0:2.0.23-bp160.1.1.ppc64le",
+                  "product_id": "mosquitto-0:2.0.23-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mqtt:mqtt:2.0.23:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/mosquitto@2.0.23-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mosquitto-clients-0:2.0.23-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "mosquitto-clients-0:2.0.23-bp160.1.1.ppc64le",
+                  "product_id": "mosquitto-clients-0:2.0.23-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mosquitto-clients@2.0.23-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mosquitto-devel-0:2.0.23-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "mosquitto-devel-0:2.0.23-bp160.1.1.ppc64le",
+                  "product_id": "mosquitto-devel-0:2.0.23-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mosquitto-devel@2.0.23-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libmosquitto1-0:2.0.23-bp160.1.1.s390x",
+                "product": {
+                  "name": "libmosquitto1-0:2.0.23-bp160.1.1.s390x",
+                  "product_id": "libmosquitto1-0:2.0.23-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmosquitto1@2.0.23-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libmosquittopp1-0:2.0.23-bp160.1.1.s390x",
+                "product": {
+                  "name": "libmosquittopp1-0:2.0.23-bp160.1.1.s390x",
+                  "product_id": "libmosquittopp1-0:2.0.23-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmosquittopp1@2.0.23-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mosquitto-0:2.0.23-bp160.1.1.s390x",
+                "product": {
+                  "name": "mosquitto-0:2.0.23-bp160.1.1.s390x",
+                  "product_id": "mosquitto-0:2.0.23-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mqtt:mqtt:2.0.23:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/mosquitto@2.0.23-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mosquitto-clients-0:2.0.23-bp160.1.1.s390x",
+                "product": {
+                  "name": "mosquitto-clients-0:2.0.23-bp160.1.1.s390x",
+                  "product_id": "mosquitto-clients-0:2.0.23-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mosquitto-clients@2.0.23-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mosquitto-devel-0:2.0.23-bp160.1.1.s390x",
+                "product": {
+                  "name": "mosquitto-devel-0:2.0.23-bp160.1.1.s390x",
+                  "product_id": "mosquitto-devel-0:2.0.23-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mosquitto-devel@2.0.23-bp160.1.1?arch=s390x"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libmosquitto1-0:2.0.23-bp160.1.1.x86_64",
+                "product": {
+                  "name": "libmosquitto1-0:2.0.23-bp160.1.1.x86_64",
+                  "product_id": "libmosquitto1-0:2.0.23-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmosquitto1@2.0.23-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libmosquittopp1-0:2.0.23-bp160.1.1.x86_64",
+                "product": {
+                  "name": "libmosquittopp1-0:2.0.23-bp160.1.1.x86_64",
+                  "product_id": "libmosquittopp1-0:2.0.23-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmosquittopp1@2.0.23-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mosquitto-0:2.0.23-bp160.1.1.x86_64",
+                "product": {
+                  "name": "mosquitto-0:2.0.23-bp160.1.1.x86_64",
+                  "product_id": "mosquitto-0:2.0.23-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mqtt:mqtt:2.0.23:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/mosquitto@2.0.23-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mosquitto-clients-0:2.0.23-bp160.1.1.x86_64",
+                "product": {
+                  "name": "mosquitto-clients-0:2.0.23-bp160.1.1.x86_64",
+                  "product_id": "mosquitto-clients-0:2.0.23-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mosquitto-clients@2.0.23-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mosquitto-devel-0:2.0.23-bp160.1.1.x86_64",
+                "product": {
+                  "name": "mosquitto-devel-0:2.0.23-bp160.1.1.x86_64",
+                  "product_id": "mosquitto-devel-0:2.0.23-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mosquitto-devel@2.0.23-bp160.1.1?arch=x86_64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmosquitto1-0:2.0.23-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.aarch64"
+        },
+        "product_reference": "libmosquitto1-0:2.0.23-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmosquitto1-0:2.0.23-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.ppc64le"
+        },
+        "product_reference": "libmosquitto1-0:2.0.23-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmosquitto1-0:2.0.23-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.s390x"
+        },
+        "product_reference": "libmosquitto1-0:2.0.23-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmosquitto1-0:2.0.23-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.x86_64"
+        },
+        "product_reference": "libmosquitto1-0:2.0.23-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmosquittopp1-0:2.0.23-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.aarch64"
+        },
+        "product_reference": "libmosquittopp1-0:2.0.23-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmosquittopp1-0:2.0.23-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.ppc64le"
+        },
+        "product_reference": "libmosquittopp1-0:2.0.23-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmosquittopp1-0:2.0.23-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.s390x"
+        },
+        "product_reference": "libmosquittopp1-0:2.0.23-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmosquittopp1-0:2.0.23-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.x86_64"
+        },
+        "product_reference": "libmosquittopp1-0:2.0.23-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mosquitto-0:2.0.23-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.aarch64"
+        },
+        "product_reference": "mosquitto-0:2.0.23-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mosquitto-0:2.0.23-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.ppc64le"
+        },
+        "product_reference": "mosquitto-0:2.0.23-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mosquitto-0:2.0.23-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.s390x"
+        },
+        "product_reference": "mosquitto-0:2.0.23-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mosquitto-0:2.0.23-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.x86_64"
+        },
+        "product_reference": "mosquitto-0:2.0.23-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mosquitto-clients-0:2.0.23-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.aarch64"
+        },
+        "product_reference": "mosquitto-clients-0:2.0.23-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mosquitto-clients-0:2.0.23-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.ppc64le"
+        },
+        "product_reference": "mosquitto-clients-0:2.0.23-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mosquitto-clients-0:2.0.23-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.s390x"
+        },
+        "product_reference": "mosquitto-clients-0:2.0.23-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mosquitto-clients-0:2.0.23-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.x86_64"
+        },
+        "product_reference": "mosquitto-clients-0:2.0.23-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mosquitto-devel-0:2.0.23-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.aarch64"
+        },
+        "product_reference": "mosquitto-devel-0:2.0.23-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mosquitto-devel-0:2.0.23-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.ppc64le"
+        },
+        "product_reference": "mosquitto-devel-0:2.0.23-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mosquitto-devel-0:2.0.23-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.s390x"
+        },
+        "product_reference": "mosquitto-devel-0:2.0.23-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mosquitto-devel-0:2.0.23-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.x86_64"
+        },
+        "product_reference": "mosquitto-devel-0:2.0.23-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2024-10525",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-10525"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In Eclipse Mosquitto, from version 1.3.2 through 2.0.18, if a malicious broker sends a crafted SUBACK packet with no reason codes, a client using libmosquitto may make out of bounds memory access when acting in its on_subscribe callback. This affects the mosquitto_sub and mosquitto_rr clients.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-10525",
+          "url": "https://www.suse.com/security/cve/CVE-2024-10525"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1232636 for CVE-2024-10525",
+          "url": "https://bugzilla.suse.com/1232636"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 9.8,
+            "baseSeverity": "CRITICAL",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-02-23T18:17:43Z",
+          "details": "critical"
+        }
+      ],
+      "title": "CVE-2024-10525"
+    },
+    {
+      "cve": "CVE-2024-3935",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-3935"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In Eclipse Mosquito, versions from 2.0.0 through 2.0.18, if a Mosquitto broker is configured to create an outgoing bridge connection, and that bridge connection has an incoming topic configured that makes use of topic remapping, then if the remote connection sends a crafted PUBLISH packet to the broker a double free will occur with a subsequent crash of the broker.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-3935",
+          "url": "https://www.suse.com/security/cve/CVE-2024-3935"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1232635 for CVE-2024-3935",
+          "url": "https://bugzilla.suse.com/1232635"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmosquitto1-0:2.0.23-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmosquittopp1-0:2.0.23-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:mosquitto-0:2.0.23-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:mosquitto-clients-0:2.0.23-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:mosquitto-devel-0:2.0.23-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-02-23T18:17:43Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2024-3935"
+    }
+  ]
+}

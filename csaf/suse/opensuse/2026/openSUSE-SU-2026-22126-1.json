@@ -1,0 +1,299 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for gitoxide",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for gitoxide fixes the following issues:\n\nChanges in gitoxide:\n\nUpdate to version 0.60.0:\n\n  * BREAKING: remove the full-screen progress mode: the --progress\n    and --progress-keep-open flags and the prodash-render-tui\n    feature are gone, line progress stays the only progress UI\n  * Trace output is now independently configurable with a bounded\n    -t/--trace counter, separate from verbose and progress rendering\n  * Add gix worktree add (alias create) and worktree remove\n  * Various security improvements and more consistent error\n    handling across the plumbing crates\n- Refresh the vendored dependencies. The linked graph still carries\n  MPL-2.0 only (uluru, option-ext); the License tag is unchanged.\n\n- Restore the explicit prodash feature dropped in the gix-utils 0.5.0 dep:\n  migration, which broke workspace-wide cargo metadata --features as\n  run by cargo-auditable.\n\nUpdate to version 0.59.0:\n\n  * Ships gix-transport 0.60.0, which rejects NUL/LF in\n    git-daemon connect requests: drops the backported fix\n    for CVE-2026-91986 (boo#1281749), now fixed upstream\n    * gix-transport-reject-control-bytes.patch\n  * New gix editor command with Git-compatible selection\n  * Raise the Rust floor to 1.88 (upstream MSRV, dua-core)\n\n- Refresh the vendored dependencies. The linked graph\n  still carries MPL-2.0 only (uluru, option-ext); the\n  License tag is unchanged.\n\nUpdate to 0.58.0:\n\n  * gix tix is now the full gix-tix platform embedded in the plumbing\n    command instead of a second parser and dispatcher, so standalone\n    and plumbing invocations behave alike and amend and spill are\n    reachable through gix tix\n  * tix decorates commits checked out by other main or linked\n    worktrees with light-blue name@ labels, keeps the marker for the\n    checkout it was opened from, and watches linked HEAD and worktree\n    membership so the decorations stay current\n  * tix gained -w/--worktrees to add every resolved worktree HEAD to\n    the traversal tips without weakening hidden-revision exclusions\n  * gix tix no longer accepts --screen: the interactive history always\n    owns the alternate screen, so the automatic and half-screen modes\n    were removed\n\n- Refresh the vendored dependencies. The linked graph gains a second\n  MPL-2.0 crate, option-ext, reached through the directories and\n  dirs-sys crates that gix-tix newly depends on; the License tag\n  already covers MPL-2.0 and is unchanged.\n\nUpdate to 0.57.0:\n\n  * Add gix clone --revision, and PrepareFetch::with_revision(), for\n    cloning a single revision named by a full ref, HEAD or a full\n    object id: HEAD is detached to the fetched commit, no ordinary\n    refs are created, no fetch refspec is persisted and tag\n    following is disabled\n  * Fix a panic when a full object id was passed to with_ref_name(),\n    which produced an object-id refspec mapping that clone expected\n    to be named\n  * Rewrite relative date parsing to follow git: several count and\n    unit pairs are applied in input order, as in \"2 days 3 hours\n    ago\", counts may be spelled out, any non-alphanumeric byte\n    separates the parts, the trailing \"ago\" is optional, and a\n    leading \"@\" may introduce a timestamp. Month and year steps now\n    walk the calendar fields, so a day past the end of the shorter\n    target month rolls over into the following month\n  * gix commit verify now checks signatures through the library\n    rather than spawning gpg itself, so the configured gpg program\n    is honoured and an invalid or untrusted signature is reported\n    as such\n  * Fix the conflict stage labels printed by gix revision explain,\n    which called stage 0 \"base\"; they are now unconflicted, base,\n    ours and theirs\n  * Reject a TREE index extension whose child entry counts overflow\n    instead of wrapping while verifying them\n  * Replace the jwalk directory walker with dua-core\n- Refresh the vendored dependencies. The licence set is unchanged:\n  re-derived over the new vendor tree, uluru (MPL-2.0) is still the\n  only copyleft crate linked into the binaries, and the new dua-core\n  dependency is MIT.\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-676",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_22126-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1281749",
+        "url": "https://bugzilla.suse.com/1281749"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-91986 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-91986/"
+      }
+    ],
+    "title": "Security update for gitoxide",
+    "tracking": {
+      "current_release_date": "2026-10-21T11:53:43Z",
+      "generator": {
+        "date": "2026-10-19T16:29:07Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:22126-1",
+      "initial_release_date": "2026-10-19T16:29:07Z",
+      "revision_history": [
+        {
+          "date": "2026-10-19T16:29:07Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-10-21T11:53:43Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "gitoxide-0:0.60.0-bp160.1.1.aarch64",
+                "product": {
+                  "name": "gitoxide-0:0.60.0-bp160.1.1.aarch64",
+                  "product_id": "gitoxide-0:0.60.0-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/gitoxide@0.60.0-bp160.1.1?arch=aarch64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "gitoxide-0:0.60.0-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "gitoxide-0:0.60.0-bp160.1.1.ppc64le",
+                  "product_id": "gitoxide-0:0.60.0-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/gitoxide@0.60.0-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "gitoxide-0:0.60.0-bp160.1.1.s390x",
+                "product": {
+                  "name": "gitoxide-0:0.60.0-bp160.1.1.s390x",
+                  "product_id": "gitoxide-0:0.60.0-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/gitoxide@0.60.0-bp160.1.1?arch=s390x"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "gitoxide-0:0.60.0-bp160.1.1.x86_64",
+                "product": {
+                  "name": "gitoxide-0:0.60.0-bp160.1.1.x86_64",
+                  "product_id": "gitoxide-0:0.60.0-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/gitoxide@0.60.0-bp160.1.1?arch=x86_64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gitoxide-0:0.60.0-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gitoxide-0:0.60.0-bp160.1.1.aarch64"
+        },
+        "product_reference": "gitoxide-0:0.60.0-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gitoxide-0:0.60.0-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gitoxide-0:0.60.0-bp160.1.1.ppc64le"
+        },
+        "product_reference": "gitoxide-0:0.60.0-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gitoxide-0:0.60.0-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gitoxide-0:0.60.0-bp160.1.1.s390x"
+        },
+        "product_reference": "gitoxide-0:0.60.0-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gitoxide-0:0.60.0-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gitoxide-0:0.60.0-bp160.1.1.x86_64"
+        },
+        "product_reference": "gitoxide-0:0.60.0-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-91986",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-91986"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "gitoxide gix-transport before 0.59.2 fails to filter control characters in git-daemon connect requests, allowing attackers to inject NUL/CR/LF bytes via crafted git URLs. Attackers can inject extra NUL-delimited protocol fields to spoof virtual hosts or inject newlines into daemon requests and logs.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:gitoxide-0:0.60.0-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:gitoxide-0:0.60.0-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:gitoxide-0:0.60.0-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:gitoxide-0:0.60.0-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-91986",
+          "url": "https://www.suse.com/security/cve/CVE-2026-91986"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1281741 for CVE-2026-91986",
+          "url": "https://bugzilla.suse.com/1281741"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:gitoxide-0:0.60.0-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:gitoxide-0:0.60.0-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:gitoxide-0:0.60.0-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:gitoxide-0:0.60.0-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:gitoxide-0:0.60.0-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:gitoxide-0:0.60.0-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:gitoxide-0:0.60.0-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:gitoxide-0:0.60.0-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-19T16:29:07Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-91986"
+    }
+  ]
+}

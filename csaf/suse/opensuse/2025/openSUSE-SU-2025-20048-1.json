@@ -1,0 +1,2868 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "critical"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for samba",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for samba fixes the following issues:\n\nUpdate to 4.22.5:\n\n  * CVE-2025-10230: Command injection via WINS server hook script (bsc#1251280).\n  * CVE-2025-9640: uninitialized memory disclosure via vfs_streams_xattr (bsc#1251279).\n\n- Relax samba-gpupdate requirement for cepces, certmonger, and sscep\n  to a recommends. They are only required if utilizing certificate\n  auto enrollment (bsc#1249087).\n\n- Disable timeouts for smb.service so that possibly slow running\n  ExecStartPre script 'update-samba-security-profile' doesn't\n  cause service start to fail due to timeouts (bsc#1249181).\n\n- Ensure semanage is pulled in as a requirement when samba in\n  installed when selinux security access mechanism that is used\n  (bsc#1249180).\n\n- don't attempt to label paths that don't exist, also remove\n  unecessary evaluation of semange \u0026 restorecon cmds (bsc#1249179).\n\nUpdate to 4.22.4:\n\n  * netr_LogonSamLogonEx returns NR_STATUS_ACCESS_DENIED with\n    SysvolReady=0\n  * getpwuid does not shift to new DC when current DC is down\n  * Windows security hardening locks out schannel'ed netlogon dc\n    calls like netr_DsRGetDCName-\n  * Unresponsive second DC can cause idmapping failure when using\n    idmap_ad-\n  * kinit command is failing with Missing cache Error.\n  * Figuring out the DC name from IP address fails and breaks\n    fork_domain_child().\n  * vfs_streams_depot fstatat broken.\n  * Delayed leader broadcast can block ctdb forever.\n  * Apparently there is a conflict between shadow_copy2 module\n    and virusfilter (action quarantine).\n  * Fix handling of empty GPO link.\n  * SMB ACL inheritance doesn't work for files created.\n\n- adjust gpgme build dependency for future-proofing\n\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-22",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2025_20048-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1249087",
+        "url": "https://bugzilla.suse.com/1249087"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1249179",
+        "url": "https://bugzilla.suse.com/1249179"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1249180",
+        "url": "https://bugzilla.suse.com/1249180"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1249181",
+        "url": "https://bugzilla.suse.com/1249181"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1251279",
+        "url": "https://bugzilla.suse.com/1251279"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1251280",
+        "url": "https://bugzilla.suse.com/1251280"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-10230 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-10230/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-9640 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-9640/"
+      }
+    ],
+    "title": "Security update for samba",
+    "tracking": {
+      "current_release_date": "2026-09-20T21:47:27Z",
+      "generator": {
+        "date": "2025-11-18T23:14:26Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2025:20048-1",
+      "initial_release_date": "2025-11-18T23:14:26Z",
+      "revision_history": [
+        {
+          "date": "2025-11-18T23:14:26Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T21:47:27Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:ctdb_project:ctdb:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/ctdb@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/ctdb-pcp-pmda@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/ldb-tools@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libldb-devel@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libldb2@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/python3-ldb@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-ad-dc@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-ad-dc-libs@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-ceph@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-client@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-client-libs@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-dcerpc@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-devel@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-dsdb-modules@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-gpupdate@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-ldb-ldap@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-libs@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-libs-python3@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-python3@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-test@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-tool@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-winbind@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-winbind-libs@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "samba-doc-0:4.22.5+git.431.dc5a539f124-160000.1.1.noarch",
+                "product": {
+                  "name": "samba-doc-0:4.22.5+git.431.dc5a539f124-160000.1.1.noarch",
+                  "product_id": "samba-doc-0:4.22.5+git.431.dc5a539f124-160000.1.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-doc@4.22.5+git.431.dc5a539f124-160000.1.1?arch=noarch\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:ctdb_project:ctdb:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/ctdb@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/ctdb-pcp-pmda@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/ldb-tools@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libldb-devel@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libldb2@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/python3-ldb@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-ad-dc@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-ad-dc-libs@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-client@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-client-libs@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-dcerpc@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-devel@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-dsdb-modules@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-gpupdate@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-ldb-ldap@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-libs@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-libs-python3@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-python3@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-test@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-tool@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-winbind@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-winbind-libs@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:ctdb_project:ctdb:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/ctdb@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/ctdb-pcp-pmda@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/ldb-tools@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libldb-devel@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libldb2@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/python3-ldb@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-ad-dc@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-ad-dc-libs@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-client@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-client-libs@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-dcerpc@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-devel@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-dsdb-modules@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-gpupdate@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-ldb-ldap@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-libs@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-libs-python3@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-python3@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-test@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-tool@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-winbind@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-winbind-libs@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:ctdb_project:ctdb:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/ctdb@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/ctdb-pcp-pmda@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/ldb-tools@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libldb-devel@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libldb2@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/python3-ldb@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-ad-dc@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-ad-dc-libs@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-ceph@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-client@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-client-libs@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-dcerpc@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-devel@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-dsdb-modules@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-gpupdate@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-ldb-ldap@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-libs@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-libs-python3@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-python3@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-test@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-tool@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-winbind@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-winbind-libs@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-doc-0:4.22.5+git.431.dc5a539f124-160000.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-doc-0:4.22.5+git.431.dc5a539f124-160000.1.1.noarch"
+        },
+        "product_reference": "samba-doc-0:4.22.5+git.431.dc5a539f124-160000.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-10230",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-10230"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in Samba, in the front-end WINS hook handling: NetBIOS names from registration packets are passed to a shell without proper validation or escaping. Unsanitized NetBIOS name data from WINS registration packets are inserted into a shell command and executed by the Samba Active Directory Domain Controller's wins hook, allowing an unauthenticated network attacker to achieve remote command execution as the Samba process.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-doc-0:4.22.5+git.431.dc5a539f124-160000.1.1.noarch",
+          "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-10230",
+          "url": "https://www.suse.com/security/cve/CVE-2025-10230"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1251280 for CVE-2025-10230",
+          "url": "https://bugzilla.suse.com/1251280"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-doc-0:4.22.5+git.431.dc5a539f124-160000.1.1.noarch",
+            "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 10,
+            "baseSeverity": "CRITICAL",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-doc-0:4.22.5+git.431.dc5a539f124-160000.1.1.noarch",
+            "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-11-18T23:14:26Z",
+          "details": "critical"
+        }
+      ],
+      "title": "CVE-2025-10230"
+    },
+    {
+      "cve": "CVE-2025-9640",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-9640"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in Samba, in the vfs_streams_xattr module, where uninitialized heap memory could be written into alternate data streams. This allows an authenticated user to read residual memory content that may include sensitive data, resulting in an information disclosure vulnerability.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-doc-0:4.22.5+git.431.dc5a539f124-160000.1.1.noarch",
+          "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-9640",
+          "url": "https://www.suse.com/security/cve/CVE-2025-9640"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1251279 for CVE-2025-9640",
+          "url": "https://bugzilla.suse.com/1251279"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-doc-0:4.22.5+git.431.dc5a539f124-160000.1.1.noarch",
+            "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:ctdb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:ctdb-pcp-pmda-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:ldb-tools-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libldb-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:python3-ldb-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-ad-dc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-ad-dc-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-ceph-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-client-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-dcerpc-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-devel-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-doc-0:4.22.5+git.431.dc5a539f124-160000.1.1.noarch",
+            "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-dsdb-modules-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-gpupdate-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-ldb-ldap-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-libs-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-python3-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-test-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-tool-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-winbind-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "openSUSE Leap 16.0:samba-winbind-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-11-18T23:14:26Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-9640"
+    }
+  ]
+}

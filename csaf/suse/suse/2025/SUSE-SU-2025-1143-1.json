@@ -1,0 +1,1814 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for google-guest-agent",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for google-guest-agent fixes the following issues:\n\n- CVE-2024-45337: golang.org/x/crypto/ssh: Fixed misuse of ServerConfig.PublicKeyCallback leading to authorization bypass (bsc#1234563).\n\nOther fixes:\n- Updated to version 20250327.01 (bsc#1239763, bsc#1239866)\n  * Remove error messages from gce_workload_cert_refresh and\n    metadata script runner (#527)\n- from version 20250327.00\n  * Update guest-logging-go dependency (#526)\n  * Add 'created-by' metadata, and pass it as option to logging library (#508)\n  * Revert 'oslogin: Correctly handle newlines at the end of\n    modified files (#520)' (#523)\n  * Re-enable disabled services if the core plugin was enabled (#522)\n  * Enable guest services on package upgrade (#519)\n  * oslogin: Correctly handle newlines at the end of modified files (#520)\n  * Fix core plugin path (#518)\n  * Fix package build issues (#517)\n  * Fix dependencies ran go mod tidy -v (#515)\n  * Fix debian build path (#514)\n  * Bundle compat metadata script runner binary in package (#513)\n  * Bump golang.org/x/net from 0.27.0 to 0.36.0 (#512)\n  * Update startup/shutdown services to launch compat manager (#503)\n  * Bundle new gce metadata script runner binary in agent package (#502)\n  * Revert 'Revert bundling new binaries in the package (#509)' (#511)\n- from version 20250326.00\n  * Re-enable disabled services if the core plugin was enabled (#521)\n- from version 20250324.00\n  * Enable guest services on package upgrade (#519)\n  * oslogin: Correctly handle newlines at the end of modified files (#520)\n  * Fix core plugin path (#518)\n  * Fix package build issues (#517)\n  * Fix dependencies ran go mod tidy -v (#515)\n  * Fix debian build path (#514)\n  * Bundle compat metadata script runner binary in package (#513)\n  * Bump golang.org/x/net from 0.27.0 to 0.36.0 (#512)\n  * Update startup/shutdown services to launch compat manager (#503)\n  * Bundle new gce metadata script runner binary in agent package (#502)\n  * Revert 'Revert bundling new binaries in the package (#509)' (#511)\n  * Revert bundling new binaries in the package (#509)\n  * Fix typo in windows build script (#501)\n  * Include core plugin binary for all packages (#500)\n  * Start packaging compat manager (#498)\n  * Start bundling ggactl_plugin_cleanup binary in all agent packages (#492)\n  * scripts: introduce a wrapper to locally build deb package (#490)\n  * Introduce compat-manager systemd unit (#497)\n- from version 20250317.00\n  * Revert 'Revert bundling new binaries in the package (#509)' (#511)\n  * Revert bundling new binaries in the package (#509)\n  * Fix typo in windows build script (#501)\n  * Include core plugin binary for all packages (#500)\n  * Start packaging compat manager (#498)\n  * Start bundling ggactl_plugin_cleanup binary in all agent packages (#492)\n  * scripts: introduce a wrapper to locally build deb package (#490)\n  * Introduce compat-manager systemd unit (#497)\n- from version 20250312.00\n  * Revert bundling new binaries in the package (#509)\n  * Fix typo in windows build script (#501)\n  * Include core plugin binary for all packages (#500)\n  * Update crypto library to fix  CVE-2024-45337 (#499)\n  * Start packaging compat manager (#498)\n  * Start bundling ggactl_plugin_cleanup binary in all agent packages (#492)\n  * scripts: introduce a wrapper to locally build deb package (#490)\n  * Introduce compat-manager systemd unit (#497)\n- from version 20250305.00\n  * Revert bundling new binaries in the package (#509)\n  * Fix typo in windows build script (#501)\n  * Include core plugin binary for all packages (#500)\n  * Start packaging compat manager (#498)\n  * Start bundling ggactl_plugin_cleanup binary in all agent packages (#492)\n  * scripts: introduce a wrapper to locally build deb package (#490)\n  * Introduce compat-manager systemd unit (#497)\n- from version 20250304.01\n  * Fix typo in windows build script (#501)\n- from version 20250214.01\n  * Include core plugin binary for all packages (#500)\n- from version 20250214.00\n  * Update crypto library to fix  CVE-2024-45337 (#499)\n- from version 20250212.00\n  * Start packaging compat manager (#498)\n  * Start bundling ggactl_plugin_cleanup binary in all agent packages (#492)\n- from version 20250211.00\n  * scripts: introduce a wrapper to locally build deb package (#490)\n  * Introduce compat-manager systemd unit (#497)\n- from version 20250207.00\n  * vlan: toggle vlan configuration in debian packaging (#495)\n  * vlan: move config out of unstable section (#494)\n  * Add clarification to comments regarding invalid NICs and the\n    `invalid` tag. (#493)\n  * Include interfaces in lists even if it has an invalid MAC. (#489)\n  * Fix windows package build failures (#491)\n  * vlan: don't index based on the vlan ID (#486)\n  * Revert PR #482 (#488)\n  * Remove Amy and Zach from OWNERS (#487)\n  * Skip interfaces in interfaceNames() instead of erroring if there is an (#482)\n  * Fix Debian packaging if guest agent manager is not checked out (#485)\n- from version 20250204.02\n  * force concourse to move version forward.\n- from version 20250204.01\n  * vlan: toggle vlan configuration in debian packaging (#495)\n- from version 20250204.00\n  * vlan: move config out of unstable section (#494)\n  * Add clarification to comments regarding invalid NICs and the\n    `invalid` tag. (#493)\n- from version 20250203.01\n  * Include interfaces in lists even if it has an invalid MAC. (#489)\n- from version 20250203.00\n  * Fix windows package build failures (#491)\n  * vlan: don't index based on the vlan ID (#486)\n  * Revert PR #482 (#488)\n  * Remove Amy and Zach from OWNERS (#487)\n  * Skip interfaces in interfaceNames() instead of erroring if there is an (#482)\n  * Fix Debian packaging if guest agent manager is not checked out (#485)\n- from version 20250122.00\n  * networkd(vlan): remove the interface in addition to config (#468)\n  * Implement support for vlan dynamic removal, update dhclient to\n    remove only if configured (#465)\n  * Update logging library (#479)\n  * Remove Pat from owners file. (#478)\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2025-1143,SUSE-SLE-Micro-5.5-2025-1143,SUSE-SLE-Module-Public-Cloud-15-SP3-2025-1143,SUSE-SLE-Module-Public-Cloud-15-SP4-2025-1143,SUSE-SLE-Module-Public-Cloud-15-SP5-2025-1143,SUSE-SLE-Module-Public-Cloud-15-SP6-2025-1143,openSUSE-SLE-15.6-2025-1143",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_1143-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:1143-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-20251143-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:1143-1",
+        "url": "https://lists.suse.com/pipermail/sle-updates/2025-April/038914.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1234563",
+        "url": "https://bugzilla.suse.com/1234563"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1239763",
+        "url": "https://bugzilla.suse.com/1239763"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1239866",
+        "url": "https://bugzilla.suse.com/1239866"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-45337 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-45337/"
+      }
+    ],
+    "title": "Security update for google-guest-agent",
+    "tracking": {
+      "current_release_date": "2026-09-20T18:02:13Z",
+      "generator": {
+        "date": "2025-04-04T13:31:31Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:1143-1",
+      "initial_release_date": "2025-04-04T13:31:31Z",
+      "revision_history": [
+        {
+          "date": "2025-04-04T13:31:31Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T18:02:13Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+                "product": {
+                  "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+                  "product_id": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/google-guest-agent@20250327.01-150000.1.60.1?arch=aarch64\u0026upstream=google-guest-agent-0:20250327.01-150000.1.60.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "google-guest-agent-0:20250327.01-150000.1.60.1.i586",
+                "product": {
+                  "name": "google-guest-agent-0:20250327.01-150000.1.60.1.i586",
+                  "product_id": "google-guest-agent-0:20250327.01-150000.1.60.1.i586",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/google-guest-agent@20250327.01-150000.1.60.1?arch=i586\u0026upstream=google-guest-agent-0:20250327.01-150000.1.60.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "i586"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+                "product": {
+                  "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+                  "product_id": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/google-guest-agent@20250327.01-150000.1.60.1?arch=ppc64le\u0026upstream=google-guest-agent-0:20250327.01-150000.1.60.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+                "product": {
+                  "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+                  "product_id": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/google-guest-agent@20250327.01-150000.1.60.1?arch=s390x\u0026upstream=google-guest-agent-0:20250327.01-150000.1.60.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+                "product": {
+                  "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+                  "product_id": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/google-guest-agent@20250327.01-150000.1.60.1?arch=x86_64\u0026upstream=google-guest-agent-0:20250327.01-150000.1.60.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Micro 5.5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Micro 5.5",
+                  "product_id": "SUSE Linux Enterprise Micro 5.5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-micro:5.5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+                  "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-public-cloud:15:sp3"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP3",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP3",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP3",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp3"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP3",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP3",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP3",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp3"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP3",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP3",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP3",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc:15:sp3"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Manager Server 4.2",
+                "product": {
+                  "name": "SUSE Manager Server 4.2",
+                  "product_id": "SUSE Manager Server 4.2",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:suse-manager-server:4.2"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Manager Proxy 4.2",
+                "product": {
+                  "name": "SUSE Manager Proxy 4.2",
+                  "product_id": "SUSE Manager Proxy 4.2",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:suse-manager-proxy:4.2"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Manager Retail Branch Server 4.2",
+                "product": {
+                  "name": "SUSE Manager Retail Branch Server 4.2",
+                  "product_id": "SUSE Manager Retail Branch Server 4.2",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:suse-manager-retail-branch-server:4.2"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Enterprise Storage 7.1",
+                "product": {
+                  "name": "SUSE Enterprise Storage 7.1",
+                  "product_id": "SUSE Enterprise Storage 7.1",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:ses:7.1"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+                  "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-public-cloud:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP4",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP4",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP4",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP4",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Manager Server 4.3",
+                "product": {
+                  "name": "SUSE Manager Server 4.3",
+                  "product_id": "SUSE Manager Server 4.3",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:suse-manager-server:4.3"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Manager Proxy 4.3",
+                "product": {
+                  "name": "SUSE Manager Proxy 4.3",
+                  "product_id": "SUSE Manager Proxy 4.3",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:suse-manager-proxy:4.3"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Manager Retail Branch Server 4.3",
+                "product": {
+                  "name": "SUSE Manager Retail Branch Server 4.3",
+                  "product_id": "SUSE Manager Retail Branch Server 4.3",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:suse-manager-retail-branch-server:4.3"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "Open Enterprise Server 23.4",
+                "product": {
+                  "name": "Open Enterprise Server 23.4",
+                  "product_id": "Open Enterprise Server 23.4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:novell,inc:OES:23.4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "Open Enterprise Server 24.4",
+                "product": {
+                  "name": "Open Enterprise Server 24.4",
+                  "product_id": "Open Enterprise Server 24.4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:novell,inc:OES:24.4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Public Cloud 15 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Public Cloud 15 SP5",
+                  "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-public-cloud:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP5",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP5",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-public-cloud:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 15.6",
+                "product": {
+                  "name": "openSUSE Leap 15.6",
+                  "product_id": "openSUSE Leap 15.6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:opensuse:leap:15.6"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Linux Enterprise Server 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Linux Enterprise Server 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Linux Enterprise Server 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Linux Enterprise Server 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Manager Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Manager Server 4.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Manager Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Server 4.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Manager Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Manager Server 4.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Manager Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Server 4.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Manager Proxy 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Manager Proxy 4.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Manager Proxy 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Proxy 4.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Manager Proxy 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Manager Proxy 4.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Manager Proxy 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Proxy 4.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Manager Retail Branch Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server 4.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Manager Retail Branch Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server 4.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Manager Retail Branch Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server 4.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Manager Retail Branch Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server 4.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Enterprise Storage 7.1:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Enterprise Storage 7.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Enterprise Storage 7.1:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Enterprise Storage 7.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Enterprise Storage 7.1:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Enterprise Storage 7.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP3",
+          "product_id": "SUSE Enterprise Storage 7.1:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Enterprise Storage 7.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Manager Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Manager Server 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Manager Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Server 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Manager Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Manager Server 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Manager Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Server 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Manager Proxy 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Manager Proxy 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Manager Proxy 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Proxy 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Manager Proxy 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Manager Proxy 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Manager Proxy 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Proxy 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Manager Retail Branch Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Manager Retail Branch Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Manager Retail Branch Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "SUSE Manager Retail Branch Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Retail Branch Server 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "Open Enterprise Server 23.4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "Open Enterprise Server 23.4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "Open Enterprise Server 23.4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "Open Enterprise Server 23.4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "Open Enterprise Server 24.4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "Open Enterprise Server 24.4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "Open Enterprise Server 24.4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP4",
+          "product_id": "Open Enterprise Server 24.4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP5",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP5",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP5",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP5",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP5",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP5",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP5",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP5",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP5",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP5",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP5",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP5",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP5",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP5",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP5",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP5",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:google-guest-agent-0:20250327.01-150000.1.60.1.s390x"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        },
+        "product_reference": "google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2024-45337",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-45337"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Applications and libraries which misuse connection.serverAuthenticate (via callback field ServerConfig.PublicKeyCallback) may be susceptible to an authorization bypass. The documentation for ServerConfig.PublicKeyCallback says that \"A call to this function does not guarantee that the key offered is in fact used to authenticate.\" Specifically, the SSH protocol allows clients to inquire about whether a public key is acceptable before proving control of the corresponding private key. PublicKeyCallback may be called with multiple keys, and the order in which the keys were provided cannot be used to infer which key the client successfully authenticated with, if any. Some applications, which store the key(s) passed to PublicKeyCallback (or derived information) and make security relevant determinations based on it once the connection is established, may make incorrect assumptions. For example, an attacker may send public keys A and B, and then authenticate with A. PublicKeyCallback would be called only twice, first with A and then with B. A vulnerable application may then make authorization decisions based on key B for which the attacker does not actually control the private key. Since this API is widely misused, as a partial mitigation golang.org/x/cry...@v0.31.0 enforces the property that, when successfully authenticating via public key, the last key passed to ServerConfig.PublicKeyCallback will be the key used to authenticate the connection. PublicKeyCallback will now be called multiple times with the same key, if necessary. Note that the client may still not control the last key passed to PublicKeyCallback if the connection is then authenticated with a different method, such as PasswordCallback, KeyboardInteractiveCallback, or NoClientAuth. Users should be using the Extensions field of the Permissions return value from the various authentication callbacks to record data associated with the authentication attempt instead of referencing external state. Once the connection is established the state corresponding to the successful authentication attempt can be retrieved via the ServerConn.Permissions field. Note that some third-party libraries misuse the Permissions type by sharing it across authentication attempts; users of third-party libraries should refer to the relevant projects for guidance.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 23.4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "Open Enterprise Server 23.4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "Open Enterprise Server 23.4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "Open Enterprise Server 23.4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "Open Enterprise Server 24.4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "Open Enterprise Server 24.4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "Open Enterprise Server 24.4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "Open Enterprise Server 24.4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Enterprise Storage 7.1:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Enterprise Storage 7.1:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Enterprise Storage 7.1:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Enterprise Storage 7.1:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Linux Enterprise High Performance Computing 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Linux Enterprise High Performance Computing 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.5:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.5:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Linux Enterprise Micro 5.5:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Linux Enterprise Micro 5.5:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Manager Proxy 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Manager Proxy 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Manager Proxy 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Manager Proxy 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Manager Proxy 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Manager Proxy 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Manager Proxy 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Manager Proxy 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Manager Retail Branch Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Manager Retail Branch Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Manager Retail Branch Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Manager Retail Branch Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Manager Retail Branch Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Manager Retail Branch Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Manager Retail Branch Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Manager Retail Branch Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Manager Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Manager Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Manager Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Manager Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "SUSE Manager Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "SUSE Manager Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "SUSE Manager Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "SUSE Manager Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+          "openSUSE Leap 15.6:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+          "openSUSE Leap 15.6:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+          "openSUSE Leap 15.6:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+          "openSUSE Leap 15.6:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-45337",
+          "url": "https://www.suse.com/security/cve/CVE-2024-45337"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1234482 for CVE-2024-45337",
+          "url": "https://bugzilla.suse.com/1234482"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 23.4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "Open Enterprise Server 23.4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "Open Enterprise Server 23.4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "Open Enterprise Server 23.4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "Open Enterprise Server 24.4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "Open Enterprise Server 24.4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "Open Enterprise Server 24.4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "Open Enterprise Server 24.4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Enterprise Storage 7.1:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Enterprise Storage 7.1:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Enterprise Storage 7.1:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Enterprise Storage 7.1:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.5:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.5:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Micro 5.5:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Micro 5.5:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Manager Proxy 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Manager Proxy 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Manager Proxy 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Manager Proxy 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Manager Proxy 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Manager Proxy 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Manager Proxy 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Manager Proxy 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Manager Retail Branch Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Manager Retail Branch Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Manager Retail Branch Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Manager Retail Branch Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Manager Retail Branch Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Manager Retail Branch Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Manager Retail Branch Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Manager Retail Branch Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Manager Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Manager Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Manager Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Manager Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Manager Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Manager Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Manager Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Manager Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "openSUSE Leap 15.6:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "openSUSE Leap 15.6:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "openSUSE Leap 15.6:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "openSUSE Leap 15.6:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 23.4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "Open Enterprise Server 23.4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "Open Enterprise Server 23.4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "Open Enterprise Server 23.4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "Open Enterprise Server 24.4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "Open Enterprise Server 24.4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "Open Enterprise Server 24.4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "Open Enterprise Server 24.4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Enterprise Storage 7.1:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Enterprise Storage 7.1:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Enterprise Storage 7.1:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Enterprise Storage 7.1:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.5:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.5:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Micro 5.5:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Micro 5.5:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Manager Proxy 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Manager Proxy 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Manager Proxy 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Manager Proxy 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Manager Proxy 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Manager Proxy 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Manager Proxy 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Manager Proxy 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Manager Retail Branch Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Manager Retail Branch Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Manager Retail Branch Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Manager Retail Branch Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Manager Retail Branch Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Manager Retail Branch Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Manager Retail Branch Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Manager Retail Branch Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Manager Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Manager Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Manager Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Manager Server 4.2:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "SUSE Manager Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "SUSE Manager Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "SUSE Manager Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "SUSE Manager Server 4.3:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64",
+            "openSUSE Leap 15.6:google-guest-agent-0:20250327.01-150000.1.60.1.aarch64",
+            "openSUSE Leap 15.6:google-guest-agent-0:20250327.01-150000.1.60.1.ppc64le",
+            "openSUSE Leap 15.6:google-guest-agent-0:20250327.01-150000.1.60.1.s390x",
+            "openSUSE Leap 15.6:google-guest-agent-0:20250327.01-150000.1.60.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-04-04T13:31:31Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2024-45337"
+    }
+  ]
+}

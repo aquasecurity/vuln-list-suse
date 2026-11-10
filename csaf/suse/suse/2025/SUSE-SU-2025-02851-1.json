@@ -1,0 +1,2828 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for the Linux Kernel",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "\nThe SUSE Linux Enterprise 15 SP4 RT kernel was updated to receive various security bugfixes.\n\nThe following security bugs were fixed:\n\n- CVE-2022-49138: Bluetooth: hci_event: Fix checking conn for le_conn_complete_evt (bsc#1238160).\n- CVE-2023-52923: netfilter: nf_tables: split async and sync catchall in two functions (bsc#1236104).\n- CVE-2023-52927: netfilter: allow exp not to be removed in nf_ct_find_expectation (bsc#1239644).\n- CVE-2023-53117: fs: prevent out-of-bounds array speculation when closing a file descriptor (bsc#1242780).\n- CVE-2024-26643: Fixed mark set as dead when unbinding anonymous  set with timeout (bsc#1221829).\n- CVE-2024-42265: protect the fetch of -\u003efd[fd] in do_dup2() from mispredictions (bsc#1229334).\n- CVE-2024-53164: net: sched: fix ordering of qlen adjustment (bsc#1234863).\n- CVE-2025-21881: uprobes: Reject the shared zeropage in uprobe_write_opcode() (bsc#1240185).\n- CVE-2025-21971: net_sched: Prevent creation of classes with TC_H_ROOT (bsc#1240799).\n- CVE-2025-38079: crypto: algif_hash - fix double free in hash_accept (bsc#1245217).\n- CVE-2025-38181: calipso: Fix null-ptr-deref in calipso_req_{set,del}attr() (bsc#1246000).\n- CVE-2025-38200: i40e: fix MMIO write access to an invalid page in i40e_clear_hw (bsc#1246045).\n- CVE-2025-38206: exfat: fix double free in delayed_free (bsc#1246073).\n- CVE-2025-38212: ipc: fix to protect IPCS lookups using RCU (bsc#1246029).\n- CVE-2025-38213: vgacon: Add check for vc_origin address range in vgacon_scroll() (bsc#1246037).\n- CVE-2025-38257: s390/pkey: Prevent overflow in size calculation for memdup_user() (bsc#1246186).\n- CVE-2025-38350: net/sched: Always pass notifications when child class becomes empty (bsc#1246781).\n- CVE-2025-38468: net/sched: Return NULL when htb_lookup_leaf encounters an empty rbtree (bsc#1247437).\n- CVE-2025-38477: net/sched: sch_qfq: Avoid triggering might_sleep in atomic context in qfq_delete_class (bsc#1247314).\n- CVE-2025-38494: HID: core: do not bypass hid_hw_raw_request (bsc#1247349).\n- CVE-2025-38495: HID: core: ensure the allocated report buffer can contain the reserved report ID (bsc#1247348).\n- CVE-2025-38497: usb: gadget: configfs: Fix OOB read on empty string write (bsc#1247347).\n\nThe following non-security bugs were fixed:\n\n- Revert 'hugetlb: unshare some PMDs when splitting VMAs (bsc#1245431).' \n- Revert 'mm/hugetlb: fix huge_pmd_unshare() vs GUP-fast race' \n- Revert 'mm/hugetlb: unshare page tables during VMA split, not before'\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2025-2851,SUSE-SLE-Micro-5.3-2025-2851,SUSE-SLE-Micro-5.4-2025-2851",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_02851-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:02851-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-202502851-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:02851-1",
+        "url": "https://lists.suse.com/pipermail/sle-updates/2025-August/041257.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1206051",
+        "url": "https://bugzilla.suse.com/1206051"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1221829",
+        "url": "https://bugzilla.suse.com/1221829"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1229334",
+        "url": "https://bugzilla.suse.com/1229334"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1234863",
+        "url": "https://bugzilla.suse.com/1234863"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1236104",
+        "url": "https://bugzilla.suse.com/1236104"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1236333",
+        "url": "https://bugzilla.suse.com/1236333"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1238160",
+        "url": "https://bugzilla.suse.com/1238160"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1239644",
+        "url": "https://bugzilla.suse.com/1239644"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1240185",
+        "url": "https://bugzilla.suse.com/1240185"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1240799",
+        "url": "https://bugzilla.suse.com/1240799"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1242414",
+        "url": "https://bugzilla.suse.com/1242414"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1242780",
+        "url": "https://bugzilla.suse.com/1242780"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1244309",
+        "url": "https://bugzilla.suse.com/1244309"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1245217",
+        "url": "https://bugzilla.suse.com/1245217"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1245431",
+        "url": "https://bugzilla.suse.com/1245431"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1245506",
+        "url": "https://bugzilla.suse.com/1245506"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1245711",
+        "url": "https://bugzilla.suse.com/1245711"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1245986",
+        "url": "https://bugzilla.suse.com/1245986"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246000",
+        "url": "https://bugzilla.suse.com/1246000"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246029",
+        "url": "https://bugzilla.suse.com/1246029"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246037",
+        "url": "https://bugzilla.suse.com/1246037"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246045",
+        "url": "https://bugzilla.suse.com/1246045"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246073",
+        "url": "https://bugzilla.suse.com/1246073"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246186",
+        "url": "https://bugzilla.suse.com/1246186"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246781",
+        "url": "https://bugzilla.suse.com/1246781"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1247314",
+        "url": "https://bugzilla.suse.com/1247314"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1247347",
+        "url": "https://bugzilla.suse.com/1247347"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1247348",
+        "url": "https://bugzilla.suse.com/1247348"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1247349",
+        "url": "https://bugzilla.suse.com/1247349"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1247437",
+        "url": "https://bugzilla.suse.com/1247437"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2022-49138 page",
+        "url": "https://www.suse.com/security/cve/CVE-2022-49138/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2022-49770 page",
+        "url": "https://www.suse.com/security/cve/CVE-2022-49770/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-52923 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-52923/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-52927 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-52927/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-53117 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-53117/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-26643 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-26643/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-42265 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-42265/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-53164 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-53164/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-57947 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-57947/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-21881 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-21881/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-21971 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-21971/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-37798 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-37798/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-38079 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-38079/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-38088 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-38088/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-38120 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-38120/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-38177 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-38177/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-38181 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-38181/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-38200 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-38200/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-38206 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-38206/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-38212 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-38212/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-38213 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-38213/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-38257 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-38257/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-38350 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-38350/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-38468 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-38468/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-38477 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-38477/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-38494 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-38494/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-38495 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-38495/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-38497 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-38497/"
+      }
+    ],
+    "title": "Security update for the Linux Kernel",
+    "tracking": {
+      "current_release_date": "2026-11-01T10:33:36Z",
+      "generator": {
+        "date": "2025-08-18T15:57:50Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:02851-1",
+      "initial_release_date": "2025-08-18T15:57:50Z",
+      "revision_history": [
+        {
+          "date": "2025-08-18T15:57:50Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T17:40:12Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-10-11T11:49:20Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-11-01T10:33:36Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "kernel-devel-rt-0:5.14.21-150400.15.127.1.noarch",
+                "product": {
+                  "name": "kernel-devel-rt-0:5.14.21-150400.15.127.1.noarch",
+                  "product_id": "kernel-devel-rt-0:5.14.21-150400.15.127.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:linux:linux_kernel:5.14.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/kernel-devel-rt@5.14.21-150400.15.127.1?arch=noarch\u0026upstream=kernel-source-rt-0:5.14.21-150400.15.127.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+                "product": {
+                  "name": "kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+                  "product_id": "kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:linux:linux_kernel:5.14.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/kernel-source-rt@5.14.21-150400.15.127.1?arch=noarch\u0026upstream=kernel-source-rt-0:5.14.21-150400.15.127.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cluster-md-kmp-rt-0:5.14.21-150400.15.127.1.x86_64",
+                "product": {
+                  "name": "cluster-md-kmp-rt-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_id": "cluster-md-kmp-rt-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:linux:linux_kernel:5.14.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cluster-md-kmp-rt@5.14.21-150400.15.127.1?arch=x86_64\u0026upstream=kernel-source-0:5.14.21-150400.15.127.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "dlm-kmp-rt-0:5.14.21-150400.15.127.1.x86_64",
+                "product": {
+                  "name": "dlm-kmp-rt-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_id": "dlm-kmp-rt-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:linux:linux_kernel:5.14.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/dlm-kmp-rt@5.14.21-150400.15.127.1?arch=x86_64\u0026upstream=kernel-source-0:5.14.21-150400.15.127.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gfs2-kmp-rt-0:5.14.21-150400.15.127.1.x86_64",
+                "product": {
+                  "name": "gfs2-kmp-rt-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_id": "gfs2-kmp-rt-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:linux:linux_kernel:5.14.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gfs2-kmp-rt@5.14.21-150400.15.127.1?arch=x86_64\u0026upstream=kernel-source-0:5.14.21-150400.15.127.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+                "product": {
+                  "name": "kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_id": "kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:linux:linux_kernel:5.14.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/kernel-rt@5.14.21-150400.15.127.1?arch=x86_64\u0026upstream=kernel-source-0:5.14.21-150400.15.127.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kernel-rt-devel-0:5.14.21-150400.15.127.1.x86_64",
+                "product": {
+                  "name": "kernel-rt-devel-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_id": "kernel-rt-devel-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:linux:linux_kernel:5.14.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/kernel-rt-devel@5.14.21-150400.15.127.1?arch=x86_64\u0026upstream=kernel-source-0:5.14.21-150400.15.127.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kernel-rt-extra-0:5.14.21-150400.15.127.1.x86_64",
+                "product": {
+                  "name": "kernel-rt-extra-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_id": "kernel-rt-extra-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:linux:linux_kernel:5.14.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/kernel-rt-extra@5.14.21-150400.15.127.1?arch=x86_64\u0026upstream=kernel-source-0:5.14.21-150400.15.127.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kernel-rt-livepatch-0:5.14.21-150400.15.127.1.x86_64",
+                "product": {
+                  "name": "kernel-rt-livepatch-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_id": "kernel-rt-livepatch-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:linux:linux_kernel:5.14.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/kernel-rt-livepatch@5.14.21-150400.15.127.1?arch=x86_64\u0026upstream=kernel-source-0:5.14.21-150400.15.127.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kernel-rt-livepatch-devel-0:5.14.21-150400.15.127.1.x86_64",
+                "product": {
+                  "name": "kernel-rt-livepatch-devel-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_id": "kernel-rt-livepatch-devel-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:linux:linux_kernel:5.14.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/kernel-rt-livepatch-devel@5.14.21-150400.15.127.1?arch=x86_64\u0026upstream=kernel-source-0:5.14.21-150400.15.127.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kernel-rt-optional-0:5.14.21-150400.15.127.1.x86_64",
+                "product": {
+                  "name": "kernel-rt-optional-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_id": "kernel-rt-optional-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:linux:linux_kernel:5.14.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/kernel-rt-optional@5.14.21-150400.15.127.1?arch=x86_64\u0026upstream=kernel-rt-0:5.14.21-150400.15.127.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kernel-rt_debug-0:5.14.21-150400.15.127.1.x86_64",
+                "product": {
+                  "name": "kernel-rt_debug-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_id": "kernel-rt_debug-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:linux:linux_kernel:5.14.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/kernel-rt_debug@5.14.21-150400.15.127.1?arch=x86_64\u0026upstream=kernel-rt_debug-0:5.14.21-150400.15.127.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kernel-rt_debug-devel-0:5.14.21-150400.15.127.1.x86_64",
+                "product": {
+                  "name": "kernel-rt_debug-devel-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_id": "kernel-rt_debug-devel-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:linux:linux_kernel:5.14.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/kernel-rt_debug-devel@5.14.21-150400.15.127.1?arch=x86_64\u0026upstream=kernel-rt_debug-0:5.14.21-150400.15.127.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kselftests-kmp-rt-0:5.14.21-150400.15.127.1.x86_64",
+                "product": {
+                  "name": "kselftests-kmp-rt-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_id": "kselftests-kmp-rt-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:linux:linux_kernel:5.14.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/kselftests-kmp-rt@5.14.21-150400.15.127.1?arch=x86_64\u0026upstream=kernel-rt-0:5.14.21-150400.15.127.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "ocfs2-kmp-rt-0:5.14.21-150400.15.127.1.x86_64",
+                "product": {
+                  "name": "ocfs2-kmp-rt-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_id": "ocfs2-kmp-rt-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:linux:linux_kernel:5.14.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/ocfs2-kmp-rt@5.14.21-150400.15.127.1?arch=x86_64\u0026upstream=kernel-rt-0:5.14.21-150400.15.127.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "reiserfs-kmp-rt-0:5.14.21-150400.15.127.1.x86_64",
+                "product": {
+                  "name": "reiserfs-kmp-rt-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_id": "reiserfs-kmp-rt-0:5.14.21-150400.15.127.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:o:linux:linux_kernel:5.14.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/reiserfs-kmp-rt@5.14.21-150400.15.127.1?arch=x86_64\u0026upstream=kernel-rt-0:5.14.21-150400.15.127.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Micro 5.3",
+                "product": {
+                  "name": "SUSE Linux Enterprise Micro 5.3",
+                  "product_id": "SUSE Linux Enterprise Micro 5.3",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-micro:5.3"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Micro 5.4",
+                "product": {
+                  "name": "SUSE Linux Enterprise Micro 5.4",
+                  "product_id": "SUSE Linux Enterprise Micro 5.4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-micro:5.4"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kernel-rt-0:5.14.21-150400.15.127.1.x86_64 as component of SUSE Linux Enterprise Micro 5.3",
+          "product_id": "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64"
+        },
+        "product_reference": "kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kernel-source-rt-0:5.14.21-150400.15.127.1.noarch as component of SUSE Linux Enterprise Micro 5.3",
+          "product_id": "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        },
+        "product_reference": "kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kernel-rt-0:5.14.21-150400.15.127.1.x86_64 as component of SUSE Linux Enterprise Micro 5.4",
+          "product_id": "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64"
+        },
+        "product_reference": "kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kernel-source-rt-0:5.14.21-150400.15.127.1.noarch as component of SUSE Linux Enterprise Micro 5.4",
+          "product_id": "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        },
+        "product_reference": "kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.4"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2022-49138",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2022-49138"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nBluetooth: hci_event: Ignore multiple conn complete events\n\nWhen one of the three connection complete events is received multiple\ntimes for the same handle, the device is registered multiple times which\nleads to memory corruptions. Therefore, consequent events for a single\nconnection are ignored.\n\nThe conn-\u003estate can hold different values, therefore HCI_CONN_HANDLE_UNSET\nis introduced to identify new connections. To make sure the events do not\ncontain this or another invalid handle HCI_CONN_HANDLE_MAX and checks\nare introduced.\n\nBuglink: https://bugzilla.kernel.org/show_bug.cgi?id=215497",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2022-49138",
+          "url": "https://www.suse.com/security/cve/CVE-2022-49138"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1238160 for CVE-2022-49138",
+          "url": "https://bugzilla.suse.com/1238160"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2022-49138"
+    },
+    {
+      "cve": "CVE-2022-49770",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2022-49770"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nceph: avoid putting the realm twice when decoding snaps fails\n\nWhen decoding the snaps fails it maybe leaving the 'first_realm'\nand 'realm' pointing to the same snaprealm memory. And then it'll\nput it twice and could cause random use-after-free, BUG_ON, etc\nissues.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2022-49770",
+          "url": "https://www.suse.com/security/cve/CVE-2022-49770"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1242597 for CVE-2022-49770",
+          "url": "https://bugzilla.suse.com/1242597"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2022-49770"
+    },
+    {
+      "cve": "CVE-2023-52923",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-52923"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: nf_tables: adapt set backend to use GC transaction API\n\nUse the GC transaction API to replace the old and buggy gc API and the\nbusy mark approach.\n\nNo set elements are removed from async garbage collection anymore,\ninstead the _DEAD bit is set on so the set element is not visible from\nlookup path anymore. Async GC enqueues transaction work that might be\naborted and retried later.\n\nrbtree and pipapo set backends does not set on the _DEAD bit from the\nsync GC path since this runs in control plane path where mutex is held.\nIn this case, set elements are deactivated, removed and then released\nvia RCU callback, sync GC never fails.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-52923",
+          "url": "https://www.suse.com/security/cve/CVE-2023-52923"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1236104 for CVE-2023-52923",
+          "url": "https://bugzilla.suse.com/1236104"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1237479 for CVE-2023-52923",
+          "url": "https://bugzilla.suse.com/1237479"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.7,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2023-52923"
+    },
+    {
+      "cve": "CVE-2023-52927",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-52927"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: allow exp not to be removed in nf_ct_find_expectation\n\nCurrently nf_conntrack_in() calling nf_ct_find_expectation() will\nremove the exp from the hash table. However, in some scenario, we\nexpect the exp not to be removed when the created ct will not be\nconfirmed, like in OVS and TC conntrack in the following patches.\n\nThis patch allows exp not to be removed by setting IPS_CONFIRMED\nin the status of the tmpl.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-52927",
+          "url": "https://www.suse.com/security/cve/CVE-2023-52927"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1239644 for CVE-2023-52927",
+          "url": "https://bugzilla.suse.com/1239644"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246016 for CVE-2023-52927",
+          "url": "https://bugzilla.suse.com/1246016"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2023-52927"
+    },
+    {
+      "cve": "CVE-2023-53117",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-53117"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nfs: prevent out-of-bounds array speculation when closing a file descriptor\n\nGoogle-Bug-Id: 114199369",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-53117",
+          "url": "https://www.suse.com/security/cve/CVE-2023-53117"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1242780 for CVE-2023-53117",
+          "url": "https://bugzilla.suse.com/1242780"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2023-53117"
+    },
+    {
+      "cve": "CVE-2024-26643",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-26643"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: nf_tables: mark set as dead when unbinding anonymous set with timeout\n\nWhile the rhashtable set gc runs asynchronously, a race allows it to\ncollect elements from anonymous sets with timeouts while it is being\nreleased from the commit path.\n\nMingi Cho originally reported this issue in a different path in 6.1.x\nwith a pipapo set with low timeouts which is not possible upstream since\n7395dfacfff6 (\"netfilter: nf_tables: use timestamp to check for set\nelement timeout\").\n\nFix this by setting on the dead flag for anonymous sets to skip async gc\nin this case.\n\nAccording to 08e4c8c5919f (\"netfilter: nf_tables: mark newset as dead on\ntransaction abort\"), Florian plans to accelerate abort path by releasing\nobjects via workqueue, therefore, this sets on the dead flag for abort\npath too.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-26643",
+          "url": "https://www.suse.com/security/cve/CVE-2024-26643"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1221829 for CVE-2024-26643",
+          "url": "https://bugzilla.suse.com/1221829"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-26643"
+    },
+    {
+      "cve": "CVE-2024-42265",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-42265"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nprotect the fetch of -\u003efd[fd] in do_dup2() from mispredictions\n\nboth callers have verified that fd is not greater than -\u003emax_fds;\nhowever, misprediction might end up with\n        tofree = fdt-\u003efd[fd];\nbeing speculatively executed.  That's wrong for the same reasons\nwhy it's wrong in close_fd()/file_close_fd_locked(); the same\nsolution applies - array_index_nospec(fd, fdt-\u003emax_fds) could differ\nfrom fd only in case of speculative execution on mispredicted path.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-42265",
+          "url": "https://www.suse.com/security/cve/CVE-2024-42265"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1229334 for CVE-2024-42265",
+          "url": "https://bugzilla.suse.com/1229334"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-42265"
+    },
+    {
+      "cve": "CVE-2024-53164",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-53164"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: sched: fix ordering of qlen adjustment\n\nChanges to sch-\u003eq.qlen around qdisc_tree_reduce_backlog() need to happen\n_before_ a call to said function because otherwise it may fail to notify\nparent qdiscs when the child is about to become empty.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-53164",
+          "url": "https://www.suse.com/security/cve/CVE-2024-53164"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1234863 for CVE-2024-53164",
+          "url": "https://bugzilla.suse.com/1234863"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246019 for CVE-2024-53164",
+          "url": "https://bugzilla.suse.com/1246019"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2024-53164"
+    },
+    {
+      "cve": "CVE-2024-57947",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-57947"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: nf_set_pipapo: fix initial map fill\n\nThe initial buffer has to be inited to all-ones, but it must restrict\nit to the size of the first field, not the total field size.\n\nAfter each round in the map search step, the result and the fill map\nare swapped, so if we have a set where f-\u003ebsize of the first element\nis smaller than m-\u003ebsize_max, those one-bits are leaked into future\nrounds result map.\n\nThis makes pipapo find an incorrect matching results for sets where\nfirst field size is not the largest.\n\nFollowup patch adds a test case to nft_concat_range.sh selftest script.\n\nThanks to Stefano Brivio for pointing out that we need to zero out\nthe remainder explicitly, only correcting memset() argument isn't enough.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-57947",
+          "url": "https://www.suse.com/security/cve/CVE-2024-57947"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1236333 for CVE-2024-57947",
+          "url": "https://bugzilla.suse.com/1236333"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1245799 for CVE-2024-57947",
+          "url": "https://bugzilla.suse.com/1245799"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2024-57947"
+    },
+    {
+      "cve": "CVE-2025-21881",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-21881"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nuprobes: Reject the shared zeropage in uprobe_write_opcode()\n\nWe triggered the following crash in syzkaller tests:\n\n  BUG: Bad page state in process syz.7.38  pfn:1eff3\n  page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x1eff3\n  flags: 0x3fffff00004004(referenced|reserved|node=0|zone=1|lastcpupid=0x1fffff)\n  raw: 003fffff00004004 ffffe6c6c07bfcc8 ffffe6c6c07bfcc8 0000000000000000\n  raw: 0000000000000000 0000000000000000 00000000fffffffe 0000000000000000\n  page dumped because: PAGE_FLAGS_CHECK_AT_FREE flag(s) set\n  Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014\n  Call Trace:\n   \u003cTASK\u003e\n   dump_stack_lvl+0x32/0x50\n   bad_page+0x69/0xf0\n   free_unref_page_prepare+0x401/0x500\n   free_unref_page+0x6d/0x1b0\n   uprobe_write_opcode+0x460/0x8e0\n   install_breakpoint.part.0+0x51/0x80\n   register_for_each_vma+0x1d9/0x2b0\n   __uprobe_register+0x245/0x300\n   bpf_uprobe_multi_link_attach+0x29b/0x4f0\n   link_create+0x1e2/0x280\n   __sys_bpf+0x75f/0xac0\n   __x64_sys_bpf+0x1a/0x30\n   do_syscall_64+0x56/0x100\n   entry_SYSCALL_64_after_hwframe+0x78/0xe2\n\n   BUG: Bad rss-counter state mm:00000000452453e0 type:MM_FILEPAGES val:-1\n\nThe following syzkaller test case can be used to reproduce:\n\n  r2 = creat(\u0026(0x7f0000000000)='./file0\\x00', 0x8)\n  write$nbd(r2, \u0026(0x7f0000000580)=ANY=[], 0x10)\n  r4 = openat(0xffffffffffffff9c, \u0026(0x7f0000000040)='./file0\\x00', 0x42, 0x0)\n  mmap$IORING_OFF_SQ_RING(\u0026(0x7f0000ffd000/0x3000)=nil, 0x3000, 0x0, 0x12, r4, 0x0)\n  r5 = userfaultfd(0x80801)\n  ioctl$UFFDIO_API(r5, 0xc018aa3f, \u0026(0x7f0000000040)={0xaa, 0x20})\n  r6 = userfaultfd(0x80801)\n  ioctl$UFFDIO_API(r6, 0xc018aa3f, \u0026(0x7f0000000140))\n  ioctl$UFFDIO_REGISTER(r6, 0xc020aa00, \u0026(0x7f0000000100)={{\u0026(0x7f0000ffc000/0x4000)=nil, 0x4000}, 0x2})\n  ioctl$UFFDIO_ZEROPAGE(r5, 0xc020aa04, \u0026(0x7f0000000000)={{\u0026(0x7f0000ffd000/0x1000)=nil, 0x1000}})\n  r7 = bpf$PROG_LOAD(0x5, \u0026(0x7f0000000140)={0x2, 0x3, \u0026(0x7f0000000200)=ANY=[@ANYBLOB=\"1800000000120000000000000000000095\"], \u0026(0x7f0000000000)='GPL\\x00', 0x7, 0x0, 0x0, 0x0, 0x0, '\\x00', 0x0, @fallback=0x30, 0xffffffffffffffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x10, 0x0, @void, @value}, 0x94)\n  bpf$BPF_LINK_CREATE_XDP(0x1c, \u0026(0x7f0000000040)={r7, 0x0, 0x30, 0x1e, @val=@uprobe_multi={\u0026(0x7f0000000080)='./file0\\x00', \u0026(0x7f0000000100)=[0x2], 0x0, 0x0, 0x1}}, 0x40)\n\nThe cause is that zero pfn is set to the PTE without increasing the RSS\ncount in mfill_atomic_pte_zeropage() and the refcount of zero folio does\nnot increase accordingly. Then, the operation on the same pfn is performed\nin uprobe_write_opcode()-\u003e__replace_page() to unconditional decrease the\nRSS count and old_folio's refcount.\n\nTherefore, two bugs are introduced:\n\n 1. The RSS count is incorrect, when process exit, the check_mm() report\n    error \"Bad rss-count\".\n\n 2. The reserved folio (zero folio) is freed when folio-\u003erefcount is zero,\n    then free_pages_prepare-\u003efree_page_is_bad() report error\n    \"Bad page state\".\n\nThere is more, the following warning could also theoretically be triggered:\n\n  __replace_page()\n    -\u003e ...\n      -\u003e folio_remove_rmap_pte()\n        -\u003e VM_WARN_ON_FOLIO(is_zero_folio(folio), folio)\n\nConsidering that uprobe hit on the zero folio is a very rare case, just\nreject zero old folio immediately after get_user_page_vma_remote().\n\n[ mingo: Cleaned up the changelog ]",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-21881",
+          "url": "https://www.suse.com/security/cve/CVE-2025-21881"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1240185 for CVE-2025-21881",
+          "url": "https://bugzilla.suse.com/1240185"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-21881"
+    },
+    {
+      "cve": "CVE-2025-21971",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-21971"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet_sched: Prevent creation of classes with TC_H_ROOT\n\nThe function qdisc_tree_reduce_backlog() uses TC_H_ROOT as a termination\ncondition when traversing up the qdisc tree to update parent backlog\ncounters. However, if a class is created with classid TC_H_ROOT, the\ntraversal terminates prematurely at this class instead of reaching the\nactual root qdisc, causing parent statistics to be incorrectly maintained.\nIn case of DRR, this could lead to a crash as reported by Mingi Cho.\n\nPrevent the creation of any Qdisc class with classid TC_H_ROOT\n(0xFFFFFFFF) across all qdisc types, as suggested by Jamal.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-21971",
+          "url": "https://www.suse.com/security/cve/CVE-2025-21971"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1240799 for CVE-2025-21971",
+          "url": "https://bugzilla.suse.com/1240799"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1245794 for CVE-2025-21971",
+          "url": "https://bugzilla.suse.com/1245794"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253291 for CVE-2025-21971",
+          "url": "https://bugzilla.suse.com/1253291"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253292 for CVE-2025-21971",
+          "url": "https://bugzilla.suse.com/1253292"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-21971"
+    },
+    {
+      "cve": "CVE-2025-37798",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-37798"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\ncodel: remove sch-\u003eq.qlen check before qdisc_tree_reduce_backlog()\n\nAfter making all -\u003eqlen_notify() callbacks idempotent, now it is safe to\nremove the check of qlen!=0 from both fq_codel_dequeue() and\ncodel_qdisc_dequeue().",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-37798",
+          "url": "https://www.suse.com/security/cve/CVE-2025-37798"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1242414 for CVE-2025-37798",
+          "url": "https://bugzilla.suse.com/1242414"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1242417 for CVE-2025-37798",
+          "url": "https://bugzilla.suse.com/1242417"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-37798"
+    },
+    {
+      "cve": "CVE-2025-38079",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-38079"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\ncrypto: algif_hash - fix double free in hash_accept\n\nIf accept(2) is called on socket type algif_hash with\nMSG_MORE flag set and crypto_ahash_import fails,\nsk2 is freed. However, it is also freed in af_alg_release,\nleading to slab-use-after-free error.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-38079",
+          "url": "https://www.suse.com/security/cve/CVE-2025-38079"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1245217 for CVE-2025-38079",
+          "url": "https://bugzilla.suse.com/1245217"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1245218 for CVE-2025-38079",
+          "url": "https://bugzilla.suse.com/1245218"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253291 for CVE-2025-38079",
+          "url": "https://bugzilla.suse.com/1253291"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253292 for CVE-2025-38079",
+          "url": "https://bugzilla.suse.com/1253292"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-38079"
+    },
+    {
+      "cve": "CVE-2025-38088",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-38088"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\npowerpc/powernv/memtrace: Fix out of bounds issue in memtrace mmap\n\nmemtrace mmap issue has an out of bounds issue. This patch fixes the by\nchecking that the requested mapping region size should stay within the\nallocated region size.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-38088",
+          "url": "https://www.suse.com/security/cve/CVE-2025-38088"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1245506 for CVE-2025-38088",
+          "url": "https://bugzilla.suse.com/1245506"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1245507 for CVE-2025-38088",
+          "url": "https://bugzilla.suse.com/1245507"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.7,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-38088"
+    },
+    {
+      "cve": "CVE-2025-38120",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-38120"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: nf_set_pipapo_avx2: fix initial map fill\n\nIf the first field doesn't cover the entire start map, then we must zero\nout the remainder, else we leak those bits into the next match round map.\n\nThe early fix was incomplete and did only fix up the generic C\nimplementation.\n\nA followup patch adds a test case to nft_concat_range.sh.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-38120",
+          "url": "https://www.suse.com/security/cve/CVE-2025-38120"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1245711 for CVE-2025-38120",
+          "url": "https://bugzilla.suse.com/1245711"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.8,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-38120"
+    },
+    {
+      "cve": "CVE-2025-38177",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-38177"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nsch_hfsc: make hfsc_qlen_notify() idempotent\n\nhfsc_qlen_notify() is not idempotent either and not friendly\nto its callers, like fq_codel_dequeue(). Let's make it idempotent\nto ease qdisc_tree_reduce_backlog() callers' life:\n\n1. update_vf() decreases cl-\u003ecl_nactive, so we can check whether it is\nnon-zero before calling it.\n\n2. eltree_remove() always removes RB node cl-\u003eel_node, but we can use\n   RB_EMPTY_NODE() + RB_CLEAR_NODE() to make it safe.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-38177",
+          "url": "https://www.suse.com/security/cve/CVE-2025-38177"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1237312 for CVE-2025-38177",
+          "url": "https://bugzilla.suse.com/1237312"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1245986 for CVE-2025-38177",
+          "url": "https://bugzilla.suse.com/1245986"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246356 for CVE-2025-38177",
+          "url": "https://bugzilla.suse.com/1246356"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1247374 for CVE-2025-38177",
+          "url": "https://bugzilla.suse.com/1247374"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253291 for CVE-2025-38177",
+          "url": "https://bugzilla.suse.com/1253291"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253292 for CVE-2025-38177",
+          "url": "https://bugzilla.suse.com/1253292"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-38177"
+    },
+    {
+      "cve": "CVE-2025-38181",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-38181"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\ncalipso: Fix null-ptr-deref in calipso_req_{set,del}attr().\n\nsyzkaller reported a null-ptr-deref in sock_omalloc() while allocating\na CALIPSO option.  [0]\n\nThe NULL is of struct sock, which was fetched by sk_to_full_sk() in\ncalipso_req_setattr().\n\nSince commit a1a5344ddbe8 (\"tcp: avoid two atomic ops for syncookies\"),\nreqsk-\u003ersk_listener could be NULL when SYN Cookie is returned to its\nclient, as hinted by the leading SYN Cookie log.\n\nHere are 3 options to fix the bug:\n\n  1) Return 0 in calipso_req_setattr()\n  2) Return an error in calipso_req_setattr()\n  3) Alaways set rsk_listener\n\n1) is no go as it bypasses LSM, but 2) effectively disables SYN Cookie\nfor CALIPSO.  3) is also no go as there have been many efforts to reduce\natomic ops and make TCP robust against DDoS.  See also commit 3b24d854cb35\n(\"tcp/dccp: do not touch listener sk_refcnt under synflood\").\n\nAs of the blamed commit, SYN Cookie already did not need refcounting,\nand no one has stumbled on the bug for 9 years, so no CALIPSO user will\ncare about SYN Cookie.\n\nLet's return an error in calipso_req_setattr() and calipso_req_delattr()\nin the SYN Cookie case.\n\nThis can be reproduced by [1] on Fedora and now connect() of nc times out.\n\n[0]:\nTCP: request_sock_TCPv6: Possible SYN flooding on port [::]:20002. Sending cookies.\nOops: general protection fault, probably for non-canonical address 0xdffffc0000000006: 0000 [#1] PREEMPT SMP KASAN NOPTI\nKASAN: null-ptr-deref in range [0x0000000000000030-0x0000000000000037]\nCPU: 3 UID: 0 PID: 12262 Comm: syz.1.2611 Not tainted 6.14.0 #2\nHardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.16.3-0-ga6ed6b701f0a-prebuilt.qemu.org 04/01/2014\nRIP: 0010:read_pnet include/net/net_namespace.h:406 [inline]\nRIP: 0010:sock_net include/net/sock.h:655 [inline]\nRIP: 0010:sock_kmalloc+0x35/0x170 net/core/sock.c:2806\nCode: 89 d5 41 54 55 89 f5 53 48 89 fb e8 25 e3 c6 fd e8 f0 91 e3 00 48 8d 7b 30 48 b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1 ea 03 \u003c80\u003e 3c 02 00 0f 85 26 01 00 00 48 b8 00 00 00 00 00 fc ff df 4c 8b\nRSP: 0018:ffff88811af89038 EFLAGS: 00010216\nRAX: dffffc0000000000 RBX: 0000000000000000 RCX: ffff888105266400\nRDX: 0000000000000006 RSI: ffff88800c890000 RDI: 0000000000000030\nRBP: 0000000000000050 R08: 0000000000000000 R09: ffff88810526640e\nR10: ffffed1020a4cc81 R11: ffff88810526640f R12: 0000000000000000\nR13: 0000000000000820 R14: ffff888105266400 R15: 0000000000000050\nFS:  00007f0653a07640(0000) GS:ffff88811af80000(0000) knlGS:0000000000000000\nCS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033\nCR2: 00007f863ba096f4 CR3: 00000000163c0005 CR4: 0000000000770ef0\nPKRU: 80000000\nCall Trace:\n \u003cIRQ\u003e\n ipv6_renew_options+0x279/0x950 net/ipv6/exthdrs.c:1288\n calipso_req_setattr+0x181/0x340 net/ipv6/calipso.c:1204\n calipso_req_setattr+0x56/0x80 net/netlabel/netlabel_calipso.c:597\n netlbl_req_setattr+0x18a/0x440 net/netlabel/netlabel_kapi.c:1249\n selinux_netlbl_inet_conn_request+0x1fb/0x320 security/selinux/netlabel.c:342\n selinux_inet_conn_request+0x1eb/0x2c0 security/selinux/hooks.c:5551\n security_inet_conn_request+0x50/0xa0 security/security.c:4945\n tcp_v6_route_req+0x22c/0x550 net/ipv6/tcp_ipv6.c:825\n tcp_conn_request+0xec8/0x2b70 net/ipv4/tcp_input.c:7275\n tcp_v6_conn_request+0x1e3/0x440 net/ipv6/tcp_ipv6.c:1328\n tcp_rcv_state_process+0xafa/0x52b0 net/ipv4/tcp_input.c:6781\n tcp_v6_do_rcv+0x8a6/0x1a40 net/ipv6/tcp_ipv6.c:1667\n tcp_v6_rcv+0x505e/0x5b50 net/ipv6/tcp_ipv6.c:1904\n ip6_protocol_deliver_rcu+0x17c/0x1da0 net/ipv6/ip6_input.c:436\n ip6_input_finish+0x103/0x180 net/ipv6/ip6_input.c:480\n NF_HOOK include/linux/netfilter.h:314 [inline]\n NF_HOOK include/linux/netfilter.h:308 [inline]\n ip6_input+0x13c/0x6b0 net/ipv6/ip6_input.c:491\n dst_input include/net/dst.h:469 [inline]\n ip6_rcv_finish net/ipv6/ip6_input.c:79 [inline]\n ip6_rcv_finish+0xb6/0x490 net/ipv6/ip6_input.c:69\n NF_HOOK include/linux/netfilter.h:314 [inline]\n NF_HOOK include/linux/netf\n---truncated---",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-38181",
+          "url": "https://www.suse.com/security/cve/CVE-2025-38181"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246000 for CVE-2025-38181",
+          "url": "https://bugzilla.suse.com/1246000"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246001 for CVE-2025-38181",
+          "url": "https://bugzilla.suse.com/1246001"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-38181"
+    },
+    {
+      "cve": "CVE-2025-38200",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-38200"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\ni40e: fix MMIO write access to an invalid page in i40e_clear_hw\n\nWhen the device sends a specific input, an integer underflow can occur, leading\nto MMIO write access to an invalid page.\n\nPrevent the integer underflow by changing the type of related variables.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-38200",
+          "url": "https://www.suse.com/security/cve/CVE-2025-38200"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246045 for CVE-2025-38200",
+          "url": "https://bugzilla.suse.com/1246045"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246046 for CVE-2025-38200",
+          "url": "https://bugzilla.suse.com/1246046"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-38200"
+    },
+    {
+      "cve": "CVE-2025-38206",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-38206"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nexfat: fix double free in delayed_free\n\nThe double free could happen in the following path.\n\nexfat_create_upcase_table()\n        exfat_create_upcase_table() : return error\n        exfat_free_upcase_table() : free -\u003evol_utbl\n        exfat_load_default_upcase_table : return error\n     exfat_kill_sb()\n           delayed_free()\n                  exfat_free_upcase_table() \u003c--------- double free\nThis patch set -\u003evol_util as NULL after freeing it.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-38206",
+          "url": "https://www.suse.com/security/cve/CVE-2025-38206"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246073 for CVE-2025-38206",
+          "url": "https://bugzilla.suse.com/1246073"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246075 for CVE-2025-38206",
+          "url": "https://bugzilla.suse.com/1246075"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-38206"
+    },
+    {
+      "cve": "CVE-2025-38212",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-38212"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nipc: fix to protect IPCS lookups using RCU\n\nsyzbot reported that it discovered a use-after-free vulnerability, [0]\n\n[0]: https://lore.kernel.org/all/67af13f8.050a0220.21dd3.0038.GAE@google.com/\n\nidr_for_each() is protected by rwsem, but this is not enough.  If it is\nnot protected by RCU read-critical region, when idr_for_each() calls\nradix_tree_node_free() through call_rcu() to free the radix_tree_node\nstructure, the node will be freed immediately, and when reading the next\nnode in radix_tree_for_each_slot(), the already freed memory may be read.\n\nTherefore, we need to add code to make sure that idr_for_each() is\nprotected within the RCU read-critical region when we call it in\nshm_destroy_orphaned().",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-38212",
+          "url": "https://www.suse.com/security/cve/CVE-2025-38212"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246029 for CVE-2025-38212",
+          "url": "https://bugzilla.suse.com/1246029"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246030 for CVE-2025-38212",
+          "url": "https://bugzilla.suse.com/1246030"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-38212"
+    },
+    {
+      "cve": "CVE-2025-38213",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-38213"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-38213",
+          "url": "https://www.suse.com/security/cve/CVE-2025-38213"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246037 for CVE-2025-38213",
+          "url": "https://bugzilla.suse.com/1246037"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246039 for CVE-2025-38213",
+          "url": "https://bugzilla.suse.com/1246039"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.7,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-38213"
+    },
+    {
+      "cve": "CVE-2025-38257",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-38257"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\ns390/pkey: Prevent overflow in size calculation for memdup_user()\n\nNumber of apqn target list entries contained in 'nr_apqns' variable is\ndetermined by userspace via an ioctl call so the result of the product in\ncalculation of size passed to memdup_user() may overflow.\n\nIn this case the actual size of the allocated area and the value\ndescribing it won't be in sync leading to various types of unpredictable\nbehaviour later.\n\nUse a proper memdup_array_user() helper which returns an error if an\noverflow is detected. Note that it is different from when nr_apqns is\ninitially zero - that case is considered valid and should be handled in\nsubsequent pkey_handler implementations.\n\nFound by Linux Verification Center (linuxtesting.org).",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-38257",
+          "url": "https://www.suse.com/security/cve/CVE-2025-38257"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246186 for CVE-2025-38257",
+          "url": "https://bugzilla.suse.com/1246186"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246189 for CVE-2025-38257",
+          "url": "https://bugzilla.suse.com/1246189"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-38257"
+    },
+    {
+      "cve": "CVE-2025-38350",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-38350"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/sched: Always pass notifications when child class becomes empty\n\nCertain classful qdiscs may invoke their classes' dequeue handler on an\nenqueue operation. This may unexpectedly empty the child qdisc and thus\nmake an in-flight class passive via qlen_notify(). Most qdiscs do not\nexpect such behaviour at this point in time and may re-activate the\nclass eventually anyways which will lead to a use-after-free.\n\nThe referenced fix commit attempted to fix this behavior for the HFSC\ncase by moving the backlog accounting around, though this turned out to\nbe incomplete since the parent's parent may run into the issue too.\nThe following reproducer demonstrates this use-after-free:\n\n    tc qdisc add dev lo root handle 1: drr\n    tc filter add dev lo parent 1: basic classid 1:1\n    tc class add dev lo parent 1: classid 1:1 drr\n    tc qdisc add dev lo parent 1:1 handle 2: hfsc def 1\n    tc class add dev lo parent 2: classid 2:1 hfsc rt m1 8 d 1 m2 0\n    tc qdisc add dev lo parent 2:1 handle 3: netem\n    tc qdisc add dev lo parent 3:1 handle 4: blackhole\n\n    echo 1 | socat -u STDIN UDP4-DATAGRAM:127.0.0.1:8888\n    tc class delete dev lo classid 1:1\n    echo 1 | socat -u STDIN UDP4-DATAGRAM:127.0.0.1:8888\n\nSince backlog accounting issues leading to a use-after-frees on stale\nclass pointers is a recurring pattern at this point, this patch takes\na different approach. Instead of trying to fix the accounting, the patch\nensures that qdisc_tree_reduce_backlog always calls qlen_notify when\nthe child qdisc is empty. This solves the problem because deletion of\nqdiscs always involves a call to qdisc_reset() and / or\nqdisc_purge_queue() which ultimately resets its qlen to 0 thus causing\nthe following qdisc_tree_reduce_backlog() to report to the parent. Note\nthat this may call qlen_notify on passive classes multiple times. This\nis not a problem after the recent patch series that made all the\nclassful qdiscs qlen_notify() handlers idempotent.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-38350",
+          "url": "https://www.suse.com/security/cve/CVE-2025-38350"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246781 for CVE-2025-38350",
+          "url": "https://bugzilla.suse.com/1246781"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1247043 for CVE-2025-38350",
+          "url": "https://bugzilla.suse.com/1247043"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.3,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-38350"
+    },
+    {
+      "cve": "CVE-2025-38468",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-38468"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/sched: Return NULL when htb_lookup_leaf encounters an empty rbtree\n\nhtb_lookup_leaf has a BUG_ON that can trigger with the following:\n\ntc qdisc del dev lo root\ntc qdisc add dev lo root handle 1: htb default 1\ntc class add dev lo parent 1: classid 1:1 htb rate 64bit\ntc qdisc add dev lo parent 1:1 handle 2: netem\ntc qdisc add dev lo parent 2:1 handle 3: blackhole\nping -I lo -c1 -W0.001 127.0.0.1\n\nThe root cause is the following:\n\n1. htb_dequeue calls htb_dequeue_tree which calls the dequeue handler on\n   the selected leaf qdisc\n2. netem_dequeue calls enqueue on the child qdisc\n3. blackhole_enqueue drops the packet and returns a value that is not\n   just NET_XMIT_SUCCESS\n4. Because of this, netem_dequeue calls qdisc_tree_reduce_backlog, and\n   since qlen is now 0, it calls htb_qlen_notify -\u003e htb_deactivate -\u003e\n   htb_deactiviate_prios -\u003e htb_remove_class_from_row -\u003e htb_safe_rb_erase\n5. As this is the only class in the selected hprio rbtree,\n   __rb_change_child in __rb_erase_augmented sets the rb_root pointer to\n   NULL\n6. Because blackhole_dequeue returns NULL, netem_dequeue returns NULL,\n   which causes htb_dequeue_tree to call htb_lookup_leaf with the same\n   hprio rbtree, and fail the BUG_ON\n\nThe function graph for this scenario is shown here:\n 0)               |  htb_enqueue() {\n 0) + 13.635 us   |    netem_enqueue();\n 0)   4.719 us    |    htb_activate_prios();\n 0) # 2249.199 us |  }\n 0)               |  htb_dequeue() {\n 0)   2.355 us    |    htb_lookup_leaf();\n 0)               |    netem_dequeue() {\n 0) + 11.061 us   |      blackhole_enqueue();\n 0)               |      qdisc_tree_reduce_backlog() {\n 0)               |        qdisc_lookup_rcu() {\n 0)   1.873 us    |          qdisc_match_from_root();\n 0)   6.292 us    |        }\n 0)   1.894 us    |        htb_search();\n 0)               |        htb_qlen_notify() {\n 0)   2.655 us    |          htb_deactivate_prios();\n 0)   6.933 us    |        }\n 0) + 25.227 us   |      }\n 0)   1.983 us    |      blackhole_dequeue();\n 0) + 86.553 us   |    }\n 0) # 2932.761 us |    qdisc_warn_nonwc();\n 0)               |    htb_lookup_leaf() {\n 0)               |      BUG_ON();\n ------------------------------------------\n\nThe full original bug report can be seen here [1].\n\nWe can fix this just by returning NULL instead of the BUG_ON,\nas htb_dequeue_tree returns NULL when htb_lookup_leaf returns\nNULL.\n\n[1] https://lore.kernel.org/netdev/pF5XOOIim0IuEfhI-SOxTgRvNoDwuux7UHKnE_Y5-zVd4wmGvNk2ceHjKb8ORnzw0cGwfmVu42g9dL7XyJLf1NEzaztboTWcm0Ogxuojoeo=@willsroot.io/",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-38468",
+          "url": "https://www.suse.com/security/cve/CVE-2025-38468"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1247437 for CVE-2025-38468",
+          "url": "https://bugzilla.suse.com/1247437"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-38468"
+    },
+    {
+      "cve": "CVE-2025-38477",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-38477"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/sched: sch_qfq: Fix race condition on qfq_aggregate\n\nA race condition can occur when 'agg' is modified in qfq_change_agg\n(called during qfq_enqueue) while other threads access it\nconcurrently. For example, qfq_dump_class may trigger a NULL\ndereference, and qfq_delete_class may cause a use-after-free.\n\nThis patch addresses the issue by:\n\n1. Moved qfq_destroy_class into the critical section.\n\n2. Added sch_tree_lock protection to qfq_dump_class and\nqfq_dump_class_stats.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-38477",
+          "url": "https://www.suse.com/security/cve/CVE-2025-38477"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1247314 for CVE-2025-38477",
+          "url": "https://bugzilla.suse.com/1247314"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1247315 for CVE-2025-38477",
+          "url": "https://bugzilla.suse.com/1247315"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-38477"
+    },
+    {
+      "cve": "CVE-2025-38494",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-38494"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nHID: core: do not bypass hid_hw_raw_request\n\nhid_hw_raw_request() is actually useful to ensure the provided buffer\nand length are valid. Directly calling in the low level transport driver\nfunction bypassed those checks and allowed invalid paramto be used.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-38494",
+          "url": "https://www.suse.com/security/cve/CVE-2025-38494"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1247349 for CVE-2025-38494",
+          "url": "https://bugzilla.suse.com/1247349"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1247350 for CVE-2025-38494",
+          "url": "https://bugzilla.suse.com/1247350"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-38494"
+    },
+    {
+      "cve": "CVE-2025-38495",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-38495"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nHID: core: ensure the allocated report buffer can contain the reserved report ID\n\nWhen the report ID is not used, the low level transport drivers expect\nthe first byte to be 0. However, currently the allocated buffer not\naccount for that extra byte, meaning that instead of having 8 guaranteed\nbytes for implement to be working, we only have 7.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-38495",
+          "url": "https://www.suse.com/security/cve/CVE-2025-38495"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1247348 for CVE-2025-38495",
+          "url": "https://bugzilla.suse.com/1247348"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1247351 for CVE-2025-38495",
+          "url": "https://bugzilla.suse.com/1247351"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-38495"
+    },
+    {
+      "cve": "CVE-2025-38497",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-38497"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nusb: gadget: configfs: Fix OOB read on empty string write\n\nWhen writing an empty string to either 'qw_sign' or 'landingPage'\nsysfs attributes, the store functions attempt to access page[l - 1]\nbefore validating that the length 'l' is greater than zero.\n\nThis patch fixes the vulnerability by adding a check at the beginning\nof os_desc_qw_sign_store() and webusb_landingPage_store() to handle\nthe zero-length input case gracefully by returning immediately.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+          "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-38497",
+          "url": "https://www.suse.com/security/cve/CVE-2025-38497"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1247347 for CVE-2025-38497",
+          "url": "https://bugzilla.suse.com/1247347"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.3:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch",
+            "SUSE Linux Enterprise Micro 5.4:kernel-rt-0:5.14.21-150400.15.127.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:kernel-source-rt-0:5.14.21-150400.15.127.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-08-18T15:57:50Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-38497"
+    }
+  ]
+}

@@ -1,0 +1,1410 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update 5.0.6 for Multi-Linux Manager Client Tools",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update fixes the following issues:\n\ndracut-saltboot:\n\n- Update to version 1.0.0\n  * Reboot on salt key timeout (bsc#1237495)\n  * Fixed parsing files with space in the name (bsc#1252100)\n\ngrafana was updated from version 11.5.5 to 11.5.10:\n\n- Security issues fixed:\n\n  * CVE-2025-47911: Fix parsing HTML documents (bsc#1251454)\n  * CVE-2025-58190: Fix excessive memory consumption (bsc#1251657)\n  * CVE-2025-64751: Drop experimental implementation of authorization Zanzana server/client\n                    (bsc#1254113)\n  * CVE-2025-11065: Fixed sensitive information leak in logs (version 11.5.9) (bsc#1250616)\n  * CVE-2025-6023: Fixed cross-site-scripting via scripted dashboards (version 11.5.7) (bsc#1246735)\n  * CVE-2025-6197: Fixed open redirect in organization switching (version 11.5.7) (bsc#1246736)\n  * CVE-2025-3415: Fixed exposure of DingDing alerting integration URL to Viewer level users (version 11.5.6)\n                   (bsc#1245302)\n\n- Other changes, new features and bugs fixed:\n    \n  * Version 11.5.10:\n    + Update to Go 1.25\n    + Update to golang.org/x/net v0.45.0\n    + Auth: Fix render user OAuth passthrough\n    + LDAP Authentication: Fix URL to propagate username context as parameter\n\n  * Version 11.5.9:\n    + Auditing: Document new options for recording datasource query request/response body.\n    + Login: Fixed redirection after login when Grafana is served from subpath.\n\n  * Version 11.5.7:\n    + Azure: Fixed legend formatting and resource name determination in template variable queries.\n\nmgr-push:\n\n- Version 5.0.3-0\n  * Fixed syntax error in changelog\n\nrhnlib:\n\n- Version 5.0.6-0\n  * Use more secure defusedxml parser (bsc#1227577)\n\nspacecmd:\n\n- Version 5.0.14-0\n  * Fixed installation of python lib files on Ubuntu 24.04 (bsc#1246586)\n  * Use JSON instead of pickle for spacecmd cache (bsc#1227579)\n  * Make spacecmd to work with Python 3.12 and higher\n  * Call print statements properly in Python 3\n\nuyuni-tools:\n\n- Version 0.1.37-0\n  * Handle CA files with symlinks during migration (bsc#1251044)\n  * Add a lowercase version of --logLevel (bsc#1243611)\n  * Adjust traefik exposed configuration for chart v27+ (bsc#1247721)\n  * Stop executing scripts in temporary folder (bsc#1243704)\n  * Convert the traefik install time to local time (bsc#1251138)\n  * Run smdba and reindex only during migration (bsc#1244534)\n  * Support config: collect podman inspect for hub container (bsc#1245099)\n  * Add --registry-host, --registry-user and --registry-password to pull images from an authenticate registry\n  * Deprecate --registry\n  * Use new dedicated path for Cobbler settings (bsc#1244027)\n  * Migrate custom auto installation snippets (bsc#1246320)\n  * Add SLE15SP7 to buildin productmap\n  * Fix loading product map from mgradm configuration file (bsc#1246068)\n  * Fix channel override for distro copy\n  * Do not use sudo when running as a root user (bsc#1246882)\n  * Do not require backups to be at the same location for restoring (bsc#1246906)\n  * Check for restorecon presence before calling (bsc#1246925)\n  * Automatically get up-to-date systemid file on salt based proxy hosts (bsc#1246789)\n  * Fix recomputing proxy images when installing a ptf or test (bsc#1246553)\n  * Add migration for server monitoring configuration (bsc#1247688)\n- Version 0.1.36-0\n  * Bump the default image tag\n- Version 0.1.35-0\n  * Restore SELinux contexts for restored backup volumes (bsc#1244127)\n- Version 0.1.34-0\n  * Fix mgradm backup create handling of images and systemd files (bsc#1246738)\n- Version 0.1.33-0\n  * Restore volumes using tar instead of podman import (bsc#1244127)\n\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2025-4458,SUSE-SLE-Manager-Tools-15-2025-4458,SUSE-SLE-Manager-Tools-For-Micro-5-2025-4458,openSUSE-SLE-15.6-2025-4458",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_4458-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:4458-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-20254458-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:4458-1",
+        "url": "https://lists.suse.com/pipermail/sle-security-updates/2025-December/023628.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1227577",
+        "url": "https://bugzilla.suse.com/1227577"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1227579",
+        "url": "https://bugzilla.suse.com/1227579"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1237495",
+        "url": "https://bugzilla.suse.com/1237495"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1243611",
+        "url": "https://bugzilla.suse.com/1243611"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1243704",
+        "url": "https://bugzilla.suse.com/1243704"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1244027",
+        "url": "https://bugzilla.suse.com/1244027"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1244127",
+        "url": "https://bugzilla.suse.com/1244127"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1244534",
+        "url": "https://bugzilla.suse.com/1244534"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1245099",
+        "url": "https://bugzilla.suse.com/1245099"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1245302",
+        "url": "https://bugzilla.suse.com/1245302"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246068",
+        "url": "https://bugzilla.suse.com/1246068"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246320",
+        "url": "https://bugzilla.suse.com/1246320"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246553",
+        "url": "https://bugzilla.suse.com/1246553"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246586",
+        "url": "https://bugzilla.suse.com/1246586"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246662",
+        "url": "https://bugzilla.suse.com/1246662"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246735",
+        "url": "https://bugzilla.suse.com/1246735"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246736",
+        "url": "https://bugzilla.suse.com/1246736"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246738",
+        "url": "https://bugzilla.suse.com/1246738"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246789",
+        "url": "https://bugzilla.suse.com/1246789"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246882",
+        "url": "https://bugzilla.suse.com/1246882"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246906",
+        "url": "https://bugzilla.suse.com/1246906"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246925",
+        "url": "https://bugzilla.suse.com/1246925"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1247688",
+        "url": "https://bugzilla.suse.com/1247688"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1247721",
+        "url": "https://bugzilla.suse.com/1247721"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1250616",
+        "url": "https://bugzilla.suse.com/1250616"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1251044",
+        "url": "https://bugzilla.suse.com/1251044"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1251138",
+        "url": "https://bugzilla.suse.com/1251138"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1252100",
+        "url": "https://bugzilla.suse.com/1252100"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-11065 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-11065/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-3415 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-3415/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-6023 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-6023/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-6197 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-6197/"
+      }
+    ],
+    "title": "Security update 5.0.6 for Multi-Linux Manager Client Tools",
+    "tracking": {
+      "current_release_date": "2026-09-20T18:33:31Z",
+      "generator": {
+        "date": "2025-12-18T11:57:30Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:4458-1",
+      "initial_release_date": "2025-12-18T11:57:30Z",
+      "revision_history": [
+        {
+          "date": "2025-12-18T11:57:30Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T18:33:31Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-alertmanager-0:0.28.1-150000.9.1.aarch64",
+                "product": {
+                  "name": "golang-github-prometheus-alertmanager-0:0.28.1-150000.9.1.aarch64",
+                  "product_id": "golang-github-prometheus-alertmanager-0:0.28.1-150000.9.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:prometheus:alertmanager:0.28.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-alertmanager@0.28.1-150000.9.1?arch=aarch64\u0026upstream=golang-github-prometheus-alertmanager-0:0.28.1-150000.9.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grafana-0:11.5.10-150000.1.87.1.aarch64",
+                "product": {
+                  "name": "grafana-0:11.5.10-150000.1.87.1.aarch64",
+                  "product_id": "grafana-0:11.5.10-150000.1.87.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:grafana:grafana:11.5.10:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grafana@11.5.10-150000.1.87.1?arch=aarch64\u0026upstream=grafana-0:11.5.10-150000.1.87.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+                "product": {
+                  "name": "mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+                  "product_id": "mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl@0.1.37-150000.1.27.1?arch=aarch64\u0026upstream=uyuni-tools-0:0.1.37-150000.1.27.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-alertmanager-0:0.28.1-150000.9.1.i586",
+                "product": {
+                  "name": "golang-github-prometheus-alertmanager-0:0.28.1-150000.9.1.i586",
+                  "product_id": "golang-github-prometheus-alertmanager-0:0.28.1-150000.9.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:prometheus:alertmanager:0.28.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-alertmanager@0.28.1-150000.9.1?arch=i586\u0026upstream=golang-github-prometheus-alertmanager-0:0.28.1-150000.9.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-0:0.1.37-150000.1.27.1.i586",
+                "product": {
+                  "name": "mgrctl-0:0.1.37-150000.1.27.1.i586",
+                  "product_id": "mgrctl-0:0.1.37-150000.1.27.1.i586",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl@0.1.37-150000.1.27.1?arch=i586\u0026upstream=uyuni-tools-0:0.1.37-150000.1.27.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "i586"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+                "product": {
+                  "name": "dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+                  "product_id": "dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/dracut-saltboot@1.0.0-150000.1.62.1?arch=noarch\u0026upstream=dracut-saltboot-0:1.0.0-150000.1.62.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgr-push-0:5.0.3-150000.1.30.1.noarch",
+                "product": {
+                  "name": "mgr-push-0:5.0.3-150000.1.30.1.noarch",
+                  "product_id": "mgr-push-0:5.0.3-150000.1.30.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgr-push@5.0.3-150000.1.30.1?arch=noarch\u0026upstream=mgr-push-0:5.0.3-150000.1.30.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+                "product": {
+                  "name": "mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+                  "product_id": "mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl-bash-completion@0.1.37-150000.1.27.1?arch=noarch\u0026upstream=uyuni-tools-0:0.1.37-150000.1.27.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+                "product": {
+                  "name": "mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+                  "product_id": "mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl-lang@0.1.37-150000.1.27.1?arch=noarch\u0026upstream=uyuni-tools-0:0.1.37-150000.1.27.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+                "product": {
+                  "name": "mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+                  "product_id": "mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl-zsh-completion@0.1.37-150000.1.27.1?arch=noarch\u0026upstream=uyuni-tools-0:0.1.37-150000.1.27.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python3-mgr-push-0:5.0.3-150000.1.30.1.noarch",
+                "product": {
+                  "name": "python3-mgr-push-0:5.0.3-150000.1.30.1.noarch",
+                  "product_id": "python3-mgr-push-0:5.0.3-150000.1.30.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/python3-mgr-push@5.0.3-150000.1.30.1?arch=noarch\u0026upstream=mgr-push-0:5.0.3-150000.1.30.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python3-rhnlib-0:5.0.6-150000.3.49.1.noarch",
+                "product": {
+                  "name": "python3-rhnlib-0:5.0.6-150000.3.49.1.noarch",
+                  "product_id": "python3-rhnlib-0:5.0.6-150000.3.49.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/python3-rhnlib@5.0.6-150000.3.49.1?arch=noarch\u0026upstream=rhnlib-0:5.0.6-150000.3.49.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "spacecmd-0:5.0.14-150000.3.139.1.noarch",
+                "product": {
+                  "name": "spacecmd-0:5.0.14-150000.3.139.1.noarch",
+                  "product_id": "spacecmd-0:5.0.14-150000.3.139.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/spacecmd@5.0.14-150000.3.139.1?arch=noarch\u0026upstream=spacecmd-0:5.0.14-150000.3.139.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch",
+                "product": {
+                  "name": "supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch",
+                  "product_id": "supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/supportutils-plugin-susemanager-client@5.0.5-150000.3.30.1?arch=noarch\u0026upstream=supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-alertmanager-0:0.28.1-150000.9.1.ppc64le",
+                "product": {
+                  "name": "golang-github-prometheus-alertmanager-0:0.28.1-150000.9.1.ppc64le",
+                  "product_id": "golang-github-prometheus-alertmanager-0:0.28.1-150000.9.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:prometheus:alertmanager:0.28.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-alertmanager@0.28.1-150000.9.1?arch=ppc64le\u0026upstream=golang-github-prometheus-alertmanager-0:0.28.1-150000.9.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grafana-0:11.5.10-150000.1.87.1.ppc64le",
+                "product": {
+                  "name": "grafana-0:11.5.10-150000.1.87.1.ppc64le",
+                  "product_id": "grafana-0:11.5.10-150000.1.87.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:grafana:grafana:11.5.10:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grafana@11.5.10-150000.1.87.1?arch=ppc64le\u0026upstream=grafana-0:11.5.10-150000.1.87.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-0:0.1.37-150000.1.27.1.ppc64le",
+                "product": {
+                  "name": "mgrctl-0:0.1.37-150000.1.27.1.ppc64le",
+                  "product_id": "mgrctl-0:0.1.37-150000.1.27.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl@0.1.37-150000.1.27.1?arch=ppc64le\u0026upstream=uyuni-tools-0:0.1.37-150000.1.27.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-alertmanager-0:0.28.1-150000.9.1.s390x",
+                "product": {
+                  "name": "golang-github-prometheus-alertmanager-0:0.28.1-150000.9.1.s390x",
+                  "product_id": "golang-github-prometheus-alertmanager-0:0.28.1-150000.9.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:prometheus:alertmanager:0.28.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-alertmanager@0.28.1-150000.9.1?arch=s390x\u0026upstream=golang-github-prometheus-alertmanager-0:0.28.1-150000.9.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grafana-0:11.5.10-150000.1.87.1.s390x",
+                "product": {
+                  "name": "grafana-0:11.5.10-150000.1.87.1.s390x",
+                  "product_id": "grafana-0:11.5.10-150000.1.87.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:grafana:grafana:11.5.10:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grafana@11.5.10-150000.1.87.1?arch=s390x\u0026upstream=grafana-0:11.5.10-150000.1.87.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-0:0.1.37-150000.1.27.1.s390x",
+                "product": {
+                  "name": "mgrctl-0:0.1.37-150000.1.27.1.s390x",
+                  "product_id": "mgrctl-0:0.1.37-150000.1.27.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl@0.1.37-150000.1.27.1?arch=s390x\u0026upstream=uyuni-tools-0:0.1.37-150000.1.27.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-alertmanager-0:0.28.1-150000.9.1.x86_64",
+                "product": {
+                  "name": "golang-github-prometheus-alertmanager-0:0.28.1-150000.9.1.x86_64",
+                  "product_id": "golang-github-prometheus-alertmanager-0:0.28.1-150000.9.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:prometheus:alertmanager:0.28.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-alertmanager@0.28.1-150000.9.1?arch=x86_64\u0026upstream=golang-github-prometheus-alertmanager-0:0.28.1-150000.9.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grafana-0:11.5.10-150000.1.87.1.x86_64",
+                "product": {
+                  "name": "grafana-0:11.5.10-150000.1.87.1.x86_64",
+                  "product_id": "grafana-0:11.5.10-150000.1.87.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:grafana:grafana:11.5.10:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grafana@11.5.10-150000.1.87.1?arch=x86_64\u0026upstream=grafana-0:11.5.10-150000.1.87.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+                "product": {
+                  "name": "mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+                  "product_id": "mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl@0.1.37-150000.1.27.1?arch=x86_64\u0026upstream=uyuni-tools-0:0.1.37-150000.1.27.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Manager Client Tools 15",
+                "product": {
+                  "name": "SUSE Manager Client Tools 15",
+                  "product_id": "SUSE Manager Client Tools 15"
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Manager Client Tools for SLE Micro 5",
+                "product": {
+                  "name": "SUSE Manager Client Tools for SLE Micro 5",
+                  "product_id": "SUSE Manager Client Tools for SLE Micro 5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-manager-tools-micro:5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 15.6",
+                "product": {
+                  "name": "openSUSE Leap 15.6",
+                  "product_id": "openSUSE Leap 15.6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:opensuse:leap:15.6"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "dracut-saltboot-0:1.0.0-150000.1.62.1.noarch as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch"
+        },
+        "product_reference": "dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "grafana-0:11.5.10-150000.1.87.1.aarch64 as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.aarch64"
+        },
+        "product_reference": "grafana-0:11.5.10-150000.1.87.1.aarch64",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "grafana-0:11.5.10-150000.1.87.1.ppc64le as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.ppc64le"
+        },
+        "product_reference": "grafana-0:11.5.10-150000.1.87.1.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "grafana-0:11.5.10-150000.1.87.1.s390x as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.s390x"
+        },
+        "product_reference": "grafana-0:11.5.10-150000.1.87.1.s390x",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "grafana-0:11.5.10-150000.1.87.1.x86_64 as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.x86_64"
+        },
+        "product_reference": "grafana-0:11.5.10-150000.1.87.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgr-push-0:5.0.3-150000.1.30.1.noarch as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:mgr-push-0:5.0.3-150000.1.30.1.noarch"
+        },
+        "product_reference": "mgr-push-0:5.0.3-150000.1.30.1.noarch",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-0:0.1.37-150000.1.27.1.aarch64 as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.aarch64"
+        },
+        "product_reference": "mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-0:0.1.37-150000.1.27.1.ppc64le as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.ppc64le"
+        },
+        "product_reference": "mgrctl-0:0.1.37-150000.1.27.1.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-0:0.1.37-150000.1.27.1.s390x as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.s390x"
+        },
+        "product_reference": "mgrctl-0:0.1.37-150000.1.27.1.s390x",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-0:0.1.37-150000.1.27.1.x86_64 as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.x86_64"
+        },
+        "product_reference": "mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch"
+        },
+        "product_reference": "mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-lang-0:0.1.37-150000.1.27.1.noarch as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch"
+        },
+        "product_reference": "mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch"
+        },
+        "product_reference": "mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python3-mgr-push-0:5.0.3-150000.1.30.1.noarch as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:python3-mgr-push-0:5.0.3-150000.1.30.1.noarch"
+        },
+        "product_reference": "python3-mgr-push-0:5.0.3-150000.1.30.1.noarch",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python3-rhnlib-0:5.0.6-150000.3.49.1.noarch as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:python3-rhnlib-0:5.0.6-150000.3.49.1.noarch"
+        },
+        "product_reference": "python3-rhnlib-0:5.0.6-150000.3.49.1.noarch",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "spacecmd-0:5.0.14-150000.3.139.1.noarch as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:spacecmd-0:5.0.14-150000.3.139.1.noarch"
+        },
+        "product_reference": "spacecmd-0:5.0.14-150000.3.139.1.noarch",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch as component of SUSE Manager Client Tools 15",
+          "product_id": "SUSE Manager Client Tools 15:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch"
+        },
+        "product_reference": "supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch",
+        "relates_to_product_reference": "SUSE Manager Client Tools 15"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "dracut-saltboot-0:1.0.0-150000.1.62.1.noarch as component of SUSE Manager Client Tools for SLE Micro 5",
+          "product_id": "SUSE Manager Client Tools for SLE Micro 5:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch"
+        },
+        "product_reference": "dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+        "relates_to_product_reference": "SUSE Manager Client Tools for SLE Micro 5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-0:0.1.37-150000.1.27.1.aarch64 as component of SUSE Manager Client Tools for SLE Micro 5",
+          "product_id": "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.aarch64"
+        },
+        "product_reference": "mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+        "relates_to_product_reference": "SUSE Manager Client Tools for SLE Micro 5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-0:0.1.37-150000.1.27.1.s390x as component of SUSE Manager Client Tools for SLE Micro 5",
+          "product_id": "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.s390x"
+        },
+        "product_reference": "mgrctl-0:0.1.37-150000.1.27.1.s390x",
+        "relates_to_product_reference": "SUSE Manager Client Tools for SLE Micro 5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-0:0.1.37-150000.1.27.1.x86_64 as component of SUSE Manager Client Tools for SLE Micro 5",
+          "product_id": "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.x86_64"
+        },
+        "product_reference": "mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Client Tools for SLE Micro 5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch as component of SUSE Manager Client Tools for SLE Micro 5",
+          "product_id": "SUSE Manager Client Tools for SLE Micro 5:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch"
+        },
+        "product_reference": "mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+        "relates_to_product_reference": "SUSE Manager Client Tools for SLE Micro 5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-lang-0:0.1.37-150000.1.27.1.noarch as component of SUSE Manager Client Tools for SLE Micro 5",
+          "product_id": "SUSE Manager Client Tools for SLE Micro 5:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch"
+        },
+        "product_reference": "mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+        "relates_to_product_reference": "SUSE Manager Client Tools for SLE Micro 5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch as component of SUSE Manager Client Tools for SLE Micro 5",
+          "product_id": "SUSE Manager Client Tools for SLE Micro 5:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch"
+        },
+        "product_reference": "mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+        "relates_to_product_reference": "SUSE Manager Client Tools for SLE Micro 5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "dracut-saltboot-0:1.0.0-150000.1.62.1.noarch as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch"
+        },
+        "product_reference": "dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "spacecmd-0:5.0.14-150000.3.139.1.noarch as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:spacecmd-0:5.0.14-150000.3.139.1.noarch"
+        },
+        "product_reference": "spacecmd-0:5.0.14-150000.3.139.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch"
+        },
+        "product_reference": "supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-11065",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-11065"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in github.com/go-viper/mapstructure/v2, in the field processing component using mapstructure.WeakDecode. This vulnerability allows information disclosure through detailed error messages that may leak sensitive input values via malformed user-supplied data processed in security-critical contexts.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Manager Client Tools 15:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+          "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.aarch64",
+          "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.ppc64le",
+          "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.s390x",
+          "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.x86_64",
+          "SUSE Manager Client Tools 15:mgr-push-0:5.0.3-150000.1.30.1.noarch",
+          "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+          "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.ppc64le",
+          "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+          "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+          "SUSE Manager Client Tools 15:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+          "SUSE Manager Client Tools 15:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+          "SUSE Manager Client Tools 15:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+          "SUSE Manager Client Tools 15:python3-mgr-push-0:5.0.3-150000.1.30.1.noarch",
+          "SUSE Manager Client Tools 15:python3-rhnlib-0:5.0.6-150000.3.49.1.noarch",
+          "SUSE Manager Client Tools 15:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+          "SUSE Manager Client Tools 15:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch",
+          "SUSE Manager Client Tools for SLE Micro 5:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+          "openSUSE Leap 15.6:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+          "openSUSE Leap 15.6:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+          "openSUSE Leap 15.6:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-11065",
+          "url": "https://www.suse.com/security/cve/CVE-2025-11065"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1250608 for CVE-2025-11065",
+          "url": "https://bugzilla.suse.com/1250608"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Manager Client Tools 15:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.aarch64",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.ppc64le",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.s390x",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.x86_64",
+            "SUSE Manager Client Tools 15:mgr-push-0:5.0.3-150000.1.30.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.ppc64le",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+            "SUSE Manager Client Tools 15:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:python3-mgr-push-0:5.0.3-150000.1.30.1.noarch",
+            "SUSE Manager Client Tools 15:python3-rhnlib-0:5.0.6-150000.3.49.1.noarch",
+            "SUSE Manager Client Tools 15:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+            "SUSE Manager Client Tools 15:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+            "openSUSE Leap 15.6:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "openSUSE Leap 15.6:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+            "openSUSE Leap 15.6:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Manager Client Tools 15:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.aarch64",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.ppc64le",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.s390x",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.x86_64",
+            "SUSE Manager Client Tools 15:mgr-push-0:5.0.3-150000.1.30.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.ppc64le",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+            "SUSE Manager Client Tools 15:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:python3-mgr-push-0:5.0.3-150000.1.30.1.noarch",
+            "SUSE Manager Client Tools 15:python3-rhnlib-0:5.0.6-150000.3.49.1.noarch",
+            "SUSE Manager Client Tools 15:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+            "SUSE Manager Client Tools 15:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+            "openSUSE Leap 15.6:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "openSUSE Leap 15.6:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+            "openSUSE Leap 15.6:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-12-18T11:57:30Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-11065"
+    },
+    {
+      "cve": "CVE-2025-3415",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-3415"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Grafana is an open-source platform for monitoring and observability. The Grafana Alerting DingDing integration was not properly protected and could be exposed to users with Viewer permission. \nFixed in versions 10.4.19+security-01, 11.2.10+security-01, 11.3.7+security-01, 11.4.5+security-01, 11.5.5+security-01, 11.6.2+security-01 and 12.0.1+security-01",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Manager Client Tools 15:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+          "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.aarch64",
+          "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.ppc64le",
+          "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.s390x",
+          "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.x86_64",
+          "SUSE Manager Client Tools 15:mgr-push-0:5.0.3-150000.1.30.1.noarch",
+          "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+          "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.ppc64le",
+          "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+          "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+          "SUSE Manager Client Tools 15:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+          "SUSE Manager Client Tools 15:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+          "SUSE Manager Client Tools 15:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+          "SUSE Manager Client Tools 15:python3-mgr-push-0:5.0.3-150000.1.30.1.noarch",
+          "SUSE Manager Client Tools 15:python3-rhnlib-0:5.0.6-150000.3.49.1.noarch",
+          "SUSE Manager Client Tools 15:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+          "SUSE Manager Client Tools 15:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch",
+          "SUSE Manager Client Tools for SLE Micro 5:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+          "openSUSE Leap 15.6:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+          "openSUSE Leap 15.6:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+          "openSUSE Leap 15.6:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-3415",
+          "url": "https://www.suse.com/security/cve/CVE-2025-3415"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1245302 for CVE-2025-3415",
+          "url": "https://bugzilla.suse.com/1245302"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Manager Client Tools 15:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.aarch64",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.ppc64le",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.s390x",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.x86_64",
+            "SUSE Manager Client Tools 15:mgr-push-0:5.0.3-150000.1.30.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.ppc64le",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+            "SUSE Manager Client Tools 15:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:python3-mgr-push-0:5.0.3-150000.1.30.1.noarch",
+            "SUSE Manager Client Tools 15:python3-rhnlib-0:5.0.6-150000.3.49.1.noarch",
+            "SUSE Manager Client Tools 15:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+            "SUSE Manager Client Tools 15:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+            "openSUSE Leap 15.6:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "openSUSE Leap 15.6:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+            "openSUSE Leap 15.6:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Manager Client Tools 15:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.aarch64",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.ppc64le",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.s390x",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.x86_64",
+            "SUSE Manager Client Tools 15:mgr-push-0:5.0.3-150000.1.30.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.ppc64le",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+            "SUSE Manager Client Tools 15:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:python3-mgr-push-0:5.0.3-150000.1.30.1.noarch",
+            "SUSE Manager Client Tools 15:python3-rhnlib-0:5.0.6-150000.3.49.1.noarch",
+            "SUSE Manager Client Tools 15:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+            "SUSE Manager Client Tools 15:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+            "openSUSE Leap 15.6:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "openSUSE Leap 15.6:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+            "openSUSE Leap 15.6:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-12-18T11:57:30Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-3415"
+    },
+    {
+      "cve": "CVE-2025-6023",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-6023"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An open redirect vulnerability has been identified in Grafana OSS that can be exploited to achieve XSS attacks. The vulnerability was introduced in Grafana v11.5.0.\n\nThe open redirect can be chained with path traversal vulnerabilities to achieve XSS.\n\nFixed in versions 12.0.2+security-01, 11.6.3+security-01, 11.5.6+security-01, 11.4.6+security-01 and 11.3.8+security-01",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Manager Client Tools 15:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+          "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.aarch64",
+          "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.ppc64le",
+          "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.s390x",
+          "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.x86_64",
+          "SUSE Manager Client Tools 15:mgr-push-0:5.0.3-150000.1.30.1.noarch",
+          "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+          "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.ppc64le",
+          "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+          "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+          "SUSE Manager Client Tools 15:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+          "SUSE Manager Client Tools 15:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+          "SUSE Manager Client Tools 15:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+          "SUSE Manager Client Tools 15:python3-mgr-push-0:5.0.3-150000.1.30.1.noarch",
+          "SUSE Manager Client Tools 15:python3-rhnlib-0:5.0.6-150000.3.49.1.noarch",
+          "SUSE Manager Client Tools 15:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+          "SUSE Manager Client Tools 15:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch",
+          "SUSE Manager Client Tools for SLE Micro 5:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+          "openSUSE Leap 15.6:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+          "openSUSE Leap 15.6:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+          "openSUSE Leap 15.6:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-6023",
+          "url": "https://www.suse.com/security/cve/CVE-2025-6023"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246735 for CVE-2025-6023",
+          "url": "https://bugzilla.suse.com/1246735"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Manager Client Tools 15:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.aarch64",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.ppc64le",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.s390x",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.x86_64",
+            "SUSE Manager Client Tools 15:mgr-push-0:5.0.3-150000.1.30.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.ppc64le",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+            "SUSE Manager Client Tools 15:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:python3-mgr-push-0:5.0.3-150000.1.30.1.noarch",
+            "SUSE Manager Client Tools 15:python3-rhnlib-0:5.0.6-150000.3.49.1.noarch",
+            "SUSE Manager Client Tools 15:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+            "SUSE Manager Client Tools 15:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+            "openSUSE Leap 15.6:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "openSUSE Leap 15.6:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+            "openSUSE Leap 15.6:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.6,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Manager Client Tools 15:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.aarch64",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.ppc64le",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.s390x",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.x86_64",
+            "SUSE Manager Client Tools 15:mgr-push-0:5.0.3-150000.1.30.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.ppc64le",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+            "SUSE Manager Client Tools 15:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:python3-mgr-push-0:5.0.3-150000.1.30.1.noarch",
+            "SUSE Manager Client Tools 15:python3-rhnlib-0:5.0.6-150000.3.49.1.noarch",
+            "SUSE Manager Client Tools 15:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+            "SUSE Manager Client Tools 15:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+            "openSUSE Leap 15.6:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "openSUSE Leap 15.6:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+            "openSUSE Leap 15.6:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-12-18T11:57:30Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-6023"
+    },
+    {
+      "cve": "CVE-2025-6197",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-6197"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An open redirect vulnerability has been identified in Grafana OSS organization switching functionality.\n\n\nPrerequisites for exploitation:\n\n- Multiple organizations must exist in the Grafana instance\n\n- Victim must be on a different organization than the one specified in the URL",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Manager Client Tools 15:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+          "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.aarch64",
+          "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.ppc64le",
+          "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.s390x",
+          "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.x86_64",
+          "SUSE Manager Client Tools 15:mgr-push-0:5.0.3-150000.1.30.1.noarch",
+          "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+          "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.ppc64le",
+          "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+          "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+          "SUSE Manager Client Tools 15:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+          "SUSE Manager Client Tools 15:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+          "SUSE Manager Client Tools 15:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+          "SUSE Manager Client Tools 15:python3-mgr-push-0:5.0.3-150000.1.30.1.noarch",
+          "SUSE Manager Client Tools 15:python3-rhnlib-0:5.0.6-150000.3.49.1.noarch",
+          "SUSE Manager Client Tools 15:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+          "SUSE Manager Client Tools 15:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch",
+          "SUSE Manager Client Tools for SLE Micro 5:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+          "SUSE Manager Client Tools for SLE Micro 5:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+          "openSUSE Leap 15.6:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+          "openSUSE Leap 15.6:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+          "openSUSE Leap 15.6:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-6197",
+          "url": "https://www.suse.com/security/cve/CVE-2025-6197"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246736 for CVE-2025-6197",
+          "url": "https://bugzilla.suse.com/1246736"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Manager Client Tools 15:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.aarch64",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.ppc64le",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.s390x",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.x86_64",
+            "SUSE Manager Client Tools 15:mgr-push-0:5.0.3-150000.1.30.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.ppc64le",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+            "SUSE Manager Client Tools 15:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:python3-mgr-push-0:5.0.3-150000.1.30.1.noarch",
+            "SUSE Manager Client Tools 15:python3-rhnlib-0:5.0.6-150000.3.49.1.noarch",
+            "SUSE Manager Client Tools 15:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+            "SUSE Manager Client Tools 15:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+            "openSUSE Leap 15.6:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "openSUSE Leap 15.6:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+            "openSUSE Leap 15.6:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.2,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Manager Client Tools 15:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.aarch64",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.ppc64le",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.s390x",
+            "SUSE Manager Client Tools 15:grafana-0:11.5.10-150000.1.87.1.x86_64",
+            "SUSE Manager Client Tools 15:mgr-push-0:5.0.3-150000.1.30.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.ppc64le",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+            "SUSE Manager Client Tools 15:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+            "SUSE Manager Client Tools 15:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools 15:python3-mgr-push-0:5.0.3-150000.1.30.1.noarch",
+            "SUSE Manager Client Tools 15:python3-rhnlib-0:5.0.6-150000.3.49.1.noarch",
+            "SUSE Manager Client Tools 15:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+            "SUSE Manager Client Tools 15:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.aarch64",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.s390x",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-0:0.1.37-150000.1.27.1.x86_64",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-bash-completion-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-lang-0:0.1.37-150000.1.27.1.noarch",
+            "SUSE Manager Client Tools for SLE Micro 5:mgrctl-zsh-completion-0:0.1.37-150000.1.27.1.noarch",
+            "openSUSE Leap 15.6:dracut-saltboot-0:1.0.0-150000.1.62.1.noarch",
+            "openSUSE Leap 15.6:spacecmd-0:5.0.14-150000.3.139.1.noarch",
+            "openSUSE Leap 15.6:supportutils-plugin-susemanager-client-0:5.0.5-150000.3.30.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-12-18T11:57:30Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-6197"
+    }
+  ]
+}

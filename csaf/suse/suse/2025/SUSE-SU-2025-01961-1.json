@@ -1,0 +1,2919 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for grub2",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for grub2 fixes the following issues:\n\n- CVE-2023-4692: nfs: out-of-bounds write at fs/ntfs.c may lead to unsigned code execution (bsc#1215935).\n- CVE-2023-4693: nfs: out-of-bounds read at fs/ntfs.c (bsc#1215936).\n- CVE-2024-45774: heap overflows in JPEG parser (bsc#1233609).\n- CVE-2024-45775: missing NULL check in extcmd parser (bsc#1233610).\n- CVE-2024-45776: overflow in .MO file (gettext) handling (bsc#1233612).\n- CVE-2024-45777: integer overflow in gettext (bsc#1233613).\n- CVE-2024-45778: bfs filesystem not fuzzing stable (bsc#1233606).\n- CVE-2024-45779: bfs: heap overflow (bsc#1233608).\n- CVE-2024-45780: overflow in tar/cpio (bsc#1233614).\n- CVE-2024-45781: ufs: strcpy overflow (bsc#1233617).\n- CVE-2024-45782: hfs: strcpy overflow (bsc#1233615).\n- CVE-2024-45783: hfsplus: refcount overflow (bsc#1233616).\n- CVE-2024-56737: heap-based buffer overflow in fs/hfs.c via crafted sblock data in an HFS filesystem (bsc#1234958).\n- CVE-2025-0622: command/gpg: Use-after-free due to hooks not being removed on module unload (bsc#1236317).\n- CVE-2025-0624: net: Out-of-bounds write in grub_net_search_config_file() (bsc#1236316).\n- CVE-2025-0677: ufs: Integer overflow may lead to heap based out-of-bounds write when handling symlinks (bsc#1237002).\n- CVE-2025-0678: squash4: Integer overflow may lead to heap based out-of-bounds write when reading data (bsc#1237006).\n- CVE-2025-0684: reiserfs: Integer overflow when handling symlinks may lead to heap based out-of-bounds write when reading data (bsc#1237008).\n- CVE-2025-0685: jfs: Integer overflow when handling symlinks may lead to heap based out-of-bounds write when reading data (bsc#1237009).\n- CVE-2025-0686: romfs: Integer overflow when handling symlinks may lead to heap based out-of-bounds write when reading data (bsc#1237010).\n- CVE-2025-0689: udf: Heap based buffer overflow  in grub_udf_read_block() may lead to arbitrary code execution (bsc#1237011).\n- CVE-2025-0690: read: Integer overflow may lead to out-of-bounds write (bsc#1237012).\n- CVE-2025-1118: commands/dump: The dump command is not in lockdown when secure boot is enabled (bsc#1237013).\n- CVE-2025-1125: fs/hfs: Interger overflow may lead to heap based out-of-bounds write (bsc#1237014).\n\nOther bugfixes:\n\n- Bump upstream SBAT generation to 5\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2025-1961,SUSE-SUSE-MicroOS-5.1-2025-1961",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_01961-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:01961-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-202501961-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:01961-1",
+        "url": "https://lists.suse.com/pipermail/sle-updates/2025-June/040311.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1215935",
+        "url": "https://bugzilla.suse.com/1215935"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1215936",
+        "url": "https://bugzilla.suse.com/1215936"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1233606",
+        "url": "https://bugzilla.suse.com/1233606"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1233608",
+        "url": "https://bugzilla.suse.com/1233608"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1233609",
+        "url": "https://bugzilla.suse.com/1233609"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1233610",
+        "url": "https://bugzilla.suse.com/1233610"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1233612",
+        "url": "https://bugzilla.suse.com/1233612"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1233613",
+        "url": "https://bugzilla.suse.com/1233613"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1233614",
+        "url": "https://bugzilla.suse.com/1233614"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1233615",
+        "url": "https://bugzilla.suse.com/1233615"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1233616",
+        "url": "https://bugzilla.suse.com/1233616"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1233617",
+        "url": "https://bugzilla.suse.com/1233617"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1234958",
+        "url": "https://bugzilla.suse.com/1234958"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1236316",
+        "url": "https://bugzilla.suse.com/1236316"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1236317",
+        "url": "https://bugzilla.suse.com/1236317"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1237002",
+        "url": "https://bugzilla.suse.com/1237002"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1237006",
+        "url": "https://bugzilla.suse.com/1237006"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1237008",
+        "url": "https://bugzilla.suse.com/1237008"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1237009",
+        "url": "https://bugzilla.suse.com/1237009"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1237010",
+        "url": "https://bugzilla.suse.com/1237010"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1237011",
+        "url": "https://bugzilla.suse.com/1237011"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1237012",
+        "url": "https://bugzilla.suse.com/1237012"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1237013",
+        "url": "https://bugzilla.suse.com/1237013"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1237014",
+        "url": "https://bugzilla.suse.com/1237014"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-4692 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-4692/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-4693 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-4693/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-45774 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-45774/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-45775 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-45775/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-45776 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-45776/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-45777 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-45777/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-45778 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-45778/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-45779 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-45779/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-45780 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-45780/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-45781 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-45781/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-45782 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-45782/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-45783 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-45783/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-56737 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-56737/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-0622 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-0622/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-0624 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-0624/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-0677 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-0677/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-0678 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-0678/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-0684 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-0684/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-0685 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-0685/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-0686 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-0686/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-0689 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-0689/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-0690 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-0690/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-1118 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-1118/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-1125 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-1125/"
+      }
+    ],
+    "title": "Security update for grub2",
+    "tracking": {
+      "current_release_date": "2026-09-20T17:24:29Z",
+      "generator": {
+        "date": "2025-06-16T10:03:22Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:01961-1",
+      "initial_release_date": "2025-06-16T10:03:22Z",
+      "revision_history": [
+        {
+          "date": "2025-06-16T10:03:22Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T17:24:29Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "grub2-0:2.04-150300.3.11.1.aarch64",
+                "product": {
+                  "name": "grub2-0:2.04-150300.3.11.1.aarch64",
+                  "product_id": "grub2-0:2.04-150300.3.11.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2@2.04-150300.3.11.1?arch=aarch64\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-branding-upstream-0:2.04-150300.3.11.1.aarch64",
+                "product": {
+                  "name": "grub2-branding-upstream-0:2.04-150300.3.11.1.aarch64",
+                  "product_id": "grub2-branding-upstream-0:2.04-150300.3.11.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-branding-upstream@2.04-150300.3.11.1?arch=aarch64\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+                "product": {
+                  "name": "grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+                  "product_id": "grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-arm64-efi@2.04-150300.3.11.1?arch=noarch\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-arm64-efi-debug-0:2.04-150300.3.11.1.noarch",
+                "product": {
+                  "name": "grub2-arm64-efi-debug-0:2.04-150300.3.11.1.noarch",
+                  "product_id": "grub2-arm64-efi-debug-0:2.04-150300.3.11.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-arm64-efi-debug@2.04-150300.3.11.1?arch=noarch\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-arm64-efi-extras-0:2.04-150300.3.11.1.noarch",
+                "product": {
+                  "name": "grub2-arm64-efi-extras-0:2.04-150300.3.11.1.noarch",
+                  "product_id": "grub2-arm64-efi-extras-0:2.04-150300.3.11.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-arm64-efi-extras@2.04-150300.3.11.1?arch=noarch\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+                "product": {
+                  "name": "grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+                  "product_id": "grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-i386-pc@2.04-150300.3.11.1?arch=noarch\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-i386-pc-debug-0:2.04-150300.3.11.1.noarch",
+                "product": {
+                  "name": "grub2-i386-pc-debug-0:2.04-150300.3.11.1.noarch",
+                  "product_id": "grub2-i386-pc-debug-0:2.04-150300.3.11.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-i386-pc-debug@2.04-150300.3.11.1?arch=noarch\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-i386-pc-extras-0:2.04-150300.3.11.1.noarch",
+                "product": {
+                  "name": "grub2-i386-pc-extras-0:2.04-150300.3.11.1.noarch",
+                  "product_id": "grub2-i386-pc-extras-0:2.04-150300.3.11.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-i386-pc-extras@2.04-150300.3.11.1?arch=noarch\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-powerpc-ieee1275-0:2.04-150300.3.11.1.noarch",
+                "product": {
+                  "name": "grub2-powerpc-ieee1275-0:2.04-150300.3.11.1.noarch",
+                  "product_id": "grub2-powerpc-ieee1275-0:2.04-150300.3.11.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-powerpc-ieee1275@2.04-150300.3.11.1?arch=noarch\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-powerpc-ieee1275-debug-0:2.04-150300.3.11.1.noarch",
+                "product": {
+                  "name": "grub2-powerpc-ieee1275-debug-0:2.04-150300.3.11.1.noarch",
+                  "product_id": "grub2-powerpc-ieee1275-debug-0:2.04-150300.3.11.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-powerpc-ieee1275-debug@2.04-150300.3.11.1?arch=noarch\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-powerpc-ieee1275-extras-0:2.04-150300.3.11.1.noarch",
+                "product": {
+                  "name": "grub2-powerpc-ieee1275-extras-0:2.04-150300.3.11.1.noarch",
+                  "product_id": "grub2-powerpc-ieee1275-extras-0:2.04-150300.3.11.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-powerpc-ieee1275-extras@2.04-150300.3.11.1?arch=noarch\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-s390x-emu-extras-0:2.04-150300.3.11.1.noarch",
+                "product": {
+                  "name": "grub2-s390x-emu-extras-0:2.04-150300.3.11.1.noarch",
+                  "product_id": "grub2-s390x-emu-extras-0:2.04-150300.3.11.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-s390x-emu-extras@2.04-150300.3.11.1?arch=noarch\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+                "product": {
+                  "name": "grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+                  "product_id": "grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-snapper-plugin@2.04-150300.3.11.1?arch=noarch\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-systemd-sleep-plugin-0:2.04-150300.3.11.1.noarch",
+                "product": {
+                  "name": "grub2-systemd-sleep-plugin-0:2.04-150300.3.11.1.noarch",
+                  "product_id": "grub2-systemd-sleep-plugin-0:2.04-150300.3.11.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-systemd-sleep-plugin@2.04-150300.3.11.1?arch=noarch\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+                "product": {
+                  "name": "grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+                  "product_id": "grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-x86_64-efi@2.04-150300.3.11.1?arch=noarch\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-x86_64-efi-debug-0:2.04-150300.3.11.1.noarch",
+                "product": {
+                  "name": "grub2-x86_64-efi-debug-0:2.04-150300.3.11.1.noarch",
+                  "product_id": "grub2-x86_64-efi-debug-0:2.04-150300.3.11.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-x86_64-efi-debug@2.04-150300.3.11.1?arch=noarch\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-x86_64-efi-extras-0:2.04-150300.3.11.1.noarch",
+                "product": {
+                  "name": "grub2-x86_64-efi-extras-0:2.04-150300.3.11.1.noarch",
+                  "product_id": "grub2-x86_64-efi-extras-0:2.04-150300.3.11.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-x86_64-efi-extras@2.04-150300.3.11.1?arch=noarch\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch",
+                "product": {
+                  "name": "grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch",
+                  "product_id": "grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-x86_64-xen@2.04-150300.3.11.1?arch=noarch\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-x86_64-xen-extras-0:2.04-150300.3.11.1.noarch",
+                "product": {
+                  "name": "grub2-x86_64-xen-extras-0:2.04-150300.3.11.1.noarch",
+                  "product_id": "grub2-x86_64-xen-extras-0:2.04-150300.3.11.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-x86_64-xen-extras@2.04-150300.3.11.1?arch=noarch\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "grub2-0:2.04-150300.3.11.1.ppc64le",
+                "product": {
+                  "name": "grub2-0:2.04-150300.3.11.1.ppc64le",
+                  "product_id": "grub2-0:2.04-150300.3.11.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2@2.04-150300.3.11.1?arch=ppc64le\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-branding-upstream-0:2.04-150300.3.11.1.ppc64le",
+                "product": {
+                  "name": "grub2-branding-upstream-0:2.04-150300.3.11.1.ppc64le",
+                  "product_id": "grub2-branding-upstream-0:2.04-150300.3.11.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-branding-upstream@2.04-150300.3.11.1?arch=ppc64le\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "grub2-0:2.04-150300.3.11.1.s390x",
+                "product": {
+                  "name": "grub2-0:2.04-150300.3.11.1.s390x",
+                  "product_id": "grub2-0:2.04-150300.3.11.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2@2.04-150300.3.11.1?arch=s390x\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-branding-upstream-0:2.04-150300.3.11.1.s390x",
+                "product": {
+                  "name": "grub2-branding-upstream-0:2.04-150300.3.11.1.s390x",
+                  "product_id": "grub2-branding-upstream-0:2.04-150300.3.11.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-branding-upstream@2.04-150300.3.11.1?arch=s390x\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+                "product": {
+                  "name": "grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+                  "product_id": "grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-s390x-emu@2.04-150300.3.11.1?arch=s390x\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-s390x-emu-debug-0:2.04-150300.3.11.1.s390x",
+                "product": {
+                  "name": "grub2-s390x-emu-debug-0:2.04-150300.3.11.1.s390x",
+                  "product_id": "grub2-s390x-emu-debug-0:2.04-150300.3.11.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-s390x-emu-debug@2.04-150300.3.11.1?arch=s390x\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "grub2-0:2.04-150300.3.11.1.x86_64",
+                "product": {
+                  "name": "grub2-0:2.04-150300.3.11.1.x86_64",
+                  "product_id": "grub2-0:2.04-150300.3.11.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2@2.04-150300.3.11.1?arch=x86_64\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grub2-branding-upstream-0:2.04-150300.3.11.1.x86_64",
+                "product": {
+                  "name": "grub2-branding-upstream-0:2.04-150300.3.11.1.x86_64",
+                  "product_id": "grub2-branding-upstream-0:2.04-150300.3.11.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:grub2:2.04:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grub2-branding-upstream@2.04-150300.3.11.1?arch=x86_64\u0026upstream=grub2-0:2.04-150300.3.11.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Micro 5.1",
+                "product": {
+                  "name": "SUSE Linux Enterprise Micro 5.1",
+                  "product_id": "SUSE Linux Enterprise Micro 5.1",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:suse-microos:5.1"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "grub2-0:2.04-150300.3.11.1.aarch64 as component of SUSE Linux Enterprise Micro 5.1",
+          "product_id": "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64"
+        },
+        "product_reference": "grub2-0:2.04-150300.3.11.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "grub2-0:2.04-150300.3.11.1.s390x as component of SUSE Linux Enterprise Micro 5.1",
+          "product_id": "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x"
+        },
+        "product_reference": "grub2-0:2.04-150300.3.11.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "grub2-0:2.04-150300.3.11.1.x86_64 as component of SUSE Linux Enterprise Micro 5.1",
+          "product_id": "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64"
+        },
+        "product_reference": "grub2-0:2.04-150300.3.11.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "grub2-arm64-efi-0:2.04-150300.3.11.1.noarch as component of SUSE Linux Enterprise Micro 5.1",
+          "product_id": "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch"
+        },
+        "product_reference": "grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "grub2-i386-pc-0:2.04-150300.3.11.1.noarch as component of SUSE Linux Enterprise Micro 5.1",
+          "product_id": "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch"
+        },
+        "product_reference": "grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "grub2-s390x-emu-0:2.04-150300.3.11.1.s390x as component of SUSE Linux Enterprise Micro 5.1",
+          "product_id": "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x"
+        },
+        "product_reference": "grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch as component of SUSE Linux Enterprise Micro 5.1",
+          "product_id": "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch"
+        },
+        "product_reference": "grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch as component of SUSE Linux Enterprise Micro 5.1",
+          "product_id": "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch"
+        },
+        "product_reference": "grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch as component of SUSE Linux Enterprise Micro 5.1",
+          "product_id": "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        },
+        "product_reference": "grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.1"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2023-4692",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-4692"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An out-of-bounds write flaw was found in grub2's NTFS filesystem driver. This issue may allow an attacker to present a specially crafted NTFS filesystem image, leading to grub's heap metadata corruption. In some circumstances, the attack may also corrupt the UEFI firmware heap metadata. As a result, arbitrary code execution and secure boot protection bypass may be achieved.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-4692",
+          "url": "https://www.suse.com/security/cve/CVE-2023-4692"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1215935 for CVE-2023-4692",
+          "url": "https://bugzilla.suse.com/1215935"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1217434 for CVE-2023-4692",
+          "url": "https://bugzilla.suse.com/1217434"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1217555 for CVE-2023-4692",
+          "url": "https://bugzilla.suse.com/1217555"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1219472 for CVE-2023-4692",
+          "url": "https://bugzilla.suse.com/1219472"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1219709 for CVE-2023-4692",
+          "url": "https://bugzilla.suse.com/1219709"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1221589 for CVE-2023-4692",
+          "url": "https://bugzilla.suse.com/1221589"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1227915 for CVE-2023-4692",
+          "url": "https://bugzilla.suse.com/1227915"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2023-4692"
+    },
+    {
+      "cve": "CVE-2023-4693",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-4693"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An out-of-bounds read flaw was found on grub2's NTFS filesystem driver. This issue may allow a physically present attacker to present a specially crafted NTFS file system image to read arbitrary memory locations. A successful attack allows sensitive data cached in memory or EFI variable values to be leaked, presenting a high Confidentiality risk.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-4693",
+          "url": "https://www.suse.com/security/cve/CVE-2023-4693"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1215936 for CVE-2023-4693",
+          "url": "https://bugzilla.suse.com/1215936"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2023-4693"
+    },
+    {
+      "cve": "CVE-2024-45774",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-45774"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in grub2. A specially crafted JPEG file can cause the JPEG parser of grub2 to incorrectly check the bounds of its internal buffers, resulting in an out-of-bounds write. The possibility of overwriting sensitive information to bypass secure boot protections is not discarded.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-45774",
+          "url": "https://www.suse.com/security/cve/CVE-2024-45774"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1233609 for CVE-2024-45774",
+          "url": "https://bugzilla.suse.com/1233609"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.7,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-45774"
+    },
+    {
+      "cve": "CVE-2024-45775",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-45775"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in grub2 where the grub_extcmd_dispatcher() function calls grub_arg_list_alloc() to allocate memory for the grub's argument list. However, it fails to check in case the memory allocation fails. Once the allocation fails, a NULL point will be processed by the parse_option() function, leading grub to crash or, in some rare scenarios, corrupt the IVT data.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-45775",
+          "url": "https://www.suse.com/security/cve/CVE-2024-45775"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1233610 for CVE-2024-45775",
+          "url": "https://bugzilla.suse.com/1233610"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-45775"
+    },
+    {
+      "cve": "CVE-2024-45776",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-45776"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "When reading the language .mo file in grub_mofile_open(), grub2 fails to verify an integer overflow when allocating its internal buffer. A crafted .mo file may lead the buffer size calculation to overflow, leading to out-of-bound reads and writes. This flaw allows an attacker to leak sensitive data or overwrite critical data, possibly circumventing secure boot protections.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-45776",
+          "url": "https://www.suse.com/security/cve/CVE-2024-45776"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1233612 for CVE-2024-45776",
+          "url": "https://bugzilla.suse.com/1233612"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-45776"
+    },
+    {
+      "cve": "CVE-2024-45777",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-45777"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in grub2. The calculation of the translation buffer when reading a language .mo file in grub_gettext_getstr_from_position() may overflow, leading to a Out-of-bound write. This issue can be leveraged by an attacker to overwrite grub2's sensitive heap data, eventually leading to the circumvention of secure boot protections.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-45777",
+          "url": "https://www.suse.com/security/cve/CVE-2024-45777"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1233613 for CVE-2024-45777",
+          "url": "https://bugzilla.suse.com/1233613"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-45777"
+    },
+    {
+      "cve": "CVE-2024-45778",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-45778"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A stack overflow flaw was found when reading a BFS file system. A crafted BFS filesystem may lead to an uncontrolled loop, causing grub2 to crash.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-45778",
+          "url": "https://www.suse.com/security/cve/CVE-2024-45778"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1233606 for CVE-2024-45778",
+          "url": "https://bugzilla.suse.com/1233606"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 3.9,
+            "baseSeverity": "LOW",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:L/I:L/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-45778"
+    },
+    {
+      "cve": "CVE-2024-45779",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-45779"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An integer overflow flaw was found in the BFS file system driver in grub2. When reading a file with an indirect extent map, grub2 fails to validate the number of extent entries to be read. A crafted or corrupted BFS filesystem may cause an integer overflow during the file reading, leading to a heap of bounds read. As a consequence, sensitive data may be leaked, or grub2 will crash.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-45779",
+          "url": "https://www.suse.com/security/cve/CVE-2024-45779"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1233608 for CVE-2024-45779",
+          "url": "https://bugzilla.suse.com/1233608"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-45779"
+    },
+    {
+      "cve": "CVE-2024-45780",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-45780"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in grub2. When reading tar files, grub2 allocates an internal buffer for the file name. However, it fails to properly verify the allocation against possible integer overflows. It's possible to cause the allocation length to overflow with a crafted tar file, leading to a heap out-of-bounds write. This flaw eventually allows an attacker to circumvent secure boot protections.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-45780",
+          "url": "https://www.suse.com/security/cve/CVE-2024-45780"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1233614 for CVE-2024-45780",
+          "url": "https://bugzilla.suse.com/1233614"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-45780"
+    },
+    {
+      "cve": "CVE-2024-45781",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-45781"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in grub2. When reading a symbolic link's name from a UFS filesystem, grub2 fails to validate the string length taken as an input. The lack of validation may lead to a heap out-of-bounds write, causing data integrity issues and eventually allowing an attacker to circumvent secure boot protections.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-45781",
+          "url": "https://www.suse.com/security/cve/CVE-2024-45781"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1233617 for CVE-2024-45781",
+          "url": "https://bugzilla.suse.com/1233617"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.7,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-45781"
+    },
+    {
+      "cve": "CVE-2024-45782",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-45782"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in the HFS filesystem. When reading an HFS volume's name at grub_fs_mount(), the HFS filesystem driver performs a strcpy() using the user-provided volume name as input without properly validating the volume name's length. This issue may read to a heap-based out-of-bounds writer, impacting grub's sensitive data integrity and eventually leading to a secure boot protection bypass.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-45782",
+          "url": "https://www.suse.com/security/cve/CVE-2024-45782"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1233615 for CVE-2024-45782",
+          "url": "https://bugzilla.suse.com/1233615"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.7,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-45782"
+    },
+    {
+      "cve": "CVE-2024-45783",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-45783"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in grub2. When failing to mount an HFS+ grub, the hfsplus filesystem driver doesn't properly set an ERRNO value. This issue may lead to a NULL pointer access.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-45783",
+          "url": "https://www.suse.com/security/cve/CVE-2024-45783"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1233616 for CVE-2024-45783",
+          "url": "https://bugzilla.suse.com/1233616"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-45783"
+    },
+    {
+      "cve": "CVE-2024-56737",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-56737"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GNU GRUB (aka GRUB2) through 2.12 has a heap-based buffer overflow in fs/hfs.c via crafted sblock data in an HFS filesystem.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-56737",
+          "url": "https://www.suse.com/security/cve/CVE-2024-56737"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1234958 for CVE-2024-56737",
+          "url": "https://bugzilla.suse.com/1234958"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2024-56737"
+    },
+    {
+      "cve": "CVE-2025-0622",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-0622"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in command/gpg. In some scenarios, hooks created by loaded modules are not removed when the related module is unloaded. This flaw allows an attacker to force grub2 to call the hooks once the module that registered it was unloaded, leading to a use-after-free vulnerability. If correctly exploited, this vulnerability may result in arbitrary code execution, eventually allowing the attacker to bypass secure boot protections.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-0622",
+          "url": "https://www.suse.com/security/cve/CVE-2025-0622"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1236317 for CVE-2025-0622",
+          "url": "https://bugzilla.suse.com/1236317"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-0622"
+    },
+    {
+      "cve": "CVE-2025-0624",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-0624"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in grub2. During the network boot process, when trying to search for the configuration file, grub copies data from a user controlled environment variable into an internal buffer using the grub_strcpy() function. During this step, it fails to consider the environment variable length when allocating the internal buffer, resulting in an out-of-bounds write. If correctly exploited, this issue may result in remote code execution through the same network segment grub is searching for the boot information, which can be used to by-pass secure boot protections.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-0624",
+          "url": "https://www.suse.com/security/cve/CVE-2025-0624"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1236316 for CVE-2025-0624",
+          "url": "https://bugzilla.suse.com/1236316"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.6,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:A/AC:H/PR:H/UI:N/S:C/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-0624"
+    },
+    {
+      "cve": "CVE-2025-0677",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-0677"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in grub2. When performing a symlink lookup, the grub's UFS module checks the inode's data size to allocate the internal buffer to read the file content, however, it fails to check if the symlink data size has overflown. When this occurs, grub_malloc() may be called with a smaller value than needed. When further reading the data from the disk into the buffer, the grub_ufs_lookup_symlink() function will write past the end of the allocated size. An attack can leverage this by crafting a malicious filesystem, and as a result, it will corrupt data stored in the heap, allowing for arbitrary code execution used to by-pass secure boot mechanisms.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-0677",
+          "url": "https://www.suse.com/security/cve/CVE-2025-0677"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1237002 for CVE-2025-0677",
+          "url": "https://bugzilla.suse.com/1237002"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-0677"
+    },
+    {
+      "cve": "CVE-2025-0678",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-0678"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in grub2. When reading data from a squash4 filesystem, grub's squash4 fs module uses user-controlled parameters from the filesystem geometry to determine the internal buffer size, however, it improperly checks for integer overflows. A maliciously crafted filesystem may lead some of those buffer size calculations to overflow, causing it to perform a grub_malloc() operation with a smaller size than expected. As a result, the direct_read() will perform a heap based out-of-bounds write during data reading. This flaw may be leveraged to corrupt grub's internal critical data and may result in arbitrary code execution, by-passing secure boot protections.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-0678",
+          "url": "https://www.suse.com/security/cve/CVE-2025-0678"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1237006 for CVE-2025-0678",
+          "url": "https://bugzilla.suse.com/1237006"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-0678"
+    },
+    {
+      "cve": "CVE-2025-0684",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-0684"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in grub2. When performing a symlink lookup from a reiserfs filesystem, grub's reiserfs fs module uses user-controlled parameters from the filesystem geometry to determine the internal buffer size, however, it improperly checks for integer overflows. A maliciouly crafted filesystem may lead some of those buffer size calculations to overflow, causing it to perform a grub_malloc() operation with a smaller size than expected. As a result, the grub_reiserfs_read_symlink() will call grub_reiserfs_read_real() with a overflown length parameter, leading to a heap based out-of-bounds write during data reading. This flaw may be leveraged to corrupt grub's internal critical data and can result in arbitrary code execution, by-passing secure boot protections.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-0684",
+          "url": "https://www.suse.com/security/cve/CVE-2025-0684"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1237008 for CVE-2025-0684",
+          "url": "https://bugzilla.suse.com/1237008"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-0684"
+    },
+    {
+      "cve": "CVE-2025-0685",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-0685"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in grub2. When reading data from a jfs filesystem, grub's jfs filesystem module uses user-controlled parameters from the filesystem geometry to determine the internal buffer size, however, it improperly checks for integer overflows. A maliciouly crafted filesystem may lead some of those buffer size calculations to overflow, causing it to perform a grub_malloc() operation with a smaller size than expected. As a result, the grub_jfs_lookup_symlink() function will write past the internal buffer length during grub_jfs_read_file(). This issue can be leveraged to corrupt grub's internal critical data and may result in arbitrary code execution, by-passing secure boot protections.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-0685",
+          "url": "https://www.suse.com/security/cve/CVE-2025-0685"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1237009 for CVE-2025-0685",
+          "url": "https://bugzilla.suse.com/1237009"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-0685"
+    },
+    {
+      "cve": "CVE-2025-0686",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-0686"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in grub2. When performing a symlink lookup from a romfs filesystem, grub's romfs filesystem module uses user-controlled parameters from the filesystem geometry to determine the internal buffer size, however, it improperly checks for integer overflows. A maliciously crafted filesystem may lead some of those buffer size calculations to overflow, causing it to perform a grub_malloc() operation with a smaller size than expected. As a result, the grub_romfs_read_symlink() may cause out-of-bounds writes when the calling grub_disk_read() function. This issue may be leveraged to corrupt grub's internal critical data and can result in arbitrary code execution by-passing secure boot protections.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-0686",
+          "url": "https://www.suse.com/security/cve/CVE-2025-0686"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1237010 for CVE-2025-0686",
+          "url": "https://bugzilla.suse.com/1237010"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-0686"
+    },
+    {
+      "cve": "CVE-2025-0689",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-0689"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "When reading data from disk, the grub's UDF filesystem module utilizes the user controlled data length metadata to allocate its internal buffers. In certain scenarios, while iterating through disk sectors, it assumes the read size from the disk is always smaller than the allocated buffer size which is not guaranteed. A crafted filesystem image may lead to a heap-based buffer overflow resulting in critical data to be corrupted, resulting in the risk of arbitrary code execution by-passing secure boot protections.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-0689",
+          "url": "https://www.suse.com/security/cve/CVE-2025-0689"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1237011 for CVE-2025-0689",
+          "url": "https://bugzilla.suse.com/1237011"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-0689"
+    },
+    {
+      "cve": "CVE-2025-0690",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-0690"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The read command is used to read the keyboard input from the user, while reads it keeps the input length in a 32-bit integer value which is further used to reallocate the line buffer to accept the next character. During this process, with a line big enough it's possible to make this variable to overflow leading to a out-of-bounds write in the heap based buffer. This flaw may be leveraged to corrupt grub's internal critical data and secure boot bypass is not discarded as consequence.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-0690",
+          "url": "https://www.suse.com/security/cve/CVE-2025-0690"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1237012 for CVE-2025-0690",
+          "url": "https://bugzilla.suse.com/1237012"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.1,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:P/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-0690"
+    },
+    {
+      "cve": "CVE-2025-1118",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-1118"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in grub2. Grub's dump command is not blocked when grub is in lockdown mode, which allows the user to read any memory information, and an attacker may leverage this in order to extract signatures, salts, and other sensitive information from the memory.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-1118",
+          "url": "https://www.suse.com/security/cve/CVE-2025-1118"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1237013 for CVE-2025-1118",
+          "url": "https://bugzilla.suse.com/1237013"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-1118"
+    },
+    {
+      "cve": "CVE-2025-1125",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-1125"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "When reading data from a hfs filesystem, grub's hfs filesystem module uses user-controlled parameters from the filesystem metadata to calculate the internal buffers size, however it misses to properly check for integer overflows. A maliciouly crafted filesystem may lead some of those buffer size calculation to overflow, causing it to perform a grub_malloc() operation with a smaller size than expected. As a result the hfsplus_open_compressed_real() function will write past of the internal buffer length. This flaw may be leveraged to corrupt grub's internal critical data and may result in arbitrary code execution by-passing secure boot protections.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+          "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+          "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-1125",
+          "url": "https://www.suse.com/security/cve/CVE-2025-1125"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1237014 for CVE-2025-1125",
+          "url": "https://bugzilla.suse.com/1237014"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-0:2.04-150300.3.11.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.1:grub2-arm64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-i386-pc-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-s390x-emu-0:2.04-150300.3.11.1.s390x",
+            "SUSE Linux Enterprise Micro 5.1:grub2-snapper-plugin-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-efi-0:2.04-150300.3.11.1.noarch",
+            "SUSE Linux Enterprise Micro 5.1:grub2-x86_64-xen-0:2.04-150300.3.11.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-16T10:03:22Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-1125"
+    }
+  ]
+}

@@ -1,0 +1,1693 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for strongswan",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for strongswan fixes the following issues:\n\nUpdate to version 6.0.6 (jsc#PED-16145).\n\nSecurity issued fixed:\n\n- CVE-2026-35328: infinite loop when handling supported versions TLS extension (bsc#1261712).\n- CVE-2026-35329: NULL pointer dereference when processing padding in PKCS#7 (bsc#1261717).\n- CVE-2026-35330: integer underflow when handling EAP-SIM/AKA attributes (bsc#1261705).\n- CVE-2026-35331: acceptance of certificates violating X.509 name constraints (bsc#1261718).\n- CVE-2026-35332: NULL pointer dereference when handling ECDH public value in TLS (bsc#1261708).\n- CVE-2026-35333: integer underflow when handling RADIUS attributes (bsc#1261706).\n- CVE-2026-35334: possible NULL pointer dereference in RSA decryption (bsc#1261720).\n\nOther updates and bugfixes:\n\n- Version 6.0.6.\n  * Enhancements and Optimizations\n    * Added the unique ID to the log messages when creating an IKE SA as responder and when deleting such a half-open\n      SA\n    * The credential factory now enforces an upper limit of 10 when creating nested credentials.\n    * Added Georgian translation to the NM plugin.\n  * Fixes\n    * IKEv2 fragments with a total fragment count lower than before are now dropped as mandated by the RFC .\n    * Fixed a potential out-of-bounds read when parsing EAP-SIM/AKA attributes with actual length field.\n    * Fixed a potential out-of-bounds read when enumerating hashes in OCSP CERTREQ payloads .\n    * Fixed a potential crash in the vici plugin when parsing messages that encode the length of a VICI_LIST_ITEM\n      incorrectly.\n    * Avoid allocating a large buffer for TLS cipher suites on the stack using alloca().\n    * Ensure TLS 1.3 CertificateRequest structures are valid on the client.\n    * Prevent an infinite loop if the EAP-SIM version list on the client contains more than one entry .\n    * Fixed a crash in the tnccs_11 plugin if TNCCS-ReasonStrings is empty or only contains empty nodes .\n    * Fixed verification of RSA signatures with SHA3-224 via botan plugin.\n    * Close the internal IPv6 socket when a tun_device_t is destroyed .\n    * Update the address family in the SA selector when the addresses of a tunnel mode IPsec SA change in the\n      kernel-netlink plugin.\n- Version 6.0.5:\n  * Fixed a vulnerability in the eap-ttls plugin related to processing EAP-TTLS AVPs that can lead to resource\n    exhaustion or a crash.\n  * The new `icmp` option enables the forwarding of certain ICMP error messages (e.g. Fragmentation Needed), even if\n    their source address doesn't match the negotiated traffic selectors, when running on Linux kernels that support this\n    (v6.9+).\n  * charon-cmd now supports childless IKE SA initiation with the `--childless` option.\n  * The dhcp plugin now keeps track of address leases across make-before-break reauthentications to avoid releasing the\n    address when the old SA is terminated\n  * Added support for `organizationIdentifier` RDNs, which are used in e.g. eIDAS certificates, when parsing ASN.1 DN\n    identities from strings.\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-680",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_20678-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1261705",
+        "url": "https://bugzilla.suse.com/1261705"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1261706",
+        "url": "https://bugzilla.suse.com/1261706"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1261708",
+        "url": "https://bugzilla.suse.com/1261708"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1261712",
+        "url": "https://bugzilla.suse.com/1261712"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1261717",
+        "url": "https://bugzilla.suse.com/1261717"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1261718",
+        "url": "https://bugzilla.suse.com/1261718"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1261720",
+        "url": "https://bugzilla.suse.com/1261720"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-35328 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-35328/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-35329 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-35329/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-35330 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-35330/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-35331 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-35331/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-35332 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-35332/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-35333 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-35333/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-35334 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-35334/"
+      }
+    ],
+    "title": "Security update for strongswan",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:31:49Z",
+      "generator": {
+        "date": "2026-05-05T07:18:26Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:20678-1",
+      "initial_release_date": "2026-05-05T07:18:26Z",
+      "revision_history": [
+        {
+          "date": "2026-05-05T07:18:26Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:34:25Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:37:14Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:31:49Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "strongswan-0:6.0.6-160000.1.1.aarch64",
+                "product": {
+                  "name": "strongswan-0:6.0.6-160000.1.1.aarch64",
+                  "product_id": "strongswan-0:6.0.6-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan@6.0.6-160000.1.1?arch=aarch64\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+                "product": {
+                  "name": "strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+                  "product_id": "strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-fips@6.0.6-160000.1.1?arch=aarch64\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+                "product": {
+                  "name": "strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+                  "product_id": "strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-ipsec@6.0.6-160000.1.1?arch=aarch64\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+                "product": {
+                  "name": "strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+                  "product_id": "strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-mysql@6.0.6-160000.1.1?arch=aarch64\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+                "product": {
+                  "name": "strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+                  "product_id": "strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-nm@6.0.6-160000.1.1?arch=aarch64\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+                "product": {
+                  "name": "strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+                  "product_id": "strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-sqlite@6.0.6-160000.1.1?arch=aarch64\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "strongswan-doc-0:6.0.6-160000.1.1.noarch",
+                "product": {
+                  "name": "strongswan-doc-0:6.0.6-160000.1.1.noarch",
+                  "product_id": "strongswan-doc-0:6.0.6-160000.1.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-doc@6.0.6-160000.1.1?arch=noarch\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "strongswan-0:6.0.6-160000.1.1.ppc64le",
+                "product": {
+                  "name": "strongswan-0:6.0.6-160000.1.1.ppc64le",
+                  "product_id": "strongswan-0:6.0.6-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan@6.0.6-160000.1.1?arch=ppc64le\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+                "product": {
+                  "name": "strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+                  "product_id": "strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-fips@6.0.6-160000.1.1?arch=ppc64le\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+                "product": {
+                  "name": "strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+                  "product_id": "strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-ipsec@6.0.6-160000.1.1?arch=ppc64le\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+                "product": {
+                  "name": "strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+                  "product_id": "strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-mysql@6.0.6-160000.1.1?arch=ppc64le\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+                "product": {
+                  "name": "strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+                  "product_id": "strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-nm@6.0.6-160000.1.1?arch=ppc64le\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+                "product": {
+                  "name": "strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+                  "product_id": "strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-sqlite@6.0.6-160000.1.1?arch=ppc64le\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "strongswan-0:6.0.6-160000.1.1.s390x",
+                "product": {
+                  "name": "strongswan-0:6.0.6-160000.1.1.s390x",
+                  "product_id": "strongswan-0:6.0.6-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan@6.0.6-160000.1.1?arch=s390x\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "strongswan-fips-0:6.0.6-160000.1.1.s390x",
+                "product": {
+                  "name": "strongswan-fips-0:6.0.6-160000.1.1.s390x",
+                  "product_id": "strongswan-fips-0:6.0.6-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-fips@6.0.6-160000.1.1?arch=s390x\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+                "product": {
+                  "name": "strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+                  "product_id": "strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-ipsec@6.0.6-160000.1.1?arch=s390x\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+                "product": {
+                  "name": "strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+                  "product_id": "strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-mysql@6.0.6-160000.1.1?arch=s390x\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "strongswan-nm-0:6.0.6-160000.1.1.s390x",
+                "product": {
+                  "name": "strongswan-nm-0:6.0.6-160000.1.1.s390x",
+                  "product_id": "strongswan-nm-0:6.0.6-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-nm@6.0.6-160000.1.1?arch=s390x\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+                "product": {
+                  "name": "strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+                  "product_id": "strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-sqlite@6.0.6-160000.1.1?arch=s390x\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "strongswan-0:6.0.6-160000.1.1.x86_64",
+                "product": {
+                  "name": "strongswan-0:6.0.6-160000.1.1.x86_64",
+                  "product_id": "strongswan-0:6.0.6-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan@6.0.6-160000.1.1?arch=x86_64\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+                "product": {
+                  "name": "strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+                  "product_id": "strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-fips@6.0.6-160000.1.1?arch=x86_64\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+                "product": {
+                  "name": "strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+                  "product_id": "strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-ipsec@6.0.6-160000.1.1?arch=x86_64\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+                "product": {
+                  "name": "strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+                  "product_id": "strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-mysql@6.0.6-160000.1.1?arch=x86_64\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+                "product": {
+                  "name": "strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+                  "product_id": "strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-nm@6.0.6-160000.1.1?arch=x86_64\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "strongswan-sqlite-0:6.0.6-160000.1.1.x86_64",
+                "product": {
+                  "name": "strongswan-sqlite-0:6.0.6-160000.1.1.x86_64",
+                  "product_id": "strongswan-sqlite-0:6.0.6-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:strongswan:strongswan:6.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/strongswan-sqlite@6.0.6-160000.1.1?arch=x86_64\u0026upstream=strongswan-0:6.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-0:6.0.6-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64"
+        },
+        "product_reference": "strongswan-0:6.0.6-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-0:6.0.6-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le"
+        },
+        "product_reference": "strongswan-0:6.0.6-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-0:6.0.6-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x"
+        },
+        "product_reference": "strongswan-0:6.0.6-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-0:6.0.6-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64"
+        },
+        "product_reference": "strongswan-0:6.0.6-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-doc-0:6.0.6-160000.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch"
+        },
+        "product_reference": "strongswan-doc-0:6.0.6-160000.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-fips-0:6.0.6-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64"
+        },
+        "product_reference": "strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-fips-0:6.0.6-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le"
+        },
+        "product_reference": "strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-fips-0:6.0.6-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x"
+        },
+        "product_reference": "strongswan-fips-0:6.0.6-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-fips-0:6.0.6-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64"
+        },
+        "product_reference": "strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-ipsec-0:6.0.6-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64"
+        },
+        "product_reference": "strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le"
+        },
+        "product_reference": "strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-ipsec-0:6.0.6-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x"
+        },
+        "product_reference": "strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-ipsec-0:6.0.6-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64"
+        },
+        "product_reference": "strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-mysql-0:6.0.6-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64"
+        },
+        "product_reference": "strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-mysql-0:6.0.6-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le"
+        },
+        "product_reference": "strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-mysql-0:6.0.6-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x"
+        },
+        "product_reference": "strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-mysql-0:6.0.6-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64"
+        },
+        "product_reference": "strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-nm-0:6.0.6-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64"
+        },
+        "product_reference": "strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-nm-0:6.0.6-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le"
+        },
+        "product_reference": "strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-nm-0:6.0.6-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x"
+        },
+        "product_reference": "strongswan-nm-0:6.0.6-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-nm-0:6.0.6-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64"
+        },
+        "product_reference": "strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-sqlite-0:6.0.6-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64"
+        },
+        "product_reference": "strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le"
+        },
+        "product_reference": "strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-sqlite-0:6.0.6-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x"
+        },
+        "product_reference": "strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "strongswan-sqlite-0:6.0.6-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+        },
+        "product_reference": "strongswan-sqlite-0:6.0.6-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-35328",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-35328"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "unknown",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-35328",
+          "url": "https://www.suse.com/security/cve/CVE-2026-35328"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1261712 for CVE-2026-35328",
+          "url": "https://bugzilla.suse.com/1261712"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-05-05T07:18:26Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-35328"
+    },
+    {
+      "cve": "CVE-2026-35329",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-35329"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "unknown",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-35329",
+          "url": "https://www.suse.com/security/cve/CVE-2026-35329"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1261717 for CVE-2026-35329",
+          "url": "https://bugzilla.suse.com/1261717"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-05-05T07:18:26Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-35329"
+    },
+    {
+      "cve": "CVE-2026-35330",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-35330"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "unknown",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-35330",
+          "url": "https://www.suse.com/security/cve/CVE-2026-35330"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1261705 for CVE-2026-35330",
+          "url": "https://bugzilla.suse.com/1261705"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-05-05T07:18:26Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-35330"
+    },
+    {
+      "cve": "CVE-2026-35331",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-35331"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "unknown",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-35331",
+          "url": "https://www.suse.com/security/cve/CVE-2026-35331"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1261718 for CVE-2026-35331",
+          "url": "https://bugzilla.suse.com/1261718"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.8,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-05-05T07:18:26Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-35331"
+    },
+    {
+      "cve": "CVE-2026-35332",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-35332"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "unknown",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-35332",
+          "url": "https://www.suse.com/security/cve/CVE-2026-35332"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1261708 for CVE-2026-35332",
+          "url": "https://bugzilla.suse.com/1261708"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-05-05T07:18:26Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-35332"
+    },
+    {
+      "cve": "CVE-2026-35333",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-35333"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "unknown",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-35333",
+          "url": "https://www.suse.com/security/cve/CVE-2026-35333"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1261706 for CVE-2026-35333",
+          "url": "https://bugzilla.suse.com/1261706"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-05-05T07:18:26Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-35333"
+    },
+    {
+      "cve": "CVE-2026-35334",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-35334"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "unknown",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+          "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-35334",
+          "url": "https://www.suse.com/security/cve/CVE-2026-35334"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1261720 for CVE-2026-35334",
+          "url": "https://bugzilla.suse.com/1261720"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-doc-0:6.0.6-160000.1.1.noarch",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-fips-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-ipsec-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-mysql-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-nm-0:6.0.6-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.s390x",
+            "openSUSE Leap 16.0:strongswan-sqlite-0:6.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-05-05T07:18:26Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-35334"
+    }
+  ]
+}

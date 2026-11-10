@@ -1,0 +1,1129 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for util-linux",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for util-linux fixes the following issues:\n\n- Updated to version 2.40.4:\n  * agetty: Prevent cursor escape (bsc#1194818)\n  * chcpu(8): Document CPU deconfiguring behavior\n  * fdisk: SGI fixes\n  * hardlink: fix memory corruption\n  * hardlink.1 directory|file is mandatory\n  * lib/env: fix env_list_setenv() for strings without '='\n  * libblkid:\n    (exfat) validate fields used by prober\n    (gpt) use blkid_probe_verify_csum() for partition array\n     checksum\n    add FSLASTBLOCK for swaparea\n    bitlocker fix version on big-endian systems\n  * libfdisk: make sure libblkid uses the same sector size\n  * libmount:\n    extract common error handling function\n    propagate first error of multiple filesystem types\n  * logger: correctly format tv_usec\n  * lscpu: Skip aarch64 decode path for rest of the architectures\n    (bsc#1229476)\n  * lsns: ignore ESRCH errors reported when accessing files under\n    /proc\n  * mkswap: set selinux label also when creating file\n  * more: make sure we have data on stderr\n  * nsenter: support empty environ\n  * umount, losetup: Document loop destroy behavior\n    (bsc#1159034).\n  * uuidd: fix /var/lib/libuuid mode uuidd-tmpfiles.conf\n    fix /var/lib/libuuid mode uuidd-tmpfiles.conf\n  - Refresh util-linux.keyring. Key validity was extended.\n\n- Update to version 2.40.2:\n  * cfdisk: fix possible integer overflow\n  * libmount: improving robustness in reading kernel messages,\n    add pidfs to pseudo fs list\n  * lscpu: New Arm Cortex part numbers\n    fix hang of lscpu -e (bsc#1225598)\n  * lsfd: Refactor the pidfd logic, support pidfs\n  * mkswap.8.adoc: update note regarding swapfile creation\n  * setpgid: make -f work\n\n- Enable kernel mountfd API, as it should be already stable\n  (PED-9752).\n- Move autoreconf back to %build.\n- Add devel dependencies.\n- Remove util-linux-rpmlintrc. It is no more needed with multibuild.\n- uncomment \"autoreconf --install\" to use the new version of automake\n- disable libmagic in more(1) for binary detection (bsc#1225197)\n- add support for pidfs in kernel 6.9 (bsc#1224285)\n \n- Update to version 2.40.1:\n  * more: clean processes not cleaned up after failed SSH session\n    using up 100% CPU (bsc#1220117)\n  * CVE-2024-28085: Fixed improper neutralization of escape sequences in wall (bsc#1221831)\n  * chcpu: document limitations of -g (bsc#1218609)\n  * lscpu: even more Arm part numbers (bsc#1223605)\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-SLE-Micro-6.1-95",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_20304-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:20304-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-202520304-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:20304-1",
+        "url": "https://lists.suse.com/pipermail/sle-security-updates/2025-June/021031.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1159034",
+        "url": "https://bugzilla.suse.com/1159034"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1194818",
+        "url": "https://bugzilla.suse.com/1194818"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1218609",
+        "url": "https://bugzilla.suse.com/1218609"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1220117",
+        "url": "https://bugzilla.suse.com/1220117"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1221831",
+        "url": "https://bugzilla.suse.com/1221831"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1223605",
+        "url": "https://bugzilla.suse.com/1223605"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1224285",
+        "url": "https://bugzilla.suse.com/1224285"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1225197",
+        "url": "https://bugzilla.suse.com/1225197"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1225598",
+        "url": "https://bugzilla.suse.com/1225598"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1229476",
+        "url": "https://bugzilla.suse.com/1229476"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-28085 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-28085/"
+      }
+    ],
+    "title": "Security update for util-linux",
+    "tracking": {
+      "current_release_date": "2026-09-20T18:11:03Z",
+      "generator": {
+        "date": "2025-05-08T12:24:01Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:20304-1",
+      "initial_release_date": "2025-05-08T12:24:01Z",
+      "revision_history": [
+        {
+          "date": "2025-05-08T12:24:01Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T18:11:03Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "lastlog2-0:2.40.4-slfo.1.1_1.1.aarch64",
+                "product": {
+                  "name": "lastlog2-0:2.40.4-slfo.1.1_1.1.aarch64",
+                  "product_id": "lastlog2-0:2.40.4-slfo.1.1_1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/lastlog2@2.40.4-slfo.1.1_1.1?arch=aarch64\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libblkid1-0:2.40.4-slfo.1.1_1.1.aarch64",
+                "product": {
+                  "name": "libblkid1-0:2.40.4-slfo.1.1_1.1.aarch64",
+                  "product_id": "libblkid1-0:2.40.4-slfo.1.1_1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libblkid1@2.40.4-slfo.1.1_1.1?arch=aarch64\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libfdisk1-0:2.40.4-slfo.1.1_1.1.aarch64",
+                "product": {
+                  "name": "libfdisk1-0:2.40.4-slfo.1.1_1.1.aarch64",
+                  "product_id": "libfdisk1-0:2.40.4-slfo.1.1_1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libfdisk1@2.40.4-slfo.1.1_1.1?arch=aarch64\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "liblastlog2-2-0:2.40.4-slfo.1.1_1.1.aarch64",
+                "product": {
+                  "name": "liblastlog2-2-0:2.40.4-slfo.1.1_1.1.aarch64",
+                  "product_id": "liblastlog2-2-0:2.40.4-slfo.1.1_1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/liblastlog2-2@2.40.4-slfo.1.1_1.1?arch=aarch64\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libmount1-0:2.40.4-slfo.1.1_1.1.aarch64",
+                "product": {
+                  "name": "libmount1-0:2.40.4-slfo.1.1_1.1.aarch64",
+                  "product_id": "libmount1-0:2.40.4-slfo.1.1_1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libmount1@2.40.4-slfo.1.1_1.1?arch=aarch64\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libsmartcols1-0:2.40.4-slfo.1.1_1.1.aarch64",
+                "product": {
+                  "name": "libsmartcols1-0:2.40.4-slfo.1.1_1.1.aarch64",
+                  "product_id": "libsmartcols1-0:2.40.4-slfo.1.1_1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsmartcols1@2.40.4-slfo.1.1_1.1?arch=aarch64\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libuuid1-0:2.40.4-slfo.1.1_1.1.aarch64",
+                "product": {
+                  "name": "libuuid1-0:2.40.4-slfo.1.1_1.1.aarch64",
+                  "product_id": "libuuid1-0:2.40.4-slfo.1.1_1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libuuid1@2.40.4-slfo.1.1_1.1?arch=aarch64\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "util-linux-0:2.40.4-slfo.1.1_1.1.aarch64",
+                "product": {
+                  "name": "util-linux-0:2.40.4-slfo.1.1_1.1.aarch64",
+                  "product_id": "util-linux-0:2.40.4-slfo.1.1_1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/util-linux@2.40.4-slfo.1.1_1.1?arch=aarch64\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "util-linux-systemd-0:2.40.4-slfo.1.1_1.1.aarch64",
+                "product": {
+                  "name": "util-linux-systemd-0:2.40.4-slfo.1.1_1.1.aarch64",
+                  "product_id": "util-linux-systemd-0:2.40.4-slfo.1.1_1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/util-linux-systemd@2.40.4-slfo.1.1_1.1?arch=aarch64\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "lastlog2-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                "product": {
+                  "name": "lastlog2-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                  "product_id": "lastlog2-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/lastlog2@2.40.4-slfo.1.1_1.1?arch=ppc64le\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libblkid1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                "product": {
+                  "name": "libblkid1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                  "product_id": "libblkid1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libblkid1@2.40.4-slfo.1.1_1.1?arch=ppc64le\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libfdisk1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                "product": {
+                  "name": "libfdisk1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                  "product_id": "libfdisk1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libfdisk1@2.40.4-slfo.1.1_1.1?arch=ppc64le\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "liblastlog2-2-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                "product": {
+                  "name": "liblastlog2-2-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                  "product_id": "liblastlog2-2-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/liblastlog2-2@2.40.4-slfo.1.1_1.1?arch=ppc64le\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libmount1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                "product": {
+                  "name": "libmount1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                  "product_id": "libmount1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libmount1@2.40.4-slfo.1.1_1.1?arch=ppc64le\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libsmartcols1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                "product": {
+                  "name": "libsmartcols1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                  "product_id": "libsmartcols1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsmartcols1@2.40.4-slfo.1.1_1.1?arch=ppc64le\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libuuid1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                "product": {
+                  "name": "libuuid1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                  "product_id": "libuuid1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libuuid1@2.40.4-slfo.1.1_1.1?arch=ppc64le\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "util-linux-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                "product": {
+                  "name": "util-linux-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                  "product_id": "util-linux-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/util-linux@2.40.4-slfo.1.1_1.1?arch=ppc64le\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "util-linux-systemd-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                "product": {
+                  "name": "util-linux-systemd-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                  "product_id": "util-linux-systemd-0:2.40.4-slfo.1.1_1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/util-linux-systemd@2.40.4-slfo.1.1_1.1?arch=ppc64le\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "lastlog2-0:2.40.4-slfo.1.1_1.1.s390x",
+                "product": {
+                  "name": "lastlog2-0:2.40.4-slfo.1.1_1.1.s390x",
+                  "product_id": "lastlog2-0:2.40.4-slfo.1.1_1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/lastlog2@2.40.4-slfo.1.1_1.1?arch=s390x\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libblkid1-0:2.40.4-slfo.1.1_1.1.s390x",
+                "product": {
+                  "name": "libblkid1-0:2.40.4-slfo.1.1_1.1.s390x",
+                  "product_id": "libblkid1-0:2.40.4-slfo.1.1_1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libblkid1@2.40.4-slfo.1.1_1.1?arch=s390x\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libfdisk1-0:2.40.4-slfo.1.1_1.1.s390x",
+                "product": {
+                  "name": "libfdisk1-0:2.40.4-slfo.1.1_1.1.s390x",
+                  "product_id": "libfdisk1-0:2.40.4-slfo.1.1_1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libfdisk1@2.40.4-slfo.1.1_1.1?arch=s390x\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "liblastlog2-2-0:2.40.4-slfo.1.1_1.1.s390x",
+                "product": {
+                  "name": "liblastlog2-2-0:2.40.4-slfo.1.1_1.1.s390x",
+                  "product_id": "liblastlog2-2-0:2.40.4-slfo.1.1_1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/liblastlog2-2@2.40.4-slfo.1.1_1.1?arch=s390x\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libmount1-0:2.40.4-slfo.1.1_1.1.s390x",
+                "product": {
+                  "name": "libmount1-0:2.40.4-slfo.1.1_1.1.s390x",
+                  "product_id": "libmount1-0:2.40.4-slfo.1.1_1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libmount1@2.40.4-slfo.1.1_1.1?arch=s390x\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libsmartcols1-0:2.40.4-slfo.1.1_1.1.s390x",
+                "product": {
+                  "name": "libsmartcols1-0:2.40.4-slfo.1.1_1.1.s390x",
+                  "product_id": "libsmartcols1-0:2.40.4-slfo.1.1_1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsmartcols1@2.40.4-slfo.1.1_1.1?arch=s390x\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libuuid1-0:2.40.4-slfo.1.1_1.1.s390x",
+                "product": {
+                  "name": "libuuid1-0:2.40.4-slfo.1.1_1.1.s390x",
+                  "product_id": "libuuid1-0:2.40.4-slfo.1.1_1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libuuid1@2.40.4-slfo.1.1_1.1?arch=s390x\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "util-linux-0:2.40.4-slfo.1.1_1.1.s390x",
+                "product": {
+                  "name": "util-linux-0:2.40.4-slfo.1.1_1.1.s390x",
+                  "product_id": "util-linux-0:2.40.4-slfo.1.1_1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/util-linux@2.40.4-slfo.1.1_1.1?arch=s390x\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "util-linux-systemd-0:2.40.4-slfo.1.1_1.1.s390x",
+                "product": {
+                  "name": "util-linux-systemd-0:2.40.4-slfo.1.1_1.1.s390x",
+                  "product_id": "util-linux-systemd-0:2.40.4-slfo.1.1_1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/util-linux-systemd@2.40.4-slfo.1.1_1.1?arch=s390x\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "lastlog2-0:2.40.4-slfo.1.1_1.1.x86_64",
+                "product": {
+                  "name": "lastlog2-0:2.40.4-slfo.1.1_1.1.x86_64",
+                  "product_id": "lastlog2-0:2.40.4-slfo.1.1_1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/lastlog2@2.40.4-slfo.1.1_1.1?arch=x86_64\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libblkid1-0:2.40.4-slfo.1.1_1.1.x86_64",
+                "product": {
+                  "name": "libblkid1-0:2.40.4-slfo.1.1_1.1.x86_64",
+                  "product_id": "libblkid1-0:2.40.4-slfo.1.1_1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libblkid1@2.40.4-slfo.1.1_1.1?arch=x86_64\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libfdisk1-0:2.40.4-slfo.1.1_1.1.x86_64",
+                "product": {
+                  "name": "libfdisk1-0:2.40.4-slfo.1.1_1.1.x86_64",
+                  "product_id": "libfdisk1-0:2.40.4-slfo.1.1_1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libfdisk1@2.40.4-slfo.1.1_1.1?arch=x86_64\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "liblastlog2-2-0:2.40.4-slfo.1.1_1.1.x86_64",
+                "product": {
+                  "name": "liblastlog2-2-0:2.40.4-slfo.1.1_1.1.x86_64",
+                  "product_id": "liblastlog2-2-0:2.40.4-slfo.1.1_1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/liblastlog2-2@2.40.4-slfo.1.1_1.1?arch=x86_64\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libmount1-0:2.40.4-slfo.1.1_1.1.x86_64",
+                "product": {
+                  "name": "libmount1-0:2.40.4-slfo.1.1_1.1.x86_64",
+                  "product_id": "libmount1-0:2.40.4-slfo.1.1_1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libmount1@2.40.4-slfo.1.1_1.1?arch=x86_64\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libsmartcols1-0:2.40.4-slfo.1.1_1.1.x86_64",
+                "product": {
+                  "name": "libsmartcols1-0:2.40.4-slfo.1.1_1.1.x86_64",
+                  "product_id": "libsmartcols1-0:2.40.4-slfo.1.1_1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsmartcols1@2.40.4-slfo.1.1_1.1?arch=x86_64\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libuuid1-0:2.40.4-slfo.1.1_1.1.x86_64",
+                "product": {
+                  "name": "libuuid1-0:2.40.4-slfo.1.1_1.1.x86_64",
+                  "product_id": "libuuid1-0:2.40.4-slfo.1.1_1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libuuid1@2.40.4-slfo.1.1_1.1?arch=x86_64\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "util-linux-0:2.40.4-slfo.1.1_1.1.x86_64",
+                "product": {
+                  "name": "util-linux-0:2.40.4-slfo.1.1_1.1.x86_64",
+                  "product_id": "util-linux-0:2.40.4-slfo.1.1_1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/util-linux@2.40.4-slfo.1.1_1.1?arch=x86_64\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "util-linux-systemd-0:2.40.4-slfo.1.1_1.1.x86_64",
+                "product": {
+                  "name": "util-linux-systemd-0:2.40.4-slfo.1.1_1.1.x86_64",
+                  "product_id": "util-linux-systemd-0:2.40.4-slfo.1.1_1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kernel:util-linux:2.40.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/util-linux-systemd@2.40.4-slfo.1.1_1.1?arch=x86_64\u0026upstream=util-linux-0:2.40.4-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Micro 6.1",
+                "product": {
+                  "name": "SUSE Linux Micro 6.1",
+                  "product_id": "SUSE Linux Micro 6.1",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sl-micro:6.1"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "lastlog2-0:2.40.4-slfo.1.1_1.1.aarch64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:lastlog2-0:2.40.4-slfo.1.1_1.1.aarch64"
+        },
+        "product_reference": "lastlog2-0:2.40.4-slfo.1.1_1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "lastlog2-0:2.40.4-slfo.1.1_1.1.ppc64le as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:lastlog2-0:2.40.4-slfo.1.1_1.1.ppc64le"
+        },
+        "product_reference": "lastlog2-0:2.40.4-slfo.1.1_1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "lastlog2-0:2.40.4-slfo.1.1_1.1.s390x as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:lastlog2-0:2.40.4-slfo.1.1_1.1.s390x"
+        },
+        "product_reference": "lastlog2-0:2.40.4-slfo.1.1_1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "lastlog2-0:2.40.4-slfo.1.1_1.1.x86_64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:lastlog2-0:2.40.4-slfo.1.1_1.1.x86_64"
+        },
+        "product_reference": "lastlog2-0:2.40.4-slfo.1.1_1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libblkid1-0:2.40.4-slfo.1.1_1.1.aarch64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libblkid1-0:2.40.4-slfo.1.1_1.1.aarch64"
+        },
+        "product_reference": "libblkid1-0:2.40.4-slfo.1.1_1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libblkid1-0:2.40.4-slfo.1.1_1.1.ppc64le as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libblkid1-0:2.40.4-slfo.1.1_1.1.ppc64le"
+        },
+        "product_reference": "libblkid1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libblkid1-0:2.40.4-slfo.1.1_1.1.s390x as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libblkid1-0:2.40.4-slfo.1.1_1.1.s390x"
+        },
+        "product_reference": "libblkid1-0:2.40.4-slfo.1.1_1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libblkid1-0:2.40.4-slfo.1.1_1.1.x86_64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libblkid1-0:2.40.4-slfo.1.1_1.1.x86_64"
+        },
+        "product_reference": "libblkid1-0:2.40.4-slfo.1.1_1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libfdisk1-0:2.40.4-slfo.1.1_1.1.aarch64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libfdisk1-0:2.40.4-slfo.1.1_1.1.aarch64"
+        },
+        "product_reference": "libfdisk1-0:2.40.4-slfo.1.1_1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libfdisk1-0:2.40.4-slfo.1.1_1.1.ppc64le as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libfdisk1-0:2.40.4-slfo.1.1_1.1.ppc64le"
+        },
+        "product_reference": "libfdisk1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libfdisk1-0:2.40.4-slfo.1.1_1.1.s390x as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libfdisk1-0:2.40.4-slfo.1.1_1.1.s390x"
+        },
+        "product_reference": "libfdisk1-0:2.40.4-slfo.1.1_1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libfdisk1-0:2.40.4-slfo.1.1_1.1.x86_64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libfdisk1-0:2.40.4-slfo.1.1_1.1.x86_64"
+        },
+        "product_reference": "libfdisk1-0:2.40.4-slfo.1.1_1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "liblastlog2-2-0:2.40.4-slfo.1.1_1.1.aarch64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:liblastlog2-2-0:2.40.4-slfo.1.1_1.1.aarch64"
+        },
+        "product_reference": "liblastlog2-2-0:2.40.4-slfo.1.1_1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "liblastlog2-2-0:2.40.4-slfo.1.1_1.1.ppc64le as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:liblastlog2-2-0:2.40.4-slfo.1.1_1.1.ppc64le"
+        },
+        "product_reference": "liblastlog2-2-0:2.40.4-slfo.1.1_1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "liblastlog2-2-0:2.40.4-slfo.1.1_1.1.s390x as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:liblastlog2-2-0:2.40.4-slfo.1.1_1.1.s390x"
+        },
+        "product_reference": "liblastlog2-2-0:2.40.4-slfo.1.1_1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "liblastlog2-2-0:2.40.4-slfo.1.1_1.1.x86_64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:liblastlog2-2-0:2.40.4-slfo.1.1_1.1.x86_64"
+        },
+        "product_reference": "liblastlog2-2-0:2.40.4-slfo.1.1_1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmount1-0:2.40.4-slfo.1.1_1.1.aarch64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libmount1-0:2.40.4-slfo.1.1_1.1.aarch64"
+        },
+        "product_reference": "libmount1-0:2.40.4-slfo.1.1_1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmount1-0:2.40.4-slfo.1.1_1.1.ppc64le as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libmount1-0:2.40.4-slfo.1.1_1.1.ppc64le"
+        },
+        "product_reference": "libmount1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmount1-0:2.40.4-slfo.1.1_1.1.s390x as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libmount1-0:2.40.4-slfo.1.1_1.1.s390x"
+        },
+        "product_reference": "libmount1-0:2.40.4-slfo.1.1_1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmount1-0:2.40.4-slfo.1.1_1.1.x86_64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libmount1-0:2.40.4-slfo.1.1_1.1.x86_64"
+        },
+        "product_reference": "libmount1-0:2.40.4-slfo.1.1_1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsmartcols1-0:2.40.4-slfo.1.1_1.1.aarch64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libsmartcols1-0:2.40.4-slfo.1.1_1.1.aarch64"
+        },
+        "product_reference": "libsmartcols1-0:2.40.4-slfo.1.1_1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsmartcols1-0:2.40.4-slfo.1.1_1.1.ppc64le as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libsmartcols1-0:2.40.4-slfo.1.1_1.1.ppc64le"
+        },
+        "product_reference": "libsmartcols1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsmartcols1-0:2.40.4-slfo.1.1_1.1.s390x as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libsmartcols1-0:2.40.4-slfo.1.1_1.1.s390x"
+        },
+        "product_reference": "libsmartcols1-0:2.40.4-slfo.1.1_1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsmartcols1-0:2.40.4-slfo.1.1_1.1.x86_64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libsmartcols1-0:2.40.4-slfo.1.1_1.1.x86_64"
+        },
+        "product_reference": "libsmartcols1-0:2.40.4-slfo.1.1_1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libuuid1-0:2.40.4-slfo.1.1_1.1.aarch64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libuuid1-0:2.40.4-slfo.1.1_1.1.aarch64"
+        },
+        "product_reference": "libuuid1-0:2.40.4-slfo.1.1_1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libuuid1-0:2.40.4-slfo.1.1_1.1.ppc64le as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libuuid1-0:2.40.4-slfo.1.1_1.1.ppc64le"
+        },
+        "product_reference": "libuuid1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libuuid1-0:2.40.4-slfo.1.1_1.1.s390x as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libuuid1-0:2.40.4-slfo.1.1_1.1.s390x"
+        },
+        "product_reference": "libuuid1-0:2.40.4-slfo.1.1_1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libuuid1-0:2.40.4-slfo.1.1_1.1.x86_64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libuuid1-0:2.40.4-slfo.1.1_1.1.x86_64"
+        },
+        "product_reference": "libuuid1-0:2.40.4-slfo.1.1_1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "util-linux-0:2.40.4-slfo.1.1_1.1.aarch64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:util-linux-0:2.40.4-slfo.1.1_1.1.aarch64"
+        },
+        "product_reference": "util-linux-0:2.40.4-slfo.1.1_1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "util-linux-0:2.40.4-slfo.1.1_1.1.ppc64le as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:util-linux-0:2.40.4-slfo.1.1_1.1.ppc64le"
+        },
+        "product_reference": "util-linux-0:2.40.4-slfo.1.1_1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "util-linux-0:2.40.4-slfo.1.1_1.1.s390x as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:util-linux-0:2.40.4-slfo.1.1_1.1.s390x"
+        },
+        "product_reference": "util-linux-0:2.40.4-slfo.1.1_1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "util-linux-0:2.40.4-slfo.1.1_1.1.x86_64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:util-linux-0:2.40.4-slfo.1.1_1.1.x86_64"
+        },
+        "product_reference": "util-linux-0:2.40.4-slfo.1.1_1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "util-linux-systemd-0:2.40.4-slfo.1.1_1.1.aarch64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:util-linux-systemd-0:2.40.4-slfo.1.1_1.1.aarch64"
+        },
+        "product_reference": "util-linux-systemd-0:2.40.4-slfo.1.1_1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "util-linux-systemd-0:2.40.4-slfo.1.1_1.1.ppc64le as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:util-linux-systemd-0:2.40.4-slfo.1.1_1.1.ppc64le"
+        },
+        "product_reference": "util-linux-systemd-0:2.40.4-slfo.1.1_1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "util-linux-systemd-0:2.40.4-slfo.1.1_1.1.s390x as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:util-linux-systemd-0:2.40.4-slfo.1.1_1.1.s390x"
+        },
+        "product_reference": "util-linux-systemd-0:2.40.4-slfo.1.1_1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "util-linux-systemd-0:2.40.4-slfo.1.1_1.1.x86_64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:util-linux-systemd-0:2.40.4-slfo.1.1_1.1.x86_64"
+        },
+        "product_reference": "util-linux-systemd-0:2.40.4-slfo.1.1_1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2024-28085",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-28085"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "wall in util-linux through 2.40, often installed with setgid tty permissions, allows escape sequences to be sent to other users' terminals through argv. (Specifically, escape sequences received from stdin are blocked, but escape sequences received from argv are not blocked.) There may be plausible scenarios where this leads to account takeover.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:lastlog2-0:2.40.4-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:lastlog2-0:2.40.4-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:lastlog2-0:2.40.4-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:lastlog2-0:2.40.4-slfo.1.1_1.1.x86_64",
+          "SUSE Linux Micro 6.1:libblkid1-0:2.40.4-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:libblkid1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:libblkid1-0:2.40.4-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:libblkid1-0:2.40.4-slfo.1.1_1.1.x86_64",
+          "SUSE Linux Micro 6.1:libfdisk1-0:2.40.4-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:libfdisk1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:libfdisk1-0:2.40.4-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:libfdisk1-0:2.40.4-slfo.1.1_1.1.x86_64",
+          "SUSE Linux Micro 6.1:liblastlog2-2-0:2.40.4-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:liblastlog2-2-0:2.40.4-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:liblastlog2-2-0:2.40.4-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:liblastlog2-2-0:2.40.4-slfo.1.1_1.1.x86_64",
+          "SUSE Linux Micro 6.1:libmount1-0:2.40.4-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:libmount1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:libmount1-0:2.40.4-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:libmount1-0:2.40.4-slfo.1.1_1.1.x86_64",
+          "SUSE Linux Micro 6.1:libsmartcols1-0:2.40.4-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:libsmartcols1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsmartcols1-0:2.40.4-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:libsmartcols1-0:2.40.4-slfo.1.1_1.1.x86_64",
+          "SUSE Linux Micro 6.1:libuuid1-0:2.40.4-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:libuuid1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:libuuid1-0:2.40.4-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:libuuid1-0:2.40.4-slfo.1.1_1.1.x86_64",
+          "SUSE Linux Micro 6.1:util-linux-0:2.40.4-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:util-linux-0:2.40.4-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:util-linux-0:2.40.4-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:util-linux-0:2.40.4-slfo.1.1_1.1.x86_64",
+          "SUSE Linux Micro 6.1:util-linux-systemd-0:2.40.4-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:util-linux-systemd-0:2.40.4-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:util-linux-systemd-0:2.40.4-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:util-linux-systemd-0:2.40.4-slfo.1.1_1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-28085",
+          "url": "https://www.suse.com/security/cve/CVE-2024-28085"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1221831 for CVE-2024-28085",
+          "url": "https://bugzilla.suse.com/1221831"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:lastlog2-0:2.40.4-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:lastlog2-0:2.40.4-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:lastlog2-0:2.40.4-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:lastlog2-0:2.40.4-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:libblkid1-0:2.40.4-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libblkid1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libblkid1-0:2.40.4-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libblkid1-0:2.40.4-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:libfdisk1-0:2.40.4-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libfdisk1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libfdisk1-0:2.40.4-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libfdisk1-0:2.40.4-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:liblastlog2-2-0:2.40.4-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:liblastlog2-2-0:2.40.4-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:liblastlog2-2-0:2.40.4-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:liblastlog2-2-0:2.40.4-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:libmount1-0:2.40.4-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libmount1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libmount1-0:2.40.4-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libmount1-0:2.40.4-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:libsmartcols1-0:2.40.4-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libsmartcols1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsmartcols1-0:2.40.4-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libsmartcols1-0:2.40.4-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:libuuid1-0:2.40.4-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libuuid1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libuuid1-0:2.40.4-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libuuid1-0:2.40.4-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:util-linux-0:2.40.4-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:util-linux-0:2.40.4-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:util-linux-0:2.40.4-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:util-linux-0:2.40.4-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:util-linux-systemd-0:2.40.4-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:util-linux-systemd-0:2.40.4-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:util-linux-systemd-0:2.40.4-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:util-linux-systemd-0:2.40.4-slfo.1.1_1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.4,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:lastlog2-0:2.40.4-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:lastlog2-0:2.40.4-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:lastlog2-0:2.40.4-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:lastlog2-0:2.40.4-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:libblkid1-0:2.40.4-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libblkid1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libblkid1-0:2.40.4-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libblkid1-0:2.40.4-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:libfdisk1-0:2.40.4-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libfdisk1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libfdisk1-0:2.40.4-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libfdisk1-0:2.40.4-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:liblastlog2-2-0:2.40.4-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:liblastlog2-2-0:2.40.4-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:liblastlog2-2-0:2.40.4-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:liblastlog2-2-0:2.40.4-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:libmount1-0:2.40.4-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libmount1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libmount1-0:2.40.4-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libmount1-0:2.40.4-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:libsmartcols1-0:2.40.4-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libsmartcols1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsmartcols1-0:2.40.4-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libsmartcols1-0:2.40.4-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:libuuid1-0:2.40.4-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libuuid1-0:2.40.4-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libuuid1-0:2.40.4-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libuuid1-0:2.40.4-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:util-linux-0:2.40.4-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:util-linux-0:2.40.4-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:util-linux-0:2.40.4-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:util-linux-0:2.40.4-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:util-linux-systemd-0:2.40.4-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:util-linux-systemd-0:2.40.4-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:util-linux-systemd-0:2.40.4-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:util-linux-systemd-0:2.40.4-slfo.1.1_1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-05-08T12:24:01Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2024-28085"
+    }
+  ]
+}

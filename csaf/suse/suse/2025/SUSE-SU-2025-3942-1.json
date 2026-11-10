@@ -1,0 +1,1973 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for qatengine, qatlib",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for qatengine, qatlib fixes the following issues:\n\nNote that the 1.6.1 release included in 1.7.0 fixes the following\nvulnerabilities:\n\n  * bsc#1233363 (CVE-2024-28885)\n  * bsc#1233365 (CVE-2024-31074)\n  * bsc#1233366 (CVE-2024-33617)\n\nUpdate to 1.7.0:\n\n  * ipp-crypto name change to cryptography-primitives\n  * QAT_SW GCM memory leak fix in cleanup function\n  * Update limitation section in README for v1.7.0 release\n  * Fix build with OPENSSL_NO_ENGINE\n  * Fix for build issues with qatprovider in qatlib\n  * Bug fixes and README updates to v1.7.0\n  * Remove qat_contig_mem driver support\n  * Add support for building QAT Engine ENGINE and PROVIDER modules\n    with QuicTLS 3.x libraries\n  * Fix for DSA issue with openssl3.2\n  * Fix missing lower bounds check on index i\n  * Enabled SW Fallback support for FBSD\n  * Fix for segfault issue when SHIM config section is unavailable\n  * Fix for Coverity \u0026 Resource leak\n  * Fix for RSA failure with SVM enabled in openssl-3.2\n  * SM3 Memory Leak Issue Fix\n  * Fix qatprovider lib name issue with system openssl\n\nUpdate to 1.6.0:\n\n  * Fix issue with make depend for QAT_SW\n  * QAT_HW GCM Memleak fix \u0026 bug fixes\n  * QAT2.0 FreeBSD14 intree driver support\n  * Fix OpenSSL 3.2 compatibility issues\n  * Optimize hex dump logging\n  * Clear job tlv on error\n  * QAT_HW RSA Encrypt and Decrypt provider support\n  * QAT_HW AES-CCM Provider support\n  * Add ECDH keymgmt support for provider\n  * Fix QAT_HW SM2 memory leak \n  * Enable qaeMemFreeNonZeroNUMA() for qatlib \n  * Fix polling issue for the process that doesn't have QAT_HW instance\n  * Fix SHA3 qctx initialization issue \u0026 potential memleak \n  * Fix compilation error in SM2 with qat_contig_mem \n  * Update year in copyright information to 2024 \n\nUpdate to 1.5.0:\n\n  * use new --enable-qat_insecure_algorithms to avoid regressions\n  * improve support for SM{2,3,4} ciphers\n  * improve SW fallback support\n  * many bug fixes, refactorisations and documentation updates\n\n- update to 0.6.18:\n  * Fix address sanitizer issues\n  * Fix issues with Babassl \u0026 Openssl3.0\n  * Add QAT_HW SM4 CBC support\n  * Refactor ECX provider code into single file\n  * Fix QAT_HW AES-GCM bad mac record \u0026 memleak\n  * Fix SHA3 memory leak\n  * Fix sm4-cbc build error with system default OpenSSL\n  * Symmetric performance Optimization \u0026 memleak fixes\n  *  Bug fix, README \u0026 v0.6.18 Version update\n  * Please refer README (Software requirements section) for dependent\n    libraries release version and other information.\n\n- update to v0.6.17:\n  * Add security policy - c1a7a96\n  * Add dependancy update tool file - 522c41d\n  * Release v0.6.17 version update - c1a7a96\n  * Enable QAT_SW RSA \u0026 ECDSA support for BoringSSL - 1035e82\n  * Fix QAT_SW SM2 ECDSA Performance issue - f44a564\n  * CPP check and Makefile Bug fixes - 98ccbe8\n  * Fix buffer overflow issue with SHA3 and ECX - cab65f3\n  * Update version and README for v0.6.16 - 1c95fd7\n  * Split --with-qat_sw_install_dir into seperate configures - d5f5656\n  * Add seperate err files for Boringssl - 1a09627\n  * Fix QAT_HW \u0026 QAT_SW AES-GCM issue with s_server in provider - c775f5c\n  * Fix issue with disable flags in provider - 2e00636\n  * Fix coredump issue in provider with qat_sw gcm - 6703c13\n  * Fix err files regeneration failure - 510f3dc\n  * Add Provider Support for ChachaPoly and SM2 - a98e51d\n  * Bug Fixes in testapp and with disable flags. - 0945535\n  * QAT HW\u0026SW Co-existence dynamic mechanism support. - 5baf5aa\n  * Fix issue with SIGUSR1 during reload. - 00ea833\n  * Refactor qat_hw instances based on Sym/Asym capabilities. - bb10128\n  * Replace deprecated pthread_yield with sched_yield. - d514406\n  * BoringSSL support for RSA and ECDSA. - 41c67c7\n  * Fix s_server lseek forever issue with qatprovider. - cb3db21\n  * Fix aes-cbc failure issue in testapp. - a530427\n  * Fix glibc version test - 2461966\n  * Fix issue with generator param and ECDSA verify. - c51fc17\n  * Provider Support for DSA, DH, HKDF, PRF, SHA3 \u0026 aes-cbc - 7cc5eb9\n  * Fix testapp issues and optimization - e7c2ba8\n  * Optimize setup and clear async event notification - 573fe48\n  * Fix Nginx worker process core dump in QAT_SW with pkill/killall -\n    4eb4473\n  * Add Cofactor to take optimized path in ECDH API - 9a23c7e\n  * Fix double free issue with QAT_SW - 1a16708\n  * Add thread mapping to specific QAT_HW instance - 5ee799a\n  * OpenSSL 3.0 Provider Support - 38086fa\n  * Update README and version to v0.6.12 - dca2957\n  * Fixed worker process hung forever after nginx reload - bfe97aa\n  * Remove OpenSSL 1.1.0 Support - da8682a\n  * Add QAT_SW SM2 ECDH \u0026 SM3 support - 04a6af2\n  * QAT_SW ECDSA SM2 sign and verify Support - d44ae7e\n  * Disable SM3, Bug fixes, Readme \u0026 version update - d995046\n\nqatlib was updated to:\n \nUpdate to 24.09.0:\n\n  * Improved performance scaling in multi-thread applications\n  * Set core affinity mapping based on NUMA\n    (libnuma now required for building)\n  * bug fixes, see https://github.com/intel/qatlib#resolved-issues\n\nVersion update to 24.02.0\n\n  * Support DC NS (NoSession) APIs\n  * Support Symmetric Crypto SM3 \u0026 SM4\n  * Support Asymmetric Crypto SM2\n  * Support DC CompressBound APIs\n  * Bug Fixes. See Resolved section in README.md\n\n\nUpdate to 23.11.0:\n\n  * use new --enable-legacy-algorithms to avoid regressions\n  * add support for data compression chaining (hash then compress)\n  * add support for additional configuration profiles\n  * add support DC NS (NoSession) APIs\n  * add support DC CompressBound APIs\n  * add Support for Chinese SM{2,3,4} ciphers\n  * bump shared library major to 4\n  * refactoring, bug fixes and documentation updates\n\nUpdate to 22.07.2:\n\n  * Changed from yasm to nasm for assembly compilation\n  * Added configuration option to use C implementation of soft CRC\n    implementation instead of asm\n  * Added support for pkg-config\n  * Added missing lock around accesses to some global data in qatmgr\n  * Fix for QATE-86605 – improve error checking on size param used by qatmgr\n    debug function.\n  * Fix for issue #10\n  * Fixed link to Programmer's Guide\n  * Added support for Compression LZ4 and LZ4s algorithms\n  * Added support for Compression end-to-end integrity checks\n  * Added support for PKE Generic Point Multiply APIs\n  * Added support for CPM2.0b\n  * Updated library to support new version of QAT APIs\n  * Updated qat service to allow compression only and crypto only\n    configurations\n  * Created qatlib-tests rpm package\n  * Added option to configure script to skip building sample code\n\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2025-3942,SUSE-SLE-Product-HPC-15-SP4-ESPOS-2025-3942,SUSE-SLE-Product-HPC-15-SP4-LTSS-2025-3942,SUSE-SLE-Product-SLES-15-SP4-LTSS-2025-3942,SUSE-SLE-Product-SLES_SAP-15-SP4-2025-3942,SUSE-SLE-Product-SUSE-Manager-Proxy-4.3-LTS-2025-3942,SUSE-SLE-Product-SUSE-Manager-Server-4.3-LTS-2025-3942",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_3942-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:3942-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-20253942-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:3942-1",
+        "url": "https://lists.suse.com/pipermail/sle-security-updates/2025-November/023160.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1233363",
+        "url": "https://bugzilla.suse.com/1233363"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1233365",
+        "url": "https://bugzilla.suse.com/1233365"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1233366",
+        "url": "https://bugzilla.suse.com/1233366"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-28885 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-28885/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-31074 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-31074/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-33617 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-33617/"
+      }
+    ],
+    "title": "Security update for qatengine, qatlib",
+    "tracking": {
+      "current_release_date": "2026-09-20T18:26:43Z",
+      "generator": {
+        "date": "2025-11-05T08:16:02Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:3942-1",
+      "initial_release_date": "2025-11-05T08:16:02Z",
+      "revision_history": [
+        {
+          "date": "2025-11-05T08:16:02Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T18:26:43Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libqat4-0:24.09.0-150400.3.6.1.x86_64",
+                "product": {
+                  "name": "libqat4-0:24.09.0-150400.3.6.1.x86_64",
+                  "product_id": "libqat4-0:24.09.0-150400.3.6.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:intel:quickassist_technology_library:24.09.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libqat4@24.09.0-150400.3.6.1?arch=x86_64\u0026upstream=qatlib-0:24.09.0-150400.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+                "product": {
+                  "name": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+                  "product_id": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libqatzip3@1.1.0-150400.3.3.1?arch=x86_64\u0026upstream=qatzip-0:1.1.0-150400.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+                "product": {
+                  "name": "libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+                  "product_id": "libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:intel:quickassist_technology_library:24.09.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libusdm0@24.09.0-150400.3.6.1?arch=x86_64\u0026upstream=qatlib-0:24.09.0-150400.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "qatengine-0:1.7.0-150400.3.6.1.x86_64",
+                "product": {
+                  "name": "qatengine-0:1.7.0-150400.3.6.1.x86_64",
+                  "product_id": "qatengine-0:1.7.0-150400.3.6.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/qatengine@1.7.0-150400.3.6.1?arch=x86_64\u0026upstream=qatengine-0:1.7.0-150400.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "qatlib-0:24.09.0-150400.3.6.1.x86_64",
+                "product": {
+                  "name": "qatlib-0:24.09.0-150400.3.6.1.x86_64",
+                  "product_id": "qatlib-0:24.09.0-150400.3.6.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:intel:quickassist_technology_library:24.09.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/qatlib@24.09.0-150400.3.6.1?arch=x86_64\u0026upstream=qatlib-0:24.09.0-150400.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+                "product": {
+                  "name": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+                  "product_id": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:intel:quickassist_technology_library:24.09.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/qatlib-devel@24.09.0-150400.3.6.1?arch=x86_64\u0026upstream=qatlib-0:24.09.0-150400.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "qatzip-0:1.1.0-150400.3.3.1.x86_64",
+                "product": {
+                  "name": "qatzip-0:1.1.0-150400.3.3.1.x86_64",
+                  "product_id": "qatzip-0:1.1.0-150400.3.3.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/qatzip@1.1.0-150400.3.3.1?arch=x86_64\u0026upstream=qatzip-0:1.1.0-150400.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+                "product": {
+                  "name": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+                  "product_id": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/qatzip-devel@1.1.0-150400.3.3.1?arch=x86_64\u0026upstream=qatzip-0:1.1.0-150400.3.3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc-espos:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc-ltss:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP4",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP4",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles-ltss:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP4",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP4",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "Open Enterprise Server 23.4",
+                "product": {
+                  "name": "Open Enterprise Server 23.4",
+                  "product_id": "Open Enterprise Server 23.4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:novell,inc:OES:23.4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "Open Enterprise Server 24.4",
+                "product": {
+                  "name": "Open Enterprise Server 24.4",
+                  "product_id": "Open Enterprise Server 24.4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:novell,inc:OES:24.4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Manager Proxy LTS 4.3",
+                "product": {
+                  "name": "SUSE Manager Proxy LTS 4.3",
+                  "product_id": "SUSE Manager Proxy LTS 4.3",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:suse-manager-proxy-lts:4.3"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Manager Server LTS 4.3",
+                "product": {
+                  "name": "SUSE Manager Server LTS 4.3",
+                  "product_id": "SUSE Manager Server LTS 4.3",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:suse-manager-server-lts:4.3"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libqat4-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libqat4-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "libqat4-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libusdm0-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libusdm0-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatengine-0:1.7.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatengine-0:1.7.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatengine-0:1.7.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatlib-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatlib-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatlib-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatzip-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatzip-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "qatzip-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libqat4-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libqat4-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "libqat4-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libusdm0-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libusdm0-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatengine-0:1.7.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatengine-0:1.7.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatengine-0:1.7.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatlib-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatlib-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatlib-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatzip-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatzip-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "qatzip-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libqat4-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "libqat4-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libusdm0-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatengine-0:1.7.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatengine-0:1.7.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatlib-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatlib-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatzip-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "qatzip-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libqat4-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:libqat4-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "libqat4-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libusdm0-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:libusdm0-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatengine-0:1.7.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:qatengine-0:1.7.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatengine-0:1.7.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatlib-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:qatlib-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatlib-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatzip-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:qatzip-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "qatzip-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libqat4-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "libqat4-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libusdm0-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatengine-0:1.7.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatengine-0:1.7.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatlib-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatlib-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatzip-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "qatzip-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libqat4-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "libqat4-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libusdm0-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatengine-0:1.7.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatengine-0:1.7.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatlib-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatlib-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatzip-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "qatzip-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libqat4-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 23.4:libqat4-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "libqat4-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 23.4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libusdm0-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 23.4:libusdm0-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatengine-0:1.7.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 23.4:qatengine-0:1.7.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatengine-0:1.7.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatlib-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 23.4:qatlib-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatlib-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 23.4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatzip-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 23.4:qatzip-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "qatzip-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 23.4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libqat4-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 24.4:libqat4-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "libqat4-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 24.4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libusdm0-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 24.4:libusdm0-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatengine-0:1.7.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 24.4:qatengine-0:1.7.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatengine-0:1.7.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatlib-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 24.4:qatlib-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatlib-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 24.4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatzip-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 24.4:qatzip-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "qatzip-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 24.4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libqat4-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Manager Proxy LTS 4.3",
+          "product_id": "SUSE Manager Proxy LTS 4.3:libqat4-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "libqat4-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Proxy LTS 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Manager Proxy LTS 4.3",
+          "product_id": "SUSE Manager Proxy LTS 4.3:libqatzip3-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Proxy LTS 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libusdm0-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Manager Proxy LTS 4.3",
+          "product_id": "SUSE Manager Proxy LTS 4.3:libusdm0-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Proxy LTS 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatengine-0:1.7.0-150400.3.6.1.x86_64 as component of SUSE Manager Proxy LTS 4.3",
+          "product_id": "SUSE Manager Proxy LTS 4.3:qatengine-0:1.7.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatengine-0:1.7.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Proxy LTS 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatlib-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Manager Proxy LTS 4.3",
+          "product_id": "SUSE Manager Proxy LTS 4.3:qatlib-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatlib-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Proxy LTS 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Manager Proxy LTS 4.3",
+          "product_id": "SUSE Manager Proxy LTS 4.3:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Proxy LTS 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatzip-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Manager Proxy LTS 4.3",
+          "product_id": "SUSE Manager Proxy LTS 4.3:qatzip-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "qatzip-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Proxy LTS 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Manager Proxy LTS 4.3",
+          "product_id": "SUSE Manager Proxy LTS 4.3:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Proxy LTS 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libqat4-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Manager Server LTS 4.3",
+          "product_id": "SUSE Manager Server LTS 4.3:libqat4-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "libqat4-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Server LTS 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Manager Server LTS 4.3",
+          "product_id": "SUSE Manager Server LTS 4.3:libqatzip3-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Server LTS 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libusdm0-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Manager Server LTS 4.3",
+          "product_id": "SUSE Manager Server LTS 4.3:libusdm0-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Server LTS 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatengine-0:1.7.0-150400.3.6.1.x86_64 as component of SUSE Manager Server LTS 4.3",
+          "product_id": "SUSE Manager Server LTS 4.3:qatengine-0:1.7.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatengine-0:1.7.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Server LTS 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatlib-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Manager Server LTS 4.3",
+          "product_id": "SUSE Manager Server LTS 4.3:qatlib-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatlib-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Server LTS 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64 as component of SUSE Manager Server LTS 4.3",
+          "product_id": "SUSE Manager Server LTS 4.3:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64"
+        },
+        "product_reference": "qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Server LTS 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatzip-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Manager Server LTS 4.3",
+          "product_id": "SUSE Manager Server LTS 4.3:qatzip-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "qatzip-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Server LTS 4.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64 as component of SUSE Manager Server LTS 4.3",
+          "product_id": "SUSE Manager Server LTS 4.3:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64"
+        },
+        "product_reference": "qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Server LTS 4.3"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2024-28885",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-28885"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Observable discrepancy in some Intel(R) QAT Engine for OpenSSL software before version v1.6.1 may allow information disclosure via network access.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 23.4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 23.4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "Open Enterprise Server 23.4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 23.4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 23.4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 23.4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 23.4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "Open Enterprise Server 23.4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "Open Enterprise Server 24.4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 24.4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "Open Enterprise Server 24.4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 24.4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 24.4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 24.4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 24.4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "Open Enterprise Server 24.4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Manager Server LTS 4.3:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Server LTS 4.3:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Manager Server LTS 4.3:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Server LTS 4.3:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Manager Server LTS 4.3:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Server LTS 4.3:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Server LTS 4.3:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Manager Server LTS 4.3:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-28885",
+          "url": "https://www.suse.com/security/cve/CVE-2024-28885"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1233363 for CVE-2024-28885",
+          "url": "https://bugzilla.suse.com/1233363"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 23.4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 23.4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 23.4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 24.4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 24.4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 24.4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Server LTS 4.3:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Server LTS 4.3:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 23.4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 23.4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 23.4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 24.4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 24.4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 24.4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Server LTS 4.3:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Server LTS 4.3:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-11-05T08:16:02Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-28885"
+    },
+    {
+      "cve": "CVE-2024-31074",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-31074"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Observable timing discrepancy in some Intel(R) QAT Engine for OpenSSL software before version v1.6.1 may allow information disclosure via network access.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 23.4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 23.4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "Open Enterprise Server 23.4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 23.4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 23.4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 23.4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 23.4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "Open Enterprise Server 23.4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "Open Enterprise Server 24.4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 24.4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "Open Enterprise Server 24.4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 24.4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 24.4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 24.4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 24.4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "Open Enterprise Server 24.4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Manager Server LTS 4.3:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Server LTS 4.3:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Manager Server LTS 4.3:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Server LTS 4.3:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Manager Server LTS 4.3:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Server LTS 4.3:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Server LTS 4.3:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Manager Server LTS 4.3:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-31074",
+          "url": "https://www.suse.com/security/cve/CVE-2024-31074"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1233365 for CVE-2024-31074",
+          "url": "https://bugzilla.suse.com/1233365"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 23.4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 23.4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 23.4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 24.4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 24.4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 24.4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Server LTS 4.3:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Server LTS 4.3:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 23.4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 23.4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 23.4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 24.4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 24.4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 24.4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Server LTS 4.3:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Server LTS 4.3:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-11-05T08:16:02Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-31074"
+    },
+    {
+      "cve": "CVE-2024-33617",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-33617"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Insufficient control flow management in some Intel(R) QAT Engine for OpenSSL software before version v1.6.1 may allow information disclosure via network access.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 23.4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 23.4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "Open Enterprise Server 23.4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 23.4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 23.4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 23.4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 23.4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "Open Enterprise Server 23.4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "Open Enterprise Server 24.4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 24.4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "Open Enterprise Server 24.4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 24.4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 24.4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 24.4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "Open Enterprise Server 24.4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "Open Enterprise Server 24.4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Manager Proxy LTS 4.3:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Manager Server LTS 4.3:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Server LTS 4.3:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Manager Server LTS 4.3:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Server LTS 4.3:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+          "SUSE Manager Server LTS 4.3:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Server LTS 4.3:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+          "SUSE Manager Server LTS 4.3:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+          "SUSE Manager Server LTS 4.3:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-33617",
+          "url": "https://www.suse.com/security/cve/CVE-2024-33617"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1233366 for CVE-2024-33617",
+          "url": "https://bugzilla.suse.com/1233366"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 23.4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 23.4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 23.4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 24.4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 24.4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 24.4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Server LTS 4.3:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Server LTS 4.3:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 23.4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 23.4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 23.4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 23.4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 24.4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 24.4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "Open Enterprise Server 24.4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "Open Enterprise Server 24.4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Proxy LTS 4.3:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Server LTS 4.3:libqat4-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:libqatzip3-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Server LTS 4.3:libusdm0-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatengine-0:1.7.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatlib-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatlib-devel-0:24.09.0-150400.3.6.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatzip-0:1.1.0-150400.3.3.1.x86_64",
+            "SUSE Manager Server LTS 4.3:qatzip-devel-0:1.1.0-150400.3.3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-11-05T08:16:02Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-33617"
+    }
+  ]
+}

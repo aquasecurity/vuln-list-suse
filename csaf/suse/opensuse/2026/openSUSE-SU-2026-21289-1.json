@@ -1,0 +1,803 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for tiff",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for tiff fixes the following issues\n\n- CVE-2026-12912: heap-based buffer overflow when processing crafted PixarLog-compressed TIFF image (bsc#1269779).\n- CVE-2026-36849: denial of service when processing a a crafted TIFF file containing a large SamplesPerPixel tag value\n  (bsc#1268434).\n\nChanges for tiff:\n\n- Update to 4.7.2:\n\n Software configuration changes:\n\n * cmake: Fix bundle identifiers to use reverse-DNS format\n * cmake: Fix and improve Apple framework build support\n * cmake: Use TurboJPEG CONFIG by default (issue #767)\n * cmake: changes related to 8-/12-bit modes\n * cmake: Replace CMath::CMath with direct link to avoid export.\n * Support for iOS-derived builds\n * Simplify cmake byte order version check\n * Add additional warnings, primarily floating precision conversions and integer arithmetic conversions\n * configure.ac: Require bootstrap with at least Autoconf 2.71.\n\n Bug fixes:\n\n * Handle negative TIFFReadFile results before state updates (issue #854)\n * tif_dirread.c: fix copy-paste bug in ChopUpSingleUncompressedStrip\n * tif_read.c: Fixed division by zero in TIFFStartStrip() (issue #777)\n * tif_dirwrite.c: add integer overflow checks to allocation size calculations\n * tif_print.c: add integer overflow checks to allocation size calculations\n * tif_write.c: fix OOB read and underflow in TIFFAppendToStrip copy loop\n * DumpModeSeek: add bounds check to prevent OOB pointer advance\n * TIFFGrowStrips: fix use-after-free on partial realloc failure.\n * Fix NULL dereference in _TIFFReserveLargeEnoughWriteBuffer() by validating the strip bytecount array before accessing it.\n * TIFFRGBAImage: avoid int overflows in put functions (issue #830)\n * tif_getimage: fix inconsistent fromskew handling in put16bitbwtile (issue #792)\n * tif_getimage: Widen pointer-offset arithmetic in tif_getimage\n * putcontig8bitYCbCr44tile: fix wrong fromskew computation (issue #798)\n * putcontig8bitYCbCr42tile: Reject invalid YCbCr subsampling when image dimensions are smaller than the subsampling block to prevent out-of-bounds writes. (issue #753)\n * TIFFFillStrip/Tile(): avoid excessive memory allocation (issue #831)\n * TIFFLinkDirectory() checks for IFD loops (issue #788)\n * Check result of _TIFFCheckRealloc to prevent memory leaks and segmentation fault when reallocation fails.\n * TIFFVTileSize64(): in YCbCr contig non upsampled mode, validate td_samplesperpixel==3 (issue #805)\n * TIFFReadDirEntryPersampleShort(): be tolerant to tags like SampleFormat not having 1 or SamplesPerPixel values (https://github.com/OSGeo/gdal/issues/13465)\n * tif_getimage: reject tile widths that would overflow toskew (issue #808)\n * Fix integer overflow in _TIFFPartialReadStripArray on 32-bit.\n * TIFFAppendToStrip(): add some checks to avoid null-pointer-dereferencing (issue #777).\n * _TIFFGetStrileOffsetOrByteCountValue(): fix potential crash on corrupted files when file opened in 'O' mode (https://issues.oss-fuzz.com/issues/471328917)\n * TIFFReadDirectory(): re-set TIFF_LAZYSTRILELOAD if file opened in 'O' mode\n * _TIFFMergeFields(): avoid NULL ptr dereference (issue #755).\n * Check td_stripbytecount_p and td_stripoffset_p for NULL pointer before (re-)writing to file. (issue #749)\n * JPEGDecodeRaw: initialize output buffer to avoid returning uninitialized memory (issue #892)\n * JPEG decompressor: initialize output buffer when JPEG image is smaller than strile dimension to avoid heap memory disclosure (issue #826)\n * JPEG: fix generation of tiled 12-bit JPEG compressed files with libjpeg-turbo 3.0.3 (issue #773)\n * JPEGDecode(): fix memory leak in error code path (https://issues.oss-fuzz.com/issues/471945501)\n * tif_jpeg: reject mismatched JPEG data precision to avoid write overflow\n * Fix signed left-shift UB in LogLuv RANDITHER encoding (issue #850)\n * PixarLog: error out on invalid ABGR output buffer sizes.\n * PixarLog: complete ABGR bounds check for multi-row strip decoding.\n * PixarLog: fix undoing horizontal differencing when SamplesPerPixel != 3 and 4 (issue #789).\n * PixarLog codec: fix potential integer overflow/out-of-bounds access (issue #797)\n * TIFFAdvanceDirectory(): avoid potential read heap-buffer-overflow in mmap code path on 32 bit builds (https://issues.oss-fuzz.com/issues/506737072)\n * OJPEG: fix integer overflow in subsampling buffer allocation.\n * OJPEG: fix nullptr deref when changing compression method from OJPEG to something else (issue #795).\n * OJPEG fix potential integer overflow/out-of-bounds access (issue #796).\n * ojpeg: prevent EOF infinite loop (fixes commit 2a3d55b)\n * fix null pointer deference in issue #782.\n * fix stack-overflow in issue #784.\n\n Other changes:\n\n * Change EXIF and GPS tag type from IFD8 to LONG8 per EXIF-specification (issue #739).\n * Harden integer size and offset calculations (issue #897)\n * TIFFComputeTile/TIFFComputeStrip: use overflow-checked multiplication\n * Move widening casts inside multiplication scope.\n * Lots of compiler warning fixes related to enabling more warning flags\n * Align writing and reading of TIFF_LONG8 and TIFF_IFD8 tags (issue #773)\n * TIFFFillStrip(): prevent harmless unsigned integer overflow\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-1200",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_21289-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1268434",
+        "url": "https://bugzilla.suse.com/1268434"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269779",
+        "url": "https://bugzilla.suse.com/1269779"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-12912 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-12912/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-36849 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-36849/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-4775 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-4775/"
+      }
+    ],
+    "title": "Security update for tiff",
+    "tracking": {
+      "current_release_date": "2026-11-03T21:54:04Z",
+      "generator": {
+        "date": "2026-07-10T08:42:03Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:21289-1",
+      "initial_release_date": "2026-07-10T08:42:03Z",
+      "revision_history": [
+        {
+          "date": "2026-07-10T08:42:03Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:41:35Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:43:22Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:38:23Z",
+          "number": "4",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-10-16T16:09:07Z",
+          "number": "5",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-11-03T21:54:04Z",
+          "number": "6",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "6"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libtiff-devel-0:4.7.2-160000.1.1.aarch64",
+                "product": {
+                  "name": "libtiff-devel-0:4.7.2-160000.1.1.aarch64",
+                  "product_id": "libtiff-devel-0:4.7.2-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:libtiff:libtiff:4.7.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libtiff-devel@4.7.2-160000.1.1?arch=aarch64\u0026upstream=tiff-0:4.7.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libtiff6-0:4.7.2-160000.1.1.aarch64",
+                "product": {
+                  "name": "libtiff6-0:4.7.2-160000.1.1.aarch64",
+                  "product_id": "libtiff6-0:4.7.2-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:libtiff:libtiff:4.7.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libtiff6@4.7.2-160000.1.1?arch=aarch64\u0026upstream=tiff-0:4.7.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "tiff-0:4.7.2-160000.1.1.aarch64",
+                "product": {
+                  "name": "tiff-0:4.7.2-160000.1.1.aarch64",
+                  "product_id": "tiff-0:4.7.2-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:libtiff:libtiff:4.7.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/tiff@4.7.2-160000.1.1?arch=aarch64\u0026upstream=tiff-0:4.7.2-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libtiff-devel-docs-0:4.7.2-160000.1.1.noarch",
+                "product": {
+                  "name": "libtiff-devel-docs-0:4.7.2-160000.1.1.noarch",
+                  "product_id": "libtiff-devel-docs-0:4.7.2-160000.1.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:libtiff:libtiff:4.7.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libtiff-devel-docs@4.7.2-160000.1.1?arch=noarch\u0026upstream=tiff-0:4.7.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "tiff-docs-0:4.7.2-160000.1.1.noarch",
+                "product": {
+                  "name": "tiff-docs-0:4.7.2-160000.1.1.noarch",
+                  "product_id": "tiff-docs-0:4.7.2-160000.1.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:libtiff:libtiff:4.7.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/tiff-docs@4.7.2-160000.1.1?arch=noarch\u0026upstream=tiff-0:4.7.2-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libtiff-devel-0:4.7.2-160000.1.1.ppc64le",
+                "product": {
+                  "name": "libtiff-devel-0:4.7.2-160000.1.1.ppc64le",
+                  "product_id": "libtiff-devel-0:4.7.2-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:libtiff:libtiff:4.7.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libtiff-devel@4.7.2-160000.1.1?arch=ppc64le\u0026upstream=tiff-0:4.7.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libtiff6-0:4.7.2-160000.1.1.ppc64le",
+                "product": {
+                  "name": "libtiff6-0:4.7.2-160000.1.1.ppc64le",
+                  "product_id": "libtiff6-0:4.7.2-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:libtiff:libtiff:4.7.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libtiff6@4.7.2-160000.1.1?arch=ppc64le\u0026upstream=tiff-0:4.7.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "tiff-0:4.7.2-160000.1.1.ppc64le",
+                "product": {
+                  "name": "tiff-0:4.7.2-160000.1.1.ppc64le",
+                  "product_id": "tiff-0:4.7.2-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:libtiff:libtiff:4.7.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/tiff@4.7.2-160000.1.1?arch=ppc64le\u0026upstream=tiff-0:4.7.2-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libtiff-devel-0:4.7.2-160000.1.1.s390x",
+                "product": {
+                  "name": "libtiff-devel-0:4.7.2-160000.1.1.s390x",
+                  "product_id": "libtiff-devel-0:4.7.2-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:libtiff:libtiff:4.7.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libtiff-devel@4.7.2-160000.1.1?arch=s390x\u0026upstream=tiff-0:4.7.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libtiff6-0:4.7.2-160000.1.1.s390x",
+                "product": {
+                  "name": "libtiff6-0:4.7.2-160000.1.1.s390x",
+                  "product_id": "libtiff6-0:4.7.2-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:libtiff:libtiff:4.7.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libtiff6@4.7.2-160000.1.1?arch=s390x\u0026upstream=tiff-0:4.7.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "tiff-0:4.7.2-160000.1.1.s390x",
+                "product": {
+                  "name": "tiff-0:4.7.2-160000.1.1.s390x",
+                  "product_id": "tiff-0:4.7.2-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:libtiff:libtiff:4.7.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/tiff@4.7.2-160000.1.1?arch=s390x\u0026upstream=tiff-0:4.7.2-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libtiff-devel-0:4.7.2-160000.1.1.x86_64",
+                "product": {
+                  "name": "libtiff-devel-0:4.7.2-160000.1.1.x86_64",
+                  "product_id": "libtiff-devel-0:4.7.2-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:libtiff:libtiff:4.7.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libtiff-devel@4.7.2-160000.1.1?arch=x86_64\u0026upstream=tiff-0:4.7.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libtiff6-0:4.7.2-160000.1.1.x86_64",
+                "product": {
+                  "name": "libtiff6-0:4.7.2-160000.1.1.x86_64",
+                  "product_id": "libtiff6-0:4.7.2-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:libtiff:libtiff:4.7.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libtiff6@4.7.2-160000.1.1?arch=x86_64\u0026upstream=tiff-0:4.7.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "tiff-0:4.7.2-160000.1.1.x86_64",
+                "product": {
+                  "name": "tiff-0:4.7.2-160000.1.1.x86_64",
+                  "product_id": "tiff-0:4.7.2-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:libtiff:libtiff:4.7.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/tiff@4.7.2-160000.1.1?arch=x86_64\u0026upstream=tiff-0:4.7.2-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libtiff-devel-0:4.7.2-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.aarch64"
+        },
+        "product_reference": "libtiff-devel-0:4.7.2-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libtiff-devel-0:4.7.2-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.ppc64le"
+        },
+        "product_reference": "libtiff-devel-0:4.7.2-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libtiff-devel-0:4.7.2-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.s390x"
+        },
+        "product_reference": "libtiff-devel-0:4.7.2-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libtiff-devel-0:4.7.2-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.x86_64"
+        },
+        "product_reference": "libtiff-devel-0:4.7.2-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libtiff-devel-docs-0:4.7.2-160000.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libtiff-devel-docs-0:4.7.2-160000.1.1.noarch"
+        },
+        "product_reference": "libtiff-devel-docs-0:4.7.2-160000.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libtiff6-0:4.7.2-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.aarch64"
+        },
+        "product_reference": "libtiff6-0:4.7.2-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libtiff6-0:4.7.2-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.ppc64le"
+        },
+        "product_reference": "libtiff6-0:4.7.2-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libtiff6-0:4.7.2-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.s390x"
+        },
+        "product_reference": "libtiff6-0:4.7.2-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libtiff6-0:4.7.2-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.x86_64"
+        },
+        "product_reference": "libtiff6-0:4.7.2-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "tiff-0:4.7.2-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.aarch64"
+        },
+        "product_reference": "tiff-0:4.7.2-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "tiff-0:4.7.2-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.ppc64le"
+        },
+        "product_reference": "tiff-0:4.7.2-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "tiff-0:4.7.2-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.s390x"
+        },
+        "product_reference": "tiff-0:4.7.2-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "tiff-0:4.7.2-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.x86_64"
+        },
+        "product_reference": "tiff-0:4.7.2-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "tiff-docs-0:4.7.2-160000.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:tiff-docs-0:4.7.2-160000.1.1.noarch"
+        },
+        "product_reference": "tiff-docs-0:4.7.2-160000.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-12912",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-12912"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libtiff. A remote attacker could exploit this vulnerability by providing a specially crafted PixarLog-compressed TIFF image. This issue occurs when decoding Pixarlog codec images with the PIXARLOGDATAFMT_8BITABGR output format and a specific stride value, leading to a heap-based buffer overflow. This could potentially result in arbitrary code execution or a denial of service (DoS).",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libtiff-devel-docs-0:4.7.2-160000.1.1.noarch",
+          "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.s390x",
+          "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:tiff-docs-0:4.7.2-160000.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-12912",
+          "url": "https://www.suse.com/security/cve/CVE-2026-12912"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269779 for CVE-2026-12912",
+          "url": "https://bugzilla.suse.com/1269779"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libtiff-devel-docs-0:4.7.2-160000.1.1.noarch",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:tiff-docs-0:4.7.2-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.3,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libtiff-devel-docs-0:4.7.2-160000.1.1.noarch",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:tiff-docs-0:4.7.2-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-07-10T08:42:03Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-12912"
+    },
+    {
+      "cve": "CVE-2026-36849",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-36849"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "unknown",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libtiff-devel-docs-0:4.7.2-160000.1.1.noarch",
+          "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.s390x",
+          "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:tiff-docs-0:4.7.2-160000.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-36849",
+          "url": "https://www.suse.com/security/cve/CVE-2026-36849"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268434 for CVE-2026-36849",
+          "url": "https://bugzilla.suse.com/1268434"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libtiff-devel-docs-0:4.7.2-160000.1.1.noarch",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:tiff-docs-0:4.7.2-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libtiff-devel-docs-0:4.7.2-160000.1.1.noarch",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:tiff-docs-0:4.7.2-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-07-10T08:42:03Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-36849"
+    },
+    {
+      "cve": "CVE-2026-4775",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-4775"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in the libtiff library. A remote attacker could exploit a signed integer overflow vulnerability in the putcontig8bitYCbCr44tile function by providing a specially crafted TIFF file. This flaw can lead to an out-of-bounds heap write due to incorrect memory pointer calculations, potentially causing a denial of service (application crash) or arbitrary code execution.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libtiff-devel-docs-0:4.7.2-160000.1.1.noarch",
+          "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.s390x",
+          "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:tiff-docs-0:4.7.2-160000.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-4775",
+          "url": "https://www.suse.com/security/cve/CVE-2026-4775"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1260411 for CVE-2026-4775",
+          "url": "https://bugzilla.suse.com/1260411"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1272954 for CVE-2026-4775",
+          "url": "https://bugzilla.suse.com/1272954"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1277178 for CVE-2026-4775",
+          "url": "https://bugzilla.suse.com/1277178"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1283989 for CVE-2026-4775",
+          "url": "https://bugzilla.suse.com/1283989"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libtiff-devel-docs-0:4.7.2-160000.1.1.noarch",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:tiff-docs-0:4.7.2-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.6,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libtiff-devel-0:4.7.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libtiff-devel-docs-0:4.7.2-160000.1.1.noarch",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libtiff6-0:4.7.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:tiff-0:4.7.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:tiff-docs-0:4.7.2-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-07-10T08:42:03Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-4775"
+    }
+  ]
+}

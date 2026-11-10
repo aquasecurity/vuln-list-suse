@@ -1,0 +1,199 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "critical"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for python-joserfc",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for python-joserfc fixes the following issues:\n\nChanges in python-joserfc:\n\n- CVE-2026-102946: JWS signature verification can be bypassed via empty\n  signatures array (bsc#1285840)\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-686",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_22136-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1285840",
+        "url": "https://bugzilla.suse.com/1285840"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-102946 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-102946/"
+      }
+    ],
+    "title": "Security update for python-joserfc",
+    "tracking": {
+      "current_release_date": "2026-10-21T11:53:50Z",
+      "generator": {
+        "date": "2026-10-19T16:37:12Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:22136-1",
+      "initial_release_date": "2026-10-19T16:37:12Z",
+      "revision_history": [
+        {
+          "date": "2026-10-19T16:37:12Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-10-21T11:53:50Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "python313-joserfc-0:1.1.0-bp160.5.1.noarch",
+                "product": {
+                  "name": "python313-joserfc-0:1.1.0-bp160.5.1.noarch",
+                  "product_id": "python313-joserfc-0:1.1.0-bp160.5.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/python313-joserfc@1.1.0-bp160.5.1?arch=noarch"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python313-joserfc-0:1.1.0-bp160.5.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:python313-joserfc-0:1.1.0-bp160.5.1.noarch"
+        },
+        "product_reference": "python313-joserfc-0:1.1.0-bp160.5.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-102946",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-102946"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "joserfc is a Python library that provides an implementation of several JSON Object Signing and Encryption (JOSE) standards. Prior to 1.7.4, joserfc.jws.deserialize_json() accepts a JWS General JSON Serialization with an empty signatures array as authenticated. The verify_general_json() loop performs no iterations for the empty array and returns success because no signature check failed, allowing an attacker without a signing key to supply an arbitrary payload that relying applications may treat as authentic. The issue affects the General JSON Serialization path; compact JWS and JWT decoding, Flattened JSON serialization, and JWE JSON processing do not follow this vulnerable path. This issue is fixed in version 1.7.4.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-joserfc-0:1.1.0-bp160.5.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-102946",
+          "url": "https://www.suse.com/security/cve/CVE-2026-102946"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1285840 for CVE-2026-102946",
+          "url": "https://bugzilla.suse.com/1285840"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-joserfc-0:1.1.0-bp160.5.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-19T16:37:12Z",
+          "details": "critical"
+        }
+      ],
+      "title": "CVE-2026-102946"
+    }
+  ]
+}

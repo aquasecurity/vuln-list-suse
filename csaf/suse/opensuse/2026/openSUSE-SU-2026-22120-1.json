@@ -1,0 +1,495 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for cups-filters",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for cups-filters fixes the following issues:\n\nChanges in cups-filters:\n\n- No longer provide the serial backend with 0700 permissions\n  so cupsd does no longer run it as root but as usual\n  as user 'lp' to avoid CVE-2026-95511\n  \"Root arbitrary file overwrite via serial ... device-URI path\"\n  https://github.com/OpenPrinting/cups-filters/security/advisories/GHSA-m74w-wg6q-vvpj\n  \"`lpadmin` user can escalate privileges to `root` via printers\n   that uses a privileged serial backend\" (bsc#1282291)\n  Note the general security advice in the section\n  \"Allow printer admin tasks for a normal user\" in\n  https://en.opensuse.org/SDB:CUPS_in_a_Nutshell\n\n- No longer provide any other backend with 0700 permissions\n  so cupsd does no longer run them as root but as usual\n  as user 'lp' because running something as root by default\n  is a generic security issue which we avoid now by default\n  so the user must set less secure permissions manually\n  only as specifically needed. In particular no longer provide\n  /usr/lib/cups/backend/beh\n  /usr/lib/cups/backend/cups-brf\n  /usr/lib/cups/backend/implicitclass\n  with 0700 permissions by default so in particular\n  https://bugzilla.opensuse.org/show_bug.cgi?id=1178604\n  re-appears but security by default is mandatory nowadays,\n  cf. the sections \"Security: Make Things Not Just Work\"\n  and \"Automated print queue setup via cups-browsed\" in\n  https://en.opensuse.org/SDB:CUPS_and_SANE_Firewall_settings\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-670",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_22120-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1282291",
+        "url": "https://bugzilla.suse.com/1282291"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-95511 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-95511/"
+      }
+    ],
+    "title": "Security update for cups-filters",
+    "tracking": {
+      "current_release_date": "2026-10-19T17:25:37Z",
+      "generator": {
+        "date": "2026-10-15T22:10:08Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:22120-1",
+      "initial_release_date": "2026-10-15T22:10:08Z",
+      "revision_history": [
+        {
+          "date": "2026-10-15T22:10:08Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-10-19T17:25:37Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cups-filters-0:1.28.17-bp160.3.1.aarch64",
+                "product": {
+                  "name": "cups-filters-0:1.28.17-bp160.3.1.aarch64",
+                  "product_id": "cups-filters-0:1.28.17-bp160.3.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:linuxfoundation:cups-filters:1.28.17:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cups-filters@1.28.17-bp160.3.1?arch=aarch64\u0026upstream=cups-filters-0:1.28.17-bp160.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cups-filters-cups-browsed-0:1.28.17-bp160.3.1.aarch64",
+                "product": {
+                  "name": "cups-filters-cups-browsed-0:1.28.17-bp160.3.1.aarch64",
+                  "product_id": "cups-filters-cups-browsed-0:1.28.17-bp160.3.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:linuxfoundation:cups-filters:1.28.17:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cups-filters-cups-browsed@1.28.17-bp160.3.1?arch=aarch64\u0026upstream=cups-filters-0:1.28.17-bp160.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cups-filters-devel-0:1.28.17-bp160.3.1.aarch64",
+                "product": {
+                  "name": "cups-filters-devel-0:1.28.17-bp160.3.1.aarch64",
+                  "product_id": "cups-filters-devel-0:1.28.17-bp160.3.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:linuxfoundation:cups-filters:1.28.17:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cups-filters-devel@1.28.17-bp160.3.1?arch=aarch64\u0026upstream=cups-filters-0:1.28.17-bp160.3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cups-filters-0:1.28.17-bp160.3.1.ppc64le",
+                "product": {
+                  "name": "cups-filters-0:1.28.17-bp160.3.1.ppc64le",
+                  "product_id": "cups-filters-0:1.28.17-bp160.3.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:linuxfoundation:cups-filters:1.28.17:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cups-filters@1.28.17-bp160.3.1?arch=ppc64le\u0026upstream=cups-filters-0:1.28.17-bp160.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cups-filters-cups-browsed-0:1.28.17-bp160.3.1.ppc64le",
+                "product": {
+                  "name": "cups-filters-cups-browsed-0:1.28.17-bp160.3.1.ppc64le",
+                  "product_id": "cups-filters-cups-browsed-0:1.28.17-bp160.3.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:linuxfoundation:cups-filters:1.28.17:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cups-filters-cups-browsed@1.28.17-bp160.3.1?arch=ppc64le\u0026upstream=cups-filters-0:1.28.17-bp160.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cups-filters-devel-0:1.28.17-bp160.3.1.ppc64le",
+                "product": {
+                  "name": "cups-filters-devel-0:1.28.17-bp160.3.1.ppc64le",
+                  "product_id": "cups-filters-devel-0:1.28.17-bp160.3.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:linuxfoundation:cups-filters:1.28.17:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cups-filters-devel@1.28.17-bp160.3.1?arch=ppc64le\u0026upstream=cups-filters-0:1.28.17-bp160.3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cups-filters-0:1.28.17-bp160.3.1.s390x",
+                "product": {
+                  "name": "cups-filters-0:1.28.17-bp160.3.1.s390x",
+                  "product_id": "cups-filters-0:1.28.17-bp160.3.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:linuxfoundation:cups-filters:1.28.17:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cups-filters@1.28.17-bp160.3.1?arch=s390x\u0026upstream=cups-filters-0:1.28.17-bp160.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cups-filters-cups-browsed-0:1.28.17-bp160.3.1.s390x",
+                "product": {
+                  "name": "cups-filters-cups-browsed-0:1.28.17-bp160.3.1.s390x",
+                  "product_id": "cups-filters-cups-browsed-0:1.28.17-bp160.3.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:linuxfoundation:cups-filters:1.28.17:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cups-filters-cups-browsed@1.28.17-bp160.3.1?arch=s390x\u0026upstream=cups-filters-0:1.28.17-bp160.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cups-filters-devel-0:1.28.17-bp160.3.1.s390x",
+                "product": {
+                  "name": "cups-filters-devel-0:1.28.17-bp160.3.1.s390x",
+                  "product_id": "cups-filters-devel-0:1.28.17-bp160.3.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:linuxfoundation:cups-filters:1.28.17:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cups-filters-devel@1.28.17-bp160.3.1?arch=s390x\u0026upstream=cups-filters-0:1.28.17-bp160.3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cups-filters-0:1.28.17-bp160.3.1.x86_64",
+                "product": {
+                  "name": "cups-filters-0:1.28.17-bp160.3.1.x86_64",
+                  "product_id": "cups-filters-0:1.28.17-bp160.3.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:linuxfoundation:cups-filters:1.28.17:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cups-filters@1.28.17-bp160.3.1?arch=x86_64\u0026upstream=cups-filters-0:1.28.17-bp160.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cups-filters-cups-browsed-0:1.28.17-bp160.3.1.x86_64",
+                "product": {
+                  "name": "cups-filters-cups-browsed-0:1.28.17-bp160.3.1.x86_64",
+                  "product_id": "cups-filters-cups-browsed-0:1.28.17-bp160.3.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:linuxfoundation:cups-filters:1.28.17:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cups-filters-cups-browsed@1.28.17-bp160.3.1?arch=x86_64\u0026upstream=cups-filters-0:1.28.17-bp160.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cups-filters-devel-0:1.28.17-bp160.3.1.x86_64",
+                "product": {
+                  "name": "cups-filters-devel-0:1.28.17-bp160.3.1.x86_64",
+                  "product_id": "cups-filters-devel-0:1.28.17-bp160.3.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:linuxfoundation:cups-filters:1.28.17:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cups-filters-devel@1.28.17-bp160.3.1?arch=x86_64\u0026upstream=cups-filters-0:1.28.17-bp160.3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cups-filters-0:1.28.17-bp160.3.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cups-filters-0:1.28.17-bp160.3.1.aarch64"
+        },
+        "product_reference": "cups-filters-0:1.28.17-bp160.3.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cups-filters-0:1.28.17-bp160.3.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cups-filters-0:1.28.17-bp160.3.1.ppc64le"
+        },
+        "product_reference": "cups-filters-0:1.28.17-bp160.3.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cups-filters-0:1.28.17-bp160.3.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cups-filters-0:1.28.17-bp160.3.1.s390x"
+        },
+        "product_reference": "cups-filters-0:1.28.17-bp160.3.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cups-filters-0:1.28.17-bp160.3.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cups-filters-0:1.28.17-bp160.3.1.x86_64"
+        },
+        "product_reference": "cups-filters-0:1.28.17-bp160.3.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cups-filters-cups-browsed-0:1.28.17-bp160.3.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cups-filters-cups-browsed-0:1.28.17-bp160.3.1.aarch64"
+        },
+        "product_reference": "cups-filters-cups-browsed-0:1.28.17-bp160.3.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cups-filters-cups-browsed-0:1.28.17-bp160.3.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cups-filters-cups-browsed-0:1.28.17-bp160.3.1.ppc64le"
+        },
+        "product_reference": "cups-filters-cups-browsed-0:1.28.17-bp160.3.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cups-filters-cups-browsed-0:1.28.17-bp160.3.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cups-filters-cups-browsed-0:1.28.17-bp160.3.1.s390x"
+        },
+        "product_reference": "cups-filters-cups-browsed-0:1.28.17-bp160.3.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cups-filters-cups-browsed-0:1.28.17-bp160.3.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cups-filters-cups-browsed-0:1.28.17-bp160.3.1.x86_64"
+        },
+        "product_reference": "cups-filters-cups-browsed-0:1.28.17-bp160.3.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cups-filters-devel-0:1.28.17-bp160.3.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cups-filters-devel-0:1.28.17-bp160.3.1.aarch64"
+        },
+        "product_reference": "cups-filters-devel-0:1.28.17-bp160.3.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cups-filters-devel-0:1.28.17-bp160.3.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cups-filters-devel-0:1.28.17-bp160.3.1.ppc64le"
+        },
+        "product_reference": "cups-filters-devel-0:1.28.17-bp160.3.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cups-filters-devel-0:1.28.17-bp160.3.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cups-filters-devel-0:1.28.17-bp160.3.1.s390x"
+        },
+        "product_reference": "cups-filters-devel-0:1.28.17-bp160.3.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cups-filters-devel-0:1.28.17-bp160.3.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cups-filters-devel-0:1.28.17-bp160.3.1.x86_64"
+        },
+        "product_reference": "cups-filters-devel-0:1.28.17-bp160.3.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-95511",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-95511"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Not a vulnerability. Creating a serial queue that overwrites cups-files.conf requires membership in SystemGroups (lpadmin), which is an opt-in cupsd admin role granted by a superuser. No privilege boundary is crossed.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:cups-filters-0:1.28.17-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:cups-filters-0:1.28.17-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:cups-filters-0:1.28.17-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:cups-filters-0:1.28.17-bp160.3.1.x86_64",
+          "openSUSE Leap 16.0:cups-filters-cups-browsed-0:1.28.17-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:cups-filters-cups-browsed-0:1.28.17-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:cups-filters-cups-browsed-0:1.28.17-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:cups-filters-cups-browsed-0:1.28.17-bp160.3.1.x86_64",
+          "openSUSE Leap 16.0:cups-filters-devel-0:1.28.17-bp160.3.1.aarch64",
+          "openSUSE Leap 16.0:cups-filters-devel-0:1.28.17-bp160.3.1.ppc64le",
+          "openSUSE Leap 16.0:cups-filters-devel-0:1.28.17-bp160.3.1.s390x",
+          "openSUSE Leap 16.0:cups-filters-devel-0:1.28.17-bp160.3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-95511",
+          "url": "https://www.suse.com/security/cve/CVE-2026-95511"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1282291 for CVE-2026-95511",
+          "url": "https://bugzilla.suse.com/1282291"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:cups-filters-0:1.28.17-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:cups-filters-0:1.28.17-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:cups-filters-0:1.28.17-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:cups-filters-0:1.28.17-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:cups-filters-cups-browsed-0:1.28.17-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:cups-filters-cups-browsed-0:1.28.17-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:cups-filters-cups-browsed-0:1.28.17-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:cups-filters-cups-browsed-0:1.28.17-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:cups-filters-devel-0:1.28.17-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:cups-filters-devel-0:1.28.17-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:cups-filters-devel-0:1.28.17-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:cups-filters-devel-0:1.28.17-bp160.3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:cups-filters-0:1.28.17-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:cups-filters-0:1.28.17-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:cups-filters-0:1.28.17-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:cups-filters-0:1.28.17-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:cups-filters-cups-browsed-0:1.28.17-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:cups-filters-cups-browsed-0:1.28.17-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:cups-filters-cups-browsed-0:1.28.17-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:cups-filters-cups-browsed-0:1.28.17-bp160.3.1.x86_64",
+            "openSUSE Leap 16.0:cups-filters-devel-0:1.28.17-bp160.3.1.aarch64",
+            "openSUSE Leap 16.0:cups-filters-devel-0:1.28.17-bp160.3.1.ppc64le",
+            "openSUSE Leap 16.0:cups-filters-devel-0:1.28.17-bp160.3.1.s390x",
+            "openSUSE Leap 16.0:cups-filters-devel-0:1.28.17-bp160.3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-15T22:10:08Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-95511"
+    }
+  ]
+}

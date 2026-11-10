@@ -1,0 +1,383 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for build, product-composer",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for build, product-composer fixes the following issues:\n\nChanges in build:\n\n- Support a new \"IgnoreRebuild\" config.\n\n- build-recipe-kiwi:\n\n  * Add support for oci containers\n  * Avoid needlessly compressing container images\n  * Detect container images based on build result file name\n\n- Fix queryrecipe to use the summary and the description from the main package\n\n- config: Add slfo-main build configuration\n- drop the inner quotes, not needed on bash 4 and breaks on bash 3\n- build: in the ccache case, after test -e also accept -L\n\n- container:\n\n  * Add microdnf package manager support\n  * Add experimental support for the container-timestamp build option\n\n- sbom:\n\n  * allow to create v1 intoto data\n  * spdx: connect OPERATING-SYSTEM package to the root package\n  * Transfer product vcs and disturl\n\n- Support --cms-nocerts and --cms-keyid in the signdummy\n- Support chroot builds inside of containers\n- runservice tool, allow to specify the modes. Can be\n  used on plain git source now also\n- Support --mtime option for cpio creation\n- generate_sbom:\n\n   * Support also unzck compressed repomd files\n   * Fail when given --product directory is missing\n   * support zstd compressed repomd data\n\n- build-vm-lxc: support lxc \u003e= 5\n- vc: Hide an annoying error message when not using NIS\n\n- added leap-16.0 and leap-16.1 build configs.\n  (not named sl16.0 anymore, but using same string as the git branch)\n\n- Implement cmssign support in signdummy\n- pbuild: mark git assets with a fixed commit as immutable\n- mkosi\n  * check if old parameters are supported before passing them\n  * support old bash version\n- Do not crash on small files that start with the PE magic\n\n- Harden export_debian_orig_from_git (CVE-2024-22038, boo#1230469)\n\nChanges in product-composer:\n\nupdate to version 0.9.6:\n\n  * Speed-up reading of rpm headers\n  * Flush output lines to get get correct timestamps in OBS\n\nupdate to version 0.9.5:\n\n  * Be a bit more verbose to track used times per step in OBS\n  * Fix a crash when doing version compare with an epoch\n\nupdate to version 0.9.4:\n\n  * Give an error when trying to add updateinfo meta data\n    without all binary revisions.\n  * Hand over vcs and disturl data to generate_sbom.\n    (We require a recent build package therefore)\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-678",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_20676-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1230469",
+        "url": "https://bugzilla.suse.com/1230469"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-22038 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-22038/"
+      }
+    ],
+    "title": "Security update for build, product-composer",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:31:48Z",
+      "generator": {
+        "date": "2026-05-05T06:49:03Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:20676-1",
+      "initial_release_date": "2026-05-05T06:49:03Z",
+      "revision_history": [
+        {
+          "date": "2026-05-05T06:49:03Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:34:25Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:37:13Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:31:48Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "build-0:20260415-160000.1.1.noarch",
+                "product": {
+                  "name": "build-0:20260415-160000.1.1.noarch",
+                  "product_id": "build-0:20260415-160000.1.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/build@20260415-160000.1.1?arch=noarch\u0026upstream=build-0:20260415-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "build-initvm-aarch64-0:20260415-160000.1.1.noarch",
+                "product": {
+                  "name": "build-initvm-aarch64-0:20260415-160000.1.1.noarch",
+                  "product_id": "build-initvm-aarch64-0:20260415-160000.1.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/build-initvm-aarch64@20260415-160000.1.1?arch=noarch\u0026upstream=build-0:20260415-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "build-initvm-powerpc64le-0:20260415-160000.1.1.noarch",
+                "product": {
+                  "name": "build-initvm-powerpc64le-0:20260415-160000.1.1.noarch",
+                  "product_id": "build-initvm-powerpc64le-0:20260415-160000.1.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/build-initvm-powerpc64le@20260415-160000.1.1?arch=noarch\u0026upstream=build-0:20260415-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "build-initvm-s390x-0:20260415-160000.1.1.noarch",
+                "product": {
+                  "name": "build-initvm-s390x-0:20260415-160000.1.1.noarch",
+                  "product_id": "build-initvm-s390x-0:20260415-160000.1.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/build-initvm-s390x@20260415-160000.1.1?arch=noarch\u0026upstream=build-0:20260415-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "build-initvm-x86_64-0:20260415-160000.1.1.noarch",
+                "product": {
+                  "name": "build-initvm-x86_64-0:20260415-160000.1.1.noarch",
+                  "product_id": "build-initvm-x86_64-0:20260415-160000.1.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/build-initvm-x86_64@20260415-160000.1.1?arch=noarch\u0026upstream=build-0:20260415-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "build-mkbaselibs-0:20260415-160000.1.1.noarch",
+                "product": {
+                  "name": "build-mkbaselibs-0:20260415-160000.1.1.noarch",
+                  "product_id": "build-mkbaselibs-0:20260415-160000.1.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/build-mkbaselibs@20260415-160000.1.1?arch=noarch\u0026upstream=build-0:20260415-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "build-mkdrpms-0:20260415-160000.1.1.noarch",
+                "product": {
+                  "name": "build-mkdrpms-0:20260415-160000.1.1.noarch",
+                  "product_id": "build-mkdrpms-0:20260415-160000.1.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/build-mkdrpms@20260415-160000.1.1?arch=noarch\u0026upstream=build-0:20260415-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "product-composer-0:0.9.6-160000.1.1.noarch",
+                "product": {
+                  "name": "product-composer-0:0.9.6-160000.1.1.noarch",
+                  "product_id": "product-composer-0:0.9.6-160000.1.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/product-composer@0.9.6-160000.1.1?arch=noarch"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "build-0:20260415-160000.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:build-0:20260415-160000.1.1.noarch"
+        },
+        "product_reference": "build-0:20260415-160000.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "build-initvm-aarch64-0:20260415-160000.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:build-initvm-aarch64-0:20260415-160000.1.1.noarch"
+        },
+        "product_reference": "build-initvm-aarch64-0:20260415-160000.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "build-initvm-powerpc64le-0:20260415-160000.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:build-initvm-powerpc64le-0:20260415-160000.1.1.noarch"
+        },
+        "product_reference": "build-initvm-powerpc64le-0:20260415-160000.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "build-initvm-s390x-0:20260415-160000.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:build-initvm-s390x-0:20260415-160000.1.1.noarch"
+        },
+        "product_reference": "build-initvm-s390x-0:20260415-160000.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "build-initvm-x86_64-0:20260415-160000.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:build-initvm-x86_64-0:20260415-160000.1.1.noarch"
+        },
+        "product_reference": "build-initvm-x86_64-0:20260415-160000.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "build-mkbaselibs-0:20260415-160000.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:build-mkbaselibs-0:20260415-160000.1.1.noarch"
+        },
+        "product_reference": "build-mkbaselibs-0:20260415-160000.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "build-mkdrpms-0:20260415-160000.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:build-mkdrpms-0:20260415-160000.1.1.noarch"
+        },
+        "product_reference": "build-mkdrpms-0:20260415-160000.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "product-composer-0:0.9.6-160000.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:product-composer-0:0.9.6-160000.1.1.noarch"
+        },
+        "product_reference": "product-composer-0:0.9.6-160000.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2024-22038",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-22038"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Various problems in obs-scm-bridge allows attackers that create specially crafted git repositories to leak information of cause denial of service.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:build-0:20260415-160000.1.1.noarch",
+          "openSUSE Leap 16.0:build-initvm-aarch64-0:20260415-160000.1.1.noarch",
+          "openSUSE Leap 16.0:build-initvm-powerpc64le-0:20260415-160000.1.1.noarch",
+          "openSUSE Leap 16.0:build-initvm-s390x-0:20260415-160000.1.1.noarch",
+          "openSUSE Leap 16.0:build-initvm-x86_64-0:20260415-160000.1.1.noarch",
+          "openSUSE Leap 16.0:build-mkbaselibs-0:20260415-160000.1.1.noarch",
+          "openSUSE Leap 16.0:build-mkdrpms-0:20260415-160000.1.1.noarch",
+          "openSUSE Leap 16.0:product-composer-0:0.9.6-160000.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-22038",
+          "url": "https://www.suse.com/security/cve/CVE-2024-22038"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1230469 for CVE-2024-22038",
+          "url": "https://bugzilla.suse.com/1230469"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:build-0:20260415-160000.1.1.noarch",
+            "openSUSE Leap 16.0:build-initvm-aarch64-0:20260415-160000.1.1.noarch",
+            "openSUSE Leap 16.0:build-initvm-powerpc64le-0:20260415-160000.1.1.noarch",
+            "openSUSE Leap 16.0:build-initvm-s390x-0:20260415-160000.1.1.noarch",
+            "openSUSE Leap 16.0:build-initvm-x86_64-0:20260415-160000.1.1.noarch",
+            "openSUSE Leap 16.0:build-mkbaselibs-0:20260415-160000.1.1.noarch",
+            "openSUSE Leap 16.0:build-mkdrpms-0:20260415-160000.1.1.noarch",
+            "openSUSE Leap 16.0:product-composer-0:0.9.6-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.3,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:L/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:build-0:20260415-160000.1.1.noarch",
+            "openSUSE Leap 16.0:build-initvm-aarch64-0:20260415-160000.1.1.noarch",
+            "openSUSE Leap 16.0:build-initvm-powerpc64le-0:20260415-160000.1.1.noarch",
+            "openSUSE Leap 16.0:build-initvm-s390x-0:20260415-160000.1.1.noarch",
+            "openSUSE Leap 16.0:build-initvm-x86_64-0:20260415-160000.1.1.noarch",
+            "openSUSE Leap 16.0:build-mkbaselibs-0:20260415-160000.1.1.noarch",
+            "openSUSE Leap 16.0:build-mkdrpms-0:20260415-160000.1.1.noarch",
+            "openSUSE Leap 16.0:product-composer-0:0.9.6-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-05-05T06:49:03Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2024-22038"
+    }
+  ]
+}

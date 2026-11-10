@@ -1,0 +1,901 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for agama",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for agama fixes the following issues:\n\nChanges in agama:\n\n- Added support for the \"inst.listen_on\" boot parameter\n\n  - The \"inst.remote=0\" option disables remote access\n    (needed for CC compliant installation jsc#PED-16702)\n  - It is possible to specify IP address (both IPv4 and IPv6)\n    or network interface, accepts comma separated list\n  - agama-web-server --address2 option removed, --address can now be repeated (jsc#AGM-153)\n\nUpdate runtime dependencies to:\n\n  - tracing-subscriber 0.3.20, CVE-2025-58160 (bsc#1249014)\n  - bytes 1.12.1, CVE-2026-25541 (bsc#1274203)\n  - serde_with 3.21.0, GHSA-7gcf-g7xr-8hxj (bsc#1271854)\n\n- Clear the IP configuration (dns-search, addresses, gateway, ...)\n  for disabled IP protocols, including values kept from the\n  existing connection, to avoid errors in NetworkManager\n  (bsc#1271644).\n\n- Handle VLAN flags properly, using the kernel default value\n  of VLAN_FLAG_REORDER_HDR when not specified\n  (bsc#1271079).\n\n- Rename the network device match settings attribute to \"match\"\n  (bsc#1271235).\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-1888",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_22075-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1249014",
+        "url": "https://bugzilla.suse.com/1249014"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1271079",
+        "url": "https://bugzilla.suse.com/1271079"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1271235",
+        "url": "https://bugzilla.suse.com/1271235"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1271644",
+        "url": "https://bugzilla.suse.com/1271644"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1271854",
+        "url": "https://bugzilla.suse.com/1271854"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1274203",
+        "url": "https://bugzilla.suse.com/1274203"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-58160 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-58160/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-25541 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-25541/"
+      }
+    ],
+    "title": "Security update for agama",
+    "tracking": {
+      "current_release_date": "2026-10-19T17:25:03Z",
+      "generator": {
+        "date": "2026-10-12T16:20:27Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:22075-1",
+      "initial_release_date": "2026-10-12T16:20:27Z",
+      "revision_history": [
+        {
+          "date": "2026-10-12T16:20:27Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-10-19T17:25:03Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "agama-0:17+699.92879916c-160000.13.1.aarch64",
+                "product": {
+                  "name": "agama-0:17+699.92879916c-160000.13.1.aarch64",
+                  "product_id": "agama-0:17+699.92879916c-160000.13.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama@17+699.92879916c-160000.13.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "agama-autoinstall-0:17+699.92879916c-160000.13.1.aarch64",
+                "product": {
+                  "name": "agama-autoinstall-0:17+699.92879916c-160000.13.1.aarch64",
+                  "product_id": "agama-autoinstall-0:17+699.92879916c-160000.13.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama-autoinstall@17+699.92879916c-160000.13.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "agama-cli-0:17+699.92879916c-160000.13.1.aarch64",
+                "product": {
+                  "name": "agama-cli-0:17+699.92879916c-160000.13.1.aarch64",
+                  "product_id": "agama-cli-0:17+699.92879916c-160000.13.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama-cli@17+699.92879916c-160000.13.1?arch=aarch64\u0026upstream=agama-0:17+699.92879916c-160000.13.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "agama-openapi-0:17+699.92879916c-160000.13.1.aarch64",
+                "product": {
+                  "name": "agama-openapi-0:17+699.92879916c-160000.13.1.aarch64",
+                  "product_id": "agama-openapi-0:17+699.92879916c-160000.13.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama-openapi@17+699.92879916c-160000.13.1?arch=aarch64\u0026upstream=agama-0:17+699.92879916c-160000.13.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "agama-scripts-0:17+699.92879916c-160000.13.1.aarch64",
+                "product": {
+                  "name": "agama-scripts-0:17+699.92879916c-160000.13.1.aarch64",
+                  "product_id": "agama-scripts-0:17+699.92879916c-160000.13.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama-scripts@17+699.92879916c-160000.13.1?arch=aarch64\u0026upstream=agama-0:17+699.92879916c-160000.13.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "agama-cli-bash-completion-0:17+699.92879916c-160000.13.1.noarch",
+                "product": {
+                  "name": "agama-cli-bash-completion-0:17+699.92879916c-160000.13.1.noarch",
+                  "product_id": "agama-cli-bash-completion-0:17+699.92879916c-160000.13.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama-cli-bash-completion@17+699.92879916c-160000.13.1?arch=noarch\u0026upstream=agama-0:17+699.92879916c-160000.13.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "agama-cli-fish-completion-0:17+699.92879916c-160000.13.1.noarch",
+                "product": {
+                  "name": "agama-cli-fish-completion-0:17+699.92879916c-160000.13.1.noarch",
+                  "product_id": "agama-cli-fish-completion-0:17+699.92879916c-160000.13.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama-cli-fish-completion@17+699.92879916c-160000.13.1?arch=noarch\u0026upstream=agama-0:17+699.92879916c-160000.13.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "agama-cli-zsh-completion-0:17+699.92879916c-160000.13.1.noarch",
+                "product": {
+                  "name": "agama-cli-zsh-completion-0:17+699.92879916c-160000.13.1.noarch",
+                  "product_id": "agama-cli-zsh-completion-0:17+699.92879916c-160000.13.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama-cli-zsh-completion@17+699.92879916c-160000.13.1?arch=noarch\u0026upstream=agama-0:17+699.92879916c-160000.13.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "agama-0:17+699.92879916c-160000.13.1.ppc64le",
+                "product": {
+                  "name": "agama-0:17+699.92879916c-160000.13.1.ppc64le",
+                  "product_id": "agama-0:17+699.92879916c-160000.13.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama@17+699.92879916c-160000.13.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "agama-autoinstall-0:17+699.92879916c-160000.13.1.ppc64le",
+                "product": {
+                  "name": "agama-autoinstall-0:17+699.92879916c-160000.13.1.ppc64le",
+                  "product_id": "agama-autoinstall-0:17+699.92879916c-160000.13.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama-autoinstall@17+699.92879916c-160000.13.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "agama-cli-0:17+699.92879916c-160000.13.1.ppc64le",
+                "product": {
+                  "name": "agama-cli-0:17+699.92879916c-160000.13.1.ppc64le",
+                  "product_id": "agama-cli-0:17+699.92879916c-160000.13.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama-cli@17+699.92879916c-160000.13.1?arch=ppc64le\u0026upstream=agama-0:17+699.92879916c-160000.13.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "agama-openapi-0:17+699.92879916c-160000.13.1.ppc64le",
+                "product": {
+                  "name": "agama-openapi-0:17+699.92879916c-160000.13.1.ppc64le",
+                  "product_id": "agama-openapi-0:17+699.92879916c-160000.13.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama-openapi@17+699.92879916c-160000.13.1?arch=ppc64le\u0026upstream=agama-0:17+699.92879916c-160000.13.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "agama-scripts-0:17+699.92879916c-160000.13.1.ppc64le",
+                "product": {
+                  "name": "agama-scripts-0:17+699.92879916c-160000.13.1.ppc64le",
+                  "product_id": "agama-scripts-0:17+699.92879916c-160000.13.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama-scripts@17+699.92879916c-160000.13.1?arch=ppc64le\u0026upstream=agama-0:17+699.92879916c-160000.13.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "agama-0:17+699.92879916c-160000.13.1.s390x",
+                "product": {
+                  "name": "agama-0:17+699.92879916c-160000.13.1.s390x",
+                  "product_id": "agama-0:17+699.92879916c-160000.13.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama@17+699.92879916c-160000.13.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "agama-autoinstall-0:17+699.92879916c-160000.13.1.s390x",
+                "product": {
+                  "name": "agama-autoinstall-0:17+699.92879916c-160000.13.1.s390x",
+                  "product_id": "agama-autoinstall-0:17+699.92879916c-160000.13.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama-autoinstall@17+699.92879916c-160000.13.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "agama-cli-0:17+699.92879916c-160000.13.1.s390x",
+                "product": {
+                  "name": "agama-cli-0:17+699.92879916c-160000.13.1.s390x",
+                  "product_id": "agama-cli-0:17+699.92879916c-160000.13.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama-cli@17+699.92879916c-160000.13.1?arch=s390x\u0026upstream=agama-0:17+699.92879916c-160000.13.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "agama-openapi-0:17+699.92879916c-160000.13.1.s390x",
+                "product": {
+                  "name": "agama-openapi-0:17+699.92879916c-160000.13.1.s390x",
+                  "product_id": "agama-openapi-0:17+699.92879916c-160000.13.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama-openapi@17+699.92879916c-160000.13.1?arch=s390x\u0026upstream=agama-0:17+699.92879916c-160000.13.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "agama-scripts-0:17+699.92879916c-160000.13.1.s390x",
+                "product": {
+                  "name": "agama-scripts-0:17+699.92879916c-160000.13.1.s390x",
+                  "product_id": "agama-scripts-0:17+699.92879916c-160000.13.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama-scripts@17+699.92879916c-160000.13.1?arch=s390x\u0026upstream=agama-0:17+699.92879916c-160000.13.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "agama-0:17+699.92879916c-160000.13.1.x86_64",
+                "product": {
+                  "name": "agama-0:17+699.92879916c-160000.13.1.x86_64",
+                  "product_id": "agama-0:17+699.92879916c-160000.13.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama@17+699.92879916c-160000.13.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "agama-autoinstall-0:17+699.92879916c-160000.13.1.x86_64",
+                "product": {
+                  "name": "agama-autoinstall-0:17+699.92879916c-160000.13.1.x86_64",
+                  "product_id": "agama-autoinstall-0:17+699.92879916c-160000.13.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama-autoinstall@17+699.92879916c-160000.13.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "agama-cli-0:17+699.92879916c-160000.13.1.x86_64",
+                "product": {
+                  "name": "agama-cli-0:17+699.92879916c-160000.13.1.x86_64",
+                  "product_id": "agama-cli-0:17+699.92879916c-160000.13.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama-cli@17+699.92879916c-160000.13.1?arch=x86_64\u0026upstream=agama-0:17+699.92879916c-160000.13.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "agama-openapi-0:17+699.92879916c-160000.13.1.x86_64",
+                "product": {
+                  "name": "agama-openapi-0:17+699.92879916c-160000.13.1.x86_64",
+                  "product_id": "agama-openapi-0:17+699.92879916c-160000.13.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama-openapi@17+699.92879916c-160000.13.1?arch=x86_64\u0026upstream=agama-0:17+699.92879916c-160000.13.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "agama-scripts-0:17+699.92879916c-160000.13.1.x86_64",
+                "product": {
+                  "name": "agama-scripts-0:17+699.92879916c-160000.13.1.x86_64",
+                  "product_id": "agama-scripts-0:17+699.92879916c-160000.13.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/agama-scripts@17+699.92879916c-160000.13.1?arch=x86_64\u0026upstream=agama-0:17+699.92879916c-160000.13.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-0:17+699.92879916c-160000.13.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.aarch64"
+        },
+        "product_reference": "agama-0:17+699.92879916c-160000.13.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-0:17+699.92879916c-160000.13.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.ppc64le"
+        },
+        "product_reference": "agama-0:17+699.92879916c-160000.13.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-0:17+699.92879916c-160000.13.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.s390x"
+        },
+        "product_reference": "agama-0:17+699.92879916c-160000.13.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-0:17+699.92879916c-160000.13.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.x86_64"
+        },
+        "product_reference": "agama-0:17+699.92879916c-160000.13.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-autoinstall-0:17+699.92879916c-160000.13.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.aarch64"
+        },
+        "product_reference": "agama-autoinstall-0:17+699.92879916c-160000.13.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-autoinstall-0:17+699.92879916c-160000.13.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.ppc64le"
+        },
+        "product_reference": "agama-autoinstall-0:17+699.92879916c-160000.13.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-autoinstall-0:17+699.92879916c-160000.13.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.s390x"
+        },
+        "product_reference": "agama-autoinstall-0:17+699.92879916c-160000.13.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-autoinstall-0:17+699.92879916c-160000.13.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.x86_64"
+        },
+        "product_reference": "agama-autoinstall-0:17+699.92879916c-160000.13.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-cli-0:17+699.92879916c-160000.13.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.aarch64"
+        },
+        "product_reference": "agama-cli-0:17+699.92879916c-160000.13.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-cli-0:17+699.92879916c-160000.13.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.ppc64le"
+        },
+        "product_reference": "agama-cli-0:17+699.92879916c-160000.13.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-cli-0:17+699.92879916c-160000.13.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.s390x"
+        },
+        "product_reference": "agama-cli-0:17+699.92879916c-160000.13.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-cli-0:17+699.92879916c-160000.13.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.x86_64"
+        },
+        "product_reference": "agama-cli-0:17+699.92879916c-160000.13.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-cli-bash-completion-0:17+699.92879916c-160000.13.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-cli-bash-completion-0:17+699.92879916c-160000.13.1.noarch"
+        },
+        "product_reference": "agama-cli-bash-completion-0:17+699.92879916c-160000.13.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-cli-fish-completion-0:17+699.92879916c-160000.13.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-cli-fish-completion-0:17+699.92879916c-160000.13.1.noarch"
+        },
+        "product_reference": "agama-cli-fish-completion-0:17+699.92879916c-160000.13.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-cli-zsh-completion-0:17+699.92879916c-160000.13.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-cli-zsh-completion-0:17+699.92879916c-160000.13.1.noarch"
+        },
+        "product_reference": "agama-cli-zsh-completion-0:17+699.92879916c-160000.13.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-openapi-0:17+699.92879916c-160000.13.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.aarch64"
+        },
+        "product_reference": "agama-openapi-0:17+699.92879916c-160000.13.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-openapi-0:17+699.92879916c-160000.13.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.ppc64le"
+        },
+        "product_reference": "agama-openapi-0:17+699.92879916c-160000.13.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-openapi-0:17+699.92879916c-160000.13.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.s390x"
+        },
+        "product_reference": "agama-openapi-0:17+699.92879916c-160000.13.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-openapi-0:17+699.92879916c-160000.13.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.x86_64"
+        },
+        "product_reference": "agama-openapi-0:17+699.92879916c-160000.13.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-scripts-0:17+699.92879916c-160000.13.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.aarch64"
+        },
+        "product_reference": "agama-scripts-0:17+699.92879916c-160000.13.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-scripts-0:17+699.92879916c-160000.13.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.ppc64le"
+        },
+        "product_reference": "agama-scripts-0:17+699.92879916c-160000.13.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-scripts-0:17+699.92879916c-160000.13.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.s390x"
+        },
+        "product_reference": "agama-scripts-0:17+699.92879916c-160000.13.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "agama-scripts-0:17+699.92879916c-160000.13.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.x86_64"
+        },
+        "product_reference": "agama-scripts-0:17+699.92879916c-160000.13.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-58160",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-58160"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "tracing is a framework for instrumenting Rust programs to collect structured, event-based diagnostic information. Prior to version 0.3.20, tracing-subscriber was vulnerable to ANSI escape sequence injection attacks. Untrusted user input containing ANSI escape sequences could be injected into terminal output when logged, potentially allowing attackers to manipulate terminal title bars, clear screens or modify terminal display, and potentially mislead users through terminal manipulation. tracing-subscriber version 0.3.20 fixes this vulnerability by escaping ANSI control characters when writing events to destinations that may be printed to the terminal. A workaround involves avoiding printing logs to terminal emulators without escaping ANSI control sequences.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.aarch64",
+          "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.ppc64le",
+          "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.s390x",
+          "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.x86_64",
+          "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.aarch64",
+          "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.ppc64le",
+          "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.s390x",
+          "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.x86_64",
+          "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.aarch64",
+          "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.ppc64le",
+          "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.s390x",
+          "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.x86_64",
+          "openSUSE Leap 16.0:agama-cli-bash-completion-0:17+699.92879916c-160000.13.1.noarch",
+          "openSUSE Leap 16.0:agama-cli-fish-completion-0:17+699.92879916c-160000.13.1.noarch",
+          "openSUSE Leap 16.0:agama-cli-zsh-completion-0:17+699.92879916c-160000.13.1.noarch",
+          "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.aarch64",
+          "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.ppc64le",
+          "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.s390x",
+          "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.x86_64",
+          "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.aarch64",
+          "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.ppc64le",
+          "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.s390x",
+          "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-58160",
+          "url": "https://www.suse.com/security/cve/CVE-2025-58160"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1249007 for CVE-2025-58160",
+          "url": "https://bugzilla.suse.com/1249007"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.aarch64",
+            "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.ppc64le",
+            "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.s390x",
+            "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.x86_64",
+            "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.aarch64",
+            "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.ppc64le",
+            "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.s390x",
+            "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.x86_64",
+            "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.aarch64",
+            "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.ppc64le",
+            "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.s390x",
+            "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.x86_64",
+            "openSUSE Leap 16.0:agama-cli-bash-completion-0:17+699.92879916c-160000.13.1.noarch",
+            "openSUSE Leap 16.0:agama-cli-fish-completion-0:17+699.92879916c-160000.13.1.noarch",
+            "openSUSE Leap 16.0:agama-cli-zsh-completion-0:17+699.92879916c-160000.13.1.noarch",
+            "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.aarch64",
+            "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.ppc64le",
+            "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.s390x",
+            "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.x86_64",
+            "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.aarch64",
+            "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.ppc64le",
+            "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.s390x",
+            "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 3.1,
+            "baseSeverity": "LOW",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.aarch64",
+            "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.ppc64le",
+            "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.s390x",
+            "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.x86_64",
+            "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.aarch64",
+            "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.ppc64le",
+            "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.s390x",
+            "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.x86_64",
+            "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.aarch64",
+            "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.ppc64le",
+            "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.s390x",
+            "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.x86_64",
+            "openSUSE Leap 16.0:agama-cli-bash-completion-0:17+699.92879916c-160000.13.1.noarch",
+            "openSUSE Leap 16.0:agama-cli-fish-completion-0:17+699.92879916c-160000.13.1.noarch",
+            "openSUSE Leap 16.0:agama-cli-zsh-completion-0:17+699.92879916c-160000.13.1.noarch",
+            "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.aarch64",
+            "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.ppc64le",
+            "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.s390x",
+            "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.x86_64",
+            "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.aarch64",
+            "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.ppc64le",
+            "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.s390x",
+            "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-12T16:20:27Z",
+          "details": "low"
+        }
+      ],
+      "title": "CVE-2025-58160"
+    },
+    {
+      "cve": "CVE-2026-25541",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-25541"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Bytes is a utility library for working with bytes. From version 1.2.1 to before 1.11.1, Bytes is vulnerable to integer overflow in BytesMut::reserve. In the unique reclaim path of BytesMut::reserve, if the condition \"v_capacity \u003e= new_cap + offset\" uses an unchecked addition. When new_cap + offset overflows usize in release builds, this condition may incorrectly pass, causing self.cap to be set to a value that exceeds the actual allocated capacity. Subsequent APIs such as spare_capacity_mut() then trust this corrupted cap value and may create out-of-bounds slices, leading to UB. This behavior is observable in release builds (integer overflow wraps), whereas debug builds panic due to overflow checks. This issue has been patched in version 1.11.1.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.aarch64",
+          "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.ppc64le",
+          "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.s390x",
+          "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.x86_64",
+          "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.aarch64",
+          "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.ppc64le",
+          "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.s390x",
+          "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.x86_64",
+          "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.aarch64",
+          "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.ppc64le",
+          "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.s390x",
+          "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.x86_64",
+          "openSUSE Leap 16.0:agama-cli-bash-completion-0:17+699.92879916c-160000.13.1.noarch",
+          "openSUSE Leap 16.0:agama-cli-fish-completion-0:17+699.92879916c-160000.13.1.noarch",
+          "openSUSE Leap 16.0:agama-cli-zsh-completion-0:17+699.92879916c-160000.13.1.noarch",
+          "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.aarch64",
+          "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.ppc64le",
+          "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.s390x",
+          "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.x86_64",
+          "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.aarch64",
+          "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.ppc64le",
+          "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.s390x",
+          "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-25541",
+          "url": "https://www.suse.com/security/cve/CVE-2026-25541"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1271347 for CVE-2026-25541",
+          "url": "https://bugzilla.suse.com/1271347"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.aarch64",
+            "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.ppc64le",
+            "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.s390x",
+            "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.x86_64",
+            "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.aarch64",
+            "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.ppc64le",
+            "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.s390x",
+            "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.x86_64",
+            "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.aarch64",
+            "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.ppc64le",
+            "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.s390x",
+            "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.x86_64",
+            "openSUSE Leap 16.0:agama-cli-bash-completion-0:17+699.92879916c-160000.13.1.noarch",
+            "openSUSE Leap 16.0:agama-cli-fish-completion-0:17+699.92879916c-160000.13.1.noarch",
+            "openSUSE Leap 16.0:agama-cli-zsh-completion-0:17+699.92879916c-160000.13.1.noarch",
+            "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.aarch64",
+            "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.ppc64le",
+            "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.s390x",
+            "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.x86_64",
+            "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.aarch64",
+            "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.ppc64le",
+            "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.s390x",
+            "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.aarch64",
+            "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.ppc64le",
+            "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.s390x",
+            "openSUSE Leap 16.0:agama-0:17+699.92879916c-160000.13.1.x86_64",
+            "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.aarch64",
+            "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.ppc64le",
+            "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.s390x",
+            "openSUSE Leap 16.0:agama-autoinstall-0:17+699.92879916c-160000.13.1.x86_64",
+            "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.aarch64",
+            "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.ppc64le",
+            "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.s390x",
+            "openSUSE Leap 16.0:agama-cli-0:17+699.92879916c-160000.13.1.x86_64",
+            "openSUSE Leap 16.0:agama-cli-bash-completion-0:17+699.92879916c-160000.13.1.noarch",
+            "openSUSE Leap 16.0:agama-cli-fish-completion-0:17+699.92879916c-160000.13.1.noarch",
+            "openSUSE Leap 16.0:agama-cli-zsh-completion-0:17+699.92879916c-160000.13.1.noarch",
+            "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.aarch64",
+            "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.ppc64le",
+            "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.s390x",
+            "openSUSE Leap 16.0:agama-openapi-0:17+699.92879916c-160000.13.1.x86_64",
+            "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.aarch64",
+            "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.ppc64le",
+            "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.s390x",
+            "openSUSE Leap 16.0:agama-scripts-0:17+699.92879916c-160000.13.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-12T16:20:27Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-25541"
+    }
+  ]
+}

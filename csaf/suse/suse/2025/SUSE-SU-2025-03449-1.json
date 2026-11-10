@@ -1,0 +1,2785 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "low"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for cairo",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for cairo fixes the following issues:\n\n- CVE-2025-50422: Fixed Poppler crash on malformed input (bsc#1247589)\n\n- Update to version 1.18.4:\n  + The dependency on LZO has been made optional through a build\n    time configuration toggle.\n  + You can build Cairo against a Freetype installation that does\n    not have the FT_Color type.\n  + Cairo tests now build on Solaris 11.4 with GCC 14.\n  + The DirectWrite backend now builds on MINGW 11.\n  + The DirectWrite backend now supports font variations and proper\n    glyph coverage.\n- Use tarball in lieu of source service due to freedesktop gitlab\n  migration, will switch back at next release at the latest.\n- Add pkgconfig(lzo2) BuildRequires: New optional dependency, build\n  lzo2 support feature.\n\n- Convert to source service: allows for easier upgrades by the\n  GNOME team.\n\n- Update to version 1.18.2:\n  + The malloc-stats code has been removed from the tests directory\n  + Cairo now requires a version of pixman equal to, or newer than,\n    0.40.\n  + There have been multiple build fixes for newer versions of GCC\n    for MSVC; for Solaris; and on macOS 10.7.\n  + PNG errors caused by loading malformed data are correctly\n    propagated to callers, so they can handle the case.\n  + Both stroke and fill colors are now set when showing glyphs on\n    a PDF surface.\n  + All the font options are copied when creating a fallback font\n    object.\n  + When drawing text on macOS, Cairo now tries harder to select\n    the appropriate font name.\n  + Cairo now prefers the COLRv1 table inside a font, if one is\n    available.\n  + Cairo requires a C11 toolchain when building.\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2025-3449,SUSE-SLE-Module-Basesystem-15-SP6-2025-3449,SUSE-SLE-Module-Basesystem-15-SP7-2025-3449,SUSE-SLE-Module-Desktop-Applications-15-SP6-2025-3449,SUSE-SLE-Module-Desktop-Applications-15-SP7-2025-3449,openSUSE-SLE-15.6-2025-3449",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_03449-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:03449-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-202503449-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:03449-1",
+        "url": "https://lists.suse.com/pipermail/sle-updates/2025-October/041995.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1247589",
+        "url": "https://bugzilla.suse.com/1247589"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-50422 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-50422/"
+      }
+    ],
+    "title": "Security update for cairo",
+    "tracking": {
+      "current_release_date": "2026-09-20T17:49:02Z",
+      "generator": {
+        "date": "2025-10-02T07:15:18Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:03449-1",
+      "initial_release_date": "2025-10-02T07:15:18Z",
+      "revision_history": [
+        {
+          "date": "2025-10-02T07:15:18Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T17:49:02Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+                "product": {
+                  "name": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+                  "product_id": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cairo-devel@1.18.4-150600.3.3.1?arch=aarch64\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cairo-tools-0:1.18.4-150600.3.3.1.aarch64",
+                "product": {
+                  "name": "cairo-tools-0:1.18.4-150600.3.3.1.aarch64",
+                  "product_id": "cairo-tools-0:1.18.4-150600.3.3.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cairo-tools@1.18.4-150600.3.3.1?arch=aarch64\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+                "product": {
+                  "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+                  "product_id": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcairo-gobject2@1.18.4-150600.3.3.1?arch=aarch64\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+                "product": {
+                  "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+                  "product_id": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcairo-script-interpreter2@1.18.4-150600.3.3.1?arch=aarch64\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+                "product": {
+                  "name": "libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+                  "product_id": "libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcairo2@1.18.4-150600.3.3.1?arch=aarch64\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cairo-devel-64bit-0:1.18.4-150600.3.3.1.aarch64_ilp32",
+                "product": {
+                  "name": "cairo-devel-64bit-0:1.18.4-150600.3.3.1.aarch64_ilp32",
+                  "product_id": "cairo-devel-64bit-0:1.18.4-150600.3.3.1.aarch64_ilp32",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/cairo-devel-64bit@1.18.4-150600.3.3.1?arch=aarch64_ilp32"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo-gobject2-64bit-0:1.18.4-150600.3.3.1.aarch64_ilp32",
+                "product": {
+                  "name": "libcairo-gobject2-64bit-0:1.18.4-150600.3.3.1.aarch64_ilp32",
+                  "product_id": "libcairo-gobject2-64bit-0:1.18.4-150600.3.3.1.aarch64_ilp32",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libcairo-gobject2-64bit@1.18.4-150600.3.3.1?arch=aarch64_ilp32"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo-script-interpreter2-64bit-0:1.18.4-150600.3.3.1.aarch64_ilp32",
+                "product": {
+                  "name": "libcairo-script-interpreter2-64bit-0:1.18.4-150600.3.3.1.aarch64_ilp32",
+                  "product_id": "libcairo-script-interpreter2-64bit-0:1.18.4-150600.3.3.1.aarch64_ilp32",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libcairo-script-interpreter2-64bit@1.18.4-150600.3.3.1?arch=aarch64_ilp32"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo2-64bit-0:1.18.4-150600.3.3.1.aarch64_ilp32",
+                "product": {
+                  "name": "libcairo2-64bit-0:1.18.4-150600.3.3.1.aarch64_ilp32",
+                  "product_id": "libcairo2-64bit-0:1.18.4-150600.3.3.1.aarch64_ilp32",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libcairo2-64bit@1.18.4-150600.3.3.1?arch=aarch64_ilp32"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64_ilp32"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cairo-devel-0:1.18.4-150600.3.3.1.i586",
+                "product": {
+                  "name": "cairo-devel-0:1.18.4-150600.3.3.1.i586",
+                  "product_id": "cairo-devel-0:1.18.4-150600.3.3.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cairo-devel@1.18.4-150600.3.3.1?arch=i586\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cairo-tools-0:1.18.4-150600.3.3.1.i586",
+                "product": {
+                  "name": "cairo-tools-0:1.18.4-150600.3.3.1.i586",
+                  "product_id": "cairo-tools-0:1.18.4-150600.3.3.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cairo-tools@1.18.4-150600.3.3.1?arch=i586\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.i586",
+                "product": {
+                  "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.i586",
+                  "product_id": "libcairo-gobject2-0:1.18.4-150600.3.3.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcairo-gobject2@1.18.4-150600.3.3.1?arch=i586\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.i586",
+                "product": {
+                  "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.i586",
+                  "product_id": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcairo-script-interpreter2@1.18.4-150600.3.3.1?arch=i586\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo2-0:1.18.4-150600.3.3.1.i586",
+                "product": {
+                  "name": "libcairo2-0:1.18.4-150600.3.3.1.i586",
+                  "product_id": "libcairo2-0:1.18.4-150600.3.3.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcairo2@1.18.4-150600.3.3.1?arch=i586\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "i586"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+                "product": {
+                  "name": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+                  "product_id": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cairo-devel@1.18.4-150600.3.3.1?arch=ppc64le\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cairo-tools-0:1.18.4-150600.3.3.1.ppc64le",
+                "product": {
+                  "name": "cairo-tools-0:1.18.4-150600.3.3.1.ppc64le",
+                  "product_id": "cairo-tools-0:1.18.4-150600.3.3.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cairo-tools@1.18.4-150600.3.3.1?arch=ppc64le\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+                "product": {
+                  "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+                  "product_id": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcairo-gobject2@1.18.4-150600.3.3.1?arch=ppc64le\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+                "product": {
+                  "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+                  "product_id": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcairo-script-interpreter2@1.18.4-150600.3.3.1?arch=ppc64le\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+                "product": {
+                  "name": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+                  "product_id": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcairo2@1.18.4-150600.3.3.1?arch=ppc64le\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+                "product": {
+                  "name": "cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+                  "product_id": "cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cairo-devel@1.18.4-150600.3.3.1?arch=s390x\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cairo-tools-0:1.18.4-150600.3.3.1.s390x",
+                "product": {
+                  "name": "cairo-tools-0:1.18.4-150600.3.3.1.s390x",
+                  "product_id": "cairo-tools-0:1.18.4-150600.3.3.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cairo-tools@1.18.4-150600.3.3.1?arch=s390x\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+                "product": {
+                  "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+                  "product_id": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcairo-gobject2@1.18.4-150600.3.3.1?arch=s390x\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+                "product": {
+                  "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+                  "product_id": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcairo-script-interpreter2@1.18.4-150600.3.3.1?arch=s390x\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo2-0:1.18.4-150600.3.3.1.s390x",
+                "product": {
+                  "name": "libcairo2-0:1.18.4-150600.3.3.1.s390x",
+                  "product_id": "libcairo2-0:1.18.4-150600.3.3.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcairo2@1.18.4-150600.3.3.1?arch=s390x\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+                "product": {
+                  "name": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+                  "product_id": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cairo-devel@1.18.4-150600.3.3.1?arch=x86_64\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cairo-devel-32bit-0:1.18.4-150600.3.3.1.x86_64",
+                "product": {
+                  "name": "cairo-devel-32bit-0:1.18.4-150600.3.3.1.x86_64",
+                  "product_id": "cairo-devel-32bit-0:1.18.4-150600.3.3.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cairo-devel-32bit@1.18.4-150600.3.3.1?arch=x86_64\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cairo-tools-0:1.18.4-150600.3.3.1.x86_64",
+                "product": {
+                  "name": "cairo-tools-0:1.18.4-150600.3.3.1.x86_64",
+                  "product_id": "cairo-tools-0:1.18.4-150600.3.3.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cairo-tools@1.18.4-150600.3.3.1?arch=x86_64\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+                "product": {
+                  "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+                  "product_id": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcairo-gobject2@1.18.4-150600.3.3.1?arch=x86_64\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo-gobject2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+                "product": {
+                  "name": "libcairo-gobject2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+                  "product_id": "libcairo-gobject2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcairo-gobject2-32bit@1.18.4-150600.3.3.1?arch=x86_64\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+                "product": {
+                  "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+                  "product_id": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcairo-script-interpreter2@1.18.4-150600.3.3.1?arch=x86_64\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo-script-interpreter2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+                "product": {
+                  "name": "libcairo-script-interpreter2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+                  "product_id": "libcairo-script-interpreter2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcairo-script-interpreter2-32bit@1.18.4-150600.3.3.1?arch=x86_64\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+                "product": {
+                  "name": "libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+                  "product_id": "libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcairo2@1.18.4-150600.3.3.1?arch=x86_64\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+                "product": {
+                  "name": "libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+                  "product_id": "libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cairographics:cairo:1.18.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcairo2-32bit@1.18.4-150600.3.3.1?arch=x86_64\u0026upstream=cairo-0:1.18.4-150600.3.3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-basesystem:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Desktop 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Desktop 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Desktop 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sled:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-basesystem:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Desktop 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Desktop 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Desktop 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sled:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "Open Enterprise Server 25.4",
+                "product": {
+                  "name": "Open Enterprise Server 25.4",
+                  "product_id": "Open Enterprise Server 25.4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:novell,inc:OES:25.4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Desktop Applications 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Desktop Applications 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-desktop-applications:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Desktop Applications 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Desktop Applications 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-desktop-applications:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 15.6",
+                "product": {
+                  "name": "openSUSE Leap 15.6",
+                  "product_id": "openSUSE Leap 15.6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:opensuse:leap:15.6"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:cairo-devel-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:cairo-devel-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:cairo-devel-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:libcairo2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:libcairo2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:libcairo2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:libcairo2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP6:libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64 as component of SUSE Linux Enterprise Module for Desktop Applications 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Desktop Applications 15 SP7:libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Desktop Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:cairo-devel-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.s390x as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:cairo-devel-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:cairo-devel-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-devel-32bit-0:1.18.4-150600.3.3.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:cairo-devel-32bit-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "cairo-devel-32bit-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-tools-0:1.18.4-150600.3.3.1.aarch64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:cairo-tools-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "cairo-tools-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-tools-0:1.18.4-150600.3.3.1.ppc64le as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:cairo-tools-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "cairo-tools-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-tools-0:1.18.4-150600.3.3.1.s390x as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:cairo-tools-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "cairo-tools-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cairo-tools-0:1.18.4-150600.3.3.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:cairo-tools-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "cairo-tools-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-gobject2-32bit-0:1.18.4-150600.3.3.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:libcairo-gobject2-32bit-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-gobject2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo-script-interpreter2-32bit-0:1.18.4-150600.3.3.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:libcairo-script-interpreter2-32bit-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo-script-interpreter2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.aarch64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:libcairo2-0:1.18.4-150600.3.3.1.aarch64"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:libcairo2-0:1.18.4-150600.3.3.1.ppc64le"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.s390x as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:libcairo2-0:1.18.4-150600.3.3.1.s390x"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-0:1.18.4-150600.3.3.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:libcairo2-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64"
+        },
+        "product_reference": "libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-50422",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-50422"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Cairo through 1.18.4, as used in Poppler through 25.08.0, has an \"unscaled-\u003eface == NULL\" assertion failure for _cairo_ft_unscaled_font_fini in cairo-ft-font.c.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+          "Open Enterprise Server 25.4:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+          "Open Enterprise Server 25.4:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+          "Open Enterprise Server 25.4:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+          "Open Enterprise Server 25.4:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+          "Open Enterprise Server 25.4:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+          "Open Enterprise Server 25.4:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+          "Open Enterprise Server 25.4:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+          "Open Enterprise Server 25.4:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+          "Open Enterprise Server 25.4:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+          "Open Enterprise Server 25.4:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+          "Open Enterprise Server 25.4:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+          "Open Enterprise Server 25.4:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+          "Open Enterprise Server 25.4:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+          "Open Enterprise Server 25.4:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+          "Open Enterprise Server 25.4:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Module for Desktop Applications 15 SP6:libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Module for Desktop Applications 15 SP7:libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+          "openSUSE Leap 15.6:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+          "openSUSE Leap 15.6:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+          "openSUSE Leap 15.6:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+          "openSUSE Leap 15.6:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+          "openSUSE Leap 15.6:cairo-devel-32bit-0:1.18.4-150600.3.3.1.x86_64",
+          "openSUSE Leap 15.6:cairo-tools-0:1.18.4-150600.3.3.1.aarch64",
+          "openSUSE Leap 15.6:cairo-tools-0:1.18.4-150600.3.3.1.ppc64le",
+          "openSUSE Leap 15.6:cairo-tools-0:1.18.4-150600.3.3.1.s390x",
+          "openSUSE Leap 15.6:cairo-tools-0:1.18.4-150600.3.3.1.x86_64",
+          "openSUSE Leap 15.6:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+          "openSUSE Leap 15.6:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+          "openSUSE Leap 15.6:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+          "openSUSE Leap 15.6:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+          "openSUSE Leap 15.6:libcairo-gobject2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+          "openSUSE Leap 15.6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+          "openSUSE Leap 15.6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+          "openSUSE Leap 15.6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+          "openSUSE Leap 15.6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+          "openSUSE Leap 15.6:libcairo-script-interpreter2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+          "openSUSE Leap 15.6:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+          "openSUSE Leap 15.6:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+          "openSUSE Leap 15.6:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+          "openSUSE Leap 15.6:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+          "openSUSE Leap 15.6:libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-50422",
+          "url": "https://www.suse.com/security/cve/CVE-2025-50422"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1247589 for CVE-2025-50422",
+          "url": "https://bugzilla.suse.com/1247589"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+            "Open Enterprise Server 25.4:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+            "Open Enterprise Server 25.4:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+            "Open Enterprise Server 25.4:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+            "Open Enterprise Server 25.4:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+            "Open Enterprise Server 25.4:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+            "Open Enterprise Server 25.4:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+            "Open Enterprise Server 25.4:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+            "Open Enterprise Server 25.4:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+            "Open Enterprise Server 25.4:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+            "Open Enterprise Server 25.4:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+            "Open Enterprise Server 25.4:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+            "Open Enterprise Server 25.4:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+            "Open Enterprise Server 25.4:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+            "Open Enterprise Server 25.4:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+            "Open Enterprise Server 25.4:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Module for Desktop Applications 15 SP6:libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Module for Desktop Applications 15 SP7:libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+            "openSUSE Leap 15.6:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+            "openSUSE Leap 15.6:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+            "openSUSE Leap 15.6:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+            "openSUSE Leap 15.6:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+            "openSUSE Leap 15.6:cairo-devel-32bit-0:1.18.4-150600.3.3.1.x86_64",
+            "openSUSE Leap 15.6:cairo-tools-0:1.18.4-150600.3.3.1.aarch64",
+            "openSUSE Leap 15.6:cairo-tools-0:1.18.4-150600.3.3.1.ppc64le",
+            "openSUSE Leap 15.6:cairo-tools-0:1.18.4-150600.3.3.1.s390x",
+            "openSUSE Leap 15.6:cairo-tools-0:1.18.4-150600.3.3.1.x86_64",
+            "openSUSE Leap 15.6:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+            "openSUSE Leap 15.6:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+            "openSUSE Leap 15.6:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+            "openSUSE Leap 15.6:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+            "openSUSE Leap 15.6:libcairo-gobject2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+            "openSUSE Leap 15.6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+            "openSUSE Leap 15.6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+            "openSUSE Leap 15.6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+            "openSUSE Leap 15.6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+            "openSUSE Leap 15.6:libcairo-script-interpreter2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+            "openSUSE Leap 15.6:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+            "openSUSE Leap 15.6:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+            "openSUSE Leap 15.6:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+            "openSUSE Leap 15.6:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+            "openSUSE Leap 15.6:libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 3.3,
+            "baseSeverity": "LOW",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+            "Open Enterprise Server 25.4:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+            "Open Enterprise Server 25.4:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+            "Open Enterprise Server 25.4:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+            "Open Enterprise Server 25.4:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+            "Open Enterprise Server 25.4:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+            "Open Enterprise Server 25.4:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+            "Open Enterprise Server 25.4:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+            "Open Enterprise Server 25.4:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+            "Open Enterprise Server 25.4:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+            "Open Enterprise Server 25.4:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+            "Open Enterprise Server 25.4:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+            "Open Enterprise Server 25.4:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+            "Open Enterprise Server 25.4:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+            "Open Enterprise Server 25.4:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+            "Open Enterprise Server 25.4:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Module for Desktop Applications 15 SP6:libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Module for Desktop Applications 15 SP7:libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+            "openSUSE Leap 15.6:cairo-devel-0:1.18.4-150600.3.3.1.aarch64",
+            "openSUSE Leap 15.6:cairo-devel-0:1.18.4-150600.3.3.1.ppc64le",
+            "openSUSE Leap 15.6:cairo-devel-0:1.18.4-150600.3.3.1.s390x",
+            "openSUSE Leap 15.6:cairo-devel-0:1.18.4-150600.3.3.1.x86_64",
+            "openSUSE Leap 15.6:cairo-devel-32bit-0:1.18.4-150600.3.3.1.x86_64",
+            "openSUSE Leap 15.6:cairo-tools-0:1.18.4-150600.3.3.1.aarch64",
+            "openSUSE Leap 15.6:cairo-tools-0:1.18.4-150600.3.3.1.ppc64le",
+            "openSUSE Leap 15.6:cairo-tools-0:1.18.4-150600.3.3.1.s390x",
+            "openSUSE Leap 15.6:cairo-tools-0:1.18.4-150600.3.3.1.x86_64",
+            "openSUSE Leap 15.6:libcairo-gobject2-0:1.18.4-150600.3.3.1.aarch64",
+            "openSUSE Leap 15.6:libcairo-gobject2-0:1.18.4-150600.3.3.1.ppc64le",
+            "openSUSE Leap 15.6:libcairo-gobject2-0:1.18.4-150600.3.3.1.s390x",
+            "openSUSE Leap 15.6:libcairo-gobject2-0:1.18.4-150600.3.3.1.x86_64",
+            "openSUSE Leap 15.6:libcairo-gobject2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+            "openSUSE Leap 15.6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.aarch64",
+            "openSUSE Leap 15.6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.ppc64le",
+            "openSUSE Leap 15.6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.s390x",
+            "openSUSE Leap 15.6:libcairo-script-interpreter2-0:1.18.4-150600.3.3.1.x86_64",
+            "openSUSE Leap 15.6:libcairo-script-interpreter2-32bit-0:1.18.4-150600.3.3.1.x86_64",
+            "openSUSE Leap 15.6:libcairo2-0:1.18.4-150600.3.3.1.aarch64",
+            "openSUSE Leap 15.6:libcairo2-0:1.18.4-150600.3.3.1.ppc64le",
+            "openSUSE Leap 15.6:libcairo2-0:1.18.4-150600.3.3.1.s390x",
+            "openSUSE Leap 15.6:libcairo2-0:1.18.4-150600.3.3.1.x86_64",
+            "openSUSE Leap 15.6:libcairo2-32bit-0:1.18.4-150600.3.3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-10-02T07:15:18Z",
+          "details": "low"
+        }
+      ],
+      "title": "CVE-2025-50422"
+    }
+  ]
+}

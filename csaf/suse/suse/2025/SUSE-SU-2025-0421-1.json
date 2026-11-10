@@ -1,0 +1,2042 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for ovmf",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for ovmf fixes the following issues:\n  \n- CVE-2023-45229: out-of-bounds read in edk2 when processing IA_NA/IA_TA options in DHCPv6 Advertise messages.\n  (bsc#1218879)\n- CVE-2023-45230: buffer overflow in the DHCPv6 client in edk2 via a long Server ID option. (bsc#1218880)\n- CVE-2023-45231: out-of-bounds read in edk2 when handling a ND Redirect message with truncated options. (bsc#1218881)\n- CVE-2023-45232: infinite loop in edk2 when parsing unknown options in the Destination Options header. (bsc#1218882)\n- CVE-2023-45233: infinite loop in edk2 when parsing PadN options in the Destination Options header. (bsc#1218883)\n- CVE-2023-45234: buffer overflow in edk2 when processing DNS Servers options in a DHCPv6 Advertise message.\n  (bsc#1218884)\n- CVE-2023-45235: buffer overflow in edk2 when handling the Server ID option in a DHCPv6 proxy Advertise message.\n  (bsc#1218885)\n- CVE-2023-45236: predictable TCP Initial Sequence Numbers in edk2 network packages. (bsc#1218886)\n- CVE-2023-45237: use of a weak pseudorandom number generator in edk2. (bsc#1218887)\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2025-421,SUSE-SLE-Module-Packagehub-Subpackages-15-SP6-2025-421,SUSE-SLE-Module-Server-Applications-15-SP6-2025-421,openSUSE-SLE-15.6-2025-421",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_0421-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:0421-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-20250421-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:0421-1",
+        "url": "https://lists.suse.com/pipermail/sle-security-updates/2025-February/020305.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1218879",
+        "url": "https://bugzilla.suse.com/1218879"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1218880",
+        "url": "https://bugzilla.suse.com/1218880"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1218881",
+        "url": "https://bugzilla.suse.com/1218881"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1218882",
+        "url": "https://bugzilla.suse.com/1218882"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1218883",
+        "url": "https://bugzilla.suse.com/1218883"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1218884",
+        "url": "https://bugzilla.suse.com/1218884"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1218885",
+        "url": "https://bugzilla.suse.com/1218885"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1218886",
+        "url": "https://bugzilla.suse.com/1218886"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1218887",
+        "url": "https://bugzilla.suse.com/1218887"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-45229 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-45229/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-45230 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-45230/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-45231 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-45231/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-45232 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-45232/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-45233 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-45233/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-45234 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-45234/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-45235 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-45235/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-45236 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-45236/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-45237 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-45237/"
+      }
+    ],
+    "title": "Security update for ovmf",
+    "tracking": {
+      "current_release_date": "2026-09-20T17:54:06Z",
+      "generator": {
+        "date": "2025-02-11T10:28:25Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:0421-1",
+      "initial_release_date": "2025-02-11T10:28:25Z",
+      "revision_history": [
+        {
+          "date": "2025-02-11T10:28:25Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T17:54:06Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "ovmf-0:202308-150600.5.9.1.aarch64",
+                "product": {
+                  "name": "ovmf-0:202308-150600.5.9.1.aarch64",
+                  "product_id": "ovmf-0:202308-150600.5.9.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:tianocore:edk2:202308:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/ovmf@202308-150600.5.9.1?arch=aarch64\u0026upstream=ovmf-0:202308-150600.5.9.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "ovmf-tools-0:202308-150600.5.9.1.aarch64",
+                "product": {
+                  "name": "ovmf-tools-0:202308-150600.5.9.1.aarch64",
+                  "product_id": "ovmf-tools-0:202308-150600.5.9.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:tianocore:edk2:202308:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/ovmf-tools@202308-150600.5.9.1?arch=aarch64\u0026upstream=ovmf-0:202308-150600.5.9.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+                "product": {
+                  "name": "qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+                  "product_id": "qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:tianocore:edk2:202308:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/qemu-ovmf-ia32@202308-150600.5.9.1?arch=noarch\u0026upstream=ovmf-0:202308-150600.5.9.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+                "product": {
+                  "name": "qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+                  "product_id": "qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:tianocore:edk2:202308:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/qemu-ovmf-x86_64@202308-150600.5.9.1?arch=noarch\u0026upstream=ovmf-0:202308-150600.5.9.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+                "product": {
+                  "name": "qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+                  "product_id": "qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:tianocore:edk2:202308:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/qemu-uefi-aarch32@202308-150600.5.9.1?arch=noarch\u0026upstream=ovmf-0:202308-150600.5.9.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+                "product": {
+                  "name": "qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+                  "product_id": "qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:tianocore:edk2:202308:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/qemu-uefi-aarch64@202308-150600.5.9.1?arch=noarch\u0026upstream=ovmf-0:202308-150600.5.9.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "ovmf-0:202308-150600.5.9.1.x86_64",
+                "product": {
+                  "name": "ovmf-0:202308-150600.5.9.1.x86_64",
+                  "product_id": "ovmf-0:202308-150600.5.9.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:tianocore:edk2:202308:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/ovmf@202308-150600.5.9.1?arch=x86_64\u0026upstream=ovmf-0:202308-150600.5.9.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "ovmf-tools-0:202308-150600.5.9.1.x86_64",
+                "product": {
+                  "name": "ovmf-tools-0:202308-150600.5.9.1.x86_64",
+                  "product_id": "ovmf-tools-0:202308-150600.5.9.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:tianocore:edk2:202308:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/ovmf-tools@202308-150600.5.9.1?arch=x86_64\u0026upstream=ovmf-0:202308-150600.5.9.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+                "product": {
+                  "name": "qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+                  "product_id": "qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:tianocore:edk2:202308:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/qemu-ovmf-x86_64-debug@202308-150600.5.9.1?arch=x86_64\u0026upstream=ovmf-0:202308-150600.5.9.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Package Hub 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Package Hub 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:packagehub:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Server Applications 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Server Applications 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-server-applications:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 15.6",
+                "product": {
+                  "name": "openSUSE Leap 15.6",
+                  "product_id": "openSUSE Leap 15.6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:opensuse:leap:15.6"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch as component of SUSE Linux Enterprise Module for Package Hub 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch"
+        },
+        "product_reference": "qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64 as component of SUSE Linux Enterprise Module for Package Hub 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64"
+        },
+        "product_reference": "qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch as component of SUSE Linux Enterprise Module for Package Hub 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch"
+        },
+        "product_reference": "qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch as component of SUSE Linux Enterprise Module for Package Hub 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+        },
+        "product_reference": "qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ovmf-0:202308-150600.5.9.1.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64"
+        },
+        "product_reference": "ovmf-0:202308-150600.5.9.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ovmf-0:202308-150600.5.9.1.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64"
+        },
+        "product_reference": "ovmf-0:202308-150600.5.9.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ovmf-tools-0:202308-150600.5.9.1.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64"
+        },
+        "product_reference": "ovmf-tools-0:202308-150600.5.9.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ovmf-tools-0:202308-150600.5.9.1.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64"
+        },
+        "product_reference": "ovmf-tools-0:202308-150600.5.9.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch as component of SUSE Linux Enterprise Module for Server Applications 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch"
+        },
+        "product_reference": "qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch as component of SUSE Linux Enterprise Module for Server Applications 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+        },
+        "product_reference": "qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ovmf-0:202308-150600.5.9.1.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64"
+        },
+        "product_reference": "ovmf-0:202308-150600.5.9.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ovmf-0:202308-150600.5.9.1.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64"
+        },
+        "product_reference": "ovmf-0:202308-150600.5.9.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ovmf-tools-0:202308-150600.5.9.1.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64"
+        },
+        "product_reference": "ovmf-tools-0:202308-150600.5.9.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ovmf-tools-0:202308-150600.5.9.1.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64"
+        },
+        "product_reference": "ovmf-tools-0:202308-150600.5.9.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch as component of SUSE Linux Enterprise Module for Server Applications 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch"
+        },
+        "product_reference": "qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch as component of SUSE Linux Enterprise Module for Server Applications 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+        },
+        "product_reference": "qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ovmf-0:202308-150600.5.9.1.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64"
+        },
+        "product_reference": "ovmf-0:202308-150600.5.9.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ovmf-0:202308-150600.5.9.1.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64"
+        },
+        "product_reference": "ovmf-0:202308-150600.5.9.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ovmf-tools-0:202308-150600.5.9.1.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64"
+        },
+        "product_reference": "ovmf-tools-0:202308-150600.5.9.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ovmf-tools-0:202308-150600.5.9.1.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64"
+        },
+        "product_reference": "ovmf-tools-0:202308-150600.5.9.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch as component of SUSE Linux Enterprise Module for Server Applications 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch"
+        },
+        "product_reference": "qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch as component of SUSE Linux Enterprise Module for Server Applications 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+        },
+        "product_reference": "qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ovmf-0:202308-150600.5.9.1.aarch64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64"
+        },
+        "product_reference": "ovmf-0:202308-150600.5.9.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ovmf-0:202308-150600.5.9.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64"
+        },
+        "product_reference": "ovmf-0:202308-150600.5.9.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ovmf-tools-0:202308-150600.5.9.1.aarch64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64"
+        },
+        "product_reference": "ovmf-tools-0:202308-150600.5.9.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "ovmf-tools-0:202308-150600.5.9.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64"
+        },
+        "product_reference": "ovmf-tools-0:202308-150600.5.9.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch"
+        },
+        "product_reference": "qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch"
+        },
+        "product_reference": "qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64"
+        },
+        "product_reference": "qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch"
+        },
+        "product_reference": "qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+        },
+        "product_reference": "qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2023-45229",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-45229"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "EDK2's Network Package is susceptible to an out-of-bounds read\n vulnerability when processing the IA_NA or IA_TA option in a DHCPv6 Advertise message. This\n vulnerability can be exploited by an attacker to gain unauthorized \naccess and potentially lead to a loss of Confidentiality.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-45229",
+          "url": "https://www.suse.com/security/cve/CVE-2023-45229"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1218879 for CVE-2023-45229",
+          "url": "https://bugzilla.suse.com/1218879"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-11T10:28:25Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2023-45229"
+    },
+    {
+      "cve": "CVE-2023-45230",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-45230"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "EDK2's Network Package is susceptible to a buffer overflow vulnerability via a long server ID option in DHCPv6 client. This\n vulnerability can be exploited by an attacker to gain unauthorized \naccess and potentially lead to a loss of Confidentiality, Integrity and/or Availability.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-45230",
+          "url": "https://www.suse.com/security/cve/CVE-2023-45230"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1218880 for CVE-2023-45230",
+          "url": "https://bugzilla.suse.com/1218880"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.3,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-11T10:28:25Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2023-45230"
+    },
+    {
+      "cve": "CVE-2023-45231",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-45231"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "EDK2's Network Package is susceptible to an out-of-bounds read\n vulnerability when processing   Neighbor Discovery Redirect message. This\n vulnerability can be exploited by an attacker to gain unauthorized \naccess and potentially lead to a loss of Confidentiality.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-45231",
+          "url": "https://www.suse.com/security/cve/CVE-2023-45231"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1218881 for CVE-2023-45231",
+          "url": "https://bugzilla.suse.com/1218881"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-11T10:28:25Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2023-45231"
+    },
+    {
+      "cve": "CVE-2023-45232",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-45232"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "EDK2's Network Package is susceptible to an infinite loop vulnerability when parsing unknown options in the Destination Options header of IPv6. This\n vulnerability can be exploited by an attacker to gain unauthorized \naccess and potentially lead to a loss of Availability.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-45232",
+          "url": "https://www.suse.com/security/cve/CVE-2023-45232"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1218882 for CVE-2023-45232",
+          "url": "https://bugzilla.suse.com/1218882"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-11T10:28:25Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2023-45232"
+    },
+    {
+      "cve": "CVE-2023-45233",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-45233"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "EDK2's Network Package is susceptible to an infinite lop vulnerability when parsing a PadN option in the Destination Options header of IPv6. This\n vulnerability can be exploited by an attacker to gain unauthorized \naccess and potentially lead to a loss of Availability.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-45233",
+          "url": "https://www.suse.com/security/cve/CVE-2023-45233"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1218883 for CVE-2023-45233",
+          "url": "https://bugzilla.suse.com/1218883"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-11T10:28:25Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2023-45233"
+    },
+    {
+      "cve": "CVE-2023-45234",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-45234"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "EDK2's Network Package is susceptible to a buffer overflow vulnerability when processing DNS Servers option from a DHCPv6 Advertise message. This\n vulnerability can be exploited by an attacker to gain unauthorized \naccess and potentially lead to a loss of Confidentiality, Integrity and/or Availability.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-45234",
+          "url": "https://www.suse.com/security/cve/CVE-2023-45234"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1218884 for CVE-2023-45234",
+          "url": "https://bugzilla.suse.com/1218884"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.3,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-11T10:28:25Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2023-45234"
+    },
+    {
+      "cve": "CVE-2023-45235",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-45235"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "EDK2's Network Package is susceptible to a buffer overflow vulnerability when\n\n\n\n\n\nhandling Server ID option \n\n\n\n from a DHCPv6 proxy Advertise message. This\n vulnerability can be exploited by an attacker to gain unauthorized \naccess and potentially lead to a loss of Confidentiality, Integrity and/or Availability.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-45235",
+          "url": "https://www.suse.com/security/cve/CVE-2023-45235"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1218885 for CVE-2023-45235",
+          "url": "https://bugzilla.suse.com/1218885"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.3,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-11T10:28:25Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2023-45235"
+    },
+    {
+      "cve": "CVE-2023-45236",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-45236"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "EDK2's Network Package is susceptible to a predictable TCP Initial Sequence Number. This\n vulnerability can be exploited by an attacker to gain unauthorized \naccess and potentially lead to a loss of Confidentiality.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-45236",
+          "url": "https://www.suse.com/security/cve/CVE-2023-45236"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1218886 for CVE-2023-45236",
+          "url": "https://bugzilla.suse.com/1218886"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.8,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-11T10:28:25Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2023-45236"
+    },
+    {
+      "cve": "CVE-2023-45237",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-45237"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "EDK2's Network Package is susceptible to a predictable TCP Initial Sequence Number. This\n vulnerability can be exploited by an attacker to gain unauthorized \naccess and potentially lead to a loss of Confidentiality.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+          "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+          "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+          "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+          "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-45237",
+          "url": "https://www.suse.com/security/cve/CVE-2023-45237"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1218887 for CVE-2023-45237",
+          "url": "https://bugzilla.suse.com/1218887"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Package Hub 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.aarch64",
+            "openSUSE Leap 15.6:ovmf-tools-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-ovmf-ia32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-ovmf-x86_64-debug-0:202308-150600.5.9.1.x86_64",
+            "openSUSE Leap 15.6:qemu-uefi-aarch32-0:202308-150600.5.9.1.noarch",
+            "openSUSE Leap 15.6:qemu-uefi-aarch64-0:202308-150600.5.9.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-11T10:28:25Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2023-45237"
+    }
+  ]
+}

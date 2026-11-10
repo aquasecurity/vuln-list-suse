@@ -1,0 +1,933 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "critical"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update of valkey",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for valkey fixes the following issues:\n\nUpdate to 8.0.6:\n\n  - Security fixes:\n\n    - CVE-2025-49844: Fixed that a Lua script may lead to remote code execution (bsc#1250995)\n    - CVE-2025-46817: Fixed that a Lua script may lead to integer overflow and potential RCE (bsc#1250995)\n    - CVE-2025-46818: Fixed that a Lua script can be executed in the context of another user (bsc#1250995)\n    - CVE-2025-46819: Fixed LUA out-of-bound read (bsc#1250995)\n\n  - Bug fixes:\n  \n    * Fix accounting for dual channel RDB bytes in replication stats (#2614)\n    * Fix EVAL to report unknown error when empty error table is provided (#2229)\n    * Fix use-after-free when active expiration triggers hashtable to shrink (#2257)\n    * Fix MEMORY USAGE to account for embedded keys (#2290)\n    * Fix memory leak when shrinking a hashtable without entries (#2288)\n    * Prevent potential assertion in active defrag handling large allocations (#2353)\n    * Prevent bad memory access when NOTOUCH client gets unblocked (#2347)\n    * Converge divergent shard-id persisted in nodes.conf to primary's shard id (#2174)\n    * Fix client tracking memory overhead calculation (#2360)\n    * Fix RDB load per slot memory pre-allocation when loading from RDB snapshot (#2466)\n    * Don't use AVX2 instructions if the CPU doesn't support it (#2571)\n    * Fix bug where active defrag may be unable to defrag sparsely filled pages (#2656)\n\nChanges from 8.0.5:\n\n  https://github.com/valkey-io/valkey/releases/tag/8.0.5\n\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-SLES-16.0-121",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2026_20022-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2026:20022-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-202620022-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2026:20022-1",
+        "url": "https://lists.suse.com/pipermail/sle-security-updates/2026-January/023778.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1250995",
+        "url": "https://bugzilla.suse.com/1250995"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-46817 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-46817/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-46818 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-46818/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-46819 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-46819/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-49844 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-49844/"
+      }
+    ],
+    "title": "Security update of valkey",
+    "tracking": {
+      "current_release_date": "2026-09-17T15:05:19Z",
+      "generator": {
+        "date": "2026-01-07T09:35:57Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2026:20022-1",
+      "initial_release_date": "2026-01-07T09:35:57Z",
+      "revision_history": [
+        {
+          "date": "2026-01-07T09:35:57Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T18:34:32Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T19:25:20Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T15:05:19Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "valkey-0:8.0.6-160000.1.1.aarch64",
+                "product": {
+                  "name": "valkey-0:8.0.6-160000.1.1.aarch64",
+                  "product_id": "valkey-0:8.0.6-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:redis:redis:8.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/valkey@8.0.6-160000.1.1?arch=aarch64\u0026upstream=valkey-0:8.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "valkey-devel-0:8.0.6-160000.1.1.aarch64",
+                "product": {
+                  "name": "valkey-devel-0:8.0.6-160000.1.1.aarch64",
+                  "product_id": "valkey-devel-0:8.0.6-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:redis:redis:8.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/valkey-devel@8.0.6-160000.1.1?arch=aarch64\u0026upstream=valkey-0:8.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+                "product": {
+                  "name": "valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+                  "product_id": "valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:redis:redis:8.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/valkey-compat-redis@8.0.6-160000.1.1?arch=noarch\u0026upstream=valkey-0:8.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "valkey-0:8.0.6-160000.1.1.ppc64le",
+                "product": {
+                  "name": "valkey-0:8.0.6-160000.1.1.ppc64le",
+                  "product_id": "valkey-0:8.0.6-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:redis:redis:8.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/valkey@8.0.6-160000.1.1?arch=ppc64le\u0026upstream=valkey-0:8.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+                "product": {
+                  "name": "valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+                  "product_id": "valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:redis:redis:8.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/valkey-devel@8.0.6-160000.1.1?arch=ppc64le\u0026upstream=valkey-0:8.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "valkey-0:8.0.6-160000.1.1.s390x",
+                "product": {
+                  "name": "valkey-0:8.0.6-160000.1.1.s390x",
+                  "product_id": "valkey-0:8.0.6-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:redis:redis:8.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/valkey@8.0.6-160000.1.1?arch=s390x\u0026upstream=valkey-0:8.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "valkey-devel-0:8.0.6-160000.1.1.s390x",
+                "product": {
+                  "name": "valkey-devel-0:8.0.6-160000.1.1.s390x",
+                  "product_id": "valkey-devel-0:8.0.6-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:redis:redis:8.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/valkey-devel@8.0.6-160000.1.1?arch=s390x\u0026upstream=valkey-0:8.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "valkey-0:8.0.6-160000.1.1.x86_64",
+                "product": {
+                  "name": "valkey-0:8.0.6-160000.1.1.x86_64",
+                  "product_id": "valkey-0:8.0.6-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:redis:redis:8.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/valkey@8.0.6-160000.1.1?arch=x86_64\u0026upstream=valkey-0:8.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "valkey-devel-0:8.0.6-160000.1.1.x86_64",
+                "product": {
+                  "name": "valkey-devel-0:8.0.6-160000.1.1.x86_64",
+                  "product_id": "valkey-devel-0:8.0.6-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:redis:redis:8.0.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/valkey-devel@8.0.6-160000.1.1?arch=x86_64\u0026upstream=valkey-0:8.0.6-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 16.0",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 16.0",
+                  "product_id": "SUSE Linux Enterprise Server 16.0",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:16:16.0:server"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP applications 16.0",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP applications 16.0",
+                  "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:16:16.0:server-sap"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "valkey-0:8.0.6-160000.1.1.aarch64 as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.aarch64"
+        },
+        "product_reference": "valkey-0:8.0.6-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "valkey-0:8.0.6-160000.1.1.ppc64le as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.ppc64le"
+        },
+        "product_reference": "valkey-0:8.0.6-160000.1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "valkey-0:8.0.6-160000.1.1.s390x as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.s390x"
+        },
+        "product_reference": "valkey-0:8.0.6-160000.1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "valkey-0:8.0.6-160000.1.1.x86_64 as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.x86_64"
+        },
+        "product_reference": "valkey-0:8.0.6-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "valkey-compat-redis-0:8.0.6-160000.1.1.noarch as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch"
+        },
+        "product_reference": "valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "valkey-devel-0:8.0.6-160000.1.1.aarch64 as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64"
+        },
+        "product_reference": "valkey-devel-0:8.0.6-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "valkey-devel-0:8.0.6-160000.1.1.ppc64le as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le"
+        },
+        "product_reference": "valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "valkey-devel-0:8.0.6-160000.1.1.s390x as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x"
+        },
+        "product_reference": "valkey-devel-0:8.0.6-160000.1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "valkey-devel-0:8.0.6-160000.1.1.x86_64 as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64"
+        },
+        "product_reference": "valkey-devel-0:8.0.6-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "valkey-0:8.0.6-160000.1.1.aarch64 as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.aarch64"
+        },
+        "product_reference": "valkey-0:8.0.6-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "valkey-0:8.0.6-160000.1.1.ppc64le as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.ppc64le"
+        },
+        "product_reference": "valkey-0:8.0.6-160000.1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "valkey-0:8.0.6-160000.1.1.s390x as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.s390x"
+        },
+        "product_reference": "valkey-0:8.0.6-160000.1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "valkey-0:8.0.6-160000.1.1.x86_64 as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.x86_64"
+        },
+        "product_reference": "valkey-0:8.0.6-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "valkey-compat-redis-0:8.0.6-160000.1.1.noarch as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch"
+        },
+        "product_reference": "valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "valkey-devel-0:8.0.6-160000.1.1.aarch64 as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64"
+        },
+        "product_reference": "valkey-devel-0:8.0.6-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "valkey-devel-0:8.0.6-160000.1.1.ppc64le as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le"
+        },
+        "product_reference": "valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "valkey-devel-0:8.0.6-160000.1.1.s390x as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x"
+        },
+        "product_reference": "valkey-devel-0:8.0.6-160000.1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "valkey-devel-0:8.0.6-160000.1.1.x86_64 as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64"
+        },
+        "product_reference": "valkey-devel-0:8.0.6-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-46817",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-46817"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Redis is an open source, in-memory database that persists on disk. Versions 8.2.1 and below allow an authenticated user to use a specially crafted Lua script to cause an integer overflow and potentially lead to remote code execution The problem exists in all versions of Redis with Lua scripting. This issue is fixed in version 8.2.2.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+          "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-46817",
+          "url": "https://www.suse.com/security/cve/CVE-2025-46817"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1250995 for CVE-2025-46817",
+          "url": "https://bugzilla.suse.com/1250995"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-01-07T09:35:57Z",
+          "details": "critical"
+        }
+      ],
+      "title": "CVE-2025-46817"
+    },
+    {
+      "cve": "CVE-2025-46818",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-46818"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Redis is an open source, in-memory database that persists on disk. Versions 8.2.1 and below allow an authenticated user to use a specially crafted Lua script to manipulate different LUA objects and potentially run their own code in the context of another user. The problem exists in all versions of Redis with LUA scripting. This issue is fixed in version 8.2.2. A workaround to mitigate the problem without patching the redis-server executable is to prevent users from executing LUA scripts. This can be done using ACL to block a script by restricting both the EVAL and FUNCTION command families.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+          "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-46818",
+          "url": "https://www.suse.com/security/cve/CVE-2025-46818"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1250995 for CVE-2025-46818",
+          "url": "https://bugzilla.suse.com/1250995"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-01-07T09:35:57Z",
+          "details": "critical"
+        }
+      ],
+      "title": "CVE-2025-46818"
+    },
+    {
+      "cve": "CVE-2025-46819",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-46819"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Redis is an open source, in-memory database that persists on disk. Versions 8.2.1 and below allow an authenticated user to use a specially crafted LUA script to read out-of-bound data or crash the server and subsequent denial of service. The problem exists in all versions of Redis with Lua scripting. This issue is fixed in version 8.2.2. To workaround this issue without patching the redis-server executable is to prevent users from executing Lua scripts. This can be done using ACL to block a script by restricting both the EVAL and FUNCTION command families.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+          "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-46819",
+          "url": "https://www.suse.com/security/cve/CVE-2025-46819"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1250995 for CVE-2025-46819",
+          "url": "https://bugzilla.suse.com/1250995"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-01-07T09:35:57Z",
+          "details": "critical"
+        }
+      ],
+      "title": "CVE-2025-46819"
+    },
+    {
+      "cve": "CVE-2025-49844",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-49844"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Redis is an open source, in-memory database that persists on disk. Versions 8.2.1 and below allow an authenticated user to use a specially crafted Lua script to manipulate the garbage collector, trigger a use-after-free and potentially lead to remote code execution. The problem exists in all versions of Redis with Lua scripting. This issue is fixed in version 8.2.2. To workaround this issue without patching the redis-server executable is to prevent users from executing Lua scripts. This can be done using ACL to restrict EVAL and EVALSHA commands.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+          "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-49844",
+          "url": "https://www.suse.com/security/cve/CVE-2025-49844"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1250995 for CVE-2025-49844",
+          "url": "https://bugzilla.suse.com/1250995"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1263583 for CVE-2025-49844",
+          "url": "https://bugzilla.suse.com/1263583"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 9.9,
+            "baseSeverity": "CRITICAL",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-0:8.0.6-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-compat-redis-0:8.0.6-160000.1.1.noarch",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:valkey-devel-0:8.0.6-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-01-07T09:35:57Z",
+          "details": "critical"
+        }
+      ],
+      "title": "CVE-2025-49844"
+    }
+  ]
+}

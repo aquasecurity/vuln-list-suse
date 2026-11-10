@@ -1,0 +1,865 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for cosign",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for cosign fixes the following issues:\n\n- CVE-2026-56852: golang.org/x/text/unicode/norm: infinite loop on truncated/invalid UTF-8 input (bsc#1272117).\n- CVE-2026-56854,CVE-2026-56855,CVE-2026-78662: golang.org/x/crypto/ssh: authentication bypass and deadlocks in the\n  crypto/ssh library (bsc#1278614).\n- CVE-2026-56864: x/mod/sumdb: ignore unrelated, unauthenticated hashes in Lookup (bsc#1275025).\n- CVE-2026-84304: google.golang.org/grpc: heap memory exhaustion via HTTP/2 DATA frame fragmentation (bsc#1279215).\n- Verification bypass via public key in legacy bundle (bsc#1282542).\n\nChanges for cosign:\n\n- update to 3.1.3 (bsc#1282542, GHSA-fx35-mq7g-6g98):\n * This release resolves GHSA-fx35-mq7g-6g98, a verification\n bypass using an unexpected public key in a legacy bundle.\n * Auto-detect default digest algorithm for public keys\n * fix(pkcs11key): return an error instead of panicking when no\n key pair matches\n * Supporting OCI Signing with X.509 Certificate Chain\n * test(inspect): replace mock TSA client usage with local\n timestamp response generator in\n * fix: prevent shell completions for various options not taking\n filenames\n * fix(blob): compare file checksums case-insensitively in\n * Verification bypass via public key in legacy bundle (GHSA-\n fx35-mq7g-6g98)\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-SLES-16.0-1877",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2026_24213-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2026:24213-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-202624213-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2026:24213-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-202624213-1/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1272117",
+        "url": "https://bugzilla.suse.com/1272117"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1275025",
+        "url": "https://bugzilla.suse.com/1275025"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1278614",
+        "url": "https://bugzilla.suse.com/1278614"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1279215",
+        "url": "https://bugzilla.suse.com/1279215"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1282542",
+        "url": "https://bugzilla.suse.com/1282542"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-56852 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-56852/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-56854 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-56854/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-56855 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-56855/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-56864 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-56864/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-78662 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-78662/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-84304 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-84304/"
+      }
+    ],
+    "title": "Security update for cosign",
+    "tracking": {
+      "current_release_date": "2026-10-21T11:49:51Z",
+      "generator": {
+        "date": "2026-10-09T06:33:43Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2026:24213-1",
+      "initial_release_date": "2026-10-09T06:33:43Z",
+      "revision_history": [
+        {
+          "date": "2026-10-09T06:33:43Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-10-21T11:49:51Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cosign-0:3.1.3-160000.1.1.aarch64",
+                "product": {
+                  "name": "cosign-0:3.1.3-160000.1.1.aarch64",
+                  "product_id": "cosign-0:3.1.3-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sigstore:cosign:3.1.3:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cosign@3.1.3-160000.1.1?arch=aarch64\u0026upstream=cosign-0:3.1.3-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cosign-0:3.1.3-160000.1.1.ppc64le",
+                "product": {
+                  "name": "cosign-0:3.1.3-160000.1.1.ppc64le",
+                  "product_id": "cosign-0:3.1.3-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sigstore:cosign:3.1.3:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cosign@3.1.3-160000.1.1?arch=ppc64le\u0026upstream=cosign-0:3.1.3-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cosign-0:3.1.3-160000.1.1.s390x",
+                "product": {
+                  "name": "cosign-0:3.1.3-160000.1.1.s390x",
+                  "product_id": "cosign-0:3.1.3-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sigstore:cosign:3.1.3:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cosign@3.1.3-160000.1.1?arch=s390x\u0026upstream=cosign-0:3.1.3-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cosign-0:3.1.3-160000.1.1.x86_64",
+                "product": {
+                  "name": "cosign-0:3.1.3-160000.1.1.x86_64",
+                  "product_id": "cosign-0:3.1.3-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sigstore:cosign:3.1.3:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cosign@3.1.3-160000.1.1?arch=x86_64\u0026upstream=cosign-0:3.1.3-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 16.0",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 16.0",
+                  "product_id": "SUSE Linux Enterprise Server 16.0",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:16:16.0:server"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP applications 16.0",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP applications 16.0",
+                  "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:16:16.0:server-sap"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:3.1.3-160000.1.1.aarch64 as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.aarch64"
+        },
+        "product_reference": "cosign-0:3.1.3-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:3.1.3-160000.1.1.ppc64le as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.ppc64le"
+        },
+        "product_reference": "cosign-0:3.1.3-160000.1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:3.1.3-160000.1.1.s390x as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.s390x"
+        },
+        "product_reference": "cosign-0:3.1.3-160000.1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:3.1.3-160000.1.1.x86_64 as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.x86_64"
+        },
+        "product_reference": "cosign-0:3.1.3-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:3.1.3-160000.1.1.aarch64 as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.aarch64"
+        },
+        "product_reference": "cosign-0:3.1.3-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:3.1.3-160000.1.1.ppc64le as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.ppc64le"
+        },
+        "product_reference": "cosign-0:3.1.3-160000.1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:3.1.3-160000.1.1.s390x as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.s390x"
+        },
+        "product_reference": "cosign-0:3.1.3-160000.1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cosign-0:3.1.3-160000.1.1.x86_64 as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.x86_64"
+        },
+        "product_reference": "cosign-0:3.1.3-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-56852",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-56852"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A norm.Iter can enter an infinite loop when handling input containing invalid UTF-8 bytes.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-56852",
+          "url": "https://www.suse.com/security/cve/CVE-2026-56852"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1271661 for CVE-2026-56852",
+          "url": "https://bugzilla.suse.com/1271661"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1280553 for CVE-2026-56852",
+          "url": "https://bugzilla.suse.com/1280553"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-09T06:33:43Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-56852"
+    },
+    {
+      "cve": "CVE-2026-56854",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-56854"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The source-address critical option in the Permissions returned by an authentication callback was only enforced for the PublicKeyCallback and VerifiedPublicKeyCallback paths, extending the fix for CVE-2026-46595. Permissions returned by the PasswordCallback, KeyboardInteractiveCallback, NoClientAuthCallback, and GSSAPIWithMICConfig.AllowLogin callbacks were not validated against the client's remote address, so a source-address restriction set by those callbacks was silently ignored. The check is now applied to the Permissions returned by any authentication callback.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-56854",
+          "url": "https://www.suse.com/security/cve/CVE-2026-56854"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1278446 for CVE-2026-56854",
+          "url": "https://bugzilla.suse.com/1278446"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1280553 for CVE-2026-56854",
+          "url": "https://bugzilla.suse.com/1280553"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-09T06:33:43Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-56854"
+    },
+    {
+      "cve": "CVE-2026-56855",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-56855"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Previously, after a channel has been established, a malicious peer could send crafted messages that would deadlock the entire connection. Now, we handle all RFC 4254 channel messages; global requests are handled explicitly. Then, treat all other messages as a protocol error and tear the connection down instead of buffering and blocking.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-56855",
+          "url": "https://www.suse.com/security/cve/CVE-2026-56855"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1278446 for CVE-2026-56855",
+          "url": "https://bugzilla.suse.com/1278446"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1280553 for CVE-2026-56855",
+          "url": "https://bugzilla.suse.com/1280553"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-09T06:33:43Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-56855"
+    },
+    {
+      "cve": "CVE-2026-56864",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-56864"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A malicious GOSUMDB was capable of serving arbitrary module content not contained within the transparency log. This attack allows for a coordinating GOPROXY and GOSUMDB to serve a client malicious module content that cannot be detected by evaluating the transparency log. In order to determine if you have been affected:   rm -r go.sum go.work.sum vendor/ \u0026\u0026 go mod tidy",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-56864",
+          "url": "https://www.suse.com/security/cve/CVE-2026-56864"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1275025 for CVE-2026-56864",
+          "url": "https://bugzilla.suse.com/1275025"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-09T06:33:43Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-56864"
+    },
+    {
+      "cve": "CVE-2026-78662",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-78662"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Previously, a channel registered in the mux's chanList is not usable until it is established. A malicious peer was able flood the channel's incomingRequests, deadlocking the entire connection. Now, we add an atomic established state, set when a channel becomes usable. Until such a time, handlePacket drops every packet other than the open confirmation/failure, without blocking and without tearing down the connection.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-78662",
+          "url": "https://www.suse.com/security/cve/CVE-2026-78662"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1278446 for CVE-2026-78662",
+          "url": "https://bugzilla.suse.com/1278446"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1280553 for CVE-2026-78662",
+          "url": "https://bugzilla.suse.com/1280553"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-09T06:33:43Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-78662"
+    },
+    {
+      "cve": "CVE-2026-84304",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-84304"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "gRPC-Go is the Go language implementation of gRPC. Prior to 1.83.1, internal/transport/transport.go stores each fragmented HTTP/2 DATA frame as a separate recvMsg in recvBuffer, so millions of one-byte frames can consume disproportionate heap memory even when payload bytes remain within connection and stream flow-control windows. An unauthenticated remote attacker can use concurrent multiplexed streams to exhaust process memory and cause a runtime panic or out-of-memory termination. Receive-buffer compaction is enabled by default and can be controlled temporarily with GRPC_GO_EXPERIMENTAL_ENABLE_RECEIVE_BUFFER_COMPACTION. This issue is fixed in version 1.83.1.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-84304",
+          "url": "https://www.suse.com/security/cve/CVE-2026-84304"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1278271 for CVE-2026-84304",
+          "url": "https://bugzilla.suse.com/1278271"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1280553 for CVE-2026-84304",
+          "url": "https://bugzilla.suse.com/1280553"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server 16.0:cosign-0:3.1.3-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.s390x",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:cosign-0:3.1.3-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-09T06:33:43Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-84304"
+    }
+  ]
+}

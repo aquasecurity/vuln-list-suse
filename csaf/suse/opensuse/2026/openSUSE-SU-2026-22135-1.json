@@ -1,0 +1,307 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for coredns",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for coredns fixes the following issues:\n\nChanges in coredns:\n\n- Bump vendored google.golang.org/grpc from 1.83.0 to 1.83.1:\n\n  * CVE-2026-84304: heap memory exhaustion via HTTP/2 DATA frame\n    fragmentation in the gRPC transport (boo#1279216)\n  * Done through the go_modules \"require\" parameter in _service\n\n- Update license tag to Apache-2.0 AND MPL-2.0\n  * outcome of legal review\n\nUpdate to version 1.14.6:\n\n  * Test: populating build test failure\n  * fix(auto): keep first matching zone file for duplicate origins\n  * plugin/secondary: serve catalog member zones\n  * plugin/tsig: don't echo client's TSIG.Error if verification is successful\n  * docs(timeouts): document DoQ read timeout\n  * plugin/dnstap: fix self-deadlock in listener broadcast on client flush\n    error\n  * core/dnsserver: bound DoQ stream read with the server read timeout\n  * plugin/transfer: Fix panic in CoreDNS transfer plugin caused by empty DNS\n    record\n  * core/dnsserver: add Config.UDPDecorateWriterFunc for external plugins\n  * plugin/kubernetes: fix AXFR panic when nsAddrs returns multiple records\n  * plugin/hosts: fix data race between lookups and reload\n  * core/dnsserver: sanitize DoH/DoH3 request parse errors\n  * plugin/dnstap: close the previous connection before reconnecting\n  * plugin/erratic: apply default truncate amount of 2 for bare `truncate`\n  * Test: Fix flaky health test\n  * plugin/pkg/response: classify nxdomain without soa as denial\n  * plugin/file: return SOA in authority for negative CNAME target answers\n  * plugin/forward: make per-upstream read timeout configurable\n  * plugin/secondary: parse catalog zones after transfer\n  * plugin/pkg/dnsutil: guard Join against an empty label slice\n  * plugin/file: run additional processing for wildcard answers\n  * fix(tls): use Go TLS defaults\n  * plugin/secondary: stop update loop on reload shutdown\n  * fix(8201): restore old behavior forward plugin continue on empty conf file\n  * fix(forward): make dnstap FORWARDER_* describe the socket from CoreDNS to\n    upstream\n  * plugin/cache: add regression test for AD bit not partitioning the cache\n  * fix(rewrite): restore the original question on empty replies\n  * plugin/auto: warn on duplicate zone file origins\n  * test: use dynamic ports in reload tests\n  * plugin/transfer: configure notify source address\n  * fix: accept scoped IPv6 addresses in transfer targets\n  * fix(trace): correct Zipkin v2 endpoint docs\n  * fix(log): synthesize deferred error responses\n  * fix(dnstap): store IPv4-mapped IPv6 addresses as 4 octets with SocketFamily\n    INET\n  * plugin/hosts: add wildcard support\n  * fix(local): handle names under .localhost.\n  * plugin/hosts: fall through unsupported query types\n  * plugin/rewrite: Fix nil-pointer panic in EDNS0 response reversion with no\n    OPT record\n  * feat(forward): add doh support\n  * core/dnsserver: propagate HTTPRequestValidateFunc to all configs in a server\n    block\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-685",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_22135-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1279216",
+        "url": "https://bugzilla.suse.com/1279216"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-84304 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-84304/"
+      }
+    ],
+    "title": "Security update for coredns",
+    "tracking": {
+      "current_release_date": "2026-10-21T11:53:49Z",
+      "generator": {
+        "date": "2026-10-19T16:30:42Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:22135-1",
+      "initial_release_date": "2026-10-19T16:30:42Z",
+      "revision_history": [
+        {
+          "date": "2026-10-19T16:30:42Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-10-21T11:53:49Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "coredns-0:1.14.7-bp160.2.1.aarch64",
+                "product": {
+                  "name": "coredns-0:1.14.7-bp160.2.1.aarch64",
+                  "product_id": "coredns-0:1.14.7-bp160.2.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:coredns.io:coredns:1.14.7:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/coredns@1.14.7-bp160.2.1?arch=aarch64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "coredns-extras-0:1.14.7-bp160.2.1.noarch",
+                "product": {
+                  "name": "coredns-extras-0:1.14.7-bp160.2.1.noarch",
+                  "product_id": "coredns-extras-0:1.14.7-bp160.2.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/coredns-extras@1.14.7-bp160.2.1?arch=noarch"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "coredns-0:1.14.7-bp160.2.1.ppc64le",
+                "product": {
+                  "name": "coredns-0:1.14.7-bp160.2.1.ppc64le",
+                  "product_id": "coredns-0:1.14.7-bp160.2.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:coredns.io:coredns:1.14.7:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/coredns@1.14.7-bp160.2.1?arch=ppc64le"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "coredns-0:1.14.7-bp160.2.1.x86_64",
+                "product": {
+                  "name": "coredns-0:1.14.7-bp160.2.1.x86_64",
+                  "product_id": "coredns-0:1.14.7-bp160.2.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:coredns.io:coredns:1.14.7:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/coredns@1.14.7-bp160.2.1?arch=x86_64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "coredns-0:1.14.7-bp160.2.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:coredns-0:1.14.7-bp160.2.1.aarch64"
+        },
+        "product_reference": "coredns-0:1.14.7-bp160.2.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "coredns-0:1.14.7-bp160.2.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:coredns-0:1.14.7-bp160.2.1.ppc64le"
+        },
+        "product_reference": "coredns-0:1.14.7-bp160.2.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "coredns-0:1.14.7-bp160.2.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:coredns-0:1.14.7-bp160.2.1.x86_64"
+        },
+        "product_reference": "coredns-0:1.14.7-bp160.2.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "coredns-extras-0:1.14.7-bp160.2.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:coredns-extras-0:1.14.7-bp160.2.1.noarch"
+        },
+        "product_reference": "coredns-extras-0:1.14.7-bp160.2.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-84304",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-84304"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "gRPC-Go is the Go language implementation of gRPC. Prior to 1.83.1, internal/transport/transport.go stores each fragmented HTTP/2 DATA frame as a separate recvMsg in recvBuffer, so millions of one-byte frames can consume disproportionate heap memory even when payload bytes remain within connection and stream flow-control windows. An unauthenticated remote attacker can use concurrent multiplexed streams to exhaust process memory and cause a runtime panic or out-of-memory termination. Receive-buffer compaction is enabled by default and can be controlled temporarily with GRPC_GO_EXPERIMENTAL_ENABLE_RECEIVE_BUFFER_COMPACTION. This issue is fixed in version 1.83.1.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:coredns-0:1.14.7-bp160.2.1.aarch64",
+          "openSUSE Leap 16.0:coredns-0:1.14.7-bp160.2.1.ppc64le",
+          "openSUSE Leap 16.0:coredns-0:1.14.7-bp160.2.1.x86_64",
+          "openSUSE Leap 16.0:coredns-extras-0:1.14.7-bp160.2.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-84304",
+          "url": "https://www.suse.com/security/cve/CVE-2026-84304"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1278271 for CVE-2026-84304",
+          "url": "https://bugzilla.suse.com/1278271"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1280553 for CVE-2026-84304",
+          "url": "https://bugzilla.suse.com/1280553"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:coredns-0:1.14.7-bp160.2.1.aarch64",
+            "openSUSE Leap 16.0:coredns-0:1.14.7-bp160.2.1.ppc64le",
+            "openSUSE Leap 16.0:coredns-0:1.14.7-bp160.2.1.x86_64",
+            "openSUSE Leap 16.0:coredns-extras-0:1.14.7-bp160.2.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:coredns-0:1.14.7-bp160.2.1.aarch64",
+            "openSUSE Leap 16.0:coredns-0:1.14.7-bp160.2.1.ppc64le",
+            "openSUSE Leap 16.0:coredns-0:1.14.7-bp160.2.1.x86_64",
+            "openSUSE Leap 16.0:coredns-extras-0:1.14.7-bp160.2.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-19T16:30:42Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-84304"
+    }
+  ]
+}

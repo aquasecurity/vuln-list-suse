@@ -1,0 +1,1278 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update 5.1.4 for Multi-Linux Manager Client Tools",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update fixes the following issues:\n\ngolang-github-QubitProducts-exporter_exporter:\n\n- CVE-2022-21698: Replace github.com/prometheus/client_golang with version 1.11.1 (bsc#1248707)\n\ngolang-github-boynux-squid_exporter:\n\n- Non customer facing changes\n\ngolang-github-lusitaniae-apache_exporter:\n\n- Non customer facing changes\n\ngolang-github-prometheus-node_exporter:\n\n- Update to 1.10.2:\n  * [BUGFIX] meminfo: Fix typo in Zswap metric name\n- Update to 1.10.1:\n  * [BUGFIX] filesystem: Fix mount points being collected multiple\n    times\n  * [BUGFIX] filesystem: Refactor mountinfo parsing (bsc#1261810)\n  * [BUGFIX] meminfo: Add Zswap/Zswapped metrics\n- Update to 1.10.0:\n  * [CHANGE] mdadm: Use sysfs for RAID metrics\n  * [CHANGE] filesystem: Add erofs in default excluded fs\n  * [CHANGE] tcpstat: Use std lib binary.NativeEndian\n  * [FEATURE] pcidevice: Add new collector for PCIe devices\n  * [FEATURE] systemd: Add Virtualization metrics\n  * [FEATURE] swaps: Add new collector\n  * [ENHANCEMENT] wifi: Add packet received and transmitted metrics\n  * [ENHANCEMENT] filesystem: Take super options into account for read-only\n  * [ENHANCEMENT] pcidevice: Add additional metrics\n  * [ENHANCEMENT] perf: Add tlb_data metrics\n  * [BUGFIX] diskstats: Simplify condition\n  * [BUGFIX] thermal: Sanitize darwin thermal strings\n  * [BUGFIX] cpufreq: Fix: collector enable\n  * [BUGFIX] ethtool: Fix returning 0 for sanitized metrics\n  * [BUGFIX] systemd: Fix logging race\n\nmgr-push:\n\n- Version 5.2.4-0\n  * Non customer facing changes\n- Version 5.2.3-0\n  * Non customer facing changes\n- Version 5.2.2-0\n  * Non customer facing changes\n- Version 5.2.1-0\n  * Non customer facing changes\n\nprometheus-postgres_exporter:\n\n- CVE-2022-21698: Replace github.com/prometheus/client_golang with version 1.11.1 (bsc#1248699)\n\nrhnlib:\n\n- Version 5.2.5-0\n  * Non customer facing changes\n- Version 5.2.4-0\n  * Non customer facing changes\n- Version 5.2.3-0\n  * Non customer facing changes\n- Version 5.2.2-0\n  * Non customer facing changes\n- Version 5.2.1-0\n  * Non customer facing changes\n\nspacecmd:\n\n- Version 5.2.8-0\n  * Non customer facing changes\n- Version 5.2.7-0\n  * Add proxy_container_config_nossl command\n- Version 5.2.6-0\n  * Update translation strings\n- Version 5.2.5-0\n  * Update translation strings\n- Version 5.2.4-0\n  * Update translation strings\n- Version 5.2.3-0\n  * Fix typo in spacecmd help ca-cert flag (bsc#1253174)\n  * Add subcommand to check if reboot is needed after applying all available patches\n- Version 5.2.2-0\n  * Update translation strings\n- Version 5.2.1-0\n  * Use JSON instead of pickle for spacecmd cache (bsc#1227579)\n  * Fix methods in api namespace in spacecmd (bsc#1249532)\n\nspacewalk-client-tools:\n\n- Version 5.2.6-0\n  * Non customer facing changes\n- Version 5.2.5-0\n  * Update translations\n- Version 5.2.4-0\n  * Non customer facing changes\n- Version 5.2.3-0\n  * Non customer facing changes\n- Version 5.2.2-0\n  * Update translation strings1260806\n- Version 5.2.1-0\n  * Non customer facing changes\n\nsupportutils-plugin-susemanager-client:\n\n- Version 5.2.3-0\n  * Non customer facing changes\n- Version 5.2.2-0\n  * Non customer facing changes\n- Version 5.2.1-0\n  * Non customer facing changes\n\nuyuni-tools:\n\n- Version 5.2.12-0\n  * No customer facing changes\n- Version 5.2.11-0\n  * Do not call podman healthcheck run to wait for pods to be ready\n    (bsc#1266012)\n- Version 5.2.10-0\n  * Preserve hub replicas during upgrade (bsc#1262708)\n  * Add mgrctl commands 'ssh' and 'ssh remove_known_host'\n  * Use a startup check with no limit for the main server container bsc#1263157)\n  * Make uyuni-server service dependent on uyuni-db (bsc#1263823)\n  * Internal SANs for db and reportdb are no longer required\n  * Generate the same certificate for server and reportdb\n  * Update the default tag to 5.1.3.1 (bsc#1262760)\n  * Remove waitForTraefik function (bsc#1261902)\n  * Fix inspect: missing registry for db image (bsc#1259739)\n  * Use correct CA for Report DB (bsc#1260806)\n- Version 5.2.9-0\n  * Do not stop container on health check failure\n    Temporary workaround for bsc#1263157\n- Version 5.2.8-0\n  * Generate service template only after secrets are created\n- Version 5.2.7-0\n  * Do not require admin secrets on upgrades (bsc#1262409)\n- Version 5.2.6-0\n  * Use podman secrets for SSL on proxy\n  * Fix db online backup with new pg_hba settings\n  * mgrctl copy can now infer target name if not set\n  * No need to expose the cobbler port\n  * Add the TFTP port back to the proxy (bsc#1260905)\n  * Fix the macros in the spec file (bsc#1229105)\n  * Disable TFTP by default on the server\n  * Bump zerolog to 1.34\n  * Ignore spacewalk-service stop return code.\n  * Stop automatically unhealthy container\n  * Use container based server setup instead tools bundled one\n- Version 5.2.5-0\n  * Remove migrate command\n  * Remove template script from mgradm: use the one in the image\n  * Split the TFTP server into a separate container\n  * Adjust mgrctl server filter to work with the new helm chart labels\n  * Remove hub register command\n  * Remove the Kubernetes install and upgrade from mgrpxy - Version 5.2.4-0\n  * Move the SSL checks at the begining of the migration\n  * Remove Kubernetes code for the mgrdam\n  * Use single universal image to migrate between PostgreSQL versions\n- Version 5.2.3-0\n  * Update translation strings\n- Version 5.2.2-0\n  * Non customer facing changes\n- Version 5.2.1-0\n  * Actually use the --dbupgrade-tag parameter when computing the image URL (bsc#1249400)\n  * Detect custom Apache and Squid config in the /etc/uyuni/proxy folder\n  * Fix generated DB certificate subject alternate names\n  * add --registry-host, --registry-user and --registry-password\n    to pull images from an authenticate registry\n  * deprecate --registry\n\nuyuni-common-libs:\n\n- Version 5.2.5-0\n  * Remove legacy md5/sha1 fallback imports from checksum module; use hashlib directly\n- Version 5.2.4-0\n  * Build uyuni-common-libs noarch\n- Version 5.2.3-0\n  * Non customer facing changes\n- Version 5.2.2-0\n  * Non customer facing changes\n- Version 5.2.1-0\n  * Bump version to 5.2.0\n\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2026-2766,SUSE-MultiLinuxManagerTools-SLE-12-2026-2766",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2026_2766-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2026:2766-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-20262766-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2026:2766-1",
+        "url": "https://lists.suse.com/pipermail/sle-updates/2026-July/047992.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1227579",
+        "url": "https://bugzilla.suse.com/1227579"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1229105",
+        "url": "https://bugzilla.suse.com/1229105"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1232641",
+        "url": "https://bugzilla.suse.com/1232641"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1248699",
+        "url": "https://bugzilla.suse.com/1248699"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1248707",
+        "url": "https://bugzilla.suse.com/1248707"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1249400",
+        "url": "https://bugzilla.suse.com/1249400"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1249532",
+        "url": "https://bugzilla.suse.com/1249532"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1253174",
+        "url": "https://bugzilla.suse.com/1253174"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1259739",
+        "url": "https://bugzilla.suse.com/1259739"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1260806",
+        "url": "https://bugzilla.suse.com/1260806"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1260905",
+        "url": "https://bugzilla.suse.com/1260905"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1261810",
+        "url": "https://bugzilla.suse.com/1261810"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1261902",
+        "url": "https://bugzilla.suse.com/1261902"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1262409",
+        "url": "https://bugzilla.suse.com/1262409"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1262708",
+        "url": "https://bugzilla.suse.com/1262708"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1262760",
+        "url": "https://bugzilla.suse.com/1262760"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1263157",
+        "url": "https://bugzilla.suse.com/1263157"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1263823",
+        "url": "https://bugzilla.suse.com/1263823"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1266012",
+        "url": "https://bugzilla.suse.com/1266012"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2022-21698 page",
+        "url": "https://www.suse.com/security/cve/CVE-2022-21698/"
+      }
+    ],
+    "title": "Security update 5.1.4 for Multi-Linux Manager Client Tools",
+    "tracking": {
+      "current_release_date": "2026-09-17T16:28:12Z",
+      "generator": {
+        "date": "2026-07-06T07:47:39Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2026:2766-1",
+      "initial_release_date": "2026-07-06T07:47:39Z",
+      "revision_history": [
+        {
+          "date": "2026-07-06T07:47:39Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T19:35:43Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T20:38:17Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T16:28:12Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.aarch64",
+                "product": {
+                  "name": "golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.aarch64",
+                  "product_id": "golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/golang-github-QubitProducts-exporter_exporter@0.4.0-120002.3.6.1?arch=aarch64\u0026upstream=golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.aarch64",
+                "product": {
+                  "name": "golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.aarch64",
+                  "product_id": "golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/golang-github-boynux-squid_exporter@1.13.0-120002.3.6.1?arch=aarch64\u0026upstream=golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.aarch64",
+                "product": {
+                  "name": "golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.aarch64",
+                  "product_id": "golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/golang-github-lusitaniae-apache_exporter@1.0.10-120002.3.9.2?arch=aarch64\u0026upstream=golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.aarch64",
+                "product": {
+                  "name": "golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.aarch64",
+                  "product_id": "golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-node_exporter@1.10.2-120002.3.6.3?arch=aarch64\u0026upstream=golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-promu-0:0.17.0-120002.3.6.1.aarch64",
+                "product": {
+                  "name": "golang-github-prometheus-promu-0:0.17.0-120002.3.6.1.aarch64",
+                  "product_id": "golang-github-prometheus-promu-0:0.17.0-120002.3.6.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-promu@0.17.0-120002.3.6.1?arch=aarch64\u0026upstream=golang-github-prometheus-promu-0:0.17.0-120002.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-0:5.2.12-120002.3.15.2.aarch64",
+                "product": {
+                  "name": "mgrctl-0:5.2.12-120002.3.15.2.aarch64",
+                  "product_id": "mgrctl-0:5.2.12-120002.3.15.2.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl@5.2.12-120002.3.15.2?arch=aarch64\u0026upstream=uyuni-tools-0:5.2.12-120002.3.15.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "prometheus-blackbox_exporter-0:0.26.0-120002.3.6.1.aarch64",
+                "product": {
+                  "name": "prometheus-blackbox_exporter-0:0.26.0-120002.3.6.1.aarch64",
+                  "product_id": "prometheus-blackbox_exporter-0:0.26.0-120002.3.6.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/prometheus-blackbox_exporter@0.26.0-120002.3.6.1?arch=aarch64\u0026upstream=prometheus-blackbox_exporter-0:0.26.0-120002.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.aarch64",
+                "product": {
+                  "name": "prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.aarch64",
+                  "product_id": "prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/prometheus-postgres_exporter@0.10.1-120002.3.3.2?arch=aarch64\u0026upstream=prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "mgr-push-0:5.2.4-120002.3.9.1.noarch",
+                "product": {
+                  "name": "mgr-push-0:5.2.4-120002.3.9.1.noarch",
+                  "product_id": "mgr-push-0:5.2.4-120002.3.9.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgr-push@5.2.4-120002.3.9.1?arch=noarch\u0026upstream=mgr-push-0:5.2.4-120002.3.9.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-bash-completion-0:5.2.12-120002.3.15.2.noarch",
+                "product": {
+                  "name": "mgrctl-bash-completion-0:5.2.12-120002.3.15.2.noarch",
+                  "product_id": "mgrctl-bash-completion-0:5.2.12-120002.3.15.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl-bash-completion@5.2.12-120002.3.15.2?arch=noarch\u0026upstream=uyuni-tools-0:5.2.12-120002.3.15.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-lang-0:5.2.12-120002.3.15.2.noarch",
+                "product": {
+                  "name": "mgrctl-lang-0:5.2.12-120002.3.15.2.noarch",
+                  "product_id": "mgrctl-lang-0:5.2.12-120002.3.15.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl-lang@5.2.12-120002.3.15.2?arch=noarch\u0026upstream=uyuni-tools-0:5.2.12-120002.3.15.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-zsh-completion-0:5.2.12-120002.3.15.2.noarch",
+                "product": {
+                  "name": "mgrctl-zsh-completion-0:5.2.12-120002.3.15.2.noarch",
+                  "product_id": "mgrctl-zsh-completion-0:5.2.12-120002.3.15.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl-zsh-completion@5.2.12-120002.3.15.2?arch=noarch\u0026upstream=uyuni-tools-0:5.2.12-120002.3.15.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+                "product": {
+                  "name": "python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+                  "product_id": "python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/python-defusedxml@0.6.0-120002.1.3.1?arch=noarch\u0026upstream=python-defusedxml-0:0.6.0-120002.1.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python2-mgr-push-0:5.2.4-120002.3.9.1.noarch",
+                "product": {
+                  "name": "python2-mgr-push-0:5.2.4-120002.3.9.1.noarch",
+                  "product_id": "python2-mgr-push-0:5.2.4-120002.3.9.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/python2-mgr-push@5.2.4-120002.3.9.1?arch=noarch\u0026upstream=mgr-push-0:5.2.4-120002.3.9.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python2-rhnlib-0:5.2.5-120002.3.9.1.noarch",
+                "product": {
+                  "name": "python2-rhnlib-0:5.2.5-120002.3.9.1.noarch",
+                  "product_id": "python2-rhnlib-0:5.2.5-120002.3.9.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/python2-rhnlib@5.2.5-120002.3.9.1?arch=noarch\u0026upstream=rhnlib-0:5.2.5-120002.3.9.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python2-spacewalk-client-tools-0:5.2.6-120002.3.9.1.noarch",
+                "product": {
+                  "name": "python2-spacewalk-client-tools-0:5.2.6-120002.3.9.1.noarch",
+                  "product_id": "python2-spacewalk-client-tools-0:5.2.6-120002.3.9.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/python2-spacewalk-client-tools@5.2.6-120002.3.9.1?arch=noarch\u0026upstream=spacewalk-client-tools-0:5.2.6-120002.3.9.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python2-uyuni-common-libs-0:5.2.5-120002.3.6.1.noarch",
+                "product": {
+                  "name": "python2-uyuni-common-libs-0:5.2.5-120002.3.6.1.noarch",
+                  "product_id": "python2-uyuni-common-libs-0:5.2.5-120002.3.6.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/python2-uyuni-common-libs@5.2.5-120002.3.6.1?arch=noarch\u0026upstream=uyuni-common-libs-0:5.2.5-120002.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python3-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+                "product": {
+                  "name": "python3-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+                  "product_id": "python3-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/python3-defusedxml@0.6.0-120002.1.3.1?arch=noarch\u0026upstream=python-defusedxml-0:0.6.0-120002.1.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "spacecmd-0:5.2.8-120002.3.12.1.noarch",
+                "product": {
+                  "name": "spacecmd-0:5.2.8-120002.3.12.1.noarch",
+                  "product_id": "spacecmd-0:5.2.8-120002.3.12.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/spacecmd@5.2.8-120002.3.12.1?arch=noarch\u0026upstream=spacecmd-0:5.2.8-120002.3.12.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "spacewalk-client-tools-0:5.2.6-120002.3.9.1.noarch",
+                "product": {
+                  "name": "spacewalk-client-tools-0:5.2.6-120002.3.9.1.noarch",
+                  "product_id": "spacewalk-client-tools-0:5.2.6-120002.3.9.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/spacewalk-client-tools@5.2.6-120002.3.9.1?arch=noarch\u0026upstream=spacewalk-client-tools-0:5.2.6-120002.3.9.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "supportutils-plugin-salt-0:1.2.3-120002.3.3.1.noarch",
+                "product": {
+                  "name": "supportutils-plugin-salt-0:1.2.3-120002.3.3.1.noarch",
+                  "product_id": "supportutils-plugin-salt-0:1.2.3-120002.3.3.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/supportutils-plugin-salt@1.2.3-120002.3.3.1?arch=noarch\u0026upstream=supportutils-plugin-salt-0:1.2.3-120002.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "supportutils-plugin-susemanager-client-0:5.2.3-120002.3.9.1.noarch",
+                "product": {
+                  "name": "supportutils-plugin-susemanager-client-0:5.2.3-120002.3.9.1.noarch",
+                  "product_id": "supportutils-plugin-susemanager-client-0:5.2.3-120002.3.9.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/supportutils-plugin-susemanager-client@5.2.3-120002.3.9.1?arch=noarch\u0026upstream=supportutils-plugin-susemanager-client-0:5.2.3-120002.3.9.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.ppc64le",
+                "product": {
+                  "name": "golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.ppc64le",
+                  "product_id": "golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/golang-github-QubitProducts-exporter_exporter@0.4.0-120002.3.6.1?arch=ppc64le\u0026upstream=golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.ppc64le",
+                "product": {
+                  "name": "golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.ppc64le",
+                  "product_id": "golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/golang-github-boynux-squid_exporter@1.13.0-120002.3.6.1?arch=ppc64le\u0026upstream=golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.ppc64le",
+                "product": {
+                  "name": "golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.ppc64le",
+                  "product_id": "golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/golang-github-lusitaniae-apache_exporter@1.0.10-120002.3.9.2?arch=ppc64le\u0026upstream=golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.ppc64le",
+                "product": {
+                  "name": "golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.ppc64le",
+                  "product_id": "golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-node_exporter@1.10.2-120002.3.6.3?arch=ppc64le\u0026upstream=golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-promu-0:0.17.0-120002.3.6.1.ppc64le",
+                "product": {
+                  "name": "golang-github-prometheus-promu-0:0.17.0-120002.3.6.1.ppc64le",
+                  "product_id": "golang-github-prometheus-promu-0:0.17.0-120002.3.6.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-promu@0.17.0-120002.3.6.1?arch=ppc64le\u0026upstream=golang-github-prometheus-promu-0:0.17.0-120002.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-0:5.2.12-120002.3.15.2.ppc64le",
+                "product": {
+                  "name": "mgrctl-0:5.2.12-120002.3.15.2.ppc64le",
+                  "product_id": "mgrctl-0:5.2.12-120002.3.15.2.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl@5.2.12-120002.3.15.2?arch=ppc64le\u0026upstream=uyuni-tools-0:5.2.12-120002.3.15.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "prometheus-blackbox_exporter-0:0.26.0-120002.3.6.1.ppc64le",
+                "product": {
+                  "name": "prometheus-blackbox_exporter-0:0.26.0-120002.3.6.1.ppc64le",
+                  "product_id": "prometheus-blackbox_exporter-0:0.26.0-120002.3.6.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/prometheus-blackbox_exporter@0.26.0-120002.3.6.1?arch=ppc64le\u0026upstream=prometheus-blackbox_exporter-0:0.26.0-120002.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.ppc64le",
+                "product": {
+                  "name": "prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.ppc64le",
+                  "product_id": "prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/prometheus-postgres_exporter@0.10.1-120002.3.3.2?arch=ppc64le\u0026upstream=prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.s390x",
+                "product": {
+                  "name": "golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.s390x",
+                  "product_id": "golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/golang-github-QubitProducts-exporter_exporter@0.4.0-120002.3.6.1?arch=s390x\u0026upstream=golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.s390x",
+                "product": {
+                  "name": "golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.s390x",
+                  "product_id": "golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/golang-github-boynux-squid_exporter@1.13.0-120002.3.6.1?arch=s390x\u0026upstream=golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.s390x",
+                "product": {
+                  "name": "golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.s390x",
+                  "product_id": "golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/golang-github-lusitaniae-apache_exporter@1.0.10-120002.3.9.2?arch=s390x\u0026upstream=golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.s390x",
+                "product": {
+                  "name": "golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.s390x",
+                  "product_id": "golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-node_exporter@1.10.2-120002.3.6.3?arch=s390x\u0026upstream=golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-promu-0:0.17.0-120002.3.6.1.s390x",
+                "product": {
+                  "name": "golang-github-prometheus-promu-0:0.17.0-120002.3.6.1.s390x",
+                  "product_id": "golang-github-prometheus-promu-0:0.17.0-120002.3.6.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-promu@0.17.0-120002.3.6.1?arch=s390x\u0026upstream=golang-github-prometheus-promu-0:0.17.0-120002.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-0:5.2.12-120002.3.15.2.s390x",
+                "product": {
+                  "name": "mgrctl-0:5.2.12-120002.3.15.2.s390x",
+                  "product_id": "mgrctl-0:5.2.12-120002.3.15.2.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl@5.2.12-120002.3.15.2?arch=s390x\u0026upstream=uyuni-tools-0:5.2.12-120002.3.15.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "prometheus-blackbox_exporter-0:0.26.0-120002.3.6.1.s390x",
+                "product": {
+                  "name": "prometheus-blackbox_exporter-0:0.26.0-120002.3.6.1.s390x",
+                  "product_id": "prometheus-blackbox_exporter-0:0.26.0-120002.3.6.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/prometheus-blackbox_exporter@0.26.0-120002.3.6.1?arch=s390x\u0026upstream=prometheus-blackbox_exporter-0:0.26.0-120002.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.s390x",
+                "product": {
+                  "name": "prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.s390x",
+                  "product_id": "prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/prometheus-postgres_exporter@0.10.1-120002.3.3.2?arch=s390x\u0026upstream=prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.x86_64",
+                "product": {
+                  "name": "golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.x86_64",
+                  "product_id": "golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/golang-github-QubitProducts-exporter_exporter@0.4.0-120002.3.6.1?arch=x86_64\u0026upstream=golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.x86_64",
+                "product": {
+                  "name": "golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.x86_64",
+                  "product_id": "golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/golang-github-boynux-squid_exporter@1.13.0-120002.3.6.1?arch=x86_64\u0026upstream=golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.x86_64",
+                "product": {
+                  "name": "golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.x86_64",
+                  "product_id": "golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/golang-github-lusitaniae-apache_exporter@1.0.10-120002.3.9.2?arch=x86_64\u0026upstream=golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.x86_64",
+                "product": {
+                  "name": "golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.x86_64",
+                  "product_id": "golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-node_exporter@1.10.2-120002.3.6.3?arch=x86_64\u0026upstream=golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-promu-0:0.17.0-120002.3.6.1.x86_64",
+                "product": {
+                  "name": "golang-github-prometheus-promu-0:0.17.0-120002.3.6.1.x86_64",
+                  "product_id": "golang-github-prometheus-promu-0:0.17.0-120002.3.6.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-promu@0.17.0-120002.3.6.1?arch=x86_64\u0026upstream=golang-github-prometheus-promu-0:0.17.0-120002.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-0:5.2.12-120002.3.15.2.x86_64",
+                "product": {
+                  "name": "mgrctl-0:5.2.12-120002.3.15.2.x86_64",
+                  "product_id": "mgrctl-0:5.2.12-120002.3.15.2.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl@5.2.12-120002.3.15.2?arch=x86_64\u0026upstream=uyuni-tools-0:5.2.12-120002.3.15.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "prometheus-blackbox_exporter-0:0.26.0-120002.3.6.1.x86_64",
+                "product": {
+                  "name": "prometheus-blackbox_exporter-0:0.26.0-120002.3.6.1.x86_64",
+                  "product_id": "prometheus-blackbox_exporter-0:0.26.0-120002.3.6.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/prometheus-blackbox_exporter@0.26.0-120002.3.6.1?arch=x86_64\u0026upstream=prometheus-blackbox_exporter-0:0.26.0-120002.3.6.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.x86_64",
+                "product": {
+                  "name": "prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.x86_64",
+                  "product_id": "prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/prometheus-postgres_exporter@0.10.1-120002.3.3.2?arch=x86_64\u0026upstream=prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Multi Linux Manager Tools SLE-12",
+                "product": {
+                  "name": "SUSE Multi Linux Manager Tools SLE-12",
+                  "product_id": "SUSE Multi Linux Manager Tools SLE-12"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.aarch64 as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.aarch64"
+        },
+        "product_reference": "golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.aarch64",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.ppc64le as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.ppc64le"
+        },
+        "product_reference": "golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.ppc64le",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.s390x as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.s390x"
+        },
+        "product_reference": "golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.s390x",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.x86_64 as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.x86_64"
+        },
+        "product_reference": "golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.aarch64 as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.aarch64"
+        },
+        "product_reference": "golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.aarch64",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.ppc64le as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.ppc64le"
+        },
+        "product_reference": "golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.ppc64le",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.s390x as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.s390x"
+        },
+        "product_reference": "golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.s390x",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.x86_64 as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.x86_64"
+        },
+        "product_reference": "golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.aarch64 as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.aarch64"
+        },
+        "product_reference": "golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.aarch64",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.ppc64le as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.ppc64le"
+        },
+        "product_reference": "golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.ppc64le",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.s390x as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.s390x"
+        },
+        "product_reference": "golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.s390x",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.x86_64 as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.x86_64"
+        },
+        "product_reference": "golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.x86_64",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.aarch64 as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.aarch64"
+        },
+        "product_reference": "golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.aarch64",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.ppc64le as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.ppc64le"
+        },
+        "product_reference": "golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.ppc64le",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.s390x as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.s390x"
+        },
+        "product_reference": "golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.s390x",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.x86_64 as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.x86_64"
+        },
+        "product_reference": "golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.x86_64",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgr-push-0:5.2.4-120002.3.9.1.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:mgr-push-0:5.2.4-120002.3.9.1.noarch"
+        },
+        "product_reference": "mgr-push-0:5.2.4-120002.3.9.1.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-0:5.2.12-120002.3.15.2.aarch64 as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:mgrctl-0:5.2.12-120002.3.15.2.aarch64"
+        },
+        "product_reference": "mgrctl-0:5.2.12-120002.3.15.2.aarch64",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-0:5.2.12-120002.3.15.2.ppc64le as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:mgrctl-0:5.2.12-120002.3.15.2.ppc64le"
+        },
+        "product_reference": "mgrctl-0:5.2.12-120002.3.15.2.ppc64le",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-0:5.2.12-120002.3.15.2.s390x as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:mgrctl-0:5.2.12-120002.3.15.2.s390x"
+        },
+        "product_reference": "mgrctl-0:5.2.12-120002.3.15.2.s390x",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-0:5.2.12-120002.3.15.2.x86_64 as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:mgrctl-0:5.2.12-120002.3.15.2.x86_64"
+        },
+        "product_reference": "mgrctl-0:5.2.12-120002.3.15.2.x86_64",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-bash-completion-0:5.2.12-120002.3.15.2.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:mgrctl-bash-completion-0:5.2.12-120002.3.15.2.noarch"
+        },
+        "product_reference": "mgrctl-bash-completion-0:5.2.12-120002.3.15.2.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-lang-0:5.2.12-120002.3.15.2.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:mgrctl-lang-0:5.2.12-120002.3.15.2.noarch"
+        },
+        "product_reference": "mgrctl-lang-0:5.2.12-120002.3.15.2.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-zsh-completion-0:5.2.12-120002.3.15.2.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:mgrctl-zsh-completion-0:5.2.12-120002.3.15.2.noarch"
+        },
+        "product_reference": "mgrctl-zsh-completion-0:5.2.12-120002.3.15.2.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.aarch64 as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.aarch64"
+        },
+        "product_reference": "prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.aarch64",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.ppc64le as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.ppc64le"
+        },
+        "product_reference": "prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.ppc64le",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.s390x as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.s390x"
+        },
+        "product_reference": "prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.s390x",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.x86_64 as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.x86_64"
+        },
+        "product_reference": "prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.x86_64",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python-defusedxml-0:0.6.0-120002.1.3.1.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:python-defusedxml-0:0.6.0-120002.1.3.1.noarch"
+        },
+        "product_reference": "python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python2-mgr-push-0:5.2.4-120002.3.9.1.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:python2-mgr-push-0:5.2.4-120002.3.9.1.noarch"
+        },
+        "product_reference": "python2-mgr-push-0:5.2.4-120002.3.9.1.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python2-rhnlib-0:5.2.5-120002.3.9.1.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:python2-rhnlib-0:5.2.5-120002.3.9.1.noarch"
+        },
+        "product_reference": "python2-rhnlib-0:5.2.5-120002.3.9.1.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python2-spacewalk-client-tools-0:5.2.6-120002.3.9.1.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:python2-spacewalk-client-tools-0:5.2.6-120002.3.9.1.noarch"
+        },
+        "product_reference": "python2-spacewalk-client-tools-0:5.2.6-120002.3.9.1.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python2-uyuni-common-libs-0:5.2.5-120002.3.6.1.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:python2-uyuni-common-libs-0:5.2.5-120002.3.6.1.noarch"
+        },
+        "product_reference": "python2-uyuni-common-libs-0:5.2.5-120002.3.6.1.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "spacecmd-0:5.2.8-120002.3.12.1.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:spacecmd-0:5.2.8-120002.3.12.1.noarch"
+        },
+        "product_reference": "spacecmd-0:5.2.8-120002.3.12.1.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "spacewalk-client-tools-0:5.2.6-120002.3.9.1.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:spacewalk-client-tools-0:5.2.6-120002.3.9.1.noarch"
+        },
+        "product_reference": "spacewalk-client-tools-0:5.2.6-120002.3.9.1.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "supportutils-plugin-salt-0:1.2.3-120002.3.3.1.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-salt-0:1.2.3-120002.3.3.1.noarch"
+        },
+        "product_reference": "supportutils-plugin-salt-0:1.2.3-120002.3.3.1.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "supportutils-plugin-susemanager-client-0:5.2.3-120002.3.9.1.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-susemanager-client-0:5.2.3-120002.3.9.1.noarch"
+        },
+        "product_reference": "supportutils-plugin-susemanager-client-0:5.2.3-120002.3.9.1.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2022-21698",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2022-21698"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "client_golang is the instrumentation library for Go applications in Prometheus, and the promhttp package in client_golang provides tooling around HTTP servers and clients. In client_golang prior to version 1.11.1, HTTP server is susceptible to a Denial of Service through unbounded cardinality, and potential memory exhaustion, when handling requests with non-standard HTTP methods. In order to be affected, an instrumented software must use any of `promhttp.InstrumentHandler*` middleware except `RequestsInFlight`; not filter any specific methods (e.g GET) before middleware; pass metric with `method` label name to our middleware; and not have any firewall/LB/proxy that filters away requests with unknown `method`. client_golang version 1.11.1 contains a patch for this issue. Several workarounds are available, including removing the `method` label name from counter/gauge used in the InstrumentHandler; turning off affected promhttp handlers; adding custom middleware before promhttp handler that will sanitize the request method given by Go http.Request; and using a reverse proxy or web application firewall, configured to only allow a limited set of methods.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:mgr-push-0:5.2.4-120002.3.9.1.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:mgrctl-0:5.2.12-120002.3.15.2.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:mgrctl-0:5.2.12-120002.3.15.2.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:mgrctl-0:5.2.12-120002.3.15.2.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:mgrctl-0:5.2.12-120002.3.15.2.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:mgrctl-bash-completion-0:5.2.12-120002.3.15.2.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:mgrctl-lang-0:5.2.12-120002.3.15.2.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:mgrctl-zsh-completion-0:5.2.12-120002.3.15.2.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:python2-mgr-push-0:5.2.4-120002.3.9.1.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:python2-rhnlib-0:5.2.5-120002.3.9.1.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:python2-spacewalk-client-tools-0:5.2.6-120002.3.9.1.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:python2-uyuni-common-libs-0:5.2.5-120002.3.6.1.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:spacecmd-0:5.2.8-120002.3.12.1.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:spacewalk-client-tools-0:5.2.6-120002.3.9.1.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-salt-0:1.2.3-120002.3.3.1.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-susemanager-client-0:5.2.3-120002.3.9.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2022-21698",
+          "url": "https://www.suse.com/security/cve/CVE-2022-21698"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1196338 for CVE-2022-21698",
+          "url": "https://bugzilla.suse.com/1196338"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1248689 for CVE-2022-21698",
+          "url": "https://bugzilla.suse.com/1248689"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:mgr-push-0:5.2.4-120002.3.9.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-0:5.2.12-120002.3.15.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-0:5.2.12-120002.3.15.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-0:5.2.12-120002.3.15.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-0:5.2.12-120002.3.15.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-bash-completion-0:5.2.12-120002.3.15.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-lang-0:5.2.12-120002.3.15.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-zsh-completion-0:5.2.12-120002.3.15.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-mgr-push-0:5.2.4-120002.3.9.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-rhnlib-0:5.2.5-120002.3.9.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-spacewalk-client-tools-0:5.2.6-120002.3.9.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-uyuni-common-libs-0:5.2.5-120002.3.6.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:spacecmd-0:5.2.8-120002.3.12.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:spacewalk-client-tools-0:5.2.6-120002.3.9.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-salt-0:1.2.3-120002.3.3.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-susemanager-client-0:5.2.3-120002.3.9.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-QubitProducts-exporter_exporter-0:0.4.0-120002.3.6.1.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-boynux-squid_exporter-0:1.13.0-120002.3.6.1.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-lusitaniae-apache_exporter-0:1.0.10-120002.3.9.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-node_exporter-0:1.10.2-120002.3.6.3.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:mgr-push-0:5.2.4-120002.3.9.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-0:5.2.12-120002.3.15.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-0:5.2.12-120002.3.15.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-0:5.2.12-120002.3.15.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-0:5.2.12-120002.3.15.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-bash-completion-0:5.2.12-120002.3.15.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-lang-0:5.2.12-120002.3.15.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:mgrctl-zsh-completion-0:5.2.12-120002.3.15.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:prometheus-postgres_exporter-0:0.10.1-120002.3.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-mgr-push-0:5.2.4-120002.3.9.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-rhnlib-0:5.2.5-120002.3.9.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-spacewalk-client-tools-0:5.2.6-120002.3.9.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-uyuni-common-libs-0:5.2.5-120002.3.6.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:spacecmd-0:5.2.8-120002.3.12.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:spacewalk-client-tools-0:5.2.6-120002.3.9.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-salt-0:1.2.3-120002.3.3.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-susemanager-client-0:5.2.3-120002.3.9.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-07-06T07:47:39Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2022-21698"
+    }
+  ]
+}

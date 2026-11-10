@@ -1,0 +1,1277 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for zypper, libzypp, libsolv",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for zypper, libzypp, libsolv fixes the following issues:\n\nChanges in zypper:\n\nUpdate to 1.14.98:\n\n- Transactional systems: Delegate rw-commands to\n  transactional-wrapper if available (jsc#PED-13680, jsc#PED-15607)\n  On a transactional system where the root filesystem is mounted\n  read-only, zypper commands that modify the system cannot be\n  executed directly.\n  If the system provides a transactional-wrapper utility, zypper\n  will automatically attempt to invoke it. The wrapper\n  transparently executes the zypper command within a new, writable\n  snapshot and manages the lifecycle of that snapshot based on the\n  command's exit status.\n  On transactional systems lacking a transactional-wrapper, users\n  must manually invoke specialized tools -such as\n  transactional-update- to install, update, or remove software.\n- Add --filter-version-change to zypper lu.\n  Adds filtering by version change significance to reduce noise in\n  update listings. Supports levels: rebuild (hides rebuild-only\n  changes) and package (hides all release-only changes).\n- Autorefresh ris-services the way as plugin-services (bsc#1246504)\n  It's actually wrong to treat service refreshes different\n  depending on the service type. For the purpose of a service it\n  makes no difference how the data about the repos to use are\n  acquired.\n\nChanges in libzypp:\n\nUpdated to 17.38.13:\n\n- A .repo files \"path=\" entry must not refer to a location\n  outside the repo (bsc#1267874, CVE-2026-44942)\n  A \"path=\" entry may solely denote a sub-directory of the baseurl\n  where the metadata are located. A relative path trying to access\n  data outside the baseurl is reported and sanitized.\n- Repo \"keyhint\" must denote a filename, no path (bsc#1267426,\n  CVE-2026-44941)\n- Fix potential crash on malformed or malicious repository\n  metadata (fixes #740)\n- Repo metadata: discard entries referring to a location outside\n  the repo (bsc#1259802, CVE-2026-25707)\n  Mirroring those data locally would refer to a location outside\n  the repo's local cache directory. Those data entries are reported\n  and discarded.\n- zypp.conf: Allow [env] section to add environment variables.\n  This feature is designed to enable environment-specific settings\n  or debugging options over an extended period. See zypp.conf(5).\n- Prevent configured scripts from escaping the sigcheck directory\n  (bsc#1265223, CVE-2026-44933)\n- StringV: guard hasPrefix/hasPrefixCI against reading past the\n  view end (fixes #735)\n- Mandatory signature verification plugin support (PED#11922)\n- Fix purge-kernel -rc kernel handling (bsc#1239718)\n- Explicitly_set_pool_DISTTYPE_RPM (fixes #726)\n- Check for trusted key updates when updating the general keyring\n  (bsc#1259706)\n- Support multiple MirroredOrigin authorities (bsc#1253193)\n- Workaround doxygen bug: doxygen/doxygen#12057\n- libzypp.spec: Add missing graphviz-gd BuildRequires (boo#1259842)\n\nChanges in libsolv:\n\nUpdated to 0.7.39:\n\n- fix solv_chksum_free segfault when called with a NULL pointer\n- made repo_add_solv more robust against corrupt files\n  [bsc#1265935] [CVE-2026-9149]\n- fix potential buffer overflow when verifying EdDSA signatures\n  [bsc#1266039] [CVE-2026-48863]\n- added limit checks in multiple places to catch overflows\n- reduce the size of the language id cache\n- fixed Debian canon selection\n- fixed dbpath detection in repo_rpmdb_librpm\n- reduced stack usage in repo page compression (needed for musl)\n- fix parsing of sha512 checksums in debian repositories\n  [bsc#1265938] [CVE-2026-9150]\n- improve speed of dirpool_add_dir makeing parsing of filelists.xml\n  twice as fast\n- fix parsing of recommends in the old Mandriva synthesis format\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-SL-Micro-6.2-961",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2026_22221-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2026:22221-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-202622221-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2026:22221-1",
+        "url": "https://lists.suse.com/pipermail/sle-updates/2026-June/047487.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1239718",
+        "url": "https://bugzilla.suse.com/1239718"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246504",
+        "url": "https://bugzilla.suse.com/1246504"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1253193",
+        "url": "https://bugzilla.suse.com/1253193"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1259706",
+        "url": "https://bugzilla.suse.com/1259706"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1259802",
+        "url": "https://bugzilla.suse.com/1259802"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1259842",
+        "url": "https://bugzilla.suse.com/1259842"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1265223",
+        "url": "https://bugzilla.suse.com/1265223"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1265935",
+        "url": "https://bugzilla.suse.com/1265935"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1265938",
+        "url": "https://bugzilla.suse.com/1265938"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1266039",
+        "url": "https://bugzilla.suse.com/1266039"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1267426",
+        "url": "https://bugzilla.suse.com/1267426"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1267874",
+        "url": "https://bugzilla.suse.com/1267874"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-25707 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-25707/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-44933 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-44933/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-44941 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-44941/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-44942 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-44942/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-48863 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-48863/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-9149 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-9149/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-9150 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-9150/"
+      }
+    ],
+    "title": "Security update for zypper, libzypp, libsolv",
+    "tracking": {
+      "current_release_date": "2026-10-29T18:18:56Z",
+      "generator": {
+        "date": "2026-06-19T07:11:35Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2026:22221-1",
+      "initial_release_date": "2026-06-19T07:11:35Z",
+      "revision_history": [
+        {
+          "date": "2026-06-19T07:11:35Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T19:08:53Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T19:58:08Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T15:56:04Z",
+          "number": "4",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-30T15:55:54Z",
+          "number": "5",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-10-12T17:25:41Z",
+          "number": "6",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-10-15T17:08:21Z",
+          "number": "7",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-10-29T18:18:56Z",
+          "number": "8",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "8"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+                "product": {
+                  "name": "libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+                  "product_id": "libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libsolv:0.7.39:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsolv-tools-base@0.7.39-160000.1.1?arch=aarch64\u0026upstream=libsolv-0:0.7.39-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libzypp-0:17.38.13-160000.1.1.aarch64",
+                "product": {
+                  "name": "libzypp-0:17.38.13-160000.1.1.aarch64",
+                  "product_id": "libzypp-0:17.38.13-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.13:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp@17.38.13-160000.1.1?arch=aarch64\u0026upstream=libzypp-0:17.38.13-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "zypper-0:1.14.98-160000.1.1.aarch64",
+                "product": {
+                  "name": "zypper-0:1.14.98-160000.1.1.aarch64",
+                  "product_id": "zypper-0:1.14.98-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:zypper:1.14.98:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/zypper@1.14.98-160000.1.1?arch=aarch64\u0026upstream=zypper-0:1.14.98-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "zypper-needs-restarting-0:1.14.98-160000.1.1.noarch",
+                "product": {
+                  "name": "zypper-needs-restarting-0:1.14.98-160000.1.1.noarch",
+                  "product_id": "zypper-needs-restarting-0:1.14.98-160000.1.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:zypper:1.14.98:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/zypper-needs-restarting@1.14.98-160000.1.1?arch=noarch\u0026upstream=zypper-0:1.14.98-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+                "product": {
+                  "name": "libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+                  "product_id": "libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libsolv:0.7.39:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsolv-tools-base@0.7.39-160000.1.1?arch=ppc64le\u0026upstream=libsolv-0:0.7.39-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libzypp-0:17.38.13-160000.1.1.ppc64le",
+                "product": {
+                  "name": "libzypp-0:17.38.13-160000.1.1.ppc64le",
+                  "product_id": "libzypp-0:17.38.13-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.13:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp@17.38.13-160000.1.1?arch=ppc64le\u0026upstream=libzypp-0:17.38.13-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "zypper-0:1.14.98-160000.1.1.ppc64le",
+                "product": {
+                  "name": "zypper-0:1.14.98-160000.1.1.ppc64le",
+                  "product_id": "zypper-0:1.14.98-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:zypper:1.14.98:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/zypper@1.14.98-160000.1.1?arch=ppc64le\u0026upstream=zypper-0:1.14.98-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+                "product": {
+                  "name": "libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+                  "product_id": "libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libsolv:0.7.39:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsolv-tools-base@0.7.39-160000.1.1?arch=s390x\u0026upstream=libsolv-0:0.7.39-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libzypp-0:17.38.13-160000.1.1.s390x",
+                "product": {
+                  "name": "libzypp-0:17.38.13-160000.1.1.s390x",
+                  "product_id": "libzypp-0:17.38.13-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.13:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp@17.38.13-160000.1.1?arch=s390x\u0026upstream=libzypp-0:17.38.13-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "zypper-0:1.14.98-160000.1.1.s390x",
+                "product": {
+                  "name": "zypper-0:1.14.98-160000.1.1.s390x",
+                  "product_id": "zypper-0:1.14.98-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:zypper:1.14.98:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/zypper@1.14.98-160000.1.1?arch=s390x\u0026upstream=zypper-0:1.14.98-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+                "product": {
+                  "name": "libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+                  "product_id": "libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libsolv:0.7.39:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsolv-tools-base@0.7.39-160000.1.1?arch=x86_64\u0026upstream=libsolv-0:0.7.39-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libzypp-0:17.38.13-160000.1.1.x86_64",
+                "product": {
+                  "name": "libzypp-0:17.38.13-160000.1.1.x86_64",
+                  "product_id": "libzypp-0:17.38.13-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.13:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp@17.38.13-160000.1.1?arch=x86_64\u0026upstream=libzypp-0:17.38.13-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "zypper-0:1.14.98-160000.1.1.x86_64",
+                "product": {
+                  "name": "zypper-0:1.14.98-160000.1.1.x86_64",
+                  "product_id": "zypper-0:1.14.98-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:zypper:1.14.98:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/zypper@1.14.98-160000.1.1?arch=x86_64\u0026upstream=zypper-0:1.14.98-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Micro 6.2",
+                "product": {
+                  "name": "SUSE Linux Micro 6.2",
+                  "product_id": "SUSE Linux Micro 6.2",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sl-micro:6.2"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsolv-tools-base-0:0.7.39-160000.1.1.aarch64 as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64"
+        },
+        "product_reference": "libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le"
+        },
+        "product_reference": "libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsolv-tools-base-0:0.7.39-160000.1.1.s390x as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x"
+        },
+        "product_reference": "libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsolv-tools-base-0:0.7.39-160000.1.1.x86_64 as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64"
+        },
+        "product_reference": "libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.13-160000.1.1.aarch64 as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64"
+        },
+        "product_reference": "libzypp-0:17.38.13-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.13-160000.1.1.ppc64le as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le"
+        },
+        "product_reference": "libzypp-0:17.38.13-160000.1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.13-160000.1.1.s390x as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x"
+        },
+        "product_reference": "libzypp-0:17.38.13-160000.1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.13-160000.1.1.x86_64 as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64"
+        },
+        "product_reference": "libzypp-0:17.38.13-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-0:1.14.98-160000.1.1.aarch64 as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64"
+        },
+        "product_reference": "zypper-0:1.14.98-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-0:1.14.98-160000.1.1.ppc64le as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le"
+        },
+        "product_reference": "zypper-0:1.14.98-160000.1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-0:1.14.98-160000.1.1.s390x as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x"
+        },
+        "product_reference": "zypper-0:1.14.98-160000.1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-0:1.14.98-160000.1.1.x86_64 as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64"
+        },
+        "product_reference": "zypper-0:1.14.98-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "zypper-needs-restarting-0:1.14.98-160000.1.1.noarch as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+        },
+        "product_reference": "zypper-needs-restarting-0:1.14.98-160000.1.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-25707",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-25707"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A relative path traversal bug problem when processing repository metadata in libzypp before 17.38.10 could be used by remote attackers supplying repositories to overwrite files on the system, leading to denial of service or privilege escalation.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-25707",
+          "url": "https://www.suse.com/security/cve/CVE-2026-25707"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1259802 for CVE-2026-25707",
+          "url": "https://bugzilla.suse.com/1259802"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.4,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-19T07:11:35Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-25707"
+    },
+    {
+      "cve": "CVE-2026-44933",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-44933"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "`PluginScript` attempts to `chroot` the plugin to the `repoManagerRoot`, this root is frequently `/` (the system root) in standard configurations or when using `--root`. If the chroot target is `/`, it is a no-op, allowing the traversed path to execute host binaries (like `/bin/bash`) with root privileges.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-44933",
+          "url": "https://www.suse.com/security/cve/CVE-2026-44933"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1265223 for CVE-2026-44933",
+          "url": "https://bugzilla.suse.com/1265223"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-19T07:11:35Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-44933"
+    },
+    {
+      "cve": "CVE-2026-44941",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-44941"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A relative path traversal in the \"keyhint\" option in repomd.xml parsing of libzypp before 17.38.12 can be used by attackers able to supply a malicious repository to inject or overwrite files in the target system as root.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-44941",
+          "url": "https://www.suse.com/security/cve/CVE-2026-44941"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266039 for CVE-2026-44941",
+          "url": "https://bugzilla.suse.com/1266039"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1267426 for CVE-2026-44941",
+          "url": "https://bugzilla.suse.com/1267426"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1271710 for CVE-2026-44941",
+          "url": "https://bugzilla.suse.com/1271710"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.2,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-19T07:11:35Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-44941"
+    },
+    {
+      "cve": "CVE-2026-44942",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-44942"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A path traversal in handling the \"path\" component of .repo files processed by libzypp before 17.38.13 in the 17.x series, or before 16.22.19 could be used by attackers to fill directories on the system outside of the zypp cache with content.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-44942",
+          "url": "https://www.suse.com/security/cve/CVE-2026-44942"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1267874 for CVE-2026-44942",
+          "url": "https://bugzilla.suse.com/1267874"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1271710 for CVE-2026-44942",
+          "url": "https://bugzilla.suse.com/1271710"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-19T07:11:35Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-44942"
+    },
+    {
+      "cve": "CVE-2026-48863",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-48863"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsolv. A stack-based buffer overflow vulnerability exists in the PGP verification component due to incorrect length handling when copying EdDSA 's' MPI into a stack buffer. A remote attacker could craft a malicious Ed25519 PGP signature with mismatched MPI lengths. Processing this crafted signature could lead to a denial of service in automated package or repository processing workflows.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-48863",
+          "url": "https://www.suse.com/security/cve/CVE-2026-48863"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266039 for CVE-2026-48863",
+          "url": "https://bugzilla.suse.com/1266039"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-19T07:11:35Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-48863"
+    },
+    {
+      "cve": "CVE-2026-9149",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-9149"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsolv. This heap buffer overflow vulnerability occurs when a victim processes a specially crafted `.solv` file containing negative size values in the `repo_add_solv` function. This leads to an undersized memory allocation and a subsequent out-of-bounds write. An attacker could exploit this to cause a denial of service (DoS).",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-9149",
+          "url": "https://www.suse.com/security/cve/CVE-2026-9149"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1265935 for CVE-2026-9149",
+          "url": "https://bugzilla.suse.com/1265935"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1277145 for CVE-2026-9149",
+          "url": "https://bugzilla.suse.com/1277145"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1283451 for CVE-2026-9149",
+          "url": "https://bugzilla.suse.com/1283451"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1284786 for CVE-2026-9149",
+          "url": "https://bugzilla.suse.com/1284786"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-19T07:11:35Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-9149"
+    },
+    {
+      "cve": "CVE-2026-9150",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-9150"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsolv. This stack-based buffer overflow vulnerability occurs in libsolv's Debian metadata parser when processing specially crafted Debian repository metadata. An attacker could exploit this by providing malicious SHA384 or SHA512 checksum tags, leading to memory corruption and a denial of service (DoS) in the affected system.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-9150",
+          "url": "https://www.suse.com/security/cve/CVE-2026-9150"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1265938 for CVE-2026-9150",
+          "url": "https://bugzilla.suse.com/1265938"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libsolv-tools-base-0:0.7.39-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libzypp-0:17.38.13-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:zypper-0:1.14.98-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:zypper-needs-restarting-0:1.14.98-160000.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-19T07:11:35Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-9150"
+    }
+  ]
+}

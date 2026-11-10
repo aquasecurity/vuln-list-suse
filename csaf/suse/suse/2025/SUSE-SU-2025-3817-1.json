@@ -1,0 +1,1402 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update 5.1.1 for Multi-Linux Manager Client Tools",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update fixes the following issues:\n\ngolang-github-prometheus-alertmanager:\n\n- Update to version 0.28.1 (jsc#PED-13285):\n  * Improved performance of inhibition rules when using Equal\n    labels.\n  * Improve the documentation on escaping in UTF-8 matchers.\n  * Update alertmanager_config_hash metric help to document the\n    hash is not cryptographically strong.\n  * Fix panic in amtool when using --verbose.\n  * Fix templating of channel field for Rocket.Chat.\n  * Fix rocketchat_configs written as rocket_configs in docs.\n  * Fix usage for --enable-feature flag.\n  * Trim whitespace from OpsGenie API Key.\n  * Fix Jira project template not rendered when searching for\n    existing issues.\n  * Fix subtle bug in JSON/YAML encoding of inhibition rules that\n    would cause Equal labels to be omitted.\n  * Fix header for slack_configs in docs.\n  * Fix weight and wrap of Microsoft Teams notifications.\n- Upgrade to version 0.28.0:\n  * CVE-2025-47908: Bump github.com/rs/cors (bsc#1247748).\n  * Templating errors in the SNS integration now return an error.\n  * Adopt log/slog, drop go-kit/log.\n  * Add a new Microsoft Teams integration based on Flows.\n  * Add a new Rocket.Chat integration.\n  * Add a new Jira integration.\n  * Add support for GOMEMLIMIT, enable it via the feature flag\n    --enable-feature=auto-gomemlimit.\n  * Add support for GOMAXPROCS, enable it via the feature flag\n    --enable-feature=auto-gomaxprocs.\n  * Add support for limits of silences including the maximum number\n    of active and pending silences, and the maximum size per\n    silence (in bytes). You can use the flags\n    --silences.max-silences and --silences.max-silence-size-bytes\n    to set them accordingly.\n  * Muted alerts now show whether they are suppressed or not in\n    both the /api/v2/alerts endpoint and the Alertmanager UI.\n- Upgrade to version 0.27.0:\n  * API: Removal of all api/v1/ endpoints. These endpoints\n    now log and return a deprecation message and respond with a\n    status code of 410.\n  * UTF-8 Support: Introduction of support for any UTF-8\n    character as part of label names and matchers.\n  * Discord Integration: Enforce max length in message.\n  * Metrics: Introduced the experimental feature flag\n    --enable-feature=receiver-name-in-metrics to include the\n    receiver name.\n  * Metrics: Introduced a new gauge named\n    alertmanager_inhibition_rules that counts the number of\n    configured inhibition rules.\n  * Metrics: Introduced a new counter named\n    alertmanager_alerts_supressed_total that tracks muted alerts,\n    it contains a reason label to indicate the source of the mute.\n  * Discord Integration: Introduced support for webhook_url_file.\n  * Microsoft Teams Integration: Introduced support for\n    webhook_url_file.\n  * Microsoft Teams Integration: Add support for summary.\n  * Metrics: Notification metrics now support two new values for\n    the label reason, contextCanceled and contextDeadlineExceeded.\n  * Email Integration: Contents of auth_password_file are now\n    trimmed of prefixed and suffixed whitespace.\n  * amtool: Fixes the error scheme required for webhook url when\n    using amtool with --alertmanager.url.\n  * Mixin: Fix AlertmanagerFailedToSendAlerts,\n    AlertmanagerClusterFailedToSendAlerts, and\n    AlertmanagerClusterFailedToSendAlerts to make sure they ignore\n    the reason label.\n\ngrafana:\n\n- Update to version 11.5.7:\n  * Security:\n    CVE-2025-6023: Fix cross-site-scripting via scripted dashboards\n                   (bsc#1246735)\n    CVE-2025-6197: Fix open redirect in organization switching\n                   (bsc#1246736)\n  * Bug fixes:\n    Azure: Fix legend formatting.\n    Azure: Fix resource name determination in template variable\n           queries.\n- Update to version 11.5.6:\n    CVE-2025-3415: Fix exposure of DingDing alerting integration\n                   URL to Viewer level users (bsc#1245302)\n\nmgr-push:\n\n- Version 5.1.4-0\n  * Use absolute paths when invoking external commands\n  * Fix syntax error in changelog\n\npython-defusedxml:\n\n- Update to 0.6.0\n  * Increase test coverage.\n  * Add badges to README.\n  * Test on Python 3.7 stable and 3.8-dev\n  * Drop support for Python 3.4\n  * No longer pass *html* argument to XMLParse. It has been deprecated and\n    ignored for a long time. The DefusedXMLParser still takes a html argument.\n    A deprecation warning is issued when the argument is False and a TypeError\n    when it's True.\n  * defusedxml now fails early when pyexpat stdlib module is not available or\n    broken.\n  * defusedxml.ElementTree.__all__ now lists ParseError as public attribute.\n  * The defusedxml.ElementTree and defusedxml.cElementTree modules had a typo\n    and used XMLParse instead of XMLParser as an alias for DefusedXMLParser.\n    Both the old and fixed name are now available.\n- Remove superfluous devel dependency for noarch package\n- Fix source url.\n- Update to 5.0\n  * Add compatibility with Python 3.6\n  * Drop support for Python 2.6, 3.1, 3.2, 3.3\n  * Fix lxml tests (XMLSyntaxError: Detected an entity reference loop)\n- Implement single-spec version.\n- Dummy changelog for bsc#1019074, FATE#322329\n- Initial packaging.\n\nrhnlib:\n\n- Version 5.1.3-0\n  * Fix syntax error in changelog\n  * Use more secure defusedxml parser (bsc#1227577)\n\nspacecmd:\n\n- Version 5.1.11-0\n  * Make spacecmd work with Python 3.12 and higher\n  * Call print statements properly in Python 3\n- Version 5.1.10-0\n  * Fix use of renamed config parser class where the backward\n    compatible alias was dropped in latest python version\n    (bsc#1246586)\n- Version 5.1.9-0\n  * Fix installation of python lib files on Ubuntu 24.04\n\nspacewalk-client-tools:\n\n- Version 5.1.7-0\n  * Fix syntax error in changelog\n\nsupportutils-plugin-susemanager-client:\n\n- Version 5.1.4-0\n  * Fix syntax error in changelog\n\nuyuni-tools:\n\n- version 5.1.20-0\n  * Add migration for server monitoring configuration (bsc#1247688)\n\n- version 5.1.19-0\n  * Add a lowercase version of --logLevel (bsc#1243611)\n  * Stop executing scripts in temporary folder (bsc#1243704)\n  * support config: collect podman inspect for hub container\n    (bsc#1245099)\n  * Use new dedicated path for Cobbler settings (bsc#1244027)\n  * Migrate custom auto installation snippets (bsc#1246320)\n  * Add SUSE Linux Enterprise 15 SP7 to buildin productmap\n  * Fix loading product map from mgradm configuration file\n    (bsc#1246068)\n  * Fix channel override for distro copy\n  * Do not use sudo when running as a root user (bsc#1246882)\n  * Do not require backups to be at the same location for restoring\n    (bsc#1246906)\n  * Fix recomputing proxy images when installing a PTF or TEST\n    (bsc#1246553)\n  * Add mgradm server rename to change the server FQDN (bsc#1229825)\n  * If no DB SSL CA parameter is given, use the other one\n    (bsc#1245120)\n  * More fault tolerant mgradm stop (bsc#1243331)\n  * Backup systemd dropin directory too and create if missing\n  * Add 3rd party SSL options for upgrade and migration scenarios\n  * Do not consider stderr output of podman as an error\n    (bsc#1247836)\n  * Restore SELinux contexts for restored backup volumes\n    (bsc#1244127)\n  * Automatically get up-to-date systemid file on salt based proxy\n    hosts (bsc#1246789)\n  * Bump the default image tag to 5.1.1\n\n- version 5.1.18-0\n  * Update translation strings\n\n- version 5.1.17-0\n  * upgrade saline should use scale function (bsc#1246864)\n\n- version 5.1.16-0\n  * Use database backup volume as temporary backup location\n    (bsc#1246628)\n\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2025-3817,SUSE-MultiLinuxManagerTools-SLE-12-2025-3817",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_3817-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:3817-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-20253817-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:3817-1",
+        "url": "https://lists.suse.com/pipermail/sle-security-updates/2025-October/023071.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1019074",
+        "url": "https://bugzilla.suse.com/1019074"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1227577",
+        "url": "https://bugzilla.suse.com/1227577"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1229825",
+        "url": "https://bugzilla.suse.com/1229825"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1243331",
+        "url": "https://bugzilla.suse.com/1243331"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1243611",
+        "url": "https://bugzilla.suse.com/1243611"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1243704",
+        "url": "https://bugzilla.suse.com/1243704"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1244027",
+        "url": "https://bugzilla.suse.com/1244027"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1244127",
+        "url": "https://bugzilla.suse.com/1244127"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1245099",
+        "url": "https://bugzilla.suse.com/1245099"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1245120",
+        "url": "https://bugzilla.suse.com/1245120"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1245302",
+        "url": "https://bugzilla.suse.com/1245302"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246068",
+        "url": "https://bugzilla.suse.com/1246068"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246320",
+        "url": "https://bugzilla.suse.com/1246320"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246553",
+        "url": "https://bugzilla.suse.com/1246553"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246586",
+        "url": "https://bugzilla.suse.com/1246586"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246628",
+        "url": "https://bugzilla.suse.com/1246628"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246735",
+        "url": "https://bugzilla.suse.com/1246735"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246736",
+        "url": "https://bugzilla.suse.com/1246736"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246789",
+        "url": "https://bugzilla.suse.com/1246789"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246864",
+        "url": "https://bugzilla.suse.com/1246864"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246882",
+        "url": "https://bugzilla.suse.com/1246882"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1246906",
+        "url": "https://bugzilla.suse.com/1246906"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1247688",
+        "url": "https://bugzilla.suse.com/1247688"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1247748",
+        "url": "https://bugzilla.suse.com/1247748"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1247836",
+        "url": "https://bugzilla.suse.com/1247836"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-3415 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-3415/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-47908 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-47908/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-6023 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-6023/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-6197 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-6197/"
+      }
+    ],
+    "title": "Security update 5.1.1 for Multi-Linux Manager Client Tools",
+    "tracking": {
+      "current_release_date": "2026-09-20T18:25:47Z",
+      "generator": {
+        "date": "2025-10-28T07:19:09Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:3817-1",
+      "initial_release_date": "2025-10-28T07:19:09Z",
+      "revision_history": [
+        {
+          "date": "2025-10-28T07:19:09Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T18:25:47Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.aarch64",
+                "product": {
+                  "name": "Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.aarch64",
+                  "product_id": "Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/Multi-Linux-ManagerTools-SLE-release@12-120002.1.3.2?arch=aarch64\u0026upstream=Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.aarch64",
+                "product": {
+                  "name": "Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.aarch64",
+                  "product_id": "Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/Multi-Linux-ManagerTools-SLE-release-POOL@12-120002.1.3.2?arch=aarch64\u0026upstream=Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.aarch64",
+                "product": {
+                  "name": "golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.aarch64",
+                  "product_id": "golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:prometheus:alertmanager:0.28.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-alertmanager@0.28.1-120002.4.3.2?arch=aarch64\u0026upstream=golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grafana-0:11.5.7-120002.4.3.2.aarch64",
+                "product": {
+                  "name": "grafana-0:11.5.7-120002.4.3.2.aarch64",
+                  "product_id": "grafana-0:11.5.7-120002.4.3.2.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:grafana:grafana:11.5.7:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grafana@11.5.7-120002.4.3.2?arch=aarch64\u0026upstream=grafana-0:11.5.7-120002.4.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-0:5.1.20-120002.3.3.2.aarch64",
+                "product": {
+                  "name": "mgrctl-0:5.1.20-120002.3.3.2.aarch64",
+                  "product_id": "mgrctl-0:5.1.20-120002.3.3.2.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl@5.1.20-120002.3.3.2?arch=aarch64\u0026upstream=uyuni-tools-0:5.1.20-120002.3.3.2.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "mgr-push-0:5.1.4-120002.3.3.3.noarch",
+                "product": {
+                  "name": "mgr-push-0:5.1.4-120002.3.3.3.noarch",
+                  "product_id": "mgr-push-0:5.1.4-120002.3.3.3.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgr-push@5.1.4-120002.3.3.3?arch=noarch\u0026upstream=mgr-push-0:5.1.4-120002.3.3.3.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-bash-completion-0:5.1.20-120002.3.3.2.noarch",
+                "product": {
+                  "name": "mgrctl-bash-completion-0:5.1.20-120002.3.3.2.noarch",
+                  "product_id": "mgrctl-bash-completion-0:5.1.20-120002.3.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl-bash-completion@5.1.20-120002.3.3.2?arch=noarch\u0026upstream=uyuni-tools-0:5.1.20-120002.3.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-lang-0:5.1.20-120002.3.3.2.noarch",
+                "product": {
+                  "name": "mgrctl-lang-0:5.1.20-120002.3.3.2.noarch",
+                  "product_id": "mgrctl-lang-0:5.1.20-120002.3.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl-lang@5.1.20-120002.3.3.2?arch=noarch\u0026upstream=uyuni-tools-0:5.1.20-120002.3.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-zsh-completion-0:5.1.20-120002.3.3.2.noarch",
+                "product": {
+                  "name": "mgrctl-zsh-completion-0:5.1.20-120002.3.3.2.noarch",
+                  "product_id": "mgrctl-zsh-completion-0:5.1.20-120002.3.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl-zsh-completion@5.1.20-120002.3.3.2?arch=noarch\u0026upstream=uyuni-tools-0:5.1.20-120002.3.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+                "product": {
+                  "name": "python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+                  "product_id": "python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/python-defusedxml@0.6.0-120002.1.3.1?arch=noarch\u0026upstream=python-defusedxml-0:0.6.0-120002.1.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python2-mgr-push-0:5.1.4-120002.3.3.3.noarch",
+                "product": {
+                  "name": "python2-mgr-push-0:5.1.4-120002.3.3.3.noarch",
+                  "product_id": "python2-mgr-push-0:5.1.4-120002.3.3.3.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/python2-mgr-push@5.1.4-120002.3.3.3?arch=noarch\u0026upstream=mgr-push-0:5.1.4-120002.3.3.3.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python2-rhnlib-0:5.1.3-120002.3.3.1.noarch",
+                "product": {
+                  "name": "python2-rhnlib-0:5.1.3-120002.3.3.1.noarch",
+                  "product_id": "python2-rhnlib-0:5.1.3-120002.3.3.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/python2-rhnlib@5.1.3-120002.3.3.1?arch=noarch\u0026upstream=rhnlib-0:5.1.3-120002.3.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python2-spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+                "product": {
+                  "name": "python2-spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+                  "product_id": "python2-spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/python2-spacewalk-client-tools@5.1.7-120002.3.3.2?arch=noarch\u0026upstream=spacewalk-client-tools-0:5.1.7-120002.3.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python3-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+                "product": {
+                  "name": "python3-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+                  "product_id": "python3-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/python3-defusedxml@0.6.0-120002.1.3.1?arch=noarch\u0026upstream=python-defusedxml-0:0.6.0-120002.1.3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "spacecmd-0:5.1.11-120002.3.3.2.noarch",
+                "product": {
+                  "name": "spacecmd-0:5.1.11-120002.3.3.2.noarch",
+                  "product_id": "spacecmd-0:5.1.11-120002.3.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/spacecmd@5.1.11-120002.3.3.2?arch=noarch\u0026upstream=spacecmd-0:5.1.11-120002.3.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+                "product": {
+                  "name": "spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+                  "product_id": "spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/spacewalk-client-tools@5.1.7-120002.3.3.2?arch=noarch\u0026upstream=spacewalk-client-tools-0:5.1.7-120002.3.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "supportutils-plugin-susemanager-client-0:5.1.4-120002.3.3.1.noarch",
+                "product": {
+                  "name": "supportutils-plugin-susemanager-client-0:5.1.4-120002.3.3.1.noarch",
+                  "product_id": "supportutils-plugin-susemanager-client-0:5.1.4-120002.3.3.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/supportutils-plugin-susemanager-client@5.1.4-120002.3.3.1?arch=noarch\u0026upstream=supportutils-plugin-susemanager-client-0:5.1.4-120002.3.3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.ppc64le",
+                "product": {
+                  "name": "Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.ppc64le",
+                  "product_id": "Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/Multi-Linux-ManagerTools-SLE-release@12-120002.1.3.2?arch=ppc64le\u0026upstream=Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.ppc64le",
+                "product": {
+                  "name": "Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.ppc64le",
+                  "product_id": "Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/Multi-Linux-ManagerTools-SLE-release-POOL@12-120002.1.3.2?arch=ppc64le\u0026upstream=Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.ppc64le",
+                "product": {
+                  "name": "golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.ppc64le",
+                  "product_id": "golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:prometheus:alertmanager:0.28.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-alertmanager@0.28.1-120002.4.3.2?arch=ppc64le\u0026upstream=golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grafana-0:11.5.7-120002.4.3.2.ppc64le",
+                "product": {
+                  "name": "grafana-0:11.5.7-120002.4.3.2.ppc64le",
+                  "product_id": "grafana-0:11.5.7-120002.4.3.2.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:grafana:grafana:11.5.7:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grafana@11.5.7-120002.4.3.2?arch=ppc64le\u0026upstream=grafana-0:11.5.7-120002.4.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-0:5.1.20-120002.3.3.2.ppc64le",
+                "product": {
+                  "name": "mgrctl-0:5.1.20-120002.3.3.2.ppc64le",
+                  "product_id": "mgrctl-0:5.1.20-120002.3.3.2.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl@5.1.20-120002.3.3.2?arch=ppc64le\u0026upstream=uyuni-tools-0:5.1.20-120002.3.3.2.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.s390x",
+                "product": {
+                  "name": "Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.s390x",
+                  "product_id": "Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/Multi-Linux-ManagerTools-SLE-release@12-120002.1.3.2?arch=s390x\u0026upstream=Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.s390x",
+                "product": {
+                  "name": "Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.s390x",
+                  "product_id": "Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/Multi-Linux-ManagerTools-SLE-release-POOL@12-120002.1.3.2?arch=s390x\u0026upstream=Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.s390x",
+                "product": {
+                  "name": "golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.s390x",
+                  "product_id": "golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:prometheus:alertmanager:0.28.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-alertmanager@0.28.1-120002.4.3.2?arch=s390x\u0026upstream=golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grafana-0:11.5.7-120002.4.3.2.s390x",
+                "product": {
+                  "name": "grafana-0:11.5.7-120002.4.3.2.s390x",
+                  "product_id": "grafana-0:11.5.7-120002.4.3.2.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:grafana:grafana:11.5.7:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grafana@11.5.7-120002.4.3.2?arch=s390x\u0026upstream=grafana-0:11.5.7-120002.4.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-0:5.1.20-120002.3.3.2.s390x",
+                "product": {
+                  "name": "mgrctl-0:5.1.20-120002.3.3.2.s390x",
+                  "product_id": "mgrctl-0:5.1.20-120002.3.3.2.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl@5.1.20-120002.3.3.2?arch=s390x\u0026upstream=uyuni-tools-0:5.1.20-120002.3.3.2.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.x86_64",
+                "product": {
+                  "name": "Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.x86_64",
+                  "product_id": "Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/Multi-Linux-ManagerTools-SLE-release@12-120002.1.3.2?arch=x86_64\u0026upstream=Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.x86_64",
+                "product": {
+                  "name": "Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.x86_64",
+                  "product_id": "Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/Multi-Linux-ManagerTools-SLE-release-POOL@12-120002.1.3.2?arch=x86_64\u0026upstream=Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.x86_64",
+                "product": {
+                  "name": "golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.x86_64",
+                  "product_id": "golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:prometheus:alertmanager:0.28.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-alertmanager@0.28.1-120002.4.3.2?arch=x86_64\u0026upstream=golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "grafana-0:11.5.7-120002.4.3.2.x86_64",
+                "product": {
+                  "name": "grafana-0:11.5.7-120002.4.3.2.x86_64",
+                  "product_id": "grafana-0:11.5.7-120002.4.3.2.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:grafana:grafana:11.5.7:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/grafana@11.5.7-120002.4.3.2?arch=x86_64\u0026upstream=grafana-0:11.5.7-120002.4.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-0:5.1.20-120002.3.3.2.x86_64",
+                "product": {
+                  "name": "mgrctl-0:5.1.20-120002.3.3.2.x86_64",
+                  "product_id": "mgrctl-0:5.1.20-120002.3.3.2.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl@5.1.20-120002.3.3.2?arch=x86_64\u0026upstream=uyuni-tools-0:5.1.20-120002.3.3.2.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Multi Linux Manager Tools SLE-12",
+                "product": {
+                  "name": "SUSE Multi Linux Manager Tools SLE-12",
+                  "product_id": "SUSE Multi Linux Manager Tools SLE-12"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.aarch64 as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.aarch64"
+        },
+        "product_reference": "Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.aarch64",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.ppc64le as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.ppc64le"
+        },
+        "product_reference": "Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.ppc64le",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.s390x as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.s390x"
+        },
+        "product_reference": "Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.s390x",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.x86_64 as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.x86_64"
+        },
+        "product_reference": "Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.x86_64",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.aarch64 as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.aarch64"
+        },
+        "product_reference": "Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.aarch64",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.ppc64le as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.ppc64le"
+        },
+        "product_reference": "Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.ppc64le",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.s390x as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.s390x"
+        },
+        "product_reference": "Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.s390x",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.x86_64 as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.x86_64"
+        },
+        "product_reference": "Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.x86_64",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.aarch64 as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.aarch64"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.aarch64",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.ppc64le as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.ppc64le"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.ppc64le",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.s390x as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.s390x"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.s390x",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.x86_64 as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.x86_64"
+        },
+        "product_reference": "golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.x86_64",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "grafana-0:11.5.7-120002.4.3.2.aarch64 as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.aarch64"
+        },
+        "product_reference": "grafana-0:11.5.7-120002.4.3.2.aarch64",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "grafana-0:11.5.7-120002.4.3.2.ppc64le as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.ppc64le"
+        },
+        "product_reference": "grafana-0:11.5.7-120002.4.3.2.ppc64le",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "grafana-0:11.5.7-120002.4.3.2.s390x as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.s390x"
+        },
+        "product_reference": "grafana-0:11.5.7-120002.4.3.2.s390x",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "grafana-0:11.5.7-120002.4.3.2.x86_64 as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.x86_64"
+        },
+        "product_reference": "grafana-0:11.5.7-120002.4.3.2.x86_64",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgr-push-0:5.1.4-120002.3.3.3.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:mgr-push-0:5.1.4-120002.3.3.3.noarch"
+        },
+        "product_reference": "mgr-push-0:5.1.4-120002.3.3.3.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python-defusedxml-0:0.6.0-120002.1.3.1.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:python-defusedxml-0:0.6.0-120002.1.3.1.noarch"
+        },
+        "product_reference": "python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python2-mgr-push-0:5.1.4-120002.3.3.3.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:python2-mgr-push-0:5.1.4-120002.3.3.3.noarch"
+        },
+        "product_reference": "python2-mgr-push-0:5.1.4-120002.3.3.3.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python2-rhnlib-0:5.1.3-120002.3.3.1.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:python2-rhnlib-0:5.1.3-120002.3.3.1.noarch"
+        },
+        "product_reference": "python2-rhnlib-0:5.1.3-120002.3.3.1.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python2-spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:python2-spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch"
+        },
+        "product_reference": "python2-spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "spacecmd-0:5.1.11-120002.3.3.2.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:spacecmd-0:5.1.11-120002.3.3.2.noarch"
+        },
+        "product_reference": "spacecmd-0:5.1.11-120002.3.3.2.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch"
+        },
+        "product_reference": "spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "supportutils-plugin-susemanager-client-0:5.1.4-120002.3.3.1.noarch as component of SUSE Multi Linux Manager Tools SLE-12",
+          "product_id": "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-susemanager-client-0:5.1.4-120002.3.3.1.noarch"
+        },
+        "product_reference": "supportutils-plugin-susemanager-client-0:5.1.4-120002.3.3.1.noarch",
+        "relates_to_product_reference": "SUSE Multi Linux Manager Tools SLE-12"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-3415",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-3415"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Grafana is an open-source platform for monitoring and observability. The Grafana Alerting DingDing integration was not properly protected and could be exposed to users with Viewer permission. \nFixed in versions 10.4.19+security-01, 11.2.10+security-01, 11.3.7+security-01, 11.4.5+security-01, 11.5.5+security-01, 11.6.2+security-01 and 12.0.1+security-01",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:mgr-push-0:5.1.4-120002.3.3.3.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:python2-mgr-push-0:5.1.4-120002.3.3.3.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:python2-rhnlib-0:5.1.3-120002.3.3.1.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:python2-spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:spacecmd-0:5.1.11-120002.3.3.2.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-susemanager-client-0:5.1.4-120002.3.3.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-3415",
+          "url": "https://www.suse.com/security/cve/CVE-2025-3415"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1245302 for CVE-2025-3415",
+          "url": "https://bugzilla.suse.com/1245302"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:mgr-push-0:5.1.4-120002.3.3.3.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-mgr-push-0:5.1.4-120002.3.3.3.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-rhnlib-0:5.1.3-120002.3.3.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:spacecmd-0:5.1.11-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-susemanager-client-0:5.1.4-120002.3.3.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:mgr-push-0:5.1.4-120002.3.3.3.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-mgr-push-0:5.1.4-120002.3.3.3.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-rhnlib-0:5.1.3-120002.3.3.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:spacecmd-0:5.1.11-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-susemanager-client-0:5.1.4-120002.3.3.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-10-28T07:19:09Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-3415"
+    },
+    {
+      "cve": "CVE-2025-47908",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-47908"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Middleware causes a prohibitive amount of heap allocations when processing malicious preflight requests that include a Access-Control-Request-Headers (ACRH) header whose value contains many commas. This behavior can be abused by attackers to produce undue load on the middleware/server as an attempt to cause a denial of service.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:mgr-push-0:5.1.4-120002.3.3.3.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:python2-mgr-push-0:5.1.4-120002.3.3.3.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:python2-rhnlib-0:5.1.3-120002.3.3.1.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:python2-spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:spacecmd-0:5.1.11-120002.3.3.2.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-susemanager-client-0:5.1.4-120002.3.3.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-47908",
+          "url": "https://www.suse.com/security/cve/CVE-2025-47908"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1247746 for CVE-2025-47908",
+          "url": "https://bugzilla.suse.com/1247746"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:mgr-push-0:5.1.4-120002.3.3.3.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-mgr-push-0:5.1.4-120002.3.3.3.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-rhnlib-0:5.1.3-120002.3.3.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:spacecmd-0:5.1.11-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-susemanager-client-0:5.1.4-120002.3.3.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:mgr-push-0:5.1.4-120002.3.3.3.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-mgr-push-0:5.1.4-120002.3.3.3.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-rhnlib-0:5.1.3-120002.3.3.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:spacecmd-0:5.1.11-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-susemanager-client-0:5.1.4-120002.3.3.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-10-28T07:19:09Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-47908"
+    },
+    {
+      "cve": "CVE-2025-6023",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-6023"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An open redirect vulnerability has been identified in Grafana OSS that can be exploited to achieve XSS attacks. The vulnerability was introduced in Grafana v11.5.0.\n\nThe open redirect can be chained with path traversal vulnerabilities to achieve XSS.\n\nFixed in versions 12.0.2+security-01, 11.6.3+security-01, 11.5.6+security-01, 11.4.6+security-01 and 11.3.8+security-01",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:mgr-push-0:5.1.4-120002.3.3.3.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:python2-mgr-push-0:5.1.4-120002.3.3.3.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:python2-rhnlib-0:5.1.3-120002.3.3.1.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:python2-spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:spacecmd-0:5.1.11-120002.3.3.2.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-susemanager-client-0:5.1.4-120002.3.3.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-6023",
+          "url": "https://www.suse.com/security/cve/CVE-2025-6023"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246735 for CVE-2025-6023",
+          "url": "https://bugzilla.suse.com/1246735"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:mgr-push-0:5.1.4-120002.3.3.3.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-mgr-push-0:5.1.4-120002.3.3.3.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-rhnlib-0:5.1.3-120002.3.3.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:spacecmd-0:5.1.11-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-susemanager-client-0:5.1.4-120002.3.3.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.6,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:mgr-push-0:5.1.4-120002.3.3.3.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-mgr-push-0:5.1.4-120002.3.3.3.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-rhnlib-0:5.1.3-120002.3.3.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:spacecmd-0:5.1.11-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-susemanager-client-0:5.1.4-120002.3.3.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-10-28T07:19:09Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-6023"
+    },
+    {
+      "cve": "CVE-2025-6197",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-6197"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An open redirect vulnerability has been identified in Grafana OSS organization switching functionality.\n\n\nPrerequisites for exploitation:\n\n- Multiple organizations must exist in the Grafana instance\n\n- Victim must be on a different organization than the one specified in the URL",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.aarch64",
+          "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.ppc64le",
+          "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.s390x",
+          "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.x86_64",
+          "SUSE Multi Linux Manager Tools SLE-12:mgr-push-0:5.1.4-120002.3.3.3.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:python2-mgr-push-0:5.1.4-120002.3.3.3.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:python2-rhnlib-0:5.1.3-120002.3.3.1.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:python2-spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:spacecmd-0:5.1.11-120002.3.3.2.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+          "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-susemanager-client-0:5.1.4-120002.3.3.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-6197",
+          "url": "https://www.suse.com/security/cve/CVE-2025-6197"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1246736 for CVE-2025-6197",
+          "url": "https://bugzilla.suse.com/1246736"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:mgr-push-0:5.1.4-120002.3.3.3.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-mgr-push-0:5.1.4-120002.3.3.3.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-rhnlib-0:5.1.3-120002.3.3.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:spacecmd-0:5.1.11-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-susemanager-client-0:5.1.4-120002.3.3.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.2,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-0:12-120002.1.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:Multi-Linux-ManagerTools-SLE-release-POOL-0:12-120002.1.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:golang-github-prometheus-alertmanager-0:0.28.1-120002.4.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.aarch64",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.ppc64le",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.s390x",
+            "SUSE Multi Linux Manager Tools SLE-12:grafana-0:11.5.7-120002.4.3.2.x86_64",
+            "SUSE Multi Linux Manager Tools SLE-12:mgr-push-0:5.1.4-120002.3.3.3.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python-defusedxml-0:0.6.0-120002.1.3.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-mgr-push-0:5.1.4-120002.3.3.3.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-rhnlib-0:5.1.3-120002.3.3.1.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:python2-spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:spacecmd-0:5.1.11-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:spacewalk-client-tools-0:5.1.7-120002.3.3.2.noarch",
+            "SUSE Multi Linux Manager Tools SLE-12:supportutils-plugin-susemanager-client-0:5.1.4-120002.3.3.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-10-28T07:19:09Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-6197"
+    }
+  ]
+}

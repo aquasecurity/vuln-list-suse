@@ -1,0 +1,1486 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for python311, python-rpm-macros",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for python311, python-rpm-macros fixes the following issues:\n\npython311:\n  - CVE-2024-0450: Fixed zipfile module vulnerability with \"quoted-overlap\" zipbomb (bsc#1221854)\n  - CVE-2024-4032: Fixed incorrect IPv4 and IPv6 private ranges (bsc#1226448)\n  - CVE-2024-0397: Fixed memory race condition in ssl.SSLContext certificate store methods (bsc#1226447)\n  - CVE-2024-6923: Prevent email header injection due to unquoted newlines (bsc#1228780)\n  - Fixed executable bits for /usr/bin/idle* (bsc#1227378).\n\n\npython-rpm-macros:\n\n  - Update to version 20240618.c146b29:\n    * Add %FLAVOR_pytest and %FLAVOR_pyunittest variants\n\n  - Update to version 20240618.1e386da:\n    * Fix python_clone sed regex\n\n  - Update to version 20240614.02920b8:\n    * Make sure that RPM_BUILD_ROOT env is set\n    * don't eliminate any cmdline arguments in the shebang line\n    * Create python313 macros\n\n  - Update to version 20240415.c664b45:\n    * Fix typo 310 -\u003e 312 in default-prjconf\n\n  - Update to version 20240202.501440e:\n    * SPEC0: Drop python39, add python312 to buildset (#169)\n\n  - Update to version 20231220.98427f3:\n    * fix python2_compile macro\n\n  - Update to version 20231207.46c2ec3:\n    * make FLAVOR_compile compatible with python2\n\n  - Update to version 20231204.dd64e74:\n    * Combine fix_shebang in one line\n    * New macro FLAVOR_fix_shebang_path\n    * Use realpath in %python_clone macro shebang replacement\n    * Compile and fix_shebang in %python_install macros\n\n  - Update to version 20231010.0a1f0d9:\n    * Revert \"Compile and fix_shebang in %python_install macros\"\n    * gh#openSUSE/python-rpm-macros#163\n\n  - Update to version 20231010.a32e110:\n    * Compile and fix_shebang in %python_install macros\n\n  - Update to version 20231005.bf2d3ab:\n    * Fix shebang also in sbin with macro _fix_shebang\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-SLE-Micro-6.0-23",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_20025-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:20025-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-202520025-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:20025-1",
+        "url": "https://lists.suse.com/pipermail/sle-security-updates/2025-June/021358.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1174091",
+        "url": "https://bugzilla.suse.com/1174091"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1189495",
+        "url": "https://bugzilla.suse.com/1189495"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1221854",
+        "url": "https://bugzilla.suse.com/1221854"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1226447",
+        "url": "https://bugzilla.suse.com/1226447"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1226448",
+        "url": "https://bugzilla.suse.com/1226448"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1227378",
+        "url": "https://bugzilla.suse.com/1227378"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1228780",
+        "url": "https://bugzilla.suse.com/1228780"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 831629",
+        "url": "https://bugzilla.suse.com/831629"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2019-20907 page",
+        "url": "https://www.suse.com/security/cve/CVE-2019-20907/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2019-9947 page",
+        "url": "https://www.suse.com/security/cve/CVE-2019-9947/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2020-15523 page",
+        "url": "https://www.suse.com/security/cve/CVE-2020-15523/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2020-15801 page",
+        "url": "https://www.suse.com/security/cve/CVE-2020-15801/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2022-25236 page",
+        "url": "https://www.suse.com/security/cve/CVE-2022-25236/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-52425 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-52425/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-0397 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-0397/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-0450 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-0450/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-4032 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-4032/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-6923 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-6923/"
+      }
+    ],
+    "title": "Security update for python311, python-rpm-macros",
+    "tracking": {
+      "current_release_date": "2026-09-20T18:07:18Z",
+      "generator": {
+        "date": "2025-02-03T08:50:40Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:20025-1",
+      "initial_release_date": "2025-02-03T08:50:40Z",
+      "revision_history": [
+        {
+          "date": "2025-02-03T08:50:40Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T18:07:18Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+                "product": {
+                  "name": "libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+                  "product_id": "libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:python_software_foundation:cpython:3.11.8:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libpython3_11-1_0@3.11.8-3.1?arch=aarch64\u0026upstream=python311-0:3.11.8-3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python311-0:3.11.8-3.1.aarch64",
+                "product": {
+                  "name": "python311-0:3.11.8-3.1.aarch64",
+                  "product_id": "python311-0:3.11.8-3.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:python_software_foundation:cpython:3.11.8:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/python311@3.11.8-3.1?arch=aarch64\u0026upstream=python311-0:3.11.8-3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python311-base-0:3.11.8-3.1.aarch64",
+                "product": {
+                  "name": "python311-base-0:3.11.8-3.1.aarch64",
+                  "product_id": "python311-base-0:3.11.8-3.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:python_software_foundation:cpython:3.11.8:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/python311-base@3.11.8-3.1?arch=aarch64\u0026upstream=python311-0:3.11.8-3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python311-curses-0:3.11.8-3.1.aarch64",
+                "product": {
+                  "name": "python311-curses-0:3.11.8-3.1.aarch64",
+                  "product_id": "python311-curses-0:3.11.8-3.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:python_software_foundation:cpython:3.11.8:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/python311-curses@3.11.8-3.1?arch=aarch64\u0026upstream=python311-0:3.11.8-3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libpython3_11-1_0-0:3.11.8-3.1.s390x",
+                "product": {
+                  "name": "libpython3_11-1_0-0:3.11.8-3.1.s390x",
+                  "product_id": "libpython3_11-1_0-0:3.11.8-3.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:python_software_foundation:cpython:3.11.8:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libpython3_11-1_0@3.11.8-3.1?arch=s390x\u0026upstream=python311-0:3.11.8-3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python311-0:3.11.8-3.1.s390x",
+                "product": {
+                  "name": "python311-0:3.11.8-3.1.s390x",
+                  "product_id": "python311-0:3.11.8-3.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:python_software_foundation:cpython:3.11.8:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/python311@3.11.8-3.1?arch=s390x\u0026upstream=python311-0:3.11.8-3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python311-base-0:3.11.8-3.1.s390x",
+                "product": {
+                  "name": "python311-base-0:3.11.8-3.1.s390x",
+                  "product_id": "python311-base-0:3.11.8-3.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:python_software_foundation:cpython:3.11.8:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/python311-base@3.11.8-3.1?arch=s390x\u0026upstream=python311-0:3.11.8-3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python311-curses-0:3.11.8-3.1.s390x",
+                "product": {
+                  "name": "python311-curses-0:3.11.8-3.1.s390x",
+                  "product_id": "python311-curses-0:3.11.8-3.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:python_software_foundation:cpython:3.11.8:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/python311-curses@3.11.8-3.1?arch=s390x\u0026upstream=python311-0:3.11.8-3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+                "product": {
+                  "name": "libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+                  "product_id": "libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:python_software_foundation:cpython:3.11.8:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libpython3_11-1_0@3.11.8-3.1?arch=x86_64\u0026upstream=python311-0:3.11.8-3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python311-0:3.11.8-3.1.x86_64",
+                "product": {
+                  "name": "python311-0:3.11.8-3.1.x86_64",
+                  "product_id": "python311-0:3.11.8-3.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:python_software_foundation:cpython:3.11.8:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/python311@3.11.8-3.1?arch=x86_64\u0026upstream=python311-0:3.11.8-3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python311-base-0:3.11.8-3.1.x86_64",
+                "product": {
+                  "name": "python311-base-0:3.11.8-3.1.x86_64",
+                  "product_id": "python311-base-0:3.11.8-3.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:python_software_foundation:cpython:3.11.8:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/python311-base@3.11.8-3.1?arch=x86_64\u0026upstream=python311-0:3.11.8-3.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "python311-curses-0:3.11.8-3.1.x86_64",
+                "product": {
+                  "name": "python311-curses-0:3.11.8-3.1.x86_64",
+                  "product_id": "python311-curses-0:3.11.8-3.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:python_software_foundation:cpython:3.11.8:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/python311-curses@3.11.8-3.1?arch=x86_64\u0026upstream=python311-0:3.11.8-3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Micro 6.0",
+                "product": {
+                  "name": "SUSE Linux Micro 6.0",
+                  "product_id": "SUSE Linux Micro 6.0",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sl-micro:6.0"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libpython3_11-1_0-0:3.11.8-3.1.aarch64 as component of SUSE Linux Micro 6.0",
+          "product_id": "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64"
+        },
+        "product_reference": "libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libpython3_11-1_0-0:3.11.8-3.1.s390x as component of SUSE Linux Micro 6.0",
+          "product_id": "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x"
+        },
+        "product_reference": "libpython3_11-1_0-0:3.11.8-3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libpython3_11-1_0-0:3.11.8-3.1.x86_64 as component of SUSE Linux Micro 6.0",
+          "product_id": "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64"
+        },
+        "product_reference": "libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python311-0:3.11.8-3.1.aarch64 as component of SUSE Linux Micro 6.0",
+          "product_id": "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64"
+        },
+        "product_reference": "python311-0:3.11.8-3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python311-0:3.11.8-3.1.s390x as component of SUSE Linux Micro 6.0",
+          "product_id": "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x"
+        },
+        "product_reference": "python311-0:3.11.8-3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python311-0:3.11.8-3.1.x86_64 as component of SUSE Linux Micro 6.0",
+          "product_id": "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64"
+        },
+        "product_reference": "python311-0:3.11.8-3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python311-base-0:3.11.8-3.1.aarch64 as component of SUSE Linux Micro 6.0",
+          "product_id": "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64"
+        },
+        "product_reference": "python311-base-0:3.11.8-3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python311-base-0:3.11.8-3.1.s390x as component of SUSE Linux Micro 6.0",
+          "product_id": "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x"
+        },
+        "product_reference": "python311-base-0:3.11.8-3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python311-base-0:3.11.8-3.1.x86_64 as component of SUSE Linux Micro 6.0",
+          "product_id": "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64"
+        },
+        "product_reference": "python311-base-0:3.11.8-3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python311-curses-0:3.11.8-3.1.aarch64 as component of SUSE Linux Micro 6.0",
+          "product_id": "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64"
+        },
+        "product_reference": "python311-curses-0:3.11.8-3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python311-curses-0:3.11.8-3.1.s390x as component of SUSE Linux Micro 6.0",
+          "product_id": "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x"
+        },
+        "product_reference": "python311-curses-0:3.11.8-3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python311-curses-0:3.11.8-3.1.x86_64 as component of SUSE Linux Micro 6.0",
+          "product_id": "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+        },
+        "product_reference": "python311-curses-0:3.11.8-3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2019-20907",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2019-20907"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In Lib/tarfile.py in Python through 3.8.3, an attacker is able to craft a TAR archive leading to an infinite loop when opened by tarfile.open, because _proc_pax lacks header validation.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2019-20907",
+          "url": "https://www.suse.com/security/cve/CVE-2019-20907"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1174091 for CVE-2019-20907",
+          "url": "https://bugzilla.suse.com/1174091"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-03T08:50:40Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2019-20907"
+    },
+    {
+      "cve": "CVE-2019-9947",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2019-9947"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An issue was discovered in urllib2 in Python 2.x through 2.7.16 and urllib in Python 3.x through 3.7.3. CRLF injection is possible if the attacker controls a url parameter, as demonstrated by the first argument to urllib.request.urlopen with \\r\\n (specifically in the path component of a URL that lacks a ? character) followed by an HTTP header or a Redis command. This is similar to the CVE-2019-9740 query string issue. This is fixed in: v2.7.17, v2.7.17rc1, v2.7.18, v2.7.18rc1; v3.5.10, v3.5.10rc1, v3.5.8, v3.5.8rc1, v3.5.8rc2, v3.5.9; v3.6.10, v3.6.10rc1, v3.6.11, v3.6.11rc1, v3.6.12, v3.6.9, v3.6.9rc1; v3.7.4, v3.7.4rc1, v3.7.4rc2, v3.7.5, v3.7.5rc1, v3.7.6, v3.7.6rc1, v3.7.7, v3.7.7rc1, v3.7.8, v3.7.8rc1, v3.7.9.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2019-9947",
+          "url": "https://www.suse.com/security/cve/CVE-2019-9947"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1130840 for CVE-2019-9947",
+          "url": "https://bugzilla.suse.com/1130840"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1136184 for CVE-2019-9947",
+          "url": "https://bugzilla.suse.com/1136184"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1155094 for CVE-2019-9947",
+          "url": "https://bugzilla.suse.com/1155094"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1201559 for CVE-2019-9947",
+          "url": "https://bugzilla.suse.com/1201559"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:C/C:L/I:L/A:N",
+            "version": "3.0"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-03T08:50:40Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2019-9947"
+    },
+    {
+      "cve": "CVE-2020-15523",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2020-15523"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In Python 3.6 through 3.6.10, 3.7 through 3.7.8, 3.8 through 3.8.4rc1, and 3.9 through 3.9.0b4 on Windows, a Trojan horse python3.dll might be used in cases where CPython is embedded in a native application. This occurs because python3X.dll may use an invalid search path for python3.dll loading (after Py_SetPath has been used). NOTE: this issue CANNOT occur when using python.exe from a standard (non-embedded) Python installation on Windows.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2020-15523",
+          "url": "https://www.suse.com/security/cve/CVE-2020-15523"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1173745 for CVE-2020-15523",
+          "url": "https://bugzilla.suse.com/1173745"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-03T08:50:40Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2020-15523"
+    },
+    {
+      "cve": "CVE-2020-15801",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2020-15801"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In Python 3.8.4, sys.path restrictions specified in a python38._pth file are ignored, allowing code to be loaded from arbitrary locations. The \u003cexecutable-name\u003e._pth file (e.g., the python._pth file) is not affected.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2020-15801",
+          "url": "https://www.suse.com/security/cve/CVE-2020-15801"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1174241 for CVE-2020-15801",
+          "url": "https://bugzilla.suse.com/1174241"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 9.8,
+            "baseSeverity": "CRITICAL",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-03T08:50:40Z",
+          "details": "critical"
+        }
+      ],
+      "title": "CVE-2020-15801"
+    },
+    {
+      "cve": "CVE-2022-25236",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2022-25236"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "xmlparse.c in Expat (aka libexpat) before 2.4.5 allows attackers to insert namespace-separator characters into namespace URIs.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2022-25236",
+          "url": "https://www.suse.com/security/cve/CVE-2022-25236"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1196025 for CVE-2022-25236",
+          "url": "https://bugzilla.suse.com/1196025"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1196784 for CVE-2022-25236",
+          "url": "https://bugzilla.suse.com/1196784"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1197217 for CVE-2022-25236",
+          "url": "https://bugzilla.suse.com/1197217"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1200038 for CVE-2022-25236",
+          "url": "https://bugzilla.suse.com/1200038"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1201735 for CVE-2022-25236",
+          "url": "https://bugzilla.suse.com/1201735"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-03T08:50:40Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2022-25236"
+    },
+    {
+      "cve": "CVE-2023-52425",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-52425"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "libexpat through 2.5.0 allows a denial of service (resource consumption) because many full reparsings are required in the case of a large token for which multiple buffer fills are needed.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-52425",
+          "url": "https://www.suse.com/security/cve/CVE-2023-52425"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1219559 for CVE-2023-52425",
+          "url": "https://bugzilla.suse.com/1219559"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-03T08:50:40Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2023-52425"
+    },
+    {
+      "cve": "CVE-2024-0397",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-0397"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A defect was discovered in the Python \"ssl\" module where there is a memory\nrace condition with the ssl.SSLContext methods \"cert_store_stats()\" and\n\"get_ca_certs()\". The race condition can be triggered if the methods are\ncalled at the same time as certificates are loaded into the SSLContext,\nsuch as during the TLS handshake with a certificate directory configured.\nThis issue is fixed in CPython 3.10.14, 3.11.9, 3.12.3, and 3.13.0a5.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-0397",
+          "url": "https://www.suse.com/security/cve/CVE-2024-0397"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1226447 for CVE-2024-0397",
+          "url": "https://bugzilla.suse.com/1226447"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.8,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-03T08:50:40Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-0397"
+    },
+    {
+      "cve": "CVE-2024-0450",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-0450"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An issue was found in the CPython `zipfile` module affecting versions 3.12.1, 3.11.7, 3.10.13, 3.9.18, and 3.8.18 and prior.\n\nThe zipfile module is vulnerable to \"quoted-overlap\" zip-bombs which exploit the zip format to create a zip-bomb with a high compression ratio. The fixed versions of CPython makes the zipfile module reject zip archives which overlap entries in the archive.\n\n",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-0450",
+          "url": "https://www.suse.com/security/cve/CVE-2024-0450"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1221854 for CVE-2024-0450",
+          "url": "https://bugzilla.suse.com/1221854"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.2,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-03T08:50:40Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-0450"
+    },
+    {
+      "cve": "CVE-2024-4032",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-4032"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The \"ipaddress\" module contained incorrect information about whether certain IPv4 and IPv6 addresses were designated as \"globally reachable\" or \"private\". This affected the is_private and is_global properties of the ipaddress.IPv4Address, ipaddress.IPv4Network, ipaddress.IPv6Address, and ipaddress.IPv6Network classes, where values wouldn't be returned in accordance with the latest information from the IANA Special-Purpose Address Registries.\n\nCPython 3.12.4 and 3.13.0a6 contain updated information from these registries and thus have the intended behavior.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-4032",
+          "url": "https://www.suse.com/security/cve/CVE-2024-4032"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1226448 for CVE-2024-4032",
+          "url": "https://bugzilla.suse.com/1226448"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 3.7,
+            "baseSeverity": "LOW",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-03T08:50:40Z",
+          "details": "low"
+        }
+      ],
+      "title": "CVE-2024-4032"
+    },
+    {
+      "cve": "CVE-2024-6923",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-6923"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "There is a MEDIUM severity vulnerability affecting CPython.\n\nThe \nemail module didn't properly quote newlines for email headers when \nserializing an email message allowing for header injection when an email\n is serialized.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+          "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-6923",
+          "url": "https://www.suse.com/security/cve/CVE-2024-6923"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1228780 for CVE-2024-6923",
+          "url": "https://bugzilla.suse.com/1228780"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1257181 for CVE-2024-6923",
+          "url": "https://bugzilla.suse.com/1257181"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:libpython3_11-1_0-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-base-0:3.11.8-3.1.x86_64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.aarch64",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.s390x",
+            "SUSE Linux Micro 6.0:python311-curses-0:3.11.8-3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-03T08:50:40Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2024-6923"
+    }
+  ]
+}

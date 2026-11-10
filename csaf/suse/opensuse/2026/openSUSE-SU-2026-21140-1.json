@@ -1,0 +1,558 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "critical"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for perl-Cpanel-JSON-XS",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for perl-Cpanel-JSON-XS fixes the following issues:\n\nChanges in perl-Cpanel-JSON-XS:\n\n- updated to 4.420.0 (4.42)\n   see /usr/share/doc/packages/perl-Cpanel-JSON-XS/Changes\n\n  4.42 2026-06-27 (rurban)\n\t- Ensure encode with a type spec hashref does not change the hashref argument (GH #240)\n          - Fix -e docs: \"written\" → \"read\" (GH #239, reported by Ron Savage).\n          - Fix Boolean eq overload matching undef (GH #207, reported by fd-t).\n            Cpanel::JSON::XS::Boolean overloaded eq would match undef as equal\n            to false because undef stringifies to \"\". Added defined() guard.\n          - Fix error messages showing overloaded stringification for blessed\n            objects (GH #191, reported by karenetheridge). Error messages now\n            use ClassName=TYPE(addr) format, bypassing any \"\" overload.\n          - Fix type_all_string overriding allow_blessed/convert_blessed (GH #175,\n            reported by alpha6). With type_all_string + allow_blessed, blessed\n            objects are now encoded as null (not stringified as HASH address).\n          - Fix infinite recursion when encode is called from a \"\" overload\n            (GH #128, reported by pbrthemaster). The recursion guard temporarily\n            clears convert_blessed and allow_stringify flags on the JSON object\n            before calling the overload, preventing re-entrant encode loops.\n          - Fix $obj-\u003enew creating a broken object (GH #93, reported by cpansprout).\n            When new() is called on an existing object (e.g. $json-\u003enew-\u003enew),\n            the class name is now extracted from the object's stash rather than\n            using the stringified reference.\n          - Change allow_nonref default to true (GH #241, matching JSON::PP and\n            JSON::XS 4.0+ and the insecure RFC 7159).\n            encode and decode now accept non-reference values by default.\n            decode_json() with an explicit 0/1 second argument still works.\n            allow_nonref(0) to disable scalars-only for secure JSON.\n          - Fix minor t/12_blessed.t typo.\n          - Fix GH #112: encode large whole-number NV values without .0 on\n            32-bit Perl (values exceeding UV_MAX that Perl stores as float).\n          - Fix GH #197: prefer IOK over pNOK when encoding values where\n            IV is accurate but NV is imprecise (SvNOK not set).\n\n- updated to 4.410.0 (4.41)\n   see /usr/share/doc/packages/perl-Cpanel-JSON-XS/Changes\n\n  4.41 2026-05-27 (rurban)\n  - Fix BOM-shift PV-corruption SIGABRT (CVE-2026-9516) (patch by Paul Johnson) bsc#1267547\n  - Fix dupkeys_as_arrayref type confusion (CVE-2026-9334) (patch by Paul Johnson) bsc#1267546\n  - Fix incr_parse single-quote string delimiter (GH #245, reported by\n    Paul Johnson)\n  - Fix a one-byte out-of-bounds heap read reachable via allow_barekey on\n    truncated input (GH #244, reported by Paul Johnson)\n\n- updated to 4.400.0 (4.40)\n   see /usr/share/doc/packages/perl-Cpanel-JSON-XS/Changes\n\n  4.40 2025-09-07 (rurban)\n  - Fix CVE-2025-40929 overflow with overlong numbers, fuzzing only.\n  - Detect more malformed numbers, with two decimal points.\n  - Pin github actions to latest @v via pinact run -u\n  (bsc#1249331)\n\n- updated to 4.390.0 (4.39)\n   see /usr/share/doc/packages/perl-Cpanel-JSON-XS/Changes\n\n  4.39 2024-12-12 (rurban)\n          - Fix Windows -Dusequadmath (sisyphus GH #235, GH #229)\n          - Fix inconsistent behavior between decoding escaped and unescaped\n            surrogates, and escaped non-characters vs non-escaped non-characters.\n            Now aligned to JSON::PP (Gavin Hayes GH #233, GH #227)\n          - Add type_all_string tests (Bernhard Schmalhofer GH #236)\n          - Silence UV to char cast warnings  (bulk88 GH #232)\n          - Fix MSVC preprocessor errors (bulk88 GH #232)\n          - Fix -Wformat warnings on Windows (sisyphus GH #228)\n          - Clarify BigInt decoding (GH #226)\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-335",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_21140-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1249331",
+        "url": "https://bugzilla.suse.com/1249331"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1267546",
+        "url": "https://bugzilla.suse.com/1267546"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1267547",
+        "url": "https://bugzilla.suse.com/1267547"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-40929 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-40929/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-9334 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-9334/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-9516 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-9516/"
+      }
+    ],
+    "title": "Security update for perl-Cpanel-JSON-XS",
+    "tracking": {
+      "current_release_date": "2026-10-21T11:53:21Z",
+      "generator": {
+        "date": "2026-06-19T09:45:15Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:21140-1",
+      "initial_release_date": "2026-06-19T09:45:15Z",
+      "revision_history": [
+        {
+          "date": "2026-06-19T09:45:15Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-06-19T09:45:15Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T20:39:51Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:41:59Z",
+          "number": "4",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:36:52Z",
+          "number": "5",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-10-21T11:53:21Z",
+          "number": "6",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "6"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.aarch64",
+                "product": {
+                  "name": "perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.aarch64",
+                  "product_id": "perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/perl-Cpanel-JSON-XS@4.420.0-bp160.1.1?arch=aarch64\u0026upstream=perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.ppc64le",
+                  "product_id": "perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/perl-Cpanel-JSON-XS@4.420.0-bp160.1.1?arch=ppc64le\u0026upstream=perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.s390x",
+                "product": {
+                  "name": "perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.s390x",
+                  "product_id": "perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/perl-Cpanel-JSON-XS@4.420.0-bp160.1.1?arch=s390x\u0026upstream=perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.x86_64",
+                "product": {
+                  "name": "perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.x86_64",
+                  "product_id": "perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/perl-Cpanel-JSON-XS@4.420.0-bp160.1.1?arch=x86_64\u0026upstream=perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.aarch64"
+        },
+        "product_reference": "perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.ppc64le"
+        },
+        "product_reference": "perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.s390x"
+        },
+        "product_reference": "perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.x86_64"
+        },
+        "product_reference": "perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-40929",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-40929"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Cpanel::JSON::XS before version 4.40 for Perl has an integer buffer overflow causing a segfault when parsing crafted JSON, enabling denial-of-service attacks or other unspecified impact",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-40929",
+          "url": "https://www.suse.com/security/cve/CVE-2025-40929"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1249331 for CVE-2025-40929",
+          "url": "https://bugzilla.suse.com/1249331"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 9.8,
+            "baseSeverity": "CRITICAL",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-19T09:45:15Z",
+          "details": "critical"
+        }
+      ],
+      "title": "CVE-2025-40929"
+    },
+    {
+      "cve": "CVE-2026-9334",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-9334"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Cpanel::JSON::XS versions before 4.41 for Perl allow type confusion via duplicate object keys when dupkeys_as_arrayref is enabled.\n\ndecode_hv() collapses duplicate object keys into an array reference under dupkeys_as_arrayref. The branch reached for a duplicate key tests `SvTYPE (old_value) != SVt_RV \u0026\u0026 SvTYPE (SvRV (old_value)) != SVt_PVAV`, which evaluates SvRV(old_value) before establishing that old_value is a reference. When the existing value is a plain scalar rather than an array reference, a non-reference scalar is dereferenced as a reference.\n\nA caller decoding untrusted JSON with dupkeys_as_arrayref enabled is crashed, and the incompatible access follows a pointer taken from attacker controlled scalar contents.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-9334",
+          "url": "https://www.suse.com/security/cve/CVE-2026-9334"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1267546 for CVE-2026-9334",
+          "url": "https://bugzilla.suse.com/1267546"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286166 for CVE-2026-9334",
+          "url": "https://bugzilla.suse.com/1286166"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286167 for CVE-2026-9334",
+          "url": "https://bugzilla.suse.com/1286167"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286168 for CVE-2026-9334",
+          "url": "https://bugzilla.suse.com/1286168"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286169 for CVE-2026-9334",
+          "url": "https://bugzilla.suse.com/1286169"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286170 for CVE-2026-9334",
+          "url": "https://bugzilla.suse.com/1286170"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286173 for CVE-2026-9334",
+          "url": "https://bugzilla.suse.com/1286173"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286174 for CVE-2026-9334",
+          "url": "https://bugzilla.suse.com/1286174"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286175 for CVE-2026-9334",
+          "url": "https://bugzilla.suse.com/1286175"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286176 for CVE-2026-9334",
+          "url": "https://bugzilla.suse.com/1286176"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286177 for CVE-2026-9334",
+          "url": "https://bugzilla.suse.com/1286177"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286179 for CVE-2026-9334",
+          "url": "https://bugzilla.suse.com/1286179"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286180 for CVE-2026-9334",
+          "url": "https://bugzilla.suse.com/1286180"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286181 for CVE-2026-9334",
+          "url": "https://bugzilla.suse.com/1286181"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286182 for CVE-2026-9334",
+          "url": "https://bugzilla.suse.com/1286182"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286183 for CVE-2026-9334",
+          "url": "https://bugzilla.suse.com/1286183"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-19T09:45:15Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-9334"
+    },
+    {
+      "cve": "CVE-2026-9516",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-9516"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Cpanel::JSON::XS versions before 4.41 for Perl allow denial of service via UTF-8 BOM prefixed input when a decode filter callback throws.\n\nTo skip a leading 3-byte UTF-8 BOM, decode_json() advances the input scalar's string pointer past the mark with SvPV_set() and restores it only on the normal return path. When decoding aborts through a Perl exception, for example a filter_json_object callback that croaks, the restore is skipped and the scalar is left with its string pointer offset into its own buffer and a shortened length.\n\nWhen that scalar is later freed, the allocator receives an invalid pointer and the interpreter aborts. A single BOM prefixed document decoded with a throwing filter callback crashes any caller.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-9516",
+          "url": "https://www.suse.com/security/cve/CVE-2026-9516"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1267547 for CVE-2026-9516",
+          "url": "https://bugzilla.suse.com/1267547"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:perl-Cpanel-JSON-XS-0:4.420.0-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-19T09:45:15Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-9516"
+    }
+  ]
+}

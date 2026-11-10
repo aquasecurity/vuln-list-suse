@@ -1,0 +1,2631 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for keybase-client",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for keybase-client fixes the following issues:\n\nChanges in keybase-client:\n\n- golang.org/x/crypto/ssh: Fixed multiple issues:\n  CVE-2026-39827, CVE-2026-39834, CVE-2026-39828, CVE-2026-39829, CVE-2026-39831,\n  CVE-2026-42508, CVE-2026-39833, CVE-2026-39830, CVE-2026-39832, CVE-2026-46597,\n  CVE-2026-46598, CVE-2026-46595, CVE-2026-39835 (boo#1266158)\n- CVE-2026-39821: golang.org/x/net/idna: failure to reject ASCII-only Punycode-encoded labels\n  allows for validation bypass and privilege escalation (boo#1266596).\n\n- Update to version 6.6.2\n  * Improve git default branch handling\n\n- CVE-2026-33809: golang.org/x/image/tiff: excessive resource consumption due to\n  large allocation attempt when decoding maliciously crafted TIFF file (bsc#1260696)\n- Switch to go1.25 as required by update go image library.\n\n- Update to version 6.6.0\n  * Various bug fixes and performance improvements\n\n- CVE-2026-26958: filippo.io/edwards25519: failure to initialize receiver in MultiScalarMult\n  can produce invalid results and lead to undefined behavior (bsc#1258591).\n- CVE-2025-47914: golang.org/x/crypto/ssh/agent: non validated message size can cause a panic\n  due to an out of bounds read (bsc#1254023).\n- CVE-2025-58181: keybase-client: golang.org/x/crypto/ssh: invalidated number of mechanisms\n  can cause unbounded memory consumption (bsc#1253864).\n- CVE-2025-47913: keybase-client: golang.org/x/crypto/ssh/agent: client process termination\n  when receiving an unexpected message type in response to a key listing or signing request (bsc#1253563).\n\n- Update to version 6.5.1\n  * Fix team deletion not working\n  * Chat attachments improvements\n  * Miscellaneous bugfixes\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-297",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_20902-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1253563",
+        "url": "https://bugzilla.suse.com/1253563"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1253864",
+        "url": "https://bugzilla.suse.com/1253864"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1254023",
+        "url": "https://bugzilla.suse.com/1254023"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1258591",
+        "url": "https://bugzilla.suse.com/1258591"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1260696",
+        "url": "https://bugzilla.suse.com/1260696"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1266158",
+        "url": "https://bugzilla.suse.com/1266158"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1266596",
+        "url": "https://bugzilla.suse.com/1266596"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-47913 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-47913/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-47914 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-47914/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-58181 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-58181/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-26958 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-26958/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-33809 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-33809/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39821 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39821/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39827 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39827/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39828 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39828/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39829 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39829/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39830 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39830/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39831 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39831/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39832 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39832/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39833 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39833/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39834 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39834/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39835 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39835/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-42508 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-42508/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-46595 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-46595/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-46597 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-46597/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-46598 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-46598/"
+      }
+    ],
+    "title": "Security update for keybase-client",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:34:19Z",
+      "generator": {
+        "date": "2026-06-03T17:44:01Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:20902-1",
+      "initial_release_date": "2026-06-03T17:44:01Z",
+      "revision_history": [
+        {
+          "date": "2026-06-03T17:44:01Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:36:49Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:39:33Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:34:19Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "kbfs-0:6.6.2-bp160.1.1.aarch64",
+                "product": {
+                  "name": "kbfs-0:6.6.2-bp160.1.1.aarch64",
+                  "product_id": "kbfs-0:6.6.2-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kbfs@6.6.2-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+                "product": {
+                  "name": "kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+                  "product_id": "kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kbfs-git@6.6.2-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+                "product": {
+                  "name": "kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+                  "product_id": "kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kbfs-tool@6.6.2-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "keybase-client-0:6.6.2-bp160.1.1.aarch64",
+                "product": {
+                  "name": "keybase-client-0:6.6.2-bp160.1.1.aarch64",
+                  "product_id": "keybase-client-0:6.6.2-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/keybase-client@6.6.2-bp160.1.1?arch=aarch64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "kbfs-0:6.6.2-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "kbfs-0:6.6.2-bp160.1.1.ppc64le",
+                  "product_id": "kbfs-0:6.6.2-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kbfs@6.6.2-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+                  "product_id": "kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kbfs-git@6.6.2-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+                  "product_id": "kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kbfs-tool@6.6.2-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+                  "product_id": "keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/keybase-client@6.6.2-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "kbfs-0:6.6.2-bp160.1.1.s390x",
+                "product": {
+                  "name": "kbfs-0:6.6.2-bp160.1.1.s390x",
+                  "product_id": "kbfs-0:6.6.2-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kbfs@6.6.2-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kbfs-git-0:6.6.2-bp160.1.1.s390x",
+                "product": {
+                  "name": "kbfs-git-0:6.6.2-bp160.1.1.s390x",
+                  "product_id": "kbfs-git-0:6.6.2-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kbfs-git@6.6.2-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+                "product": {
+                  "name": "kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+                  "product_id": "kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kbfs-tool@6.6.2-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "keybase-client-0:6.6.2-bp160.1.1.s390x",
+                "product": {
+                  "name": "keybase-client-0:6.6.2-bp160.1.1.s390x",
+                  "product_id": "keybase-client-0:6.6.2-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/keybase-client@6.6.2-bp160.1.1?arch=s390x"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "kbfs-0:6.6.2-bp160.1.1.x86_64",
+                "product": {
+                  "name": "kbfs-0:6.6.2-bp160.1.1.x86_64",
+                  "product_id": "kbfs-0:6.6.2-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kbfs@6.6.2-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+                "product": {
+                  "name": "kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+                  "product_id": "kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kbfs-git@6.6.2-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+                "product": {
+                  "name": "kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+                  "product_id": "kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kbfs-tool@6.6.2-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "keybase-client-0:6.6.2-bp160.1.1.x86_64",
+                "product": {
+                  "name": "keybase-client-0:6.6.2-bp160.1.1.x86_64",
+                  "product_id": "keybase-client-0:6.6.2-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/keybase-client@6.6.2-bp160.1.1?arch=x86_64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kbfs-0:6.6.2-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64"
+        },
+        "product_reference": "kbfs-0:6.6.2-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kbfs-0:6.6.2-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le"
+        },
+        "product_reference": "kbfs-0:6.6.2-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kbfs-0:6.6.2-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x"
+        },
+        "product_reference": "kbfs-0:6.6.2-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kbfs-0:6.6.2-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64"
+        },
+        "product_reference": "kbfs-0:6.6.2-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kbfs-git-0:6.6.2-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64"
+        },
+        "product_reference": "kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kbfs-git-0:6.6.2-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le"
+        },
+        "product_reference": "kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kbfs-git-0:6.6.2-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x"
+        },
+        "product_reference": "kbfs-git-0:6.6.2-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kbfs-git-0:6.6.2-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64"
+        },
+        "product_reference": "kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kbfs-tool-0:6.6.2-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64"
+        },
+        "product_reference": "kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kbfs-tool-0:6.6.2-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le"
+        },
+        "product_reference": "kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kbfs-tool-0:6.6.2-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x"
+        },
+        "product_reference": "kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kbfs-tool-0:6.6.2-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64"
+        },
+        "product_reference": "kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "keybase-client-0:6.6.2-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64"
+        },
+        "product_reference": "keybase-client-0:6.6.2-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "keybase-client-0:6.6.2-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le"
+        },
+        "product_reference": "keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "keybase-client-0:6.6.2-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x"
+        },
+        "product_reference": "keybase-client-0:6.6.2-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "keybase-client-0:6.6.2-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+        },
+        "product_reference": "keybase-client-0:6.6.2-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-47913",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-47913"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "SSH clients receiving SSH_AGENT_SUCCESS when expecting a typed response will panic and cause early termination of the client process.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-47913",
+          "url": "https://www.suse.com/security/cve/CVE-2025-47913"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253506 for CVE-2025-47913",
+          "url": "https://bugzilla.suse.com/1253506"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-03T17:44:01Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-47913"
+    },
+    {
+      "cve": "CVE-2025-47914",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-47914"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "SSH Agent servers do not validate the size of messages when processing new identity requests, which may cause the program to panic if the message is malformed due to an out of bounds read.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-47914",
+          "url": "https://www.suse.com/security/cve/CVE-2025-47914"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253967 for CVE-2025-47914",
+          "url": "https://bugzilla.suse.com/1253967"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-03T17:44:01Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-47914"
+    },
+    {
+      "cve": "CVE-2025-58181",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-58181"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "SSH servers parsing GSSAPI authentication requests do not validate the number of mechanisms specified in the request, allowing an attacker to cause unbounded memory consumption.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-58181",
+          "url": "https://www.suse.com/security/cve/CVE-2025-58181"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253784 for CVE-2025-58181",
+          "url": "https://bugzilla.suse.com/1253784"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-03T17:44:01Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-58181"
+    },
+    {
+      "cve": "CVE-2026-26958",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-26958"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "filippo.io/edwards25519 is a Go library implementing the edwards25519 elliptic curve with APIs for building cryptographic primitives. In versions 1.1.0 and earlier, MultiScalarMult produces invalid results or undefined behavior if the receiver is not the identity point. If (*Point).MultiScalarMult is called on an initialized point that is not the identity point, it returns an incorrect result. If the method is called on an uninitialized point, the behavior is undefined. In particular, if the receiver is the zero value, MultiScalarMult returns an invalid point that compares Equal to every other point. Note that MultiScalarMult is a rarely used, advanced API. For example, users who depend on filippo.io/edwards25519 only through github.com/go-sql-driver/mysql are not affected. This issue has been fixed in version 1.1.1.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-26958",
+          "url": "https://www.suse.com/security/cve/CVE-2026-26958"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1258570 for CVE-2026-26958",
+          "url": "https://bugzilla.suse.com/1258570"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-03T17:44:01Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-26958"
+    },
+    {
+      "cve": "CVE-2026-33809",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-33809"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A maliciously crafted TIFF file can cause image decoding to attempt to allocate up 4GiB of memory, causing either excessive resource consumption or an out-of-memory error.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-33809",
+          "url": "https://www.suse.com/security/cve/CVE-2026-33809"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1260692 for CVE-2026-33809",
+          "url": "https://bugzilla.suse.com/1260692"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-03T17:44:01Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-33809"
+    },
+    {
+      "cve": "CVE-2026-39821",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39821"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The ToASCII and ToUnicode functions incorrectly accept Punycode-encoded labels that decode to an ASCII-only label. For example, ToUnicode(\"xn--example-.com\") incorrectly returns the name \"example.com\" rather than an error. This behavior can lead to privilege escalation in programs using the idna package. For example, a program which performs privilege checks on the ASCII hostname may reject \"example.com\" but permit \"xn--example-.com\". If that program subsequently converts the ASCII hostname to Unicode, it will inadvertently permits access to the Unicode name \"example.com\".",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39821",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39821"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266474 for CVE-2026-39821",
+          "url": "https://bugzilla.suse.com/1266474"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.4,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-03T17:44:01Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39821"
+    },
+    {
+      "cve": "CVE-2026-39827",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39827"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An authenticated SSH client that repeatedly opened channels which were rejected by the server caused unbounded memory growth, eventually crashing the server process and affecting all connected users. Rejected channels are now properly removed from the connection's internal state and released for garbage collection.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39827",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39827"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-39827",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-03T17:44:01Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39827"
+    },
+    {
+      "cve": "CVE-2026-39828",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39828"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "When an SSH server authentication callback returned PartialSuccessError with non-nil Permissions, those permissions were silently discarded, potentially dropping certificate restrictions such as force-command after a second factor succeeded. Returning non-nil Permissions with PartialSuccessError now results in a connection error.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39828",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39828"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-39828",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-03T17:44:01Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39828"
+    },
+    {
+      "cve": "CVE-2026-39829",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39829"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The RSA and DSA public key parsers did not enforce size limits on key parameters. A crafted public key with an excessively large modulus or DSA parameter could cause several minutes of CPU consumption during signature verification. This could be triggered by unauthenticated clients during public key authentication. RSA moduli are now limited to 8192 bits, and DSA parameters are validated per FIPS 186-2.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39829",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39829"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-39829",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-03T17:44:01Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39829"
+    },
+    {
+      "cve": "CVE-2026-39830",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39830"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A malicious SSH peer could send unsolicited global request responses to fill an internal buffer, blocking the connection's read loop. The blocked goroutine could not be released by calling Close(), resulting in a resource leak per connection. Unsolicited global responses are now discarded.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39830",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39830"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-39830",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-03T17:44:01Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39830"
+    },
+    {
+      "cve": "CVE-2026-39831",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39831"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The Verify() method for FIDO/U2F security key types (sk-ecdsa-sha2-nistp256@openssh.com, sk-ssh-ed25519@openssh.com) did not check the User Presence flag. Signatures generated without physical touch were accepted, allowing unattended use of a hardware security key. To restore the previous behavior, return a \"no-touch-required\" extension in Permissions.Extensions from PublicKeyCallback.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39831",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39831"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-39831",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-03T17:44:01Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39831"
+    },
+    {
+      "cve": "CVE-2026-39832",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39832"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "When adding a key to a remote agent constraint extensions such as restrict-destination-v00@openssh.com were not serialized in the request. Destination restrictions were silently stripped when forwarding keys, allowing unrestricted use of the key on the remote host. The client now serializes all constraint extensions. Additionally, the in-memory keyring returned by NewKeyring() now rejects keys with unsupported constraint extensions instead of silently ignoring them.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39832",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39832"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-39832",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.4,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-03T17:44:01Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39832"
+    },
+    {
+      "cve": "CVE-2026-39833",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39833"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The in-memory keyring returned by NewKeyring() silently accepted keys with the ConfirmBeforeUse constraint but never enforced it. The key would sign without any confirmation prompt, with no indication to the caller that the constraint was not in effect. NewKeyring() now returns an error when unsupported constraints are requested.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39833",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39833"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-39833",
+          "url": "https://bugzilla.suse.com/1266049"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1272292 for CVE-2026-39833",
+          "url": "https://bugzilla.suse.com/1272292"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.7,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-03T17:44:01Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39833"
+    },
+    {
+      "cve": "CVE-2026-39834",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39834"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "When writing data larger than 4GB in a single Write call on an SSH channel, an integer overflow in the internal payload size calculation caused the write loop to spin indefinitely, sending empty packets without making progress. The size comparison now uses int64 to prevent truncation.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39834",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39834"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-39834",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-03T17:44:01Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39834"
+    },
+    {
+      "cve": "CVE-2026-39835",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39835"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "SSH servers which use CertChecker as a public key callback without setting IsUserAuthority or IsHostAuthority could be caused to panic by a client presenting a certificate. CertChecker now returns an error instead of panicking when these callbacks are nil.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39835",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39835"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-39835",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-03T17:44:01Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39835"
+    },
+    {
+      "cve": "CVE-2026-42508",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-42508"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Previously, a revoked 'SignatureKey' belonging to a CA was not correctly checked for revocation. Now, both the 'key' and 'key.SignatureKey' are checked for @revoked.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-42508",
+          "url": "https://www.suse.com/security/cve/CVE-2026-42508"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-42508",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-03T17:44:01Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-42508"
+    },
+    {
+      "cve": "CVE-2026-46595",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-46595"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Previously, CVE-2024-45337 fixed an authorization bypass for misused ssh server configurations; if any other type of callback is passed other than public key, then the source-address validation would be skipped.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-46595",
+          "url": "https://www.suse.com/security/cve/CVE-2026-46595"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-46595",
+          "url": "https://bugzilla.suse.com/1266049"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1278446 for CVE-2026-46595",
+          "url": "https://bugzilla.suse.com/1278446"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-03T17:44:01Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-46595"
+    },
+    {
+      "cve": "CVE-2026-46597",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-46597"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An incorrectly placed cast from bytes to int allowed for server-side panic in the AES-GCM packet decoder for well-crafted inputs.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-46597",
+          "url": "https://www.suse.com/security/cve/CVE-2026-46597"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-46597",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-03T17:44:01Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-46597"
+    },
+    {
+      "cve": "CVE-2026-46598",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-46598"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "For certain crafted inputs, a 'ed25519.PrivateKey' was created by casting malformed wire bytes, leading to a panic when used.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-46598",
+          "url": "https://www.suse.com/security/cve/CVE-2026-46598"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-46598",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-git-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:kbfs-tool-0:6.6.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:keybase-client-0:6.6.2-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-03T17:44:01Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-46598"
+    }
+  ]
+}

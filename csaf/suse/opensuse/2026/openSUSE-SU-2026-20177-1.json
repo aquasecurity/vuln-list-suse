@@ -1,0 +1,400 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for golang-github-prometheus-prometheus",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for golang-github-prometheus-prometheus fixes the following issues:\n\nUpdate to version 3.5.0:\n\nSecurity issues fixed:\n\n- CVE-2025-13465: prototype pollution in the _.unset and _.omit functions can lead to deletion of methods from global (bsc#1257329).\n- CVE-2025-12816: interpretation conflict vulnerability allowing bypassing cryptographic verifications (bsc#1255588).\n\nOther updates and bugfixes:\n\n- Update to 3.5.0 (jsc#PED-13824):\n\n  * [FEATURE] Remote-write: Add support for Azure Workload Identity\n    as an authentication method for the receiver.\n  * [FEATURE] PromQL: Add first_over_time(...) and\n    ts_of_first_over_time(...) behind feature flag.\n  * [FEATURE] Federation: Add support for native histograms with\n    custom buckets (NHCB).\n  * [ENHANCEMENT] PromQL: Add warn-level annotations for counter\n    reset conflicts in certain histogram operations.\n  * [ENHANCEMENT] UI: Add scrape interval and scrape timeout to\n    targets page.\n\n- Update to 3.4.0:\n\n  * Add unified AWS service discovery for ec2, lightsail and ecs services.\n  * [FEATURE] Native histograms are now a stable, but optional\n    feature.\n  * [FEATURE] UI: Show detailed relabeling steps for each\n    discovered target.\n  * [ENHANCEMENT] Alerting: Add \"unknown\" state for alerting rules\n    that haven't been evaluated yet.\n  * [BUGFIX] Scrape: Fix a bug where scrape cache would not be\n    cleared on startup.\n\n- Update to 3.3.0:\n\n  * [FEATURE] Spring Boot 3.3 includes support for the Prometheus\n    Client 1.x.\n  * [ENHANCEMENT] Dependency management for Dropwizard Metrics has\n    been removed.\n\n- Update to 3.2.0:\n\n  * [FEATURE] OAuth2: support jwt-bearer grant-type (RFC7523 3.1).\n  * [ENHANCEMENT] PromQL: Reconcile mismatched NHCB bounds in Add\n    and Sub.\n  * [BUGFIX] TSDB: Native Histogram Custom Bounds with a NaN\n    threshold are now rejected.\n\n- Update to 3.1.0:\n\n  * [FEATURE] Remote-write 2 (receiving): Update to 2.0-rc.4 spec.\n    \"created timestamp\" (CT) is now called \"start timestamp\" (ST).\n  * [BUGFIX] Mixin: Add static UID to the remote-write dashboard.\n\n- Update to 3.0.1:\n\n  * [BUGFIX] Promql: Make subqueries left open.\n  * [BUGFIX] Fix memory leak when query log is enabled.\n  * [BUGFIX] Support utf8 names on /v1/label/:name/values endpoint.\n\n- Update to 3.0.0:\n\n  * [CHANGE] Deprecated feature flags removed.\n  * [FEATURE] New UI.\n  * [FEATURE] Remote Write 2.0.\n  * [FEATURE] OpenTelemetry Support.\n  * [FEATURE] UTF-8 support is now stable and enabled by default.\n  * [FEATURE] OTLP Ingestion.\n  * [FEATURE] Native Histograms.\n  * [BUGFIX] PromQL: Fix count_values for histograms.\n  * [BUGFIX] TSDB: Fix race on stale values in headAppender.\n  * [BUGFIX] UI: Fix selector / series formatting for empty metric\n    names.\n\n- Update to 2.55.0:\n\n  * [FEATURE] PromQL: Add `last_over_time` function.\n  * [FEATURE] Agent: Add `prometheus_agent_build_info` metric.\n  * [ENHANCEMENT] PromQL: Optimise `group()` and `group by()`.\n  * [ENHANCEMENT] TSDB: Reduce memory usage when loading blocks.\n  * [BUGFIX] Scrape: Fix a bug where a target could be scraped\n    multiple times.\n\n- Update to 2.54.0:\n\n  * [CHANGE] Remote-Write: highest_timestamp_in_seconds and\n    queue_highest_sent_timestamp_seconds metrics now initialized to\n    0.\n  * [CHANGE] API: Split warnings from info annotations in API\n    response.\n  * [FEATURE] Remote-Write: Version 2.0 experimental, plus metadata\n    in WAL via feature flag.\n  * [FEATURE] PromQL: add limitk() and limit_ratio() aggregation\n    operators.\n  * [ENHANCEMENT] PromQL: Accept underscores in literal numbers.\n  * [ENHANCEMENT] PromQL: float literal numbers and durations are\n    now interchangeable (experimental).\n  * [ENHANCEMENT] PromQL (experimental native histograms): Optimize\n    histogram_count and histogram_sum functions.\n  * [BUGFIX] PromQL: Fix various issues with native histograms.\n  * [BUGFIX] TSDB: Fix race on stale values in headAppender.\n  * [BUGFIX] OTLP receiver: Allow colons in non-standard units.\n\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-243",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_20177-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1255588",
+        "url": "https://bugzilla.suse.com/1255588"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1257329",
+        "url": "https://bugzilla.suse.com/1257329"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-12816 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-12816/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-13465 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-13465/"
+      }
+    ],
+    "title": "Security update for golang-github-prometheus-prometheus",
+    "tracking": {
+      "current_release_date": "2026-10-15T17:16:35Z",
+      "generator": {
+        "date": "2026-02-05T10:44:24Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:20177-1",
+      "initial_release_date": "2026-02-05T10:44:24Z",
+      "revision_history": [
+        {
+          "date": "2026-02-05T10:44:24Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:29:57Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:32:49Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:26:45Z",
+          "number": "4",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-10-15T17:16:35Z",
+          "number": "5",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "5"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.aarch64",
+                "product": {
+                  "name": "golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.aarch64",
+                  "product_id": "golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:prometheus:prometheus:3.5.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-prometheus@3.5.0-160000.1.1?arch=aarch64\u0026upstream=golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.ppc64le",
+                "product": {
+                  "name": "golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.ppc64le",
+                  "product_id": "golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:prometheus:prometheus:3.5.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-prometheus@3.5.0-160000.1.1?arch=ppc64le\u0026upstream=golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.s390x",
+                "product": {
+                  "name": "golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.s390x",
+                  "product_id": "golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:prometheus:prometheus:3.5.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-prometheus@3.5.0-160000.1.1?arch=s390x\u0026upstream=golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.x86_64",
+                "product": {
+                  "name": "golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.x86_64",
+                  "product_id": "golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:prometheus:prometheus:3.5.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/golang-github-prometheus-prometheus@3.5.0-160000.1.1?arch=x86_64\u0026upstream=golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.aarch64"
+        },
+        "product_reference": "golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.ppc64le"
+        },
+        "product_reference": "golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.s390x"
+        },
+        "product_reference": "golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.x86_64"
+        },
+        "product_reference": "golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-12816",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-12816"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An interpretation-conflict (CWE-436) vulnerability in node-forge versions 1.3.1 and earlier enables unauthenticated attackers to craft ASN.1 structures to desynchronize schema validations, yielding a semantic divergence that may bypass downstream cryptographic verifications and security decisions.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.s390x",
+          "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-12816",
+          "url": "https://www.suse.com/security/cve/CVE-2025-12816"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1255584 for CVE-2025-12816",
+          "url": "https://bugzilla.suse.com/1255584"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.6,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-02-05T10:44:24Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-12816"
+    },
+    {
+      "cve": "CVE-2025-13465",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-13465"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The _.unset and _.omit functions in Lodash are vulnerable to prototype pollution. An attacker can pass crafted paths which cause Lodash to delete methods from global prototypes. The issue permits deletion of properties but does not allow overwriting their original behavior. The issue is patched from 4.17.23 to 4.18.0 depending on the package: lodash, lodash-es, and lodash-amd in 4.17.23, and the standalone lodash.unset and lodash.omit packages in 4.18.0.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.s390x",
+          "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-13465",
+          "url": "https://www.suse.com/security/cve/CVE-2025-13465"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1257321 for CVE-2025-13465",
+          "url": "https://bugzilla.suse.com/1257321"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.2,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:golang-github-prometheus-prometheus-0:3.5.0-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-02-05T10:44:24Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-13465"
+    }
+  ]
+}

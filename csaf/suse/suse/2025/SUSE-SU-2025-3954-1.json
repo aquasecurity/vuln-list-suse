@@ -1,0 +1,913 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for aws-efs-utils",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for aws-efs-utils fixes the following issues:\n\nUpdate to version 2.3.3 (bsc#1240044).\n\nSecurity issues fixed:\n\n- CVE-2025-55159: slab: incorrect bounds check in `get_disjoint_mut` function can lead to potential crash due to out-of-bounds access (bsc#1248055).\n- CVE-2020-35881: traitobject: log4rs: out-of-bounds write due to fat pointer layout assumptions (bsc#1249851).\n\nOther issues fixed:\n\n- Build and install efs-proxy binary (bsc#1240044).\n\n- Fixed in version 2.3.3:\n  * Add environment variable support for AWS profiles and regions\n  * Regenerate Cargo.lock with rust 1.70.0\n  * Update circle-ci config\n  * Fix AWS Env Variable Test and Code Style Issue\n  * Remove CentOS 8 and Ubuntu 16.04 from verified Linux distribution list\n\n- Fixed in version 2.3.2:\n  * Update version in amazon-efs-utils.spec to 2.3.1\n  * Fix incorrect package version\n\n- Fixed in version 2.3.1:\n  * Fix backtrace version to resolve ubuntu and rhel build issues\n  * Pin Cargo.lock to avoid unexpected error across images\n\n- Fixed in version 2.3.0:\n  * Add support for pod-identity credentials in the credentials chain\n  * Enable mounting with IPv6 when using with the 'stunnel' mount option\n\n- Fixed in version 2.2.1:\n  * Update log4rs\n\n- Fixed in version 2.2.0\n  * Use region-specific domain suffixes for dns endpoints where missing\n  * Merge PR #211 - Amend Debian control to use binary architecture\n  \n- Fixed in version 2.1.0\n  * Add mount option for specifying region\n  * Add new ISO regions to config file\n  \n- Fixed in version 2.0.4\n  * Add retry logic to and increase timeout for EC2 metadata token\n    retrieval requests\n\n- Fixed in version 2.0.3:\n  * Upgrade py version\n  * Replace deprecated usage of datetime\n  \n- Fixed in version 2.0.2\n  * Check for efs-proxy PIDs when cleaning tunnel state files\n  * Add PID to log entries\n  \n- Fxied in  version 2.0.1\n  * Disable Nagle's algorithm for efs-proxy TLS mounts to improve latencies\n  \n- Fixed in version 2.0.0:\n  * Replace stunnel, which provides TLS encryptions for mounts, with efs-proxy, a component built in-house at AWS.\n    Efs-proxy lays the foundation for upcoming feature launches at EFS.\n\n- Fixed in version 1.36.0:\n  * Support new mount option: crossaccount, conduct cross account mounts via ip address. Use client AZ-ID to choose\n    mount target.\n  \n- Fixed in version 1.35.2:\n  * Revert 'Add warning if using older Version'\n  * Support MacOS Sonoma\n\n- Fixed in version 1.35.1:\n  * Revert openssl requirement change\n  * Revert 'Update EFS Documentation: Clarify Current FIPS Compliance Status'\n  * Update EFS Documentation: Clarify Current FIPS Compliance Status\n  * test: Change repo urls in eol debian9 build\n  * Check private key file size to skip generation\n  * test: Fix pytest that failed since commit 3dd89ca\n  * Fix should_check_efs_utils_version scope\n  * Add warning if using old version\n  * Add 'fsap' option as EFS-only option\n\n- Fixed in version 1.35.0:\n  * Add parameters to allow mount fo pod impersonation feature in EFS CSI Driver\n  * Updated the README with support of Oracle8 distribution\n  * Readme troubleshooting section + table of contents\n  * Add efs-utils Support for MacOS Ventura EC2 instances\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2025-3954,SUSE-SLE-Module-Public-Cloud-15-SP6-2025-3954,SUSE-SLE-Module-Public-Cloud-15-SP7-2025-3954,openSUSE-SLE-15.6-2025-3954",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_3954-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:3954-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-20253954-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:3954-1",
+        "url": "https://lists.suse.com/pipermail/sle-security-updates/2025-November/023164.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1240044",
+        "url": "https://bugzilla.suse.com/1240044"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1248055",
+        "url": "https://bugzilla.suse.com/1248055"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1249851",
+        "url": "https://bugzilla.suse.com/1249851"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2020-35881 page",
+        "url": "https://www.suse.com/security/cve/CVE-2020-35881/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-55159 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-55159/"
+      }
+    ],
+    "title": "Security update for aws-efs-utils",
+    "tracking": {
+      "current_release_date": "2026-09-20T18:26:52Z",
+      "generator": {
+        "date": "2025-11-05T14:06:34Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:3954-1",
+      "initial_release_date": "2025-11-05T14:06:34Z",
+      "revision_history": [
+        {
+          "date": "2025-11-05T14:06:34Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T18:26:52Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+                "product": {
+                  "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+                  "product_id": "aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/aws-efs-utils@2.3.3-150600.17.6.1?arch=aarch64\u0026upstream=aws-efs-utils-0:2.3.3-150600.17.6.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.i586",
+                "product": {
+                  "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.i586",
+                  "product_id": "aws-efs-utils-0:2.3.3-150600.17.6.1.i586",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/aws-efs-utils@2.3.3-150600.17.6.1?arch=i586\u0026upstream=aws-efs-utils-0:2.3.3-150600.17.6.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "i586"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+                "product": {
+                  "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+                  "product_id": "aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/aws-efs-utils@2.3.3-150600.17.6.1?arch=ppc64le\u0026upstream=aws-efs-utils-0:2.3.3-150600.17.6.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+                "product": {
+                  "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+                  "product_id": "aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/aws-efs-utils@2.3.3-150600.17.6.1?arch=s390x\u0026upstream=aws-efs-utils-0:2.3.3-150600.17.6.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+                "product": {
+                  "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+                  "product_id": "aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/aws-efs-utils@2.3.3-150600.17.6.1?arch=x86_64\u0026upstream=aws-efs-utils-0:2.3.3-150600.17.6.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-public-cloud:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Public Cloud 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Public Cloud 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-public-cloud:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "Open Enterprise Server 25.4",
+                "product": {
+                  "name": "Open Enterprise Server 25.4",
+                  "product_id": "Open Enterprise Server 25.4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:novell,inc:OES:25.4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 15.6",
+                "product": {
+                  "name": "openSUSE Leap 15.6",
+                  "product_id": "openSUSE Leap 15.6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:opensuse:leap:15.6"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP6",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Public Cloud 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le as component of SUSE Linux Enterprise Module for Public Cloud 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.s390x as component of SUSE Linux Enterprise Module for Public Cloud 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64 as component of SUSE Linux Enterprise Module for Public Cloud 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.s390x as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64"
+        },
+        "product_reference": "aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2020-35881",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2020-35881"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An issue was discovered in the traitobject crate through 2020-06-01 for Rust. It has false expectations about fat pointers, possibly causing memory corruption in, for example, Rust 2.x.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+          "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+          "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+          "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+          "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+          "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+          "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+          "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2020-35881",
+          "url": "https://www.suse.com/security/cve/CVE-2020-35881"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1249848 for CVE-2020-35881",
+          "url": "https://bugzilla.suse.com/1249848"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-11-05T14:06:34Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2020-35881"
+    },
+    {
+      "cve": "CVE-2025-55159",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-55159"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "slab is a pre-allocated storage for a uniform data type. In version 0.4.10, the get_disjoint_mut method incorrectly checked if indices were within the slab's capacity instead of its length, allowing access to uninitialized memory. This could lead to undefined behavior or potential crashes. This has been fixed in slab 0.4.11. A workaround for this issue involves to avoid using get_disjoint_mut with indices that might be beyond the slab's actual length.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+          "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+          "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+          "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+          "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+          "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+          "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+          "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+          "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-55159",
+          "url": "https://www.suse.com/security/cve/CVE-2025-55159"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1248000 for CVE-2025-55159",
+          "url": "https://bugzilla.suse.com/1248000"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.8,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "Open Enterprise Server 25.4:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Module for Public Cloud 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64",
+            "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.aarch64",
+            "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.ppc64le",
+            "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.s390x",
+            "openSUSE Leap 15.6:aws-efs-utils-0:2.3.3-150600.17.6.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-11-05T14:06:34Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-55159"
+    }
+  ]
+}

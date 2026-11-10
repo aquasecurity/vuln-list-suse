@@ -1,0 +1,526 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "critical"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for samba",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for samba fixes the following issues:\n\nUpdate to 4.22.5:\n\n  * CVE-2025-10230: Command injection via WINS server hook script (bsc#1251280).\n  * CVE-2025-9640: uninitialized memory disclosure via vfs_streams_xattr (bsc#1251279).\n\n- Relax samba-gpupdate requirement for cepces, certmonger, and sscep\n  to a recommends. They are only required if utilizing certificate\n  auto enrollment (bsc#1249087).\n\n- Disable timeouts for smb.service so that possibly slow running\n  ExecStartPre script 'update-samba-security-profile' doesn't\n  cause service start to fail due to timeouts (bsc#1249181).\n\n- Ensure semanage is pulled in as a requirement when samba in\n  installed when selinux security access mechanism that is used\n  (bsc#1249180).\n\n- don't attempt to label paths that don't exist, also remove\n  unecessary evaluation of semange \u0026 restorecon cmds (bsc#1249179).\n\nUpdate to 4.22.4:\n\n  * netr_LogonSamLogonEx returns NR_STATUS_ACCESS_DENIED with\n    SysvolReady=0\n  * getpwuid does not shift to new DC when current DC is down\n  * Windows security hardening locks out schannel'ed netlogon dc\n    calls like netr_DsRGetDCName-\n  * Unresponsive second DC can cause idmapping failure when using\n    idmap_ad-\n  * kinit command is failing with Missing cache Error.\n  * Figuring out the DC name from IP address fails and breaks\n    fork_domain_child().\n  * vfs_streams_depot fstatat broken.\n  * Delayed leader broadcast can block ctdb forever.\n  * Apparently there is a conflict between shadow_copy2 module\n    and virusfilter (action quarantine).\n  * Fix handling of empty GPO link.\n  * SMB ACL inheritance doesn't work for files created.\n\n- adjust gpgme build dependency for future-proofing\n\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-SL-Micro-6.2-22",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_21026-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:21026-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-202521026-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:21026-1",
+        "url": "https://lists.suse.com/pipermail/sle-security-updates/2025-November/023406.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1249087",
+        "url": "https://bugzilla.suse.com/1249087"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1249179",
+        "url": "https://bugzilla.suse.com/1249179"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1249180",
+        "url": "https://bugzilla.suse.com/1249180"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1249181",
+        "url": "https://bugzilla.suse.com/1249181"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1251279",
+        "url": "https://bugzilla.suse.com/1251279"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1251280",
+        "url": "https://bugzilla.suse.com/1251280"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-10230 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-10230/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-9640 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-9640/"
+      }
+    ],
+    "title": "Security update for samba",
+    "tracking": {
+      "current_release_date": "2026-09-20T18:21:40Z",
+      "generator": {
+        "date": "2025-11-18T22:57:17Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:21026-1",
+      "initial_release_date": "2025-11-18T22:57:17Z",
+      "revision_history": [
+        {
+          "date": "2025-11-18T22:57:17Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T18:21:40Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libldb2@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                "product": {
+                  "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_id": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-client-libs@4.22.5+git.431.dc5a539f124-160000.1.1?arch=aarch64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libldb2@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                "product": {
+                  "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_id": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-client-libs@4.22.5+git.431.dc5a539f124-160000.1.1?arch=ppc64le\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libldb2@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                "product": {
+                  "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_id": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-client-libs@4.22.5+git.431.dc5a539f124-160000.1.1?arch=s390x\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libldb2@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                "product": {
+                  "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_id": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:samba:4.22.5+git.431.dc5a539f124:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/samba-client-libs@4.22.5+git.431.dc5a539f124-160000.1.1?arch=x86_64\u0026upstream=samba-0:4.22.5+git.431.dc5a539f124-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Micro 6.2",
+                "product": {
+                  "name": "SUSE Linux Micro 6.2",
+                  "product_id": "SUSE Linux Micro 6.2",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sl-micro:6.2"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64 as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64"
+        },
+        "product_reference": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le"
+        },
+        "product_reference": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x"
+        },
+        "product_reference": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64 as component of SUSE Linux Micro 6.2",
+          "product_id": "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        },
+        "product_reference": "samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.2"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-10230",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-10230"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in Samba, in the front-end WINS hook handling: NetBIOS names from registration packets are passed to a shell without proper validation or escaping. Unsanitized NetBIOS name data from WINS registration packets are inserted into a shell command and executed by the Samba Active Directory Domain Controller's wins hook, allowing an unauthenticated network attacker to achieve remote command execution as the Samba process.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-10230",
+          "url": "https://www.suse.com/security/cve/CVE-2025-10230"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1251280 for CVE-2025-10230",
+          "url": "https://bugzilla.suse.com/1251280"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 10,
+            "baseSeverity": "CRITICAL",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-11-18T22:57:17Z",
+          "details": "critical"
+        }
+      ],
+      "title": "CVE-2025-10230"
+    },
+    {
+      "cve": "CVE-2025-9640",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-9640"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in Samba, in the vfs_streams_xattr module, where uninitialized heap memory could be written into alternate data streams. This allows an authenticated user to read residual memory content that may include sensitive data, resulting in an information disclosure vulnerability.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+          "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+          "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+          "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+          "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-9640",
+          "url": "https://www.suse.com/security/cve/CVE-2025-9640"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1251279 for CVE-2025-9640",
+          "url": "https://bugzilla.suse.com/1251279"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:libldb2-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64",
+            "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.aarch64",
+            "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.ppc64le",
+            "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.s390x",
+            "SUSE Linux Micro 6.2:samba-client-libs-0:4.22.5+git.431.dc5a539f124-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-11-18T22:57:17Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-9640"
+    }
+  ]
+}

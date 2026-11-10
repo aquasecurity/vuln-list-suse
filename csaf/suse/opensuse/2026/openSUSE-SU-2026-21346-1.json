@@ -1,0 +1,1125 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for libredwg",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for libredwg fixes the following issues:\n\nChanges in libredwg:\n\n- Update to snapshot 0.14.8413\n  * fix dwg_next_entity NULL pointer dereference\n    [CVE-2026-15184, boo#1271170]\n  * Fix dwg_bmp thumbnail overflow checks\n    [CVE-2026-15181, boo#1271169]\n  * Resolve NULL pointer dereference (SEGV) in match_BLOCK_HEADER\n    [CVE-2026-9529, boo#1266380]\n  * Added DXB (binary DXF) support: dwgwrite/dwgread/dwg2dxf accept\n    DXB input/output, and dxfwrite accepts DXB.\n  * Minor features:\n  * R2007+ split string stream encoding for Header, Classes, and\n    objects.\n  * Added cycle checks in entity link chains.\n  * Added release helpers and improved CI (ODAFileConverter QT6,\n    xvfb-run).\n  * dwgfuzz: show mode with --version.\n\n- update to 0.14:\n  * Write support for r2004 (AC1018) DWG files.  The encoder now\n    produces compressed, encrypted section headers and the\n    LZ77-compressed object data layout required since r2004.\n  * Split large object files (encode, decode) into 2 objects,\n    significantly reducing peak memory usage during compilation\n    and enabling parallel builds to scale better.\n  * dwgadd: handle fields (e.g. layer, ltype, style) can now be\n    set by table-record name in addition to raw handle references.\n    A string value like `line.layer = \"FOO\"` is resolved via\n    dwg_find_tablehandle() at parse time.\n  * Added DXB (binary DXF) support: dwgwrite/dwgread/dwg2dxf\n    accept DXB input/output, and dxfwrite accepts DXB.\n  * R2007+ split string stream encoding for Header, Classes, and\n    objects.\n  * Added cycle checks in entity link chains.  GH #1226.\n  * Added regression tests for decompress_r2007 OOB reads and\n    R2004 section decompression.  Added dwgfilter.test.\n  * Added release helpers and improved CI (ODAFileConverter QT6,\n    xvfb-run).\n  * dwgfuzz: show mode with --version.\n  * API/ABI changes (source-incompatible):\n  * Renamed HEADER/2NDHEADER.is_maint to maint_rel_version.\n  * Renamed PROXY_OBJECT.dwg_versions.\n  * Bumped SO_VERSION to 0:14:0.\n\n- Update to snapshot 0.13.4.8200\n  * Write support for r2004 (AC1018) DWG files. The encoder now\n    produces compressed, encrypted section headers and the\n    LZ77-compressed object data layout required since r2004.\n  * Split large object files (encode, decode) into 2 objects,\n    significantly reducing peak memory usage during compilation and\n    enabling parallel builds to scale better.\n  * dwgadd: handle fields (e.g. layer, ltype, style) can now be set\n    by table-record name in addition to raw handle references. A\n    string value like `line.layer = \"FOO\"` is resolved via\n    dwg_find_tablehandle() at parse time.\n  * Fix decompress_R2004_section buffer overflow\n    [CVE-2026-9501, CVE-2026-9502, CVE-2026-9529, CVE-2026-9530,\n    boo#1266377, boo#1266378, boo#1266380, boo#1266287]\n  * Fix dwg_next_entity NULL pointer dereference\n    [CVE-2026-9503, boo#1266379]\n  * Fix NULL pointer dereferences in DXF output for corrupted DWG\n    input [CVE-2026-9504, boo#1266321]\n  * decode: fix decompression overflow [CVE-2026-9605, boo#1266365]\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-410",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_21346-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1266287",
+        "url": "https://bugzilla.suse.com/1266287"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1266321",
+        "url": "https://bugzilla.suse.com/1266321"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1266365",
+        "url": "https://bugzilla.suse.com/1266365"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1266377",
+        "url": "https://bugzilla.suse.com/1266377"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1266378",
+        "url": "https://bugzilla.suse.com/1266378"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1266379",
+        "url": "https://bugzilla.suse.com/1266379"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1266380",
+        "url": "https://bugzilla.suse.com/1266380"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1271169",
+        "url": "https://bugzilla.suse.com/1271169"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1271170",
+        "url": "https://bugzilla.suse.com/1271170"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-15181 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-15181/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-15184 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-15184/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-9501 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-9501/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-9502 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-9502/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-9503 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-9503/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-9504 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-9504/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-9529 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-9529/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-9530 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-9530/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-9605 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-9605/"
+      }
+    ],
+    "title": "Security update for libredwg",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:39:07Z",
+      "generator": {
+        "date": "2026-07-13T10:19:51Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:21346-1",
+      "initial_release_date": "2026-07-13T10:19:51Z",
+      "revision_history": [
+        {
+          "date": "2026-07-13T10:19:51Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:42:15Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:44:00Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:39:07Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+                "product": {
+                  "name": "libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+                  "product_id": "libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libredwg-devel@0.14.8413-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+                "product": {
+                  "name": "libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+                  "product_id": "libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libredwg-tools@0.14.8413-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+                "product": {
+                  "name": "libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+                  "product_id": "libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libredwg0@0.14.8413-bp160.1.1?arch=aarch64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+                  "product_id": "libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libredwg-devel@0.14.8413-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+                  "product_id": "libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libredwg-tools@0.14.8413-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+                  "product_id": "libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libredwg0@0.14.8413-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+                "product": {
+                  "name": "libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+                  "product_id": "libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libredwg-devel@0.14.8413-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+                "product": {
+                  "name": "libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+                  "product_id": "libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libredwg-tools@0.14.8413-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libredwg0-0:0.14.8413-bp160.1.1.s390x",
+                "product": {
+                  "name": "libredwg0-0:0.14.8413-bp160.1.1.s390x",
+                  "product_id": "libredwg0-0:0.14.8413-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libredwg0@0.14.8413-bp160.1.1?arch=s390x"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+                "product": {
+                  "name": "libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+                  "product_id": "libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libredwg-devel@0.14.8413-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+                "product": {
+                  "name": "libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+                  "product_id": "libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libredwg-tools@0.14.8413-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libredwg0-0:0.14.8413-bp160.1.1.x86_64",
+                "product": {
+                  "name": "libredwg0-0:0.14.8413-bp160.1.1.x86_64",
+                  "product_id": "libredwg0-0:0.14.8413-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libredwg0@0.14.8413-bp160.1.1?arch=x86_64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libredwg-devel-0:0.14.8413-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.aarch64"
+        },
+        "product_reference": "libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le"
+        },
+        "product_reference": "libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libredwg-devel-0:0.14.8413-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.s390x"
+        },
+        "product_reference": "libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libredwg-devel-0:0.14.8413-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.x86_64"
+        },
+        "product_reference": "libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libredwg-tools-0:0.14.8413-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.aarch64"
+        },
+        "product_reference": "libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le"
+        },
+        "product_reference": "libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libredwg-tools-0:0.14.8413-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.s390x"
+        },
+        "product_reference": "libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libredwg-tools-0:0.14.8413-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.x86_64"
+        },
+        "product_reference": "libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libredwg0-0:0.14.8413-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.aarch64"
+        },
+        "product_reference": "libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libredwg0-0:0.14.8413-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.ppc64le"
+        },
+        "product_reference": "libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libredwg0-0:0.14.8413-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.s390x"
+        },
+        "product_reference": "libredwg0-0:0.14.8413-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libredwg0-0:0.14.8413-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.x86_64"
+        },
+        "product_reference": "libredwg0-0:0.14.8413-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-15181",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-15181"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "unknown",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-15181",
+          "url": "https://www.suse.com/security/cve/CVE-2026-15181"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-07-13T10:19:51Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-15181"
+    },
+    {
+      "cve": "CVE-2026-15184",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-15184"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A vulnerability was found in GNU LibreDWG up to 0.13.4. The impacted element is the function dwg_next_entity of the file src/dwg.c of the component DWG File Handler. Performing a manipulation of the argument next_obj results in null pointer dereference. The attack must be initiated from a local position. The exploit has been made public and could be used. Upgrading to version 0.14 is sufficient to resolve this issue. The patch is named dde45dac3c4d902e4d8fed150a8017b9732019c9. Upgrading the affected component is recommended. Different than CVE-2026-9503.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-15184",
+          "url": "https://www.suse.com/security/cve/CVE-2026-15184"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1271170 for CVE-2026-15184",
+          "url": "https://bugzilla.suse.com/1271170"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-07-13T10:19:51Z",
+          "details": "low"
+        }
+      ],
+      "title": "CVE-2026-15184"
+    },
+    {
+      "cve": "CVE-2026-9501",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-9501"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A vulnerability was determined in GNU LibreDWG up to 0.14. The impacted element is the function decompress_R2004_section of the file src/decode.c of the component Dwgread Utility. Executing a manipulation can lead to reachable assertion. The attack is restricted to local execution. The exploit has been publicly disclosed and may be utilized. This patch is called e501cb9926c1e9a07a0d1cc997f3e69e9be801c9. A patch should be applied to remediate this issue.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-9501",
+          "url": "https://www.suse.com/security/cve/CVE-2026-9501"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266377 for CVE-2026-9501",
+          "url": "https://bugzilla.suse.com/1266377"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-07-13T10:19:51Z",
+          "details": "low"
+        }
+      ],
+      "title": "CVE-2026-9501"
+    },
+    {
+      "cve": "CVE-2026-9502",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-9502"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A vulnerability was identified in GNU LibreDWG up to 0.14. This affects the function decompress_R2004_section of the file src/decode.c of the component Dwgread Utility. The manipulation leads to heap-based buffer overflow. The attack must be carried out locally. The exploit is publicly available and might be used. The identifier of the patch is e501cb9926c1e9a07a0d1cc997f3e69e9be801c9. To fix this issue, it is recommended to deploy a patch.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-9502",
+          "url": "https://www.suse.com/security/cve/CVE-2026-9502"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266378 for CVE-2026-9502",
+          "url": "https://bugzilla.suse.com/1266378"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-07-13T10:19:51Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-9502"
+    },
+    {
+      "cve": "CVE-2026-9503",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-9503"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A security flaw has been discovered in GNU LibreDWG up to 0.14. This impacts the function dwg_next_entity of the file src/decode.c of the component DWG File Handler. The manipulation results in null pointer dereference. The attack must be initiated from a local position. The exploit has been released to the public and may be used for attacks. The patch is identified as 8f03865f37f5d4ffd616fef802acc980be54d300. Upgrading the affected component is advised.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-9503",
+          "url": "https://www.suse.com/security/cve/CVE-2026-9503"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266379 for CVE-2026-9503",
+          "url": "https://bugzilla.suse.com/1266379"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1271170 for CVE-2026-9503",
+          "url": "https://bugzilla.suse.com/1271170"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-07-13T10:19:51Z",
+          "details": "low"
+        }
+      ],
+      "title": "CVE-2026-9503"
+    },
+    {
+      "cve": "CVE-2026-9504",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-9504"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A weakness has been identified in GNU LibreDWG up to 0.14. Affected is the function bit_convert_TU of the file programs/dwggrep.c of the component Dwggrep Utility. This manipulation causes out-of-bounds read. The attack needs to be launched locally. The exploit has been made available to the public and could be used for attacks. Patch name: be996bf2178a40e98720f18c2414815d244413db. Applying a patch is the recommended action to fix this issue.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-9504",
+          "url": "https://www.suse.com/security/cve/CVE-2026-9504"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266321 for CVE-2026-9504",
+          "url": "https://bugzilla.suse.com/1266321"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-07-13T10:19:51Z",
+          "details": "low"
+        }
+      ],
+      "title": "CVE-2026-9504"
+    },
+    {
+      "cve": "CVE-2026-9529",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-9529"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A security flaw has been discovered in GNU LibreDWG up to 0.14. The affected element is the function match_BLOCK_HEADER of the file dwggrep.c of the component Dwggrep Utility. Performing a manipulation results in null pointer dereference. The attack requires a local approach. The exploit has been released to the public and may be used for attacks.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-9529",
+          "url": "https://www.suse.com/security/cve/CVE-2026-9529"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266380 for CVE-2026-9529",
+          "url": "https://bugzilla.suse.com/1266380"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-07-13T10:19:51Z",
+          "details": "low"
+        }
+      ],
+      "title": "CVE-2026-9529"
+    },
+    {
+      "cve": "CVE-2026-9530",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-9530"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A weakness has been identified in GNU LibreDWG up to 0.14. The impacted element is the function read_2004_compressed_section of the file src/decode.c of the component Dwgbmp Utility. Executing a manipulation can lead to out-of-bounds read. The attack requires local access. The exploit has been made available to the public and could be used for attacks. This patch is called 8f03865f37f5d4ffd616fef802acc980be54d300. It is advisable to implement a patch to correct this issue.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-9530",
+          "url": "https://www.suse.com/security/cve/CVE-2026-9530"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266287 for CVE-2026-9530",
+          "url": "https://bugzilla.suse.com/1266287"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-07-13T10:19:51Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-9530"
+    },
+    {
+      "cve": "CVE-2026-9605",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-9605"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw has been found in GNU libredwg up to 0.13.4.8160. This issue affects the function bit_read_RC of the file bits.c of the component Dwgbmp Utility. This manipulation causes heap-based buffer overflow. The attack is possible to be carried out remotely. The exploit has been published and may be used. Patch name: 8f03865f37f5d4ffd616fef802acc980be54d300. Applying a patch is the recommended action to fix this issue.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-9605",
+          "url": "https://www.suse.com/security/cve/CVE-2026-9605"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266365 for CVE-2026-9605",
+          "url": "https://bugzilla.suse.com/1266365"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg-devel-0:0.14.8413-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg-tools-0:0.14.8413-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libredwg0-0:0.14.8413-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-07-13T10:19:51Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-9605"
+    }
+  ]
+}

@@ -1,0 +1,2043 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for python-GitPython",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for python-GitPython fixes the following issues:\n\n- CVE-2026-67322: environment-variable exfiltration in `Repo.clone_from()` URL via os.path.expandvars() (bsc#1273357).\n- CVE-2026-67323: unguarded Git options passed as keyword arguments in `Repo.archive()` and `git.ls_remote()` allow\n  for command injection (bsc#1273358).\n- CVE-2026-67325: incomplete command injection blocklist fails to account for git's long-option prefix abbreviation\n  feature and allows for bypass (bsc#1273359).\n- CVE-2026-67326: failure to validate newline characters in the section parameter of `config_writer()` can lead to\n  RCE via `core.hooksPath` (bsc#1273364).\n- CVE-2026-69097: failure to properly escape section names in Git `config` files allows for injection of arbitrary\n  configuration directives through malicious submodule names and can lead to RCE (bsc#1273414).\n- CVE-2026-73619: incomplete denylist in the `unsafe_git_archive_options` guard that omits `--add-file` and `--add-\n  virtual-file` options can lead to arbitrary file reads (bsc#1275755).\n- CVE-2026-73620: failure to guard Git option forwarding in `IndexFile.checkout()` and `TagReference.create()` can lead\n  to arbitrary file reads and writes (bsc#1275756).\n- CVE-2026-73621: argument injection in the `Commit.count()` method allows for destruction/blanking of arbitrary files\n  (bsc#1275757).\n- CVE-2026-73622: failure to disable environment variable expansion in `Remote.create()` and `Submodule.add()` URL\n  handling allows for secret exfiltration via URLs containing variable references (bsc#1275751).\n- CVE-2026-73623: incomplete denylist in `unsafe_git_clone_options` that omits `--template` allows for arbitrary command\n  execution (bsc#1275752).\n- CVE-2026-73624: `Diffable.diff` method fails to validate git options passed through `kwargs`, which can lead to\n  arbitrary file writes (bsc#1275753).\n- CVE-2026-73625: `check_unsafe_options` guard bypass via smuggling of git options inside single-character `kwarg`\n  values can lead to arbitrary code execution (bsc#1275754).\n- CVE-2026-76217: failure to validate options passed to `git rm` and `git checkout` commands in `IndexFile.remove()`\n  and `Head.checkout()` can lead to arbitrary file reads (bsc#1275745).\n- CVE-2026-76218: unguarded git option forwarding in `Repo.init` allows for arbitrary command execution (bsc#1275746).\n- CVE-2026-76219: unguarded `git read-tree` option forwarding in `IndexFile.from_tree/reset/merge_tree` can lead to\n  arbitrary file overwrites (bsc#1275747).\n- CVE-2026-76220: `check_unsafe_options` guard can be bypassed by combining a single-character `kwarg` with\n  `split_single_char_options=False`, which can lead to arbitrary OS command injection (bsc#1275748).\n- CVE-2026-76221: `config-name` injection in the `option-name` validator can lead to remote code execution\n  (bsc#1275749).\n- CVE-2026-76222: failure to validate submodule names from `.gitmodules` files allows creation of Git repositories at\n  arbitrary filesystem paths outside the intended clone directory (bsc#1275750).\n- CVE-2026-78675: failure to disable `merge_includes` when parsing `.gitmodules` can lead to discloseure of local file\n  contents when arbitrary file paths are included via `[include]` directives (bsc#1276434).\n- CVE-2026-78676: failure to safely re-serialize multi-line `git-config` values during write operations can corrupt\n  dormant quoted values into live injected directives (bsc#1276433).\n- CVE-2026-78677: omission of `--separate-git-dir` from `unsafe_git_clone_options` allows for creation of arbitrary git\n  directories outside the intended clone destination (bsc#1276432).\n- CVE-2026-78678: incomplete denylist in the `unsafe_git_revision_options` guard that omits `--contents` and `-S`\n  options allows for reading of arbitrary files when these options to are passed to `Repo.blame()` (bsc#1276431).\n- CVE-2026-78679: positional reference parameter can bypass an unsafe option guard and allows for arbitrary file read\n  via `TagReference.create()` (bsc#1276430).\n- CVE-2026-87817: failure to properly validade the git directory location allows attackers to impersonate the git\n  directory using tracked files and execute arbitrary code by placing pre-commit hooks in the tracked hooks directory\n  (bsc#1279905).\n- CVE-2026-87818: failure to restrict the `--no-index` option in the high-level diff API allows attackers to read\n  arbitrary filesystem paths as repository operands and create content-dependent Boolean oracles (bsc#1279906).\n- CVE-2026-87819: quadratic backtracking in the `Actor.name_email_regex` regular expression allows attackers to cause\n  CPU exhaustion and a DoS via a commit with a malformed author field (bsc#1279907).\n- GitPython unsafe clone option gate bypass through joined short options (bsc#1273498).\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-1701",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_21874-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273357",
+        "url": "https://bugzilla.suse.com/1273357"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273358",
+        "url": "https://bugzilla.suse.com/1273358"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273359",
+        "url": "https://bugzilla.suse.com/1273359"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273364",
+        "url": "https://bugzilla.suse.com/1273364"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273414",
+        "url": "https://bugzilla.suse.com/1273414"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273498",
+        "url": "https://bugzilla.suse.com/1273498"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1275745",
+        "url": "https://bugzilla.suse.com/1275745"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1275746",
+        "url": "https://bugzilla.suse.com/1275746"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1275747",
+        "url": "https://bugzilla.suse.com/1275747"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1275748",
+        "url": "https://bugzilla.suse.com/1275748"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1275749",
+        "url": "https://bugzilla.suse.com/1275749"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1275750",
+        "url": "https://bugzilla.suse.com/1275750"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1275751",
+        "url": "https://bugzilla.suse.com/1275751"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1275752",
+        "url": "https://bugzilla.suse.com/1275752"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1275753",
+        "url": "https://bugzilla.suse.com/1275753"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1275754",
+        "url": "https://bugzilla.suse.com/1275754"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1275755",
+        "url": "https://bugzilla.suse.com/1275755"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1275756",
+        "url": "https://bugzilla.suse.com/1275756"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1275757",
+        "url": "https://bugzilla.suse.com/1275757"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1276430",
+        "url": "https://bugzilla.suse.com/1276430"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1276431",
+        "url": "https://bugzilla.suse.com/1276431"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1276432",
+        "url": "https://bugzilla.suse.com/1276432"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1276433",
+        "url": "https://bugzilla.suse.com/1276433"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1276434",
+        "url": "https://bugzilla.suse.com/1276434"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1279905",
+        "url": "https://bugzilla.suse.com/1279905"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1279906",
+        "url": "https://bugzilla.suse.com/1279906"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1279907",
+        "url": "https://bugzilla.suse.com/1279907"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-67322 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-67322/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-67323 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-67323/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-67325 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-67325/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-67326 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-67326/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-69097 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-69097/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-73619 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-73619/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-73620 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-73620/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-73621 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-73621/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-73622 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-73622/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-73623 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-73623/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-73624 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-73624/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-73625 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-73625/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-76217 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-76217/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-76218 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-76218/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-76219 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-76219/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-76220 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-76220/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-76221 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-76221/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-76222 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-76222/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-78675 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-78675/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-78676 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-78676/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-78677 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-78677/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-78678 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-78678/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-78679 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-78679/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-87817 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-87817/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-87818 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-87818/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-87819 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-87819/"
+      }
+    ],
+    "title": "Security update for python-GitPython",
+    "tracking": {
+      "current_release_date": "2026-09-24T17:48:00Z",
+      "generator": {
+        "date": "2026-09-18T06:05:46Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:21874-1",
+      "initial_release_date": "2026-09-18T06:05:46Z",
+      "revision_history": [
+        {
+          "date": "2026-09-18T06:05:46Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-24T17:48:00Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "python313-GitPython-0:3.1.44-160000.4.1.noarch",
+                "product": {
+                  "name": "python313-GitPython-0:3.1.44-160000.4.1.noarch",
+                  "product_id": "python313-GitPython-0:3.1.44-160000.4.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gitpython_project:gitpython:3.1.44:*:*:*:*:python:*:*",
+                    "purl": "pkg:rpm/suse/python313-GitPython@3.1.44-160000.4.1?arch=noarch\u0026upstream=python-GitPython-0:3.1.44-160000.4.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "python313-GitPython-0:3.1.44-160000.4.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        },
+        "product_reference": "python313-GitPython-0:3.1.44-160000.4.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-67322",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-67322"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython before 3.1.52 is vulnerable to environment-variable exfiltration in Repo.clone_from(). The caller-supplied remote URL is passed through Git.polish_url(), which on non-Cygwin platforms calls os.path.expandvars() on the URL before invoking git clone. An attacker who controls the clone URL can embed $NAME or ${NAME} tokens that are expanded to the values of the hosting process's environment variables (e.g., AWS_SECRET_ACCESS_KEY or GITHUB_TOKEN). The resulting URL, now containing the secret, is transmitted over the network to an attacker-controlled host during the clone attempt, disclosing the secret.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-67322",
+          "url": "https://www.suse.com/security/cve/CVE-2026-67322"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273357 for CVE-2026-67322",
+          "url": "https://bugzilla.suse.com/1273357"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-67322"
+    },
+    {
+      "cve": "CVE-2026-67323",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-67323"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython before 3.1.51 fails to guard against dangerous Git options passed as keyword arguments in Repo.archive() and git.ls_remote(), allowing command injection via options such as --exec/--upload-pack (leading to arbitrary command execution). Additionally, Repo.iter_commits() and Repo.blame() do not check for leading-dash revision arguments, so a revision like --output=\u003cpath\u003e can cause Git to open and truncate an arbitrary file. Exploitation requires an application that passes attacker-controlled arguments to these methods.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-67323",
+          "url": "https://www.suse.com/security/cve/CVE-2026-67323"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273358 for CVE-2026-67323",
+          "url": "https://bugzilla.suse.com/1273358"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.4,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-67323"
+    },
+    {
+      "cve": "CVE-2026-67325",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-67325"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython before 3.1.51 contains an incomplete command injection blocklist that fails to account for git's long-option prefix abbreviation feature. Attackers can bypass the unsafe options guard by using abbreviated option names like upload_p instead of upload_pack, which git resolves to dangerous options and executes arbitrary commands.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-67325",
+          "url": "https://www.suse.com/security/cve/CVE-2026-67325"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273359 for CVE-2026-67325",
+          "url": "https://bugzilla.suse.com/1273359"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-67325"
+    },
+    {
+      "cve": "CVE-2026-67326",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-67326"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython before 3.1.50 fails to validate newline characters in the section parameter of config_writer(), allowing attackers to inject arbitrary section headers into .git/config. Attackers can inject newlines to create a forged [core] section with hooksPath pointing to attacker-controlled directories, achieving remote code execution when git hooks are triggered.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-67326",
+          "url": "https://www.suse.com/security/cve/CVE-2026-67326"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273364 for CVE-2026-67326",
+          "url": "https://bugzilla.suse.com/1273364"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-67326"
+    },
+    {
+      "cve": "CVE-2026-69097",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-69097"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython before 3.1.53 fails to properly escape section names in git config files, allowing attackers to inject arbitrary configuration directives through malicious submodule names. Attackers can inject core.sshCommand or other dangerous config keys into the victim's .git/config via create_submodule or clone_from operations, achieving remote code execution when git performs ssh operations.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-69097",
+          "url": "https://www.suse.com/security/cve/CVE-2026-69097"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273414 for CVE-2026-69097",
+          "url": "https://bugzilla.suse.com/1273414"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-69097"
+    },
+    {
+      "cve": "CVE-2026-73619",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-73619"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython before 3.1.57 contains an incomplete denylist in the unsafe_git_archive_options guard that omits --add-file and --add-virtual-file options. Attackers can supply these options to Repo.archive() to read arbitrary files from the filesystem and include them in the returned archive.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-73619",
+          "url": "https://www.suse.com/security/cve/CVE-2026-73619"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1275755 for CVE-2026-73619",
+          "url": "https://bugzilla.suse.com/1275755"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-73619"
+    },
+    {
+      "cve": "CVE-2026-73620",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-73620"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython before 3.1.57 fails to guard git option forwarding in IndexFile.checkout() and TagReference.create(), allowing attackers to pass unsafe options via kwargs. Attackers can use --prefix to overwrite arbitrary files with repository content or -F to read arbitrary files returned in-band.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-73620",
+          "url": "https://www.suse.com/security/cve/CVE-2026-73620"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1275756 for CVE-2026-73620",
+          "url": "https://bugzilla.suse.com/1275756"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-73620"
+    },
+    {
+      "cve": "CVE-2026-73621",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-73621"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython before 3.1.56 contains an argument injection vulnerability in the Commit.count() method, which forwards keyword arguments to 'git rev-list' without the check_unsafe_options guard present in the sibling iter_items method. An attacker who can control options passed to Commit.count (e.g., via an application that forwards a user-supplied options dict) can supply output=\u003cpath\u003e, causing 'git rev-list --output=\u003cpath\u003e' to open and truncate the target file to zero bytes before revision parsing. This allows destruction/blanking of an arbitrary file at the process's privilege level (no content control, 0-byte truncation).",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-73621",
+          "url": "https://www.suse.com/security/cve/CVE-2026-73621"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1275757 for CVE-2026-73621",
+          "url": "https://bugzilla.suse.com/1275757"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-73621"
+    },
+    {
+      "cve": "CVE-2026-73622",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-73622"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython before 3.1.55 fails to disable environment variable expansion in Remote.create() and Submodule.add() URL handling, allowing attackers to exfiltrate secrets by supplying URLs containing variable references. Attackers can craft URLs with environment variable tokens that are expanded into .git/config and .gitmodules, then transmitted to attacker-controlled hosts during fetch or pull operations.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-73622",
+          "url": "https://www.suse.com/security/cve/CVE-2026-73622"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1275751 for CVE-2026-73622",
+          "url": "https://bugzilla.suse.com/1275751"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-73622"
+    },
+    {
+      "cve": "CVE-2026-73623",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-73623"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython before 3.1.54 contains an incomplete denylist in unsafe_git_clone_options that omits --template, allowing attackers to achieve arbitrary command execution during clone operations. Attackers can supply --template pointing to a directory containing malicious post-checkout hooks that execute when git clones the repository.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-73623",
+          "url": "https://www.suse.com/security/cve/CVE-2026-73623"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1275752 for CVE-2026-73623",
+          "url": "https://bugzilla.suse.com/1275752"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-73623"
+    },
+    {
+      "cve": "CVE-2026-73624",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-73624"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython versions before 3.1.54 contain an arbitrary file overwrite vulnerability in the Diffable.diff method that fails to validate git options passed through kwargs. Attackers can supply the --output argument via the other parameter or output kwarg to write patch content to attacker-chosen file paths at process privilege level.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-73624",
+          "url": "https://www.suse.com/security/cve/CVE-2026-73624"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1275753 for CVE-2026-73624",
+          "url": "https://bugzilla.suse.com/1275753"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-73624"
+    },
+    {
+      "cve": "CVE-2026-73625",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-73625"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython versions before 3.1.54 contain a remote code execution vulnerability in the check_unsafe_options guard that can be bypassed by smuggling git options inside single-character kwarg values. Attackers can supply crafted option dictionaries to clone_from, fetch, pull, push, ls_remote, iter_commits, blame, or archive methods to execute arbitrary OS commands via the --upload-pack parameter.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-73625",
+          "url": "https://www.suse.com/security/cve/CVE-2026-73625"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1275754 for CVE-2026-73625",
+          "url": "https://bugzilla.suse.com/1275754"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-73625"
+    },
+    {
+      "cve": "CVE-2026-76217",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-76217"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython versions before 3.1.58 fail to validate options passed to git rm and git checkout commands in IndexFile.remove() and Head.checkout(). Attackers can supply --pathspec-from-file and --pathspec-file-nul parameters to read arbitrary files accessible to the process, with full file contents returned in GitCommandError.stderr.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-76217",
+          "url": "https://www.suse.com/security/cve/CVE-2026-76217"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1275745 for CVE-2026-76217",
+          "url": "https://bugzilla.suse.com/1275745"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-76217"
+    },
+    {
+      "cve": "CVE-2026-76218",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-76218"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython before 3.1.58 contains a remote code execution vulnerability in Repo.init that forwards unsafe git options without validation. Attackers can supply a template parameter pointing to a directory with malicious git hooks that execute arbitrary code when git operations are performed on the initialized repository.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-76218",
+          "url": "https://www.suse.com/security/cve/CVE-2026-76218"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1275746 for CVE-2026-76218",
+          "url": "https://bugzilla.suse.com/1275746"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-76218"
+    },
+    {
+      "cve": "CVE-2026-76219",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-76219"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython versions before 3.1.58 contain an arbitrary file overwrite vulnerability in IndexFile.from_tree, IndexFile.reset, and IndexFile.merge_tree methods that append caller-influenced treeish strings to git read-tree without option validation or argument separation. Attackers can inject the --index-output option to overwrite arbitrary files with a valid git-index blob, destroying existing file content at attacker-controlled writable paths.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-76219",
+          "url": "https://www.suse.com/security/cve/CVE-2026-76219"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1275747 for CVE-2026-76219",
+          "url": "https://bugzilla.suse.com/1275747"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-76219"
+    },
+    {
+      "cve": "CVE-2026-76220",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-76220"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython before 3.1.58 contains a command execution vulnerability in the check_unsafe_options guard that can be bypassed by combining a single-character kwarg with split_single_char_options=False. Attackers can supply a crafted kwargs dictionary to guarded methods like clone_from to emit a joined token parsed as --upload-pack, enabling arbitrary OS command execution at default allow_unsafe_options=False.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-76220",
+          "url": "https://www.suse.com/security/cve/CVE-2026-76220"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1275748 for CVE-2026-76220",
+          "url": "https://bugzilla.suse.com/1275748"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-76220"
+    },
+    {
+      "cve": "CVE-2026-76221",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-76221"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython before 3.1.58 contains a config-name injection vulnerability in the option-name validator that allows attackers to forge arbitrary git-config directives by injecting equals signs, hash symbols, and whitespace into option names. Attackers can inject malicious option names like 'sshCommand = touch /tmp/RCE #' to execute arbitrary commands via core.sshCommand or core.hooksPath on the next git operation.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-76221",
+          "url": "https://www.suse.com/security/cve/CVE-2026-76221"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1275749 for CVE-2026-76221",
+          "url": "https://bugzilla.suse.com/1275749"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-76221"
+    },
+    {
+      "cve": "CVE-2026-76222",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-76222"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython before 3.1.58 fails to validate submodule names from .gitmodules files, allowing attackers to create Git repositories at arbitrary filesystem paths outside the intended clone directory. Attackers can craft malicious repositories with traversal sequences in submodule names that GitPython processes during submodule initialization, creating attacker-controlled Git repositories at escaped filesystem locations.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-76222",
+          "url": "https://www.suse.com/security/cve/CVE-2026-76222"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1275750 for CVE-2026-76222",
+          "url": "https://bugzilla.suse.com/1275750"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-76222"
+    },
+    {
+      "cve": "CVE-2026-78675",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-78675"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython before 3.1.59 fails to disable merge_includes when parsing .gitmodules, allowing attackers to disclose local file content by including arbitrary file paths via [include] directives. Attackers can craft a malicious .gitmodules file with include directives pointing to sensitive files; when repo.submodules is accessed, GitConfigParser raises MissingSectionHeaderError embedding the target file's first line verbatim in the exception message.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-78675",
+          "url": "https://www.suse.com/security/cve/CVE-2026-78675"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1276434 for CVE-2026-78675",
+          "url": "https://bugzilla.suse.com/1276434"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.4,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-78675"
+    },
+    {
+      "cve": "CVE-2026-78676",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-78676"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython before 3.1.59 fails to safely re-serialize multi-line git-config values during write operations, corrupting dormant quoted values into injected directives like core.hooksPath. Attackers can craft config files with embedded newlines that become live git directives after any unrelated GitPython config write, enabling arbitrary code execution via hook invocation.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-78676",
+          "url": "https://www.suse.com/security/cve/CVE-2026-78676"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1276433 for CVE-2026-78676",
+          "url": "https://bugzilla.suse.com/1276433"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-78676"
+    },
+    {
+      "cve": "CVE-2026-78677",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-78677"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython before 3.1.59 omits --separate-git-dir from unsafe_git_clone_options, allowing attackers to create arbitrary git directories outside the intended clone destination. Attackers can pass a separate_git_dir parameter to Repo.clone_from() or Repo.clone() to redirect repository metadata to an attacker-controlled filesystem path, enabling arbitrary directory creation and potential hook execution.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-78677",
+          "url": "https://www.suse.com/security/cve/CVE-2026-78677"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1276432 for CVE-2026-78677",
+          "url": "https://bugzilla.suse.com/1276432"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-78677"
+    },
+    {
+      "cve": "CVE-2026-78678",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-78678"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython versions before 3.1.59 contain an incomplete denylist in the unsafe_git_revision_options guard that omits --contents and -S options, allowing attackers to read arbitrary files by passing these options to Repo.blame(). Attackers can supply revision values like --contents=/etc/passwd to leak file contents through the blame result returned to the caller.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-78678",
+          "url": "https://www.suse.com/security/cve/CVE-2026-78678"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1276431 for CVE-2026-78678",
+          "url": "https://bugzilla.suse.com/1276431"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-78678"
+    },
+    {
+      "cve": "CVE-2026-78679",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-78679"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython before 3.1.59 contains an arbitrary file read vulnerability in TagReference.create() where a positional reference parameter bypasses the unsafe option guard. Attackers can supply a reference value like --file=\u003cpath\u003e to read arbitrary files, with contents returned in the annotated tag message.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-78679",
+          "url": "https://www.suse.com/security/cve/CVE-2026-78679"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1276430 for CVE-2026-78679",
+          "url": "https://bugzilla.suse.com/1276430"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-78679"
+    },
+    {
+      "cve": "CVE-2026-87817",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-87817"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython before 3.1.60 fails to properly validate the git directory location, allowing attackers to impersonate the git directory using tracked files like gitdir, commondir, and HEAD. Attackers can execute arbitrary code by placing a malicious pre-commit hook in the tracked hooks directory that executes when a victim calls index.commit() on a cloned or opened repository.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-87817",
+          "url": "https://www.suse.com/security/cve/CVE-2026-87817"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1279905 for CVE-2026-87817",
+          "url": "https://bugzilla.suse.com/1279905"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-87817"
+    },
+    {
+      "cve": "CVE-2026-87818",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-87818"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython 3.1.59 fails to restrict the --no-index option in the high-level diff API, allowing attackers to read arbitrary filesystem paths as repository operands. Attackers can combine --no-index with -I/--ignore-matching-lines to create a content-dependent Boolean oracle, repeatedly querying local files to recover single-line secrets through distinguishable success or error responses.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-87818",
+          "url": "https://www.suse.com/security/cve/CVE-2026-87818"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1279906 for CVE-2026-87818",
+          "url": "https://bugzilla.suse.com/1279906"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-87818"
+    },
+    {
+      "cve": "CVE-2026-87819",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-87819"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GitPython before 3.1.60 contains a regular expression denial of service vulnerability in Actor.name_email_regex that processes commit author and committer fields. Attackers can craft a commit object with a malformed author field containing an unterminated angle bracket to cause quadratic backtracking, exhausting CPU resources for over two minutes per commit access.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-87819",
+          "url": "https://www.suse.com/security/cve/CVE-2026-87819"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1279907 for CVE-2026-87819",
+          "url": "https://bugzilla.suse.com/1279907"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:python313-GitPython-0:3.1.44-160000.4.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-18T06:05:46Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-87819"
+    }
+  ]
+}

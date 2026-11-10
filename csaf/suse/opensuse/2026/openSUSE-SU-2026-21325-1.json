@@ -1,0 +1,539 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for cryptsetup",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for cryptsetup fixes the following issues:\n\nChanges in cryptsetup:\n\n- Fix for (bsc#1270254) to avoid undesired pinning of all volume\n  keys (via the thread keyring) through the caller's credentials\n  when the kernel opens a file. This is due to the refactoring in\n  kernel commit a28d893eb327 (\"md: port block device access to file\")\n  that accidentally causes the caller's thread keyring to be kept\n  alive long beyond the caller's lifetime, the kernel part is tracked\n  in (bsc#1270252).\n\n  * Add keyring key type. [b6fb6fc0]\n  * Load volume keys in intermediary keyring linked in thread\n    keyring. [413a3dd0]\n  * Use unique intermediary keyring name per device. [04ef07a7]\n  * Add regression tests. [bfcb0c38, bb5e8e9f, e6573494, aa214c09]\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-1229",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_21325-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1270252",
+        "url": "https://bugzilla.suse.com/1270252"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1270254",
+        "url": "https://bugzilla.suse.com/1270254"
+      }
+    ],
+    "title": "Security update for cryptsetup",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:38:50Z",
+      "generator": {
+        "date": "2026-07-13T16:23:19Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:21325-1",
+      "initial_release_date": "2026-07-13T16:23:19Z",
+      "revision_history": [
+        {
+          "date": "2026-07-13T16:23:19Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:42:01Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:43:46Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:38:50Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cryptsetup-0:2.8.4-160000.2.1.aarch64",
+                "product": {
+                  "name": "cryptsetup-0:2.8.4-160000.2.1.aarch64",
+                  "product_id": "cryptsetup-0:2.8.4-160000.2.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cryptsetup_project:cryptsetup:2.8.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cryptsetup@2.8.4-160000.2.1?arch=aarch64\u0026upstream=cryptsetup-0:2.8.4-160000.2.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cryptsetup-ssh-0:2.8.4-160000.2.1.aarch64",
+                "product": {
+                  "name": "cryptsetup-ssh-0:2.8.4-160000.2.1.aarch64",
+                  "product_id": "cryptsetup-ssh-0:2.8.4-160000.2.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cryptsetup_project:cryptsetup:2.8.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cryptsetup-ssh@2.8.4-160000.2.1?arch=aarch64\u0026upstream=cryptsetup-0:2.8.4-160000.2.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcryptsetup-devel-0:2.8.4-160000.2.1.aarch64",
+                "product": {
+                  "name": "libcryptsetup-devel-0:2.8.4-160000.2.1.aarch64",
+                  "product_id": "libcryptsetup-devel-0:2.8.4-160000.2.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cryptsetup_project:cryptsetup:2.8.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcryptsetup-devel@2.8.4-160000.2.1?arch=aarch64\u0026upstream=cryptsetup-0:2.8.4-160000.2.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcryptsetup12-0:2.8.4-160000.2.1.aarch64",
+                "product": {
+                  "name": "libcryptsetup12-0:2.8.4-160000.2.1.aarch64",
+                  "product_id": "libcryptsetup12-0:2.8.4-160000.2.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cryptsetup_project:cryptsetup:2.8.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcryptsetup12@2.8.4-160000.2.1?arch=aarch64\u0026upstream=cryptsetup-0:2.8.4-160000.2.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cryptsetup-doc-0:2.8.4-160000.2.1.noarch",
+                "product": {
+                  "name": "cryptsetup-doc-0:2.8.4-160000.2.1.noarch",
+                  "product_id": "cryptsetup-doc-0:2.8.4-160000.2.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cryptsetup_project:cryptsetup:2.8.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cryptsetup-doc@2.8.4-160000.2.1?arch=noarch\u0026upstream=cryptsetup-0:2.8.4-160000.2.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cryptsetup-lang-0:2.8.4-160000.2.1.noarch",
+                "product": {
+                  "name": "cryptsetup-lang-0:2.8.4-160000.2.1.noarch",
+                  "product_id": "cryptsetup-lang-0:2.8.4-160000.2.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cryptsetup_project:cryptsetup:2.8.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cryptsetup-lang@2.8.4-160000.2.1?arch=noarch\u0026upstream=cryptsetup-0:2.8.4-160000.2.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cryptsetup-0:2.8.4-160000.2.1.ppc64le",
+                "product": {
+                  "name": "cryptsetup-0:2.8.4-160000.2.1.ppc64le",
+                  "product_id": "cryptsetup-0:2.8.4-160000.2.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cryptsetup_project:cryptsetup:2.8.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cryptsetup@2.8.4-160000.2.1?arch=ppc64le\u0026upstream=cryptsetup-0:2.8.4-160000.2.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cryptsetup-ssh-0:2.8.4-160000.2.1.ppc64le",
+                "product": {
+                  "name": "cryptsetup-ssh-0:2.8.4-160000.2.1.ppc64le",
+                  "product_id": "cryptsetup-ssh-0:2.8.4-160000.2.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cryptsetup_project:cryptsetup:2.8.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cryptsetup-ssh@2.8.4-160000.2.1?arch=ppc64le\u0026upstream=cryptsetup-0:2.8.4-160000.2.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcryptsetup-devel-0:2.8.4-160000.2.1.ppc64le",
+                "product": {
+                  "name": "libcryptsetup-devel-0:2.8.4-160000.2.1.ppc64le",
+                  "product_id": "libcryptsetup-devel-0:2.8.4-160000.2.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cryptsetup_project:cryptsetup:2.8.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcryptsetup-devel@2.8.4-160000.2.1?arch=ppc64le\u0026upstream=cryptsetup-0:2.8.4-160000.2.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcryptsetup12-0:2.8.4-160000.2.1.ppc64le",
+                "product": {
+                  "name": "libcryptsetup12-0:2.8.4-160000.2.1.ppc64le",
+                  "product_id": "libcryptsetup12-0:2.8.4-160000.2.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cryptsetup_project:cryptsetup:2.8.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcryptsetup12@2.8.4-160000.2.1?arch=ppc64le\u0026upstream=cryptsetup-0:2.8.4-160000.2.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cryptsetup-0:2.8.4-160000.2.1.s390x",
+                "product": {
+                  "name": "cryptsetup-0:2.8.4-160000.2.1.s390x",
+                  "product_id": "cryptsetup-0:2.8.4-160000.2.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cryptsetup_project:cryptsetup:2.8.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cryptsetup@2.8.4-160000.2.1?arch=s390x\u0026upstream=cryptsetup-0:2.8.4-160000.2.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cryptsetup-ssh-0:2.8.4-160000.2.1.s390x",
+                "product": {
+                  "name": "cryptsetup-ssh-0:2.8.4-160000.2.1.s390x",
+                  "product_id": "cryptsetup-ssh-0:2.8.4-160000.2.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cryptsetup_project:cryptsetup:2.8.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cryptsetup-ssh@2.8.4-160000.2.1?arch=s390x\u0026upstream=cryptsetup-0:2.8.4-160000.2.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcryptsetup-devel-0:2.8.4-160000.2.1.s390x",
+                "product": {
+                  "name": "libcryptsetup-devel-0:2.8.4-160000.2.1.s390x",
+                  "product_id": "libcryptsetup-devel-0:2.8.4-160000.2.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cryptsetup_project:cryptsetup:2.8.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcryptsetup-devel@2.8.4-160000.2.1?arch=s390x\u0026upstream=cryptsetup-0:2.8.4-160000.2.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcryptsetup12-0:2.8.4-160000.2.1.s390x",
+                "product": {
+                  "name": "libcryptsetup12-0:2.8.4-160000.2.1.s390x",
+                  "product_id": "libcryptsetup12-0:2.8.4-160000.2.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cryptsetup_project:cryptsetup:2.8.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcryptsetup12@2.8.4-160000.2.1?arch=s390x\u0026upstream=cryptsetup-0:2.8.4-160000.2.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "cryptsetup-0:2.8.4-160000.2.1.x86_64",
+                "product": {
+                  "name": "cryptsetup-0:2.8.4-160000.2.1.x86_64",
+                  "product_id": "cryptsetup-0:2.8.4-160000.2.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cryptsetup_project:cryptsetup:2.8.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cryptsetup@2.8.4-160000.2.1?arch=x86_64\u0026upstream=cryptsetup-0:2.8.4-160000.2.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "cryptsetup-ssh-0:2.8.4-160000.2.1.x86_64",
+                "product": {
+                  "name": "cryptsetup-ssh-0:2.8.4-160000.2.1.x86_64",
+                  "product_id": "cryptsetup-ssh-0:2.8.4-160000.2.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cryptsetup_project:cryptsetup:2.8.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/cryptsetup-ssh@2.8.4-160000.2.1?arch=x86_64\u0026upstream=cryptsetup-0:2.8.4-160000.2.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcryptsetup-devel-0:2.8.4-160000.2.1.x86_64",
+                "product": {
+                  "name": "libcryptsetup-devel-0:2.8.4-160000.2.1.x86_64",
+                  "product_id": "libcryptsetup-devel-0:2.8.4-160000.2.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cryptsetup_project:cryptsetup:2.8.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcryptsetup-devel@2.8.4-160000.2.1?arch=x86_64\u0026upstream=cryptsetup-0:2.8.4-160000.2.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libcryptsetup12-0:2.8.4-160000.2.1.x86_64",
+                "product": {
+                  "name": "libcryptsetup12-0:2.8.4-160000.2.1.x86_64",
+                  "product_id": "libcryptsetup12-0:2.8.4-160000.2.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:cryptsetup_project:cryptsetup:2.8.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libcryptsetup12@2.8.4-160000.2.1?arch=x86_64\u0026upstream=cryptsetup-0:2.8.4-160000.2.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cryptsetup-0:2.8.4-160000.2.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cryptsetup-0:2.8.4-160000.2.1.aarch64"
+        },
+        "product_reference": "cryptsetup-0:2.8.4-160000.2.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cryptsetup-0:2.8.4-160000.2.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cryptsetup-0:2.8.4-160000.2.1.ppc64le"
+        },
+        "product_reference": "cryptsetup-0:2.8.4-160000.2.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cryptsetup-0:2.8.4-160000.2.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cryptsetup-0:2.8.4-160000.2.1.s390x"
+        },
+        "product_reference": "cryptsetup-0:2.8.4-160000.2.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cryptsetup-0:2.8.4-160000.2.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cryptsetup-0:2.8.4-160000.2.1.x86_64"
+        },
+        "product_reference": "cryptsetup-0:2.8.4-160000.2.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cryptsetup-doc-0:2.8.4-160000.2.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cryptsetup-doc-0:2.8.4-160000.2.1.noarch"
+        },
+        "product_reference": "cryptsetup-doc-0:2.8.4-160000.2.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cryptsetup-lang-0:2.8.4-160000.2.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cryptsetup-lang-0:2.8.4-160000.2.1.noarch"
+        },
+        "product_reference": "cryptsetup-lang-0:2.8.4-160000.2.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cryptsetup-ssh-0:2.8.4-160000.2.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cryptsetup-ssh-0:2.8.4-160000.2.1.aarch64"
+        },
+        "product_reference": "cryptsetup-ssh-0:2.8.4-160000.2.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cryptsetup-ssh-0:2.8.4-160000.2.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cryptsetup-ssh-0:2.8.4-160000.2.1.ppc64le"
+        },
+        "product_reference": "cryptsetup-ssh-0:2.8.4-160000.2.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cryptsetup-ssh-0:2.8.4-160000.2.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cryptsetup-ssh-0:2.8.4-160000.2.1.s390x"
+        },
+        "product_reference": "cryptsetup-ssh-0:2.8.4-160000.2.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "cryptsetup-ssh-0:2.8.4-160000.2.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:cryptsetup-ssh-0:2.8.4-160000.2.1.x86_64"
+        },
+        "product_reference": "cryptsetup-ssh-0:2.8.4-160000.2.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcryptsetup-devel-0:2.8.4-160000.2.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libcryptsetup-devel-0:2.8.4-160000.2.1.aarch64"
+        },
+        "product_reference": "libcryptsetup-devel-0:2.8.4-160000.2.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcryptsetup-devel-0:2.8.4-160000.2.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libcryptsetup-devel-0:2.8.4-160000.2.1.ppc64le"
+        },
+        "product_reference": "libcryptsetup-devel-0:2.8.4-160000.2.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcryptsetup-devel-0:2.8.4-160000.2.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libcryptsetup-devel-0:2.8.4-160000.2.1.s390x"
+        },
+        "product_reference": "libcryptsetup-devel-0:2.8.4-160000.2.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcryptsetup-devel-0:2.8.4-160000.2.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libcryptsetup-devel-0:2.8.4-160000.2.1.x86_64"
+        },
+        "product_reference": "libcryptsetup-devel-0:2.8.4-160000.2.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcryptsetup12-0:2.8.4-160000.2.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libcryptsetup12-0:2.8.4-160000.2.1.aarch64"
+        },
+        "product_reference": "libcryptsetup12-0:2.8.4-160000.2.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcryptsetup12-0:2.8.4-160000.2.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libcryptsetup12-0:2.8.4-160000.2.1.ppc64le"
+        },
+        "product_reference": "libcryptsetup12-0:2.8.4-160000.2.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcryptsetup12-0:2.8.4-160000.2.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libcryptsetup12-0:2.8.4-160000.2.1.s390x"
+        },
+        "product_reference": "libcryptsetup12-0:2.8.4-160000.2.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libcryptsetup12-0:2.8.4-160000.2.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libcryptsetup12-0:2.8.4-160000.2.1.x86_64"
+        },
+        "product_reference": "libcryptsetup12-0:2.8.4-160000.2.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  }
+}

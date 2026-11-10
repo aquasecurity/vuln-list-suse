@@ -1,0 +1,3170 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for rsync",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for rsync fixes the following issues:\n\n- CVE-2026-53783: rrsync restricted-directory escape (bsc#1269041).\n- CVE-2026-53784: Daemon module-root chdir escape under \"use chroot = no\" (bsc#1269042).\n- CVE-2026-53785: --relative implied-parent creation escapes the destination tree (bsc#1269043).\n- CVE-2026-53786: Daemon --filter merge file bypasses the module filter list (bsc#1269044).\n- CVE-2026-53788: Daemon name-converter accepts newline-bearing names into its line protocol (bsc#1269046).\n- CVE-2026-53789: Malicious sender expands --delete scope by reclassifying an implied parent (bsc#1269047).\n- CVE-2026-53790: Command / argument injection via unquoted peer- or host-controlled values (bsc#1269048).\n- CVE-2026-53791: PROXY-protocol mode lets a direct client spoof the daemon's source address (bsc#1269049).\n- CVE-2026-53792: Receiver-supplied zero checksum block length drives sender matching negative (bsc#1269050).\n- CVE-2026-53793: Chroot \"/./\" inner-module escape via a parent-component symlink (bsc#1269051).\n- CVE-2026-53794: Remote peer disables the per-allocation sanity cap via --max-alloc=0 (bsc#1269052).\n- CVE-2026-53795: Receiver write escape via an absolute --temp-dir / --link-dest disabling rename/link confinement\n  (bsc#1269053).\n- CVE-2026-53796: Non-daemon receiver destination-chdir symlink race (bsc#1269054).\n- CVE-2026-53797: Sender source-tree parent-component symlink race -\u003e out-of-tree disclosure (bsc#1269055).\n- CVE-2026-53798: Daemon name-converter empty response maps an unknown name to uid/gid 0 (bsc#1269045).\n- CVE-2026-53799: Receiver ACL/xattr application follows a symlink-race -\u003e arbitrary ACL set (bsc#1269056).\n- CVE-2026-53800: Sender --remove-source-files unlink follows a parent-component symlink race -\u003e arbitrary file deletion\n  outside the source tree (bsc#1269057).\n- CVE-2026-53801: Sender/daemon directory-scan enumeration escapes the transfer root / module -\u003e out-of-tree disclosure\n  (bsc#1269058).\n- CVE-2026-53802: Arbitrary file read / transfer-shaping via symlinked operator-supplied input files (bsc#1269039).\n- CVE-2026-53803: Arbitrary file write / privilege escalation via symlinked operator-supplied output paths\n  (bsc#1269040).\n- CVE-2026-70452: `hosts deny` fails OPEN when a configured hostname cannot be resolved, admitting the host it was meant\n  to block (bsc#1273441).\n- CVE-2026-70453: Quadratic CPU exhaustion in hash_search() from a crafted equal-weak-checksum chain (bsc#1273440).\n- CVE-2026-70454: rsync-ssl establishes an unauthenticated TLS connection (bsc#1273439).\n- CVE-2026-70455: Peer-controlled Zstandard worker exhaustion on an rsync daemon (bsc#1273438).\n- CVE-2026-70456: Remote out-of-bounds heap write in read_args() when the argument count lands exactly on maxargs\n  (bsc#1273437).\n- CVE-2026-70457: Attacker-chosen-offset write in parse_size_arg() error formatting (bsc#1273436).\n- CVE-2026-70458: Out-of-bounds write from a FLAG_HLINKED file entry accepted without -H (bsc#1273435).\n- CVE-2026-70459: Per-connection daemon child crash from a crafted first incremental file list with a non-directory\n  transfer root (bsc#1273434).\n- CVE-2026-70460: Daemon module-root escape through a peer-supplied --partial-dir / --backup-dir resolving via an in-\n  module symlink (bsc#1273433).\n- CVE-2026-70461: Peer-driven one-byte heap out-of-bounds write in add_implied_include() (bsc#1273432).\n- CVE-2026-70462: Peer-supplied MSG_IO_TIMEOUT defeats the client's own I/O timeout (bsc#1273431).\n- CVE-2026-70463: \"auth users\" ignores documented comma-only parsing, silently skipping a deny/read-only rule\n  (bsc#1273430).\n- CVE-2026-70464: Unauthenticated pre-transfer handshake DoS locks out an rsync daemon module (bsc#1273429).\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-SLE-Micro-6.0-862",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2026_23253-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2026:23253-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-202623253-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2026:23253-1",
+        "url": "https://lists.suse.com/pipermail/sle-security-updates/2026-August/028555.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269039",
+        "url": "https://bugzilla.suse.com/1269039"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269040",
+        "url": "https://bugzilla.suse.com/1269040"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269041",
+        "url": "https://bugzilla.suse.com/1269041"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269042",
+        "url": "https://bugzilla.suse.com/1269042"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269043",
+        "url": "https://bugzilla.suse.com/1269043"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269044",
+        "url": "https://bugzilla.suse.com/1269044"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269045",
+        "url": "https://bugzilla.suse.com/1269045"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269046",
+        "url": "https://bugzilla.suse.com/1269046"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269047",
+        "url": "https://bugzilla.suse.com/1269047"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269048",
+        "url": "https://bugzilla.suse.com/1269048"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269049",
+        "url": "https://bugzilla.suse.com/1269049"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269050",
+        "url": "https://bugzilla.suse.com/1269050"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269051",
+        "url": "https://bugzilla.suse.com/1269051"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269052",
+        "url": "https://bugzilla.suse.com/1269052"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269053",
+        "url": "https://bugzilla.suse.com/1269053"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269054",
+        "url": "https://bugzilla.suse.com/1269054"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269055",
+        "url": "https://bugzilla.suse.com/1269055"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269056",
+        "url": "https://bugzilla.suse.com/1269056"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269057",
+        "url": "https://bugzilla.suse.com/1269057"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269058",
+        "url": "https://bugzilla.suse.com/1269058"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1269060",
+        "url": "https://bugzilla.suse.com/1269060"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273429",
+        "url": "https://bugzilla.suse.com/1273429"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273430",
+        "url": "https://bugzilla.suse.com/1273430"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273431",
+        "url": "https://bugzilla.suse.com/1273431"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273432",
+        "url": "https://bugzilla.suse.com/1273432"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273433",
+        "url": "https://bugzilla.suse.com/1273433"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273434",
+        "url": "https://bugzilla.suse.com/1273434"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273435",
+        "url": "https://bugzilla.suse.com/1273435"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273436",
+        "url": "https://bugzilla.suse.com/1273436"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273437",
+        "url": "https://bugzilla.suse.com/1273437"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273438",
+        "url": "https://bugzilla.suse.com/1273438"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273439",
+        "url": "https://bugzilla.suse.com/1273439"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273440",
+        "url": "https://bugzilla.suse.com/1273440"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273441",
+        "url": "https://bugzilla.suse.com/1273441"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-43617 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-43617/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-43618 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-43618/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-43619 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-43619/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-43620 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-43620/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-53783 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-53783/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-53784 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-53784/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-53785 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-53785/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-53786 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-53786/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-53788 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-53788/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-53789 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-53789/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-53790 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-53790/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-53791 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-53791/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-53792 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-53792/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-53793 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-53793/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-53794 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-53794/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-53795 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-53795/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-53796 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-53796/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-53797 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-53797/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-53798 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-53798/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-53799 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-53799/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-53800 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-53800/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-53801 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-53801/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-53802 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-53802/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-53803 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-53803/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-70452 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-70452/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-70453 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-70453/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-70454 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-70454/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-70455 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-70455/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-70456 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-70456/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-70457 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-70457/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-70458 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-70458/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-70459 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-70459/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-70460 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-70460/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-70461 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-70461/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-70462 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-70462/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-70463 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-70463/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-70464 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-70464/"
+      }
+    ],
+    "title": "Security update for rsync",
+    "tracking": {
+      "current_release_date": "2026-10-23T09:41:53Z",
+      "generator": {
+        "date": "2026-08-24T14:42:20Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2026:23253-1",
+      "initial_release_date": "2026-08-24T14:42:20Z",
+      "revision_history": [
+        {
+          "date": "2026-08-24T14:42:20Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T19:25:48Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T20:13:27Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T16:18:04Z",
+          "number": "4",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-19T15:42:01Z",
+          "number": "5",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-20T18:41:25Z",
+          "number": "6",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-10-23T09:41:53Z",
+          "number": "7",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "7"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "rsync-0:3.2.7-8.1.aarch64",
+                "product": {
+                  "name": "rsync-0:3.2.7-8.1.aarch64",
+                  "product_id": "rsync-0:3.2.7-8.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:rsync:3.2.7:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/rsync@3.2.7-8.1?arch=aarch64\u0026upstream=rsync-0:3.2.7-8.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "rsync-0:3.2.7-8.1.s390x",
+                "product": {
+                  "name": "rsync-0:3.2.7-8.1.s390x",
+                  "product_id": "rsync-0:3.2.7-8.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:rsync:3.2.7:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/rsync@3.2.7-8.1?arch=s390x\u0026upstream=rsync-0:3.2.7-8.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "rsync-0:3.2.7-8.1.x86_64",
+                "product": {
+                  "name": "rsync-0:3.2.7-8.1.x86_64",
+                  "product_id": "rsync-0:3.2.7-8.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:samba:rsync:3.2.7:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/rsync@3.2.7-8.1?arch=x86_64\u0026upstream=rsync-0:3.2.7-8.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Micro 6.0",
+                "product": {
+                  "name": "SUSE Linux Micro 6.0",
+                  "product_id": "SUSE Linux Micro 6.0",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sl-micro:6.0"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "rsync-0:3.2.7-8.1.aarch64 as component of SUSE Linux Micro 6.0",
+          "product_id": "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64"
+        },
+        "product_reference": "rsync-0:3.2.7-8.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "rsync-0:3.2.7-8.1.s390x as component of SUSE Linux Micro 6.0",
+          "product_id": "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x"
+        },
+        "product_reference": "rsync-0:3.2.7-8.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "rsync-0:3.2.7-8.1.x86_64 as component of SUSE Linux Micro 6.0",
+          "product_id": "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        },
+        "product_reference": "rsync-0:3.2.7-8.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-43617",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-43617"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Rsync version  3.4.2 and prior contain an authorization bypass vulnerability in the rsync daemon's hostname-based access control list enforcement when configured with chroot. Attackers can bypass hostname-based deny rules by controlling the PTR record for their source IP address, allowing connections from hostnames that administrators intended to deny when reverse DNS resolution fails and defaults to UNKNOWN.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-43617",
+          "url": "https://www.suse.com/security/cve/CVE-2026-43617"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1264515 for CVE-2026-43617",
+          "url": "https://bugzilla.suse.com/1264515"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273441 for CVE-2026-43617",
+          "url": "https://bugzilla.suse.com/1273441"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.8,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-43617"
+    },
+    {
+      "cve": "CVE-2026-43618",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-43618"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Rsync version  3.4.2 and prior contain an integer overflow vulnerability in the compressed-token decoder where a 32-bit signed counter is not checked for overflow, allowing a malicious sender to trigger an overflow that causes the receiver process to read and return data from outside the intended buffer bounds. Attackers can exploit this vulnerability to disclose process memory contents including environment variables, passwords, heap and stack data, and library memory pointers, significantly reducing ASLR effectiveness and facilitating further exploitation.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-43618",
+          "url": "https://www.suse.com/security/cve/CVE-2026-43618"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1264512 for CVE-2026-43618",
+          "url": "https://bugzilla.suse.com/1264512"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-43618"
+    },
+    {
+      "cve": "CVE-2026-43619",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-43619"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Rsync version  3.4.2 and prior contain symlink race condition vulnerabilities in path-based system calls including chmod, lchown, utimes, rename, unlink, mkdir, symlink, mknod, link, rmdir, and lstat that allow local attackers to redirect operations to files outside the exported rsync module. Attackers with local filesystem access can exploit the timing window between path resolution and syscall execution by swapping symlinks to apply sender-supplied permissions, ownership, timestamps, or filenames to arbitrary files outside the intended module boundary on rsync daemons configured with 'use chroot = no'.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-43619",
+          "url": "https://www.suse.com/security/cve/CVE-2026-43619"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1264514 for CVE-2026-43619",
+          "url": "https://bugzilla.suse.com/1264514"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269053 for CVE-2026-43619",
+          "url": "https://bugzilla.suse.com/1269053"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-43619"
+    },
+    {
+      "cve": "CVE-2026-43620",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-43620"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Rsync version  3.4.2 and prior contain a receiver-side out-of-bounds array read vulnerability in recv_files() in receiver.c that allows a malicious rsync server to crash the rsync client process. Attackers can exploit the vulnerability by setting CF_INC_RECURSE in compatibility flags and sending a specially crafted file list where the first sorted entry is not the leading dot directory, followed by a transfer record with ndx=0 and an iflag word without ITEM_TRANSFER, causing the receiver to read 8 bytes before the allocated pointer array and dereference an invalid pointer at an unmapped address, resulting in a deterministic SIGSEGV crash of the rsync client.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-43620",
+          "url": "https://www.suse.com/security/cve/CVE-2026-43620"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1264513 for CVE-2026-43620",
+          "url": "https://bugzilla.suse.com/1264513"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273434 for CVE-2026-43620",
+          "url": "https://bugzilla.suse.com/1273434"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-43620"
+    },
+    {
+      "cve": "CVE-2026-53783",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-53783"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync before  3.5.0 contains a time-of-check to time-of-use (TOCTOU) race condition vulnerability in the rrsync restricted shell wrapper that allows authenticated clients to escape enforced directory restrictions by substituting a symlink for a path component after validation but before transfer processing. Attackers can additionally leverage unrestricted flags such as --copy-unsafe-links, -D, and --log-file through rrsync to read or write files outside the permitted directory subtree.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-53783",
+          "url": "https://www.suse.com/security/cve/CVE-2026-53783"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269041 for CVE-2026-53783",
+          "url": "https://bugzilla.suse.com/1269041"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-53783"
+    },
+    {
+      "cve": "CVE-2026-53784",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-53784"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync before 3.5.0  contains a path traversal vulnerability that allows remote clients to access files outside the intended module root when use chroot is disabled and the module root path or a component of it is a symlink. The daemon calls chdir() to the module root at session initialization without resolving symlinks via realpath() or equivalent, causing subsequent relative-path operations to reference files relative to the symlink target rather than the intended module root, enabling unauthorized file access.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-53784",
+          "url": "https://www.suse.com/security/cve/CVE-2026-53784"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269042 for CVE-2026-53784",
+          "url": "https://bugzilla.suse.com/1269042"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1285644 for CVE-2026-53784",
+          "url": "https://bugzilla.suse.com/1285644"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-53784"
+    },
+    {
+      "cve": "CVE-2026-53785",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-53785"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync  before 3.5.0  contains a path traversal vulnerability that allows a malicious sender to write files outside the intended destination directory tree by crafting relative paths with symlink components in --relative mode. The make_path() function follows symlinks pointing outside the destination tree while creating intermediate directories without verifying that created paths remain within the destination boundary, enabling arbitrary file writes on the receiver's filesystem.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-53785",
+          "url": "https://www.suse.com/security/cve/CVE-2026-53785"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269043 for CVE-2026-53785",
+          "url": "https://bugzilla.suse.com/1269043"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-53785"
+    },
+    {
+      "cve": "CVE-2026-53786",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-53786"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync  before 3.5.0  contains a filter rule bypass vulnerability that allows authenticated clients to override module-level filter restrictions by supplying malicious --filter merge file directives. Attackers can inject client-side merge file directives during filter evaluation to introduce rules that supersede daemon module-level restrictions, gaining access to files the module filter was intended to exclude.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-53786",
+          "url": "https://www.suse.com/security/cve/CVE-2026-53786"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269044 for CVE-2026-53786",
+          "url": "https://bugzilla.suse.com/1269044"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-53786"
+    },
+    {
+      "cve": "CVE-2026-53788",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-53788"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync before 3.5.0  contains a newline injection vulnerability in the name-converter uid/gid mapping interface that allows local attackers to forge protocol messages by creating user or group names containing newline characters. Attackers can inject malicious newline characters into names communicated over the pipe-based line-oriented protocol to cause the rsync daemon to process attacker-influenced data as legitimate protocol input, corrupting uid/gid mapping logic.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-53788",
+          "url": "https://www.suse.com/security/cve/CVE-2026-53788"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269046 for CVE-2026-53788",
+          "url": "https://bugzilla.suse.com/1269046"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-53788"
+    },
+    {
+      "cve": "CVE-2026-53789",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-53789"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync before 3.5.0  contains an improper path handling vulnerability that allows a malicious sender to expand the scope of --delete operations beyond the intended destination subtree by sending a crafted file list that causes rsync to reclassify implied parent directory entries or treat synthetic paths as the transfer root. Attackers can exploit multiple variants including implied parent reclassification, synthetic root path construction, legacy protocol behavior below version 30, and non-directory root handling to cause the receiver to delete files outside the authorized destination directory.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-53789",
+          "url": "https://www.suse.com/security/cve/CVE-2026-53789"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269047 for CVE-2026-53789",
+          "url": "https://bugzilla.suse.com/1269047"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-53789"
+    },
+    {
+      "cve": "CVE-2026-53790",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-53790"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync before 3.5.0  contains multiple command and argument injection vulnerabilities that allow attackers to execute arbitrary commands by supplying malicious input through several code paths, including the RSYNC_CONNECT_PROG environment variable, daemon hooks, the rsync-ssl wrapper, and remote-shell command newline injection. Attackers can inject shell metacharacters or newline characters into unsanitized user-supplied values such as hostnames and hostspecs to execute arbitrary commands under the privileges of the rsync process or the invoking user.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-53790",
+          "url": "https://www.suse.com/security/cve/CVE-2026-53790"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269048 for CVE-2026-53790",
+          "url": "https://bugzilla.suse.com/1269048"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-53790"
+    },
+    {
+      "cve": "CVE-2026-53791",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-53791"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync daemon before 3.5.0  contains an IP address spoofing vulnerability that allows unauthenticated remote attackers to bypass IP-based access controls by sending a crafted PROXY protocol header with a forged source address. Attackers who can connect directly to the rsync daemon can inject a spoofed source IP in the PROXY protocol header to circumvent hosts allow/deny rules, gaining unauthorized access that would otherwise be blocked based on their real source address.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-53791",
+          "url": "https://www.suse.com/security/cve/CVE-2026-53791"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269049 for CVE-2026-53791",
+          "url": "https://bugzilla.suse.com/1269049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-53791"
+    },
+    {
+      "cve": "CVE-2026-53792",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-53792"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync  before 3.5.0  contains an out-of-bounds read vulnerability in the sender-side block matching logic that allows a malicious receiver to trigger memory access before the start of an allocated buffer by sending a crafted checksum block with a length of zero. Attackers can send a specially crafted checksum set containing a zero-length block to cause a negative offset calculation during delta computation, resulting in an out-of-bounds read of file data buffer memory on the sender side.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-53792",
+          "url": "https://www.suse.com/security/cve/CVE-2026-53792"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269050 for CVE-2026-53792",
+          "url": "https://bugzilla.suse.com/1269050"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-53792"
+    },
+    {
+      "cve": "CVE-2026-53793",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-53793"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync before 3.5.0  contains a path confinement bypass vulnerability that allows remote clients to escape the intended inner-module root confinement by constructing paths that resolve outside the chroot boundary when the module root contains a /./ boundary marker. Attackers can exploit improper handling of the /./ notation or forge delta-basis transfers referencing xname paths that cross the /./ boundary to gain unauthorized read or write access to files outside the module's subtree.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-53793",
+          "url": "https://www.suse.com/security/cve/CVE-2026-53793"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269051 for CVE-2026-53793",
+          "url": "https://bugzilla.suse.com/1269051"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-53793"
+    },
+    {
+      "cve": "CVE-2026-53794",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-53794"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync before 3.5.0  contains a logic error in --max-alloc handling that allows a sender or configuration setting --max-alloc=0 to disable allocation sanity checks entirely rather than enforcing a zero-byte cap. Attackers can exploit this flaw to cause the receiver to attempt unbounded memory allocations for file list and data structures, potentially exhausting available memory and causing a denial of service.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-53794",
+          "url": "https://www.suse.com/security/cve/CVE-2026-53794"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269052 for CVE-2026-53794",
+          "url": "https://bugzilla.suse.com/1269052"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-53794"
+    },
+    {
+      "cve": "CVE-2026-53795",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-53795"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync before 3.5.0  contains an arbitrary file write vulnerability that allows attackers to write files outside the intended destination tree by specifying an absolute path via --temp-dir or --link-dest options. The rename-confinement logic is bypassed when these options resolve to paths outside the destination tree, enabling attacker-controlled values to write files to arbitrary locations accessible to the rsync process.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-53795",
+          "url": "https://www.suse.com/security/cve/CVE-2026-53795"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269053 for CVE-2026-53795",
+          "url": "https://bugzilla.suse.com/1269053"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.8,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-53795"
+    },
+    {
+      "cve": "CVE-2026-53796",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-53796"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync before 3.5.0  contains a time-of-check to time-of-use (TOCTOU) race condition vulnerability in the non-daemon receiver's destination directory handling that allows an attacker who can manipulate destination path parent components to redirect file writes to unintended locations. Attackers can substitute a symlink for a component of the destination path between the path resolution and chdir() call, causing the receiver's working directory to be established outside the intended destination tree so that subsequent relative-path file writes land in unintended filesystem locations.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-53796",
+          "url": "https://www.suse.com/security/cve/CVE-2026-53796"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269054 for CVE-2026-53796",
+          "url": "https://bugzilla.suse.com/1269054"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-53796"
+    },
+    {
+      "cve": "CVE-2026-53797",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-53797"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync before 3.5.0  contains a symlink race condition vulnerability in the sender's source tree traversal that allows an attacker who can manipulate a parent directory of the source tree to redirect file reads to unintended paths. Attackers can atomically replace a parent directory component with a symlink pointing outside the source root between path resolution and file open operations to disclose file contents outside the intended transfer root.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-53797",
+          "url": "https://www.suse.com/security/cve/CVE-2026-53797"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1264511 for CVE-2026-53797",
+          "url": "https://bugzilla.suse.com/1264511"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269055 for CVE-2026-53797",
+          "url": "https://bugzilla.suse.com/1269055"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.7,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-53797"
+    },
+    {
+      "cve": "CVE-2026-53798",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-53798"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync before 3.5.0  contains a privilege confusion vulnerability in the name-converter subprocess uid/gid mapping that allows local attackers to cause transferred files to be owned by root by influencing name-converter responses to return empty values. When the name-converter subprocess returns an empty response for a uid or gid lookup, rsync incorrectly interprets it as a successful resolution to uid/gid 0 (root) rather than a lookup failure, and if the name-converter also signals fake super-user status, rsync proceeds with root ownership assignments for transferred files.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-53798",
+          "url": "https://www.suse.com/security/cve/CVE-2026-53798"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269045 for CVE-2026-53798",
+          "url": "https://bugzilla.suse.com/1269045"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-53798"
+    },
+    {
+      "cve": "CVE-2026-53799",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-53799"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync before 3.5.0  contains a symlink race condition vulnerability that allows local attackers to cause rsync to apply arbitrary ACLs or extended attributes to unintended files by substituting a symlink at a predictable destination path between the file write and the subsequent acl_set_file() or lsetxattr() call. Attackers can exploit this timing window to redirect ACL and xattr application through a crafted symlink to files outside the intended destination tree, potentially granting elevated permissions and enabling local privilege escalation.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-53799",
+          "url": "https://www.suse.com/security/cve/CVE-2026-53799"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1264511 for CVE-2026-53799",
+          "url": "https://bugzilla.suse.com/1264511"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269056 for CVE-2026-53799",
+          "url": "https://bugzilla.suse.com/1269056"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-53799"
+    },
+    {
+      "cve": "CVE-2026-53800",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-53800"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync before 3.5.0  contains a symlink race condition vulnerability in the --remove-source-files feature that allows attackers with symlink creation access to cause arbitrary file deletion. Attackers can atomically substitute a symlink for a source file between transfer completion and the unlink() call, causing rsync to delete the symlink target rather than the intended source file.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-53800",
+          "url": "https://www.suse.com/security/cve/CVE-2026-53800"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269057 for CVE-2026-53800",
+          "url": "https://bugzilla.suse.com/1269057"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-53800"
+    },
+    {
+      "cve": "CVE-2026-53801",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-53801"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync before 3.5.0  contains a symlink race condition vulnerability in the sender's directory scanning logic that allows attackers to cause the sender to enumerate and transfer files outside the module root's intended subtree. Attackers who can create or manipulate symlinks in a path component of the scanned tree can replace a symlink with a directory entry pointing outside the module root between the lstat() call and the subsequent opendir() call, exposing files beyond the intended root in both daemon-mode and non-daemon sender-side scanning.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-53801",
+          "url": "https://www.suse.com/security/cve/CVE-2026-53801"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269058 for CVE-2026-53801",
+          "url": "https://bugzilla.suse.com/1269058"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-53801"
+    },
+    {
+      "cve": "CVE-2026-53802",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-53802"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync before 3.5.0 contains an arbitrary file read vulnerability that allows attackers to read files accessible to the rsync daemon process by exploiting symlink following in input configuration file handling including --files-from, --password-file, and filter merge files. Attackers can place a symlink at a predictable --files-from or --password-file path, or supply a --files-from path that escapes the daemon module root, to read arbitrary files accessible to the rsync process.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-53802",
+          "url": "https://www.suse.com/security/cve/CVE-2026-53802"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269039 for CVE-2026-53802",
+          "url": "https://bugzilla.suse.com/1269039"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-53802"
+    },
+    {
+      "cve": "CVE-2026-53803",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-53803"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync before 3.5.0 contains a symlink following vulnerability that allows local attackers to overwrite arbitrary files by placing a symlink at a predictable output path such as --log-file, --write-batch, or daemon-mode log and statistics paths. Attackers can exploit rsync's failure to reject symlinks during ancillary file writes to redirect output to arbitrary filesystem locations, achieving local privilege escalation on installations where rsync runs with elevated privileges such as setuid or privileged daemon configurations.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-53803",
+          "url": "https://www.suse.com/security/cve/CVE-2026-53803"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269040 for CVE-2026-53803",
+          "url": "https://bugzilla.suse.com/1269040"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-53803"
+    },
+    {
+      "cve": "CVE-2026-70452",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-70452"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync 3.1.0 before 3.5.0 contains an access control bypass vulnerability that allows remote attackers to circumvent hosts deny rules by inducing DNS resolution failures during hostname-based access control evaluation. When a DNS lookup for a hostname-based deny rule fails, the daemon skips the rule rather than defaulting to a deny decision, enabling attackers who can trigger DNS failures to bypass module-level IP access controls and gain unauthorized access to restricted module file trees.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-70452",
+          "url": "https://www.suse.com/security/cve/CVE-2026-70452"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273441 for CVE-2026-70452",
+          "url": "https://bugzilla.suse.com/1273441"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.4,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-70452"
+    },
+    {
+      "cve": "CVE-2026-70453",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-70453"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync before 3.5.0  contains an algorithmic complexity vulnerability in the hash_search() function that allows a remote attacker to cause a denial of service by delivering a carefully constructed file list. A sender can exploit the quadratic-time worst-case behavior in hash lookups to exhaust receiver CPU resources with a modest number of crafted entries, causing a sustained denial of service.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-70453",
+          "url": "https://www.suse.com/security/cve/CVE-2026-70453"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273440 for CVE-2026-70453",
+          "url": "https://bugzilla.suse.com/1273440"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-70453"
+    },
+    {
+      "cve": "CVE-2026-70454",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-70454"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync 3.2.0 through 3.2.3 (openssl mode) and rsync-ssl through 3.4.4 (stunnel mode) contain a TLS certificate validation vulnerability that allows on-path attackers to intercept encrypted sessions by presenting self-signed or otherwise invalid certificates. Attackers can exploit the failure to validate server TLS certificates against a trusted CA or verify certificate hostname matching to decrypt or tamper with rsync session content without detection by the client.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-70454",
+          "url": "https://www.suse.com/security/cve/CVE-2026-70454"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273439 for CVE-2026-70454",
+          "url": "https://bugzilla.suse.com/1273439"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.8,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-70454"
+    },
+    {
+      "cve": "CVE-2026-70455",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-70455"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync 3.4.2 before 3.5.0  contains a denial of service vulnerability that allows a remote sender to exhaust system resources by specifying the --zt short alias for --compress-threads, which bypasses the refuse options directive's string matching on long option names. Attackers can specify --zt=N with a large value to spawn an unbounded number of Zstandard worker threads on the receiver, exhausting available thread and memory resources.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-70455",
+          "url": "https://www.suse.com/security/cve/CVE-2026-70455"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273438 for CVE-2026-70455",
+          "url": "https://bugzilla.suse.com/1273438"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-70455"
+    },
+    {
+      "cve": "CVE-2026-70456",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-70456"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync 3.0.1 before 3.5.0  contains an out-of-bounds write vulnerability in the read_args() function that allows a malicious sender to corrupt adjacent heap memory by sending a crafted argument list. When the argument count causes the argv allocation to be exactly full, the trailing NULL terminator is written one slot beyond the allocation boundary, corrupting adjacent heap memory.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-70456",
+          "url": "https://www.suse.com/security/cve/CVE-2026-70456"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273437 for CVE-2026-70456",
+          "url": "https://bugzilla.suse.com/1273437"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.2,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-70456"
+    },
+    {
+      "cve": "CVE-2026-70457",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-70457"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync 3.2.3  before 3.5.0  contains an out-of-bounds write in parse_size_arg() where the return value of snprintf() is used directly as an index into a .bss-segment array without bounds checking. When snprintf truncates the formatted size string, the return value equals the number of characters that would have been written including the truncated portion, and this value may exceed the array length. The subsequent indexed write targets memory outside the intended array bounds, corrupting .bss memory.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-70457",
+          "url": "https://www.suse.com/security/cve/CVE-2026-70457"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273436 for CVE-2026-70457",
+          "url": "https://bugzilla.suse.com/1273436"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-70457"
+    },
+    {
+      "cve": "CVE-2026-70458",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-70458"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync 3.0.0 before 3.5.0 contains an out-of-bounds write vulnerability that allows attackers to corrupt memory by triggering HLINK_BUMP processing on file entries with the FLAG_HLINKED flag set while the hard-link preservation option is inactive. Attackers can exploit the missing F_SUM field in the file_struct layout to access memory past the end of the allocated structure, corrupting adjacent heap or stack data.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-70458",
+          "url": "https://www.suse.com/security/cve/CVE-2026-70458"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273435 for CVE-2026-70458",
+          "url": "https://bugzilla.suse.com/1273435"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.2,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-70458"
+    },
+    {
+      "cve": "CVE-2026-70459",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-70459"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync 3.0.0 before 3.5.0  contains a null pointer dereference vulnerability in the daemon child process that allows remote attackers to crash the daemon by sending a file list whose first entry is a dot entry not typed as a directory. The daemon dereferences the first file list entry as a directory structure pointer without verifying the entry type, resulting in an invalid or uninitialized pointer dereference that terminates the client connection.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-70459",
+          "url": "https://www.suse.com/security/cve/CVE-2026-70459"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273434 for CVE-2026-70459",
+          "url": "https://bugzilla.suse.com/1273434"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-70459"
+    },
+    {
+      "cve": "CVE-2026-70460",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-70460"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync 2.3.3 before 3.5.0  contains a path traversal vulnerability that allows a malicious sender to escape the module root by exploiting symlinks within the module file tree when using --partial-dir or --backup-dir options. Attackers with write access to place a symlink under the module root, or who can exploit a pre-existing trusted symlink, can direct file writes to locations outside the intended module root, achieving arbitrary file write relative to the module root parent.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-70460",
+          "url": "https://www.suse.com/security/cve/CVE-2026-70460"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273433 for CVE-2026-70460",
+          "url": "https://bugzilla.suse.com/1273433"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-70460"
+    },
+    {
+      "cve": "CVE-2026-70461",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-70461"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync 3.2.5 before 3.5.0  contains a heap out-of-bounds write vulnerability that allows remote unauthenticated attackers to write one attacker-controlled byte past the end of a heap allocation by supplying a crafted files-from entry. Attackers can trigger the vulnerability against a read-only rsync daemon module by providing a files-from entry containing both an interior and trailing backslash, causing the add_implied_include() function to under-count the trailing backslash when sizing the destination buffer.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-70461",
+          "url": "https://www.suse.com/security/cve/CVE-2026-70461"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273432 for CVE-2026-70461",
+          "url": "https://bugzilla.suse.com/1273432"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.2,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-70461"
+    },
+    {
+      "cve": "CVE-2026-70462",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-70462"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync 3.1.0 before 3.5.0  contains a signed integer overflow vulnerability in the I/O timeout implementation that allows attackers to permanently disable connection timeouts by injecting MSG_IO_TIMEOUT messages carrying non-positive (zero or negative) values. Attackers can craft malicious MSG_IO_TIMEOUT messages that cause the timeout variable to wrap to a non-positive value, preventing the timeout check from firing and enabling idle or stalled connections to hold daemon slots indefinitely, leading to resource exhaustion.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-70462",
+          "url": "https://www.suse.com/security/cve/CVE-2026-70462"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273431 for CVE-2026-70462",
+          "url": "https://bugzilla.suse.com/1273431"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-70462"
+    },
+    {
+      "cve": "CVE-2026-70463",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-70463"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync 3.1.0 before 3.5.0  contains an authorization bypass in auth users directive parsing. The auth users parser uses comma-only tokenization when splitting the user list, which fails to correctly handle entries of the form @Group Name where the group name contains a space. The space within the group name causes the parser to split the entry at the space boundary, discarding the deny rule associated with the group. An authenticated user whose username or group membership would be denied by an @Group Name auth users entry can connect to a restricted module because the deny rule is silently discarded during parsing.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-70463",
+          "url": "https://www.suse.com/security/cve/CVE-2026-70463"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273430 for CVE-2026-70463",
+          "url": "https://bugzilla.suse.com/1273430"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-70463"
+    },
+    {
+      "cve": "CVE-2026-70464",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-70464"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "rsync daemon 2.0.0 before 3.5.0  contains a denial of service vulnerability that allows unauthenticated remote attackers to exhaust daemon connection slots by stalling the handshake process before or after module selection without triggering the I/O timeout. Attackers can open many simultaneous connections and trickle data at the minimum rate to avoid timeout, or stall entirely before module selection where no timeout applies, consuming all available connection slots and denying service to legitimate clients.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+          "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-70464",
+          "url": "https://www.suse.com/security/cve/CVE-2026-70464"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273429 for CVE-2026-70464",
+          "url": "https://bugzilla.suse.com/1273429"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.aarch64",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.s390x",
+            "SUSE Linux Micro 6.0:rsync-0:3.2.7-8.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-08-24T14:42:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-70464"
+    }
+  ]
+}

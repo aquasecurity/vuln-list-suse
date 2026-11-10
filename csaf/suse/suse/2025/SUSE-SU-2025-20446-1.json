@@ -1,0 +1,1621 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for libsoup",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for libsoup fixes the following issues:\n\n- CVE-2025-2784: Fixed Heap buffer over-read in `skip_insignificant_space` \n  when sniffing content (bsc#1240750)\n- CVE-2025-32050:Fixed Integer overflow in append_param_quoted (bsc#1240752)\n- CVE-2025-32051:Fixed Segmentation fault when parsing malformed data URI (bsc#1240754)\n- CVE-2025-32052:Fixed Heap buffer overflow in sniff_unknown() (bsc#1240756)\n- CVE-2025-32053:Fixed Heap buffer overflows in sniff_feed_or_html() and\n  skip_insignificant_space() (bsc#1240757)\n- CVE-2025-32913:Fixed NULL pointer dereference in \n  soup_message_headers_get_content_disposition (bsc#1241162)\n- CVE-2025-32914:Fixed out of bounds read  in `soup_multipart_new_from_message()` (bsc#1241164)\n- CVE-2025-32912:Fixed NULL pointer dereference in SoupAuthDigest (bsc#1241214)\n- CVE-2025-32907:Fixed excessive memory consumption in server when client requests\n  a large amount of overlapping ranges in a single HTTP request (bsc#1241222)\n- CVE-2025-32908:Fixed HTTP request leading to server crash due to HTTP/2 server not fully\n  validating the values of pseudo-headers (bsc#1241223)\n- CVE-2025-32909:Fixed NULL pointer dereference in the sniff_mp4 function in \n  soup-content-sniffer.c (bsc#1241226)\n- CVE-2025-32911:Fixed Double free on soup_message_headers_get_content_disposition() \n  via \"params\" (bsc#1241238)\n- CVE-2025-32910:Fixed null pointer deference on client when server omits the 'realm' \n  parameter in an Unauthorized response with Digest authentication (bsc#1241252)\n- CVE-2025-32906:Fixed Out of bounds reads in soup_headers_parse_request() (bsc#1241263)\n- CVE-2025-46420:Fixed Memory leak on soup_header_parse_quality_list() via soup-headers.c (bsc#1241686)\n- CVE-2025-46421:Fixed HTTP Authorization Header leak via an HTTP redirect (bsc#1241688) \n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-SLE-Micro-6.1-158",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_20446-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:20446-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-202520446-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:20446-1",
+        "url": "https://lists.suse.com/pipermail/sle-updates/2025-June/040559.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1240750",
+        "url": "https://bugzilla.suse.com/1240750"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1240752",
+        "url": "https://bugzilla.suse.com/1240752"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1240754",
+        "url": "https://bugzilla.suse.com/1240754"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1240756",
+        "url": "https://bugzilla.suse.com/1240756"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1240757",
+        "url": "https://bugzilla.suse.com/1240757"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1241162",
+        "url": "https://bugzilla.suse.com/1241162"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1241164",
+        "url": "https://bugzilla.suse.com/1241164"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1241214",
+        "url": "https://bugzilla.suse.com/1241214"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1241222",
+        "url": "https://bugzilla.suse.com/1241222"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1241223",
+        "url": "https://bugzilla.suse.com/1241223"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1241226",
+        "url": "https://bugzilla.suse.com/1241226"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1241238",
+        "url": "https://bugzilla.suse.com/1241238"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1241252",
+        "url": "https://bugzilla.suse.com/1241252"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1241263",
+        "url": "https://bugzilla.suse.com/1241263"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1241686",
+        "url": "https://bugzilla.suse.com/1241686"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1241688",
+        "url": "https://bugzilla.suse.com/1241688"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-2784 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-2784/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-32050 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-32050/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-32051 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-32051/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-32052 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-32052/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-32053 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-32053/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-32906 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-32906/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-32907 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-32907/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-32908 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-32908/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-32909 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-32909/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-32910 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-32910/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-32911 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-32911/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-32912 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-32912/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-32913 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-32913/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-32914 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-32914/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-46420 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-46420/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-46421 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-46421/"
+      }
+    ],
+    "title": "Security update for libsoup",
+    "tracking": {
+      "current_release_date": "2026-09-20T18:13:01Z",
+      "generator": {
+        "date": "2025-06-25T08:16:32Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:20446-1",
+      "initial_release_date": "2025-06-25T08:16:32Z",
+      "revision_history": [
+        {
+          "date": "2025-06-25T08:16:32Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T18:13:01Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+                "product": {
+                  "name": "libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+                  "product_id": "libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:libsoup:3.4.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsoup-3_0-0@3.4.4-slfo.1.1_3.1?arch=aarch64\u0026upstream=libsoup-0:3.4.4-slfo.1.1_3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+                "product": {
+                  "name": "libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+                  "product_id": "libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:libsoup:3.4.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsoup-3_0-0@3.4.4-slfo.1.1_3.1?arch=ppc64le\u0026upstream=libsoup-0:3.4.4-slfo.1.1_3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+                "product": {
+                  "name": "libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+                  "product_id": "libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:libsoup:3.4.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsoup-3_0-0@3.4.4-slfo.1.1_3.1?arch=s390x\u0026upstream=libsoup-0:3.4.4-slfo.1.1_3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64",
+                "product": {
+                  "name": "libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64",
+                  "product_id": "libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:libsoup:3.4.4:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsoup-3_0-0@3.4.4-slfo.1.1_3.1?arch=x86_64\u0026upstream=libsoup-0:3.4.4-slfo.1.1_3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Micro 6.1",
+                "product": {
+                  "name": "SUSE Linux Micro 6.1",
+                  "product_id": "SUSE Linux Micro 6.1",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sl-micro:6.1"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64"
+        },
+        "product_reference": "libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le"
+        },
+        "product_reference": "libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x"
+        },
+        "product_reference": "libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+        },
+        "product_reference": "libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-2784",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-2784"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup. The package is vulnerable to a heap buffer over-read when sniffing content via the skip_insight_whitespace() function. Libsoup clients may read one byte out-of-bounds in response to a crafted HTTP response by an HTTP server.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-2784",
+          "url": "https://www.suse.com/security/cve/CVE-2025-2784"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1240750 for CVE-2025-2784",
+          "url": "https://bugzilla.suse.com/1240750"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253297 for CVE-2025-2784",
+          "url": "https://bugzilla.suse.com/1253297"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1259907 for CVE-2025-2784",
+          "url": "https://bugzilla.suse.com/1259907"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-25T08:16:32Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-2784"
+    },
+    {
+      "cve": "CVE-2025-32050",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-32050"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup. The libsoup append_param_quoted() function may contain an overflow bug resulting in a buffer under-read.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-32050",
+          "url": "https://www.suse.com/security/cve/CVE-2025-32050"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1240752 for CVE-2025-32050",
+          "url": "https://bugzilla.suse.com/1240752"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-25T08:16:32Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-32050"
+    },
+    {
+      "cve": "CVE-2025-32051",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-32051"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup. The libsoup soup_uri_decode_data_uri() function may crash when processing malformed data URI. This flaw allows an attacker to cause a denial of service (DoS).",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-32051",
+          "url": "https://www.suse.com/security/cve/CVE-2025-32051"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1240754 for CVE-2025-32051",
+          "url": "https://bugzilla.suse.com/1240754"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-25T08:16:32Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-32051"
+    },
+    {
+      "cve": "CVE-2025-32052",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-32052"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup. A vulnerability in the sniff_unknown() function may lead to heap buffer over-read.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-32052",
+          "url": "https://www.suse.com/security/cve/CVE-2025-32052"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1240756 for CVE-2025-32052",
+          "url": "https://bugzilla.suse.com/1240756"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1258120 for CVE-2025-32052",
+          "url": "https://bugzilla.suse.com/1258120"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-25T08:16:32Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-32052"
+    },
+    {
+      "cve": "CVE-2025-32053",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-32053"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup. A vulnerability in sniff_feed_or_html() and skip_insignificant_space() functions may lead to a heap buffer over-read.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-32053",
+          "url": "https://www.suse.com/security/cve/CVE-2025-32053"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1240757 for CVE-2025-32053",
+          "url": "https://bugzilla.suse.com/1240757"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-25T08:16:32Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-32053"
+    },
+    {
+      "cve": "CVE-2025-32906",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-32906"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup, where the soup_headers_parse_request() function may be vulnerable to an out-of-bound read. This flaw allows a malicious user to use a specially crafted HTTP request to crash the HTTP server.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-32906",
+          "url": "https://www.suse.com/security/cve/CVE-2025-32906"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1241263 for CVE-2025-32906",
+          "url": "https://bugzilla.suse.com/1241263"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1250562 for CVE-2025-32906",
+          "url": "https://bugzilla.suse.com/1250562"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253297 for CVE-2025-32906",
+          "url": "https://bugzilla.suse.com/1253297"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1259907 for CVE-2025-32906",
+          "url": "https://bugzilla.suse.com/1259907"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.2,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-25T08:16:32Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-32906"
+    },
+    {
+      "cve": "CVE-2025-32907",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-32907"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup. The implementation of HTTP range requests is vulnerable to a resource consumption attack. This flaw allows a malicious client to request the same range many times in a single HTTP request, causing the server to use large amounts of memory. This does not allow for a full denial of service.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-32907",
+          "url": "https://www.suse.com/security/cve/CVE-2025-32907"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1241222 for CVE-2025-32907",
+          "url": "https://bugzilla.suse.com/1241222"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253297 for CVE-2025-32907",
+          "url": "https://bugzilla.suse.com/1253297"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1276759 for CVE-2025-32907",
+          "url": "https://bugzilla.suse.com/1276759"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-25T08:16:32Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-32907"
+    },
+    {
+      "cve": "CVE-2025-32908",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-32908"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup. The HTTP/2 server in libsoup may not fully validate the values of pseudo-headers :scheme, :authority, and :path, which may allow a user to cause a denial of service (DoS).",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-32908",
+          "url": "https://www.suse.com/security/cve/CVE-2025-32908"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1241223 for CVE-2025-32908",
+          "url": "https://bugzilla.suse.com/1241223"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-25T08:16:32Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-32908"
+    },
+    {
+      "cve": "CVE-2025-32909",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-32909"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup. SoupContentSniffer may be vulnerable to a NULL pointer dereference in the sniff_mp4 function. The HTTP server may cause the libsoup client to crash.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-32909",
+          "url": "https://www.suse.com/security/cve/CVE-2025-32909"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1241226 for CVE-2025-32909",
+          "url": "https://bugzilla.suse.com/1241226"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.6,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-25T08:16:32Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-32909"
+    },
+    {
+      "cve": "CVE-2025-32910",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-32910"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup, where soup_auth_digest_authenticate() is vulnerable to a NULL pointer dereference. This issue may cause the libsoup client to crash.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-32910",
+          "url": "https://www.suse.com/security/cve/CVE-2025-32910"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1241252 for CVE-2025-32910",
+          "url": "https://bugzilla.suse.com/1241252"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-25T08:16:32Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-32910"
+    },
+    {
+      "cve": "CVE-2025-32911",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-32911"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A use-after-free type vulnerability was found in libsoup, in the soup_message_headers_get_content_disposition() function. This flaw allows a malicious HTTP client to cause memory corruption in the libsoup server.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-32911",
+          "url": "https://www.suse.com/security/cve/CVE-2025-32911"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1241238 for CVE-2025-32911",
+          "url": "https://bugzilla.suse.com/1241238"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1250562 for CVE-2025-32911",
+          "url": "https://bugzilla.suse.com/1250562"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253297 for CVE-2025-32911",
+          "url": "https://bugzilla.suse.com/1253297"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1259907 for CVE-2025-32911",
+          "url": "https://bugzilla.suse.com/1259907"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-25T08:16:32Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-32911"
+    },
+    {
+      "cve": "CVE-2025-32912",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-32912"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup, where SoupAuthDigest is vulnerable to a NULL pointer dereference. The HTTP server may cause the libsoup client to crash.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-32912",
+          "url": "https://www.suse.com/security/cve/CVE-2025-32912"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1241214 for CVE-2025-32912",
+          "url": "https://bugzilla.suse.com/1241214"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-25T08:16:32Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-32912"
+    },
+    {
+      "cve": "CVE-2025-32913",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-32913"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup, where the soup_message_headers_get_content_disposition() function is vulnerable to a NULL pointer dereference. This flaw allows a malicious HTTP peer to crash a libsoup client or server that uses this function.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-32913",
+          "url": "https://www.suse.com/security/cve/CVE-2025-32913"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1241162 for CVE-2025-32913",
+          "url": "https://bugzilla.suse.com/1241162"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253297 for CVE-2025-32913",
+          "url": "https://bugzilla.suse.com/1253297"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1259907 for CVE-2025-32913",
+          "url": "https://bugzilla.suse.com/1259907"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-25T08:16:32Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-32913"
+    },
+    {
+      "cve": "CVE-2025-32914",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-32914"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup, where the soup_multipart_new_from_message() function is vulnerable to an out-of-bounds read. This flaw allows a malicious HTTP client to induce the libsoup server to read out of bounds.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-32914",
+          "url": "https://www.suse.com/security/cve/CVE-2025-32914"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1241164 for CVE-2025-32914",
+          "url": "https://bugzilla.suse.com/1241164"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253297 for CVE-2025-32914",
+          "url": "https://bugzilla.suse.com/1253297"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1259907 for CVE-2025-32914",
+          "url": "https://bugzilla.suse.com/1259907"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-25T08:16:32Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-32914"
+    },
+    {
+      "cve": "CVE-2025-46420",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-46420"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup. It is vulnerable to memory leaks in the soup_header_parse_quality_list() function when parsing a quality list that contains elements with all zeroes.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-46420",
+          "url": "https://www.suse.com/security/cve/CVE-2025-46420"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1241686 for CVE-2025-46420",
+          "url": "https://bugzilla.suse.com/1241686"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-25T08:16:32Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-46420"
+    },
+    {
+      "cve": "CVE-2025-46421",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-46421"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup. When libsoup clients encounter an HTTP redirect, they mistakenly send the HTTP Authorization header to the new host that the redirection points to. This allows the new host to impersonate the user to the original host that issued the redirect.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+          "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-46421",
+          "url": "https://www.suse.com/security/cve/CVE-2025-46421"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1241688 for CVE-2025-46421",
+          "url": "https://bugzilla.suse.com/1241688"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.8,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.aarch64",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.s390x",
+            "SUSE Linux Micro 6.1:libsoup-3_0-0-0:3.4.4-slfo.1.1_3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-25T08:16:32Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-46421"
+    }
+  ]
+}

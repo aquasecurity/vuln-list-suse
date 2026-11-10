@@ -1,0 +1,466 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for nano",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for nano fixes the following issues:\n\nChanges in nano:\n\n- Update to version 9.1:\n  * When searching, the viewport is placed snug left where\n    possible.\n  * The ability to read and write files in old Mac format (a lone\n    carriage return as line ending) was removed.\n  * The ^T toggle between WhereIs and GotoLine was dropped.\n  * Fix backups that were missing or had a wrong timestamp when\n    --backup is active.\n  * On a crash or kill, a .save file is no longer chmodded or\n    chowned to the base file's permissions and owner.\n  * The history code now creates the ~/.local directory with\n    limited access rights (boo#1263437; the referenced\n    CVE-2026-40556 was rejected upstream).\n  * M-Ins and M-Del have become rebindable.\n\n- GNU nano 9.0:\n  * When the cursor almost goes offscreen to the right, all lines\n    are now scrolled sideways together, by just the amount needed\n    to keep the cursor in view.\n    Use --solosidescroll or 'set solosidescroll' to get back the\n    old, jerky, single-line horizontal scrolling.\n  * The viewport can be scrolled sideways (in steps of one\n    tabsize) with M-\u003c and M-\u003e.  See `man nanorc` if M-\u003c and M-\u003e\n    should switch between buffers (as they did earlier).\n  * M-Left, M-Right, M-Up, and M-Down have become rebindable.\n  * Stopping the recording of a macro immediately after starting\n    it cancels the recording and leaves an existing macro in place.\n  * Feature toggles no longer break a chain of ^K cuts or M-6\n    copies, except the M-K cut-from-cursor toggle.\n  * With --mouse and --indicator, one can click in the scrollbar\n    area to roughly navigate within the buffer.\n  * CVE-2026-6843: format string vulnerability leads to denial of\n    service (boo#1262643)\n  * create the ~/.local directory with limited access rights\n    (CVE-2026-6842 boo#1263022, CVE-2026-40556 boo#1263437)\n\n- GNU nano 8.7.1:\n  * fix build against glibc-2.43 (boo#1258260)\n\n- GNU nano 8.7:\n  * At the Execute prompt, preceding the command with two pipe\n    symbols allows implementing a copy-to-clipboard feature in\n    nanorc on terminals that support OSC 52. See doc/sample.nanorc\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-361",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_21166-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1258260",
+        "url": "https://bugzilla.suse.com/1258260"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1262643",
+        "url": "https://bugzilla.suse.com/1262643"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1263022",
+        "url": "https://bugzilla.suse.com/1263022"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1263437",
+        "url": "https://bugzilla.suse.com/1263437"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-40556 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-40556/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-6842 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-6842/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-6843 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-6843/"
+      }
+    ],
+    "title": "Security update for nano",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:37:07Z",
+      "generator": {
+        "date": "2026-06-29T08:14:36Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:21166-1",
+      "initial_release_date": "2026-06-29T08:14:36Z",
+      "revision_history": [
+        {
+          "date": "2026-06-29T08:14:36Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:40:11Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:42:14Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:37:07Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "nano-0:9.1-bp160.1.1.aarch64",
+                "product": {
+                  "name": "nano-0:9.1-bp160.1.1.aarch64",
+                  "product_id": "nano-0:9.1-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:nano:9.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/nano@9.1-bp160.1.1?arch=aarch64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "nano-lang-0:9.1-bp160.1.1.noarch",
+                "product": {
+                  "name": "nano-lang-0:9.1-bp160.1.1.noarch",
+                  "product_id": "nano-lang-0:9.1-bp160.1.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/nano-lang@9.1-bp160.1.1?arch=noarch"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "nano-0:9.1-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "nano-0:9.1-bp160.1.1.ppc64le",
+                  "product_id": "nano-0:9.1-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:nano:9.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/nano@9.1-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "nano-0:9.1-bp160.1.1.s390x",
+                "product": {
+                  "name": "nano-0:9.1-bp160.1.1.s390x",
+                  "product_id": "nano-0:9.1-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:nano:9.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/nano@9.1-bp160.1.1?arch=s390x"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "nano-0:9.1-bp160.1.1.x86_64",
+                "product": {
+                  "name": "nano-0:9.1-bp160.1.1.x86_64",
+                  "product_id": "nano-0:9.1-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:nano:9.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/nano@9.1-bp160.1.1?arch=x86_64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "nano-0:9.1-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.aarch64"
+        },
+        "product_reference": "nano-0:9.1-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "nano-0:9.1-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.ppc64le"
+        },
+        "product_reference": "nano-0:9.1-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "nano-0:9.1-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.s390x"
+        },
+        "product_reference": "nano-0:9.1-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "nano-0:9.1-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.x86_64"
+        },
+        "product_reference": "nano-0:9.1-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "nano-lang-0:9.1-bp160.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:nano-lang-0:9.1-bp160.1.1.noarch"
+        },
+        "product_reference": "nano-lang-0:9.1-bp160.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-40556",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-40556"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:nano-lang-0:9.1-bp160.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-40556",
+          "url": "https://www.suse.com/security/cve/CVE-2026-40556"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1263437 for CVE-2026-40556",
+          "url": "https://bugzilla.suse.com/1263437"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:nano-lang-0:9.1-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-29T08:14:36Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-40556"
+    },
+    {
+      "cve": "CVE-2026-6842",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-6842"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in nano. In environments with permissive umask settings, a local attacker can exploit incorrect directory permissions (0777 instead of 0700) for the `~/.local` directory. This allows the attacker to inject a malicious `.desktop` launcher, which could lead to unintended actions or information disclosure if the launcher is subsequently processed.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:nano-lang-0:9.1-bp160.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-6842",
+          "url": "https://www.suse.com/security/cve/CVE-2026-6842"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1263022 for CVE-2026-6842",
+          "url": "https://bugzilla.suse.com/1263022"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:nano-lang-0:9.1-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-29T08:14:36Z",
+          "details": "low"
+        }
+      ],
+      "title": "CVE-2026-6842"
+    },
+    {
+      "cve": "CVE-2026-6843",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-6843"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in nano. A local user could exploit a format string vulnerability in the `statusline()` function. By creating a directory with a name containing `printf` specifiers, the application attempts to display this name, leading to a segmentation fault (SEGV). This results in a Denial of Service (DoS) for the `nano` application.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:nano-lang-0:9.1-bp160.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-6843",
+          "url": "https://www.suse.com/security/cve/CVE-2026-6843"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1262643 for CVE-2026-6843",
+          "url": "https://bugzilla.suse.com/1262643"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:nano-0:9.1-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:nano-lang-0:9.1-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-29T08:14:36Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-6843"
+    }
+  ]
+}

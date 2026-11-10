@@ -1,0 +1,888 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for sqlite3",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for sqlite3 fixes the following issues\n\nUpdate to 3.53.2:\n\n- CVE-2026-11822: memory corruption vulnerabilities in the FTS5 full-text search extension that allow attackers to cause\n  process crashes, memory exhaustion, or arbitrary code execution (bsc#1268012).\n- CVE-2026-11824: heap-based buffer overflow vulnerability in the FTS5 full-text search extension that allows attackers\n  to cause a crash or execute arbitrary code (bsc#1268013).\n\nChanges:\n\n * Add the Query Result Formatter (QRF) library for formatting the\n results of SQL queries for human readability on a fixed-pitch\n font screen.\n * Enhance ALTER TABLE to permit adding and removing NOT NULL and\n CHECK constraints.\n * The REINDEX EXPRESSIONS statement rebuilds expression indexes.\n * The body of TEMP triggers may now modify and/or query tables\n in the main schema.\n * Enhance VACUUM INTO so that if a URI filename is used as the\n target and that filename has a reserve=N query parameter with\n N between 0 and 255, then the reserve amount for the generated\n database copy is set to N.\n * New SQL functions json_array_insert() and jsonb_array_insert().\n * Renovations to the CLI.\n * New C-language interfaces: sqlite3_str_truncate(),\n sqlite3_str_free(), sqlite3_carray_bind_v2().\n * Add the SQLITE_PREPARE_FROM_DDL option to sqlite3_prepare_v3().\n * Added the SQLITE_UTF8_ZT constant which can be used as the\n encoding parameter to sqlite3_result_text64() or\n sqlite3_bind_text64() to indicate that the value is UTF-8\n encoded and zero terminated.\n * The SQLITE_LIMIT_PARSER_DEPTH option is added to\n sqlite3_limit().\n * The SQLITE_DBCONFIG_FP_DIGITS option is added to\n sqlite3_db_config().\n * Query planner improvements.\n * Add new interfaces to the session extension that enable an\n application to add changes one at a time to the\n sqlite3_changegroup object.\n * Improvements to floating-point \u003c-\u003e text conversions.\n * Added the self-healing index feature to deal with the stale\n expression index problem.\n * Add the \"-p|--port\" option to sqlite3_rsync.\n * Add the \"opfs-wl\" VFS, functionally identical to the \"opfs\" VFS\n but using Web Locks for locking, which can promise fairer lock\n sharing than the \"opfs\" bespoke protocol can. \"opfs-wl\"\n requires Atomics.waitAsync(), so requires newer browsers than\n \"opfs\" does.\n * Fixes for problems in 3.53.0 and 3.53.1 reported by users.\n * See the check-in timeline for details:\n https://sqlite.org/src/timeline?from=version-3.53.0\u0026to=version-3.53.2\n\n * https://sqlite.org/releaselog/3_53_0.html\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-955",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_21090-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1268012",
+        "url": "https://bugzilla.suse.com/1268012"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1268013",
+        "url": "https://bugzilla.suse.com/1268013"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-11822 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-11822/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-11824 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-11824/"
+      }
+    ],
+    "title": "Security update for sqlite3",
+    "tracking": {
+      "current_release_date": "2026-10-31T17:18:57Z",
+      "generator": {
+        "date": "2026-06-18T21:01:36Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:21090-1",
+      "initial_release_date": "2026-06-18T21:01:36Z",
+      "revision_history": [
+        {
+          "date": "2026-06-18T21:01:36Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:39:00Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:41:15Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:36:12Z",
+          "number": "4",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-10-31T17:18:57Z",
+          "number": "5",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "5"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "lemon-0:3.53.2-160000.1.1.aarch64",
+                "product": {
+                  "name": "lemon-0:3.53.2-160000.1.1.aarch64",
+                  "product_id": "lemon-0:3.53.2-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/lemon@3.53.2-160000.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libsqlite3-0-0:3.53.2-160000.1.1.aarch64",
+                "product": {
+                  "name": "libsqlite3-0-0:3.53.2-160000.1.1.aarch64",
+                  "product_id": "libsqlite3-0-0:3.53.2-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sqlite:sqlite:3.53.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsqlite3-0@3.53.2-160000.1.1?arch=aarch64\u0026upstream=sqlite3-0:3.53.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "sqlite3-0:3.53.2-160000.1.1.aarch64",
+                "product": {
+                  "name": "sqlite3-0:3.53.2-160000.1.1.aarch64",
+                  "product_id": "sqlite3-0:3.53.2-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sqlite:sqlite:3.53.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/sqlite3@3.53.2-160000.1.1?arch=aarch64\u0026upstream=sqlite3-0:3.53.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "sqlite3-devel-0:3.53.2-160000.1.1.aarch64",
+                "product": {
+                  "name": "sqlite3-devel-0:3.53.2-160000.1.1.aarch64",
+                  "product_id": "sqlite3-devel-0:3.53.2-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sqlite:sqlite:3.53.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/sqlite3-devel@3.53.2-160000.1.1?arch=aarch64\u0026upstream=sqlite3-0:3.53.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "sqlite3-tcl-0:3.53.2-160000.1.1.aarch64",
+                "product": {
+                  "name": "sqlite3-tcl-0:3.53.2-160000.1.1.aarch64",
+                  "product_id": "sqlite3-tcl-0:3.53.2-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sqlite:sqlite:3.53.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/sqlite3-tcl@3.53.2-160000.1.1?arch=aarch64\u0026upstream=sqlite3-0:3.53.2-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "sqlite3-doc-0:3.53.2-160000.1.1.noarch",
+                "product": {
+                  "name": "sqlite3-doc-0:3.53.2-160000.1.1.noarch",
+                  "product_id": "sqlite3-doc-0:3.53.2-160000.1.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sqlite:sqlite:3.53.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/sqlite3-doc@3.53.2-160000.1.1?arch=noarch\u0026upstream=sqlite3-0:3.53.2-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "lemon-0:3.53.2-160000.1.1.ppc64le",
+                "product": {
+                  "name": "lemon-0:3.53.2-160000.1.1.ppc64le",
+                  "product_id": "lemon-0:3.53.2-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/lemon@3.53.2-160000.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libsqlite3-0-0:3.53.2-160000.1.1.ppc64le",
+                "product": {
+                  "name": "libsqlite3-0-0:3.53.2-160000.1.1.ppc64le",
+                  "product_id": "libsqlite3-0-0:3.53.2-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sqlite:sqlite:3.53.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsqlite3-0@3.53.2-160000.1.1?arch=ppc64le\u0026upstream=sqlite3-0:3.53.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "sqlite3-0:3.53.2-160000.1.1.ppc64le",
+                "product": {
+                  "name": "sqlite3-0:3.53.2-160000.1.1.ppc64le",
+                  "product_id": "sqlite3-0:3.53.2-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sqlite:sqlite:3.53.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/sqlite3@3.53.2-160000.1.1?arch=ppc64le\u0026upstream=sqlite3-0:3.53.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "sqlite3-devel-0:3.53.2-160000.1.1.ppc64le",
+                "product": {
+                  "name": "sqlite3-devel-0:3.53.2-160000.1.1.ppc64le",
+                  "product_id": "sqlite3-devel-0:3.53.2-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sqlite:sqlite:3.53.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/sqlite3-devel@3.53.2-160000.1.1?arch=ppc64le\u0026upstream=sqlite3-0:3.53.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "sqlite3-tcl-0:3.53.2-160000.1.1.ppc64le",
+                "product": {
+                  "name": "sqlite3-tcl-0:3.53.2-160000.1.1.ppc64le",
+                  "product_id": "sqlite3-tcl-0:3.53.2-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sqlite:sqlite:3.53.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/sqlite3-tcl@3.53.2-160000.1.1?arch=ppc64le\u0026upstream=sqlite3-0:3.53.2-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "lemon-0:3.53.2-160000.1.1.s390x",
+                "product": {
+                  "name": "lemon-0:3.53.2-160000.1.1.s390x",
+                  "product_id": "lemon-0:3.53.2-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/lemon@3.53.2-160000.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libsqlite3-0-0:3.53.2-160000.1.1.s390x",
+                "product": {
+                  "name": "libsqlite3-0-0:3.53.2-160000.1.1.s390x",
+                  "product_id": "libsqlite3-0-0:3.53.2-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sqlite:sqlite:3.53.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsqlite3-0@3.53.2-160000.1.1?arch=s390x\u0026upstream=sqlite3-0:3.53.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "sqlite3-0:3.53.2-160000.1.1.s390x",
+                "product": {
+                  "name": "sqlite3-0:3.53.2-160000.1.1.s390x",
+                  "product_id": "sqlite3-0:3.53.2-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sqlite:sqlite:3.53.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/sqlite3@3.53.2-160000.1.1?arch=s390x\u0026upstream=sqlite3-0:3.53.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "sqlite3-devel-0:3.53.2-160000.1.1.s390x",
+                "product": {
+                  "name": "sqlite3-devel-0:3.53.2-160000.1.1.s390x",
+                  "product_id": "sqlite3-devel-0:3.53.2-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sqlite:sqlite:3.53.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/sqlite3-devel@3.53.2-160000.1.1?arch=s390x\u0026upstream=sqlite3-0:3.53.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "sqlite3-tcl-0:3.53.2-160000.1.1.s390x",
+                "product": {
+                  "name": "sqlite3-tcl-0:3.53.2-160000.1.1.s390x",
+                  "product_id": "sqlite3-tcl-0:3.53.2-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sqlite:sqlite:3.53.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/sqlite3-tcl@3.53.2-160000.1.1?arch=s390x\u0026upstream=sqlite3-0:3.53.2-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "lemon-0:3.53.2-160000.1.1.x86_64",
+                "product": {
+                  "name": "lemon-0:3.53.2-160000.1.1.x86_64",
+                  "product_id": "lemon-0:3.53.2-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/lemon@3.53.2-160000.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libsqlite3-0-0:3.53.2-160000.1.1.x86_64",
+                "product": {
+                  "name": "libsqlite3-0-0:3.53.2-160000.1.1.x86_64",
+                  "product_id": "libsqlite3-0-0:3.53.2-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sqlite:sqlite:3.53.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsqlite3-0@3.53.2-160000.1.1?arch=x86_64\u0026upstream=sqlite3-0:3.53.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libsqlite3-0-x86-64-v3-0:3.53.2-160000.1.1.x86_64",
+                "product": {
+                  "name": "libsqlite3-0-x86-64-v3-0:3.53.2-160000.1.1.x86_64",
+                  "product_id": "libsqlite3-0-x86-64-v3-0:3.53.2-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sqlite:sqlite:3.53.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsqlite3-0-x86-64-v3@3.53.2-160000.1.1?arch=x86_64\u0026upstream=sqlite3-0:3.53.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "sqlite3-0:3.53.2-160000.1.1.x86_64",
+                "product": {
+                  "name": "sqlite3-0:3.53.2-160000.1.1.x86_64",
+                  "product_id": "sqlite3-0:3.53.2-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sqlite:sqlite:3.53.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/sqlite3@3.53.2-160000.1.1?arch=x86_64\u0026upstream=sqlite3-0:3.53.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "sqlite3-devel-0:3.53.2-160000.1.1.x86_64",
+                "product": {
+                  "name": "sqlite3-devel-0:3.53.2-160000.1.1.x86_64",
+                  "product_id": "sqlite3-devel-0:3.53.2-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sqlite:sqlite:3.53.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/sqlite3-devel@3.53.2-160000.1.1?arch=x86_64\u0026upstream=sqlite3-0:3.53.2-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "sqlite3-tcl-0:3.53.2-160000.1.1.x86_64",
+                "product": {
+                  "name": "sqlite3-tcl-0:3.53.2-160000.1.1.x86_64",
+                  "product_id": "sqlite3-tcl-0:3.53.2-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:sqlite:sqlite:3.53.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/sqlite3-tcl@3.53.2-160000.1.1?arch=x86_64\u0026upstream=sqlite3-0:3.53.2-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "lemon-0:3.53.2-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.aarch64"
+        },
+        "product_reference": "lemon-0:3.53.2-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "lemon-0:3.53.2-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.ppc64le"
+        },
+        "product_reference": "lemon-0:3.53.2-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "lemon-0:3.53.2-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.s390x"
+        },
+        "product_reference": "lemon-0:3.53.2-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "lemon-0:3.53.2-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.x86_64"
+        },
+        "product_reference": "lemon-0:3.53.2-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsqlite3-0-0:3.53.2-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.aarch64"
+        },
+        "product_reference": "libsqlite3-0-0:3.53.2-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsqlite3-0-0:3.53.2-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.ppc64le"
+        },
+        "product_reference": "libsqlite3-0-0:3.53.2-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsqlite3-0-0:3.53.2-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.s390x"
+        },
+        "product_reference": "libsqlite3-0-0:3.53.2-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsqlite3-0-0:3.53.2-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.x86_64"
+        },
+        "product_reference": "libsqlite3-0-0:3.53.2-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsqlite3-0-x86-64-v3-0:3.53.2-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libsqlite3-0-x86-64-v3-0:3.53.2-160000.1.1.x86_64"
+        },
+        "product_reference": "libsqlite3-0-x86-64-v3-0:3.53.2-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "sqlite3-0:3.53.2-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.aarch64"
+        },
+        "product_reference": "sqlite3-0:3.53.2-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "sqlite3-0:3.53.2-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.ppc64le"
+        },
+        "product_reference": "sqlite3-0:3.53.2-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "sqlite3-0:3.53.2-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.s390x"
+        },
+        "product_reference": "sqlite3-0:3.53.2-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "sqlite3-0:3.53.2-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.x86_64"
+        },
+        "product_reference": "sqlite3-0:3.53.2-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "sqlite3-devel-0:3.53.2-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.aarch64"
+        },
+        "product_reference": "sqlite3-devel-0:3.53.2-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "sqlite3-devel-0:3.53.2-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.ppc64le"
+        },
+        "product_reference": "sqlite3-devel-0:3.53.2-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "sqlite3-devel-0:3.53.2-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.s390x"
+        },
+        "product_reference": "sqlite3-devel-0:3.53.2-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "sqlite3-devel-0:3.53.2-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.x86_64"
+        },
+        "product_reference": "sqlite3-devel-0:3.53.2-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "sqlite3-doc-0:3.53.2-160000.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:sqlite3-doc-0:3.53.2-160000.1.1.noarch"
+        },
+        "product_reference": "sqlite3-doc-0:3.53.2-160000.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "sqlite3-tcl-0:3.53.2-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.aarch64"
+        },
+        "product_reference": "sqlite3-tcl-0:3.53.2-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "sqlite3-tcl-0:3.53.2-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.ppc64le"
+        },
+        "product_reference": "sqlite3-tcl-0:3.53.2-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "sqlite3-tcl-0:3.53.2-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.s390x"
+        },
+        "product_reference": "sqlite3-tcl-0:3.53.2-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "sqlite3-tcl-0:3.53.2-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.x86_64"
+        },
+        "product_reference": "sqlite3-tcl-0:3.53.2-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-11822",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-11822"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "SQLite before 3.53.2 contains an out-of-bounds read vulnerability in the FTS5 full-text search extension that allows attackers to crash the process by supplying a crafted database with a malformed FTS5 leaf page. Attackers can set an oversized term length in the leaf page so that fts5LeafSeek() reads past the end of the page buffer while comparing terms during an FTS5 MATCH query, in applications compiled with SQLITE_ENABLE_FTS5.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.s390x",
+          "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libsqlite3-0-x86-64-v3-0:3.53.2-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.s390x",
+          "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.s390x",
+          "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:sqlite3-doc-0:3.53.2-160000.1.1.noarch",
+          "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.s390x",
+          "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-11822",
+          "url": "https://www.suse.com/security/cve/CVE-2026-11822"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268012 for CVE-2026-11822",
+          "url": "https://bugzilla.suse.com/1268012"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsqlite3-0-x86-64-v3-0:3.53.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:sqlite3-doc-0:3.53.2-160000.1.1.noarch",
+            "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsqlite3-0-x86-64-v3-0:3.53.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:sqlite3-doc-0:3.53.2-160000.1.1.noarch",
+            "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-18T21:01:36Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-11822"
+    },
+    {
+      "cve": "CVE-2026-11824",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-11824"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "SQLite before 3.53.2 contains a heap-based buffer overflow vulnerability in the FTS5 full-text search extension that allows attackers to cause a crash or execute arbitrary code by supplying a crafted database with malicious continuation page metadata specifying a szLeaf value smaller than 4. Attackers can trigger an integer underflow in fts5ChunkIterate() causing an inflated remaining byte count during FTS5 MATCH query processing, leading to a heap buffer overflow of attacker-controlled data in applications compiled with SQLITE_ENABLE_FTS5.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.s390x",
+          "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libsqlite3-0-x86-64-v3-0:3.53.2-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.s390x",
+          "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.s390x",
+          "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:sqlite3-doc-0:3.53.2-160000.1.1.noarch",
+          "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.s390x",
+          "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-11824",
+          "url": "https://www.suse.com/security/cve/CVE-2026-11824"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268013 for CVE-2026-11824",
+          "url": "https://bugzilla.suse.com/1268013"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsqlite3-0-x86-64-v3-0:3.53.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:sqlite3-doc-0:3.53.2-160000.1.1.noarch",
+            "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:lemon-0:3.53.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libsqlite3-0-0:3.53.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libsqlite3-0-x86-64-v3-0:3.53.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:sqlite3-0:3.53.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:sqlite3-devel-0:3.53.2-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:sqlite3-doc-0:3.53.2-160000.1.1.noarch",
+            "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.s390x",
+            "openSUSE Leap 16.0:sqlite3-tcl-0:3.53.2-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-18T21:01:36Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-11824"
+    }
+  ]
+}

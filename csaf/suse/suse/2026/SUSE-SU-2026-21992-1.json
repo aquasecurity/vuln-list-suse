@@ -1,0 +1,729 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for libzypp, libsolv",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for libzypp, libsolv fixes the following issues:\n\nlibsolv was updated to 0.7.39.\n\n- fix solv_chksum_free segfault when called with a NULL pointer\n- made repo_add_solv more robust against corrupt files\n  [bsc#1265935] [CVE-2026-9149]\n- fix potential buffer overflow when verifying EdDSA signatures\n  [bsc#1266039] [CVE-2026-48863]\n- added limit checks in multiple places to catch overflows\n- reduce the size of the language id cache\n- fixed Debian canon selection\n- fixed dbpath detection in repo_rpmdb_librpm\n- reduced stack usage in repo page compression (needed for musl)\n- fixed in earlier release: [bsc#1265938] [CVE-2026-9150]\n- fix parsing of recommends in the old Mandriva synthesis format\n\nlibzypp was updated to 17.38.11:\n\n- Fix potential crash on malformed or malicious repository\n  metadata (fixes #740)\n- Repo metadata: discard entries referring to a location outside\n  the repo (bsc#1259802, CVE-2026-25707)\n  Mirroring those data locally would refer to a location outside\n  the repo's local cache directory. Those data entries are reported\n  and discarded.\n- zypp.conf: Allow [env] section to add environment variables.\n  This feature is designed to enable environment-specific settings\n  or debugging options over an extended period. See zypp.conf(5).\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-SLE-Micro-6.1-560",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2026_21992-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2026:21992-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-202621992-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2026:21992-1",
+        "url": "https://lists.suse.com/pipermail/sle-updates/2026-June/047105.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1259802",
+        "url": "https://bugzilla.suse.com/1259802"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1265935",
+        "url": "https://bugzilla.suse.com/1265935"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1265938",
+        "url": "https://bugzilla.suse.com/1265938"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1266039",
+        "url": "https://bugzilla.suse.com/1266039"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-25707 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-25707/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-48863 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-48863/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-9149 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-9149/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-9150 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-9150/"
+      }
+    ],
+    "title": "Security update for libzypp, libsolv",
+    "tracking": {
+      "current_release_date": "2026-10-29T18:18:52Z",
+      "generator": {
+        "date": "2026-06-02T15:56:54Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2026:21992-1",
+      "initial_release_date": "2026-06-02T15:56:54Z",
+      "revision_history": [
+        {
+          "date": "2026-06-02T15:56:54Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T19:05:17Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T19:54:32Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T15:51:48Z",
+          "number": "4",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-30T15:55:51Z",
+          "number": "5",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-10-29T18:18:52Z",
+          "number": "6",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "6"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.aarch64",
+                "product": {
+                  "name": "libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.aarch64",
+                  "product_id": "libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libsolv:0.7.39:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsolv-tools-base@0.7.39-slfo.1.1_1.1?arch=aarch64\u0026upstream=libsolv-0:0.7.39-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libzypp-0:17.38.11-slfo.1.1_1.1.aarch64",
+                "product": {
+                  "name": "libzypp-0:17.38.11-slfo.1.1_1.1.aarch64",
+                  "product_id": "libzypp-0:17.38.11-slfo.1.1_1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.11:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp@17.38.11-slfo.1.1_1.1?arch=aarch64\u0026upstream=libzypp-0:17.38.11-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.ppc64le",
+                "product": {
+                  "name": "libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.ppc64le",
+                  "product_id": "libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libsolv:0.7.39:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsolv-tools-base@0.7.39-slfo.1.1_1.1?arch=ppc64le\u0026upstream=libsolv-0:0.7.39-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libzypp-0:17.38.11-slfo.1.1_1.1.ppc64le",
+                "product": {
+                  "name": "libzypp-0:17.38.11-slfo.1.1_1.1.ppc64le",
+                  "product_id": "libzypp-0:17.38.11-slfo.1.1_1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.11:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp@17.38.11-slfo.1.1_1.1?arch=ppc64le\u0026upstream=libzypp-0:17.38.11-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.s390x",
+                "product": {
+                  "name": "libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.s390x",
+                  "product_id": "libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libsolv:0.7.39:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsolv-tools-base@0.7.39-slfo.1.1_1.1?arch=s390x\u0026upstream=libsolv-0:0.7.39-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libzypp-0:17.38.11-slfo.1.1_1.1.s390x",
+                "product": {
+                  "name": "libzypp-0:17.38.11-slfo.1.1_1.1.s390x",
+                  "product_id": "libzypp-0:17.38.11-slfo.1.1_1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.11:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp@17.38.11-slfo.1.1_1.1?arch=s390x\u0026upstream=libzypp-0:17.38.11-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.x86_64",
+                "product": {
+                  "name": "libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.x86_64",
+                  "product_id": "libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libsolv:0.7.39:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsolv-tools-base@0.7.39-slfo.1.1_1.1?arch=x86_64\u0026upstream=libsolv-0:0.7.39-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libzypp-0:17.38.11-slfo.1.1_1.1.x86_64",
+                "product": {
+                  "name": "libzypp-0:17.38.11-slfo.1.1_1.1.x86_64",
+                  "product_id": "libzypp-0:17.38.11-slfo.1.1_1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:opensuse:libzypp:17.38.11:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libzypp@17.38.11-slfo.1.1_1.1?arch=x86_64\u0026upstream=libzypp-0:17.38.11-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Micro 6.1",
+                "product": {
+                  "name": "SUSE Linux Micro 6.1",
+                  "product_id": "SUSE Linux Micro 6.1",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sl-micro:6.1"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.aarch64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.aarch64"
+        },
+        "product_reference": "libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.ppc64le as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.ppc64le"
+        },
+        "product_reference": "libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.s390x as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.s390x"
+        },
+        "product_reference": "libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.x86_64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.x86_64"
+        },
+        "product_reference": "libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.11-slfo.1.1_1.1.aarch64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.aarch64"
+        },
+        "product_reference": "libzypp-0:17.38.11-slfo.1.1_1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.11-slfo.1.1_1.1.ppc64le as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.ppc64le"
+        },
+        "product_reference": "libzypp-0:17.38.11-slfo.1.1_1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.11-slfo.1.1_1.1.s390x as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.s390x"
+        },
+        "product_reference": "libzypp-0:17.38.11-slfo.1.1_1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libzypp-0:17.38.11-slfo.1.1_1.1.x86_64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.x86_64"
+        },
+        "product_reference": "libzypp-0:17.38.11-slfo.1.1_1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-25707",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-25707"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A relative path traversal bug problem when processing repository metadata in libzypp before 17.38.10 could be used by remote attackers supplying repositories to overwrite files on the system, leading to denial of service or privilege escalation.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.x86_64",
+          "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-25707",
+          "url": "https://www.suse.com/security/cve/CVE-2026-25707"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1259802 for CVE-2026-25707",
+          "url": "https://bugzilla.suse.com/1259802"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.4,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-02T15:56:54Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-25707"
+    },
+    {
+      "cve": "CVE-2026-48863",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-48863"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsolv. A stack-based buffer overflow vulnerability exists in the PGP verification component due to incorrect length handling when copying EdDSA 's' MPI into a stack buffer. A remote attacker could craft a malicious Ed25519 PGP signature with mismatched MPI lengths. Processing this crafted signature could lead to a denial of service in automated package or repository processing workflows.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.x86_64",
+          "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-48863",
+          "url": "https://www.suse.com/security/cve/CVE-2026-48863"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266039 for CVE-2026-48863",
+          "url": "https://bugzilla.suse.com/1266039"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-02T15:56:54Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-48863"
+    },
+    {
+      "cve": "CVE-2026-9149",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-9149"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsolv. This heap buffer overflow vulnerability occurs when a victim processes a specially crafted `.solv` file containing negative size values in the `repo_add_solv` function. This leads to an undersized memory allocation and a subsequent out-of-bounds write. An attacker could exploit this to cause a denial of service (DoS).",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.x86_64",
+          "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-9149",
+          "url": "https://www.suse.com/security/cve/CVE-2026-9149"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1265935 for CVE-2026-9149",
+          "url": "https://bugzilla.suse.com/1265935"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1277145 for CVE-2026-9149",
+          "url": "https://bugzilla.suse.com/1277145"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1283451 for CVE-2026-9149",
+          "url": "https://bugzilla.suse.com/1283451"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1284786 for CVE-2026-9149",
+          "url": "https://bugzilla.suse.com/1284786"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-02T15:56:54Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-9149"
+    },
+    {
+      "cve": "CVE-2026-9150",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-9150"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsolv. This stack-based buffer overflow vulnerability occurs in libsolv's Debian metadata parser when processing specially crafted Debian repository metadata. An attacker could exploit this by providing malicious SHA384 or SHA512 checksum tags, leading to memory corruption and a denial of service (DoS) in the affected system.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.x86_64",
+          "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-9150",
+          "url": "https://www.suse.com/security/cve/CVE-2026-9150"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1265938 for CVE-2026-9150",
+          "url": "https://bugzilla.suse.com/1265938"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libsolv-tools-base-0:0.7.39-slfo.1.1_1.1.x86_64",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:libzypp-0:17.38.11-slfo.1.1_1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-02T15:56:54Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-9150"
+    }
+  ]
+}

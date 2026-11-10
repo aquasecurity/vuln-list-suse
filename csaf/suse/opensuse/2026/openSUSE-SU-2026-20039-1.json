@@ -1,0 +1,1354 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for bind",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for bind fixes the following issues:\n\n- Upgrade to release 9.20.15\n  Security Fixes:\n  * CVE-2025-40778: Fixed cache poisoning attacks with unsolicited RRs (bsc#1252379)\n  * CVE-2025-40780: Fixed cache poisoning due to weak PRNG (bsc#1252380)\n  * CVE-2025-8677: Fixed resource exhaustion via malformed DNSKEY handling (bsc#1252378)\n\n  New Features:\n  * Add dnssec-policy keys configuration check to named-checkconf.\n  * Add a new option `manual-mode` to dnssec-policy.\n  * Add a new option `servfail-until-ready` to response-policy\n    zones.\n  * Support for parsing HHIT and BRID records has been added.\n  * Support for parsing DSYNC records has been added.\n\n  Removed Features:\n  * Deprecate the `tkey-gssapi-credential` statement.\n  * Obsolete the `tkey-domain` statement.\n\n  Feature Changes:\n  * Add deprecation warnings for RSASHA1, RSASHA1-NSEC3SHA1, and DS\n    digest type 1.\n\n  Bug Fixes:\n  * Missing DNSSEC information when CD bit is set in query.\n  * rndc sign during ZSK rollover will now replace signatures.\n  * Use signer name when disabling DNSSEC algorithms.\n  * Preserve cache when reload fails and reload the server again.\n  * Prevent spurious SERVFAILs for certain 0-TTL resource records.\n  * Fix unexpected termination if catalog-zones had undefined\n    `default-primaries`.\n  * Stale RRsets in a CNAME chain were not always refreshed.\n  * Add RPZ extended DNS error for zones with a CNAME override\n    policy configured.\n  * Fix dig +keepopen option.\n  * Log dropped or slipped responses in the query-errors category.\n  * Fix synth-from-dnssec not working in some scenarios.\n  * Clean enough memory when adding new ADB names/entries under\n    memory pressure.\n  * Prevent spurious validation failures.\n  * Ensure file descriptors 0-2 are in use before using libuv\n    [bsc#1230649]\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-144",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_20039-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1230649",
+        "url": "https://bugzilla.suse.com/1230649"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1252378",
+        "url": "https://bugzilla.suse.com/1252378"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1252379",
+        "url": "https://bugzilla.suse.com/1252379"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1252380",
+        "url": "https://bugzilla.suse.com/1252380"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-40778 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-40778/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-40780 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-40780/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-8677 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-8677/"
+      }
+    ],
+    "title": "Security update for bind",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:25:28Z",
+      "generator": {
+        "date": "2026-01-15T10:43:49Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:20039-1",
+      "initial_release_date": "2026-01-15T10:43:49Z",
+      "revision_history": [
+        {
+          "date": "2026-01-15T10:43:49Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:29:00Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:31:42Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:25:28Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "bind-0:9.20.15-160000.1.1.aarch64",
+                "product": {
+                  "name": "bind-0:9.20.15-160000.1.1.aarch64",
+                  "product_id": "bind-0:9.20.15-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind@9.20.15-160000.1.1?arch=aarch64\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-bdbhpt-0:9.20.15-160000.1.1.aarch64",
+                "product": {
+                  "name": "bind-modules-bdbhpt-0:9.20.15-160000.1.1.aarch64",
+                  "product_id": "bind-modules-bdbhpt-0:9.20.15-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/bind-modules-bdbhpt@9.20.15-160000.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-generic-0:9.20.15-160000.1.1.aarch64",
+                "product": {
+                  "name": "bind-modules-generic-0:9.20.15-160000.1.1.aarch64",
+                  "product_id": "bind-modules-generic-0:9.20.15-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-modules-generic@9.20.15-160000.1.1?arch=aarch64\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-ldap-0:9.20.15-160000.1.1.aarch64",
+                "product": {
+                  "name": "bind-modules-ldap-0:9.20.15-160000.1.1.aarch64",
+                  "product_id": "bind-modules-ldap-0:9.20.15-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-modules-ldap@9.20.15-160000.1.1?arch=aarch64\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-mysql-0:9.20.15-160000.1.1.aarch64",
+                "product": {
+                  "name": "bind-modules-mysql-0:9.20.15-160000.1.1.aarch64",
+                  "product_id": "bind-modules-mysql-0:9.20.15-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-modules-mysql@9.20.15-160000.1.1?arch=aarch64\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-perl-0:9.20.15-160000.1.1.aarch64",
+                "product": {
+                  "name": "bind-modules-perl-0:9.20.15-160000.1.1.aarch64",
+                  "product_id": "bind-modules-perl-0:9.20.15-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-modules-perl@9.20.15-160000.1.1?arch=aarch64\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-sqlite3-0:9.20.15-160000.1.1.aarch64",
+                "product": {
+                  "name": "bind-modules-sqlite3-0:9.20.15-160000.1.1.aarch64",
+                  "product_id": "bind-modules-sqlite3-0:9.20.15-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-modules-sqlite3@9.20.15-160000.1.1?arch=aarch64\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-utils-0:9.20.15-160000.1.1.aarch64",
+                "product": {
+                  "name": "bind-utils-0:9.20.15-160000.1.1.aarch64",
+                  "product_id": "bind-utils-0:9.20.15-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-utils@9.20.15-160000.1.1?arch=aarch64\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "bind-doc-0:9.20.15-160000.1.1.noarch",
+                "product": {
+                  "name": "bind-doc-0:9.20.15-160000.1.1.noarch",
+                  "product_id": "bind-doc-0:9.20.15-160000.1.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-doc@9.20.15-160000.1.1?arch=noarch\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "bind-0:9.20.15-160000.1.1.ppc64le",
+                "product": {
+                  "name": "bind-0:9.20.15-160000.1.1.ppc64le",
+                  "product_id": "bind-0:9.20.15-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind@9.20.15-160000.1.1?arch=ppc64le\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-bdbhpt-0:9.20.15-160000.1.1.ppc64le",
+                "product": {
+                  "name": "bind-modules-bdbhpt-0:9.20.15-160000.1.1.ppc64le",
+                  "product_id": "bind-modules-bdbhpt-0:9.20.15-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/bind-modules-bdbhpt@9.20.15-160000.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-generic-0:9.20.15-160000.1.1.ppc64le",
+                "product": {
+                  "name": "bind-modules-generic-0:9.20.15-160000.1.1.ppc64le",
+                  "product_id": "bind-modules-generic-0:9.20.15-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-modules-generic@9.20.15-160000.1.1?arch=ppc64le\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-ldap-0:9.20.15-160000.1.1.ppc64le",
+                "product": {
+                  "name": "bind-modules-ldap-0:9.20.15-160000.1.1.ppc64le",
+                  "product_id": "bind-modules-ldap-0:9.20.15-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-modules-ldap@9.20.15-160000.1.1?arch=ppc64le\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-mysql-0:9.20.15-160000.1.1.ppc64le",
+                "product": {
+                  "name": "bind-modules-mysql-0:9.20.15-160000.1.1.ppc64le",
+                  "product_id": "bind-modules-mysql-0:9.20.15-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-modules-mysql@9.20.15-160000.1.1?arch=ppc64le\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-perl-0:9.20.15-160000.1.1.ppc64le",
+                "product": {
+                  "name": "bind-modules-perl-0:9.20.15-160000.1.1.ppc64le",
+                  "product_id": "bind-modules-perl-0:9.20.15-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-modules-perl@9.20.15-160000.1.1?arch=ppc64le\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-sqlite3-0:9.20.15-160000.1.1.ppc64le",
+                "product": {
+                  "name": "bind-modules-sqlite3-0:9.20.15-160000.1.1.ppc64le",
+                  "product_id": "bind-modules-sqlite3-0:9.20.15-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-modules-sqlite3@9.20.15-160000.1.1?arch=ppc64le\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-utils-0:9.20.15-160000.1.1.ppc64le",
+                "product": {
+                  "name": "bind-utils-0:9.20.15-160000.1.1.ppc64le",
+                  "product_id": "bind-utils-0:9.20.15-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-utils@9.20.15-160000.1.1?arch=ppc64le\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "bind-0:9.20.15-160000.1.1.s390x",
+                "product": {
+                  "name": "bind-0:9.20.15-160000.1.1.s390x",
+                  "product_id": "bind-0:9.20.15-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind@9.20.15-160000.1.1?arch=s390x\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-bdbhpt-0:9.20.15-160000.1.1.s390x",
+                "product": {
+                  "name": "bind-modules-bdbhpt-0:9.20.15-160000.1.1.s390x",
+                  "product_id": "bind-modules-bdbhpt-0:9.20.15-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/bind-modules-bdbhpt@9.20.15-160000.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-generic-0:9.20.15-160000.1.1.s390x",
+                "product": {
+                  "name": "bind-modules-generic-0:9.20.15-160000.1.1.s390x",
+                  "product_id": "bind-modules-generic-0:9.20.15-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-modules-generic@9.20.15-160000.1.1?arch=s390x\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-ldap-0:9.20.15-160000.1.1.s390x",
+                "product": {
+                  "name": "bind-modules-ldap-0:9.20.15-160000.1.1.s390x",
+                  "product_id": "bind-modules-ldap-0:9.20.15-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-modules-ldap@9.20.15-160000.1.1?arch=s390x\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-mysql-0:9.20.15-160000.1.1.s390x",
+                "product": {
+                  "name": "bind-modules-mysql-0:9.20.15-160000.1.1.s390x",
+                  "product_id": "bind-modules-mysql-0:9.20.15-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-modules-mysql@9.20.15-160000.1.1?arch=s390x\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-perl-0:9.20.15-160000.1.1.s390x",
+                "product": {
+                  "name": "bind-modules-perl-0:9.20.15-160000.1.1.s390x",
+                  "product_id": "bind-modules-perl-0:9.20.15-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-modules-perl@9.20.15-160000.1.1?arch=s390x\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-sqlite3-0:9.20.15-160000.1.1.s390x",
+                "product": {
+                  "name": "bind-modules-sqlite3-0:9.20.15-160000.1.1.s390x",
+                  "product_id": "bind-modules-sqlite3-0:9.20.15-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-modules-sqlite3@9.20.15-160000.1.1?arch=s390x\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-utils-0:9.20.15-160000.1.1.s390x",
+                "product": {
+                  "name": "bind-utils-0:9.20.15-160000.1.1.s390x",
+                  "product_id": "bind-utils-0:9.20.15-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-utils@9.20.15-160000.1.1?arch=s390x\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "bind-0:9.20.15-160000.1.1.x86_64",
+                "product": {
+                  "name": "bind-0:9.20.15-160000.1.1.x86_64",
+                  "product_id": "bind-0:9.20.15-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind@9.20.15-160000.1.1?arch=x86_64\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-bdbhpt-0:9.20.15-160000.1.1.x86_64",
+                "product": {
+                  "name": "bind-modules-bdbhpt-0:9.20.15-160000.1.1.x86_64",
+                  "product_id": "bind-modules-bdbhpt-0:9.20.15-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/bind-modules-bdbhpt@9.20.15-160000.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-generic-0:9.20.15-160000.1.1.x86_64",
+                "product": {
+                  "name": "bind-modules-generic-0:9.20.15-160000.1.1.x86_64",
+                  "product_id": "bind-modules-generic-0:9.20.15-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-modules-generic@9.20.15-160000.1.1?arch=x86_64\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-ldap-0:9.20.15-160000.1.1.x86_64",
+                "product": {
+                  "name": "bind-modules-ldap-0:9.20.15-160000.1.1.x86_64",
+                  "product_id": "bind-modules-ldap-0:9.20.15-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-modules-ldap@9.20.15-160000.1.1?arch=x86_64\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-mysql-0:9.20.15-160000.1.1.x86_64",
+                "product": {
+                  "name": "bind-modules-mysql-0:9.20.15-160000.1.1.x86_64",
+                  "product_id": "bind-modules-mysql-0:9.20.15-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-modules-mysql@9.20.15-160000.1.1?arch=x86_64\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-perl-0:9.20.15-160000.1.1.x86_64",
+                "product": {
+                  "name": "bind-modules-perl-0:9.20.15-160000.1.1.x86_64",
+                  "product_id": "bind-modules-perl-0:9.20.15-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-modules-perl@9.20.15-160000.1.1?arch=x86_64\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-modules-sqlite3-0:9.20.15-160000.1.1.x86_64",
+                "product": {
+                  "name": "bind-modules-sqlite3-0:9.20.15-160000.1.1.x86_64",
+                  "product_id": "bind-modules-sqlite3-0:9.20.15-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-modules-sqlite3@9.20.15-160000.1.1?arch=x86_64\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-utils-0:9.20.15-160000.1.1.x86_64",
+                "product": {
+                  "name": "bind-utils-0:9.20.15-160000.1.1.x86_64",
+                  "product_id": "bind-utils-0:9.20.15-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.15:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-utils@9.20.15-160000.1.1?arch=x86_64\u0026upstream=bind-0:9.20.15-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-0:9.20.15-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.aarch64"
+        },
+        "product_reference": "bind-0:9.20.15-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-0:9.20.15-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.ppc64le"
+        },
+        "product_reference": "bind-0:9.20.15-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-0:9.20.15-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.s390x"
+        },
+        "product_reference": "bind-0:9.20.15-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-0:9.20.15-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.x86_64"
+        },
+        "product_reference": "bind-0:9.20.15-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-doc-0:9.20.15-160000.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-doc-0:9.20.15-160000.1.1.noarch"
+        },
+        "product_reference": "bind-doc-0:9.20.15-160000.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-bdbhpt-0:9.20.15-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.aarch64"
+        },
+        "product_reference": "bind-modules-bdbhpt-0:9.20.15-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-bdbhpt-0:9.20.15-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.ppc64le"
+        },
+        "product_reference": "bind-modules-bdbhpt-0:9.20.15-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-bdbhpt-0:9.20.15-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.s390x"
+        },
+        "product_reference": "bind-modules-bdbhpt-0:9.20.15-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-bdbhpt-0:9.20.15-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.x86_64"
+        },
+        "product_reference": "bind-modules-bdbhpt-0:9.20.15-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-generic-0:9.20.15-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.aarch64"
+        },
+        "product_reference": "bind-modules-generic-0:9.20.15-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-generic-0:9.20.15-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.ppc64le"
+        },
+        "product_reference": "bind-modules-generic-0:9.20.15-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-generic-0:9.20.15-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.s390x"
+        },
+        "product_reference": "bind-modules-generic-0:9.20.15-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-generic-0:9.20.15-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.x86_64"
+        },
+        "product_reference": "bind-modules-generic-0:9.20.15-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-ldap-0:9.20.15-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.aarch64"
+        },
+        "product_reference": "bind-modules-ldap-0:9.20.15-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-ldap-0:9.20.15-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.ppc64le"
+        },
+        "product_reference": "bind-modules-ldap-0:9.20.15-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-ldap-0:9.20.15-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.s390x"
+        },
+        "product_reference": "bind-modules-ldap-0:9.20.15-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-ldap-0:9.20.15-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.x86_64"
+        },
+        "product_reference": "bind-modules-ldap-0:9.20.15-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-mysql-0:9.20.15-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.aarch64"
+        },
+        "product_reference": "bind-modules-mysql-0:9.20.15-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-mysql-0:9.20.15-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.ppc64le"
+        },
+        "product_reference": "bind-modules-mysql-0:9.20.15-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-mysql-0:9.20.15-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.s390x"
+        },
+        "product_reference": "bind-modules-mysql-0:9.20.15-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-mysql-0:9.20.15-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.x86_64"
+        },
+        "product_reference": "bind-modules-mysql-0:9.20.15-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-perl-0:9.20.15-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.aarch64"
+        },
+        "product_reference": "bind-modules-perl-0:9.20.15-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-perl-0:9.20.15-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.ppc64le"
+        },
+        "product_reference": "bind-modules-perl-0:9.20.15-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-perl-0:9.20.15-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.s390x"
+        },
+        "product_reference": "bind-modules-perl-0:9.20.15-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-perl-0:9.20.15-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.x86_64"
+        },
+        "product_reference": "bind-modules-perl-0:9.20.15-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-sqlite3-0:9.20.15-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.aarch64"
+        },
+        "product_reference": "bind-modules-sqlite3-0:9.20.15-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-sqlite3-0:9.20.15-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.ppc64le"
+        },
+        "product_reference": "bind-modules-sqlite3-0:9.20.15-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-sqlite3-0:9.20.15-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.s390x"
+        },
+        "product_reference": "bind-modules-sqlite3-0:9.20.15-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-modules-sqlite3-0:9.20.15-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.x86_64"
+        },
+        "product_reference": "bind-modules-sqlite3-0:9.20.15-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.15-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.aarch64"
+        },
+        "product_reference": "bind-utils-0:9.20.15-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.15-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.ppc64le"
+        },
+        "product_reference": "bind-utils-0:9.20.15-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.15-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.s390x"
+        },
+        "product_reference": "bind-utils-0:9.20.15-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.15-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.x86_64"
+        },
+        "product_reference": "bind-utils-0:9.20.15-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-40778",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-40778"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Under certain circumstances, BIND is too lenient when accepting records from answers, allowing an attacker to inject forged data into the cache.\nThis issue affects BIND 9 versions 9.11.0 through 9.16.50, 9.18.0 through 9.18.39, 9.20.0 through 9.20.13, 9.21.0 through 9.21.12, 9.11.3-S1 through 9.16.50-S1, 9.18.11-S1 through 9.18.39-S1, and 9.20.9-S1 through 9.20.13-S1.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-doc-0:9.20.15-160000.1.1.noarch",
+          "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-40778",
+          "url": "https://www.suse.com/security/cve/CVE-2025-40778"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1252379 for CVE-2025-40778",
+          "url": "https://bugzilla.suse.com/1252379"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-doc-0:9.20.15-160000.1.1.noarch",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.6,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-doc-0:9.20.15-160000.1.1.noarch",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-01-15T10:43:49Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-40778"
+    },
+    {
+      "cve": "CVE-2025-40780",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-40780"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In specific circumstances, due to a weakness in the Pseudo Random Number Generator (PRNG) that is used, it is possible for an attacker to predict the source port and query ID that BIND will use.\nThis issue affects BIND 9 versions 9.16.0 through 9.16.50, 9.18.0 through 9.18.39, 9.20.0 through 9.20.13, 9.21.0 through 9.21.12, 9.16.8-S1 through 9.16.50-S1, 9.18.11-S1 through 9.18.39-S1, and 9.20.9-S1 through 9.20.13-S1.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-doc-0:9.20.15-160000.1.1.noarch",
+          "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-40780",
+          "url": "https://www.suse.com/security/cve/CVE-2025-40780"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1252380 for CVE-2025-40780",
+          "url": "https://bugzilla.suse.com/1252380"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-doc-0:9.20.15-160000.1.1.noarch",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.6,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-doc-0:9.20.15-160000.1.1.noarch",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-01-15T10:43:49Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-40780"
+    },
+    {
+      "cve": "CVE-2025-8677",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-8677"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Querying for records within a specially crafted zone containing certain malformed DNSKEY records can lead to CPU exhaustion.\nThis issue affects BIND 9 versions 9.18.0 through 9.18.39, 9.20.0 through 9.20.13, 9.21.0 through 9.21.12, 9.18.11-S1 through 9.18.39-S1, and 9.20.9-S1 through 9.20.13-S1.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-doc-0:9.20.15-160000.1.1.noarch",
+          "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.s390x",
+          "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-8677",
+          "url": "https://www.suse.com/security/cve/CVE-2025-8677"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1252378 for CVE-2025-8677",
+          "url": "https://bugzilla.suse.com/1252378"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-doc-0:9.20.15-160000.1.1.noarch",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-doc-0:9.20.15-160000.1.1.noarch",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-bdbhpt-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-generic-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-ldap-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-mysql-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-perl-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-modules-sqlite3-0:9.20.15-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.s390x",
+            "openSUSE Leap 16.0:bind-utils-0:9.20.15-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-01-15T10:43:49Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-8677"
+    }
+  ]
+}

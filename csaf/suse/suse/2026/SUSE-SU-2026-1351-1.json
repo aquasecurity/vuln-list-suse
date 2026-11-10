@@ -1,0 +1,1169 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for bind",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for bind fixes the following issues:\n\nSecurity issues:\n\n- CVE-2026-1519: maliciously crafted DNSSEC-validated zone can lead to denial of service (bsc#1260805).\n- CVE-2026-3104: memory leak in code preparing DNSSEC proofs of non-existence allows for DoS (bsc#1260567).\n- CVE-2026-3119: authenticated queries containing a TKEY record may cause `named` to terminate unexpectedly\n  (bsc#1260568).\n- CVE-2026-3591: stack use-after-return flaw in SIG(0) handling code allows for ACL bypass (bsc#1260569).\n- use-after-free error in `dns_client_resolve()` triggered by a DNAME response (bsc#1259202).\n\nUpgrade to release 9.20.21\n Security Fixes:\n * Fix unbounded NSEC3 iterations when validating referrals to\n unsigned delegations.\n (CVE-2026-1519)\n [bsc#1260805]\n * Fix memory leaks in code preparing DNSSEC proofs of\n non-existence.\n (CVE-2026-3104)\n [bsc#1260567]\n * Prevent a crash in code processing queries containing a TKEY\n record.\n (CVE-2026-3119)\n [bsc#1260568]\n * Fix a stack use-after-return flaw in SIG(0) handling code.\n (CVE-2026-3591)\n [bsc#1260569]\n * Fix a use-after-free error in dns_client_resolve() triggered by\n a DNAME response. This issue only affected the delv tool and it\n has now been fixed.\n [bsc#1259202]\n Feature Changes:\n * Record query time for all dnstap responses.\n * Optimize TCP source port selection on Linux.\n Bug Fixes:\n * Fix the handling of key statements defined inside views.\n * Fix an assertion failure triggered by non-minimal IXFRs.\n * Fix a crash when retrying a NOTIFY over TCP.\n * Fetch loop detection improvements.\n * Randomize nameserver selection.\n * Fix dnstap logging of forwarded queries.\n * A stale answer could have been served in case of multiple\n upstream failures when following CNAME chains. This has been\n fixed.\n * Fail DNSKEY validation when supported but invalid DS is found.\n * Importing an invalid SKR file might corrupt stack memory.\n * Return FORMERR for queries with the EDNS Client Subnet FAMILY\n field set to 0.\n * Fix inbound IXFR performance regression.\n * Make catalog zone names and member zones' entry names\n case-insensitive.\n * Fix implementation of BRID and HHIT record types.\n * Fix implementation of DSYNC record type.\n * Fix response policy and catalog zones to work with $INCLUDE\n directive.\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2026-1351,SUSE-SLE-Module-Basesystem-15-SP7-2026-1351,SUSE-SLE-Module-Server-Applications-15-SP7-2026-1351",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2026_1351-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2026:1351-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-20261351-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2026:1351-1",
+        "url": "https://lists.suse.com/pipermail/sle-updates/2026-April/045566.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1259202",
+        "url": "https://bugzilla.suse.com/1259202"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1260567",
+        "url": "https://bugzilla.suse.com/1260567"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1260568",
+        "url": "https://bugzilla.suse.com/1260568"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1260569",
+        "url": "https://bugzilla.suse.com/1260569"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1260805",
+        "url": "https://bugzilla.suse.com/1260805"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-1519 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-1519/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-3104 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-3104/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-3119 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-3119/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-3591 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-3591/"
+      }
+    ],
+    "title": "Security update for bind",
+    "tracking": {
+      "current_release_date": "2026-09-17T14:58:03Z",
+      "generator": {
+        "date": "2026-04-15T13:36:44Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2026:1351-1",
+      "initial_release_date": "2026-04-15T13:36:44Z",
+      "revision_history": [
+        {
+          "date": "2026-04-15T13:36:44Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T18:27:20Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T19:15:33Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T14:58:03Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "bind-0:9.20.21-150700.3.18.1.aarch64",
+                "product": {
+                  "name": "bind-0:9.20.21-150700.3.18.1.aarch64",
+                  "product_id": "bind-0:9.20.21-150700.3.18.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind@9.20.21-150700.3.18.1?arch=aarch64\u0026upstream=bind-0:9.20.21-150700.3.18.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+                "product": {
+                  "name": "bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+                  "product_id": "bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-utils@9.20.21-150700.3.18.1?arch=aarch64\u0026upstream=bind-0:9.20.21-150700.3.18.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "bind-0:9.20.21-150700.3.18.1.i586",
+                "product": {
+                  "name": "bind-0:9.20.21-150700.3.18.1.i586",
+                  "product_id": "bind-0:9.20.21-150700.3.18.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind@9.20.21-150700.3.18.1?arch=i586\u0026upstream=bind-0:9.20.21-150700.3.18.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-utils-0:9.20.21-150700.3.18.1.i586",
+                "product": {
+                  "name": "bind-utils-0:9.20.21-150700.3.18.1.i586",
+                  "product_id": "bind-utils-0:9.20.21-150700.3.18.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-utils@9.20.21-150700.3.18.1?arch=i586\u0026upstream=bind-0:9.20.21-150700.3.18.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "i586"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "bind-doc-0:9.20.21-150700.3.18.1.noarch",
+                "product": {
+                  "name": "bind-doc-0:9.20.21-150700.3.18.1.noarch",
+                  "product_id": "bind-doc-0:9.20.21-150700.3.18.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-doc@9.20.21-150700.3.18.1?arch=noarch\u0026upstream=bind-0:9.20.21-150700.3.18.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "bind-0:9.20.21-150700.3.18.1.ppc64le",
+                "product": {
+                  "name": "bind-0:9.20.21-150700.3.18.1.ppc64le",
+                  "product_id": "bind-0:9.20.21-150700.3.18.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind@9.20.21-150700.3.18.1?arch=ppc64le\u0026upstream=bind-0:9.20.21-150700.3.18.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+                "product": {
+                  "name": "bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+                  "product_id": "bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-utils@9.20.21-150700.3.18.1?arch=ppc64le\u0026upstream=bind-0:9.20.21-150700.3.18.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "bind-0:9.20.21-150700.3.18.1.s390x",
+                "product": {
+                  "name": "bind-0:9.20.21-150700.3.18.1.s390x",
+                  "product_id": "bind-0:9.20.21-150700.3.18.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind@9.20.21-150700.3.18.1?arch=s390x\u0026upstream=bind-0:9.20.21-150700.3.18.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-utils-0:9.20.21-150700.3.18.1.s390x",
+                "product": {
+                  "name": "bind-utils-0:9.20.21-150700.3.18.1.s390x",
+                  "product_id": "bind-utils-0:9.20.21-150700.3.18.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-utils@9.20.21-150700.3.18.1?arch=s390x\u0026upstream=bind-0:9.20.21-150700.3.18.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "bind-0:9.20.21-150700.3.18.1.x86_64",
+                "product": {
+                  "name": "bind-0:9.20.21-150700.3.18.1.x86_64",
+                  "product_id": "bind-0:9.20.21-150700.3.18.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind@9.20.21-150700.3.18.1?arch=x86_64\u0026upstream=bind-0:9.20.21-150700.3.18.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+                "product": {
+                  "name": "bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+                  "product_id": "bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:isc:bind:9.20.21:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/bind-utils@9.20.21-150700.3.18.1?arch=x86_64\u0026upstream=bind-0:9.20.21-150700.3.18.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-basesystem:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Desktop 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Desktop 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Desktop 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sled:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "Open Enterprise Server 25.4",
+                "product": {
+                  "name": "Open Enterprise Server 25.4",
+                  "product_id": "Open Enterprise Server 25.4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:novell,inc:OES:25.4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Server Applications 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Server Applications 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-server-applications:15:sp7"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.21-150700.3.18.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64"
+        },
+        "product_reference": "bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.21-150700.3.18.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le"
+        },
+        "product_reference": "bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.21-150700.3.18.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x"
+        },
+        "product_reference": "bind-utils-0:9.20.21-150700.3.18.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.21-150700.3.18.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64"
+        },
+        "product_reference": "bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.21-150700.3.18.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64"
+        },
+        "product_reference": "bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.21-150700.3.18.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le"
+        },
+        "product_reference": "bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.21-150700.3.18.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x"
+        },
+        "product_reference": "bind-utils-0:9.20.21-150700.3.18.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.21-150700.3.18.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64"
+        },
+        "product_reference": "bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.21-150700.3.18.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64"
+        },
+        "product_reference": "bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.21-150700.3.18.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le"
+        },
+        "product_reference": "bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.21-150700.3.18.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x"
+        },
+        "product_reference": "bind-utils-0:9.20.21-150700.3.18.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.21-150700.3.18.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64"
+        },
+        "product_reference": "bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.21-150700.3.18.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64"
+        },
+        "product_reference": "bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.21-150700.3.18.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le"
+        },
+        "product_reference": "bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.21-150700.3.18.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x"
+        },
+        "product_reference": "bind-utils-0:9.20.21-150700.3.18.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.21-150700.3.18.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64"
+        },
+        "product_reference": "bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.21-150700.3.18.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.aarch64"
+        },
+        "product_reference": "bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.21-150700.3.18.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.ppc64le"
+        },
+        "product_reference": "bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.21-150700.3.18.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.s390x"
+        },
+        "product_reference": "bind-utils-0:9.20.21-150700.3.18.1.s390x",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-utils-0:9.20.21-150700.3.18.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.x86_64"
+        },
+        "product_reference": "bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-0:9.20.21-150700.3.18.1.aarch64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.aarch64"
+        },
+        "product_reference": "bind-0:9.20.21-150700.3.18.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-0:9.20.21-150700.3.18.1.ppc64le as component of SUSE Linux Enterprise Module for Server Applications 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.ppc64le"
+        },
+        "product_reference": "bind-0:9.20.21-150700.3.18.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-0:9.20.21-150700.3.18.1.s390x as component of SUSE Linux Enterprise Module for Server Applications 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.s390x"
+        },
+        "product_reference": "bind-0:9.20.21-150700.3.18.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-0:9.20.21-150700.3.18.1.x86_64 as component of SUSE Linux Enterprise Module for Server Applications 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.x86_64"
+        },
+        "product_reference": "bind-0:9.20.21-150700.3.18.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "bind-doc-0:9.20.21-150700.3.18.1.noarch as component of SUSE Linux Enterprise Module for Server Applications 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-doc-0:9.20.21-150700.3.18.1.noarch"
+        },
+        "product_reference": "bind-doc-0:9.20.21-150700.3.18.1.noarch",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Server Applications 15 SP7"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-1519",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-1519"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "If a BIND resolver is performing DNSSEC validation and encounters a maliciously crafted zone, the resolver may consume excessive CPU. Authoritative-only servers are generally unaffected, although there are circumstances where authoritative servers may make recursive queries (see: https://kb.isc.org/docs/why-does-my-authoritative-server-make-recursive-queries).\nThis issue affects BIND 9 versions 9.11.0 through 9.16.50, 9.18.0 through 9.18.46, 9.20.0 through 9.20.20, 9.21.0 through 9.21.19, 9.11.3-S1 through 9.16.50-S1, 9.18.11-S1 through 9.18.46-S1, and 9.20.9-S1 through 9.20.20-S1.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+          "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+          "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+          "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.ppc64le",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.s390x",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-doc-0:9.20.21-150700.3.18.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-1519",
+          "url": "https://www.suse.com/security/cve/CVE-2026-1519"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1260805 for CVE-2026-1519",
+          "url": "https://bugzilla.suse.com/1260805"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-doc-0:9.20.21-150700.3.18.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-doc-0:9.20.21-150700.3.18.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-04-15T13:36:44Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-1519"
+    },
+    {
+      "cve": "CVE-2026-3104",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-3104"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A specially crafted domain can be used to cause a memory leak in a BIND resolver simply by querying this domain.\nThis issue affects BIND 9 versions 9.20.0 through 9.20.20, 9.21.0 through 9.21.19, and 9.20.9-S1 through 9.20.20-S1.\nBIND 9 versions 9.18.0 through 9.18.46 and 9.18.11-S1 through 9.18.46-S1 are NOT affected.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+          "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+          "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+          "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.ppc64le",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.s390x",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-doc-0:9.20.21-150700.3.18.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-3104",
+          "url": "https://www.suse.com/security/cve/CVE-2026-3104"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1260567 for CVE-2026-3104",
+          "url": "https://bugzilla.suse.com/1260567"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-doc-0:9.20.21-150700.3.18.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-doc-0:9.20.21-150700.3.18.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-04-15T13:36:44Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-3104"
+    },
+    {
+      "cve": "CVE-2026-3119",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-3119"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Under certain conditions, `named` may crash when processing a correctly signed query containing a TKEY record. The affected code can only be reached if an incoming request has a valid transaction signature (TSIG) from a key declared in the `named` configuration.\nThis issue affects BIND 9 versions 9.20.0 through 9.20.20, 9.21.0 through 9.21.19, and 9.20.9-S1 through 9.20.20-S1.\nBIND 9 versions 9.18.0 through 9.18.46 and 9.18.11-S1 through 9.18.46-S1 are NOT affected.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+          "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+          "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+          "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.ppc64le",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.s390x",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-doc-0:9.20.21-150700.3.18.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-3119",
+          "url": "https://www.suse.com/security/cve/CVE-2026-3119"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1260568 for CVE-2026-3119",
+          "url": "https://bugzilla.suse.com/1260568"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-doc-0:9.20.21-150700.3.18.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-doc-0:9.20.21-150700.3.18.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-04-15T13:36:44Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-3119"
+    },
+    {
+      "cve": "CVE-2026-3591",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-3591"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A use-after-return vulnerability exists in the `named` server when handling DNS queries signed with SIG(0). Using a specially-crafted DNS request, an attacker may be able to cause an ACL to improperly (mis)match an IP address. In a default-allow ACL (denying only specific IP addresses), this may lead to unauthorized access. Default-deny ACLs should fail-secure.\nThis issue affects BIND 9 versions 9.20.0 through 9.20.20, 9.21.0 through 9.21.19, and 9.20.9-S1 through 9.20.20-S1.\nBIND 9 versions 9.18.0 through 9.18.46 and 9.18.11-S1 through 9.18.46-S1 are NOT affected.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+          "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+          "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+          "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.aarch64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.ppc64le",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.s390x",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.x86_64",
+          "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-doc-0:9.20.21-150700.3.18.1.noarch",
+          "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-3591",
+          "url": "https://www.suse.com/security/cve/CVE-2026-3591"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1260569 for CVE-2026-3591",
+          "url": "https://bugzilla.suse.com/1260569"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-doc-0:9.20.21-150700.3.18.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "Open Enterprise Server 25.4:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Module for Server Applications 15 SP7:bind-doc-0:9.20.21-150700.3.18.1.noarch",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:bind-utils-0:9.20.21-150700.3.18.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-04-15T13:36:44Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-3591"
+    }
+  ]
+}

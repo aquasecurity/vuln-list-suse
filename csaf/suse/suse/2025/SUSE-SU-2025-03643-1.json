@@ -1,0 +1,436 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for the Linux Kernel RT (Live Patch 3 for SLE 15 SP7)",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for the Linux Kernel 6.4.0-150700_7_13 fixes several issues.\n\nThe following security issues were fixed:\n\n- CVE-2025-38678: netfilter: nf_tables: reject duplicate device on updates (bsc#1249534).\n- CVE-2025-38499: clone_private_mnt(): make sure that caller has CAP_SYS_ADMIN in the right userns (bsc#1248673).\n- CVE-2025-38566: sunrpc: fix handling of server side tls alerts (bsc#1248376).\n- kernel-livepatch.spec: Replace kernel-syms with kernel-\u0026lt;flavor\u0026gt;-specific dependencies (bsc#1248108)  The commit ead79afe7cbfae ('kernel-livepatch.spec: Update build  dependencies for non-default flavors') broke build of livepatches  which were built with kernel-syms-rt.  The problem is that livepatch packages for already released kernels  are built in exactly the same build environment as the initial livepatch.  The BS (Build Service) installs the build environment using the given  _buildinfo-*.xml and ignores BuildRequires. But the BuildRequires are  later checked by rpmbuild tool. It would complain when new dependencies  were added.  Unfortunately, kernel-syms-rt does not exist on SLE16. This was the main  motivation for the above mentioned commit.  But the package kernel-syms is empty. Its only purpose is to add other  dependencies. Replace it by opencoding the dependencies.  Note that the kernel devel files are historically split into various  packages, kernel-\u0026lt;flavor\u0026gt;-devel, kernel-devel-\u0026lt;flavor\u0026gt;, and  even kernel-devel. But it is enough to require kernel-\u0026lt;flavor\u0026gt;-devel  because it requires the other devel files on its own. This seems  to be true back to SLE15-SP4 at minimum.\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2025-3643,SUSE-SLE-Module-Live-Patching-15-SP6-2025-3643,SUSE-SLE-Module-Live-Patching-15-SP7-2025-3647",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_03643-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:03643-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-202503643-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:03643-1",
+        "url": "https://lists.suse.com/pipermail/sle-updates/2025-October/042211.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1248108",
+        "url": "https://bugzilla.suse.com/1248108"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1248376",
+        "url": "https://bugzilla.suse.com/1248376"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1248673",
+        "url": "https://bugzilla.suse.com/1248673"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1249534",
+        "url": "https://bugzilla.suse.com/1249534"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-38499 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-38499/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-38566 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-38566/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-38678 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-38678/"
+      }
+    ],
+    "title": "Security update for the Linux Kernel RT (Live Patch 3 for SLE 15 SP7)",
+    "tracking": {
+      "current_release_date": "2026-09-20T17:53:20Z",
+      "generator": {
+        "date": "2025-10-18T10:33:40Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:03643-1",
+      "initial_release_date": "2025-10-18T10:33:40Z",
+      "revision_history": [
+        {
+          "date": "2025-10-18T10:33:40Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T17:53:20Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "kernel-livepatch-6_4_0-150600_10_49-rt-0:2-150600.2.1.x86_64",
+                "product": {
+                  "name": "kernel-livepatch-6_4_0-150600_10_49-rt-0:2-150600.2.1.x86_64",
+                  "product_id": "kernel-livepatch-6_4_0-150600_10_49-rt-0:2-150600.2.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kernel-livepatch-6_4_0-150600_10_49-rt@2-150600.2.1?arch=x86_64\u0026upstream=kernel-livepatch-SLE15-SP6-RT_Update_14-0:2-150600.2.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kernel-livepatch-6_4_0-150700_7_13-rt-0:2-150700.2.1.x86_64",
+                "product": {
+                  "name": "kernel-livepatch-6_4_0-150700_7_13-rt-0:2-150700.2.1.x86_64",
+                  "product_id": "kernel-livepatch-6_4_0-150700_7_13-rt-0:2-150700.2.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kernel-livepatch-6_4_0-150700_7_13-rt@2-150700.2.1?arch=x86_64\u0026upstream=kernel-livepatch-SLE15-SP7-RT_Update_3-0:2-150700.2.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Live Patching 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Live Patching 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Live Patching 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-live-patching:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Live Patching 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Live Patching 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Live Patching 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-live-patching:15:sp7"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kernel-livepatch-6_4_0-150600_10_49-rt-0:2-150600.2.1.x86_64 as component of SUSE Linux Enterprise Live Patching 15 SP6",
+          "product_id": "SUSE Linux Enterprise Live Patching 15 SP6:kernel-livepatch-6_4_0-150600_10_49-rt-0:2-150600.2.1.x86_64"
+        },
+        "product_reference": "kernel-livepatch-6_4_0-150600_10_49-rt-0:2-150600.2.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kernel-livepatch-6_4_0-150700_7_13-rt-0:2-150700.2.1.x86_64 as component of SUSE Linux Enterprise Live Patching 15 SP7",
+          "product_id": "SUSE Linux Enterprise Live Patching 15 SP7:kernel-livepatch-6_4_0-150700_7_13-rt-0:2-150700.2.1.x86_64"
+        },
+        "product_reference": "kernel-livepatch-6_4_0-150700_7_13-rt-0:2-150700.2.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Live Patching 15 SP7"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-38499",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-38499"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nclone_private_mnt(): make sure that caller has CAP_SYS_ADMIN in the right userns\n\nWhat we want is to verify there is that clone won't expose something\nhidden by a mount we wouldn't be able to undo.  \"Wouldn't be able to undo\"\nmay be a result of MNT_LOCKED on a child, but it may also come from\nlacking admin rights in the userns of the namespace mount belongs to.\n\nclone_private_mnt() checks the former, but not the latter.\n\nThere's a number of rather confusing CAP_SYS_ADMIN checks in various\nuserns during the mount, especially with the new mount API; they serve\ndifferent purposes and in case of clone_private_mnt() they usually,\nbut not always end up covering the missing check mentioned above.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Live Patching 15 SP6:kernel-livepatch-6_4_0-150600_10_49-rt-0:2-150600.2.1.x86_64",
+          "SUSE Linux Enterprise Live Patching 15 SP7:kernel-livepatch-6_4_0-150700_7_13-rt-0:2-150700.2.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-38499",
+          "url": "https://www.suse.com/security/cve/CVE-2025-38499"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1247976 for CVE-2025-38499",
+          "url": "https://bugzilla.suse.com/1247976"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1248673 for CVE-2025-38499",
+          "url": "https://bugzilla.suse.com/1248673"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1251916 for CVE-2025-38499",
+          "url": "https://bugzilla.suse.com/1251916"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Live Patching 15 SP6:kernel-livepatch-6_4_0-150600_10_49-rt-0:2-150600.2.1.x86_64",
+            "SUSE Linux Enterprise Live Patching 15 SP7:kernel-livepatch-6_4_0-150700_7_13-rt-0:2-150700.2.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.4,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Live Patching 15 SP6:kernel-livepatch-6_4_0-150600_10_49-rt-0:2-150600.2.1.x86_64",
+            "SUSE Linux Enterprise Live Patching 15 SP7:kernel-livepatch-6_4_0-150700_7_13-rt-0:2-150700.2.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-10-18T10:33:40Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-38499"
+    },
+    {
+      "cve": "CVE-2025-38566",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-38566"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nsunrpc: fix handling of server side tls alerts\n\nScott Mayhew discovered a security exploit in NFS over TLS in\ntls_alert_recv() due to its assumption it can read data from\nthe msg iterator's kvec..\n\nkTLS implementation splits TLS non-data record payload between\nthe control message buffer (which includes the type such as TLS\naler or TLS cipher change) and the rest of the payload (say TLS\nalert's level/description) which goes into the msg payload buffer.\n\nThis patch proposes to rework how control messages are setup and\nused by sock_recvmsg().\n\nIf no control message structure is setup, kTLS layer will read and\nprocess TLS data record types. As soon as it encounters a TLS control\nmessage, it would return an error. At that point, NFS can setup a\nkvec backed msg buffer and read in the control message such as a\nTLS alert. Msg iterator can advance the kvec pointer as a part of\nthe copy process thus we need to revert the iterator before calling\ninto the tls_alert_recv.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Live Patching 15 SP6:kernel-livepatch-6_4_0-150600_10_49-rt-0:2-150600.2.1.x86_64",
+          "SUSE Linux Enterprise Live Patching 15 SP7:kernel-livepatch-6_4_0-150700_7_13-rt-0:2-150700.2.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-38566",
+          "url": "https://www.suse.com/security/cve/CVE-2025-38566"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1248374 for CVE-2025-38566",
+          "url": "https://bugzilla.suse.com/1248374"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1248376 for CVE-2025-38566",
+          "url": "https://bugzilla.suse.com/1248376"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Live Patching 15 SP6:kernel-livepatch-6_4_0-150600_10_49-rt-0:2-150600.2.1.x86_64",
+            "SUSE Linux Enterprise Live Patching 15 SP7:kernel-livepatch-6_4_0-150700_7_13-rt-0:2-150700.2.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Live Patching 15 SP6:kernel-livepatch-6_4_0-150600_10_49-rt-0:2-150600.2.1.x86_64",
+            "SUSE Linux Enterprise Live Patching 15 SP7:kernel-livepatch-6_4_0-150700_7_13-rt-0:2-150700.2.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-10-18T10:33:40Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-38566"
+    },
+    {
+      "cve": "CVE-2025-38678",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-38678"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: nf_tables: reject duplicate device on updates\n\nA chain/flowtable update with duplicated devices in the same batch is\npossible. Unfortunately, netdev event path only removes the first\ndevice that is found, leaving unregistered the hook of the duplicated\ndevice.\n\nCheck if a duplicated device exists in the transaction batch, bail out\nwith EEXIST in such case.\n\nWARNING is hit when unregistering the hook:\n\n [49042.221275] WARNING: CPU: 4 PID: 8425 at net/netfilter/core.c:340 nf_hook_entry_head+0xaa/0x150\n [49042.221375] CPU: 4 UID: 0 PID: 8425 Comm: nft Tainted: G S                  6.16.0+ #170 PREEMPT(full)\n [...]\n [49042.221382] RIP: 0010:nf_hook_entry_head+0xaa/0x150",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Live Patching 15 SP6:kernel-livepatch-6_4_0-150600_10_49-rt-0:2-150600.2.1.x86_64",
+          "SUSE Linux Enterprise Live Patching 15 SP7:kernel-livepatch-6_4_0-150700_7_13-rt-0:2-150700.2.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-38678",
+          "url": "https://www.suse.com/security/cve/CVE-2025-38678"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1249126 for CVE-2025-38678",
+          "url": "https://bugzilla.suse.com/1249126"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1249534 for CVE-2025-38678",
+          "url": "https://bugzilla.suse.com/1249534"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Live Patching 15 SP6:kernel-livepatch-6_4_0-150600_10_49-rt-0:2-150600.2.1.x86_64",
+            "SUSE Linux Enterprise Live Patching 15 SP7:kernel-livepatch-6_4_0-150700_7_13-rt-0:2-150700.2.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Live Patching 15 SP6:kernel-livepatch-6_4_0-150600_10_49-rt-0:2-150600.2.1.x86_64",
+            "SUSE Linux Enterprise Live Patching 15 SP7:kernel-livepatch-6_4_0-150700_7_13-rt-0:2-150700.2.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-10-18T10:33:40Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-38678"
+    }
+  ]
+}

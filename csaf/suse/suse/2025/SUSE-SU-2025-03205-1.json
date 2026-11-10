@@ -1,0 +1,1976 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for busybox, busybox-links",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for busybox, busybox-links fixes the following issues:\n\nUpdated to version 1.37.0 (jsc#PED-13039):\n  - CVE-2023-42363: Fixed use-after-free vulnerability in xasprintf function in xfuncs_printf.c (bsc#1217580)\n  - CVE-2023-42364: Fixed use-after-free in the awk.c evaluate function (bsc#1217584)\n  - CVE-2023-42365: Fixed use-after-free in the awk.c copyvar function (bsc#1217585)\n\nOther fixes:\n  - fix generation of file lists via Dockerfile \n  - add copy of busybox.links from the container to catch changes\n    to busybox config\n  - Blacklist creating links for halt, reboot, shutdown commands to avoid accidental\n    use in a fully booted system (bsc#1243201) \n  - Add getfattr applet to attr filelist\n  - busybox-udhcpc conflicts with udhcp.\n  - Add new sub-package for udhcpc\n  - zgrep: don't set the label option as only the real grep\n    supports it (bsc#1215943)\n  - Add conflict for coreutils-systemd, package got splitted\n  - Check in filelists instead of buildrequiring all non-busybox utils\n  - Replace transitional %usrmerged macro with regular version check (bsc#1206798)\n  - Create sub-package 'hexedit' [bsc#1203399]\n  - Create sub-package 'sha3sum' [bsc#1203397]\n  - Drop update-alternatives support\n  - Add provides smtp_daemon to busybox-sendmail\n  - Add conflicts: mawk to busybox-gawk\n  - fix mkdir path to point to /usr/bin instead of /bin\n  - add placeholder variable and ignore applet logic to busybox.install \n  - enable halt, poweroff, reboot commands (bsc#1243201) \n  - Fully enable udhcpc and document that this tool needs special\n    configuration and does not work out of the box [bsc#1217883]\n  - Replace transitional %usrmerged macro with regular version check (bsc#1206798)\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2025-3205,SUSE-SLE-Module-Basesystem-15-SP7-2025-3205",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_03205-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:03205-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-202503205-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:03205-1",
+        "url": "https://lists.suse.com/pipermail/sle-updates/2025-September/041682.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1203397",
+        "url": "https://bugzilla.suse.com/1203397"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1203399",
+        "url": "https://bugzilla.suse.com/1203399"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1206798",
+        "url": "https://bugzilla.suse.com/1206798"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1215943",
+        "url": "https://bugzilla.suse.com/1215943"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1217580",
+        "url": "https://bugzilla.suse.com/1217580"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1217584",
+        "url": "https://bugzilla.suse.com/1217584"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1217585",
+        "url": "https://bugzilla.suse.com/1217585"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1217883",
+        "url": "https://bugzilla.suse.com/1217883"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1243201",
+        "url": "https://bugzilla.suse.com/1243201"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-42363 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-42363/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-42364 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-42364/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-42365 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-42365/"
+      }
+    ],
+    "title": "Security update for busybox, busybox-links",
+    "tracking": {
+      "current_release_date": "2026-09-20T17:45:40Z",
+      "generator": {
+        "date": "2025-09-12T15:57:30Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:03205-1",
+      "initial_release_date": "2025-09-12T15:57:30Z",
+      "revision_history": [
+        {
+          "date": "2025-09-12T15:57:30Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T17:45:40Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "busybox-0:1.37.0-150700.18.4.1.aarch64",
+                "product": {
+                  "name": "busybox-0:1.37.0-150700.18.4.1.aarch64",
+                  "product_id": "busybox-0:1.37.0-150700.18.4.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/busybox@1.37.0-150700.18.4.1?arch=aarch64\u0026upstream=busybox-0:1.37.0-150700.18.4.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+                "product": {
+                  "name": "busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+                  "product_id": "busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/busybox-static@1.37.0-150700.18.4.1?arch=aarch64\u0026upstream=busybox-0:1.37.0-150700.18.4.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-testsuite-0:1.37.0-150700.18.4.1.aarch64",
+                "product": {
+                  "name": "busybox-testsuite-0:1.37.0-150700.18.4.1.aarch64",
+                  "product_id": "busybox-testsuite-0:1.37.0-150700.18.4.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/busybox-testsuite@1.37.0-150700.18.4.1?arch=aarch64\u0026upstream=busybox-0:1.37.0-150700.18.4.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-warewulf3-0:1.37.0-150700.18.4.1.aarch64",
+                "product": {
+                  "name": "busybox-warewulf3-0:1.37.0-150700.18.4.1.aarch64",
+                  "product_id": "busybox-warewulf3-0:1.37.0-150700.18.4.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/busybox-warewulf3@1.37.0-150700.18.4.1?arch=aarch64\u0026upstream=busybox-0:1.37.0-150700.18.4.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "busybox-0:1.37.0-150700.18.4.1.i586",
+                "product": {
+                  "name": "busybox-0:1.37.0-150700.18.4.1.i586",
+                  "product_id": "busybox-0:1.37.0-150700.18.4.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/busybox@1.37.0-150700.18.4.1?arch=i586\u0026upstream=busybox-0:1.37.0-150700.18.4.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-static-0:1.37.0-150700.18.4.1.i586",
+                "product": {
+                  "name": "busybox-static-0:1.37.0-150700.18.4.1.i586",
+                  "product_id": "busybox-static-0:1.37.0-150700.18.4.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/busybox-static@1.37.0-150700.18.4.1?arch=i586\u0026upstream=busybox-0:1.37.0-150700.18.4.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-testsuite-0:1.37.0-150700.18.4.1.i586",
+                "product": {
+                  "name": "busybox-testsuite-0:1.37.0-150700.18.4.1.i586",
+                  "product_id": "busybox-testsuite-0:1.37.0-150700.18.4.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/busybox-testsuite@1.37.0-150700.18.4.1?arch=i586\u0026upstream=busybox-0:1.37.0-150700.18.4.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-warewulf3-0:1.37.0-150700.18.4.1.i586",
+                "product": {
+                  "name": "busybox-warewulf3-0:1.37.0-150700.18.4.1.i586",
+                  "product_id": "busybox-warewulf3-0:1.37.0-150700.18.4.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/busybox-warewulf3@1.37.0-150700.18.4.1?arch=i586\u0026upstream=busybox-0:1.37.0-150700.18.4.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "i586"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "busybox-adduser-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-adduser-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-adduser-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-adduser@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-attr-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-attr-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-attr-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-attr@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-bc-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-bc-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-bc-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-bc@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-bind-utils-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-bind-utils-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-bind-utils-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-bind-utils@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-bzip2-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-bzip2-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-bzip2-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-bzip2@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-coreutils-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-coreutils-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-coreutils-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-coreutils@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-cpio-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-cpio-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-cpio-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-cpio@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-diffutils-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-diffutils-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-diffutils-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-diffutils@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-dos2unix-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-dos2unix-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-dos2unix-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-dos2unix@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-ed-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-ed-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-ed-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-ed@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-findutils-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-findutils-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-findutils-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-findutils@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-gawk-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-gawk-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-gawk-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-gawk@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-grep-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-grep-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-grep-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-grep@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-gzip-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-gzip-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-gzip-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-gzip@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-hexedit-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-hexedit-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-hexedit-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-hexedit@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-hostname-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-hostname-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-hostname-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-hostname@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-iproute2-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-iproute2-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-iproute2-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-iproute2@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-iputils-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-iputils-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-iputils-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-iputils@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-kbd-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-kbd-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-kbd-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-kbd@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-kmod-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-kmod-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-kmod-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-kmod@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-less-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-less-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-less-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-less@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-links-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-links-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-links-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-links@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-man-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-man-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-man-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-man@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-misc-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-misc-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-misc-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-misc@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-ncurses-utils-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-ncurses-utils-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-ncurses-utils-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-ncurses-utils@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-net-tools-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-net-tools-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-net-tools-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-net-tools@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-netcat-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-netcat-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-netcat-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-netcat@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-patch-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-patch-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-patch-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-patch@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-policycoreutils-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-policycoreutils-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-policycoreutils-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-policycoreutils@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-procps-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-procps-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-procps-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-procps@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-psmisc-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-psmisc-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-psmisc-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-psmisc@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-sed-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-sed-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-sed-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-sed@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-selinux-tools-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-selinux-tools-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-selinux-tools-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-selinux-tools@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-sendmail-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-sendmail-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-sendmail-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-sendmail@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-sh-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-sh-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-sh-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-sh@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-sha3sum-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-sha3sum-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-sha3sum-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-sha3sum@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-sharutils-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-sharutils-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-sharutils-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-sharutils@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-syslogd-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-syslogd-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-syslogd-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-syslogd@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-sysvinit-tools-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-sysvinit-tools-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-sysvinit-tools-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-sysvinit-tools@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-tar-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-tar-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-tar-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-tar@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-telnet-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-telnet-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-telnet-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-telnet@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-tftp-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-tftp-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-tftp-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-tftp@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-time-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-time-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-time-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-time@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-traceroute-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-traceroute-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-traceroute-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-traceroute@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-tunctl-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-tunctl-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-tunctl-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-tunctl@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-udhcpc-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-udhcpc-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-udhcpc-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-udhcpc@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-unzip-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-unzip-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-unzip-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-unzip@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-util-linux-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-util-linux-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-util-linux-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-util-linux@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-vi-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-vi-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-vi-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-vi@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-vlan-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-vlan-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-vlan-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-vlan@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-wget-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-wget-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-wget-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-wget@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-which-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-which-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-which-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-which@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-whois-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-whois-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-whois-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-whois@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-xz-0:1.37.0-150700.12.3.2.noarch",
+                "product": {
+                  "name": "busybox-xz-0:1.37.0-150700.12.3.2.noarch",
+                  "product_id": "busybox-xz-0:1.37.0-150700.12.3.2.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/busybox-xz@1.37.0-150700.12.3.2?arch=noarch\u0026upstream=busybox-links-0:1.37.0-150700.12.3.2.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "busybox-0:1.37.0-150700.18.4.1.ppc64le",
+                "product": {
+                  "name": "busybox-0:1.37.0-150700.18.4.1.ppc64le",
+                  "product_id": "busybox-0:1.37.0-150700.18.4.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/busybox@1.37.0-150700.18.4.1?arch=ppc64le\u0026upstream=busybox-0:1.37.0-150700.18.4.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+                "product": {
+                  "name": "busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+                  "product_id": "busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/busybox-static@1.37.0-150700.18.4.1?arch=ppc64le\u0026upstream=busybox-0:1.37.0-150700.18.4.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-testsuite-0:1.37.0-150700.18.4.1.ppc64le",
+                "product": {
+                  "name": "busybox-testsuite-0:1.37.0-150700.18.4.1.ppc64le",
+                  "product_id": "busybox-testsuite-0:1.37.0-150700.18.4.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/busybox-testsuite@1.37.0-150700.18.4.1?arch=ppc64le\u0026upstream=busybox-0:1.37.0-150700.18.4.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "busybox-0:1.37.0-150700.18.4.1.s390x",
+                "product": {
+                  "name": "busybox-0:1.37.0-150700.18.4.1.s390x",
+                  "product_id": "busybox-0:1.37.0-150700.18.4.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/busybox@1.37.0-150700.18.4.1?arch=s390x\u0026upstream=busybox-0:1.37.0-150700.18.4.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-static-0:1.37.0-150700.18.4.1.s390x",
+                "product": {
+                  "name": "busybox-static-0:1.37.0-150700.18.4.1.s390x",
+                  "product_id": "busybox-static-0:1.37.0-150700.18.4.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/busybox-static@1.37.0-150700.18.4.1?arch=s390x\u0026upstream=busybox-0:1.37.0-150700.18.4.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-testsuite-0:1.37.0-150700.18.4.1.s390x",
+                "product": {
+                  "name": "busybox-testsuite-0:1.37.0-150700.18.4.1.s390x",
+                  "product_id": "busybox-testsuite-0:1.37.0-150700.18.4.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/busybox-testsuite@1.37.0-150700.18.4.1?arch=s390x\u0026upstream=busybox-0:1.37.0-150700.18.4.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "busybox-0:1.37.0-150700.18.4.1.x86_64",
+                "product": {
+                  "name": "busybox-0:1.37.0-150700.18.4.1.x86_64",
+                  "product_id": "busybox-0:1.37.0-150700.18.4.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/busybox@1.37.0-150700.18.4.1?arch=x86_64\u0026upstream=busybox-0:1.37.0-150700.18.4.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+                "product": {
+                  "name": "busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+                  "product_id": "busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/busybox-static@1.37.0-150700.18.4.1?arch=x86_64\u0026upstream=busybox-0:1.37.0-150700.18.4.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-testsuite-0:1.37.0-150700.18.4.1.x86_64",
+                "product": {
+                  "name": "busybox-testsuite-0:1.37.0-150700.18.4.1.x86_64",
+                  "product_id": "busybox-testsuite-0:1.37.0-150700.18.4.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/busybox-testsuite@1.37.0-150700.18.4.1?arch=x86_64\u0026upstream=busybox-0:1.37.0-150700.18.4.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "busybox-warewulf3-0:1.37.0-150700.18.4.1.x86_64",
+                "product": {
+                  "name": "busybox-warewulf3-0:1.37.0-150700.18.4.1.x86_64",
+                  "product_id": "busybox-warewulf3-0:1.37.0-150700.18.4.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/busybox-warewulf3@1.37.0-150700.18.4.1?arch=x86_64\u0026upstream=busybox-0:1.37.0-150700.18.4.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-basesystem:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Desktop 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Desktop 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Desktop 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sled:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "Open Enterprise Server 25.4",
+                "product": {
+                  "name": "Open Enterprise Server 25.4",
+                  "product_id": "Open Enterprise Server 25.4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:novell,inc:OES:25.4"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-0:1.37.0-150700.18.4.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64"
+        },
+        "product_reference": "busybox-0:1.37.0-150700.18.4.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-0:1.37.0-150700.18.4.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le"
+        },
+        "product_reference": "busybox-0:1.37.0-150700.18.4.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-0:1.37.0-150700.18.4.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x"
+        },
+        "product_reference": "busybox-0:1.37.0-150700.18.4.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-0:1.37.0-150700.18.4.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64"
+        },
+        "product_reference": "busybox-0:1.37.0-150700.18.4.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-static-0:1.37.0-150700.18.4.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64"
+        },
+        "product_reference": "busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-static-0:1.37.0-150700.18.4.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le"
+        },
+        "product_reference": "busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-static-0:1.37.0-150700.18.4.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x"
+        },
+        "product_reference": "busybox-static-0:1.37.0-150700.18.4.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-static-0:1.37.0-150700.18.4.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64"
+        },
+        "product_reference": "busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-0:1.37.0-150700.18.4.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64"
+        },
+        "product_reference": "busybox-0:1.37.0-150700.18.4.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-0:1.37.0-150700.18.4.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le"
+        },
+        "product_reference": "busybox-0:1.37.0-150700.18.4.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-0:1.37.0-150700.18.4.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x"
+        },
+        "product_reference": "busybox-0:1.37.0-150700.18.4.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-0:1.37.0-150700.18.4.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64"
+        },
+        "product_reference": "busybox-0:1.37.0-150700.18.4.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-static-0:1.37.0-150700.18.4.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64"
+        },
+        "product_reference": "busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-static-0:1.37.0-150700.18.4.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le"
+        },
+        "product_reference": "busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-static-0:1.37.0-150700.18.4.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x"
+        },
+        "product_reference": "busybox-static-0:1.37.0-150700.18.4.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-static-0:1.37.0-150700.18.4.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64"
+        },
+        "product_reference": "busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-0:1.37.0-150700.18.4.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64"
+        },
+        "product_reference": "busybox-0:1.37.0-150700.18.4.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-0:1.37.0-150700.18.4.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le"
+        },
+        "product_reference": "busybox-0:1.37.0-150700.18.4.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-0:1.37.0-150700.18.4.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x"
+        },
+        "product_reference": "busybox-0:1.37.0-150700.18.4.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-0:1.37.0-150700.18.4.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64"
+        },
+        "product_reference": "busybox-0:1.37.0-150700.18.4.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-static-0:1.37.0-150700.18.4.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64"
+        },
+        "product_reference": "busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-static-0:1.37.0-150700.18.4.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le"
+        },
+        "product_reference": "busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-static-0:1.37.0-150700.18.4.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x"
+        },
+        "product_reference": "busybox-static-0:1.37.0-150700.18.4.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-static-0:1.37.0-150700.18.4.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64"
+        },
+        "product_reference": "busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-0:1.37.0-150700.18.4.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64"
+        },
+        "product_reference": "busybox-0:1.37.0-150700.18.4.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-0:1.37.0-150700.18.4.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le"
+        },
+        "product_reference": "busybox-0:1.37.0-150700.18.4.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-0:1.37.0-150700.18.4.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x"
+        },
+        "product_reference": "busybox-0:1.37.0-150700.18.4.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-0:1.37.0-150700.18.4.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64"
+        },
+        "product_reference": "busybox-0:1.37.0-150700.18.4.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-static-0:1.37.0-150700.18.4.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64"
+        },
+        "product_reference": "busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-static-0:1.37.0-150700.18.4.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le"
+        },
+        "product_reference": "busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-static-0:1.37.0-150700.18.4.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x"
+        },
+        "product_reference": "busybox-static-0:1.37.0-150700.18.4.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-static-0:1.37.0-150700.18.4.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64"
+        },
+        "product_reference": "busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-0:1.37.0-150700.18.4.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.aarch64"
+        },
+        "product_reference": "busybox-0:1.37.0-150700.18.4.1.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-0:1.37.0-150700.18.4.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.ppc64le"
+        },
+        "product_reference": "busybox-0:1.37.0-150700.18.4.1.ppc64le",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-0:1.37.0-150700.18.4.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.s390x"
+        },
+        "product_reference": "busybox-0:1.37.0-150700.18.4.1.s390x",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-0:1.37.0-150700.18.4.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.x86_64"
+        },
+        "product_reference": "busybox-0:1.37.0-150700.18.4.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-static-0:1.37.0-150700.18.4.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.aarch64"
+        },
+        "product_reference": "busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-static-0:1.37.0-150700.18.4.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.ppc64le"
+        },
+        "product_reference": "busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-static-0:1.37.0-150700.18.4.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.s390x"
+        },
+        "product_reference": "busybox-static-0:1.37.0-150700.18.4.1.s390x",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "busybox-static-0:1.37.0-150700.18.4.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.x86_64"
+        },
+        "product_reference": "busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2023-42363",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-42363"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A use-after-free vulnerability was discovered in xasprintf function in xfuncs_printf.c:344 in BusyBox v.1.36.1.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.aarch64",
+          "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+          "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.s390x",
+          "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.x86_64",
+          "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+          "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+          "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+          "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-42363",
+          "url": "https://www.suse.com/security/cve/CVE-2023-42363"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1217580 for CVE-2023-42363",
+          "url": "https://bugzilla.suse.com/1217580"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-09-12T15:57:30Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2023-42363"
+    },
+    {
+      "cve": "CVE-2023-42364",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-42364"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A use-after-free vulnerability in BusyBox v.1.36.1 allows attackers to cause a denial of service via a crafted awk pattern in the awk.c evaluate function.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.aarch64",
+          "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+          "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.s390x",
+          "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.x86_64",
+          "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+          "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+          "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+          "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-42364",
+          "url": "https://www.suse.com/security/cve/CVE-2023-42364"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1217584 for CVE-2023-42364",
+          "url": "https://bugzilla.suse.com/1217584"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-09-12T15:57:30Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2023-42364"
+    },
+    {
+      "cve": "CVE-2023-42365",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-42365"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A use-after-free vulnerability was discovered in BusyBox v.1.36.1 via a crafted awk pattern in the awk.c copyvar function.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.aarch64",
+          "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+          "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.s390x",
+          "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.x86_64",
+          "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+          "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+          "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+          "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-42365",
+          "url": "https://www.suse.com/security/cve/CVE-2023-42365"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1217585 for CVE-2023-42365",
+          "url": "https://bugzilla.suse.com/1217585"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "Open Enterprise Server 25.4:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "Open Enterprise Server 25.4:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-0:1.37.0-150700.18.4.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:busybox-static-0:1.37.0-150700.18.4.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-09-12T15:57:30Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2023-42365"
+    }
+  ]
+}

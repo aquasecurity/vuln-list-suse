@@ -1,0 +1,566 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for kanidm",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for kanidm fixes the following issues:\n\n- Update to version 1.6.2~git0.a20663ea8:\n  * Release 1.6.2\n  * fix: clippy\n  * maint: typo in log message\n  * Set kid manually to prevent divergence\n  * Order keys in application JWKS / Fix rotation bug\n  * Fix toml issues with strings\n\n- Update to version 1.6.1~git0.2e4429eca:\n  * Release 1.6.1\n  * Resolve reload of oauth2 on startup (#3604)\n\n- CVE-2025-3416: Fixed openssl use after free (boo#1242642)\n\n- Update to version 1.6.0~git0.d7ae0f336:\n  * Release 1.6.0\n  * Avoid openssl for md4\n  * Fixes #3586, inverts the navbar button color (#3593)\n  * Release 1.6.0-pre\n  * chore: Release Notes (#3588)\n  * Do not require instances to exist during optional config load (#3591)\n  * Fix std::fmt::Display for some objects (#3587)\n  * Drop fernet in favour of JWE (#3577)\n  * docs: document how to configure oauth2 for opkssh (#3566)\n  * Add kanidm_ssh_authorizedkeys_direct to client deb (#3585)\n  * Bump the all group in /pykanidm with 2 updates (#3581)\n  * Update dependencies, fix a bunch of clippy lints (#3576)\n  * Support spaces in ssh key comments (#3575)\n  * 20250402 3423 proxy protocol (#3542)\n  * fix(web): Preserve SSH key content on form validation error (#3574)\n  * Bump the all group in /pykanidm with 3 updates (#3572)\n  * Bump the all group in /pykanidm with 2 updates (#3564)\n  * Bump crossbeam-channel from 0.5.14 to 0.5.15 in the cargo group (#3560)\n  * Improve token handling (#3553)\n  * Bump tokio from 1.44.1 to 1.44.2 in the cargo group (#3549)\n  * Update fs4 and improve klock handling (#3551)\n  * Less footguns (#3552)\n  * Unify unix config parser (#3533)\n  * Bump openssl from 0.10.71 to 0.10.72 in the cargo group (#3544)\n  * Bump the all group in /pykanidm with 8 updates (#3547)\n  * implement notify-reload protocol (#3540)\n  * Allow versioning of server configs (#3515)\n  * 20250314 remove protected plugin (#3504)\n  * Bump the all group with 10 updates (#3539)\n  * Bump mozilla-actions/sccache-action from 0.0.8 to 0.0.9 in the all group (#3538)\n  * Bump the all group in /pykanidm with 4 updates (#3537)\n  * Add max_ber_size to freeipa sync (#3530)\n  * Bump the all group in /pykanidm with 5 updates (#3524)\n  * Update Concread\n  * Update developer_ethics.md (#3520)\n  * Update examples.md (#3519)\n  * Make schema indexing a boolean instead of index types (#3517)\n  * Add missing lld dependency and fix syntax typo (#3490)\n  * Update shell.nix to work with stable nixpkgs (#3514)\n  * Improve unixd tasks channel comments (#3510)\n  * Update kanidm_ppa_automation reference to latest (#3512)\n  * Add set-description to group tooling (#3511)\n  * packaging: Add kanidmd deb package, update documentation (#3506)\n  * Bump the all group in /pykanidm with 5 updates (#3508)\n  * 20250313 unixd system cache (#3501)\n  * Support rfc2307 memberUid in sync operations. (#3466)\n  * Bump mozilla-actions/sccache-action from 0.0.7 to 0.0.8 in the all group (#3496)\n  * Update Traefik config example to remove invalid label (#3500)\n  * Add uid/gid allocation table (#3498)\n  * 20250225 ldap testing in testkit (#3460)\n  * Bump the all group in /pykanidm with 5 updates (#3494)\n  * Bump ring from 0.17.10 to 0.17.13 in the cargo group (#3491)\n  * Handle form-post as a response mode (#3467)\n  * book: fix english (#3487)\n  * Correct paths with Kanidm Tools Container (#3486)\n  * 20250225 improve test performance (#3459)\n  * Bump the all group in /pykanidm with 8 updates (#3484)\n  * Use lld by default on linux (#3477)\n  * 20250213 patch used wrong acp (#3432)\n  * Android support (#3475)\n  * Changed all CI/CD builds to locked (#3471)\n  * Make it a bit clearer that providers are needed (#3468)\n  * Fix incorrect credential generation in radius docs (#3465)\n  * Add crypt formats for password import (#3458)\n  * build: Create daemon image from scratch (#3452)\n  * address webfinger doc feedbacks (#3446)\n  * Bump the all group across 1 directory with 5 updates (#3453)\n  * [htmx] Admin ui for groups and users management (#3019)\n  * Fixes #3406: add configurable maximum queryable attributes for LDAP (#3431)\n  * Accept invalid certs and fix token_cache_path (#3439)\n  * Accept lowercase ldap pwd hashes (#3444)\n  * TOTP label verification (#3419)\n  * Rewrite WebFinger docs (#3443)\n  * doc: fix formatting of URL table, remove Caddyfile instructions (#3442)\n  * book: add OAuth2 Proxy example (#3434)\n  * Exempt idm_admin and admin from denied names. (#3429)\n  * Book fixes (#3433)\n  * ci: uniform Docker builds (#3430)\n  * 20240213 3413 domain displayname (#3425)\n  * Correct path to kanidm config example in documentation. (#3424)\n  * Support redirect uris with query parameters (#3422)\n  * Update to 1.6.0-dev (#3418)\n  * Remove white background from square logo. (#3417)\n  * feat: Added webfinger implementation (#3410)\n  * Bump the all group in /pykanidm with 7 updates (#3412)\n\n- Update to version 1.5.0~git2.21c2a1bd0:\n  * fix: documentation fail (#3555)\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-2025-152",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2025_0152-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for openSUSE-SU-2025:0152-1",
+        "url": "https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/2EUIAMLXNYWTKCVT23S2PH3T6GCUDMXN/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for openSUSE-SU-2025:0152-1",
+        "url": "https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/2EUIAMLXNYWTKCVT23S2PH3T6GCUDMXN/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1242642",
+        "url": "https://bugzilla.suse.com/1242642"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-3416 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-3416/"
+      }
+    ],
+    "title": "Security update for kanidm",
+    "tracking": {
+      "current_release_date": "2026-09-20T21:24:09Z",
+      "generator": {
+        "date": "2025-05-12T16:01:48Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2025:0152-1",
+      "initial_release_date": "2025-05-12T16:01:48Z",
+      "revision_history": [
+        {
+          "date": "2025-05-12T16:01:48Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T21:24:09Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+                "product": {
+                  "name": "kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+                  "product_id": "kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kanidm@1.6.2~git0.a20663ea8-bp156.29.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+                "product": {
+                  "name": "kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+                  "product_id": "kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kanidm-clients@1.6.2~git0.a20663ea8-bp156.29.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+                "product": {
+                  "name": "kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+                  "product_id": "kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kanidm-docs@1.6.2~git0.a20663ea8-bp156.29.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+                "product": {
+                  "name": "kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+                  "product_id": "kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kanidm-server@1.6.2~git0.a20663ea8-bp156.29.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+                "product": {
+                  "name": "kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+                  "product_id": "kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kanidm-unixd-clients@1.6.2~git0.a20663ea8-bp156.29.1?arch=aarch64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+                "product": {
+                  "name": "kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+                  "product_id": "kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kanidm@1.6.2~git0.a20663ea8-bp156.29.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+                "product": {
+                  "name": "kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+                  "product_id": "kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kanidm-clients@1.6.2~git0.a20663ea8-bp156.29.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+                "product": {
+                  "name": "kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+                  "product_id": "kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kanidm-docs@1.6.2~git0.a20663ea8-bp156.29.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+                "product": {
+                  "name": "kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+                  "product_id": "kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kanidm-server@1.6.2~git0.a20663ea8-bp156.29.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+                "product": {
+                  "name": "kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+                  "product_id": "kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kanidm-unixd-clients@1.6.2~git0.a20663ea8-bp156.29.1?arch=x86_64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Package Hub 15 SP6",
+                "product": {
+                  "name": "SUSE Package Hub 15 SP6",
+                  "product_id": "SUSE Package Hub 15 SP6"
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 15.6",
+                "product": {
+                  "name": "openSUSE Leap 15.6",
+                  "product_id": "openSUSE Leap 15.6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:opensuse:leap:15.6"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64 as component of SUSE Package Hub 15 SP6",
+          "product_id": "SUSE Package Hub 15 SP6:kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64"
+        },
+        "product_reference": "kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+        "relates_to_product_reference": "SUSE Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64 as component of SUSE Package Hub 15 SP6",
+          "product_id": "SUSE Package Hub 15 SP6:kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64"
+        },
+        "product_reference": "kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+        "relates_to_product_reference": "SUSE Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64 as component of SUSE Package Hub 15 SP6",
+          "product_id": "SUSE Package Hub 15 SP6:kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64"
+        },
+        "product_reference": "kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+        "relates_to_product_reference": "SUSE Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64 as component of SUSE Package Hub 15 SP6",
+          "product_id": "SUSE Package Hub 15 SP6:kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64"
+        },
+        "product_reference": "kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+        "relates_to_product_reference": "SUSE Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64 as component of SUSE Package Hub 15 SP6",
+          "product_id": "SUSE Package Hub 15 SP6:kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64"
+        },
+        "product_reference": "kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+        "relates_to_product_reference": "SUSE Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64 as component of SUSE Package Hub 15 SP6",
+          "product_id": "SUSE Package Hub 15 SP6:kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64"
+        },
+        "product_reference": "kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+        "relates_to_product_reference": "SUSE Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64 as component of SUSE Package Hub 15 SP6",
+          "product_id": "SUSE Package Hub 15 SP6:kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64"
+        },
+        "product_reference": "kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+        "relates_to_product_reference": "SUSE Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64 as component of SUSE Package Hub 15 SP6",
+          "product_id": "SUSE Package Hub 15 SP6:kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64"
+        },
+        "product_reference": "kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+        "relates_to_product_reference": "SUSE Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64 as component of SUSE Package Hub 15 SP6",
+          "product_id": "SUSE Package Hub 15 SP6:kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64"
+        },
+        "product_reference": "kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+        "relates_to_product_reference": "SUSE Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64 as component of SUSE Package Hub 15 SP6",
+          "product_id": "SUSE Package Hub 15 SP6:kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64"
+        },
+        "product_reference": "kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+        "relates_to_product_reference": "SUSE Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64"
+        },
+        "product_reference": "kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64"
+        },
+        "product_reference": "kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64"
+        },
+        "product_reference": "kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64"
+        },
+        "product_reference": "kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64"
+        },
+        "product_reference": "kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64"
+        },
+        "product_reference": "kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64"
+        },
+        "product_reference": "kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64"
+        },
+        "product_reference": "kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64"
+        },
+        "product_reference": "kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64"
+        },
+        "product_reference": "kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-3416",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-3416"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in OpenSSL's handling of the properties argument in certain functions. This vulnerability can allow use-after-free exploitation, which may result in undefined behavior or incorrect property parsing, leading to OpenSSL treating the input as an empty string.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Package Hub 15 SP6:kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+          "SUSE Package Hub 15 SP6:kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+          "SUSE Package Hub 15 SP6:kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+          "SUSE Package Hub 15 SP6:kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+          "SUSE Package Hub 15 SP6:kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+          "SUSE Package Hub 15 SP6:kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+          "SUSE Package Hub 15 SP6:kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+          "SUSE Package Hub 15 SP6:kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+          "SUSE Package Hub 15 SP6:kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+          "SUSE Package Hub 15 SP6:kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+          "openSUSE Leap 15.6:kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+          "openSUSE Leap 15.6:kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+          "openSUSE Leap 15.6:kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+          "openSUSE Leap 15.6:kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+          "openSUSE Leap 15.6:kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+          "openSUSE Leap 15.6:kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+          "openSUSE Leap 15.6:kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+          "openSUSE Leap 15.6:kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+          "openSUSE Leap 15.6:kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+          "openSUSE Leap 15.6:kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-3416",
+          "url": "https://www.suse.com/security/cve/CVE-2025-3416"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1242599 for CVE-2025-3416",
+          "url": "https://bugzilla.suse.com/1242599"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Package Hub 15 SP6:kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+            "SUSE Package Hub 15 SP6:kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+            "SUSE Package Hub 15 SP6:kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+            "SUSE Package Hub 15 SP6:kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+            "SUSE Package Hub 15 SP6:kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+            "SUSE Package Hub 15 SP6:kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+            "SUSE Package Hub 15 SP6:kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+            "SUSE Package Hub 15 SP6:kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+            "SUSE Package Hub 15 SP6:kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+            "SUSE Package Hub 15 SP6:kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+            "openSUSE Leap 15.6:kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+            "openSUSE Leap 15.6:kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+            "openSUSE Leap 15.6:kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+            "openSUSE Leap 15.6:kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+            "openSUSE Leap 15.6:kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+            "openSUSE Leap 15.6:kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+            "openSUSE Leap 15.6:kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+            "openSUSE Leap 15.6:kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+            "openSUSE Leap 15.6:kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+            "openSUSE Leap 15.6:kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 3.7,
+            "baseSeverity": "LOW",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Package Hub 15 SP6:kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+            "SUSE Package Hub 15 SP6:kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+            "SUSE Package Hub 15 SP6:kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+            "SUSE Package Hub 15 SP6:kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+            "SUSE Package Hub 15 SP6:kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+            "SUSE Package Hub 15 SP6:kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+            "SUSE Package Hub 15 SP6:kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+            "SUSE Package Hub 15 SP6:kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+            "SUSE Package Hub 15 SP6:kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+            "SUSE Package Hub 15 SP6:kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+            "openSUSE Leap 15.6:kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+            "openSUSE Leap 15.6:kanidm-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+            "openSUSE Leap 15.6:kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+            "openSUSE Leap 15.6:kanidm-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+            "openSUSE Leap 15.6:kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+            "openSUSE Leap 15.6:kanidm-docs-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+            "openSUSE Leap 15.6:kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+            "openSUSE Leap 15.6:kanidm-server-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64",
+            "openSUSE Leap 15.6:kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.aarch64",
+            "openSUSE Leap 15.6:kanidm-unixd-clients-0:1.6.2~git0.a20663ea8-bp156.29.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-05-12T16:01:48Z",
+          "details": "low"
+        }
+      ],
+      "title": "CVE-2025-3416"
+    }
+  ]
+}

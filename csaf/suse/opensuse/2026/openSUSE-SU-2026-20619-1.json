@@ -1,0 +1,768 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for coredns",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for coredns fixes the following issues:\n\nChanges in coredns:\n\n- Update to version 1.14.2:\n  * plugin/reload: Allow disabling jitter with 0s\n  * bump deps\n  * plugin/forward: fix parsing error when handling TLS+IPv6 address\n  * plugin/loop: use crypto/rand for query name generation\n  * plugin: reorder rewrite before acl to prevent bypass\n  * fix(rewrite): fix cname target rewrite for CNAME chains\n  * fix(kubernetes): panic on empty ListenHosts\n  * chore: bump minimum Go version to 1.25\n  * feat(proxyproto): add proxy protocol support\n  * refactor(cache): modernize with generics\n  * Add metadata for response Type and Class to Log\n  * docs: clarify kubernetes auth docs\n  * fix: return SOA and NS records when queried for a record CNAMEd to origin\n\n- fixes bsc#1259320 CVE-2026-26017\n- fixes bsc#1259319 CVE-2026-26018\n\n- address more unstable unstable tests under aarch64 and s390x\n\n- Update to version 1.14.1:\n  * This release primarily addresses security vulnerabilities affecting Go\n    versions prior to Go 1.25.6 and Go 1.24.12\n    (CVE-2025-61728, CVE-2025-61726, CVE-2025-68121, CVE-2025-61731,\n     CVE-2025-68119).\n     It also includes performance improvements to the proxy plugin via\n     multiplexed connections, along with various documentation updates.\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-212",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_20619-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1259319",
+        "url": "https://bugzilla.suse.com/1259319"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1259320",
+        "url": "https://bugzilla.suse.com/1259320"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-61726 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-61726/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-61728 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-61728/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-61731 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-61731/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-68119 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-68119/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-68121 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-68121/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-26017 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-26017/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-26018 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-26018/"
+      }
+    ],
+    "title": "Security update for coredns",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:31:08Z",
+      "generator": {
+        "date": "2026-04-23T16:09:35Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:20619-1",
+      "initial_release_date": "2026-04-23T16:09:35Z",
+      "revision_history": [
+        {
+          "date": "2026-04-23T16:09:35Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:33:54Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:36:38Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:31:08Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "coredns-0:1.14.2-bp160.1.1.aarch64",
+                "product": {
+                  "name": "coredns-0:1.14.2-bp160.1.1.aarch64",
+                  "product_id": "coredns-0:1.14.2-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:coredns.io:coredns:1.14.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/coredns@1.14.2-bp160.1.1?arch=aarch64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "coredns-extras-0:1.14.2-bp160.1.1.noarch",
+                "product": {
+                  "name": "coredns-extras-0:1.14.2-bp160.1.1.noarch",
+                  "product_id": "coredns-extras-0:1.14.2-bp160.1.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/coredns-extras@1.14.2-bp160.1.1?arch=noarch"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "coredns-0:1.14.2-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "coredns-0:1.14.2-bp160.1.1.ppc64le",
+                  "product_id": "coredns-0:1.14.2-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:coredns.io:coredns:1.14.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/coredns@1.14.2-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "coredns-0:1.14.2-bp160.1.1.x86_64",
+                "product": {
+                  "name": "coredns-0:1.14.2-bp160.1.1.x86_64",
+                  "product_id": "coredns-0:1.14.2-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:coredns.io:coredns:1.14.2:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/coredns@1.14.2-bp160.1.1?arch=x86_64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "coredns-0:1.14.2-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64"
+        },
+        "product_reference": "coredns-0:1.14.2-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "coredns-0:1.14.2-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le"
+        },
+        "product_reference": "coredns-0:1.14.2-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "coredns-0:1.14.2-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64"
+        },
+        "product_reference": "coredns-0:1.14.2-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "coredns-extras-0:1.14.2-bp160.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+        },
+        "product_reference": "coredns-extras-0:1.14.2-bp160.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-61726",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-61726"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The net/url package does not set a limit on the number of query parameters in a query. While the maximum size of query parameters in URLs is generally limited by the maximum request header size, the net/http.Request.ParseForm method can parse large URL-encoded forms. Parsing a large form containing many unique query parameters can cause excessive memory consumption.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-61726",
+          "url": "https://www.suse.com/security/cve/CVE-2025-61726"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1256817 for CVE-2025-61726",
+          "url": "https://bugzilla.suse.com/1256817"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-04-23T16:09:35Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-61726"
+    },
+    {
+      "cve": "CVE-2025-61728",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-61728"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "archive/zip uses a super-linear file name indexing algorithm that is invoked the first time a file in an archive is opened. This can lead to a denial of service when consuming a maliciously constructed ZIP archive.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-61728",
+          "url": "https://www.suse.com/security/cve/CVE-2025-61728"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1256816 for CVE-2025-61728",
+          "url": "https://bugzilla.suse.com/1256816"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-04-23T16:09:35Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-61728"
+    },
+    {
+      "cve": "CVE-2025-61731",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-61731"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Building a malicious file with cmd/go can cause can cause a write to an attacker-controlled file with partial control of the file content. The \"#cgo pkg-config:\" directive in a Go source file provides command-line arguments to provide to the Go pkg-config command. An attacker can provide a \"--log-file\" argument to this directive, causing pkg-config to write to an attacker-controlled location.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-61731",
+          "url": "https://www.suse.com/security/cve/CVE-2025-61731"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1256819 for CVE-2025-61731",
+          "url": "https://bugzilla.suse.com/1256819"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-04-23T16:09:35Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-61731"
+    },
+    {
+      "cve": "CVE-2025-68119",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-68119"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Downloading and building modules with malicious version strings can cause local code execution. On systems with Mercurial (hg) installed, downloading modules from non-standard sources (e.g., custom domains) can cause unexpected code execution due to how external VCS commands are constructed. This issue can also be triggered by providing a malicious version string to the toolchain. On systems with Git installed, downloading and building modules with malicious version strings can allow an attacker to write to arbitrary files on the filesystem. This can only be triggered by explicitly providing the malicious version strings to the toolchain and does not affect usage of @latest or bare module paths.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-68119",
+          "url": "https://www.suse.com/security/cve/CVE-2025-68119"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1256820 for CVE-2025-68119",
+          "url": "https://bugzilla.suse.com/1256820"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-04-23T16:09:35Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-68119"
+    },
+    {
+      "cve": "CVE-2025-68121",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-68121"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "During session resumption in crypto/tls, if the underlying Config has its ClientCAs or RootCAs fields mutated between the initial handshake and the resumed handshake, the resumed handshake may succeed when it should have failed. This may happen when a user calls Config.Clone and mutates the returned Config, or uses Config.GetConfigForClient. This can cause a client to resume a session with a server that it would not have resumed with during the initial handshake, or cause a server to resume a session with a client that it would not have resumed with during the initial handshake.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-68121",
+          "url": "https://www.suse.com/security/cve/CVE-2025-68121"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1256818 for CVE-2025-68121",
+          "url": "https://bugzilla.suse.com/1256818"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268881 for CVE-2025-68121",
+          "url": "https://bugzilla.suse.com/1268881"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.4,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-04-23T16:09:35Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-68121"
+    },
+    {
+      "cve": "CVE-2026-26017",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-26017"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "CoreDNS is a DNS server that chains plugins. Prior to version 1.14.2, a logical vulnerability in CoreDNS allows DNS access controls to be bypassed due to the default execution order of plugins. Security plugins such as acl are evaluated before the rewrite plugin, resulting in a Time-of-Check Time-of-Use (TOCTOU) flaw. This issue has been patched in version 1.14.2.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-26017",
+          "url": "https://www.suse.com/security/cve/CVE-2026-26017"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1259320 for CVE-2026-26017",
+          "url": "https://bugzilla.suse.com/1259320"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-04-23T16:09:35Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-26017"
+    },
+    {
+      "cve": "CVE-2026-26018",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-26018"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "CoreDNS is a DNS server that chains plugins. Prior to version 1.14.2, a denial of service vulnerability exists in CoreDNS's loop detection plugin that allows an attacker to crash the DNS server by sending specially crafted DNS queries. The vulnerability stems from the use of a predictable pseudo-random number generator (PRNG) for generating a secret query name, combined with a fatal error handler that terminates the entire process. This issue has been patched in version 1.14.2.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-26018",
+          "url": "https://www.suse.com/security/cve/CVE-2026-26018"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1259319 for CVE-2026-26018",
+          "url": "https://bugzilla.suse.com/1259319"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:coredns-0:1.14.2-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:coredns-extras-0:1.14.2-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-04-23T16:09:35Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-26018"
+    }
+  ]
+}

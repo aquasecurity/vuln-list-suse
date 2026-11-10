@@ -1,0 +1,1076 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for shim",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "\nThis update for shim fixes the following issues:\n\nshim is updated to version 16.1:\n\n- shim_start_image(): fix guid/handle pairing when uninstalling protocols\n- Fix uncompressed ipv6 netboot\n- fix test segfaults caused by uninitialized memory\n- SbatLevel_Variable.txt: minor typo fix.\n- Realloc() needs to allocate one more byte for sprintf()\n- IPv6: Add more check to avoid multiple double colon and illegal char\n- Loader proto v2\n- loader-protocol: add workaround for EDK2 2025.02 page fault on FreePages\n- Generate Authenticode for the entire PE file\n- README: mention new loader protocol and interaction with UKIs\n- shim: change automatically enable MOK_POLICY_REQUIRE_NX\n- Save var info\n- add SbatLevel entry 2025051000 for PSA-2025-00012-1\n- Coverity fixes 20250804\n- fix http boot\n- Fix double free and leak in the loader protocol\n\n\nshim is updated to version 16.0:\n\n\n- Validate that a supplied vendor cert is not in PEM format\n- sbat: Add grub.peimage,2 to latest (CVE-2024-2312)\n- sbat: Also bump latest for grub,4 (and to todays date)\n- undo change that limits certificate files to a single file\n- shim: don't set second_stage to the empty string\n- Fix SBAT.md for today's consensus about numbers\n- Update Code of Conduct contact address\n- make-certs: Handle missing OpenSSL installation\n- Update MokVars.txt\n- export DEFINES for sub makefile\n- Drop unused EFI_IMAGE_SECURITY_DATABASE_GUID definition\n- Null-terminate 'arguments' in fallback\n- Fix 'Verifiying' typo in error message\n- Update Fedora CI targets\n- Force gcc to produce DWARF4 so that gdb can use it\n- Minor housekeeping 2024121700\n- Discard load-options that start with WINDOWS\n- Fix the issue that the gBS-\u003eLoadImage pointer was empty.\n- shim: Allow data after the end of device path node in load options\n- Handle network file not found like disks\n- Update gnu-efi submodule for EFI_HTTP_ERROR\n- Increase EFI file alignment\n- avoid EFIv2 runtime services on Apple x86 machines\n- Improve shortcut performance when comparing two boolean expressions\n- Provide better error message when MokManager is not found\n- tpm: Boot with a warning if the event log is full\n- MokManager: remove redundant logical constraints\n- Test import_mok_state() when MokListRT would be bigger than available size\n- test-mok-mirror: minor bug fix\n- Fix file system browser hang when enrolling MOK from disk\n- Ignore a minor clang-tidy nit\n- Allow fallback to default loader when encountering errors on network boot\n- test.mk: don't use a temporary random.bin\n- pe: Enhance debug report for update_mem_attrs\n- Multiple certificate handling improvements\n- Generate SbatLevel Metadata from SbatLevel_Variable.txt\n- Apply EKU check with compile option\n- Add configuration option to boot an alternative 2nd stage\n- Loader protocol (with Device Path resolution support)\n- netboot cleanup for additional files\n- Document how revocations can be delivered\n- post-process-pe: add tests to validate NX compliance\n- regression: CopyMem() in ad8692e copies out of bounds\n- Save the debug and error logs in mok-variables\n- Add features for the Host Security ID program\n- Mirror some more efi variables to mok-variables\n- This adds DXE Services measurements to HSI and uses them for NX\n- Add shim's current NX_COMPAT status to HSIStatus\n- README.tpm: reflect that vendor_db is in fact logged as 'vendor_db'\n- Reject HTTP message with duplicate Content-Length header fields\n- Disable log saving\n- fallback: don't add new boot order entries backwards\n- README.tpm: Update MokList entry to MokListRT\n- SBAT Level update for February 2025 GRUB CVEs\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2026-741,SUSE-SLE-Micro-5.3-2026-741,SUSE-SLE-Micro-5.4-2026-741,SUSE-SLE-Micro-5.5-2026-741,SUSE-SLE-Module-Basesystem-15-SP7-2026-741,SUSE-SLE-Product-HPC-15-SP4-ESPOS-2026-741,SUSE-SLE-Product-HPC-15-SP4-LTSS-2026-741,SUSE-SLE-Product-HPC-15-SP5-ESPOS-2026-741,SUSE-SLE-Product-HPC-15-SP5-LTSS-2026-741,SUSE-SLE-Product-SLES-15-SP4-LTSS-2026-741,SUSE-SLE-Product-SLES-15-SP5-LTSS-2026-741,SUSE-SLE-Product-SLES_SAP-15-SP4-2026-741,SUSE-SLE-Product-SLES_SAP-15-SP5-2026-741,SUSE-SUSE-MicroOS-5.2-2026-741,openSUSE-SLE-15.6-2026-741",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2026_0741-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2026:0741-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-20260741-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2026:0741-1",
+        "url": "https://lists.suse.com/pipermail/sle-security-updates/2026-March/024522.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1240871",
+        "url": "https://bugzilla.suse.com/1240871"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1247432",
+        "url": "https://bugzilla.suse.com/1247432"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-2312 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-2312/"
+      }
+    ],
+    "title": "Security update for shim",
+    "tracking": {
+      "current_release_date": "2026-09-17T14:50:02Z",
+      "generator": {
+        "date": "2026-03-02T08:11:15Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2026:0741-1",
+      "initial_release_date": "2026-03-02T08:11:15Z",
+      "revision_history": [
+        {
+          "date": "2026-03-02T08:11:15Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T18:20:52Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T19:07:15Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T14:50:02Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "shim-0:16.1-150300.4.31.3.aarch64",
+                "product": {
+                  "name": "shim-0:16.1-150300.4.31.3.aarch64",
+                  "product_id": "shim-0:16.1-150300.4.31.3.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:redhat:shim:16.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/shim@16.1-150300.4.31.3?arch=aarch64\u0026upstream=shim-0:16.1-150300.4.31.3.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "shim-0:16.1-150300.4.31.3.x86_64",
+                "product": {
+                  "name": "shim-0:16.1-150300.4.31.3.x86_64",
+                  "product_id": "shim-0:16.1-150300.4.31.3.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:redhat:shim:16.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/shim@16.1-150300.4.31.3?arch=x86_64\u0026upstream=shim-0:16.1-150300.4.31.3.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Micro 5.3",
+                "product": {
+                  "name": "SUSE Linux Enterprise Micro 5.3",
+                  "product_id": "SUSE Linux Enterprise Micro 5.3",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-micro:5.3"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Micro 5.4",
+                "product": {
+                  "name": "SUSE Linux Enterprise Micro 5.4",
+                  "product_id": "SUSE Linux Enterprise Micro 5.4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-micro:5.4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Micro 5.5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Micro 5.5",
+                  "product_id": "SUSE Linux Enterprise Micro 5.5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-micro:5.5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-basesystem:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Desktop 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Desktop 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Desktop 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sled:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "Open Enterprise Server 25.4",
+                "product": {
+                  "name": "Open Enterprise Server 25.4",
+                  "product_id": "Open Enterprise Server 25.4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:novell,inc:OES:25.4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc-espos:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc-ltss:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP4",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP4",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc-espos:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc-ltss:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 15 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 15 SP5",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle_hpc:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles-ltss:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP4",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP4",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "Open Enterprise Server 23.4",
+                "product": {
+                  "name": "Open Enterprise Server 23.4",
+                  "product_id": "Open Enterprise Server 23.4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:novell,inc:OES:23.4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "Open Enterprise Server 24.4",
+                "product": {
+                  "name": "Open Enterprise Server 24.4",
+                  "product_id": "Open Enterprise Server 24.4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:novell,inc:OES:24.4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles-ltss:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP5",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Micro 5.2",
+                "product": {
+                  "name": "SUSE Linux Enterprise Micro 5.2",
+                  "product_id": "SUSE Linux Enterprise Micro 5.2",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:suse-microos:5.2"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 15.6",
+                "product": {
+                  "name": "openSUSE Leap 15.6",
+                  "product_id": "openSUSE Leap 15.6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:opensuse:leap:15.6"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise Micro 5.3",
+          "product_id": "SUSE Linux Enterprise Micro 5.3:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise Micro 5.3",
+          "product_id": "SUSE Linux Enterprise Micro 5.3:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.3"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise Micro 5.4",
+          "product_id": "SUSE Linux Enterprise Micro 5.4:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise Micro 5.4",
+          "product_id": "SUSE Linux Enterprise Micro 5.4:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP4:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 15 SP5:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4-LTSS:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP4:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP4:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 23.4:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 23.4:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 23.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 24.4:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise Server 15 SP4-LTSS",
+          "product_id": "Open Enterprise Server 24.4:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 24.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5-LTSS:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP5:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise Server 15 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP5:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of SUSE Linux Enterprise Micro 5.2",
+          "product_id": "SUSE Linux Enterprise Micro 5.2:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of SUSE Linux Enterprise Micro 5.2",
+          "product_id": "SUSE Linux Enterprise Micro 5.2:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.2"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.aarch64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:shim-0:16.1-150300.4.31.3.aarch64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "shim-0:16.1-150300.4.31.3.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:shim-0:16.1-150300.4.31.3.x86_64"
+        },
+        "product_reference": "shim-0:16.1-150300.4.31.3.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2024-2312",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-2312"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "GRUB2 does not call the module fini functions on exit, leading to Debian/Ubuntu's peimage GRUB2 module leaving UEFI system table hooks after exit. This lead to a use-after-free condition, and could possibly lead to secure boot bypass.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 23.4:shim-0:16.1-150300.4.31.3.aarch64",
+          "Open Enterprise Server 23.4:shim-0:16.1-150300.4.31.3.x86_64",
+          "Open Enterprise Server 24.4:shim-0:16.1-150300.4.31.3.aarch64",
+          "Open Enterprise Server 24.4:shim-0:16.1-150300.4.31.3.x86_64",
+          "Open Enterprise Server 25.4:shim-0:16.1-150300.4.31.3.aarch64",
+          "Open Enterprise Server 25.4:shim-0:16.1-150300.4.31.3.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:shim-0:16.1-150300.4.31.3.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:shim-0:16.1-150300.4.31.3.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:shim-0:16.1-150300.4.31.3.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:shim-0:16.1-150300.4.31.3.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:shim-0:16.1-150300.4.31.3.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:shim-0:16.1-150300.4.31.3.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:shim-0:16.1-150300.4.31.3.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP4:shim-0:16.1-150300.4.31.3.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:shim-0:16.1-150300.4.31.3.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:shim-0:16.1-150300.4.31.3.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:shim-0:16.1-150300.4.31.3.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:shim-0:16.1-150300.4.31.3.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:shim-0:16.1-150300.4.31.3.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 15 SP5:shim-0:16.1-150300.4.31.3.x86_64",
+          "SUSE Linux Enterprise Micro 5.2:shim-0:16.1-150300.4.31.3.aarch64",
+          "SUSE Linux Enterprise Micro 5.2:shim-0:16.1-150300.4.31.3.x86_64",
+          "SUSE Linux Enterprise Micro 5.3:shim-0:16.1-150300.4.31.3.aarch64",
+          "SUSE Linux Enterprise Micro 5.3:shim-0:16.1-150300.4.31.3.x86_64",
+          "SUSE Linux Enterprise Micro 5.4:shim-0:16.1-150300.4.31.3.aarch64",
+          "SUSE Linux Enterprise Micro 5.4:shim-0:16.1-150300.4.31.3.x86_64",
+          "SUSE Linux Enterprise Micro 5.5:shim-0:16.1-150300.4.31.3.aarch64",
+          "SUSE Linux Enterprise Micro 5.5:shim-0:16.1-150300.4.31.3.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:shim-0:16.1-150300.4.31.3.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:shim-0:16.1-150300.4.31.3.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:shim-0:16.1-150300.4.31.3.aarch64",
+          "SUSE Linux Enterprise Server 15 SP4-LTSS:shim-0:16.1-150300.4.31.3.x86_64",
+          "SUSE Linux Enterprise Server 15 SP4:shim-0:16.1-150300.4.31.3.aarch64",
+          "SUSE Linux Enterprise Server 15 SP4:shim-0:16.1-150300.4.31.3.x86_64",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:shim-0:16.1-150300.4.31.3.aarch64",
+          "SUSE Linux Enterprise Server 15 SP5-LTSS:shim-0:16.1-150300.4.31.3.x86_64",
+          "SUSE Linux Enterprise Server 15 SP5:shim-0:16.1-150300.4.31.3.aarch64",
+          "SUSE Linux Enterprise Server 15 SP5:shim-0:16.1-150300.4.31.3.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:shim-0:16.1-150300.4.31.3.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:shim-0:16.1-150300.4.31.3.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:shim-0:16.1-150300.4.31.3.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP4:shim-0:16.1-150300.4.31.3.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:shim-0:16.1-150300.4.31.3.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP5:shim-0:16.1-150300.4.31.3.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:shim-0:16.1-150300.4.31.3.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:shim-0:16.1-150300.4.31.3.x86_64",
+          "openSUSE Leap 15.6:shim-0:16.1-150300.4.31.3.aarch64",
+          "openSUSE Leap 15.6:shim-0:16.1-150300.4.31.3.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-2312",
+          "url": "https://www.suse.com/security/cve/CVE-2024-2312"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1222868 for CVE-2024-2312",
+          "url": "https://bugzilla.suse.com/1222868"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 23.4:shim-0:16.1-150300.4.31.3.aarch64",
+            "Open Enterprise Server 23.4:shim-0:16.1-150300.4.31.3.x86_64",
+            "Open Enterprise Server 24.4:shim-0:16.1-150300.4.31.3.aarch64",
+            "Open Enterprise Server 24.4:shim-0:16.1-150300.4.31.3.x86_64",
+            "Open Enterprise Server 25.4:shim-0:16.1-150300.4.31.3.aarch64",
+            "Open Enterprise Server 25.4:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Micro 5.2:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Micro 5.2:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Micro 5.3:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Micro 5.4:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Micro 5.5:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Micro 5.5:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:shim-0:16.1-150300.4.31.3.x86_64",
+            "openSUSE Leap 15.6:shim-0:16.1-150300.4.31.3.aarch64",
+            "openSUSE Leap 15.6:shim-0:16.1-150300.4.31.3.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.7,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 23.4:shim-0:16.1-150300.4.31.3.aarch64",
+            "Open Enterprise Server 23.4:shim-0:16.1-150300.4.31.3.x86_64",
+            "Open Enterprise Server 24.4:shim-0:16.1-150300.4.31.3.aarch64",
+            "Open Enterprise Server 24.4:shim-0:16.1-150300.4.31.3.x86_64",
+            "Open Enterprise Server 25.4:shim-0:16.1-150300.4.31.3.aarch64",
+            "Open Enterprise Server 25.4:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-ESPOS:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4-LTSS:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP4:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-ESPOS:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5-LTSS:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 15 SP5:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Micro 5.2:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Micro 5.2:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Micro 5.3:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Micro 5.3:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Micro 5.4:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Micro 5.4:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Micro 5.5:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Micro 5.5:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4-LTSS:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Server 15 SP4:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Server 15 SP4:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5-LTSS:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Server 15 SP5:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Server 15 SP5:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP4:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP5:shim-0:16.1-150300.4.31.3.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:shim-0:16.1-150300.4.31.3.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:shim-0:16.1-150300.4.31.3.x86_64",
+            "openSUSE Leap 15.6:shim-0:16.1-150300.4.31.3.aarch64",
+            "openSUSE Leap 15.6:shim-0:16.1-150300.4.31.3.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-03-02T08:11:15Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-2312"
+    }
+  ]
+}

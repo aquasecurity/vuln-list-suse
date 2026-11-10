@@ -1,0 +1,387 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for git-lfs",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for git-lfs fixes the following issues:\n\nUpdate to 3.6.1: (boo#1235876):\n\n  This release introduces a security fix for all platforms, which\n  has been assigned CVE-2024-53263.\n\n  When requesting credentials from Git for a remote host, prior\n  versions of Git LFS passed portions of the host's URL to the\n  git-credential(1) command without checking for embedded\n  line-ending control characters, and then sent any credentials\n  received back from the Git credential helper to the remote host.\n  By inserting URL-encoded control characters such as line feed\n  (LF) or carriage return (CR) characters into the URL, an attacker\n  might have been able to retrieve a user's Git credentials.\n  Git LFS now prevents bare line feed (LF) characters from being\n  included in the values sent to the git-credential(1) command, and\n  also prevents bare carriage return (CR) characters from being\n  included unless the credential.protectProtocol configuration\n  option is set to a value equivalent to false.\n\n  * Bugs\n\n    - Reject bare line-ending control characters in Git credential\n      requests (@chrisd8088)\n\nupdate to version 3.6.0:\n\n- https://github.com/git-lfs/git-lfs/releases/tag/v3.6.0\n\nupdate to 3.5.1:\n\n  * Build release assets with Go 1.21 #5668 (@bk2204)\n  * script/packagecloud: instantiate distro map properly #5662\n    (@bk2204)\n  * Install msgfmt on Windows in CI and release workflows\n    #5666 (@chrisd8088)\n\nupdate to version 3.4.1:\n\n- https://github.com/git-lfs/git-lfs/releases/tag/v3.4.1\n\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-2025-153",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2025_0153-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for openSUSE-SU-2025:0153-1",
+        "url": "https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/DUJEMV422T3LAPI4DRX6RNNLCCUYCIHN/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for openSUSE-SU-2025:0153-1",
+        "url": "https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/thread/DUJEMV422T3LAPI4DRX6RNNLCCUYCIHN/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1235876",
+        "url": "https://bugzilla.suse.com/1235876"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-53263 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-53263/"
+      }
+    ],
+    "title": "Security update for git-lfs",
+    "tracking": {
+      "current_release_date": "2026-09-20T21:24:10Z",
+      "generator": {
+        "date": "2025-05-12T16:01:51Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2025:0153-1",
+      "initial_release_date": "2025-05-12T16:01:51Z",
+      "revision_history": [
+        {
+          "date": "2025-05-12T16:01:51Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T21:24:10Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "git-lfs-0:3.6.1-bp156.2.3.1.aarch64",
+                "product": {
+                  "name": "git-lfs-0:3.6.1-bp156.2.3.1.aarch64",
+                  "product_id": "git-lfs-0:3.6.1-bp156.2.3.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/git-lfs@3.6.1-bp156.2.3.1?arch=aarch64\u0026upstream=git-lfs-0:3.6.1-bp156.2.3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "git-lfs-0:3.6.1-bp156.2.3.1.i586",
+                "product": {
+                  "name": "git-lfs-0:3.6.1-bp156.2.3.1.i586",
+                  "product_id": "git-lfs-0:3.6.1-bp156.2.3.1.i586",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/git-lfs@3.6.1-bp156.2.3.1?arch=i586\u0026upstream=git-lfs-0:3.6.1-bp156.2.3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "i586"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "git-lfs-0:3.6.1-bp156.2.3.1.ppc64le",
+                "product": {
+                  "name": "git-lfs-0:3.6.1-bp156.2.3.1.ppc64le",
+                  "product_id": "git-lfs-0:3.6.1-bp156.2.3.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/git-lfs@3.6.1-bp156.2.3.1?arch=ppc64le\u0026upstream=git-lfs-0:3.6.1-bp156.2.3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "git-lfs-0:3.6.1-bp156.2.3.1.s390x",
+                "product": {
+                  "name": "git-lfs-0:3.6.1-bp156.2.3.1.s390x",
+                  "product_id": "git-lfs-0:3.6.1-bp156.2.3.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/git-lfs@3.6.1-bp156.2.3.1?arch=s390x\u0026upstream=git-lfs-0:3.6.1-bp156.2.3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "git-lfs-0:3.6.1-bp156.2.3.1.x86_64",
+                "product": {
+                  "name": "git-lfs-0:3.6.1-bp156.2.3.1.x86_64",
+                  "product_id": "git-lfs-0:3.6.1-bp156.2.3.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/git-lfs@3.6.1-bp156.2.3.1?arch=x86_64\u0026upstream=git-lfs-0:3.6.1-bp156.2.3.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Package Hub 15 SP6",
+                "product": {
+                  "name": "SUSE Package Hub 15 SP6",
+                  "product_id": "SUSE Package Hub 15 SP6"
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 15.6",
+                "product": {
+                  "name": "openSUSE Leap 15.6",
+                  "product_id": "openSUSE Leap 15.6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:opensuse:leap:15.6"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "git-lfs-0:3.6.1-bp156.2.3.1.aarch64 as component of SUSE Package Hub 15 SP6",
+          "product_id": "SUSE Package Hub 15 SP6:git-lfs-0:3.6.1-bp156.2.3.1.aarch64"
+        },
+        "product_reference": "git-lfs-0:3.6.1-bp156.2.3.1.aarch64",
+        "relates_to_product_reference": "SUSE Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "git-lfs-0:3.6.1-bp156.2.3.1.i586 as component of SUSE Package Hub 15 SP6",
+          "product_id": "SUSE Package Hub 15 SP6:git-lfs-0:3.6.1-bp156.2.3.1.i586"
+        },
+        "product_reference": "git-lfs-0:3.6.1-bp156.2.3.1.i586",
+        "relates_to_product_reference": "SUSE Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "git-lfs-0:3.6.1-bp156.2.3.1.ppc64le as component of SUSE Package Hub 15 SP6",
+          "product_id": "SUSE Package Hub 15 SP6:git-lfs-0:3.6.1-bp156.2.3.1.ppc64le"
+        },
+        "product_reference": "git-lfs-0:3.6.1-bp156.2.3.1.ppc64le",
+        "relates_to_product_reference": "SUSE Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "git-lfs-0:3.6.1-bp156.2.3.1.s390x as component of SUSE Package Hub 15 SP6",
+          "product_id": "SUSE Package Hub 15 SP6:git-lfs-0:3.6.1-bp156.2.3.1.s390x"
+        },
+        "product_reference": "git-lfs-0:3.6.1-bp156.2.3.1.s390x",
+        "relates_to_product_reference": "SUSE Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "git-lfs-0:3.6.1-bp156.2.3.1.x86_64 as component of SUSE Package Hub 15 SP6",
+          "product_id": "SUSE Package Hub 15 SP6:git-lfs-0:3.6.1-bp156.2.3.1.x86_64"
+        },
+        "product_reference": "git-lfs-0:3.6.1-bp156.2.3.1.x86_64",
+        "relates_to_product_reference": "SUSE Package Hub 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "git-lfs-0:3.6.1-bp156.2.3.1.aarch64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:git-lfs-0:3.6.1-bp156.2.3.1.aarch64"
+        },
+        "product_reference": "git-lfs-0:3.6.1-bp156.2.3.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "git-lfs-0:3.6.1-bp156.2.3.1.i586 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:git-lfs-0:3.6.1-bp156.2.3.1.i586"
+        },
+        "product_reference": "git-lfs-0:3.6.1-bp156.2.3.1.i586",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "git-lfs-0:3.6.1-bp156.2.3.1.ppc64le as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:git-lfs-0:3.6.1-bp156.2.3.1.ppc64le"
+        },
+        "product_reference": "git-lfs-0:3.6.1-bp156.2.3.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "git-lfs-0:3.6.1-bp156.2.3.1.s390x as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:git-lfs-0:3.6.1-bp156.2.3.1.s390x"
+        },
+        "product_reference": "git-lfs-0:3.6.1-bp156.2.3.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "git-lfs-0:3.6.1-bp156.2.3.1.x86_64 as component of openSUSE Leap 15.6",
+          "product_id": "openSUSE Leap 15.6:git-lfs-0:3.6.1-bp156.2.3.1.x86_64"
+        },
+        "product_reference": "git-lfs-0:3.6.1-bp156.2.3.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 15.6"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2024-53263",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-53263"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Git LFS is a Git extension for versioning large files. When Git LFS requests credentials from Git for a remote host, it passes portions of the host's URL to the `git-credential(1)` command without checking for embedded line-ending control characters, and then sends any credentials it receives back from the Git credential helper to the remote host. By inserting URL-encoded control characters such as line feed (LF) or carriage return (CR) characters into the URL, an attacker may be able to retrieve a user's Git credentials. This problem exists in all previous versions and is patched in v3.6.1. All users should upgrade to v3.6.1. There are no workarounds known at this time.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Package Hub 15 SP6:git-lfs-0:3.6.1-bp156.2.3.1.aarch64",
+          "SUSE Package Hub 15 SP6:git-lfs-0:3.6.1-bp156.2.3.1.i586",
+          "SUSE Package Hub 15 SP6:git-lfs-0:3.6.1-bp156.2.3.1.ppc64le",
+          "SUSE Package Hub 15 SP6:git-lfs-0:3.6.1-bp156.2.3.1.s390x",
+          "SUSE Package Hub 15 SP6:git-lfs-0:3.6.1-bp156.2.3.1.x86_64",
+          "openSUSE Leap 15.6:git-lfs-0:3.6.1-bp156.2.3.1.aarch64",
+          "openSUSE Leap 15.6:git-lfs-0:3.6.1-bp156.2.3.1.i586",
+          "openSUSE Leap 15.6:git-lfs-0:3.6.1-bp156.2.3.1.ppc64le",
+          "openSUSE Leap 15.6:git-lfs-0:3.6.1-bp156.2.3.1.s390x",
+          "openSUSE Leap 15.6:git-lfs-0:3.6.1-bp156.2.3.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-53263",
+          "url": "https://www.suse.com/security/cve/CVE-2024-53263"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1235876 for CVE-2024-53263",
+          "url": "https://bugzilla.suse.com/1235876"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Package Hub 15 SP6:git-lfs-0:3.6.1-bp156.2.3.1.aarch64",
+            "SUSE Package Hub 15 SP6:git-lfs-0:3.6.1-bp156.2.3.1.i586",
+            "SUSE Package Hub 15 SP6:git-lfs-0:3.6.1-bp156.2.3.1.ppc64le",
+            "SUSE Package Hub 15 SP6:git-lfs-0:3.6.1-bp156.2.3.1.s390x",
+            "SUSE Package Hub 15 SP6:git-lfs-0:3.6.1-bp156.2.3.1.x86_64",
+            "openSUSE Leap 15.6:git-lfs-0:3.6.1-bp156.2.3.1.aarch64",
+            "openSUSE Leap 15.6:git-lfs-0:3.6.1-bp156.2.3.1.i586",
+            "openSUSE Leap 15.6:git-lfs-0:3.6.1-bp156.2.3.1.ppc64le",
+            "openSUSE Leap 15.6:git-lfs-0:3.6.1-bp156.2.3.1.s390x",
+            "openSUSE Leap 15.6:git-lfs-0:3.6.1-bp156.2.3.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-05-12T16:01:51Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-53263"
+    }
+  ]
+}

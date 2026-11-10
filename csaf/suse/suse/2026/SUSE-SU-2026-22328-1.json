@@ -1,0 +1,550 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for google-cloud-sap-agent",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for google-cloud-sap-agent fixes the following issues\n\n- CVE-2026-33814: golang.org/x/net/http2: infinite loop in HTTP/2 transport when given bad SETTINGS_MAX_FRAME_SIZE\n  (bsc#1265764).\n- CVE-2026-39821: golang.org/x/net/idna: failure to reject ASCII-only Punycode-encoded labels allows for validation\n  bypass and privilege escalation (bsc#1266604).\n\nChanges for google-cloud-sap-agent:\n\n- Update to version 3.15\n\n * Remove LoggingClient error failure for hanadiskrestore and hanadiskbackup.\n * Add checks for unexpected arguments in hanadiskbackup and hanadiskrestore.\n * Update SAP Agent version to 3.15.\n * Refactor grubBootLoaderX5 to check for BLS support via grub2-mkconfig help.\n * Update all go dependencies\n * Check grub2-mkconfig for BLS support on X4 instances.\n * Add tenant SID collection to supportbundle.\n * Update golang.org/x/net dependency. This is to address (#444)\n * Fork tuned.conf to tuned-x5.conf for X5 series configurations\n * Enable configureX5 in configureinstance.\n * Create skeleton implementation and tests for X5 configureinstance support.\n * Enable detection of x5 machine types in configureinstance\n\n- Update to version 3.14 (bsc#1265991)\n\n * Update Daemon Restart method to pass the correct cancel function to the new handler.\n * Remove redundant error logging in HANA disk restore.\n * Fetch and rename Logical Volume during HANA disk restore.\n * Add usage metrics for CMEK disk restore.\n * Add multi-region and global KMS keys location checks.\n * Convert HANA SID to uppercase in hanadiskbackup and hanadiskrestore.\n * Log warning instead of erroring out on KMS key get failure.\n * Initialize GCE client in status onetime command.\n * Validate presence of KMS key in hanadiskrestore.\n * Add SID parameter to HANA backup/restore path functions.\n * Add KMS key location validation for HANA disk restore.\n * Update agent version to 3.14.\n * Fixes an issue if there is a whitespace around an argument passed in\n * Add validation to prevent using both CSEK and KMS keys in hanadiskrestore.\n * Handle disk recreation in HANA disk restore when IOPS, throughput, size, or KMS key are specified.\n * Refactor disk restore and configuration logic.\n * Add support for CMEK encryption of restored disks.\n * Remove obsolete TODOs.\n\n- Update to version 3.13\n\n * Replace strings.TrimSuffix with strings.TrimSpace in hanabackup.go\n * Improve error messages in hanabackup.go.\n * Add system state logging and logical device verification.\n * Minor version bump\n * Improve SAP instance comparison for process metrics collectors to\n prevent unnecessary restarts of collectors.\n * Delete supportbundlehandler package.\n * Remove configurehandler from sapguestactions.\n * Delete hanadiskbackuphandler from sapguestactions.\n * Remove Guest Actions and GCBDR Actions from initial daemon start.\n * Remove `gsutil` check from collection definition.\n * Delete performancediagnosticshandler package.\n * Remove unused handlers and shell command execution.\n * status feature fixes - pass secret name\n * Fix an issue in system discovery if discovering a network fails,\n particularly due to an IAM permission error.\n * Add verification for HANA data volume state after disk restore.\n * Error handling for rescanVolumegroups and improved logging.\n * Add link to What's New page in the sapagent README.\n * Add secret manager IAM checks if secret key is preset in status\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-SLES-16.0-1022",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2026_22328-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2026:22328-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-202622328-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2026:22328-1",
+        "url": "https://lists.suse.com/pipermail/sle-updates/2026-July/047811.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1265764",
+        "url": "https://bugzilla.suse.com/1265764"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1265991",
+        "url": "https://bugzilla.suse.com/1265991"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1266604",
+        "url": "https://bugzilla.suse.com/1266604"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-33186 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-33186/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-33814 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-33814/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-34986 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-34986/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39821 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39821/"
+      }
+    ],
+    "title": "Security update for google-cloud-sap-agent",
+    "tracking": {
+      "current_release_date": "2026-09-17T15:57:19Z",
+      "generator": {
+        "date": "2026-06-22T14:41:38Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2026:22328-1",
+      "initial_release_date": "2026-06-22T14:41:38Z",
+      "revision_history": [
+        {
+          "date": "2026-06-22T14:41:38Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T19:10:19Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T19:59:38Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T15:57:19Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+                "product": {
+                  "name": "google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+                  "product_id": "google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/google-cloud-sap-agent@3.15-160000.1.1?arch=aarch64\u0026upstream=google-cloud-sap-agent-0:3.15-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "google-cloud-sap-agent-0:3.15-160000.1.1.x86_64",
+                "product": {
+                  "name": "google-cloud-sap-agent-0:3.15-160000.1.1.x86_64",
+                  "product_id": "google-cloud-sap-agent-0:3.15-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/google-cloud-sap-agent@3.15-160000.1.1?arch=x86_64\u0026upstream=google-cloud-sap-agent-0:3.15-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 16.0",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 16.0",
+                  "product_id": "SUSE Linux Enterprise Server 16.0",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:16:16.0:server"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP applications 16.0",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP applications 16.0",
+                  "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:16:16.0:server-sap"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-cloud-sap-agent-0:3.15-160000.1.1.aarch64 as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64"
+        },
+        "product_reference": "google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-cloud-sap-agent-0:3.15-160000.1.1.x86_64 as component of SUSE Linux Enterprise Server 16.0",
+          "product_id": "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64"
+        },
+        "product_reference": "google-cloud-sap-agent-0:3.15-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-cloud-sap-agent-0:3.15-160000.1.1.aarch64 as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64"
+        },
+        "product_reference": "google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "google-cloud-sap-agent-0:3.15-160000.1.1.x86_64 as component of SUSE Linux Enterprise Server for SAP applications 16.0",
+          "product_id": "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64"
+        },
+        "product_reference": "google-cloud-sap-agent-0:3.15-160000.1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP applications 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-33186",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-33186"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "gRPC-Go is the Go language implementation of gRPC. Versions prior to 1.79.3 have an authorization bypass resulting from improper input validation of the HTTP/2 `:path` pseudo-header. The gRPC-Go server was too lenient in its routing logic, accepting requests where the `:path` omitted the mandatory leading slash (e.g., `Service/Method` instead of `/Service/Method`). While the server successfully routed these requests to the correct handler, authorization interceptors (including the official `grpc/authz` package) evaluated the raw, non-canonical path string. Consequently, \"deny\" rules defined using canonical paths (starting with `/`) failed to match the incoming request, allowing it to bypass the policy if a fallback \"allow\" rule was present. This affects gRPC-Go servers that use path-based authorization interceptors, such as the official RBAC implementation in `google.golang.org/grpc/authz` or custom interceptors relying on `info.FullMethod` or `grpc.Method(ctx)`; AND that have a security policy contains specific \"deny\" rules for canonical paths but allows other requests by default (a fallback \"allow\" rule). The vulnerability is exploitable by an attacker who can send raw HTTP/2 frames with malformed `:path` headers directly to the gRPC server. The fix in version 1.79.3 ensures that any request with a `:path` that does not start with a leading slash is immediately rejected with a `codes.Unimplemented` error, preventing it from reaching authorization interceptors or handlers with a non-canonical path string. While upgrading is the most secure and recommended path, users can mitigate the vulnerability using one of the following methods: Use a validating interceptor (recommended mitigation); infrastructure-level normalization; and/or policy hardening.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-33186",
+          "url": "https://www.suse.com/security/cve/CVE-2026-33186"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1260085 for CVE-2026-33186",
+          "url": "https://bugzilla.suse.com/1260085"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268676 for CVE-2026-33186",
+          "url": "https://bugzilla.suse.com/1268676"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-22T14:41:38Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-33186"
+    },
+    {
+      "cve": "CVE-2026-33814",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-33814"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "When processing HTTP/2 SETTINGS frames, transport will enter an infinite loop of writing CONTINUATION frames if it receives a SETTINGS_MAX_FRAME_SIZE with a value of 0.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-33814",
+          "url": "https://www.suse.com/security/cve/CVE-2026-33814"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1264506 for CVE-2026-33814",
+          "url": "https://bugzilla.suse.com/1264506"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268758 for CVE-2026-33814",
+          "url": "https://bugzilla.suse.com/1268758"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-22T14:41:38Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-33814"
+    },
+    {
+      "cve": "CVE-2026-34986",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-34986"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Go JOSE provides an implementation of the Javascript Object Signing and Encryption set of standards in Go, including support for JSON Web Encryption (JWE), JSON Web Signature (JWS), and JSON Web Token (JWT) standards. Prior to 4.1.4 and 3.0.5, decrypting a JSON Web Encryption (JWE) object will panic if the alg field indicates a key wrapping algorithm (one ending in KW, with the exception of A128GCMKW, A192GCMKW, and A256GCMKW) and the encrypted_key field is empty. The panic happens when cipher.KeyUnwrap() in key_wrap.go attempts to allocate a slice with a zero or negative length based on the length of the encrypted_key. This code path is reachable from ParseEncrypted() / ParseEncryptedJSON() / ParseEncryptedCompact() followed by Decrypt() on the resulting object. Note that the parse functions take a list of accepted key algorithms. If the accepted key algorithms do not include any key wrapping algorithms, parsing will fail and the application will be unaffected. This panic is also reachable by calling cipher.KeyUnwrap() directly with any ciphertext parameter less than 16 bytes long, but calling this function directly is less common. Panics can lead to denial of service. This vulnerability is fixed in 4.1.4 and 3.0.5.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-34986",
+          "url": "https://www.suse.com/security/cve/CVE-2026-34986"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1262805 for CVE-2026-34986",
+          "url": "https://bugzilla.suse.com/1262805"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-22T14:41:38Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-34986"
+    },
+    {
+      "cve": "CVE-2026-39821",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39821"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The ToASCII and ToUnicode functions incorrectly accept Punycode-encoded labels that decode to an ASCII-only label. For example, ToUnicode(\"xn--example-.com\") incorrectly returns the name \"example.com\" rather than an error. This behavior can lead to privilege escalation in programs using the idna package. For example, a program which performs privilege checks on the ASCII hostname may reject \"example.com\" but permit \"xn--example-.com\". If that program subsequently converts the ASCII hostname to Unicode, it will inadvertently permits access to the Unicode name \"example.com\".",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39821",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39821"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266474 for CVE-2026-39821",
+          "url": "https://bugzilla.suse.com/1266474"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.4,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP applications 16.0:google-cloud-sap-agent-0:3.15-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-22T14:41:38Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39821"
+    }
+  ]
+}

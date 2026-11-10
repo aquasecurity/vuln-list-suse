@@ -1,0 +1,1639 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for gnome-online-accounts, gvfs",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for gnome-online-accounts, gvfs fixes the following issues:\n\nChanges for gvfs:\n\nUpdate gvfs to 1.59.90:\n\n- CVE-2026-28295: information disclosure when processing untrusted PASV responses from FTP servers (bsc#1258953).\n- CVE-2026-28296: arbitrary FTP command injection due to unsanitized CRLF sequences in user supplied file paths\n  (bsc#1258954).\n\nChangelog:\n\nUpdate to version 1.59.90:\n\n + client: Fix use-after-free when creating async proxy failed\n + udisks2: Emit changed signals from update_all()\n + daemon: Fix race on subscribers list when on thread\n + ftp: Validate fe_size when parsing symlink target\n + ftp: Check localtime() return value before use\n + gphoto2: Use g_try_realloc() instead of g_realloc()\n + cdda: Reject path traversal in mount URI host\n + client: Fail when URI has invalid UTF-8 chars\n + udisks2: Fix memory corruption with duplicate mount paths\n + build: Update GOA dependency to \u003e 3.57.0\n + Some other fixes\n + ftp: Use control connection address for PASV data.\n + ftp: Reject paths containing CR/LF characters\n\nUpdate to version 1.59.1:\n\n + mtp: replace Android extension checks with capability checks\n + dav: Add X-OC-Mtime header on push to preserve last modified\n time\n + udisks2: Use hash tables in the volume monitor to improve\n performance\n + onedrive: Check for identity instead of presentation identity\n + build: Disable google option and mark as deprecated\n\nUpdate to version 1.58.2:\n\n + ftp: Use control connection address for PASV data\n + ftp: Reject paths containing CR/LF characters\n\nUpdate to version 1.58.1:\n\n + cdda: Fix duration of last track for some media\n + build: Fix build when google option is disabled\n + Fix various memory leaks\n + Updated translations.\n\nUpdate to version 1.58.0:\n\n + mtp: Allow cancelling ongoing folder enumerations\n + wsdd: Use socket-activated service if available\n + onedrive: Set emblem for remote data\n + fix: Add file rename support in MTP backend move operation\n + mtp: Fix -Wmaybe-uninitialized warning in pad_file\n + fuse: use fuse_(un)set_feature_flag for libfuse 3.17+\n + smbbrowse: Purge server cache for next auth try\n + metatree: Open files with O_CLOEXEC\n + cdda: Fix incorrect track duration for 99-track CDs\n + metadata: Fix journal file permissions inconsistency\n + dav: recognize 308 Permanent Redirect\n\nChanges for gnome-online-accounts:\n\nUpdate to version 3.58.0:\n\n + SMTP server without password cannot be configured\n + Remove unneeded SMTP password escaping\n + build: Disable google provider Files feature\n + MS365: Fix mail address and name\n + Google: Set mail name to presentation identity\n + Updated translations.\n\nUpdate to version 3.57.1:\n\n + Default Microsoft 365 client is unverified\n + Microsoft 365: Make use of email for id\n + goadaemon: Allow manage system notifications\n + goamsgraphprovider: bump credentials generation\n + goaprovider: Allow to disable, instead of enable, selected\n   providers\n\nChanges from version 3.57.0:\n\n + Support for saving a Kerberos password to the keychain after\n the first login\n + changing expired kerberos password is not supported.\n + Provided Files URI does not override undiscovered endpoint\n + DAV client rejects 204 status in OPTIONS request handler\n + Include emblem-default-symbolic.svg\n + Connecting a Runbox CardDAV/CalDAV account hangs/freezes after\n sign in\n + i81n: fix translatable string\n + goaimapsmptprovider: fix accounts without SMTP or\n   authentication-less SMTP\n + build: only install icons for the goabackend build\n + build: don't require goabackend to build documentation\n + ci: test the build without gtk4\n + DAV-client: Added short path for SOGo\n\nUpdate to version 3.56.4:\n\n + Bugs fixed:\n - Unclear which part of \"IMAP+SMTP\" account test failed\n - Adding nextcloud account which has a subfolder does not work\n - goadaemon: Handle broken account configs\n\nUpdate to version 3.56.3:\n\n - Add DAV detection and configuration for SOGo\n - DAV discovery fails when certain SRV lookups fail\n\nUpdate to version 3.56.1:\n\n - Support for saving a Kerberos password after the first login\n - Changing expired kerberos password is not supported\n - Provided Files URI does not override undiscovered endpoint\n - DAV client rejects 204 status in OPTIONS request handler\n\nUpdate to version 3.56.0:\n\n + Code style and logging cleanups\n + Updated translations\n\nUpdate to version 3.55.2:\n\n + goaoauth2provider: improve error handling for auth/token\n   endpoints\n\nUpdate to version 3.55.1:\n\n - Support Webflow authentication for Nextcloud\n - Rename dconf key in gnome-online-accounts settings\n - \"Account Name\" GUI field is a bit ambiguous\n - Failed to generate a new POT file for the user interface of\n   \"gnome-online-accounts\" (domain: \"po\") and some missing files\n    from POTFILES.in\n\nUpdate to version 3.55.0:\n\n - Add progress spinner for OAuth2 dialogs\n - Remove Windows Live! option\n - Improve goa_oauth2_provider_ensure_credentials_sync\n - Authentication failure in goa IMAP accounts\n - Missing files from POTFILES.in\n - WebDAV not detected for mail.ru\n - goaoauth2provider: fix task chaining for subclasses\n - Always lowercase domains when looking up base\n - goadavclient: check Nextcloud fallback last\n - goabackend: add a composite widget for authflow links\n - goadavclient: fix the mailbox.org preconfig\n\nUpdate to version 3.54.5:\n\n - Adding GOA account fails with sonic.net IMAP service\n - Cannot add a ProtonMail bridge with IMAP + TLS\n - Nextcloud login does not work anymore due to OPTIONS /login\n   request\n - Linked online accounts no longer work\n - Invalid URI when adding Google account\n - goamsgraphprovider: ensure a valid PresentationIdentity\n - goadaemon: complete GTasks to avoid a scary debug warning\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-469",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_20451-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1258953",
+        "url": "https://bugzilla.suse.com/1258953"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1258954",
+        "url": "https://bugzilla.suse.com/1258954"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-28295 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-28295/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-28296 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-28296/"
+      }
+    ],
+    "title": "Security update for gnome-online-accounts, gvfs",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:29:25Z",
+      "generator": {
+        "date": "2026-03-31T09:11:58Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:20451-1",
+      "initial_release_date": "2026-03-31T09:11:58Z",
+      "revision_history": [
+        {
+          "date": "2026-03-31T09:11:58Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:32:19Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:35:03Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:29:25Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "gnome-online-accounts-0:3.58.0-160000.1.1.aarch64",
+                "product": {
+                  "name": "gnome-online-accounts-0:3.58.0-160000.1.1.aarch64",
+                  "product_id": "gnome-online-accounts-0:3.58.0-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gnome-online-accounts@3.58.0-160000.1.1?arch=aarch64\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gnome-online-accounts-devel-0:3.58.0-160000.1.1.aarch64",
+                "product": {
+                  "name": "gnome-online-accounts-devel-0:3.58.0-160000.1.1.aarch64",
+                  "product_id": "gnome-online-accounts-devel-0:3.58.0-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gnome-online-accounts-devel@3.58.0-160000.1.1?arch=aarch64\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-0:1.59.90-160000.1.1.aarch64",
+                "product": {
+                  "name": "gvfs-0:1.59.90-160000.1.1.aarch64",
+                  "product_id": "gvfs-0:1.59.90-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs@1.59.90-160000.1.1?arch=aarch64\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-backend-afc-0:1.59.90-160000.1.1.aarch64",
+                "product": {
+                  "name": "gvfs-backend-afc-0:1.59.90-160000.1.1.aarch64",
+                  "product_id": "gvfs-backend-afc-0:1.59.90-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-backend-afc@1.59.90-160000.1.1?arch=aarch64\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-backend-goa-0:1.59.90-160000.1.1.aarch64",
+                "product": {
+                  "name": "gvfs-backend-goa-0:1.59.90-160000.1.1.aarch64",
+                  "product_id": "gvfs-backend-goa-0:1.59.90-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-backend-goa@1.59.90-160000.1.1?arch=aarch64\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-backend-gphoto-0:1.59.90-160000.1.1.aarch64",
+                "product": {
+                  "name": "gvfs-backend-gphoto-0:1.59.90-160000.1.1.aarch64",
+                  "product_id": "gvfs-backend-gphoto-0:1.59.90-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/gvfs-backend-gphoto@1.59.90-160000.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-backend-samba-0:1.59.90-160000.1.1.aarch64",
+                "product": {
+                  "name": "gvfs-backend-samba-0:1.59.90-160000.1.1.aarch64",
+                  "product_id": "gvfs-backend-samba-0:1.59.90-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-backend-samba@1.59.90-160000.1.1?arch=aarch64\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-backends-0:1.59.90-160000.1.1.aarch64",
+                "product": {
+                  "name": "gvfs-backends-0:1.59.90-160000.1.1.aarch64",
+                  "product_id": "gvfs-backends-0:1.59.90-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-backends@1.59.90-160000.1.1?arch=aarch64\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-fuse-0:1.59.90-160000.1.1.aarch64",
+                "product": {
+                  "name": "gvfs-fuse-0:1.59.90-160000.1.1.aarch64",
+                  "product_id": "gvfs-fuse-0:1.59.90-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-fuse@1.59.90-160000.1.1?arch=aarch64\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libgoa-1_0-0-0:3.58.0-160000.1.1.aarch64",
+                "product": {
+                  "name": "libgoa-1_0-0-0:3.58.0-160000.1.1.aarch64",
+                  "product_id": "libgoa-1_0-0-0:3.58.0-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libgoa-1_0-0@3.58.0-160000.1.1?arch=aarch64\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libgoa-backend-1_0-2-0:3.58.0-160000.1.1.aarch64",
+                "product": {
+                  "name": "libgoa-backend-1_0-2-0:3.58.0-160000.1.1.aarch64",
+                  "product_id": "libgoa-backend-1_0-2-0:3.58.0-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libgoa-backend-1_0-2@3.58.0-160000.1.1?arch=aarch64\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.aarch64",
+                "product": {
+                  "name": "typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.aarch64",
+                  "product_id": "typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/typelib-1_0-Goa-1_0@3.58.0-160000.1.1?arch=aarch64\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "gnome-online-accounts-lang-0:3.58.0-160000.1.1.noarch",
+                "product": {
+                  "name": "gnome-online-accounts-lang-0:3.58.0-160000.1.1.noarch",
+                  "product_id": "gnome-online-accounts-lang-0:3.58.0-160000.1.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gnome-online-accounts-lang@3.58.0-160000.1.1?arch=noarch\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-lang-0:1.59.90-160000.1.1.noarch",
+                "product": {
+                  "name": "gvfs-lang-0:1.59.90-160000.1.1.noarch",
+                  "product_id": "gvfs-lang-0:1.59.90-160000.1.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-lang@1.59.90-160000.1.1?arch=noarch\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "gnome-online-accounts-0:3.58.0-160000.1.1.ppc64le",
+                "product": {
+                  "name": "gnome-online-accounts-0:3.58.0-160000.1.1.ppc64le",
+                  "product_id": "gnome-online-accounts-0:3.58.0-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gnome-online-accounts@3.58.0-160000.1.1?arch=ppc64le\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gnome-online-accounts-devel-0:3.58.0-160000.1.1.ppc64le",
+                "product": {
+                  "name": "gnome-online-accounts-devel-0:3.58.0-160000.1.1.ppc64le",
+                  "product_id": "gnome-online-accounts-devel-0:3.58.0-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gnome-online-accounts-devel@3.58.0-160000.1.1?arch=ppc64le\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-0:1.59.90-160000.1.1.ppc64le",
+                "product": {
+                  "name": "gvfs-0:1.59.90-160000.1.1.ppc64le",
+                  "product_id": "gvfs-0:1.59.90-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs@1.59.90-160000.1.1?arch=ppc64le\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-backend-afc-0:1.59.90-160000.1.1.ppc64le",
+                "product": {
+                  "name": "gvfs-backend-afc-0:1.59.90-160000.1.1.ppc64le",
+                  "product_id": "gvfs-backend-afc-0:1.59.90-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-backend-afc@1.59.90-160000.1.1?arch=ppc64le\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-backend-goa-0:1.59.90-160000.1.1.ppc64le",
+                "product": {
+                  "name": "gvfs-backend-goa-0:1.59.90-160000.1.1.ppc64le",
+                  "product_id": "gvfs-backend-goa-0:1.59.90-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-backend-goa@1.59.90-160000.1.1?arch=ppc64le\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-backend-gphoto-0:1.59.90-160000.1.1.ppc64le",
+                "product": {
+                  "name": "gvfs-backend-gphoto-0:1.59.90-160000.1.1.ppc64le",
+                  "product_id": "gvfs-backend-gphoto-0:1.59.90-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/gvfs-backend-gphoto@1.59.90-160000.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-backend-samba-0:1.59.90-160000.1.1.ppc64le",
+                "product": {
+                  "name": "gvfs-backend-samba-0:1.59.90-160000.1.1.ppc64le",
+                  "product_id": "gvfs-backend-samba-0:1.59.90-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-backend-samba@1.59.90-160000.1.1?arch=ppc64le\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-backends-0:1.59.90-160000.1.1.ppc64le",
+                "product": {
+                  "name": "gvfs-backends-0:1.59.90-160000.1.1.ppc64le",
+                  "product_id": "gvfs-backends-0:1.59.90-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-backends@1.59.90-160000.1.1?arch=ppc64le\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-fuse-0:1.59.90-160000.1.1.ppc64le",
+                "product": {
+                  "name": "gvfs-fuse-0:1.59.90-160000.1.1.ppc64le",
+                  "product_id": "gvfs-fuse-0:1.59.90-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-fuse@1.59.90-160000.1.1?arch=ppc64le\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libgoa-1_0-0-0:3.58.0-160000.1.1.ppc64le",
+                "product": {
+                  "name": "libgoa-1_0-0-0:3.58.0-160000.1.1.ppc64le",
+                  "product_id": "libgoa-1_0-0-0:3.58.0-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libgoa-1_0-0@3.58.0-160000.1.1?arch=ppc64le\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libgoa-backend-1_0-2-0:3.58.0-160000.1.1.ppc64le",
+                "product": {
+                  "name": "libgoa-backend-1_0-2-0:3.58.0-160000.1.1.ppc64le",
+                  "product_id": "libgoa-backend-1_0-2-0:3.58.0-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libgoa-backend-1_0-2@3.58.0-160000.1.1?arch=ppc64le\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.ppc64le",
+                "product": {
+                  "name": "typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.ppc64le",
+                  "product_id": "typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/typelib-1_0-Goa-1_0@3.58.0-160000.1.1?arch=ppc64le\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "gnome-online-accounts-0:3.58.0-160000.1.1.s390x",
+                "product": {
+                  "name": "gnome-online-accounts-0:3.58.0-160000.1.1.s390x",
+                  "product_id": "gnome-online-accounts-0:3.58.0-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gnome-online-accounts@3.58.0-160000.1.1?arch=s390x\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gnome-online-accounts-devel-0:3.58.0-160000.1.1.s390x",
+                "product": {
+                  "name": "gnome-online-accounts-devel-0:3.58.0-160000.1.1.s390x",
+                  "product_id": "gnome-online-accounts-devel-0:3.58.0-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gnome-online-accounts-devel@3.58.0-160000.1.1?arch=s390x\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-0:1.59.90-160000.1.1.s390x",
+                "product": {
+                  "name": "gvfs-0:1.59.90-160000.1.1.s390x",
+                  "product_id": "gvfs-0:1.59.90-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs@1.59.90-160000.1.1?arch=s390x\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-backend-afc-0:1.59.90-160000.1.1.s390x",
+                "product": {
+                  "name": "gvfs-backend-afc-0:1.59.90-160000.1.1.s390x",
+                  "product_id": "gvfs-backend-afc-0:1.59.90-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-backend-afc@1.59.90-160000.1.1?arch=s390x\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-backend-goa-0:1.59.90-160000.1.1.s390x",
+                "product": {
+                  "name": "gvfs-backend-goa-0:1.59.90-160000.1.1.s390x",
+                  "product_id": "gvfs-backend-goa-0:1.59.90-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-backend-goa@1.59.90-160000.1.1?arch=s390x\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-backend-gphoto-0:1.59.90-160000.1.1.s390x",
+                "product": {
+                  "name": "gvfs-backend-gphoto-0:1.59.90-160000.1.1.s390x",
+                  "product_id": "gvfs-backend-gphoto-0:1.59.90-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/gvfs-backend-gphoto@1.59.90-160000.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-backend-samba-0:1.59.90-160000.1.1.s390x",
+                "product": {
+                  "name": "gvfs-backend-samba-0:1.59.90-160000.1.1.s390x",
+                  "product_id": "gvfs-backend-samba-0:1.59.90-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-backend-samba@1.59.90-160000.1.1?arch=s390x\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-backends-0:1.59.90-160000.1.1.s390x",
+                "product": {
+                  "name": "gvfs-backends-0:1.59.90-160000.1.1.s390x",
+                  "product_id": "gvfs-backends-0:1.59.90-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-backends@1.59.90-160000.1.1?arch=s390x\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-fuse-0:1.59.90-160000.1.1.s390x",
+                "product": {
+                  "name": "gvfs-fuse-0:1.59.90-160000.1.1.s390x",
+                  "product_id": "gvfs-fuse-0:1.59.90-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-fuse@1.59.90-160000.1.1?arch=s390x\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libgoa-1_0-0-0:3.58.0-160000.1.1.s390x",
+                "product": {
+                  "name": "libgoa-1_0-0-0:3.58.0-160000.1.1.s390x",
+                  "product_id": "libgoa-1_0-0-0:3.58.0-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libgoa-1_0-0@3.58.0-160000.1.1?arch=s390x\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libgoa-backend-1_0-2-0:3.58.0-160000.1.1.s390x",
+                "product": {
+                  "name": "libgoa-backend-1_0-2-0:3.58.0-160000.1.1.s390x",
+                  "product_id": "libgoa-backend-1_0-2-0:3.58.0-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libgoa-backend-1_0-2@3.58.0-160000.1.1?arch=s390x\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.s390x",
+                "product": {
+                  "name": "typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.s390x",
+                  "product_id": "typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/typelib-1_0-Goa-1_0@3.58.0-160000.1.1?arch=s390x\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "gnome-online-accounts-0:3.58.0-160000.1.1.x86_64",
+                "product": {
+                  "name": "gnome-online-accounts-0:3.58.0-160000.1.1.x86_64",
+                  "product_id": "gnome-online-accounts-0:3.58.0-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gnome-online-accounts@3.58.0-160000.1.1?arch=x86_64\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gnome-online-accounts-devel-0:3.58.0-160000.1.1.x86_64",
+                "product": {
+                  "name": "gnome-online-accounts-devel-0:3.58.0-160000.1.1.x86_64",
+                  "product_id": "gnome-online-accounts-devel-0:3.58.0-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gnome-online-accounts-devel@3.58.0-160000.1.1?arch=x86_64\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-0:1.59.90-160000.1.1.x86_64",
+                "product": {
+                  "name": "gvfs-0:1.59.90-160000.1.1.x86_64",
+                  "product_id": "gvfs-0:1.59.90-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs@1.59.90-160000.1.1?arch=x86_64\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-backend-afc-0:1.59.90-160000.1.1.x86_64",
+                "product": {
+                  "name": "gvfs-backend-afc-0:1.59.90-160000.1.1.x86_64",
+                  "product_id": "gvfs-backend-afc-0:1.59.90-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-backend-afc@1.59.90-160000.1.1?arch=x86_64\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-backend-goa-0:1.59.90-160000.1.1.x86_64",
+                "product": {
+                  "name": "gvfs-backend-goa-0:1.59.90-160000.1.1.x86_64",
+                  "product_id": "gvfs-backend-goa-0:1.59.90-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-backend-goa@1.59.90-160000.1.1?arch=x86_64\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-backend-gphoto-0:1.59.90-160000.1.1.x86_64",
+                "product": {
+                  "name": "gvfs-backend-gphoto-0:1.59.90-160000.1.1.x86_64",
+                  "product_id": "gvfs-backend-gphoto-0:1.59.90-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/gvfs-backend-gphoto@1.59.90-160000.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-backend-samba-0:1.59.90-160000.1.1.x86_64",
+                "product": {
+                  "name": "gvfs-backend-samba-0:1.59.90-160000.1.1.x86_64",
+                  "product_id": "gvfs-backend-samba-0:1.59.90-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-backend-samba@1.59.90-160000.1.1?arch=x86_64\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-backends-0:1.59.90-160000.1.1.x86_64",
+                "product": {
+                  "name": "gvfs-backends-0:1.59.90-160000.1.1.x86_64",
+                  "product_id": "gvfs-backends-0:1.59.90-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-backends@1.59.90-160000.1.1?arch=x86_64\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "gvfs-fuse-0:1.59.90-160000.1.1.x86_64",
+                "product": {
+                  "name": "gvfs-fuse-0:1.59.90-160000.1.1.x86_64",
+                  "product_id": "gvfs-fuse-0:1.59.90-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gvfs:1.59.90:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/gvfs-fuse@1.59.90-160000.1.1?arch=x86_64\u0026upstream=gvfs-0:1.59.90-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libgoa-1_0-0-0:3.58.0-160000.1.1.x86_64",
+                "product": {
+                  "name": "libgoa-1_0-0-0:3.58.0-160000.1.1.x86_64",
+                  "product_id": "libgoa-1_0-0-0:3.58.0-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libgoa-1_0-0@3.58.0-160000.1.1?arch=x86_64\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libgoa-backend-1_0-2-0:3.58.0-160000.1.1.x86_64",
+                "product": {
+                  "name": "libgoa-backend-1_0-2-0:3.58.0-160000.1.1.x86_64",
+                  "product_id": "libgoa-backend-1_0-2-0:3.58.0-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libgoa-backend-1_0-2@3.58.0-160000.1.1?arch=x86_64\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.x86_64",
+                "product": {
+                  "name": "typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.x86_64",
+                  "product_id": "typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:gnome_online_accounts:3.58.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/typelib-1_0-Goa-1_0@3.58.0-160000.1.1?arch=x86_64\u0026upstream=gnome-online-accounts-0:3.58.0-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gnome-online-accounts-0:3.58.0-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.aarch64"
+        },
+        "product_reference": "gnome-online-accounts-0:3.58.0-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gnome-online-accounts-0:3.58.0-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.ppc64le"
+        },
+        "product_reference": "gnome-online-accounts-0:3.58.0-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gnome-online-accounts-0:3.58.0-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.s390x"
+        },
+        "product_reference": "gnome-online-accounts-0:3.58.0-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gnome-online-accounts-0:3.58.0-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.x86_64"
+        },
+        "product_reference": "gnome-online-accounts-0:3.58.0-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gnome-online-accounts-devel-0:3.58.0-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.aarch64"
+        },
+        "product_reference": "gnome-online-accounts-devel-0:3.58.0-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gnome-online-accounts-devel-0:3.58.0-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.ppc64le"
+        },
+        "product_reference": "gnome-online-accounts-devel-0:3.58.0-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gnome-online-accounts-devel-0:3.58.0-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.s390x"
+        },
+        "product_reference": "gnome-online-accounts-devel-0:3.58.0-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gnome-online-accounts-devel-0:3.58.0-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.x86_64"
+        },
+        "product_reference": "gnome-online-accounts-devel-0:3.58.0-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gnome-online-accounts-lang-0:3.58.0-160000.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gnome-online-accounts-lang-0:3.58.0-160000.1.1.noarch"
+        },
+        "product_reference": "gnome-online-accounts-lang-0:3.58.0-160000.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-0:1.59.90-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.aarch64"
+        },
+        "product_reference": "gvfs-0:1.59.90-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-0:1.59.90-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.ppc64le"
+        },
+        "product_reference": "gvfs-0:1.59.90-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-0:1.59.90-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.s390x"
+        },
+        "product_reference": "gvfs-0:1.59.90-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-0:1.59.90-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.x86_64"
+        },
+        "product_reference": "gvfs-0:1.59.90-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-backend-afc-0:1.59.90-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.aarch64"
+        },
+        "product_reference": "gvfs-backend-afc-0:1.59.90-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-backend-afc-0:1.59.90-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.ppc64le"
+        },
+        "product_reference": "gvfs-backend-afc-0:1.59.90-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-backend-afc-0:1.59.90-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.s390x"
+        },
+        "product_reference": "gvfs-backend-afc-0:1.59.90-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-backend-afc-0:1.59.90-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.x86_64"
+        },
+        "product_reference": "gvfs-backend-afc-0:1.59.90-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-backend-goa-0:1.59.90-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.aarch64"
+        },
+        "product_reference": "gvfs-backend-goa-0:1.59.90-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-backend-goa-0:1.59.90-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.ppc64le"
+        },
+        "product_reference": "gvfs-backend-goa-0:1.59.90-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-backend-goa-0:1.59.90-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.s390x"
+        },
+        "product_reference": "gvfs-backend-goa-0:1.59.90-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-backend-goa-0:1.59.90-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.x86_64"
+        },
+        "product_reference": "gvfs-backend-goa-0:1.59.90-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-backend-gphoto-0:1.59.90-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.aarch64"
+        },
+        "product_reference": "gvfs-backend-gphoto-0:1.59.90-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-backend-gphoto-0:1.59.90-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.ppc64le"
+        },
+        "product_reference": "gvfs-backend-gphoto-0:1.59.90-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-backend-gphoto-0:1.59.90-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.s390x"
+        },
+        "product_reference": "gvfs-backend-gphoto-0:1.59.90-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-backend-gphoto-0:1.59.90-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.x86_64"
+        },
+        "product_reference": "gvfs-backend-gphoto-0:1.59.90-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-backend-samba-0:1.59.90-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.aarch64"
+        },
+        "product_reference": "gvfs-backend-samba-0:1.59.90-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-backend-samba-0:1.59.90-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.ppc64le"
+        },
+        "product_reference": "gvfs-backend-samba-0:1.59.90-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-backend-samba-0:1.59.90-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.s390x"
+        },
+        "product_reference": "gvfs-backend-samba-0:1.59.90-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-backend-samba-0:1.59.90-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.x86_64"
+        },
+        "product_reference": "gvfs-backend-samba-0:1.59.90-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-backends-0:1.59.90-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.aarch64"
+        },
+        "product_reference": "gvfs-backends-0:1.59.90-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-backends-0:1.59.90-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.ppc64le"
+        },
+        "product_reference": "gvfs-backends-0:1.59.90-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-backends-0:1.59.90-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.s390x"
+        },
+        "product_reference": "gvfs-backends-0:1.59.90-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-backends-0:1.59.90-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.x86_64"
+        },
+        "product_reference": "gvfs-backends-0:1.59.90-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-fuse-0:1.59.90-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.aarch64"
+        },
+        "product_reference": "gvfs-fuse-0:1.59.90-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-fuse-0:1.59.90-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.ppc64le"
+        },
+        "product_reference": "gvfs-fuse-0:1.59.90-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-fuse-0:1.59.90-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.s390x"
+        },
+        "product_reference": "gvfs-fuse-0:1.59.90-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-fuse-0:1.59.90-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.x86_64"
+        },
+        "product_reference": "gvfs-fuse-0:1.59.90-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "gvfs-lang-0:1.59.90-160000.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:gvfs-lang-0:1.59.90-160000.1.1.noarch"
+        },
+        "product_reference": "gvfs-lang-0:1.59.90-160000.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libgoa-1_0-0-0:3.58.0-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.aarch64"
+        },
+        "product_reference": "libgoa-1_0-0-0:3.58.0-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libgoa-1_0-0-0:3.58.0-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.ppc64le"
+        },
+        "product_reference": "libgoa-1_0-0-0:3.58.0-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libgoa-1_0-0-0:3.58.0-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.s390x"
+        },
+        "product_reference": "libgoa-1_0-0-0:3.58.0-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libgoa-1_0-0-0:3.58.0-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.x86_64"
+        },
+        "product_reference": "libgoa-1_0-0-0:3.58.0-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libgoa-backend-1_0-2-0:3.58.0-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.aarch64"
+        },
+        "product_reference": "libgoa-backend-1_0-2-0:3.58.0-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libgoa-backend-1_0-2-0:3.58.0-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.ppc64le"
+        },
+        "product_reference": "libgoa-backend-1_0-2-0:3.58.0-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libgoa-backend-1_0-2-0:3.58.0-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.s390x"
+        },
+        "product_reference": "libgoa-backend-1_0-2-0:3.58.0-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libgoa-backend-1_0-2-0:3.58.0-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.x86_64"
+        },
+        "product_reference": "libgoa-backend-1_0-2-0:3.58.0-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.aarch64"
+        },
+        "product_reference": "typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.ppc64le"
+        },
+        "product_reference": "typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.s390x"
+        },
+        "product_reference": "typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.x86_64"
+        },
+        "product_reference": "typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-28295",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-28295"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in the FTP GVfs backend. A malicious FTP server can exploit this vulnerability by providing an arbitrary IP address and port in its passive mode (PASV) response. The client unconditionally trusts this information and attempts to connect to the specified endpoint, allowing the malicious server to probe for open ports accessible from the client's network.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.s390x",
+          "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.s390x",
+          "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:gnome-online-accounts-lang-0:3.58.0-160000.1.1.noarch",
+          "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.s390x",
+          "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.s390x",
+          "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.s390x",
+          "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.s390x",
+          "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.s390x",
+          "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.s390x",
+          "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.s390x",
+          "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:gvfs-lang-0:1.59.90-160000.1.1.noarch",
+          "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.s390x",
+          "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-28295",
+          "url": "https://www.suse.com/security/cve/CVE-2026-28295"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1258953 for CVE-2026-28295",
+          "url": "https://bugzilla.suse.com/1258953"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gnome-online-accounts-lang-0:3.58.0-160000.1.1.noarch",
+            "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-lang-0:1.59.90-160000.1.1.noarch",
+            "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gnome-online-accounts-lang-0:3.58.0-160000.1.1.noarch",
+            "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-lang-0:1.59.90-160000.1.1.noarch",
+            "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-03-31T09:11:58Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-28295"
+    },
+    {
+      "cve": "CVE-2026-28296",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-28296"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in the FTP GVfs backend. A remote attacker could exploit this input validation vulnerability by supplying specially crafted file paths containing carriage return and line feed (CRLF) sequences. These unsanitized sequences allow the attacker to terminate intended FTP commands and inject arbitrary FTP commands, potentially leading to arbitrary code execution or other severe impacts.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.s390x",
+          "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.s390x",
+          "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:gnome-online-accounts-lang-0:3.58.0-160000.1.1.noarch",
+          "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.s390x",
+          "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.s390x",
+          "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.s390x",
+          "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.s390x",
+          "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.s390x",
+          "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.s390x",
+          "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.s390x",
+          "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:gvfs-lang-0:1.59.90-160000.1.1.noarch",
+          "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.s390x",
+          "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.x86_64",
+          "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.s390x",
+          "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-28296",
+          "url": "https://www.suse.com/security/cve/CVE-2026-28296"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1258954 for CVE-2026-28296",
+          "url": "https://bugzilla.suse.com/1258954"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gnome-online-accounts-lang-0:3.58.0-160000.1.1.noarch",
+            "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-lang-0:1.59.90-160000.1.1.noarch",
+            "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.3,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gnome-online-accounts-0:3.58.0-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gnome-online-accounts-devel-0:3.58.0-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gnome-online-accounts-lang-0:3.58.0-160000.1.1.noarch",
+            "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-backend-afc-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-backend-goa-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-backend-gphoto-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-backend-samba-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-backends-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.s390x",
+            "openSUSE Leap 16.0:gvfs-fuse-0:1.59.90-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:gvfs-lang-0:1.59.90-160000.1.1.noarch",
+            "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libgoa-1_0-0-0:3.58.0-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:libgoa-backend-1_0-2-0:3.58.0-160000.1.1.x86_64",
+            "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Goa-1_0-0:3.58.0-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-03-31T09:11:58Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-28296"
+    }
+  ]
+}

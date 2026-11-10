@@ -1,0 +1,979 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for krb5",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for krb5 fixes the following issues:\n\n- CVE-2025-3576: weakness in the MD5 checksum design allows for spoofing of GSSAPI-protected messages that are using\n  RC4-HMAC-MD5 (bsc#1241219).\n\nKrb5 as very old protocol supported quite a number of ciphers\nthat are not longer up to current cryptographic standards.\n\nTo avoid problems with those, SUSE has by default now disabled\nthose alorithms.\n\nThe following algorithms have been removed from valid krb5 enctypes:\n\n- des3-cbc-sha1\n- arcfour-hmac-md5\n\nTo reenable those algorithms, you can use allow options in krb5.conf:\n\n[libdefaults]\nallow_des3 = true\nallow_rc4 = true\n\nto reenable them.\n\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2025-3270,SUSE-SLE-Micro-5.5-2025-3270",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_03270-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:03270-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-202503270-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:03270-1",
+        "url": "https://lists.suse.com/pipermail/sle-updates/2025-September/041767.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1241219",
+        "url": "https://bugzilla.suse.com/1241219"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-3576 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-3576/"
+      }
+    ],
+    "title": "Security update for krb5",
+    "tracking": {
+      "current_release_date": "2026-10-18T10:21:03Z",
+      "generator": {
+        "date": "2025-09-18T11:18:08Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:03270-1",
+      "initial_release_date": "2025-09-18T11:18:08Z",
+      "revision_history": [
+        {
+          "date": "2025-09-18T11:18:08Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T17:46:29Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-10-18T10:21:03Z",
+          "number": "3",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "3"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "krb5-0:1.20.1-150500.3.17.1.aarch64",
+                "product": {
+                  "name": "krb5-0:1.20.1-150500.3.17.1.aarch64",
+                  "product_id": "krb5-0:1.20.1-150500.3.17.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5@1.20.1-150500.3.17.1?arch=aarch64\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-client-0:1.20.1-150500.3.17.1.aarch64",
+                "product": {
+                  "name": "krb5-client-0:1.20.1-150500.3.17.1.aarch64",
+                  "product_id": "krb5-client-0:1.20.1-150500.3.17.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-client@1.20.1-150500.3.17.1?arch=aarch64\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-devel-0:1.20.1-150500.3.17.1.aarch64",
+                "product": {
+                  "name": "krb5-devel-0:1.20.1-150500.3.17.1.aarch64",
+                  "product_id": "krb5-devel-0:1.20.1-150500.3.17.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-devel@1.20.1-150500.3.17.1?arch=aarch64\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-mini-0:1.20.1-150500.3.17.1.aarch64",
+                "product": {
+                  "name": "krb5-mini-0:1.20.1-150500.3.17.1.aarch64",
+                  "product_id": "krb5-mini-0:1.20.1-150500.3.17.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-mini@1.20.1-150500.3.17.1?arch=aarch64\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-mini-devel-0:1.20.1-150500.3.17.1.aarch64",
+                "product": {
+                  "name": "krb5-mini-devel-0:1.20.1-150500.3.17.1.aarch64",
+                  "product_id": "krb5-mini-devel-0:1.20.1-150500.3.17.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-mini-devel@1.20.1-150500.3.17.1?arch=aarch64\u0026upstream=krb5-mini-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-plugin-kdb-ldap-0:1.20.1-150500.3.17.1.aarch64",
+                "product": {
+                  "name": "krb5-plugin-kdb-ldap-0:1.20.1-150500.3.17.1.aarch64",
+                  "product_id": "krb5-plugin-kdb-ldap-0:1.20.1-150500.3.17.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-plugin-kdb-ldap@1.20.1-150500.3.17.1?arch=aarch64\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-plugin-preauth-otp-0:1.20.1-150500.3.17.1.aarch64",
+                "product": {
+                  "name": "krb5-plugin-preauth-otp-0:1.20.1-150500.3.17.1.aarch64",
+                  "product_id": "krb5-plugin-preauth-otp-0:1.20.1-150500.3.17.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-plugin-preauth-otp@1.20.1-150500.3.17.1?arch=aarch64\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-plugin-preauth-pkinit-0:1.20.1-150500.3.17.1.aarch64",
+                "product": {
+                  "name": "krb5-plugin-preauth-pkinit-0:1.20.1-150500.3.17.1.aarch64",
+                  "product_id": "krb5-plugin-preauth-pkinit-0:1.20.1-150500.3.17.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-plugin-preauth-pkinit@1.20.1-150500.3.17.1?arch=aarch64\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-plugin-preauth-spake-0:1.20.1-150500.3.17.1.aarch64",
+                "product": {
+                  "name": "krb5-plugin-preauth-spake-0:1.20.1-150500.3.17.1.aarch64",
+                  "product_id": "krb5-plugin-preauth-spake-0:1.20.1-150500.3.17.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-plugin-preauth-spake@1.20.1-150500.3.17.1?arch=aarch64\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-server-0:1.20.1-150500.3.17.1.aarch64",
+                "product": {
+                  "name": "krb5-server-0:1.20.1-150500.3.17.1.aarch64",
+                  "product_id": "krb5-server-0:1.20.1-150500.3.17.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-server@1.20.1-150500.3.17.1?arch=aarch64\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "krb5-64bit-0:1.20.1-150500.3.17.1.aarch64_ilp32",
+                "product": {
+                  "name": "krb5-64bit-0:1.20.1-150500.3.17.1.aarch64_ilp32",
+                  "product_id": "krb5-64bit-0:1.20.1-150500.3.17.1.aarch64_ilp32",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/krb5-64bit@1.20.1-150500.3.17.1?arch=aarch64_ilp32"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-devel-64bit-0:1.20.1-150500.3.17.1.aarch64_ilp32",
+                "product": {
+                  "name": "krb5-devel-64bit-0:1.20.1-150500.3.17.1.aarch64_ilp32",
+                  "product_id": "krb5-devel-64bit-0:1.20.1-150500.3.17.1.aarch64_ilp32",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/krb5-devel-64bit@1.20.1-150500.3.17.1?arch=aarch64_ilp32"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64_ilp32"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "krb5-0:1.20.1-150500.3.17.1.i586",
+                "product": {
+                  "name": "krb5-0:1.20.1-150500.3.17.1.i586",
+                  "product_id": "krb5-0:1.20.1-150500.3.17.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5@1.20.1-150500.3.17.1?arch=i586\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-client-0:1.20.1-150500.3.17.1.i586",
+                "product": {
+                  "name": "krb5-client-0:1.20.1-150500.3.17.1.i586",
+                  "product_id": "krb5-client-0:1.20.1-150500.3.17.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-client@1.20.1-150500.3.17.1?arch=i586\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-devel-0:1.20.1-150500.3.17.1.i586",
+                "product": {
+                  "name": "krb5-devel-0:1.20.1-150500.3.17.1.i586",
+                  "product_id": "krb5-devel-0:1.20.1-150500.3.17.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-devel@1.20.1-150500.3.17.1?arch=i586\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-mini-0:1.20.1-150500.3.17.1.i586",
+                "product": {
+                  "name": "krb5-mini-0:1.20.1-150500.3.17.1.i586",
+                  "product_id": "krb5-mini-0:1.20.1-150500.3.17.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-mini@1.20.1-150500.3.17.1?arch=i586\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-mini-devel-0:1.20.1-150500.3.17.1.i586",
+                "product": {
+                  "name": "krb5-mini-devel-0:1.20.1-150500.3.17.1.i586",
+                  "product_id": "krb5-mini-devel-0:1.20.1-150500.3.17.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-mini-devel@1.20.1-150500.3.17.1?arch=i586\u0026upstream=krb5-mini-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-plugin-kdb-ldap-0:1.20.1-150500.3.17.1.i586",
+                "product": {
+                  "name": "krb5-plugin-kdb-ldap-0:1.20.1-150500.3.17.1.i586",
+                  "product_id": "krb5-plugin-kdb-ldap-0:1.20.1-150500.3.17.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-plugin-kdb-ldap@1.20.1-150500.3.17.1?arch=i586\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-plugin-preauth-otp-0:1.20.1-150500.3.17.1.i586",
+                "product": {
+                  "name": "krb5-plugin-preauth-otp-0:1.20.1-150500.3.17.1.i586",
+                  "product_id": "krb5-plugin-preauth-otp-0:1.20.1-150500.3.17.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-plugin-preauth-otp@1.20.1-150500.3.17.1?arch=i586\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-plugin-preauth-pkinit-0:1.20.1-150500.3.17.1.i586",
+                "product": {
+                  "name": "krb5-plugin-preauth-pkinit-0:1.20.1-150500.3.17.1.i586",
+                  "product_id": "krb5-plugin-preauth-pkinit-0:1.20.1-150500.3.17.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-plugin-preauth-pkinit@1.20.1-150500.3.17.1?arch=i586\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-plugin-preauth-spake-0:1.20.1-150500.3.17.1.i586",
+                "product": {
+                  "name": "krb5-plugin-preauth-spake-0:1.20.1-150500.3.17.1.i586",
+                  "product_id": "krb5-plugin-preauth-spake-0:1.20.1-150500.3.17.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-plugin-preauth-spake@1.20.1-150500.3.17.1?arch=i586\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-server-0:1.20.1-150500.3.17.1.i586",
+                "product": {
+                  "name": "krb5-server-0:1.20.1-150500.3.17.1.i586",
+                  "product_id": "krb5-server-0:1.20.1-150500.3.17.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-server@1.20.1-150500.3.17.1?arch=i586\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "i586"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "krb5-0:1.20.1-150500.3.17.1.ppc64le",
+                "product": {
+                  "name": "krb5-0:1.20.1-150500.3.17.1.ppc64le",
+                  "product_id": "krb5-0:1.20.1-150500.3.17.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5@1.20.1-150500.3.17.1?arch=ppc64le\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-client-0:1.20.1-150500.3.17.1.ppc64le",
+                "product": {
+                  "name": "krb5-client-0:1.20.1-150500.3.17.1.ppc64le",
+                  "product_id": "krb5-client-0:1.20.1-150500.3.17.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-client@1.20.1-150500.3.17.1?arch=ppc64le\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-devel-0:1.20.1-150500.3.17.1.ppc64le",
+                "product": {
+                  "name": "krb5-devel-0:1.20.1-150500.3.17.1.ppc64le",
+                  "product_id": "krb5-devel-0:1.20.1-150500.3.17.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-devel@1.20.1-150500.3.17.1?arch=ppc64le\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-mini-0:1.20.1-150500.3.17.1.ppc64le",
+                "product": {
+                  "name": "krb5-mini-0:1.20.1-150500.3.17.1.ppc64le",
+                  "product_id": "krb5-mini-0:1.20.1-150500.3.17.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-mini@1.20.1-150500.3.17.1?arch=ppc64le\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-mini-devel-0:1.20.1-150500.3.17.1.ppc64le",
+                "product": {
+                  "name": "krb5-mini-devel-0:1.20.1-150500.3.17.1.ppc64le",
+                  "product_id": "krb5-mini-devel-0:1.20.1-150500.3.17.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-mini-devel@1.20.1-150500.3.17.1?arch=ppc64le\u0026upstream=krb5-mini-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-plugin-kdb-ldap-0:1.20.1-150500.3.17.1.ppc64le",
+                "product": {
+                  "name": "krb5-plugin-kdb-ldap-0:1.20.1-150500.3.17.1.ppc64le",
+                  "product_id": "krb5-plugin-kdb-ldap-0:1.20.1-150500.3.17.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-plugin-kdb-ldap@1.20.1-150500.3.17.1?arch=ppc64le\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-plugin-preauth-otp-0:1.20.1-150500.3.17.1.ppc64le",
+                "product": {
+                  "name": "krb5-plugin-preauth-otp-0:1.20.1-150500.3.17.1.ppc64le",
+                  "product_id": "krb5-plugin-preauth-otp-0:1.20.1-150500.3.17.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-plugin-preauth-otp@1.20.1-150500.3.17.1?arch=ppc64le\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-plugin-preauth-pkinit-0:1.20.1-150500.3.17.1.ppc64le",
+                "product": {
+                  "name": "krb5-plugin-preauth-pkinit-0:1.20.1-150500.3.17.1.ppc64le",
+                  "product_id": "krb5-plugin-preauth-pkinit-0:1.20.1-150500.3.17.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-plugin-preauth-pkinit@1.20.1-150500.3.17.1?arch=ppc64le\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-plugin-preauth-spake-0:1.20.1-150500.3.17.1.ppc64le",
+                "product": {
+                  "name": "krb5-plugin-preauth-spake-0:1.20.1-150500.3.17.1.ppc64le",
+                  "product_id": "krb5-plugin-preauth-spake-0:1.20.1-150500.3.17.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-plugin-preauth-spake@1.20.1-150500.3.17.1?arch=ppc64le\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-server-0:1.20.1-150500.3.17.1.ppc64le",
+                "product": {
+                  "name": "krb5-server-0:1.20.1-150500.3.17.1.ppc64le",
+                  "product_id": "krb5-server-0:1.20.1-150500.3.17.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-server@1.20.1-150500.3.17.1?arch=ppc64le\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "krb5-0:1.20.1-150500.3.17.1.s390x",
+                "product": {
+                  "name": "krb5-0:1.20.1-150500.3.17.1.s390x",
+                  "product_id": "krb5-0:1.20.1-150500.3.17.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5@1.20.1-150500.3.17.1?arch=s390x\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-client-0:1.20.1-150500.3.17.1.s390x",
+                "product": {
+                  "name": "krb5-client-0:1.20.1-150500.3.17.1.s390x",
+                  "product_id": "krb5-client-0:1.20.1-150500.3.17.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-client@1.20.1-150500.3.17.1?arch=s390x\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-devel-0:1.20.1-150500.3.17.1.s390x",
+                "product": {
+                  "name": "krb5-devel-0:1.20.1-150500.3.17.1.s390x",
+                  "product_id": "krb5-devel-0:1.20.1-150500.3.17.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-devel@1.20.1-150500.3.17.1?arch=s390x\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-mini-0:1.20.1-150500.3.17.1.s390x",
+                "product": {
+                  "name": "krb5-mini-0:1.20.1-150500.3.17.1.s390x",
+                  "product_id": "krb5-mini-0:1.20.1-150500.3.17.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-mini@1.20.1-150500.3.17.1?arch=s390x\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-mini-devel-0:1.20.1-150500.3.17.1.s390x",
+                "product": {
+                  "name": "krb5-mini-devel-0:1.20.1-150500.3.17.1.s390x",
+                  "product_id": "krb5-mini-devel-0:1.20.1-150500.3.17.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-mini-devel@1.20.1-150500.3.17.1?arch=s390x\u0026upstream=krb5-mini-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-plugin-kdb-ldap-0:1.20.1-150500.3.17.1.s390x",
+                "product": {
+                  "name": "krb5-plugin-kdb-ldap-0:1.20.1-150500.3.17.1.s390x",
+                  "product_id": "krb5-plugin-kdb-ldap-0:1.20.1-150500.3.17.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-plugin-kdb-ldap@1.20.1-150500.3.17.1?arch=s390x\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-plugin-preauth-otp-0:1.20.1-150500.3.17.1.s390x",
+                "product": {
+                  "name": "krb5-plugin-preauth-otp-0:1.20.1-150500.3.17.1.s390x",
+                  "product_id": "krb5-plugin-preauth-otp-0:1.20.1-150500.3.17.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-plugin-preauth-otp@1.20.1-150500.3.17.1?arch=s390x\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-plugin-preauth-pkinit-0:1.20.1-150500.3.17.1.s390x",
+                "product": {
+                  "name": "krb5-plugin-preauth-pkinit-0:1.20.1-150500.3.17.1.s390x",
+                  "product_id": "krb5-plugin-preauth-pkinit-0:1.20.1-150500.3.17.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-plugin-preauth-pkinit@1.20.1-150500.3.17.1?arch=s390x\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-plugin-preauth-spake-0:1.20.1-150500.3.17.1.s390x",
+                "product": {
+                  "name": "krb5-plugin-preauth-spake-0:1.20.1-150500.3.17.1.s390x",
+                  "product_id": "krb5-plugin-preauth-spake-0:1.20.1-150500.3.17.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-plugin-preauth-spake@1.20.1-150500.3.17.1?arch=s390x\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-server-0:1.20.1-150500.3.17.1.s390x",
+                "product": {
+                  "name": "krb5-server-0:1.20.1-150500.3.17.1.s390x",
+                  "product_id": "krb5-server-0:1.20.1-150500.3.17.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-server@1.20.1-150500.3.17.1?arch=s390x\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "krb5-0:1.20.1-150500.3.17.1.x86_64",
+                "product": {
+                  "name": "krb5-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_id": "krb5-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5@1.20.1-150500.3.17.1?arch=x86_64\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-32bit-0:1.20.1-150500.3.17.1.x86_64",
+                "product": {
+                  "name": "krb5-32bit-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_id": "krb5-32bit-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-32bit@1.20.1-150500.3.17.1?arch=x86_64\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-client-0:1.20.1-150500.3.17.1.x86_64",
+                "product": {
+                  "name": "krb5-client-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_id": "krb5-client-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-client@1.20.1-150500.3.17.1?arch=x86_64\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-devel-0:1.20.1-150500.3.17.1.x86_64",
+                "product": {
+                  "name": "krb5-devel-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_id": "krb5-devel-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-devel@1.20.1-150500.3.17.1?arch=x86_64\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-devel-32bit-0:1.20.1-150500.3.17.1.x86_64",
+                "product": {
+                  "name": "krb5-devel-32bit-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_id": "krb5-devel-32bit-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-devel-32bit@1.20.1-150500.3.17.1?arch=x86_64\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-mini-0:1.20.1-150500.3.17.1.x86_64",
+                "product": {
+                  "name": "krb5-mini-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_id": "krb5-mini-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-mini@1.20.1-150500.3.17.1?arch=x86_64\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-mini-devel-0:1.20.1-150500.3.17.1.x86_64",
+                "product": {
+                  "name": "krb5-mini-devel-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_id": "krb5-mini-devel-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-mini-devel@1.20.1-150500.3.17.1?arch=x86_64\u0026upstream=krb5-mini-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-plugin-kdb-ldap-0:1.20.1-150500.3.17.1.x86_64",
+                "product": {
+                  "name": "krb5-plugin-kdb-ldap-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_id": "krb5-plugin-kdb-ldap-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-plugin-kdb-ldap@1.20.1-150500.3.17.1?arch=x86_64\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-plugin-preauth-otp-0:1.20.1-150500.3.17.1.x86_64",
+                "product": {
+                  "name": "krb5-plugin-preauth-otp-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_id": "krb5-plugin-preauth-otp-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-plugin-preauth-otp@1.20.1-150500.3.17.1?arch=x86_64\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-plugin-preauth-pkinit-0:1.20.1-150500.3.17.1.x86_64",
+                "product": {
+                  "name": "krb5-plugin-preauth-pkinit-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_id": "krb5-plugin-preauth-pkinit-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-plugin-preauth-pkinit@1.20.1-150500.3.17.1?arch=x86_64\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-plugin-preauth-spake-0:1.20.1-150500.3.17.1.x86_64",
+                "product": {
+                  "name": "krb5-plugin-preauth-spake-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_id": "krb5-plugin-preauth-spake-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-plugin-preauth-spake@1.20.1-150500.3.17.1?arch=x86_64\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "krb5-server-0:1.20.1-150500.3.17.1.x86_64",
+                "product": {
+                  "name": "krb5-server-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_id": "krb5-server-0:1.20.1-150500.3.17.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mit:kerberos_5:1.20.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/krb5-server@1.20.1-150500.3.17.1?arch=x86_64\u0026upstream=krb5-0:1.20.1-150500.3.17.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Micro 5.5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Micro 5.5",
+                  "product_id": "SUSE Linux Enterprise Micro 5.5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-micro:5.5"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "krb5-0:1.20.1-150500.3.17.1.aarch64 as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:krb5-0:1.20.1-150500.3.17.1.aarch64"
+        },
+        "product_reference": "krb5-0:1.20.1-150500.3.17.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "krb5-0:1.20.1-150500.3.17.1.ppc64le as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:krb5-0:1.20.1-150500.3.17.1.ppc64le"
+        },
+        "product_reference": "krb5-0:1.20.1-150500.3.17.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "krb5-0:1.20.1-150500.3.17.1.s390x as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:krb5-0:1.20.1-150500.3.17.1.s390x"
+        },
+        "product_reference": "krb5-0:1.20.1-150500.3.17.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "krb5-0:1.20.1-150500.3.17.1.x86_64 as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:krb5-0:1.20.1-150500.3.17.1.x86_64"
+        },
+        "product_reference": "krb5-0:1.20.1-150500.3.17.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "krb5-client-0:1.20.1-150500.3.17.1.aarch64 as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:krb5-client-0:1.20.1-150500.3.17.1.aarch64"
+        },
+        "product_reference": "krb5-client-0:1.20.1-150500.3.17.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "krb5-client-0:1.20.1-150500.3.17.1.ppc64le as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:krb5-client-0:1.20.1-150500.3.17.1.ppc64le"
+        },
+        "product_reference": "krb5-client-0:1.20.1-150500.3.17.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "krb5-client-0:1.20.1-150500.3.17.1.s390x as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:krb5-client-0:1.20.1-150500.3.17.1.s390x"
+        },
+        "product_reference": "krb5-client-0:1.20.1-150500.3.17.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "krb5-client-0:1.20.1-150500.3.17.1.x86_64 as component of SUSE Linux Enterprise Micro 5.5",
+          "product_id": "SUSE Linux Enterprise Micro 5.5:krb5-client-0:1.20.1-150500.3.17.1.x86_64"
+        },
+        "product_reference": "krb5-client-0:1.20.1-150500.3.17.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Micro 5.5"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-3576",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-3576"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A vulnerability in the MIT Kerberos implementation allows GSSAPI-protected messages using RC4-HMAC-MD5 to be spoofed due to weaknesses in the MD5 checksum design. If RC4 is preferred over stronger encryption types, an attacker could exploit MD5 collisions to forge message integrity codes. This may lead to unauthorized message tampering.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Micro 5.5:krb5-0:1.20.1-150500.3.17.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.5:krb5-0:1.20.1-150500.3.17.1.ppc64le",
+          "SUSE Linux Enterprise Micro 5.5:krb5-0:1.20.1-150500.3.17.1.s390x",
+          "SUSE Linux Enterprise Micro 5.5:krb5-0:1.20.1-150500.3.17.1.x86_64",
+          "SUSE Linux Enterprise Micro 5.5:krb5-client-0:1.20.1-150500.3.17.1.aarch64",
+          "SUSE Linux Enterprise Micro 5.5:krb5-client-0:1.20.1-150500.3.17.1.ppc64le",
+          "SUSE Linux Enterprise Micro 5.5:krb5-client-0:1.20.1-150500.3.17.1.s390x",
+          "SUSE Linux Enterprise Micro 5.5:krb5-client-0:1.20.1-150500.3.17.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-3576",
+          "url": "https://www.suse.com/security/cve/CVE-2025-3576"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1241218 for CVE-2025-3576",
+          "url": "https://bugzilla.suse.com/1241218"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Micro 5.5:krb5-0:1.20.1-150500.3.17.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.5:krb5-0:1.20.1-150500.3.17.1.ppc64le",
+            "SUSE Linux Enterprise Micro 5.5:krb5-0:1.20.1-150500.3.17.1.s390x",
+            "SUSE Linux Enterprise Micro 5.5:krb5-0:1.20.1-150500.3.17.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.5:krb5-client-0:1.20.1-150500.3.17.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.5:krb5-client-0:1.20.1-150500.3.17.1.ppc64le",
+            "SUSE Linux Enterprise Micro 5.5:krb5-client-0:1.20.1-150500.3.17.1.s390x",
+            "SUSE Linux Enterprise Micro 5.5:krb5-client-0:1.20.1-150500.3.17.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Micro 5.5:krb5-0:1.20.1-150500.3.17.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.5:krb5-0:1.20.1-150500.3.17.1.ppc64le",
+            "SUSE Linux Enterprise Micro 5.5:krb5-0:1.20.1-150500.3.17.1.s390x",
+            "SUSE Linux Enterprise Micro 5.5:krb5-0:1.20.1-150500.3.17.1.x86_64",
+            "SUSE Linux Enterprise Micro 5.5:krb5-client-0:1.20.1-150500.3.17.1.aarch64",
+            "SUSE Linux Enterprise Micro 5.5:krb5-client-0:1.20.1-150500.3.17.1.ppc64le",
+            "SUSE Linux Enterprise Micro 5.5:krb5-client-0:1.20.1-150500.3.17.1.s390x",
+            "SUSE Linux Enterprise Micro 5.5:krb5-client-0:1.20.1-150500.3.17.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-09-18T11:18:08Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-3576"
+    }
+  ]
+}

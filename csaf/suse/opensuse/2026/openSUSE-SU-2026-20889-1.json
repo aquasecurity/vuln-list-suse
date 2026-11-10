@@ -1,0 +1,229 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for tor",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for tor fixes the following issues:\n\nChanges in tor:\n\n- Update to 0.4.9.9\n  * Major bugfixes (compression, security):\n    - Fix a compression bomb bypass where an attacker could concatenate\n      many gzip or zlib sub-streams, each just under the per-stream\n      detection threshold, to avoid the compression bomb check entirely.\n      TROVE-2026-022. Fixes bug 41275; bugfix on 0.3.1.1-alpha.\n    - Fix an infinite loop when decompressing a truncated zlib/gzip\n      stream with done=1. A truncated stream never reaches Z_STREAM_END,\n      causing zlib to return Z_BUF_ERROR with no input remaining, which\n      buf_add_compress() mistook for a full output buffer and retried\n      forever. Fixed by returning TOR_COMPRESS_ERROR in that case so the\n      caller can abort cleanly. TROVE-2026-021. Fixes bug 41274; bugfix\n      on 0.2.6.1-alpha.\n  * Major bugfixes (conflux, security):\n    - Fix a NULL write after free when sending a CONFLUX_SWITCH cell\n      fails. The return value of relay_send_command_from_edge() was\n      ignored, so a send failure (which calls circuit_mark_for_close()\n      and removes the leg via cfx_del_leg()) would go undetected,\n      causing the caller to write to the now-freed current leg and\n      resulting in a crash. TROVE-2026-017. Fixes bug 41263; bugfix\n      on 0.4.8.1-alpha.\n  * Major bugfixes (security, TROVE-2026-019):\n    - Avoid out-of-bounds read/write when parsing a consensus or\n      detached signature with unexpected signature digest type. Impact\n      is minor for most Tor roles, but potentially major for directory\n      authorities. Fixes bug 41267; bugfix on 0.2.8.2-alpha.\n  * Major bugfixes (client stability, TROVE-2026-013, TROVE-2026-015):\n    - Protect against a client-side assert that can happen if a\n      malicious onion service gets the client to load its carefully\n      crafted onion descriptor. Fixes bugs 41259 and 41261; bugfix\n      on 0.3.1.1-alpha.\n  * Major bugfixes (code safety):\n    - Avoid a dangerous situation in router_find_exact_exit_enclave()\n      where we could have reached an assert if bridges or relays claim\n      an IP address of 0.0.0.0. Fixes bug 41276; bugfix on 0.4.5.1-alpha.\n  * Major bugfixes (conflux, shutdown):\n    - Fix a use-after-free in the shutdown path when freeing conflux\n      circuits. cfx_add_leg() shares stream list pointers across legs\n      without NULLing the old leg, so circuit_free_all() would free the\n      lists via one leg and then access freed memory via another. TROVE-\n      2026-016. Fixes bug 41262; bugfix on 0.4.8.1-alpha.\n  * Major bugfixes (DNSPort, TROVE-2026-018):\n    - Fix a client-side crash that would happen if we decide to stop\n      reading on a RESOLVE request that came from the DNSPort or\n      controller. This crash could happen naturally under heavy load and\n      with poor luck, but since 0.4.7.2-alpha it could be induced by the\n      exit relay via a flow control request. Fixes bug 41265; bugfix\n      on 0.2.0.1-alpha.\n  * Major bugfixes (memory safety, TROVE-2026-014):\n    - Avoid a heap-use-after-free mistake that can happen in the conflux\n      subsystem, and which can be induced at either the client or the\n      exit relay. Fixes bug 41260; bugfix on 0.4.8.1-alpha.\n  * Major bugfixes (onion services, TROVE-2026-020):\n    - Avoid a possible divide by zero crash on onion services that have\n      the proof-of-work (PoW) defense enabled. This bug could be hit by\n      extreme bad luck or maybe by the help of an attacker crafting just\n      the right circumstances. Fixes bug 41270; bugfix on 0.4.8.1-alpha.\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-291",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_20889-1.json"
+      }
+    ],
+    "title": "Security update for tor",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:34:08Z",
+      "generator": {
+        "date": "2026-06-02T17:59:24Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:20889-1",
+      "initial_release_date": "2026-06-02T17:59:24Z",
+      "revision_history": [
+        {
+          "date": "2026-06-02T17:59:24Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:36:36Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:39:23Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:34:08Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "tor-0:0.4.9.9-bp160.1.1.aarch64",
+                "product": {
+                  "name": "tor-0:0.4.9.9-bp160.1.1.aarch64",
+                  "product_id": "tor-0:0.4.9.9-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:torproject:tor:0.4.9.9:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/tor@0.4.9.9-bp160.1.1?arch=aarch64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "tor-0:0.4.9.9-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "tor-0:0.4.9.9-bp160.1.1.ppc64le",
+                  "product_id": "tor-0:0.4.9.9-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:torproject:tor:0.4.9.9:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/tor@0.4.9.9-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "tor-0:0.4.9.9-bp160.1.1.s390x",
+                "product": {
+                  "name": "tor-0:0.4.9.9-bp160.1.1.s390x",
+                  "product_id": "tor-0:0.4.9.9-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:torproject:tor:0.4.9.9:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/tor@0.4.9.9-bp160.1.1?arch=s390x"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "tor-0:0.4.9.9-bp160.1.1.x86_64",
+                "product": {
+                  "name": "tor-0:0.4.9.9-bp160.1.1.x86_64",
+                  "product_id": "tor-0:0.4.9.9-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:torproject:tor:0.4.9.9:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/tor@0.4.9.9-bp160.1.1?arch=x86_64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "tor-0:0.4.9.9-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:tor-0:0.4.9.9-bp160.1.1.aarch64"
+        },
+        "product_reference": "tor-0:0.4.9.9-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "tor-0:0.4.9.9-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:tor-0:0.4.9.9-bp160.1.1.ppc64le"
+        },
+        "product_reference": "tor-0:0.4.9.9-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "tor-0:0.4.9.9-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:tor-0:0.4.9.9-bp160.1.1.s390x"
+        },
+        "product_reference": "tor-0:0.4.9.9-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "tor-0:0.4.9.9-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:tor-0:0.4.9.9-bp160.1.1.x86_64"
+        },
+        "product_reference": "tor-0:0.4.9.9-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  }
+}

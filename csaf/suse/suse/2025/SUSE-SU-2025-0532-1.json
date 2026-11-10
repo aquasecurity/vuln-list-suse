@@ -1,0 +1,921 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for SUSE Manager Client Tools",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update fixes the following issues:\n\nscap-security-guide was updated to version 0.1.75 (jsc#ECO-3319):\n\n- Added Ism profile for OL8, OL9\n- Added new product kylinserver10 \n- Created OL10 product \n- Release SLMicro5 product\n- Replaced two date injections by SOURCE_DATE_EPOCH to make reproducible (bsc#1230361)\n- Updated PCI-DSS control file for version 4.0.1\n\nspacecmd was updated to version 5.0.11-0:\n\n- Updated translation strings\n\nuyuni-tools was updated from version 0.1.23-0 to 0.1.27-0:\n\n- Security issues fixed:\n  * CVE-2024-22037: Use podman secret to store the database credentials (bsc#1231497)\n- Other changes and bugs fixed:\n  * Version 0.1.27-0\n    + Bump the default image tag to 5.0.3\n    + IsInstalled function fix\n    + Run systemctl daemon-reload after changing the container image config (bsc#1233279)\n    + Coco-replicas-upgrade\n    + Persist search server indexes (bsc#1231759)\n    + Sync deletes files during migration (bsc#1233660)\n    + Ignore coco and hub images when applying PTF if they are not ailable (bsc#1229079)\n    + Add --registry back to mgrpxy (bsc#1233202)\n    + Only add java.hostname on migrated server if not present\n    + Consider the configuration file to detect the coco or hub api images should be pulled (bsc#1229104)\n    + Only raise an error if cloudguestregistryauth fails for PAYG (bsc#1233630)\n    + Add registry.suse.com login to mgradm upgrade podman list (bsc#1234123)\n  * Version 0.1.26-0\n    + Ignore all zypper caches during migration (bsc#1232769)\n    + Use the uyuni network for all podman containers (bsc#1232817)\n  * Version 0.1.25-0\n    + Don't migrate enabled systemd services, recreate them (bsc#1232575)\n  * Version 0.1.24-0\n    + Redact JSESSIONID and pxt-session-cookie values from logs and\n      console output (bsc#1231568)\n\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2025-532,SUSE-EL-9-CLIENT-TOOLS-2025-532",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_0532-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:0532-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-20250532-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:0532-1",
+        "url": "https://lists.suse.com/pipermail/sle-security-updates/2025-February/020342.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1229079",
+        "url": "https://bugzilla.suse.com/1229079"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1229104",
+        "url": "https://bugzilla.suse.com/1229104"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1230361",
+        "url": "https://bugzilla.suse.com/1230361"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1231497",
+        "url": "https://bugzilla.suse.com/1231497"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1231568",
+        "url": "https://bugzilla.suse.com/1231568"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1231759",
+        "url": "https://bugzilla.suse.com/1231759"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1232575",
+        "url": "https://bugzilla.suse.com/1232575"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1232769",
+        "url": "https://bugzilla.suse.com/1232769"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1232817",
+        "url": "https://bugzilla.suse.com/1232817"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1233202",
+        "url": "https://bugzilla.suse.com/1233202"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1233279",
+        "url": "https://bugzilla.suse.com/1233279"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1233630",
+        "url": "https://bugzilla.suse.com/1233630"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1233660",
+        "url": "https://bugzilla.suse.com/1233660"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1234123",
+        "url": "https://bugzilla.suse.com/1234123"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-22037 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-22037/"
+      }
+    ],
+    "title": "Security update for SUSE Manager Client Tools",
+    "tracking": {
+      "current_release_date": "2026-09-20T17:55:00Z",
+      "generator": {
+        "date": "2025-02-14T07:20:12Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:0532-1",
+      "initial_release_date": "2025-02-14T07:20:12Z",
+      "revision_history": [
+        {
+          "date": "2025-02-14T07:20:12Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T17:55:00Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "mgradm-0:0.1.28-1.14.1.aarch64",
+                "product": {
+                  "name": "mgradm-0:0.1.28-1.14.1.aarch64",
+                  "product_id": "mgradm-0:0.1.28-1.14.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgradm@0.1.28-1.14.1?arch=aarch64\u0026upstream=uyuni-tools-0:0.1.28-1.14.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-0:0.1.28-1.14.1.aarch64",
+                "product": {
+                  "name": "mgrctl-0:0.1.28-1.14.1.aarch64",
+                  "product_id": "mgrctl-0:0.1.28-1.14.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl@0.1.28-1.14.1?arch=aarch64\u0026upstream=uyuni-tools-0:0.1.28-1.14.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrpxy-0:0.1.28-1.14.1.aarch64",
+                "product": {
+                  "name": "mgrpxy-0:0.1.28-1.14.1.aarch64",
+                  "product_id": "mgrpxy-0:0.1.28-1.14.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrpxy@0.1.28-1.14.1?arch=aarch64\u0026upstream=uyuni-tools-0:0.1.28-1.14.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "mgradm-bash-completion-0:0.1.28-1.14.1.noarch",
+                "product": {
+                  "name": "mgradm-bash-completion-0:0.1.28-1.14.1.noarch",
+                  "product_id": "mgradm-bash-completion-0:0.1.28-1.14.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgradm-bash-completion@0.1.28-1.14.1?arch=noarch\u0026upstream=uyuni-tools-0:0.1.28-1.14.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgradm-zsh-completion-0:0.1.28-1.14.1.noarch",
+                "product": {
+                  "name": "mgradm-zsh-completion-0:0.1.28-1.14.1.noarch",
+                  "product_id": "mgradm-zsh-completion-0:0.1.28-1.14.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgradm-zsh-completion@0.1.28-1.14.1?arch=noarch\u0026upstream=uyuni-tools-0:0.1.28-1.14.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-bash-completion-0:0.1.28-1.14.1.noarch",
+                "product": {
+                  "name": "mgrctl-bash-completion-0:0.1.28-1.14.1.noarch",
+                  "product_id": "mgrctl-bash-completion-0:0.1.28-1.14.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl-bash-completion@0.1.28-1.14.1?arch=noarch\u0026upstream=uyuni-tools-0:0.1.28-1.14.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-zsh-completion-0:0.1.28-1.14.1.noarch",
+                "product": {
+                  "name": "mgrctl-zsh-completion-0:0.1.28-1.14.1.noarch",
+                  "product_id": "mgrctl-zsh-completion-0:0.1.28-1.14.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl-zsh-completion@0.1.28-1.14.1?arch=noarch\u0026upstream=uyuni-tools-0:0.1.28-1.14.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrpxy-bash-completion-0:0.1.28-1.14.1.noarch",
+                "product": {
+                  "name": "mgrpxy-bash-completion-0:0.1.28-1.14.1.noarch",
+                  "product_id": "mgrpxy-bash-completion-0:0.1.28-1.14.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrpxy-bash-completion@0.1.28-1.14.1?arch=noarch\u0026upstream=uyuni-tools-0:0.1.28-1.14.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrpxy-zsh-completion-0:0.1.28-1.14.1.noarch",
+                "product": {
+                  "name": "mgrpxy-zsh-completion-0:0.1.28-1.14.1.noarch",
+                  "product_id": "mgrpxy-zsh-completion-0:0.1.28-1.14.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrpxy-zsh-completion@0.1.28-1.14.1?arch=noarch\u0026upstream=uyuni-tools-0:0.1.28-1.14.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "scap-security-guide-0:0.1.75-1.32.1.noarch",
+                "product": {
+                  "name": "scap-security-guide-0:0.1.75-1.32.1.noarch",
+                  "product_id": "scap-security-guide-0:0.1.75-1.32.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/scap-security-guide@0.1.75-1.32.1?arch=noarch\u0026upstream=scap-security-guide-0:0.1.75-1.32.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "scap-security-guide-debian-0:0.1.75-1.32.1.noarch",
+                "product": {
+                  "name": "scap-security-guide-debian-0:0.1.75-1.32.1.noarch",
+                  "product_id": "scap-security-guide-debian-0:0.1.75-1.32.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/scap-security-guide-debian@0.1.75-1.32.1?arch=noarch\u0026upstream=scap-security-guide-0:0.1.75-1.32.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "scap-security-guide-redhat-0:0.1.75-1.32.1.noarch",
+                "product": {
+                  "name": "scap-security-guide-redhat-0:0.1.75-1.32.1.noarch",
+                  "product_id": "scap-security-guide-redhat-0:0.1.75-1.32.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/scap-security-guide-redhat@0.1.75-1.32.1?arch=noarch\u0026upstream=scap-security-guide-0:0.1.75-1.32.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "scap-security-guide-ubuntu-0:0.1.75-1.32.1.noarch",
+                "product": {
+                  "name": "scap-security-guide-ubuntu-0:0.1.75-1.32.1.noarch",
+                  "product_id": "scap-security-guide-ubuntu-0:0.1.75-1.32.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/scap-security-guide-ubuntu@0.1.75-1.32.1?arch=noarch\u0026upstream=scap-security-guide-0:0.1.75-1.32.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "spacecmd-0:5.0.11-1.44.1.noarch",
+                "product": {
+                  "name": "spacecmd-0:5.0.11-1.44.1.noarch",
+                  "product_id": "spacecmd-0:5.0.11-1.44.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/spacecmd@5.0.11-1.44.1?arch=noarch\u0026upstream=spacecmd-0:5.0.11-1.44.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "mgradm-0:0.1.28-1.14.1.ppc64le",
+                "product": {
+                  "name": "mgradm-0:0.1.28-1.14.1.ppc64le",
+                  "product_id": "mgradm-0:0.1.28-1.14.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgradm@0.1.28-1.14.1?arch=ppc64le\u0026upstream=uyuni-tools-0:0.1.28-1.14.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-0:0.1.28-1.14.1.ppc64le",
+                "product": {
+                  "name": "mgrctl-0:0.1.28-1.14.1.ppc64le",
+                  "product_id": "mgrctl-0:0.1.28-1.14.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl@0.1.28-1.14.1?arch=ppc64le\u0026upstream=uyuni-tools-0:0.1.28-1.14.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrpxy-0:0.1.28-1.14.1.ppc64le",
+                "product": {
+                  "name": "mgrpxy-0:0.1.28-1.14.1.ppc64le",
+                  "product_id": "mgrpxy-0:0.1.28-1.14.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrpxy@0.1.28-1.14.1?arch=ppc64le\u0026upstream=uyuni-tools-0:0.1.28-1.14.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "mgradm-0:0.1.28-1.14.1.s390x",
+                "product": {
+                  "name": "mgradm-0:0.1.28-1.14.1.s390x",
+                  "product_id": "mgradm-0:0.1.28-1.14.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgradm@0.1.28-1.14.1?arch=s390x\u0026upstream=uyuni-tools-0:0.1.28-1.14.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-0:0.1.28-1.14.1.s390x",
+                "product": {
+                  "name": "mgrctl-0:0.1.28-1.14.1.s390x",
+                  "product_id": "mgrctl-0:0.1.28-1.14.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl@0.1.28-1.14.1?arch=s390x\u0026upstream=uyuni-tools-0:0.1.28-1.14.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrpxy-0:0.1.28-1.14.1.s390x",
+                "product": {
+                  "name": "mgrpxy-0:0.1.28-1.14.1.s390x",
+                  "product_id": "mgrpxy-0:0.1.28-1.14.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrpxy@0.1.28-1.14.1?arch=s390x\u0026upstream=uyuni-tools-0:0.1.28-1.14.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "mgradm-0:0.1.28-1.14.1.x86_64",
+                "product": {
+                  "name": "mgradm-0:0.1.28-1.14.1.x86_64",
+                  "product_id": "mgradm-0:0.1.28-1.14.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgradm@0.1.28-1.14.1?arch=x86_64\u0026upstream=uyuni-tools-0:0.1.28-1.14.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrctl-0:0.1.28-1.14.1.x86_64",
+                "product": {
+                  "name": "mgrctl-0:0.1.28-1.14.1.x86_64",
+                  "product_id": "mgrctl-0:0.1.28-1.14.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrctl@0.1.28-1.14.1?arch=x86_64\u0026upstream=uyuni-tools-0:0.1.28-1.14.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mgrpxy-0:0.1.28-1.14.1.x86_64",
+                "product": {
+                  "name": "mgrpxy-0:0.1.28-1.14.1.x86_64",
+                  "product_id": "mgrpxy-0:0.1.28-1.14.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mgrpxy@0.1.28-1.14.1?arch=x86_64\u0026upstream=uyuni-tools-0:0.1.28-1.14.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE:EL-9:Update:Products:ManagerTools:Update",
+                "product": {
+                  "name": "SUSE:EL-9:Update:Products:ManagerTools:Update",
+                  "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS",
+                "product": {
+                  "name": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS",
+                  "product_id": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgradm-0:0.1.28-1.14.1.aarch64 as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-0:0.1.28-1.14.1.aarch64"
+        },
+        "product_reference": "mgradm-0:0.1.28-1.14.1.aarch64",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgradm-0:0.1.28-1.14.1.ppc64le as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-0:0.1.28-1.14.1.ppc64le"
+        },
+        "product_reference": "mgradm-0:0.1.28-1.14.1.ppc64le",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgradm-0:0.1.28-1.14.1.s390x as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-0:0.1.28-1.14.1.s390x"
+        },
+        "product_reference": "mgradm-0:0.1.28-1.14.1.s390x",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgradm-0:0.1.28-1.14.1.x86_64 as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-0:0.1.28-1.14.1.x86_64"
+        },
+        "product_reference": "mgradm-0:0.1.28-1.14.1.x86_64",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgradm-bash-completion-0:0.1.28-1.14.1.noarch as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-bash-completion-0:0.1.28-1.14.1.noarch"
+        },
+        "product_reference": "mgradm-bash-completion-0:0.1.28-1.14.1.noarch",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgradm-zsh-completion-0:0.1.28-1.14.1.noarch as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-zsh-completion-0:0.1.28-1.14.1.noarch"
+        },
+        "product_reference": "mgradm-zsh-completion-0:0.1.28-1.14.1.noarch",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-0:0.1.28-1.14.1.aarch64 as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-0:0.1.28-1.14.1.aarch64"
+        },
+        "product_reference": "mgrctl-0:0.1.28-1.14.1.aarch64",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-0:0.1.28-1.14.1.ppc64le as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-0:0.1.28-1.14.1.ppc64le"
+        },
+        "product_reference": "mgrctl-0:0.1.28-1.14.1.ppc64le",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-0:0.1.28-1.14.1.s390x as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-0:0.1.28-1.14.1.s390x"
+        },
+        "product_reference": "mgrctl-0:0.1.28-1.14.1.s390x",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-0:0.1.28-1.14.1.x86_64 as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-0:0.1.28-1.14.1.x86_64"
+        },
+        "product_reference": "mgrctl-0:0.1.28-1.14.1.x86_64",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-bash-completion-0:0.1.28-1.14.1.noarch as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-bash-completion-0:0.1.28-1.14.1.noarch"
+        },
+        "product_reference": "mgrctl-bash-completion-0:0.1.28-1.14.1.noarch",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-zsh-completion-0:0.1.28-1.14.1.noarch as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-zsh-completion-0:0.1.28-1.14.1.noarch"
+        },
+        "product_reference": "mgrctl-zsh-completion-0:0.1.28-1.14.1.noarch",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrpxy-0:0.1.28-1.14.1.aarch64 as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-0:0.1.28-1.14.1.aarch64"
+        },
+        "product_reference": "mgrpxy-0:0.1.28-1.14.1.aarch64",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrpxy-0:0.1.28-1.14.1.ppc64le as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-0:0.1.28-1.14.1.ppc64le"
+        },
+        "product_reference": "mgrpxy-0:0.1.28-1.14.1.ppc64le",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrpxy-0:0.1.28-1.14.1.s390x as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-0:0.1.28-1.14.1.s390x"
+        },
+        "product_reference": "mgrpxy-0:0.1.28-1.14.1.s390x",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrpxy-0:0.1.28-1.14.1.x86_64 as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-0:0.1.28-1.14.1.x86_64"
+        },
+        "product_reference": "mgrpxy-0:0.1.28-1.14.1.x86_64",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrpxy-bash-completion-0:0.1.28-1.14.1.noarch as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-bash-completion-0:0.1.28-1.14.1.noarch"
+        },
+        "product_reference": "mgrpxy-bash-completion-0:0.1.28-1.14.1.noarch",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrpxy-zsh-completion-0:0.1.28-1.14.1.noarch as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-zsh-completion-0:0.1.28-1.14.1.noarch"
+        },
+        "product_reference": "mgrpxy-zsh-completion-0:0.1.28-1.14.1.noarch",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "scap-security-guide-0:0.1.75-1.32.1.noarch as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:scap-security-guide-0:0.1.75-1.32.1.noarch"
+        },
+        "product_reference": "scap-security-guide-0:0.1.75-1.32.1.noarch",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "scap-security-guide-debian-0:0.1.75-1.32.1.noarch as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:scap-security-guide-debian-0:0.1.75-1.32.1.noarch"
+        },
+        "product_reference": "scap-security-guide-debian-0:0.1.75-1.32.1.noarch",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "scap-security-guide-redhat-0:0.1.75-1.32.1.noarch as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:scap-security-guide-redhat-0:0.1.75-1.32.1.noarch"
+        },
+        "product_reference": "scap-security-guide-redhat-0:0.1.75-1.32.1.noarch",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "scap-security-guide-ubuntu-0:0.1.75-1.32.1.noarch as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:scap-security-guide-ubuntu-0:0.1.75-1.32.1.noarch"
+        },
+        "product_reference": "scap-security-guide-ubuntu-0:0.1.75-1.32.1.noarch",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "spacecmd-0:5.0.11-1.44.1.noarch as component of SUSE:EL-9:Update:Products:ManagerTools:Update",
+          "product_id": "SUSE:EL-9:Update:Products:ManagerTools:Update:spacecmd-0:5.0.11-1.44.1.noarch"
+        },
+        "product_reference": "spacecmd-0:5.0.11-1.44.1.noarch",
+        "relates_to_product_reference": "SUSE:EL-9:Update:Products:ManagerTools:Update"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-0:0.1.28-1.14.1.aarch64 as component of SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS",
+          "product_id": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-0:0.1.28-1.14.1.aarch64"
+        },
+        "product_reference": "mgrctl-0:0.1.28-1.14.1.aarch64",
+        "relates_to_product_reference": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-0:0.1.28-1.14.1.ppc64le as component of SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS",
+          "product_id": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-0:0.1.28-1.14.1.ppc64le"
+        },
+        "product_reference": "mgrctl-0:0.1.28-1.14.1.ppc64le",
+        "relates_to_product_reference": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-0:0.1.28-1.14.1.s390x as component of SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS",
+          "product_id": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-0:0.1.28-1.14.1.s390x"
+        },
+        "product_reference": "mgrctl-0:0.1.28-1.14.1.s390x",
+        "relates_to_product_reference": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-0:0.1.28-1.14.1.x86_64 as component of SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS",
+          "product_id": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-0:0.1.28-1.14.1.x86_64"
+        },
+        "product_reference": "mgrctl-0:0.1.28-1.14.1.x86_64",
+        "relates_to_product_reference": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-bash-completion-0:0.1.28-1.14.1.noarch as component of SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS",
+          "product_id": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-bash-completion-0:0.1.28-1.14.1.noarch"
+        },
+        "product_reference": "mgrctl-bash-completion-0:0.1.28-1.14.1.noarch",
+        "relates_to_product_reference": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mgrctl-zsh-completion-0:0.1.28-1.14.1.noarch as component of SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS",
+          "product_id": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-zsh-completion-0:0.1.28-1.14.1.noarch"
+        },
+        "product_reference": "mgrctl-zsh-completion-0:0.1.28-1.14.1.noarch",
+        "relates_to_product_reference": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "scap-security-guide-redhat-0:0.1.75-1.32.1.noarch as component of SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS",
+          "product_id": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:scap-security-guide-redhat-0:0.1.75-1.32.1.noarch"
+        },
+        "product_reference": "scap-security-guide-redhat-0:0.1.75-1.32.1.noarch",
+        "relates_to_product_reference": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "spacecmd-0:5.0.11-1.44.1.noarch as component of SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS",
+          "product_id": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:spacecmd-0:5.0.11-1.44.1.noarch"
+        },
+        "product_reference": "spacecmd-0:5.0.11-1.44.1.noarch",
+        "relates_to_product_reference": "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2024-22037",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-22037"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The uyuni-server-attestation systemd service needs a database_password environment variable. This file has 640 permission, and cannot be shown users, but the environment is still exposed by systemd to non-privileged users.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-0:0.1.28-1.14.1.aarch64",
+          "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-0:0.1.28-1.14.1.ppc64le",
+          "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-0:0.1.28-1.14.1.s390x",
+          "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-0:0.1.28-1.14.1.x86_64",
+          "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-bash-completion-0:0.1.28-1.14.1.noarch",
+          "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-zsh-completion-0:0.1.28-1.14.1.noarch",
+          "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:scap-security-guide-redhat-0:0.1.75-1.32.1.noarch",
+          "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:spacecmd-0:5.0.11-1.44.1.noarch",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-0:0.1.28-1.14.1.aarch64",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-0:0.1.28-1.14.1.ppc64le",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-0:0.1.28-1.14.1.s390x",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-0:0.1.28-1.14.1.x86_64",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-bash-completion-0:0.1.28-1.14.1.noarch",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-zsh-completion-0:0.1.28-1.14.1.noarch",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-0:0.1.28-1.14.1.aarch64",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-0:0.1.28-1.14.1.ppc64le",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-0:0.1.28-1.14.1.s390x",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-0:0.1.28-1.14.1.x86_64",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-bash-completion-0:0.1.28-1.14.1.noarch",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-zsh-completion-0:0.1.28-1.14.1.noarch",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-0:0.1.28-1.14.1.aarch64",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-0:0.1.28-1.14.1.ppc64le",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-0:0.1.28-1.14.1.s390x",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-0:0.1.28-1.14.1.x86_64",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-bash-completion-0:0.1.28-1.14.1.noarch",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-zsh-completion-0:0.1.28-1.14.1.noarch",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:scap-security-guide-0:0.1.75-1.32.1.noarch",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:scap-security-guide-debian-0:0.1.75-1.32.1.noarch",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:scap-security-guide-redhat-0:0.1.75-1.32.1.noarch",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:scap-security-guide-ubuntu-0:0.1.75-1.32.1.noarch",
+          "SUSE:EL-9:Update:Products:ManagerTools:Update:spacecmd-0:5.0.11-1.44.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-22037",
+          "url": "https://www.suse.com/security/cve/CVE-2024-22037"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1231497 for CVE-2024-22037",
+          "url": "https://bugzilla.suse.com/1231497"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-0:0.1.28-1.14.1.aarch64",
+            "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-0:0.1.28-1.14.1.ppc64le",
+            "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-0:0.1.28-1.14.1.s390x",
+            "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-0:0.1.28-1.14.1.x86_64",
+            "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-bash-completion-0:0.1.28-1.14.1.noarch",
+            "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-zsh-completion-0:0.1.28-1.14.1.noarch",
+            "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:scap-security-guide-redhat-0:0.1.75-1.32.1.noarch",
+            "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:spacecmd-0:5.0.11-1.44.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-0:0.1.28-1.14.1.aarch64",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-0:0.1.28-1.14.1.ppc64le",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-0:0.1.28-1.14.1.s390x",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-0:0.1.28-1.14.1.x86_64",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-bash-completion-0:0.1.28-1.14.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-zsh-completion-0:0.1.28-1.14.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-0:0.1.28-1.14.1.aarch64",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-0:0.1.28-1.14.1.ppc64le",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-0:0.1.28-1.14.1.s390x",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-0:0.1.28-1.14.1.x86_64",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-bash-completion-0:0.1.28-1.14.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-zsh-completion-0:0.1.28-1.14.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-0:0.1.28-1.14.1.aarch64",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-0:0.1.28-1.14.1.ppc64le",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-0:0.1.28-1.14.1.s390x",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-0:0.1.28-1.14.1.x86_64",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-bash-completion-0:0.1.28-1.14.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-zsh-completion-0:0.1.28-1.14.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:scap-security-guide-0:0.1.75-1.32.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:scap-security-guide-debian-0:0.1.75-1.32.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:scap-security-guide-redhat-0:0.1.75-1.32.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:scap-security-guide-ubuntu-0:0.1.75-1.32.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:spacecmd-0:5.0.11-1.44.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-0:0.1.28-1.14.1.aarch64",
+            "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-0:0.1.28-1.14.1.ppc64le",
+            "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-0:0.1.28-1.14.1.s390x",
+            "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-0:0.1.28-1.14.1.x86_64",
+            "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-bash-completion-0:0.1.28-1.14.1.noarch",
+            "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:mgrctl-zsh-completion-0:0.1.28-1.14.1.noarch",
+            "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:scap-security-guide-redhat-0:0.1.75-1.32.1.noarch",
+            "SUSE Manager Client Tools for RHEL, Liberty and Clones 9-CLIENT-TOOLS:spacecmd-0:5.0.11-1.44.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-0:0.1.28-1.14.1.aarch64",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-0:0.1.28-1.14.1.ppc64le",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-0:0.1.28-1.14.1.s390x",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-0:0.1.28-1.14.1.x86_64",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-bash-completion-0:0.1.28-1.14.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgradm-zsh-completion-0:0.1.28-1.14.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-0:0.1.28-1.14.1.aarch64",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-0:0.1.28-1.14.1.ppc64le",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-0:0.1.28-1.14.1.s390x",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-0:0.1.28-1.14.1.x86_64",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-bash-completion-0:0.1.28-1.14.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrctl-zsh-completion-0:0.1.28-1.14.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-0:0.1.28-1.14.1.aarch64",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-0:0.1.28-1.14.1.ppc64le",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-0:0.1.28-1.14.1.s390x",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-0:0.1.28-1.14.1.x86_64",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-bash-completion-0:0.1.28-1.14.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:mgrpxy-zsh-completion-0:0.1.28-1.14.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:scap-security-guide-0:0.1.75-1.32.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:scap-security-guide-debian-0:0.1.75-1.32.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:scap-security-guide-redhat-0:0.1.75-1.32.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:scap-security-guide-ubuntu-0:0.1.75-1.32.1.noarch",
+            "SUSE:EL-9:Update:Products:ManagerTools:Update:spacecmd-0:5.0.11-1.44.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-02-14T07:20:12Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-22037"
+    }
+  ]
+}

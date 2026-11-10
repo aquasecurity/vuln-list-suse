@@ -1,0 +1,652 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "critical"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for docker",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for docker fixes the following issues:\n\n- This update includes fixes for:\n\n  * CVE-2024-41110: Fixed Authz zero length regression (bsc#1228324)\n  * CVE-2023-47108: Fixed otelgrpc: DoS vulnerability in otelgrpc\n    (uncontrolled resource consumption) due to unbound cardinality\n    (bsc#1217070 bsc#1229806)\n  * CVE-2023-45142: Fixed otelhttp,otelhttptrace,otelrestful: DoS\n    vulnerability (bsc#1228553 bsc#1229806)\n\n- Update to Docker 27.5.1-ce. See upstream changelog online at\n  \u003chttps://docs.docker.com/engine/release-notes/27/#2741\u003e bsc#1237335\n\n- Update to docker-buildx 0.20.1. See upstream changelog online at\n  \u003chttps://github.com/docker/buildx/releases/tag/v0.20.1\u003e\n\n- Update to Docker 27.4.1-ce. See upstream changelog online at\n  \u003chttps://docs.docker.com/engine/release-notes/27/#2741\u003e\n\n- Update to docker-buildx 0.19.3. See upstream changelog online at\n  \u003chttps://github.com/docker/buildx/releases/tag/v0.19.3\u003e\n\n- Update to Docker 27.4.0-ce. See upstream changelog online at\n  \u003chttps://docs.docker.com/engine/release-notes/27/#274\u003e\n\n  \u003chttps://github.com/docker/buildx/releases/tag/v0.19.2\u003e.\n\n  Some notable changelogs from the last update:\n    * \u003chttps://github.com/docker/buildx/releases/tag/v0.19.0\u003e\n    * \u003chttps://github.com/docker/buildx/releases/tag/v0.18.0\u003e\n\n- Update to Go 1.22.\n\n- Add a new toggle file /etc/docker/suse-secrets-enable which allows users to\n  disable the SUSEConnect integration with Docker (which creates special mounts\n  in /run/secrets to allow container-suseconnect to authenticate containers\n  with registries on registered hosts). bsc#1231348 bsc#1232999\n\n  In order to disable these mounts, just do\n\n    echo 0 \u003e /etc/docker/suse-secrets-enable\n\n  and restart Docker. In order to re-enable them, just do\n\n    echo 1 \u003e /etc/docker/suse-secrets-enable\n\n  and restart Docker. Docker will output information on startup to tell you\n  whether the SUSE secrets feature is enabled or not.\n\n- Disable docker-buildx builds for SLES. It turns out that build containers\n  with docker-buildx don't currently get the SUSE secrets mounts applied,\n  meaning that container-suseconnect doesn't work when building images.\n  bsc#1233819\n\n- Remove DOCKER_NETWORK_OPTS from docker.service. This was removed from\n  sysconfig a long time ago, and apparently this causes issues with systemd in\n  some cases.\n\n- Update to docker-buildx v0.17.1 to match standalone docker-buildx package we\n  are replacing. See upstream changelog online at\n  \u003chttps://github.com/docker/buildx/releases/tag/v0.17.1\u003e\n\n- Mark docker-buildx as required since classic \"docker build\" has been\n  deprecated since Docker 23.0. bsc#1230331\n\n- Import docker-buildx v0.16.2 as a subpackage. Previously this was a separate\n  package, but with docker-stable it will be necessary to maintain the packages\n  together and it makes more sense to have them live in the same OBS package.\n  bsc#1230333\n\n- Update to Docker 26.1.5-ce. See upstream changelog online at\n  \u003chttps://docs.docker.com/engine/release-notes/26.1/#2615\u003e\n  bsc#1230294\n\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-SLE-Micro-6.1-37",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_20259-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:20259-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-202520259-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:20259-1",
+        "url": "https://lists.suse.com/pipermail/sle-security-updates/2025-June/021059.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1217070",
+        "url": "https://bugzilla.suse.com/1217070"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1223409",
+        "url": "https://bugzilla.suse.com/1223409"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1228324",
+        "url": "https://bugzilla.suse.com/1228324"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1228553",
+        "url": "https://bugzilla.suse.com/1228553"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1229806",
+        "url": "https://bugzilla.suse.com/1229806"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1230294",
+        "url": "https://bugzilla.suse.com/1230294"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1230331",
+        "url": "https://bugzilla.suse.com/1230331"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1230333",
+        "url": "https://bugzilla.suse.com/1230333"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1231348",
+        "url": "https://bugzilla.suse.com/1231348"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1232999",
+        "url": "https://bugzilla.suse.com/1232999"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1233819",
+        "url": "https://bugzilla.suse.com/1233819"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1234089",
+        "url": "https://bugzilla.suse.com/1234089"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1237335",
+        "url": "https://bugzilla.suse.com/1237335"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-45142 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-45142/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-47108 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-47108/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-29018 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-29018/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-41110 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-41110/"
+      }
+    ],
+    "title": "Security update for docker",
+    "tracking": {
+      "current_release_date": "2026-09-20T18:10:41Z",
+      "generator": {
+        "date": "2025-03-31T16:54:17Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:20259-1",
+      "initial_release_date": "2025-03-31T16:54:17Z",
+      "revision_history": [
+        {
+          "date": "2025-03-31T16:54:17Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T18:10:41Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "docker-0:27.5.1_ce-slfo.1.1_1.1.aarch64",
+                "product": {
+                  "name": "docker-0:27.5.1_ce-slfo.1.1_1.1.aarch64",
+                  "product_id": "docker-0:27.5.1_ce-slfo.1.1_1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mobyproject:moby:27.5.1_ce:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/docker@27.5.1_ce-slfo.1.1_1.1?arch=aarch64\u0026upstream=docker-0:27.5.1_ce-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "docker-0:27.5.1_ce-slfo.1.1_1.1.ppc64le",
+                "product": {
+                  "name": "docker-0:27.5.1_ce-slfo.1.1_1.1.ppc64le",
+                  "product_id": "docker-0:27.5.1_ce-slfo.1.1_1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mobyproject:moby:27.5.1_ce:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/docker@27.5.1_ce-slfo.1.1_1.1?arch=ppc64le\u0026upstream=docker-0:27.5.1_ce-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "docker-0:27.5.1_ce-slfo.1.1_1.1.s390x",
+                "product": {
+                  "name": "docker-0:27.5.1_ce-slfo.1.1_1.1.s390x",
+                  "product_id": "docker-0:27.5.1_ce-slfo.1.1_1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mobyproject:moby:27.5.1_ce:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/docker@27.5.1_ce-slfo.1.1_1.1?arch=s390x\u0026upstream=docker-0:27.5.1_ce-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "docker-0:27.5.1_ce-slfo.1.1_1.1.x86_64",
+                "product": {
+                  "name": "docker-0:27.5.1_ce-slfo.1.1_1.1.x86_64",
+                  "product_id": "docker-0:27.5.1_ce-slfo.1.1_1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:mobyproject:moby:27.5.1_ce:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/docker@27.5.1_ce-slfo.1.1_1.1?arch=x86_64\u0026upstream=docker-0:27.5.1_ce-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Micro 6.1",
+                "product": {
+                  "name": "SUSE Linux Micro 6.1",
+                  "product_id": "SUSE Linux Micro 6.1",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sl-micro:6.1"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "docker-0:27.5.1_ce-slfo.1.1_1.1.aarch64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.aarch64"
+        },
+        "product_reference": "docker-0:27.5.1_ce-slfo.1.1_1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "docker-0:27.5.1_ce-slfo.1.1_1.1.ppc64le as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.ppc64le"
+        },
+        "product_reference": "docker-0:27.5.1_ce-slfo.1.1_1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "docker-0:27.5.1_ce-slfo.1.1_1.1.s390x as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.s390x"
+        },
+        "product_reference": "docker-0:27.5.1_ce-slfo.1.1_1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "docker-0:27.5.1_ce-slfo.1.1_1.1.x86_64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.x86_64"
+        },
+        "product_reference": "docker-0:27.5.1_ce-slfo.1.1_1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2023-45142",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-45142"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "OpenTelemetry-Go Contrib is a collection of third-party packages for OpenTelemetry-Go. A handler wrapper out of the box adds labels `http.user_agent` and `http.method` that have unbound cardinality. It leads to the server's potential memory exhaustion when many malicious requests are sent to it. HTTP header User-Agent or HTTP method for requests can be easily set by an attacker to be random and long. The library internally uses `httpconv.ServerRequest` that records every value for HTTP `method` and `User-Agent`. In order to be affected, a program has to use the `otelhttp.NewHandler` wrapper and not filter any unknown HTTP methods or User agents on the level of CDN, LB, previous middleware, etc. Version 0.44.0 fixed this issue when the values collected for attribute `http.request.method` were changed to be restricted to a set of well-known values and other high cardinality attributes were removed. As a workaround to stop being affected, `otelhttp.WithFilter()` can be used, but it requires manual careful configuration to not log certain requests entirely. For convenience and safe usage of this library, it should by default mark with the label `unknown` non-standard HTTP methods and User agents to show that such requests were made but do not increase cardinality. In case someone wants to stay with the current behavior, library API should allow to enable it.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-45142",
+          "url": "https://www.suse.com/security/cve/CVE-2023-45142"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1228553 for CVE-2023-45142",
+          "url": "https://bugzilla.suse.com/1228553"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1230294 for CVE-2023-45142",
+          "url": "https://bugzilla.suse.com/1230294"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1265255 for CVE-2023-45142",
+          "url": "https://bugzilla.suse.com/1265255"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1265256 for CVE-2023-45142",
+          "url": "https://bugzilla.suse.com/1265256"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1265259 for CVE-2023-45142",
+          "url": "https://bugzilla.suse.com/1265259"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-03-31T16:54:17Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2023-45142"
+    },
+    {
+      "cve": "CVE-2023-47108",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-47108"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "OpenTelemetry-Go Contrib is a collection of third-party packages for OpenTelemetry-Go. Starting in version 0.37.0 and prior to version 0.46.0, the grpc Unary Server Interceptor out of the box adds labels `net.peer.sock.addr` and `net.peer.sock.port` that have unbound cardinality. It leads to the server's potential memory exhaustion when many malicious requests are sent. An attacker can easily flood the peer address and port for requests. Version 0.46.0 contains a fix for this issue. As a workaround to stop being affected, a view removing the attributes can be used. The other possibility is to disable grpc metrics instrumentation by passing `otelgrpc.WithMeterProvider` option with `noop.NewMeterProvider`.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-47108",
+          "url": "https://www.suse.com/security/cve/CVE-2023-47108"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1217070 for CVE-2023-47108",
+          "url": "https://bugzilla.suse.com/1217070"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1230294 for CVE-2023-47108",
+          "url": "https://bugzilla.suse.com/1230294"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1265255 for CVE-2023-47108",
+          "url": "https://bugzilla.suse.com/1265255"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1265256 for CVE-2023-47108",
+          "url": "https://bugzilla.suse.com/1265256"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1265259 for CVE-2023-47108",
+          "url": "https://bugzilla.suse.com/1265259"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-03-31T16:54:17Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2023-47108"
+    },
+    {
+      "cve": "CVE-2024-29018",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-29018"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Moby is an open source container framework that is a key component of Docker Engine, Docker Desktop, and other distributions of container tooling or runtimes. Moby's networking implementation allows for many networks, each with their own IP address range and gateway, to be defined. This feature is frequently referred to as custom networks, as each network can have a different driver, set of parameters and thus behaviors. When creating a network, the `--internal` flag is used to designate a network as _internal_. The `internal` attribute in a docker-compose.yml file may also be used to mark a network _internal_, and other API clients may specify the `internal` parameter as well.\n\nWhen containers with networking are created, they are assigned unique network interfaces and IP addresses. The host serves as a router for non-internal networks, with a gateway IP that provides SNAT/DNAT to/from container IPs.\n\nContainers on an internal network may communicate between each other, but are precluded from communicating with any networks the host has access to (LAN or WAN) as no default route is configured, and firewall rules are set up to drop all outgoing traffic. Communication with the gateway IP address (and thus appropriately configured host services) is possible, and the host may communicate with any container IP directly.\n\nIn addition to configuring the Linux kernel's various networking features to enable container networking, `dockerd` directly provides some services to container networks. Principal among these is serving as a resolver, enabling service discovery, and resolution of names from an upstream resolver.\n\nWhen a DNS request for a name that does not correspond to a container is received, the request is forwarded to the configured upstream resolver. This request is made from the container's network namespace: the level of access and routing of traffic is the same as if the request was made by the container itself.\n\nAs a consequence of this design, containers solely attached to an internal network will be unable to resolve names using the upstream resolver, as the container itself is unable to communicate with that nameserver. Only the names of containers also attached to the internal network are able to be resolved.\n\nMany systems run a local forwarding DNS resolver. As the host and any containers have separate loopback devices, a consequence of the design described above is that containers are unable to resolve names from the host's configured resolver, as they cannot reach these addresses on the host loopback device. To bridge this gap, and to allow containers to properly resolve names even when a local forwarding resolver is used on a loopback address, `dockerd` detects this scenario and instead forward DNS requests from the host namework namespace. The loopback resolver then forwards the requests to its configured upstream resolvers, as expected.\n\nBecause `dockerd` forwards DNS requests to the host loopback device, bypassing the container network namespace's normal routing semantics entirely, internal networks can unexpectedly forward DNS requests to an external nameserver. By registering a domain for which they control the authoritative nameservers, an attacker could arrange for a compromised container to exfiltrate data by encoding it in DNS queries that will eventually be answered by their nameservers.\n\nDocker Desktop is not affected, as Docker Desktop always runs an internal resolver on a RFC 1918 address.\n\nMoby releases 26.0.0, 25.0.4, and 23.0.11 are patched to prevent forwarding any DNS requests from internal networks. As a workaround, run containers intended to be solely attached to internal networks with a custom upstream address, which will force all upstream DNS queries to be resolved from the container's network namespace.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-29018",
+          "url": "https://www.suse.com/security/cve/CVE-2024-29018"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1234089 for CVE-2024-29018",
+          "url": "https://bugzilla.suse.com/1234089"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-03-31T16:54:17Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-29018"
+    },
+    {
+      "cve": "CVE-2024-41110",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-41110"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Moby is an open-source project created by Docker for software containerization. A security vulnerability has been detected in certain versions of Docker Engine, which could allow an attacker to bypass authorization plugins (AuthZ) under specific circumstances. The base likelihood of this being exploited is low.\n\nUsing a specially-crafted API request, an Engine API client could make the daemon forward the request or response to an authorization plugin without the body. In certain circumstances, the authorization plugin may allow a request which it would have otherwise denied if the body had been forwarded to it.\n\nA security issue was discovered In 2018, where an attacker could bypass AuthZ plugins using a specially crafted API request. This could lead to unauthorized actions, including privilege escalation. Although this issue was fixed in Docker Engine v18.09.1 in January 2019, the fix was not carried forward to later major versions, resulting in a regression. Anyone who depends on authorization plugins that introspect the request and/or response body to make access control decisions is potentially impacted.\n\nDocker EE v19.03.x and all versions of Mirantis Container Runtime are not vulnerable.\n\ndocker-ce v27.1.1 containes patches to fix the vulnerability. Patches have also been merged into the master, 19.03, 20.0, 23.0, 24.0, 25.0, 26.0, and 26.1 release branches. If one is unable to upgrade immediately, avoid using AuthZ plugins and/or restrict access to the Docker API to trusted parties, following the principle of least privilege.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-41110",
+          "url": "https://www.suse.com/security/cve/CVE-2024-41110"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1228324 for CVE-2024-41110",
+          "url": "https://bugzilla.suse.com/1228324"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1230294 for CVE-2024-41110",
+          "url": "https://bugzilla.suse.com/1230294"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 9.9,
+            "baseSeverity": "CRITICAL",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:docker-0:27.5.1_ce-slfo.1.1_1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-03-31T16:54:17Z",
+          "details": "critical"
+        }
+      ],
+      "title": "CVE-2024-41110"
+    }
+  ]
+}

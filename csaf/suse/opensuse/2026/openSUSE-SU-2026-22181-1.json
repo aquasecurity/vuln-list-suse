@@ -1,0 +1,1942 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for libsoup",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for libsoup fixes the following issues:\n\n- CVE-2026-12547: Header \"Proxy-Authorization\" leads to credentials being send to different proxy after proxy switch\n  (bsc#1272195).\n- CVE-2026-12548: out-of-bounds read in multipart body parser due to an integer truncation (bsc#1272196).\n- CVE-2026-15711: SoupWebsocketConnection: WebSocket remote denial of service via oversized control frame protocol\n  violation (bsc#1271446).\n- CVE-2026-15712: SoupClientMessageIOHTTP2: HTTP/2 GOAWAY frame parsing heap buffer over-read via invalid NUL-\n  termination assumption (bsc#1271447).\n- CVE-2026-15713: SoupCache: libsoup: HTTP/2 frame window exhaustion remote denial of service via memory leak\n  (bsc#1271448).\n- CVE-2026-15714: SoupMultipartInputStream: libsoup: Out-of-bounds read in soup_multipart_input_stream_read_headers\n  via an oversized multipart boundary string (bsc#1271449).\n- CVE-2026-66339: proxy credentials leak to destination server via `Proxy-Authorization` header in CONNECT tunnels\n  (bsc#1273156).\n- CVE-2026-102555: Heap buffer overflow via uninitialized length in data-URI base64 decoding (bsc#1283299).\n- CVE-2026-102556: Heap buffer overflow from WebSocket Pong signal type confusion (bsc#1283300).\n- CVE-2026-102557: Heap buffer overflow during WebSocket message reassembly (bsc#1283301).\n- CVE-2026-102558: Heap buffer overflow during WebSocket receive-buffer growth (bsc#1283302).\n- CVE-2026-102559: Heap buffer overflow during WebSocket client-frame masking (bsc#1283303).\n- CVE-2026-102560: Heap buffer overflow during outgoing permessage-deflate buffer growth (bsc#1283304).\n- CVE-2026-103399: incomplete request body draining in HTTP/1.x early responses can allow HTTP request smuggling\n  (bsc#1283831).\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-2000",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_22181-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1271446",
+        "url": "https://bugzilla.suse.com/1271446"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1271447",
+        "url": "https://bugzilla.suse.com/1271447"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1271448",
+        "url": "https://bugzilla.suse.com/1271448"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1271449",
+        "url": "https://bugzilla.suse.com/1271449"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1272195",
+        "url": "https://bugzilla.suse.com/1272195"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1272196",
+        "url": "https://bugzilla.suse.com/1272196"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1273156",
+        "url": "https://bugzilla.suse.com/1273156"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1283299",
+        "url": "https://bugzilla.suse.com/1283299"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1283300",
+        "url": "https://bugzilla.suse.com/1283300"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1283301",
+        "url": "https://bugzilla.suse.com/1283301"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1283302",
+        "url": "https://bugzilla.suse.com/1283302"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1283303",
+        "url": "https://bugzilla.suse.com/1283303"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1283304",
+        "url": "https://bugzilla.suse.com/1283304"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1283831",
+        "url": "https://bugzilla.suse.com/1283831"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-102555 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-102555/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-102556 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-102556/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-102557 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-102557/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-102558 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-102558/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-102559 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-102559/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-102560 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-102560/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-103399 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-103399/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-12547 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-12547/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-12548 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-12548/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-15711 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-15711/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-15712 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-15712/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-15713 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-15713/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-15714 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-15714/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-66339 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-66339/"
+      }
+    ],
+    "title": "Security update for libsoup",
+    "tracking": {
+      "current_release_date": "2026-10-31T17:19:35Z",
+      "generator": {
+        "date": "2026-10-29T10:24:12Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:22181-1",
+      "initial_release_date": "2026-10-29T10:24:12Z",
+      "revision_history": [
+        {
+          "date": "2026-10-29T10:24:12Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-10-31T17:19:35Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+                "product": {
+                  "name": "libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+                  "product_id": "libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:libsoup:3.6.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsoup-3_0-0@3.6.6-160000.5.1?arch=aarch64\u0026upstream=libsoup-0:3.6.6-160000.5.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+                "product": {
+                  "name": "libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+                  "product_id": "libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:libsoup:3.6.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsoup-devel@3.6.6-160000.5.1?arch=aarch64\u0026upstream=libsoup-0:3.6.6-160000.5.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+                "product": {
+                  "name": "typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+                  "product_id": "typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:libsoup:3.6.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/typelib-1_0-Soup-3_0@3.6.6-160000.5.1?arch=aarch64\u0026upstream=libsoup-0:3.6.6-160000.5.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libsoup-lang-0:3.6.6-160000.5.1.noarch",
+                "product": {
+                  "name": "libsoup-lang-0:3.6.6-160000.5.1.noarch",
+                  "product_id": "libsoup-lang-0:3.6.6-160000.5.1.noarch",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:libsoup:3.6.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsoup-lang@3.6.6-160000.5.1?arch=noarch\u0026upstream=libsoup-0:3.6.6-160000.5.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+                "product": {
+                  "name": "libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+                  "product_id": "libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:libsoup:3.6.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsoup-3_0-0@3.6.6-160000.5.1?arch=ppc64le\u0026upstream=libsoup-0:3.6.6-160000.5.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+                "product": {
+                  "name": "libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+                  "product_id": "libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:libsoup:3.6.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsoup-devel@3.6.6-160000.5.1?arch=ppc64le\u0026upstream=libsoup-0:3.6.6-160000.5.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+                "product": {
+                  "name": "typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+                  "product_id": "typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:libsoup:3.6.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/typelib-1_0-Soup-3_0@3.6.6-160000.5.1?arch=ppc64le\u0026upstream=libsoup-0:3.6.6-160000.5.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+                "product": {
+                  "name": "libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+                  "product_id": "libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:libsoup:3.6.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsoup-3_0-0@3.6.6-160000.5.1?arch=s390x\u0026upstream=libsoup-0:3.6.6-160000.5.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libsoup-devel-0:3.6.6-160000.5.1.s390x",
+                "product": {
+                  "name": "libsoup-devel-0:3.6.6-160000.5.1.s390x",
+                  "product_id": "libsoup-devel-0:3.6.6-160000.5.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:libsoup:3.6.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsoup-devel@3.6.6-160000.5.1?arch=s390x\u0026upstream=libsoup-0:3.6.6-160000.5.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+                "product": {
+                  "name": "typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+                  "product_id": "typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:libsoup:3.6.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/typelib-1_0-Soup-3_0@3.6.6-160000.5.1?arch=s390x\u0026upstream=libsoup-0:3.6.6-160000.5.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+                "product": {
+                  "name": "libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+                  "product_id": "libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:libsoup:3.6.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsoup-3_0-0@3.6.6-160000.5.1?arch=x86_64\u0026upstream=libsoup-0:3.6.6-160000.5.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+                "product": {
+                  "name": "libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+                  "product_id": "libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:libsoup:3.6.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libsoup-devel@3.6.6-160000.5.1?arch=x86_64\u0026upstream=libsoup-0:3.6.6-160000.5.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64",
+                "product": {
+                  "name": "typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64",
+                  "product_id": "typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnome:libsoup:3.6.6:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/typelib-1_0-Soup-3_0@3.6.6-160000.5.1?arch=x86_64\u0026upstream=libsoup-0:3.6.6-160000.5.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64"
+        },
+        "product_reference": "libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le"
+        },
+        "product_reference": "libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsoup-3_0-0-0:3.6.6-160000.5.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x"
+        },
+        "product_reference": "libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64"
+        },
+        "product_reference": "libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsoup-devel-0:3.6.6-160000.5.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64"
+        },
+        "product_reference": "libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsoup-devel-0:3.6.6-160000.5.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le"
+        },
+        "product_reference": "libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsoup-devel-0:3.6.6-160000.5.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x"
+        },
+        "product_reference": "libsoup-devel-0:3.6.6-160000.5.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsoup-devel-0:3.6.6-160000.5.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64"
+        },
+        "product_reference": "libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libsoup-lang-0:3.6.6-160000.5.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch"
+        },
+        "product_reference": "libsoup-lang-0:3.6.6-160000.5.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64"
+        },
+        "product_reference": "typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le"
+        },
+        "product_reference": "typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x"
+        },
+        "product_reference": "typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+        },
+        "product_reference": "typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-102555",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-102555"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup. The soup_uri_decode_data_uri() function incorrectly treated base64 data-URI payloads as NUL-terminated strings when calling g_base64_decode_inplace(). If the percent-decoded payload contained embedded NUL bytes, the decoded length could remain uninitialized and be used as the size of the returned GBytes. This can lead to an out-of-bounds read or application crash when processing a crafted data URI.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-102555",
+          "url": "https://www.suse.com/security/cve/CVE-2026-102555"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1283299 for CVE-2026-102555",
+          "url": "https://bugzilla.suse.com/1283299"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.2,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-29T10:24:12Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-102555"
+    },
+    {
+      "cve": "CVE-2026-102556",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-102556"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup. When handling an incoming WebSocket Pong frame, SoupWebsocketConnection emitted the ::pong signal with a GByteArray pointer even though the signal is declared to pass a GBytes. Applications connecting a handler that follows the documented GBytes API can trigger heap corruption or a crash upon receiving a crafted Pong.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-102556",
+          "url": "https://www.suse.com/security/cve/CVE-2026-102556"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1283300 for CVE-2026-102556",
+          "url": "https://bugzilla.suse.com/1283300"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.6,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-29T10:24:12Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-102556"
+    },
+    {
+      "cve": "CVE-2026-102557",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-102557"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup. When reassembling fragmented WebSocket messages into a GByteArray, libsoup did not adequately cap total message size against the limits of the underlying buffer type. A remote peer could send fragments that caused size truncation while the implementation still used the full length, leading to heap corruption or a crash.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-102557",
+          "url": "https://www.suse.com/security/cve/CVE-2026-102557"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1283301 for CVE-2026-102557",
+          "url": "https://bugzilla.suse.com/1283301"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.6,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-29T10:24:12Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-102557"
+    },
+    {
+      "cve": "CVE-2026-102558",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-102558"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup. When max-incoming-payload-size is unlimited (0), SoupWebsocketConnection could grow its incoming GByteArray based on an attacker-controlled frame length until the length wrapped, causing a heap buffer overflow while reading frame data.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-102558",
+          "url": "https://www.suse.com/security/cve/CVE-2026-102558"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1283302 for CVE-2026-102558",
+          "url": "https://bugzilla.suse.com/1283302"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.6,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-29T10:24:12Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-102558"
+    },
+    {
+      "cve": "CVE-2026-102559",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-102559"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup. When constructing a masked WebSocket client frame for a very large outgoing payload, size values passed to GByteArray allocation APIs could be truncated while the masking routine still used the full length, causing a heap buffer overflow.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-102559",
+          "url": "https://www.suse.com/security/cve/CVE-2026-102559"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1283303 for CVE-2026-102559",
+          "url": "https://bugzilla.suse.com/1283303"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.6,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-29T10:24:12Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-102559"
+    },
+    {
+      "cve": "CVE-2026-102560",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-102560"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup. When the permessage-deflate WebSocket extension compresses a very large outgoing message, truncated size calculations used for GByteArray growth could wrap, causing zlib to write past the allocated buffer and resulting in a heap buffer overflow.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-102560",
+          "url": "https://www.suse.com/security/cve/CVE-2026-102560"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1283304 for CVE-2026-102560",
+          "url": "https://bugzilla.suse.com/1283304"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.6,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-29T10:24:12Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-102560"
+    },
+    {
+      "cve": "CVE-2026-103399",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-103399"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in SoupServer (libsoup). When an HTTP/1.x client sends a request with Expect: 100-continue and a request body, and SoupServer returns an early final (non-1xx) response before the body is read, the server neither drains the declared body bytes nor closes the connection. On a keep-alive connection, those leftover bytes are interpreted as a subsequent HTTP request. A remote, unauthenticated attacker can place a complete HTTP request in the body and cause SoupServer to process that smuggled request, leading to unintended request handling.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-103399",
+          "url": "https://www.suse.com/security/cve/CVE-2026-103399"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1283831 for CVE-2026-103399",
+          "url": "https://bugzilla.suse.com/1283831"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.4,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-29T10:24:12Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-103399"
+    },
+    {
+      "cve": "CVE-2026-12547",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-12547"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "SoupAuthManager caches proxy authentication credentials without scoping them to the proxy authority (host:port). When the proxy configuration changes (e.g., via system settings or WPAD), cached Proxy-Authorization headers from the previous proxy are sent to the new proxy, leaking credentials.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-12547",
+          "url": "https://www.suse.com/security/cve/CVE-2026-12547"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1272195 for CVE-2026-12547",
+          "url": "https://bugzilla.suse.com/1272195"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.1,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-29T10:24:12Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-12547"
+    },
+    {
+      "cve": "CVE-2026-12548",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-12548"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A heap out-of-bounds read flaw was found in libsoup. When parsing multipart HTTP messages, an integer type mismatch between the caller and soup_headers_parse() can cause the length parameter to be incorrectly truncated, leading to a heap buffer over-read. A remote attacker could use this flaw to crash an application using libsoup or potentially disclose heap memory contents.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-12548",
+          "url": "https://www.suse.com/security/cve/CVE-2026-12548"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1272196 for CVE-2026-12548",
+          "url": "https://bugzilla.suse.com/1272196"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.8,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-29T10:24:12Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-12548"
+    },
+    {
+      "cve": "CVE-2026-15711",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-15711"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A vulnerability was found in libsoup's WebSocket frame parsing implementation. The library fails to validate length rules specified in RFC 6455 \u003cparagraph\u003e5.5, which mandates that all WebSocket control frames (e.g., PING, PONG, CLOSE) contain a payload of 125 bytes or less. A remote, unauthenticated attacker can exploit this by sending a non-compliant, oversized control frame. Because the parser handles this protocol violation improperly instead of throwing an immediate connection termination error, it triggers a internal processing crash, resulting in a remote denial of service (DoS) for applications utilizing libsoup WebSockets.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-15711",
+          "url": "https://www.suse.com/security/cve/CVE-2026-15711"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1271446 for CVE-2026-15711",
+          "url": "https://bugzilla.suse.com/1271446"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-29T10:24:12Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-15711"
+    },
+    {
+      "cve": "CVE-2026-15712",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-15712"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A heap buffer over-read vulnerability was discovered in libsoup's (versions: libsoup 3.0 to 3.7.0) HTTP/2 connection tracking framework. When the library processes an HTTP/2 GOAWAY frame, it improperly handles the \"Additional Debug Data\" payload by assuming the data stream is a safely NUL-terminated C-string. Because the parser lacks strict length-boundary verification before reading this data, a remote, unauthenticated attacker can intentionally send a malformed GOAWAY frame missing the appropriate null delimiter. This causes the library to read past the end of the allocated buffer, triggering an application crash that results in a denial of service (DoS), or potentially exposing fragments of memory contents.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-15712",
+          "url": "https://www.suse.com/security/cve/CVE-2026-15712"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1271447 for CVE-2026-15712",
+          "url": "https://bugzilla.suse.com/1271447"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-29T10:24:12Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-15712"
+    },
+    {
+      "cve": "CVE-2026-15713",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-15713"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A vulnerability was found in libsoup's HTTP/2 protocol implementation. The library fails to correctly release memory context blocks under specific stream termination conditions, such as when an HTTP/2 connection encounters window exhaustion or explicit stream resets. A remote, unauthenticated attacker acting as a malicious network peer can trick the connection engine into allocating stream states that are subsequently leaked during cleanup. Over a sustained period, this flaw allows the remote attacker to consume the system's heap allocations incrementally, triggering a denial of service (DoS) through an ultimate Out-of-Memory (OOM) application crash.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-15713",
+          "url": "https://www.suse.com/security/cve/CVE-2026-15713"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1271448 for CVE-2026-15713",
+          "url": "https://bugzilla.suse.com/1271448"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-29T10:24:12Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-15713"
+    },
+    {
+      "cve": "CVE-2026-15714",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-15714"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An out-of-bounds read vulnerability was found in libsoup's multipart processing subsystem. The flaw exists in the soup_multipart_input_stream_read_headers() function inside soup-multipart-input-stream.c, which does not adequately restrict or validate the size of incoming multipart boundary strings. When processing a crafted HTTP response containing a malformed or oversized boundary parameter, the internal stream reader reads past the allocated buffer bounds. A remote, unauthenticated attacker can exploit this behavior to cause a service denial (DoS) through application failure or potentially read fragments of unauthorized memory metadata.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-15714",
+          "url": "https://www.suse.com/security/cve/CVE-2026-15714"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1271449 for CVE-2026-15714",
+          "url": "https://bugzilla.suse.com/1271449"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-29T10:24:12Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-15714"
+    },
+    {
+      "cve": "CVE-2026-66339",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-66339"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A flaw was found in libsoup. After a CONNECT tunnel is established through an HTTP proxy, libsoup incorrectly attaches the Proxy-Authorization header to subsequent HTTPS requests sent through that tunnel to the destination server. This allows the destination server to capture proxy credentials, leading to information disclosure.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+          "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+          "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-66339",
+          "url": "https://www.suse.com/security/cve/CVE-2026-66339"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1273156 for CVE-2026-66339",
+          "url": "https://bugzilla.suse.com/1273156"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-3_0-0-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:libsoup-devel-0:3.6.6-160000.5.1.x86_64",
+            "openSUSE Leap 16.0:libsoup-lang-0:3.6.6-160000.5.1.noarch",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.aarch64",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.ppc64le",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.s390x",
+            "openSUSE Leap 16.0:typelib-1_0-Soup-3_0-0:3.6.6-160000.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-29T10:24:12Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-66339"
+    }
+  ]
+}

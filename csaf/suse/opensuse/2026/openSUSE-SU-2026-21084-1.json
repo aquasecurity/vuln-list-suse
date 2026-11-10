@@ -1,0 +1,1498 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for distribution",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for distribution fixes the following issues\n\n- CVE-2026-33814: golang.org/x/net/http2: infinite loop in HTTP/2 transport when given bad SETTINGS_MAX_FRAME_SIZE\n  (bsc#1265788).\n- CVE-2026-39821: golang.org/x/net/idna: failure to reject ASCII-only Punycode-encoded labels allows for validation\n  bypass and privilege escalation (bsc#1266629).\n- CVE-2026-41888: tag deletion bypasses the storage.delete.enabled configuration (bsc#1265429).\n- CVE-2026-39827: Invoking memory leak when rejecting channels can lead to DoS in golang.org/x/crypto/ssh (bsc#1266049).\n- CVE-2026-39828: Invoking bypass of certificate restrictions in golang.org/x/crypto/ssh (bsc#1266049).\n- CVE-2026-39829: Invoking pathological RSA/DSA parameters may cause DoS in golang.org/x/crypto/ssh (bsc#1266049).\n- CVE-2026-39830: Invoking client can cause server deadlock on unexpected responses in golang.org/x/crypto/ssh\n  (bsc#1266049).\n- CVE-2026-39831: Invoking bypass of FIDO/U2F security keys physical interaction in golang.org/x/crypto/ssh\n  (bsc#1266049).\n- CVE-2026-39832: Invoking agent constraints dropped when forwarding keys in golang.org/x/crypto/ssh/agent\n  (bsc#1266049).\n- CVE-2026-39833: Invoking key constraints not enforced in golang.org/x/crypto/ssh/agent (bsc#1266049).\n- CVE-2026-39834: Invoking infinite loop on large channel writes in golang.org/x/crypto/ssh (bsc#1266049).\n- CVE-2026-39835: Invoking server panic during CheckHostKey/Authenticate in golang.org/x/crypto/ssh (bsc#1266049).\n- CVE-2026-42508: Invoking auth bypass via unenforced @revoked status in golang.org/x/crypto/ssh/knownhosts\n  (bsc#1266049).\n- CVE-2026-46595: Invoking VerifiedPublicKeyCallback permissions skip enforcement in golang.org/x/crypto/ssh\n  (bsc#1266049).\n- CVE-2026-46597: Invoking byte arithmetic causes underflow and panic in golang.org/x/crypto/ssh (bsc#1266049).\n- CVE-2026-46598: Invoking pathological inputs can lead to client panic in golang.org/x/crypto/ssh/agent (bsc#1266049).\n\nChanges:\n\n * Bounds-check the file basename in PurgeUploads Walk callback\n * Add S3 Express One Zone support to the S3 storage driver\n * Fix tag list endpoint in proxy mode\n * Clamp oversized `n` query parameter in proxy mode instead of\n returning 400\n * See the full changelog below for the full list of changes.\n * internal/client/auth/challenge: cleanups and minor refactor\n * build(deps): bump\n go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp\n from 0.18.0 to 0.19.0 in the go_modules group across 1\n directory\n * build(deps): bump go.opentelemetry.io/otel/exporters/otlp/otl\n ptrace/otlptracehttp from 1.42.0 to 1.43.0 in the go_modules\n group across 1 directory\n * build(deps): bump github/codeql-action from 4.34.1 to 4.35.1\n * chore(build): Bump go version to latest\n * refactor: use slices.Backward to simplify the code\n * fix(proxy): fix tag list endpoint in proxy mode\n * Update docker-compose structure in deploying.md\n * build(deps): bump actions/upload-artifact from 7.0.0 to 7.0.1\n * build(deps): bump actions/upload-pages-artifact from 4.0.0 to\n 5.0.0\n * build(deps): bump docker/login-action from 4.0.0 to 4.1.0\n * build(deps): bump docker/bake-action from 7.0.0 to 7.1.0\n * fix(proxy): clamp oversized n query param instead of\n * feat(s3): add express zone one support to S3 driver\n * fix(storage): bounds-check the file basename in PurgeUploads\n Walk callback\n * chore(release): prepare for v3.1.1 release\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-949",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_21084-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1265429",
+        "url": "https://bugzilla.suse.com/1265429"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1265788",
+        "url": "https://bugzilla.suse.com/1265788"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1266049",
+        "url": "https://bugzilla.suse.com/1266049"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1266629",
+        "url": "https://bugzilla.suse.com/1266629"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-33814 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-33814/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39821 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39821/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39827 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39827/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39828 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39828/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39829 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39829/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39830 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39830/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39831 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39831/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39832 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39832/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39833 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39833/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39834 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39834/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-39835 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-39835/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-41888 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-41888/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-42508 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-42508/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-46595 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-46595/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-46597 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-46597/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-46598 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-46598/"
+      }
+    ],
+    "title": "Security update for distribution",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:36:10Z",
+      "generator": {
+        "date": "2026-06-18T14:30:03Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:21084-1",
+      "initial_release_date": "2026-06-18T14:30:03Z",
+      "revision_history": [
+        {
+          "date": "2026-06-18T14:30:03Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:38:57Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:41:13Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:36:10Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "distribution-registry-0:3.1.1-160000.1.1.aarch64",
+                "product": {
+                  "name": "distribution-registry-0:3.1.1-160000.1.1.aarch64",
+                  "product_id": "distribution-registry-0:3.1.1-160000.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:distribution:distribution:3.1.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/distribution-registry@3.1.1-160000.1.1?arch=aarch64\u0026upstream=distribution-0:3.1.1-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+                "product": {
+                  "name": "distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+                  "product_id": "distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:distribution:distribution:3.1.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/distribution-registry@3.1.1-160000.1.1?arch=ppc64le\u0026upstream=distribution-0:3.1.1-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "distribution-registry-0:3.1.1-160000.1.1.s390x",
+                "product": {
+                  "name": "distribution-registry-0:3.1.1-160000.1.1.s390x",
+                  "product_id": "distribution-registry-0:3.1.1-160000.1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:distribution:distribution:3.1.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/distribution-registry@3.1.1-160000.1.1?arch=s390x\u0026upstream=distribution-0:3.1.1-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "distribution-registry-0:3.1.1-160000.1.1.x86_64",
+                "product": {
+                  "name": "distribution-registry-0:3.1.1-160000.1.1.x86_64",
+                  "product_id": "distribution-registry-0:3.1.1-160000.1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:distribution:distribution:3.1.1:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/distribution-registry@3.1.1-160000.1.1?arch=x86_64\u0026upstream=distribution-0:3.1.1-160000.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "distribution-registry-0:3.1.1-160000.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64"
+        },
+        "product_reference": "distribution-registry-0:3.1.1-160000.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "distribution-registry-0:3.1.1-160000.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le"
+        },
+        "product_reference": "distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "distribution-registry-0:3.1.1-160000.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x"
+        },
+        "product_reference": "distribution-registry-0:3.1.1-160000.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "distribution-registry-0:3.1.1-160000.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+        },
+        "product_reference": "distribution-registry-0:3.1.1-160000.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-33814",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-33814"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "When processing HTTP/2 SETTINGS frames, transport will enter an infinite loop of writing CONTINUATION frames if it receives a SETTINGS_MAX_FRAME_SIZE with a value of 0.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-33814",
+          "url": "https://www.suse.com/security/cve/CVE-2026-33814"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1264506 for CVE-2026-33814",
+          "url": "https://bugzilla.suse.com/1264506"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268758 for CVE-2026-33814",
+          "url": "https://bugzilla.suse.com/1268758"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-18T14:30:03Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-33814"
+    },
+    {
+      "cve": "CVE-2026-39821",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39821"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The ToASCII and ToUnicode functions incorrectly accept Punycode-encoded labels that decode to an ASCII-only label. For example, ToUnicode(\"xn--example-.com\") incorrectly returns the name \"example.com\" rather than an error. This behavior can lead to privilege escalation in programs using the idna package. For example, a program which performs privilege checks on the ASCII hostname may reject \"example.com\" but permit \"xn--example-.com\". If that program subsequently converts the ASCII hostname to Unicode, it will inadvertently permits access to the Unicode name \"example.com\".",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39821",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39821"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266474 for CVE-2026-39821",
+          "url": "https://bugzilla.suse.com/1266474"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.4,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-18T14:30:03Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39821"
+    },
+    {
+      "cve": "CVE-2026-39827",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39827"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An authenticated SSH client that repeatedly opened channels which were rejected by the server caused unbounded memory growth, eventually crashing the server process and affecting all connected users. Rejected channels are now properly removed from the connection's internal state and released for garbage collection.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39827",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39827"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-39827",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-18T14:30:03Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39827"
+    },
+    {
+      "cve": "CVE-2026-39828",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39828"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "When an SSH server authentication callback returned PartialSuccessError with non-nil Permissions, those permissions were silently discarded, potentially dropping certificate restrictions such as force-command after a second factor succeeded. Returning non-nil Permissions with PartialSuccessError now results in a connection error.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39828",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39828"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-39828",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-18T14:30:03Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39828"
+    },
+    {
+      "cve": "CVE-2026-39829",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39829"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The RSA and DSA public key parsers did not enforce size limits on key parameters. A crafted public key with an excessively large modulus or DSA parameter could cause several minutes of CPU consumption during signature verification. This could be triggered by unauthenticated clients during public key authentication. RSA moduli are now limited to 8192 bits, and DSA parameters are validated per FIPS 186-2.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39829",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39829"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-39829",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-18T14:30:03Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39829"
+    },
+    {
+      "cve": "CVE-2026-39830",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39830"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A malicious SSH peer could send unsolicited global request responses to fill an internal buffer, blocking the connection's read loop. The blocked goroutine could not be released by calling Close(), resulting in a resource leak per connection. Unsolicited global responses are now discarded.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39830",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39830"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-39830",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-18T14:30:03Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39830"
+    },
+    {
+      "cve": "CVE-2026-39831",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39831"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The Verify() method for FIDO/U2F security key types (sk-ecdsa-sha2-nistp256@openssh.com, sk-ssh-ed25519@openssh.com) did not check the User Presence flag. Signatures generated without physical touch were accepted, allowing unattended use of a hardware security key. To restore the previous behavior, return a \"no-touch-required\" extension in Permissions.Extensions from PublicKeyCallback.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39831",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39831"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-39831",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-18T14:30:03Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39831"
+    },
+    {
+      "cve": "CVE-2026-39832",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39832"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "When adding a key to a remote agent constraint extensions such as restrict-destination-v00@openssh.com were not serialized in the request. Destination restrictions were silently stripped when forwarding keys, allowing unrestricted use of the key on the remote host. The client now serializes all constraint extensions. Additionally, the in-memory keyring returned by NewKeyring() now rejects keys with unsupported constraint extensions instead of silently ignoring them.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39832",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39832"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-39832",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.4,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-18T14:30:03Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39832"
+    },
+    {
+      "cve": "CVE-2026-39833",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39833"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The in-memory keyring returned by NewKeyring() silently accepted keys with the ConfirmBeforeUse constraint but never enforced it. The key would sign without any confirmation prompt, with no indication to the caller that the constraint was not in effect. NewKeyring() now returns an error when unsupported constraints are requested.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39833",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39833"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-39833",
+          "url": "https://bugzilla.suse.com/1266049"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1272292 for CVE-2026-39833",
+          "url": "https://bugzilla.suse.com/1272292"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.7,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-18T14:30:03Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39833"
+    },
+    {
+      "cve": "CVE-2026-39834",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39834"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "When writing data larger than 4GB in a single Write call on an SSH channel, an integer overflow in the internal payload size calculation caused the write loop to spin indefinitely, sending empty packets without making progress. The size comparison now uses int64 to prevent truncation.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39834",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39834"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-39834",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-18T14:30:03Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39834"
+    },
+    {
+      "cve": "CVE-2026-39835",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-39835"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "SSH servers which use CertChecker as a public key callback without setting IsUserAuthority or IsHostAuthority could be caused to panic by a client presenting a certificate. CertChecker now returns an error instead of panicking when these callbacks are nil.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-39835",
+          "url": "https://www.suse.com/security/cve/CVE-2026-39835"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-39835",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-18T14:30:03Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-39835"
+    },
+    {
+      "cve": "CVE-2026-41888",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-41888"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Distribution is a toolkit to pack, ship, store, and deliver container content. Prior to 3.1.1, tag deletion via the DELETE /v2/\u003cname\u003e/manifests/\u003ctag\u003e endpoint bypasses the storage.delete.enabled: false configuration, allowing any API client to remove tags from repositories even when the operator has explicitly disabled deletion. This vulnerability is fixed in 3.1.1.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-41888",
+          "url": "https://www.suse.com/security/cve/CVE-2026-41888"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1265422 for CVE-2026-41888",
+          "url": "https://bugzilla.suse.com/1265422"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-18T14:30:03Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-41888"
+    },
+    {
+      "cve": "CVE-2026-42508",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-42508"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Previously, a revoked 'SignatureKey' belonging to a CA was not correctly checked for revocation. Now, both the 'key' and 'key.SignatureKey' are checked for @revoked.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-42508",
+          "url": "https://www.suse.com/security/cve/CVE-2026-42508"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-42508",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-18T14:30:03Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-42508"
+    },
+    {
+      "cve": "CVE-2026-46595",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-46595"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Previously, CVE-2024-45337 fixed an authorization bypass for misused ssh server configurations; if any other type of callback is passed other than public key, then the source-address validation would be skipped.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-46595",
+          "url": "https://www.suse.com/security/cve/CVE-2026-46595"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-46595",
+          "url": "https://bugzilla.suse.com/1266049"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1278446 for CVE-2026-46595",
+          "url": "https://bugzilla.suse.com/1278446"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-18T14:30:03Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-46595"
+    },
+    {
+      "cve": "CVE-2026-46597",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-46597"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An incorrectly placed cast from bytes to int allowed for server-side panic in the AES-GCM packet decoder for well-crafted inputs.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-46597",
+          "url": "https://www.suse.com/security/cve/CVE-2026-46597"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-46597",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-18T14:30:03Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-46597"
+    },
+    {
+      "cve": "CVE-2026-46598",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-46598"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "For certain crafted inputs, a 'ed25519.PrivateKey' was created by casting malformed wire bytes, leading to a panic when used.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+          "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-46598",
+          "url": "https://www.suse.com/security/cve/CVE-2026-46598"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1266049 for CVE-2026-46598",
+          "url": "https://bugzilla.suse.com/1266049"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.aarch64",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.ppc64le",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.s390x",
+            "openSUSE Leap 16.0:distribution-registry-0:3.1.1-160000.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-18T14:30:03Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-46598"
+    }
+  ]
+}

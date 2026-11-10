@@ -1,0 +1,1564 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for containerized-data-importer",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for containerized-data-importer fixes the following issues:\n\n- Security: re-vendor Go dependencies to address CVEs tracked against\n  containerized-data-importer (backport of upstream PR #4110, post-v1.65.0).\n  Fixed by this update:\n  * google.golang.org/grpc 1.65.0 -\u003e 1.79.3:\n    bsc#1260295 (CVE-2026-33186)\n  * golang.org/x/net 0.33.0 -\u003e 0.48.0:\n    bsc#1238699 (CVE-2025-22870), bsc#1241838 (CVE-2025-22872),\n    bsc#1251495 (CVE-2025-47911), bsc#1251689 (CVE-2025-58190)\n  * golang.org/x/crypto 0.31.0 -\u003e 0.46.0:\n    CVE-2025-22869, CVE-2025-47913, CVE-2025-47914, CVE-2025-58181\n    (no separate CDI bug filed)\n  * go.opentelemetry.io/otel 1.28.0 -\u003e 1.41.0:\n    CVE-2026-29181 (otel is pulled in transitively at 1.39.0 by the grpc\n    bump; pinned to 1.41.0 so the update does not introduce it)\n- Record CVEs already fixed by the x/net release vendored in 1.64.0\n  (x/net 0.33.0), not previously noted in the changelog:\n  bsc#1236523 (CVE-2023-45288), bsc#1230323 (CVE-2023-39325)\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2026-2493,SUSE-SLE-Module-Containers-15-SP7-2026-2493",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2026_2493-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2026:2493-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-20262493-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2026:2493-1",
+        "url": "https://lists.suse.com/pipermail/sle-updates/2026-June/047458.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1230323",
+        "url": "https://bugzilla.suse.com/1230323"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1236523",
+        "url": "https://bugzilla.suse.com/1236523"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1238699",
+        "url": "https://bugzilla.suse.com/1238699"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1241838",
+        "url": "https://bugzilla.suse.com/1241838"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1251495",
+        "url": "https://bugzilla.suse.com/1251495"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1251689",
+        "url": "https://bugzilla.suse.com/1251689"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1260295",
+        "url": "https://bugzilla.suse.com/1260295"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-39325 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-39325/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2023-45288 page",
+        "url": "https://www.suse.com/security/cve/CVE-2023-45288/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-22869 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-22869/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-22870 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-22870/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-22872 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-22872/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-47911 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-47911/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-47913 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-47913/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-47914 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-47914/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-58181 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-58181/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-58190 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-58190/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-29181 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-29181/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-33186 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-33186/"
+      }
+    ],
+    "title": "Security update for containerized-data-importer",
+    "tracking": {
+      "current_release_date": "2026-09-17T16:24:27Z",
+      "generator": {
+        "date": "2026-06-22T15:34:20Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2026:2493-1",
+      "initial_release_date": "2026-06-22T15:34:20Z",
+      "revision_history": [
+        {
+          "date": "2026-06-22T15:34:20Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T19:32:31Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T20:19:51Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T16:24:27Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "containerized-data-importer-api-0:1.64.0-150700.9.11.1.aarch64",
+                "product": {
+                  "name": "containerized-data-importer-api-0:1.64.0-150700.9.11.1.aarch64",
+                  "product_id": "containerized-data-importer-api-0:1.64.0-150700.9.11.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/containerized-data-importer-api@1.64.0-150700.9.11.1?arch=aarch64\u0026upstream=containerized-data-importer-0:1.64.0-150700.9.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "containerized-data-importer-cloner-0:1.64.0-150700.9.11.1.aarch64",
+                "product": {
+                  "name": "containerized-data-importer-cloner-0:1.64.0-150700.9.11.1.aarch64",
+                  "product_id": "containerized-data-importer-cloner-0:1.64.0-150700.9.11.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/containerized-data-importer-cloner@1.64.0-150700.9.11.1?arch=aarch64\u0026upstream=containerized-data-importer-0:1.64.0-150700.9.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "containerized-data-importer-controller-0:1.64.0-150700.9.11.1.aarch64",
+                "product": {
+                  "name": "containerized-data-importer-controller-0:1.64.0-150700.9.11.1.aarch64",
+                  "product_id": "containerized-data-importer-controller-0:1.64.0-150700.9.11.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/containerized-data-importer-controller@1.64.0-150700.9.11.1?arch=aarch64\u0026upstream=containerized-data-importer-0:1.64.0-150700.9.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "containerized-data-importer-importer-0:1.64.0-150700.9.11.1.aarch64",
+                "product": {
+                  "name": "containerized-data-importer-importer-0:1.64.0-150700.9.11.1.aarch64",
+                  "product_id": "containerized-data-importer-importer-0:1.64.0-150700.9.11.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/containerized-data-importer-importer@1.64.0-150700.9.11.1?arch=aarch64\u0026upstream=containerized-data-importer-0:1.64.0-150700.9.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+                "product": {
+                  "name": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+                  "product_id": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/containerized-data-importer-manifests@1.64.0-150700.9.11.1?arch=aarch64\u0026upstream=containerized-data-importer-0:1.64.0-150700.9.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "containerized-data-importer-operator-0:1.64.0-150700.9.11.1.aarch64",
+                "product": {
+                  "name": "containerized-data-importer-operator-0:1.64.0-150700.9.11.1.aarch64",
+                  "product_id": "containerized-data-importer-operator-0:1.64.0-150700.9.11.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/containerized-data-importer-operator@1.64.0-150700.9.11.1?arch=aarch64\u0026upstream=containerized-data-importer-0:1.64.0-150700.9.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "containerized-data-importer-uploadproxy-0:1.64.0-150700.9.11.1.aarch64",
+                "product": {
+                  "name": "containerized-data-importer-uploadproxy-0:1.64.0-150700.9.11.1.aarch64",
+                  "product_id": "containerized-data-importer-uploadproxy-0:1.64.0-150700.9.11.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/containerized-data-importer-uploadproxy@1.64.0-150700.9.11.1?arch=aarch64\u0026upstream=containerized-data-importer-0:1.64.0-150700.9.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "containerized-data-importer-uploadserver-0:1.64.0-150700.9.11.1.aarch64",
+                "product": {
+                  "name": "containerized-data-importer-uploadserver-0:1.64.0-150700.9.11.1.aarch64",
+                  "product_id": "containerized-data-importer-uploadserver-0:1.64.0-150700.9.11.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/containerized-data-importer-uploadserver@1.64.0-150700.9.11.1?arch=aarch64\u0026upstream=containerized-data-importer-0:1.64.0-150700.9.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "obs-service-cdi_containers_meta-0:1.64.0-150700.9.11.1.aarch64",
+                "product": {
+                  "name": "obs-service-cdi_containers_meta-0:1.64.0-150700.9.11.1.aarch64",
+                  "product_id": "obs-service-cdi_containers_meta-0:1.64.0-150700.9.11.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/obs-service-cdi_containers_meta@1.64.0-150700.9.11.1?arch=aarch64\u0026upstream=containerized-data-importer-0:1.64.0-150700.9.11.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "containerized-data-importer-api-0:1.64.0-150700.9.11.1.x86_64",
+                "product": {
+                  "name": "containerized-data-importer-api-0:1.64.0-150700.9.11.1.x86_64",
+                  "product_id": "containerized-data-importer-api-0:1.64.0-150700.9.11.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/containerized-data-importer-api@1.64.0-150700.9.11.1?arch=x86_64\u0026upstream=containerized-data-importer-0:1.64.0-150700.9.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "containerized-data-importer-cloner-0:1.64.0-150700.9.11.1.x86_64",
+                "product": {
+                  "name": "containerized-data-importer-cloner-0:1.64.0-150700.9.11.1.x86_64",
+                  "product_id": "containerized-data-importer-cloner-0:1.64.0-150700.9.11.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/containerized-data-importer-cloner@1.64.0-150700.9.11.1?arch=x86_64\u0026upstream=containerized-data-importer-0:1.64.0-150700.9.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "containerized-data-importer-controller-0:1.64.0-150700.9.11.1.x86_64",
+                "product": {
+                  "name": "containerized-data-importer-controller-0:1.64.0-150700.9.11.1.x86_64",
+                  "product_id": "containerized-data-importer-controller-0:1.64.0-150700.9.11.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/containerized-data-importer-controller@1.64.0-150700.9.11.1?arch=x86_64\u0026upstream=containerized-data-importer-0:1.64.0-150700.9.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "containerized-data-importer-importer-0:1.64.0-150700.9.11.1.x86_64",
+                "product": {
+                  "name": "containerized-data-importer-importer-0:1.64.0-150700.9.11.1.x86_64",
+                  "product_id": "containerized-data-importer-importer-0:1.64.0-150700.9.11.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/containerized-data-importer-importer@1.64.0-150700.9.11.1?arch=x86_64\u0026upstream=containerized-data-importer-0:1.64.0-150700.9.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+                "product": {
+                  "name": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+                  "product_id": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/containerized-data-importer-manifests@1.64.0-150700.9.11.1?arch=x86_64\u0026upstream=containerized-data-importer-0:1.64.0-150700.9.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "containerized-data-importer-operator-0:1.64.0-150700.9.11.1.x86_64",
+                "product": {
+                  "name": "containerized-data-importer-operator-0:1.64.0-150700.9.11.1.x86_64",
+                  "product_id": "containerized-data-importer-operator-0:1.64.0-150700.9.11.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/containerized-data-importer-operator@1.64.0-150700.9.11.1?arch=x86_64\u0026upstream=containerized-data-importer-0:1.64.0-150700.9.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "containerized-data-importer-uploadproxy-0:1.64.0-150700.9.11.1.x86_64",
+                "product": {
+                  "name": "containerized-data-importer-uploadproxy-0:1.64.0-150700.9.11.1.x86_64",
+                  "product_id": "containerized-data-importer-uploadproxy-0:1.64.0-150700.9.11.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/containerized-data-importer-uploadproxy@1.64.0-150700.9.11.1?arch=x86_64\u0026upstream=containerized-data-importer-0:1.64.0-150700.9.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "containerized-data-importer-uploadserver-0:1.64.0-150700.9.11.1.x86_64",
+                "product": {
+                  "name": "containerized-data-importer-uploadserver-0:1.64.0-150700.9.11.1.x86_64",
+                  "product_id": "containerized-data-importer-uploadserver-0:1.64.0-150700.9.11.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/containerized-data-importer-uploadserver@1.64.0-150700.9.11.1?arch=x86_64\u0026upstream=containerized-data-importer-0:1.64.0-150700.9.11.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "obs-service-cdi_containers_meta-0:1.64.0-150700.9.11.1.x86_64",
+                "product": {
+                  "name": "obs-service-cdi_containers_meta-0:1.64.0-150700.9.11.1.x86_64",
+                  "product_id": "obs-service-cdi_containers_meta-0:1.64.0-150700.9.11.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/obs-service-cdi_containers_meta@1.64.0-150700.9.11.1?arch=x86_64\u0026upstream=containerized-data-importer-0:1.64.0-150700.9.11.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Containers 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Containers 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Module for Containers 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-containers:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "Open Enterprise Server 25.4",
+                "product": {
+                  "name": "Open Enterprise Server 25.4",
+                  "product_id": "Open Enterprise Server 25.4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:novell,inc:OES:25.4"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64"
+        },
+        "product_reference": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Containers 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+        },
+        "product_reference": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Containers 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64"
+        },
+        "product_reference": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+        },
+        "product_reference": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64"
+        },
+        "product_reference": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+        },
+        "product_reference": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64"
+        },
+        "product_reference": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+        },
+        "product_reference": "containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2023-39325",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-39325"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A malicious HTTP/2 client which rapidly creates requests and immediately resets them can cause excessive server resource consumption. While the total number of requests is bounded by the http2.Server.MaxConcurrentStreams setting, resetting an in-progress request allows the attacker to create a new request while the existing one is still executing. With the fix applied, HTTP/2 servers now bound the number of simultaneously executing handler goroutines to the stream concurrency limit (MaxConcurrentStreams). New requests arriving when at the limit (which can only happen after the client has reset an existing, in-flight request) will be queued until a handler exits. If the request queue grows too large, the server will terminate the connection. This issue is also fixed in golang.org/x/net/http2 for users manually configuring HTTP/2. The default stream concurrency limit is 250 streams (requests) per HTTP/2 connection. This value may be adjusted using the golang.org/x/net/http2 package; see the Server.MaxConcurrentStreams setting and the ConfigureServer function.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-39325",
+          "url": "https://www.suse.com/security/cve/CVE-2023-39325"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1216109 for CVE-2023-39325",
+          "url": "https://bugzilla.suse.com/1216109"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1230323 for CVE-2023-39325",
+          "url": "https://bugzilla.suse.com/1230323"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1269082 for CVE-2023-39325",
+          "url": "https://bugzilla.suse.com/1269082"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-22T15:34:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2023-39325"
+    },
+    {
+      "cve": "CVE-2023-45288",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2023-45288"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An attacker may cause an HTTP/2 endpoint to read arbitrary amounts of header data by sending an excessive number of CONTINUATION frames. Maintaining HPACK state requires parsing and processing all HEADERS and CONTINUATION frames on a connection. When a request's headers exceed MaxHeaderBytes, no memory is allocated to store the excess headers, but they are still parsed. This permits an attacker to cause an HTTP/2 endpoint to read arbitrary amounts of header data, all associated with a request which is going to be rejected. These headers can include Huffman-encoded data which is significantly more expensive for the receiver to decode than for an attacker to send. The fix sets a limit on the amount of excess header frames we will process before closing a connection.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2023-45288",
+          "url": "https://www.suse.com/security/cve/CVE-2023-45288"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1221400 for CVE-2023-45288",
+          "url": "https://bugzilla.suse.com/1221400"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-22T15:34:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2023-45288"
+    },
+    {
+      "cve": "CVE-2025-22869",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-22869"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "SSH servers which implement file transfer protocols are vulnerable to a denial of service attack from clients which complete the key exchange slowly, or not at all, causing pending content to be read into memory, but never transmitted.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-22869",
+          "url": "https://www.suse.com/security/cve/CVE-2025-22869"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1239322 for CVE-2025-22869",
+          "url": "https://bugzilla.suse.com/1239322"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-22T15:34:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-22869"
+    },
+    {
+      "cve": "CVE-2025-22870",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-22870"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Matching of hosts against proxy patterns can improperly treat an IPv6 zone ID as a hostname component. For example, when the NO_PROXY environment variable is set to \"*.example.com\", a request to \"[::1%25.example.com]:80` will incorrectly match and not be proxied.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-22870",
+          "url": "https://www.suse.com/security/cve/CVE-2025-22870"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1238572 for CVE-2025-22870",
+          "url": "https://bugzilla.suse.com/1238572"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1238611 for CVE-2025-22870",
+          "url": "https://bugzilla.suse.com/1238611"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.4,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-22T15:34:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-22870"
+    },
+    {
+      "cve": "CVE-2025-22872",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-22872"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The tokenizer incorrectly interprets tags with unquoted attribute values that end with a solidus character (/) as self-closing. When directly using Tokenizer, this can result in such tags incorrectly being marked as self-closing, and when using the Parse functions, this can result in content following such tags as being placed in the wrong scope during DOM construction, but only when tags are in foreign content (e.g. \u003cmath\u003e, \u003csvg\u003e, etc contexts).",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-22872",
+          "url": "https://www.suse.com/security/cve/CVE-2025-22872"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1241710 for CVE-2025-22872",
+          "url": "https://bugzilla.suse.com/1241710"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1265255 for CVE-2025-22872",
+          "url": "https://bugzilla.suse.com/1265255"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1265256 for CVE-2025-22872",
+          "url": "https://bugzilla.suse.com/1265256"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1265259 for CVE-2025-22872",
+          "url": "https://bugzilla.suse.com/1265259"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:L/I:L/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-22T15:34:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-22872"
+    },
+    {
+      "cve": "CVE-2025-47911",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-47911"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The html.Parse function in golang.org/x/net/html has quadratic parsing complexity when processing certain inputs, which can lead to denial of service (DoS) if an attacker provides specially crafted HTML content.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-47911",
+          "url": "https://www.suse.com/security/cve/CVE-2025-47911"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1251308 for CVE-2025-47911",
+          "url": "https://bugzilla.suse.com/1251308"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-22T15:34:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-47911"
+    },
+    {
+      "cve": "CVE-2025-47913",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-47913"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "SSH clients receiving SSH_AGENT_SUCCESS when expecting a typed response will panic and cause early termination of the client process.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-47913",
+          "url": "https://www.suse.com/security/cve/CVE-2025-47913"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253506 for CVE-2025-47913",
+          "url": "https://bugzilla.suse.com/1253506"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-22T15:34:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-47913"
+    },
+    {
+      "cve": "CVE-2025-47914",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-47914"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "SSH Agent servers do not validate the size of messages when processing new identity requests, which may cause the program to panic if the message is malformed due to an out of bounds read.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-47914",
+          "url": "https://www.suse.com/security/cve/CVE-2025-47914"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253967 for CVE-2025-47914",
+          "url": "https://bugzilla.suse.com/1253967"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-22T15:34:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-47914"
+    },
+    {
+      "cve": "CVE-2025-58181",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-58181"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "SSH servers parsing GSSAPI authentication requests do not validate the number of mechanisms specified in the request, allowing an attacker to cause unbounded memory consumption.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-58181",
+          "url": "https://www.suse.com/security/cve/CVE-2025-58181"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253784 for CVE-2025-58181",
+          "url": "https://bugzilla.suse.com/1253784"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-22T15:34:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-58181"
+    },
+    {
+      "cve": "CVE-2025-58190",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-58190"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The html.Parse function in golang.org/x/net/html has an infinite parsing loop when processing certain inputs, which can lead to denial of service (DoS) if an attacker provides specially crafted HTML content.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-58190",
+          "url": "https://www.suse.com/security/cve/CVE-2025-58190"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1251309 for CVE-2025-58190",
+          "url": "https://bugzilla.suse.com/1251309"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-22T15:34:20Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-58190"
+    },
+    {
+      "cve": "CVE-2026-29181",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-29181"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "OpenTelemetry-Go is the Go implementation of OpenTelemetry. From 1.36.0 to 1.40.0, multi-value baggage: header extraction parses each header field-value independently and aggregates members across values. This allows an attacker to amplify cpu and allocations by sending many baggage: header lines, even when each individual value is within the 8192-byte per-value parse limit. This vulnerability is fixed in 1.41.0.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-29181",
+          "url": "https://www.suse.com/security/cve/CVE-2026-29181"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-22T15:34:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-29181"
+    },
+    {
+      "cve": "CVE-2026-33186",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-33186"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "gRPC-Go is the Go language implementation of gRPC. Versions prior to 1.79.3 have an authorization bypass resulting from improper input validation of the HTTP/2 `:path` pseudo-header. The gRPC-Go server was too lenient in its routing logic, accepting requests where the `:path` omitted the mandatory leading slash (e.g., `Service/Method` instead of `/Service/Method`). While the server successfully routed these requests to the correct handler, authorization interceptors (including the official `grpc/authz` package) evaluated the raw, non-canonical path string. Consequently, \"deny\" rules defined using canonical paths (starting with `/`) failed to match the incoming request, allowing it to bypass the policy if a fallback \"allow\" rule was present. This affects gRPC-Go servers that use path-based authorization interceptors, such as the official RBAC implementation in `google.golang.org/grpc/authz` or custom interceptors relying on `info.FullMethod` or `grpc.Method(ctx)`; AND that have a security policy contains specific \"deny\" rules for canonical paths but allows other requests by default (a fallback \"allow\" rule). The vulnerability is exploitable by an attacker who can send raw HTTP/2 frames with malformed `:path` headers directly to the gRPC server. The fix in version 1.79.3 ensures that any request with a `:path` that does not start with a leading slash is immediately rejected with a `codes.Unimplemented` error, preventing it from reaching authorization interceptors or handlers with a non-canonical path string. While upgrading is the most secure and recommended path, users can mitigate the vulnerability using one of the following methods: Use a validating interceptor (recommended mitigation); infrastructure-level normalization; and/or policy hardening.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-33186",
+          "url": "https://www.suse.com/security/cve/CVE-2026-33186"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1260085 for CVE-2026-33186",
+          "url": "https://bugzilla.suse.com/1260085"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1268676 for CVE-2026-33186",
+          "url": "https://bugzilla.suse.com/1268676"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "Open Enterprise Server 25.4:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:containerized-data-importer-manifests-0:1.64.0-150700.9.11.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-22T15:34:20Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-33186"
+    }
+  ]
+}

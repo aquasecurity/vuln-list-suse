@@ -1,0 +1,326 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for less",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for less fixes the following issues:\n\n- Updated to version 668\n  * Fixed crash when using --header on command line\n  * Fixed possible crash when scrolling left/right or toggling -S\n  * Fixed bug when using #stop in a lesskey file\n  * Fixed bug when using --shift or --match-shift on command line with a parameter starting with '.'\n  * Fixed bug in R command when file size changes\n  * Fixed bug using --header when file does not fill screen\n  * Fixed ^X bug when output is not a terminal\n  * Fixed bug where ^Z is not handled immediately\n  * Fixed bug where first byte from a LESSOPEN filter is deleted if it is greater than 0x7F\n  * Fixed uninitialized variable in edit_ifile\n  * Fixed incorrect handling of UTF-8 chars in prompts\n\n- Change preprocessor dependencies from Requires to Recommends. It's disabled by\n  default and they are not necessary for less.\n\n- Updated to version 661:\n  * fixed crash - buffer overflow by one in fexpand\n  * fixed free(): double free detected in tcache 2\n  * fixed segmentation fault on line-num-width \u0026 -N\n\n- Updated to version 656:\n  * Add ^O^N, ^O^P, ^O^L and ^O^O commands and mouse clicks (with --mouse) to find and open OSC8 hyperlinks (github #251).\n  * Add --match-shift option.\n  * Add --lesskey-content option (github #447).\n  * Add LESSKEY_CONTENT environment variable (github #447).\n  * Add --no-search-header-lines and --no-search-header-columns options (github #397).\n  * Add ctrl-L search modifier (github #367).\n  * A ctrl-P at the start of a shell command suppresses the \"done\" message (github #462).\n  * Add attribute characters ('*', '~', '_', '\u0026') to --color parameter (github #471).\n  * Allow expansion of environment variables in lesskey files.\n  * Add LESSSECURE_ALLOW environment variable (github #449).\n  * Add LESS_UNSUPPORT environment variable.\n  * Add line number parameter to --header option (github #436).\n  * Mouse right-click jumps to position marked by left-click (github #390).\n  * Ensure that the target line is not obscured by a header line set by --header (github #444).\n  * Change default character set to \"utf-8\", except remains \"dos\" on MS-DOS.\n  * Add message when search with ^W wraps (github #459).\n  * UCRT builds on Windows 10 and later now support Unicode file names (github #438).\n  * Improve behavior of interrupt while reading non-terminated pipe (github #414).\n  * Improve parsing of -j, -x and -# options (github #393).\n  * Support files larger than 4GB on Windows (github #417).\n  * Support entry of Unicode chars larger than U+FFFF on Windows (github #391).\n  * Improve colors of bold, underline and standout text on Windows.\n  * Allow --rscroll to accept non-ASCII characters (github #483).\n  * Allow the parameter to certain options to be terminated with a space (--color, --quotes, --rscroll, --search-options and --intr) (github #495).\n  * Fix bug where # substitution failed after viewing help (github #420).\n  * Fix crash if files are deleted while less is viewing them (github #404).\n  * Workaround unreliable ReadConsoleInputW behavior on Windows with non-ASCII input.\n  * Fix -J display when searching for non-ASCII characters (github #422).\n  * Don't filter header lines via the \u0026 command (github #423).\n  * Fix bug when horizontally shifting long lines (github #425).\n  * Add -x and -D options to lesstest, to make it easier to diagnose a failed lesstest run.\n  * Fix bug searching long lines with --incsearch and -S (github #428).\n  * Fix bug that made ESC-} fail if top line on screen was empty (github #429).\n  * Fix bug with --mouse on Windows when used with pipes (github #440).\n  * Fix bug in --+OPTION command line syntax.\n  * Fix display bug when using -w with an empty line with a CR/LF line ending (github #474).\n  * When substituting '#' or '%' with a filename, quote the filename if it contains a space (github #480).\n  * Fix wrong sleep time when system has usleep but not nanosleep (github #489).\n  * Fix bug when file name contains a newline (CVE-2024-32487, bsc#1222849).\n  * Fix bug when file name contains nonprintable characters (github #503).\n  * Fix DJGPP build (github #497).\n  * Update Unicode tables.\n\n- add zstd support to lessopen\n\n- Updated to 643:\n  * Fixed problem when a program piping into less reads from the tty,\n    like sudo asking for password (github #368).\n  * Fixed search modifier ^E after ^W.\n  * Fixed bug using negated (^N) search (github #374).\n  * Fixed bug setting colors with -D on Windows build (github #386).\n  * Fixed reading special chars like PageDown on Windows (github #378).\n  * Fixed mouse wheel scrolling on Windows (github #379).\n  * Fixed erroneous EOF when terminal window size changes (github #372).\n  * Fixed compile error with some definitions of ECHONL (github #395).\n  * Fixed crash on Windows when writing logfile (github #405).\n  * Fixed regression in exit code when stdin is /dev/null and\n    output is a file (github #373).\n  * Add lesstest test suite to production release (github #344).\n  * Change lesstest output to conform with\n    automake Simple Test Format (github #399).\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-SLE-Micro-6.1-139",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2025_20394-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2025:20394-1",
+        "url": "https://www.suse.com/support/update/announcement/2025/suse-su-202520394-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2025:20394-1",
+        "url": "https://lists.suse.com/pipermail/sle-updates/2025-June/040305.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1047218",
+        "url": "https://bugzilla.suse.com/1047218"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1222849",
+        "url": "https://bugzilla.suse.com/1222849"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 915387",
+        "url": "https://bugzilla.suse.com/915387"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-32487 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-32487/"
+      }
+    ],
+    "title": "Security update for less",
+    "tracking": {
+      "current_release_date": "2026-09-20T18:12:16Z",
+      "generator": {
+        "date": "2025-06-08T13:39:10Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2025:20394-1",
+      "initial_release_date": "2025-06-08T13:39:10Z",
+      "revision_history": [
+        {
+          "date": "2025-06-08T13:39:10Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-20T18:12:16Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "less-0:668-slfo.1.1_1.1.aarch64",
+                "product": {
+                  "name": "less-0:668-slfo.1.1_1.1.aarch64",
+                  "product_id": "less-0:668-slfo.1.1_1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:less:668:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/less@668-slfo.1.1_1.1?arch=aarch64\u0026upstream=less-0:668-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "less-0:668-slfo.1.1_1.1.ppc64le",
+                "product": {
+                  "name": "less-0:668-slfo.1.1_1.1.ppc64le",
+                  "product_id": "less-0:668-slfo.1.1_1.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:less:668:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/less@668-slfo.1.1_1.1?arch=ppc64le\u0026upstream=less-0:668-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "less-0:668-slfo.1.1_1.1.s390x",
+                "product": {
+                  "name": "less-0:668-slfo.1.1_1.1.s390x",
+                  "product_id": "less-0:668-slfo.1.1_1.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:less:668:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/less@668-slfo.1.1_1.1?arch=s390x\u0026upstream=less-0:668-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "less-0:668-slfo.1.1_1.1.x86_64",
+                "product": {
+                  "name": "less-0:668-slfo.1.1_1.1.x86_64",
+                  "product_id": "less-0:668-slfo.1.1_1.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:gnu:less:668:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/less@668-slfo.1.1_1.1?arch=x86_64\u0026upstream=less-0:668-slfo.1.1_1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Micro 6.1",
+                "product": {
+                  "name": "SUSE Linux Micro 6.1",
+                  "product_id": "SUSE Linux Micro 6.1",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sl-micro:6.1"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "less-0:668-slfo.1.1_1.1.aarch64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:less-0:668-slfo.1.1_1.1.aarch64"
+        },
+        "product_reference": "less-0:668-slfo.1.1_1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "less-0:668-slfo.1.1_1.1.ppc64le as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:less-0:668-slfo.1.1_1.1.ppc64le"
+        },
+        "product_reference": "less-0:668-slfo.1.1_1.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "less-0:668-slfo.1.1_1.1.s390x as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:less-0:668-slfo.1.1_1.1.s390x"
+        },
+        "product_reference": "less-0:668-slfo.1.1_1.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "less-0:668-slfo.1.1_1.1.x86_64 as component of SUSE Linux Micro 6.1",
+          "product_id": "SUSE Linux Micro 6.1:less-0:668-slfo.1.1_1.1.x86_64"
+        },
+        "product_reference": "less-0:668-slfo.1.1_1.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Micro 6.1"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2024-32487",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-32487"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "less through 653 allows OS command execution via a newline character in the name of a file, because quoting is mishandled in filename.c. Exploitation typically requires use with attacker-controlled file names, such as the files extracted from an untrusted archive. Exploitation also requires the LESSOPEN environment variable, but this is set by default in many common cases.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Micro 6.1:less-0:668-slfo.1.1_1.1.aarch64",
+          "SUSE Linux Micro 6.1:less-0:668-slfo.1.1_1.1.ppc64le",
+          "SUSE Linux Micro 6.1:less-0:668-slfo.1.1_1.1.s390x",
+          "SUSE Linux Micro 6.1:less-0:668-slfo.1.1_1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-32487",
+          "url": "https://www.suse.com/security/cve/CVE-2024-32487"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1222849 for CVE-2024-32487",
+          "url": "https://bugzilla.suse.com/1222849"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Micro 6.1:less-0:668-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:less-0:668-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:less-0:668-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:less-0:668-slfo.1.1_1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.6,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Micro 6.1:less-0:668-slfo.1.1_1.1.aarch64",
+            "SUSE Linux Micro 6.1:less-0:668-slfo.1.1_1.1.ppc64le",
+            "SUSE Linux Micro 6.1:less-0:668-slfo.1.1_1.1.s390x",
+            "SUSE Linux Micro 6.1:less-0:668-slfo.1.1_1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2025-06-08T13:39:10Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2024-32487"
+    }
+  ]
+}

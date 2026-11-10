@@ -1,0 +1,344 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for nebula",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for nebula fixes the following issues:\n\nChanges in nebula:\n\n- Update to version 1.10.3:\n  * Fix an issue where blocklist bypass is possible when using curve P256\n    Any newly issued P256 based certificates will have their signature clamped\n    to the low-s form.  Nebula will assert the low-s signature form when\n    validating certificates in a future version\n\n- Update to version 1.10.2:\n  * Fix panic when using use_system_route_table\n\n- Update to version 1.10.1:\n  * Fix a bug where an unsafe route derived from the system route table could\n    be lost on a config reload\n  * Fix the PEM banner for ECDSA P256 public keys\n  * Fix a bug in handshake processing when a peer sends an unexpected public key\n  * Add a config option to control accepting recv_error packets which defaults\n    to always\n\n- Update to version 1.10.0:\n  * Support for ipv6 and multiple ipv4/6 addresses in the overlay\n  * Add the ability to mark packets on linux to better target nebula packets in\n    iptables/nftables\n  * Add ECMP support for unsafe_routes\n  * PKCS11 support for P256 keys when built with pkcs11 tag\n  * default_local_cidr_any now defaults to false\n  * Improve logging when a relay is in use on an inbound packet\n  * Avoid fatal errors if rountines is \u003e 1 on systems that \u003c= 1\n  * Log a warning if a firewall rule contains an any that negates a more\n    restrictive filter\n  * Accept encrypted CA passphrase from an environment variable\n  * Allow handshaking with any trusted remote\n  * Log only the count of blocklisted certificate fingerprints instead of the\n    entire list\n  * Don't fatal when the ssh server is unable to be configured successfully\n  * Improve lost packet statistics\n  * Honor remote_allow_list in hole punch response\n- remove patch fix-CVE-2025-22869.patch, fixed upstream\n\n- update to version 1.9.7:\n  * Disable sending recv_error messages when a packet is received outside the\n    allowable counter window\n  * Improve error messages and remove some unnecessary fatal conditions in the\n    generic udp listener\n\n- update to version 1.9.6:\n  * Support dropping inactive tunnels. This is disabled by default\n  * Ensure the same relay tunnel is always used when multiple relay\n    tunnels are present\n  * Fix relay migration panic\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-199",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_20581-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-22869 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-22869/"
+      }
+    ],
+    "title": "Security update for nebula",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:30:40Z",
+      "generator": {
+        "date": "2026-04-14T16:21:55Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:20581-1",
+      "initial_release_date": "2026-04-14T16:21:55Z",
+      "revision_history": [
+        {
+          "date": "2026-04-14T16:21:55Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:33:28Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:36:07Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:30:40Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "nebula-0:1.10.3-bp160.1.1.aarch64",
+                "product": {
+                  "name": "nebula-0:1.10.3-bp160.1.1.aarch64",
+                  "product_id": "nebula-0:1.10.3-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/nebula@1.10.3-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "nebula-cert-0:1.10.3-bp160.1.1.aarch64",
+                "product": {
+                  "name": "nebula-cert-0:1.10.3-bp160.1.1.aarch64",
+                  "product_id": "nebula-cert-0:1.10.3-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/nebula-cert@1.10.3-bp160.1.1?arch=aarch64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "nebula-0:1.10.3-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "nebula-0:1.10.3-bp160.1.1.ppc64le",
+                  "product_id": "nebula-0:1.10.3-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/nebula@1.10.3-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "nebula-cert-0:1.10.3-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "nebula-cert-0:1.10.3-bp160.1.1.ppc64le",
+                  "product_id": "nebula-cert-0:1.10.3-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/nebula-cert@1.10.3-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "nebula-0:1.10.3-bp160.1.1.x86_64",
+                "product": {
+                  "name": "nebula-0:1.10.3-bp160.1.1.x86_64",
+                  "product_id": "nebula-0:1.10.3-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/nebula@1.10.3-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "nebula-cert-0:1.10.3-bp160.1.1.x86_64",
+                "product": {
+                  "name": "nebula-cert-0:1.10.3-bp160.1.1.x86_64",
+                  "product_id": "nebula-cert-0:1.10.3-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/nebula-cert@1.10.3-bp160.1.1?arch=x86_64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "nebula-0:1.10.3-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:nebula-0:1.10.3-bp160.1.1.aarch64"
+        },
+        "product_reference": "nebula-0:1.10.3-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "nebula-0:1.10.3-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:nebula-0:1.10.3-bp160.1.1.ppc64le"
+        },
+        "product_reference": "nebula-0:1.10.3-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "nebula-0:1.10.3-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:nebula-0:1.10.3-bp160.1.1.x86_64"
+        },
+        "product_reference": "nebula-0:1.10.3-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "nebula-cert-0:1.10.3-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:nebula-cert-0:1.10.3-bp160.1.1.aarch64"
+        },
+        "product_reference": "nebula-cert-0:1.10.3-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "nebula-cert-0:1.10.3-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:nebula-cert-0:1.10.3-bp160.1.1.ppc64le"
+        },
+        "product_reference": "nebula-cert-0:1.10.3-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "nebula-cert-0:1.10.3-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:nebula-cert-0:1.10.3-bp160.1.1.x86_64"
+        },
+        "product_reference": "nebula-cert-0:1.10.3-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-22869",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-22869"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "SSH servers which implement file transfer protocols are vulnerable to a denial of service attack from clients which complete the key exchange slowly, or not at all, causing pending content to be read into memory, but never transmitted.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:nebula-0:1.10.3-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:nebula-0:1.10.3-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:nebula-0:1.10.3-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:nebula-cert-0:1.10.3-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:nebula-cert-0:1.10.3-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:nebula-cert-0:1.10.3-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-22869",
+          "url": "https://www.suse.com/security/cve/CVE-2025-22869"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1239322 for CVE-2025-22869",
+          "url": "https://bugzilla.suse.com/1239322"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:nebula-0:1.10.3-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:nebula-0:1.10.3-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:nebula-0:1.10.3-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:nebula-cert-0:1.10.3-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:nebula-cert-0:1.10.3-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:nebula-cert-0:1.10.3-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:nebula-0:1.10.3-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:nebula-0:1.10.3-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:nebula-0:1.10.3-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:nebula-cert-0:1.10.3-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:nebula-cert-0:1.10.3-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:nebula-cert-0:1.10.3-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-04-14T16:21:55Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-22869"
+    }
+  ]
+}

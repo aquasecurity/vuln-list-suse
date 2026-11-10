@@ -1,0 +1,877 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for mbedtls-2",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for mbedtls-2 fixes the following issues:\n\nChanges in mbedtls-2:\n\n- Enable SRTP and DTLS protocols needed by some software.\n\n- Update to version 2.28.10:\n  Default behavior changes\n  * In TLS clients, if mbedtls_ssl_set_hostname() has not been called,\n    mbedtls_ssl_handshake() now fails with\n    MBEDTLS_ERR_SSL_CERTIFICATE_VERIFICATION_WITHOUT_HOSTNAME\n    if certificate-based authentication of the server is attempted.\n    This is because authenticating a server without knowing what name\n    to expect is usually insecure. To restore the old behavior, either\n    call mbedtls_ssl_set_hostname() with NULL as the hostname, or\n    enable the new compile-time option\n    MBEDTLS_SSL_CLI_ALLOW_WEAK_CERTIFICATE_VERIFICATION_WITHOUT_HOSTNAME.\n    The content of ssl-\u003ehostname after mbedtls_ssl_set_hostname(ssl, NULL)\n    has changed, see the documentation of the hostname field in the\n    mbedtls_ssl_context struct type for details.\n  Security\n  * Note that TLS clients should generally call mbedtls_ssl_set_hostname()\n    if they use certificate authentication (i.e. not pre-shared keys).\n    Otherwise, in many scenarios, the server could be impersonated.\n    The library will now prevent the handshake and return\n    MBEDTLS_ERR_SSL_CERTIFICATE_VERIFICATION_WITHOUT_HOSTNAME\n    if mbedtls_ssl_set_hostname() has not been called.\n    CVE-2025-27809 (boo#1240051)\n  * Zeroize temporary heap buffers used in PSA operations.\n  * Fix a vulnerability in the TLS 1.2 handshake. If memory allocation failed\n    or there was a cryptographic hardware failure when calculating the\n    Finished message, it could be calculated incorrectly. This would break\n    the security guarantees of the TLS handshake.\n    CVE-2025-27810 (boo#1240052)\n  Bugfix\n  * Use 'mbedtls_net_close' instead of 'close' in 'mbedtls_net_bind'\n    and 'mbedtls_net_connect' to prevent possible double close fd\n    problems. Fixes gh#Mbed-TLS/mbedtls#9711.\n  * Fix compilation on MS-DOS DJGPP. Fixes gh#Mbed-TLS/mbedtls#9813.\n  * Fix missing constraints on the AES-NI inline assembly which is used on\n    GCC-like compilers when building AES for generic x86_64 targets. This\n    may have resulted in incorrect code with some compilers, depending on\n    optimizations. Fixes gh#Mbed-TLS/mbedtls#9819.\n  * Fix issue where psa_key_derivation_input_integer() is not detecting\n    bad state after an operation has been aborted.\n  * Fix definition of MBEDTLS_PRINTF_SIZET to prevent runtime crashes that\n    occurred whenever SSL debugging was enabled on a copy of Mbed TLS built\n    with Visual Studio 2013 or MinGW.\n    Fixes gh#Mbed-TLS/mbedtls#10017.\n  * Remove Everest Visual Studio 2010 compatibility headers, which could\n    shadow standard CRT headers inttypes.h and stdbool.h with incomplete\n    implementatios if placed on the include path, eg. when building Mbed TLS\n    with the .sln file shipped with the project.\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-340",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_21145-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1230310",
+        "url": "https://bugzilla.suse.com/1230310"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1240051",
+        "url": "https://bugzilla.suse.com/1240051"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1240052",
+        "url": "https://bugzilla.suse.com/1240052"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2024-45157 page",
+        "url": "https://www.suse.com/security/cve/CVE-2024-45157/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-27809 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-27809/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-27810 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-27810/"
+      }
+    ],
+    "title": "Security update for mbedtls-2",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:36:56Z",
+      "generator": {
+        "date": "2026-06-22T13:08:31Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:21145-1",
+      "initial_release_date": "2026-06-22T13:08:31Z",
+      "revision_history": [
+        {
+          "date": "2026-06-22T13:08:31Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:39:56Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:42:02Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:36:56Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libmbedcrypto7-0:2.28.10-bp160.1.1.aarch64",
+                "product": {
+                  "name": "libmbedcrypto7-0:2.28.10-bp160.1.1.aarch64",
+                  "product_id": "libmbedcrypto7-0:2.28.10-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmbedcrypto7@2.28.10-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libmbedtls14-0:2.28.10-bp160.1.1.aarch64",
+                "product": {
+                  "name": "libmbedtls14-0:2.28.10-bp160.1.1.aarch64",
+                  "product_id": "libmbedtls14-0:2.28.10-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmbedtls14@2.28.10-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libmbedx509-1-0:2.28.10-bp160.1.1.aarch64",
+                "product": {
+                  "name": "libmbedx509-1-0:2.28.10-bp160.1.1.aarch64",
+                  "product_id": "libmbedx509-1-0:2.28.10-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmbedx509-1@2.28.10-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mbedtls-2-devel-0:2.28.10-bp160.1.1.aarch64",
+                "product": {
+                  "name": "mbedtls-2-devel-0:2.28.10-bp160.1.1.aarch64",
+                  "product_id": "mbedtls-2-devel-0:2.28.10-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mbedtls-2-devel@2.28.10-bp160.1.1?arch=aarch64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libmbedcrypto7-0:2.28.10-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "libmbedcrypto7-0:2.28.10-bp160.1.1.ppc64le",
+                  "product_id": "libmbedcrypto7-0:2.28.10-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmbedcrypto7@2.28.10-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libmbedtls14-0:2.28.10-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "libmbedtls14-0:2.28.10-bp160.1.1.ppc64le",
+                  "product_id": "libmbedtls14-0:2.28.10-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmbedtls14@2.28.10-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libmbedx509-1-0:2.28.10-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "libmbedx509-1-0:2.28.10-bp160.1.1.ppc64le",
+                  "product_id": "libmbedx509-1-0:2.28.10-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmbedx509-1@2.28.10-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mbedtls-2-devel-0:2.28.10-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "mbedtls-2-devel-0:2.28.10-bp160.1.1.ppc64le",
+                  "product_id": "mbedtls-2-devel-0:2.28.10-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mbedtls-2-devel@2.28.10-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libmbedcrypto7-0:2.28.10-bp160.1.1.s390x",
+                "product": {
+                  "name": "libmbedcrypto7-0:2.28.10-bp160.1.1.s390x",
+                  "product_id": "libmbedcrypto7-0:2.28.10-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmbedcrypto7@2.28.10-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libmbedtls14-0:2.28.10-bp160.1.1.s390x",
+                "product": {
+                  "name": "libmbedtls14-0:2.28.10-bp160.1.1.s390x",
+                  "product_id": "libmbedtls14-0:2.28.10-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmbedtls14@2.28.10-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libmbedx509-1-0:2.28.10-bp160.1.1.s390x",
+                "product": {
+                  "name": "libmbedx509-1-0:2.28.10-bp160.1.1.s390x",
+                  "product_id": "libmbedx509-1-0:2.28.10-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmbedx509-1@2.28.10-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mbedtls-2-devel-0:2.28.10-bp160.1.1.s390x",
+                "product": {
+                  "name": "mbedtls-2-devel-0:2.28.10-bp160.1.1.s390x",
+                  "product_id": "mbedtls-2-devel-0:2.28.10-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mbedtls-2-devel@2.28.10-bp160.1.1?arch=s390x"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libmbedcrypto7-0:2.28.10-bp160.1.1.x86_64",
+                "product": {
+                  "name": "libmbedcrypto7-0:2.28.10-bp160.1.1.x86_64",
+                  "product_id": "libmbedcrypto7-0:2.28.10-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmbedcrypto7@2.28.10-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libmbedcrypto7-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+                "product": {
+                  "name": "libmbedcrypto7-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+                  "product_id": "libmbedcrypto7-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmbedcrypto7-x86-64-v3@2.28.10-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libmbedtls14-0:2.28.10-bp160.1.1.x86_64",
+                "product": {
+                  "name": "libmbedtls14-0:2.28.10-bp160.1.1.x86_64",
+                  "product_id": "libmbedtls14-0:2.28.10-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmbedtls14@2.28.10-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libmbedtls14-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+                "product": {
+                  "name": "libmbedtls14-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+                  "product_id": "libmbedtls14-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmbedtls14-x86-64-v3@2.28.10-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libmbedx509-1-0:2.28.10-bp160.1.1.x86_64",
+                "product": {
+                  "name": "libmbedx509-1-0:2.28.10-bp160.1.1.x86_64",
+                  "product_id": "libmbedx509-1-0:2.28.10-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmbedx509-1@2.28.10-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libmbedx509-1-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+                "product": {
+                  "name": "libmbedx509-1-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+                  "product_id": "libmbedx509-1-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libmbedx509-1-x86-64-v3@2.28.10-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "mbedtls-2-devel-0:2.28.10-bp160.1.1.x86_64",
+                "product": {
+                  "name": "mbedtls-2-devel-0:2.28.10-bp160.1.1.x86_64",
+                  "product_id": "mbedtls-2-devel-0:2.28.10-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/mbedtls-2-devel@2.28.10-bp160.1.1?arch=x86_64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmbedcrypto7-0:2.28.10-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.aarch64"
+        },
+        "product_reference": "libmbedcrypto7-0:2.28.10-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmbedcrypto7-0:2.28.10-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.ppc64le"
+        },
+        "product_reference": "libmbedcrypto7-0:2.28.10-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmbedcrypto7-0:2.28.10-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.s390x"
+        },
+        "product_reference": "libmbedcrypto7-0:2.28.10-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmbedcrypto7-0:2.28.10-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.x86_64"
+        },
+        "product_reference": "libmbedcrypto7-0:2.28.10-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmbedcrypto7-x86-64-v3-0:2.28.10-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmbedcrypto7-x86-64-v3-0:2.28.10-bp160.1.1.x86_64"
+        },
+        "product_reference": "libmbedcrypto7-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmbedtls14-0:2.28.10-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.aarch64"
+        },
+        "product_reference": "libmbedtls14-0:2.28.10-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmbedtls14-0:2.28.10-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.ppc64le"
+        },
+        "product_reference": "libmbedtls14-0:2.28.10-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmbedtls14-0:2.28.10-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.s390x"
+        },
+        "product_reference": "libmbedtls14-0:2.28.10-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmbedtls14-0:2.28.10-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.x86_64"
+        },
+        "product_reference": "libmbedtls14-0:2.28.10-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmbedtls14-x86-64-v3-0:2.28.10-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmbedtls14-x86-64-v3-0:2.28.10-bp160.1.1.x86_64"
+        },
+        "product_reference": "libmbedtls14-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmbedx509-1-0:2.28.10-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.aarch64"
+        },
+        "product_reference": "libmbedx509-1-0:2.28.10-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmbedx509-1-0:2.28.10-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.ppc64le"
+        },
+        "product_reference": "libmbedx509-1-0:2.28.10-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmbedx509-1-0:2.28.10-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.s390x"
+        },
+        "product_reference": "libmbedx509-1-0:2.28.10-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmbedx509-1-0:2.28.10-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.x86_64"
+        },
+        "product_reference": "libmbedx509-1-0:2.28.10-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libmbedx509-1-x86-64-v3-0:2.28.10-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libmbedx509-1-x86-64-v3-0:2.28.10-bp160.1.1.x86_64"
+        },
+        "product_reference": "libmbedx509-1-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mbedtls-2-devel-0:2.28.10-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.aarch64"
+        },
+        "product_reference": "mbedtls-2-devel-0:2.28.10-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mbedtls-2-devel-0:2.28.10-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.ppc64le"
+        },
+        "product_reference": "mbedtls-2-devel-0:2.28.10-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mbedtls-2-devel-0:2.28.10-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.s390x"
+        },
+        "product_reference": "mbedtls-2-devel-0:2.28.10-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "mbedtls-2-devel-0:2.28.10-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.x86_64"
+        },
+        "product_reference": "mbedtls-2-devel-0:2.28.10-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2024-45157",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2024-45157"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "An issue was discovered in Mbed TLS before 2.28.9 and 3.x before 3.6.1, in which the user-selected algorithm is not used. Unlike previously documented, enabling MBEDTLS_PSA_HMAC_DRBG_MD_TYPE does not cause the PSA subsystem to use HMAC_DRBG: it uses HMAC_DRBG only when MBEDTLS_PSA_CRYPTO_EXTERNAL_RNG and MBEDTLS_CTR_DRBG_C are disabled.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libmbedcrypto7-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libmbedtls14-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libmbedx509-1-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2024-45157",
+          "url": "https://www.suse.com/security/cve/CVE-2024-45157"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1230310 for CVE-2024-45157",
+          "url": "https://bugzilla.suse.com/1230310"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedcrypto7-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedtls14-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedx509-1-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.1,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedcrypto7-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedtls14-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedx509-1-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-22T13:08:31Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2024-45157"
+    },
+    {
+      "cve": "CVE-2025-27809",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-27809"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Mbed TLS before 2.28.10 and 3.x before 3.6.3, on the client side, accepts servers that have trusted certificates for arbitrary hostnames unless the TLS client application calls mbedtls_ssl_set_hostname.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libmbedcrypto7-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libmbedtls14-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libmbedx509-1-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-27809",
+          "url": "https://www.suse.com/security/cve/CVE-2025-27809"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1240051 for CVE-2025-27809",
+          "url": "https://bugzilla.suse.com/1240051"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedcrypto7-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedtls14-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedx509-1-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-22T13:08:31Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-27809"
+    },
+    {
+      "cve": "CVE-2025-27810",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-27810"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Mbed TLS before 2.28.10 and 3.x before 3.6.3, in some cases of failed memory allocation or hardware errors, uses uninitialized stack memory to compose the TLS Finished message, potentially leading to authentication bypasses such as replays.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libmbedcrypto7-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libmbedtls14-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libmbedx509-1-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-27810",
+          "url": "https://www.suse.com/security/cve/CVE-2025-27810"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1240052 for CVE-2025-27810",
+          "url": "https://bugzilla.suse.com/1240052"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedcrypto7-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedtls14-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedx509-1-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.8,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmbedcrypto7-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedcrypto7-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmbedtls14-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedtls14-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libmbedx509-1-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libmbedx509-1-x86-64-v3-0:2.28.10-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:mbedtls-2-devel-0:2.28.10-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-06-22T13:08:31Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-27810"
+    }
+  ]
+}

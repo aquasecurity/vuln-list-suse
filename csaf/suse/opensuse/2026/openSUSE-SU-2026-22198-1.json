@@ -1,0 +1,1103 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for vlc",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for vlc fixes the following issues:\n\nChanges in vlc:\n\n- Add conditional for pkgconfig(vpl) BuildRequires and plugin,\n  exclude %{arm} ppc64le %{ppc} s390x.\n- Add conditional for pkgconfig(libnfs) BuildRequires and plugin,\n  exclude %{arm}\n\n- Switch to qt6:\n  * Drop libQt5Gui-private-headers-devel, pkgconfig(Qt5Core),\n    pkgconfig(Qt5Gui), pkgconfig(Qt5Svg), pkgconfig(Qt5Widgets) and\n    pkgconfig(Qt5X11Extras). Further: disable pkgconfig(libprojectM) and drop\n    outright conditional pkgconfig(libprojectM-qt5).\n  * Add qt6-base-private-devel, qt6-gui-private-devel, pkgconfig(Qt6Core),\n    pkgconfig(Qt6Gui), pkgconfig(Qt6Svg) and pkgconfig(Qt6Widgets).\n\n- Add pkgconfig(vpl) BuildRequires: Build qsv plugin.\n\n- Require vlc from vlc-devel: whereas the desktop app is not exactly needed\n  when building against the libraries, many consumers expect the full stack to\n  be present.\n\n- Drop schroedinger-devel BuildRequires: Not needed, nor used.\n  Upstream removed support in 3.0.24\n\n- Rework subpackaging\n  * Split the desktop output plugins out of the main vlc package,\n    for use on headless systems\n  * Installing vlc-noX and vlc-plugins-desktop will now give a\n    fully functional CLI installation, without pulling in the\n    graphical frontend\n  * Main 'vlc' package will now pull in all components for desktop\n    GUI interface\n\n- Update to version 3.0.24:\n  + Codecs:\n    - Use FFmpeg 8.1 (upgraded from 4.4)\n    - Support APV decoder (FFmpeg 8)\n    - Support Atrac3/Atrac9 decoding\n    - Remove schroedinger support for dirac in favor of avcodec\n    - Fix Speex leaks and packetization issues\n    - Fix WebVTT CSS parsing and error handling\n    - Fix FLAC and HEVC packetizer edge cases\n    - Fix AudioToolbox MIDI synthesizer crash on macOS 26+\n  + Demuxers:\n    - Add support for CEA-708 closed captions in MP4\n    - Expose ID3v2 metadata in MPEG demuxer\n    - Improve subtitle language detection from filenames and SSA/ASS metadata\n    - Fix several MKV crashes, leaks, hangs and malformed file handling issues\n    - Fix AVI hang with zero-sized strd chunks\n    - Fix MP4, MPEG-TS, Ogg, RealAudio and subtitle demuxing edge cases\n  + Access:\n    - Switch RIST input and output to librist, with main and simple profile support\n    - Add SRT listener mode support\n    - Add SFTP public key authentication options and ED25519 hostkey support\n    - Update SMB2 share enumeration\n    - Don't ship RealRTSP plugin (build disabled for all configurations)\n  + Service Discovery:\n    - Include Chromecast model in mDNS renderer names\n    - Fix IPv6 addresses in Bonjour service URLs\n  + Video Output:\n    - Fix Direct3D11 adjust filter and texture leaks\n    - Fix MediaCodec crop validation\n    - Super Resolution scaling with Moore Threads GPUs\n  + Interface:\n    - Qt: Fix default open dialog location\n    - Qt: Fix effects window geometry saving\n    - Qt: Improve hotkeys dialog strings\n  + Stream Output:\n    - Disable HEVC for original Chromecast devices\n  + Security:\n    - Switch to a new RSA-4096 key for update verification\n    - Fix multiple OOB, integer overflow, double-free and use-after-free issues\n    - See https://www.videolan.org/security/\n    - CVE-2026-56711: picture: inline AllocatePicture() and use overflow helpers (boo#1279900)\n  + Misc:\n    - Add Flatpak build support\n    - Fix Audio EQ filter High Frequency parameter\n    - Fix artwork preparser crash when artwork title is null\n    - Fix LibVLC media list player race\n    - Remove NPAPI browser plugin\n  + Lua:\n    - Remove broken youtube.lua plugin\n\n- Fix Requires for ffmpeg library\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-706",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_22198-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1279900",
+        "url": "https://bugzilla.suse.com/1279900"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-56711 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-56711/"
+      }
+    ],
+    "title": "Security update for vlc",
+    "tracking": {
+      "current_release_date": "2026-10-31T17:19:54Z",
+      "generator": {
+        "date": "2026-10-28T18:31:16Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:22198-1",
+      "initial_release_date": "2026-10-28T18:31:16Z",
+      "revision_history": [
+        {
+          "date": "2026-10-28T18:31:16Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-10-31T17:19:54Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libvlc5-0:3.0.24-bp160.1.1.aarch64",
+                "product": {
+                  "name": "libvlc5-0:3.0.24-bp160.1.1.aarch64",
+                  "product_id": "libvlc5-0:3.0.24-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libvlc5@3.0.24-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libvlccore9-0:3.0.24-bp160.1.1.aarch64",
+                "product": {
+                  "name": "libvlccore9-0:3.0.24-bp160.1.1.aarch64",
+                  "product_id": "libvlccore9-0:3.0.24-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libvlccore9@3.0.24-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-0:3.0.24-bp160.1.1.aarch64",
+                "product": {
+                  "name": "vlc-0:3.0.24-bp160.1.1.aarch64",
+                  "product_id": "vlc-0:3.0.24-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc@3.0.24-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.aarch64",
+                "product": {
+                  "name": "vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.aarch64",
+                  "product_id": "vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-codec-fluidsynth@3.0.24-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-codec-gstreamer-0:3.0.24-bp160.1.1.aarch64",
+                "product": {
+                  "name": "vlc-codec-gstreamer-0:3.0.24-bp160.1.1.aarch64",
+                  "product_id": "vlc-codec-gstreamer-0:3.0.24-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-codec-gstreamer@3.0.24-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-devel-0:3.0.24-bp160.1.1.aarch64",
+                "product": {
+                  "name": "vlc-devel-0:3.0.24-bp160.1.1.aarch64",
+                  "product_id": "vlc-devel-0:3.0.24-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-devel@3.0.24-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-jack-0:3.0.24-bp160.1.1.aarch64",
+                "product": {
+                  "name": "vlc-jack-0:3.0.24-bp160.1.1.aarch64",
+                  "product_id": "vlc-jack-0:3.0.24-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-jack@3.0.24-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-noX-0:3.0.24-bp160.1.1.aarch64",
+                "product": {
+                  "name": "vlc-noX-0:3.0.24-bp160.1.1.aarch64",
+                  "product_id": "vlc-noX-0:3.0.24-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-noX@3.0.24-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-plugins-desktop-0:3.0.24-bp160.1.1.aarch64",
+                "product": {
+                  "name": "vlc-plugins-desktop-0:3.0.24-bp160.1.1.aarch64",
+                  "product_id": "vlc-plugins-desktop-0:3.0.24-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-plugins-desktop@3.0.24-bp160.1.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-qt-0:3.0.24-bp160.1.1.aarch64",
+                "product": {
+                  "name": "vlc-qt-0:3.0.24-bp160.1.1.aarch64",
+                  "product_id": "vlc-qt-0:3.0.24-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-qt@3.0.24-bp160.1.1?arch=aarch64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "vlc-lang-0:3.0.24-bp160.1.1.noarch",
+                "product": {
+                  "name": "vlc-lang-0:3.0.24-bp160.1.1.noarch",
+                  "product_id": "vlc-lang-0:3.0.24-bp160.1.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-lang@3.0.24-bp160.1.1?arch=noarch"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libvlc5-0:3.0.24-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "libvlc5-0:3.0.24-bp160.1.1.ppc64le",
+                  "product_id": "libvlc5-0:3.0.24-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libvlc5@3.0.24-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libvlccore9-0:3.0.24-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "libvlccore9-0:3.0.24-bp160.1.1.ppc64le",
+                  "product_id": "libvlccore9-0:3.0.24-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libvlccore9@3.0.24-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-0:3.0.24-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "vlc-0:3.0.24-bp160.1.1.ppc64le",
+                  "product_id": "vlc-0:3.0.24-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc@3.0.24-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.ppc64le",
+                  "product_id": "vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-codec-fluidsynth@3.0.24-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-codec-gstreamer-0:3.0.24-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "vlc-codec-gstreamer-0:3.0.24-bp160.1.1.ppc64le",
+                  "product_id": "vlc-codec-gstreamer-0:3.0.24-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-codec-gstreamer@3.0.24-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-devel-0:3.0.24-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "vlc-devel-0:3.0.24-bp160.1.1.ppc64le",
+                  "product_id": "vlc-devel-0:3.0.24-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-devel@3.0.24-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-jack-0:3.0.24-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "vlc-jack-0:3.0.24-bp160.1.1.ppc64le",
+                  "product_id": "vlc-jack-0:3.0.24-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-jack@3.0.24-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-noX-0:3.0.24-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "vlc-noX-0:3.0.24-bp160.1.1.ppc64le",
+                  "product_id": "vlc-noX-0:3.0.24-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-noX@3.0.24-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-plugins-desktop-0:3.0.24-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "vlc-plugins-desktop-0:3.0.24-bp160.1.1.ppc64le",
+                  "product_id": "vlc-plugins-desktop-0:3.0.24-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-plugins-desktop@3.0.24-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-qt-0:3.0.24-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "vlc-qt-0:3.0.24-bp160.1.1.ppc64le",
+                  "product_id": "vlc-qt-0:3.0.24-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-qt@3.0.24-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libvlc5-0:3.0.24-bp160.1.1.s390x",
+                "product": {
+                  "name": "libvlc5-0:3.0.24-bp160.1.1.s390x",
+                  "product_id": "libvlc5-0:3.0.24-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libvlc5@3.0.24-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libvlccore9-0:3.0.24-bp160.1.1.s390x",
+                "product": {
+                  "name": "libvlccore9-0:3.0.24-bp160.1.1.s390x",
+                  "product_id": "libvlccore9-0:3.0.24-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libvlccore9@3.0.24-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-0:3.0.24-bp160.1.1.s390x",
+                "product": {
+                  "name": "vlc-0:3.0.24-bp160.1.1.s390x",
+                  "product_id": "vlc-0:3.0.24-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc@3.0.24-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.s390x",
+                "product": {
+                  "name": "vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.s390x",
+                  "product_id": "vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-codec-fluidsynth@3.0.24-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-codec-gstreamer-0:3.0.24-bp160.1.1.s390x",
+                "product": {
+                  "name": "vlc-codec-gstreamer-0:3.0.24-bp160.1.1.s390x",
+                  "product_id": "vlc-codec-gstreamer-0:3.0.24-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-codec-gstreamer@3.0.24-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-devel-0:3.0.24-bp160.1.1.s390x",
+                "product": {
+                  "name": "vlc-devel-0:3.0.24-bp160.1.1.s390x",
+                  "product_id": "vlc-devel-0:3.0.24-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-devel@3.0.24-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-jack-0:3.0.24-bp160.1.1.s390x",
+                "product": {
+                  "name": "vlc-jack-0:3.0.24-bp160.1.1.s390x",
+                  "product_id": "vlc-jack-0:3.0.24-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-jack@3.0.24-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-noX-0:3.0.24-bp160.1.1.s390x",
+                "product": {
+                  "name": "vlc-noX-0:3.0.24-bp160.1.1.s390x",
+                  "product_id": "vlc-noX-0:3.0.24-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-noX@3.0.24-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-plugins-desktop-0:3.0.24-bp160.1.1.s390x",
+                "product": {
+                  "name": "vlc-plugins-desktop-0:3.0.24-bp160.1.1.s390x",
+                  "product_id": "vlc-plugins-desktop-0:3.0.24-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-plugins-desktop@3.0.24-bp160.1.1?arch=s390x"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-qt-0:3.0.24-bp160.1.1.s390x",
+                "product": {
+                  "name": "vlc-qt-0:3.0.24-bp160.1.1.s390x",
+                  "product_id": "vlc-qt-0:3.0.24-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-qt@3.0.24-bp160.1.1?arch=s390x"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libvlc5-0:3.0.24-bp160.1.1.x86_64",
+                "product": {
+                  "name": "libvlc5-0:3.0.24-bp160.1.1.x86_64",
+                  "product_id": "libvlc5-0:3.0.24-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libvlc5@3.0.24-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libvlccore9-0:3.0.24-bp160.1.1.x86_64",
+                "product": {
+                  "name": "libvlccore9-0:3.0.24-bp160.1.1.x86_64",
+                  "product_id": "libvlccore9-0:3.0.24-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libvlccore9@3.0.24-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-0:3.0.24-bp160.1.1.x86_64",
+                "product": {
+                  "name": "vlc-0:3.0.24-bp160.1.1.x86_64",
+                  "product_id": "vlc-0:3.0.24-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc@3.0.24-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.x86_64",
+                "product": {
+                  "name": "vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.x86_64",
+                  "product_id": "vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-codec-fluidsynth@3.0.24-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-codec-gstreamer-0:3.0.24-bp160.1.1.x86_64",
+                "product": {
+                  "name": "vlc-codec-gstreamer-0:3.0.24-bp160.1.1.x86_64",
+                  "product_id": "vlc-codec-gstreamer-0:3.0.24-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-codec-gstreamer@3.0.24-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-devel-0:3.0.24-bp160.1.1.x86_64",
+                "product": {
+                  "name": "vlc-devel-0:3.0.24-bp160.1.1.x86_64",
+                  "product_id": "vlc-devel-0:3.0.24-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-devel@3.0.24-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-jack-0:3.0.24-bp160.1.1.x86_64",
+                "product": {
+                  "name": "vlc-jack-0:3.0.24-bp160.1.1.x86_64",
+                  "product_id": "vlc-jack-0:3.0.24-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-jack@3.0.24-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-noX-0:3.0.24-bp160.1.1.x86_64",
+                "product": {
+                  "name": "vlc-noX-0:3.0.24-bp160.1.1.x86_64",
+                  "product_id": "vlc-noX-0:3.0.24-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-noX@3.0.24-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-plugins-desktop-0:3.0.24-bp160.1.1.x86_64",
+                "product": {
+                  "name": "vlc-plugins-desktop-0:3.0.24-bp160.1.1.x86_64",
+                  "product_id": "vlc-plugins-desktop-0:3.0.24-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-plugins-desktop@3.0.24-bp160.1.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "vlc-qt-0:3.0.24-bp160.1.1.x86_64",
+                "product": {
+                  "name": "vlc-qt-0:3.0.24-bp160.1.1.x86_64",
+                  "product_id": "vlc-qt-0:3.0.24-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/vlc-qt@3.0.24-bp160.1.1?arch=x86_64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libvlc5-0:3.0.24-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libvlc5-0:3.0.24-bp160.1.1.aarch64"
+        },
+        "product_reference": "libvlc5-0:3.0.24-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libvlc5-0:3.0.24-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libvlc5-0:3.0.24-bp160.1.1.ppc64le"
+        },
+        "product_reference": "libvlc5-0:3.0.24-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libvlc5-0:3.0.24-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libvlc5-0:3.0.24-bp160.1.1.s390x"
+        },
+        "product_reference": "libvlc5-0:3.0.24-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libvlc5-0:3.0.24-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libvlc5-0:3.0.24-bp160.1.1.x86_64"
+        },
+        "product_reference": "libvlc5-0:3.0.24-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libvlccore9-0:3.0.24-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libvlccore9-0:3.0.24-bp160.1.1.aarch64"
+        },
+        "product_reference": "libvlccore9-0:3.0.24-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libvlccore9-0:3.0.24-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libvlccore9-0:3.0.24-bp160.1.1.ppc64le"
+        },
+        "product_reference": "libvlccore9-0:3.0.24-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libvlccore9-0:3.0.24-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libvlccore9-0:3.0.24-bp160.1.1.s390x"
+        },
+        "product_reference": "libvlccore9-0:3.0.24-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libvlccore9-0:3.0.24-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:libvlccore9-0:3.0.24-bp160.1.1.x86_64"
+        },
+        "product_reference": "libvlccore9-0:3.0.24-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-0:3.0.24-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-0:3.0.24-bp160.1.1.aarch64"
+        },
+        "product_reference": "vlc-0:3.0.24-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-0:3.0.24-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-0:3.0.24-bp160.1.1.ppc64le"
+        },
+        "product_reference": "vlc-0:3.0.24-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-0:3.0.24-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-0:3.0.24-bp160.1.1.s390x"
+        },
+        "product_reference": "vlc-0:3.0.24-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-0:3.0.24-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-0:3.0.24-bp160.1.1.x86_64"
+        },
+        "product_reference": "vlc-0:3.0.24-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.aarch64"
+        },
+        "product_reference": "vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.ppc64le"
+        },
+        "product_reference": "vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.s390x"
+        },
+        "product_reference": "vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.x86_64"
+        },
+        "product_reference": "vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-codec-gstreamer-0:3.0.24-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-codec-gstreamer-0:3.0.24-bp160.1.1.aarch64"
+        },
+        "product_reference": "vlc-codec-gstreamer-0:3.0.24-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-codec-gstreamer-0:3.0.24-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-codec-gstreamer-0:3.0.24-bp160.1.1.ppc64le"
+        },
+        "product_reference": "vlc-codec-gstreamer-0:3.0.24-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-codec-gstreamer-0:3.0.24-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-codec-gstreamer-0:3.0.24-bp160.1.1.s390x"
+        },
+        "product_reference": "vlc-codec-gstreamer-0:3.0.24-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-codec-gstreamer-0:3.0.24-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-codec-gstreamer-0:3.0.24-bp160.1.1.x86_64"
+        },
+        "product_reference": "vlc-codec-gstreamer-0:3.0.24-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-devel-0:3.0.24-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-devel-0:3.0.24-bp160.1.1.aarch64"
+        },
+        "product_reference": "vlc-devel-0:3.0.24-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-devel-0:3.0.24-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-devel-0:3.0.24-bp160.1.1.ppc64le"
+        },
+        "product_reference": "vlc-devel-0:3.0.24-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-devel-0:3.0.24-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-devel-0:3.0.24-bp160.1.1.s390x"
+        },
+        "product_reference": "vlc-devel-0:3.0.24-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-devel-0:3.0.24-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-devel-0:3.0.24-bp160.1.1.x86_64"
+        },
+        "product_reference": "vlc-devel-0:3.0.24-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-jack-0:3.0.24-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-jack-0:3.0.24-bp160.1.1.aarch64"
+        },
+        "product_reference": "vlc-jack-0:3.0.24-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-jack-0:3.0.24-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-jack-0:3.0.24-bp160.1.1.ppc64le"
+        },
+        "product_reference": "vlc-jack-0:3.0.24-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-jack-0:3.0.24-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-jack-0:3.0.24-bp160.1.1.s390x"
+        },
+        "product_reference": "vlc-jack-0:3.0.24-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-jack-0:3.0.24-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-jack-0:3.0.24-bp160.1.1.x86_64"
+        },
+        "product_reference": "vlc-jack-0:3.0.24-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-lang-0:3.0.24-bp160.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-lang-0:3.0.24-bp160.1.1.noarch"
+        },
+        "product_reference": "vlc-lang-0:3.0.24-bp160.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-noX-0:3.0.24-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-noX-0:3.0.24-bp160.1.1.aarch64"
+        },
+        "product_reference": "vlc-noX-0:3.0.24-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-noX-0:3.0.24-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-noX-0:3.0.24-bp160.1.1.ppc64le"
+        },
+        "product_reference": "vlc-noX-0:3.0.24-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-noX-0:3.0.24-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-noX-0:3.0.24-bp160.1.1.s390x"
+        },
+        "product_reference": "vlc-noX-0:3.0.24-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-noX-0:3.0.24-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-noX-0:3.0.24-bp160.1.1.x86_64"
+        },
+        "product_reference": "vlc-noX-0:3.0.24-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-plugins-desktop-0:3.0.24-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-plugins-desktop-0:3.0.24-bp160.1.1.aarch64"
+        },
+        "product_reference": "vlc-plugins-desktop-0:3.0.24-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-plugins-desktop-0:3.0.24-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-plugins-desktop-0:3.0.24-bp160.1.1.ppc64le"
+        },
+        "product_reference": "vlc-plugins-desktop-0:3.0.24-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-plugins-desktop-0:3.0.24-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-plugins-desktop-0:3.0.24-bp160.1.1.s390x"
+        },
+        "product_reference": "vlc-plugins-desktop-0:3.0.24-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-plugins-desktop-0:3.0.24-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-plugins-desktop-0:3.0.24-bp160.1.1.x86_64"
+        },
+        "product_reference": "vlc-plugins-desktop-0:3.0.24-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-qt-0:3.0.24-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-qt-0:3.0.24-bp160.1.1.aarch64"
+        },
+        "product_reference": "vlc-qt-0:3.0.24-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-qt-0:3.0.24-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-qt-0:3.0.24-bp160.1.1.ppc64le"
+        },
+        "product_reference": "vlc-qt-0:3.0.24-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-qt-0:3.0.24-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-qt-0:3.0.24-bp160.1.1.s390x"
+        },
+        "product_reference": "vlc-qt-0:3.0.24-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "vlc-qt-0:3.0.24-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:vlc-qt-0:3.0.24-bp160.1.1.x86_64"
+        },
+        "product_reference": "vlc-qt-0:3.0.24-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-56711",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-56711"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "VLC media player versions 3.0.0 through 3.0.23 contain a memory-safety vulnerability reachable when processing crafted media. Exploitation requires user interaction and may result in application termination or code execution with the privileges of the VLC process.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:libvlc5-0:3.0.24-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libvlc5-0:3.0.24-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libvlc5-0:3.0.24-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libvlc5-0:3.0.24-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:libvlccore9-0:3.0.24-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:libvlccore9-0:3.0.24-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:libvlccore9-0:3.0.24-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:libvlccore9-0:3.0.24-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:vlc-0:3.0.24-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:vlc-0:3.0.24-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:vlc-0:3.0.24-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:vlc-0:3.0.24-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:vlc-codec-gstreamer-0:3.0.24-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:vlc-codec-gstreamer-0:3.0.24-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:vlc-codec-gstreamer-0:3.0.24-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:vlc-codec-gstreamer-0:3.0.24-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:vlc-devel-0:3.0.24-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:vlc-devel-0:3.0.24-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:vlc-devel-0:3.0.24-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:vlc-devel-0:3.0.24-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:vlc-jack-0:3.0.24-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:vlc-jack-0:3.0.24-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:vlc-jack-0:3.0.24-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:vlc-jack-0:3.0.24-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:vlc-lang-0:3.0.24-bp160.1.1.noarch",
+          "openSUSE Leap 16.0:vlc-noX-0:3.0.24-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:vlc-noX-0:3.0.24-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:vlc-noX-0:3.0.24-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:vlc-noX-0:3.0.24-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:vlc-plugins-desktop-0:3.0.24-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:vlc-plugins-desktop-0:3.0.24-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:vlc-plugins-desktop-0:3.0.24-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:vlc-plugins-desktop-0:3.0.24-bp160.1.1.x86_64",
+          "openSUSE Leap 16.0:vlc-qt-0:3.0.24-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:vlc-qt-0:3.0.24-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:vlc-qt-0:3.0.24-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:vlc-qt-0:3.0.24-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-56711",
+          "url": "https://www.suse.com/security/cve/CVE-2026-56711"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1279900 for CVE-2026-56711",
+          "url": "https://bugzilla.suse.com/1279900"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:libvlc5-0:3.0.24-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libvlc5-0:3.0.24-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libvlc5-0:3.0.24-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libvlc5-0:3.0.24-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:libvlccore9-0:3.0.24-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:libvlccore9-0:3.0.24-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:libvlccore9-0:3.0.24-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:libvlccore9-0:3.0.24-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:vlc-0:3.0.24-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:vlc-0:3.0.24-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:vlc-0:3.0.24-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:vlc-0:3.0.24-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:vlc-codec-fluidsynth-0:3.0.24-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:vlc-codec-gstreamer-0:3.0.24-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:vlc-codec-gstreamer-0:3.0.24-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:vlc-codec-gstreamer-0:3.0.24-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:vlc-codec-gstreamer-0:3.0.24-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:vlc-devel-0:3.0.24-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:vlc-devel-0:3.0.24-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:vlc-devel-0:3.0.24-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:vlc-devel-0:3.0.24-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:vlc-jack-0:3.0.24-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:vlc-jack-0:3.0.24-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:vlc-jack-0:3.0.24-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:vlc-jack-0:3.0.24-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:vlc-lang-0:3.0.24-bp160.1.1.noarch",
+            "openSUSE Leap 16.0:vlc-noX-0:3.0.24-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:vlc-noX-0:3.0.24-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:vlc-noX-0:3.0.24-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:vlc-noX-0:3.0.24-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:vlc-plugins-desktop-0:3.0.24-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:vlc-plugins-desktop-0:3.0.24-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:vlc-plugins-desktop-0:3.0.24-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:vlc-plugins-desktop-0:3.0.24-bp160.1.1.x86_64",
+            "openSUSE Leap 16.0:vlc-qt-0:3.0.24-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:vlc-qt-0:3.0.24-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:vlc-qt-0:3.0.24-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:vlc-qt-0:3.0.24-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-10-28T18:31:16Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-56711"
+    }
+  ]
+}

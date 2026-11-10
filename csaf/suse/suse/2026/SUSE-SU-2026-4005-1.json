@@ -1,0 +1,1673 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for openexr",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for openexr fixes the following issues:\n\n- CVE-2026-59186: On ILP32, the Array2D\u003cRgba\u003e tile-conversion buffer size calculation overflows, allocates a much\n  smaller heap buffer, and tile decode writes past that allocation (bsc#1276850).\n- CVE-2026-61555: crashing occurs when Imf::GetChannelsInMultiPartFile() processes a crafted EXR with an empty multiView\n  header attribute and Imf::viewFromChannelName() indexes the empty vector for a dotless channel name (bsc#1276859).\n- CVE-2026-68515: The utility allocates sampled channel storage using a truncated union_width / xSampling, then reads\n  the sampled input through a Slice based on the misaligned union window, producing a heap out-of-bounds write\n  (bsc#1276848).\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2026-4005,SUSE-SLE-SERVER-12-SP5-LTSS-2026-4005,SUSE-SLE-SERVER-12-SP5-LTSS-EXTENDED-SECURITY-2026-4005",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/suse-su-2026_4005-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2026:4005-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-20264005-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2026:4005-1",
+        "url": "https://lists.suse.com/pipermail/sle-security-updates/2026-September/028885.html"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1276848",
+        "url": "https://bugzilla.suse.com/1276848"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1276850",
+        "url": "https://bugzilla.suse.com/1276850"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1276859",
+        "url": "https://bugzilla.suse.com/1276859"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-59186 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-59186/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-61555 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-61555/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-68515 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-68515/"
+      }
+    ],
+    "title": "Security update for openexr",
+    "tracking": {
+      "current_release_date": "2026-09-17T16:46:18Z",
+      "generator": {
+        "date": "2026-09-07T07:31:48Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2026:4005-1",
+      "initial_release_date": "2026-09-07T07:31:48Z",
+      "revision_history": [
+        {
+          "date": "2026-09-07T07:31:48Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T19:52:24Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T20:55:15Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T16:46:18Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+                "product": {
+                  "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+                  "product_id": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libIlmImf-Imf_2_1-21@2.1.0-6.51.1?arch=aarch64\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openexr-0:2.1.0-6.51.1.aarch64",
+                "product": {
+                  "name": "openexr-0:2.1.0-6.51.1.aarch64",
+                  "product_id": "openexr-0:2.1.0-6.51.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openexr@2.1.0-6.51.1?arch=aarch64\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openexr-devel-0:2.1.0-6.51.1.aarch64",
+                "product": {
+                  "name": "openexr-devel-0:2.1.0-6.51.1.aarch64",
+                  "product_id": "openexr-devel-0:2.1.0-6.51.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openexr-devel@2.1.0-6.51.1?arch=aarch64\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openexr-doc-0:2.1.0-6.51.1.aarch64",
+                "product": {
+                  "name": "openexr-doc-0:2.1.0-6.51.1.aarch64",
+                  "product_id": "openexr-doc-0:2.1.0-6.51.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openexr-doc@2.1.0-6.51.1?arch=aarch64\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libIlmImf-Imf_2_1-21-64bit-0:2.1.0-6.51.1.aarch64_ilp32",
+                "product": {
+                  "name": "libIlmImf-Imf_2_1-21-64bit-0:2.1.0-6.51.1.aarch64_ilp32",
+                  "product_id": "libIlmImf-Imf_2_1-21-64bit-0:2.1.0-6.51.1.aarch64_ilp32",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/libIlmImf-Imf_2_1-21-64bit@2.1.0-6.51.1?arch=aarch64_ilp32"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64_ilp32"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.i586",
+                "product": {
+                  "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.i586",
+                  "product_id": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libIlmImf-Imf_2_1-21@2.1.0-6.51.1?arch=i586\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openexr-0:2.1.0-6.51.1.i586",
+                "product": {
+                  "name": "openexr-0:2.1.0-6.51.1.i586",
+                  "product_id": "openexr-0:2.1.0-6.51.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openexr@2.1.0-6.51.1?arch=i586\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openexr-devel-0:2.1.0-6.51.1.i586",
+                "product": {
+                  "name": "openexr-devel-0:2.1.0-6.51.1.i586",
+                  "product_id": "openexr-devel-0:2.1.0-6.51.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openexr-devel@2.1.0-6.51.1?arch=i586\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openexr-doc-0:2.1.0-6.51.1.i586",
+                "product": {
+                  "name": "openexr-doc-0:2.1.0-6.51.1.i586",
+                  "product_id": "openexr-doc-0:2.1.0-6.51.1.i586",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openexr-doc@2.1.0-6.51.1?arch=i586\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "i586"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+                "product": {
+                  "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+                  "product_id": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libIlmImf-Imf_2_1-21@2.1.0-6.51.1?arch=ppc64le\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openexr-0:2.1.0-6.51.1.ppc64le",
+                "product": {
+                  "name": "openexr-0:2.1.0-6.51.1.ppc64le",
+                  "product_id": "openexr-0:2.1.0-6.51.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openexr@2.1.0-6.51.1?arch=ppc64le\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openexr-devel-0:2.1.0-6.51.1.ppc64le",
+                "product": {
+                  "name": "openexr-devel-0:2.1.0-6.51.1.ppc64le",
+                  "product_id": "openexr-devel-0:2.1.0-6.51.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openexr-devel@2.1.0-6.51.1?arch=ppc64le\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openexr-doc-0:2.1.0-6.51.1.ppc64le",
+                "product": {
+                  "name": "openexr-doc-0:2.1.0-6.51.1.ppc64le",
+                  "product_id": "openexr-doc-0:2.1.0-6.51.1.ppc64le",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openexr-doc@2.1.0-6.51.1?arch=ppc64le\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390",
+                "product": {
+                  "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390",
+                  "product_id": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libIlmImf-Imf_2_1-21@2.1.0-6.51.1?arch=s390\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openexr-0:2.1.0-6.51.1.s390",
+                "product": {
+                  "name": "openexr-0:2.1.0-6.51.1.s390",
+                  "product_id": "openexr-0:2.1.0-6.51.1.s390",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openexr@2.1.0-6.51.1?arch=s390\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openexr-devel-0:2.1.0-6.51.1.s390",
+                "product": {
+                  "name": "openexr-devel-0:2.1.0-6.51.1.s390",
+                  "product_id": "openexr-devel-0:2.1.0-6.51.1.s390",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openexr-devel@2.1.0-6.51.1?arch=s390\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openexr-doc-0:2.1.0-6.51.1.s390",
+                "product": {
+                  "name": "openexr-doc-0:2.1.0-6.51.1.s390",
+                  "product_id": "openexr-doc-0:2.1.0-6.51.1.s390",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openexr-doc@2.1.0-6.51.1?arch=s390\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+                "product": {
+                  "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+                  "product_id": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libIlmImf-Imf_2_1-21@2.1.0-6.51.1?arch=s390x\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libIlmImf-Imf_2_1-21-32bit-0:2.1.0-6.51.1.s390x",
+                "product": {
+                  "name": "libIlmImf-Imf_2_1-21-32bit-0:2.1.0-6.51.1.s390x",
+                  "product_id": "libIlmImf-Imf_2_1-21-32bit-0:2.1.0-6.51.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libIlmImf-Imf_2_1-21-32bit@2.1.0-6.51.1?arch=s390x\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openexr-0:2.1.0-6.51.1.s390x",
+                "product": {
+                  "name": "openexr-0:2.1.0-6.51.1.s390x",
+                  "product_id": "openexr-0:2.1.0-6.51.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openexr@2.1.0-6.51.1?arch=s390x\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openexr-devel-0:2.1.0-6.51.1.s390x",
+                "product": {
+                  "name": "openexr-devel-0:2.1.0-6.51.1.s390x",
+                  "product_id": "openexr-devel-0:2.1.0-6.51.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openexr-devel@2.1.0-6.51.1?arch=s390x\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openexr-doc-0:2.1.0-6.51.1.s390x",
+                "product": {
+                  "name": "openexr-doc-0:2.1.0-6.51.1.s390x",
+                  "product_id": "openexr-doc-0:2.1.0-6.51.1.s390x",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openexr-doc@2.1.0-6.51.1?arch=s390x\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+                "product": {
+                  "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+                  "product_id": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libIlmImf-Imf_2_1-21@2.1.0-6.51.1?arch=x86_64\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "libIlmImf-Imf_2_1-21-32bit-0:2.1.0-6.51.1.x86_64",
+                "product": {
+                  "name": "libIlmImf-Imf_2_1-21-32bit-0:2.1.0-6.51.1.x86_64",
+                  "product_id": "libIlmImf-Imf_2_1-21-32bit-0:2.1.0-6.51.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/libIlmImf-Imf_2_1-21-32bit@2.1.0-6.51.1?arch=x86_64\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openexr-0:2.1.0-6.51.1.x86_64",
+                "product": {
+                  "name": "openexr-0:2.1.0-6.51.1.x86_64",
+                  "product_id": "openexr-0:2.1.0-6.51.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openexr@2.1.0-6.51.1?arch=x86_64\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openexr-devel-0:2.1.0-6.51.1.x86_64",
+                "product": {
+                  "name": "openexr-devel-0:2.1.0-6.51.1.x86_64",
+                  "product_id": "openexr-devel-0:2.1.0-6.51.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openexr-devel@2.1.0-6.51.1?arch=x86_64\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "openexr-doc-0:2.1.0-6.51.1.x86_64",
+                "product": {
+                  "name": "openexr-doc-0:2.1.0-6.51.1.x86_64",
+                  "product_id": "openexr-doc-0:2.1.0-6.51.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:openexr:openexr:2.1.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/openexr-doc@2.1.0-6.51.1?arch=x86_64\u0026upstream=openexr-0:2.1.0-6.51.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 12 SP5-LTSS",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 12 SP5-LTSS",
+                  "product_id": "SUSE Linux Enterprise Server 12 SP5-LTSS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles-ltss:12:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 12 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 12 SP5",
+                  "product_id": "SUSE Linux Enterprise Server 12 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:12:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:12:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise High Performance Computing 12 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise High Performance Computing 12 SP5",
+                  "product_id": "SUSE Linux Enterprise High Performance Computing 12 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-hpc:12:sp5"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5",
+                  "product_id": "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles-ltss-extended-security:12:sp5"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64"
+        },
+        "product_reference": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le"
+        },
+        "product_reference": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x"
+        },
+        "product_reference": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64"
+        },
+        "product_reference": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-0:2.1.0-6.51.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.aarch64"
+        },
+        "product_reference": "openexr-0:2.1.0-6.51.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-0:2.1.0-6.51.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.ppc64le"
+        },
+        "product_reference": "openexr-0:2.1.0-6.51.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-0:2.1.0-6.51.1.s390x as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.s390x"
+        },
+        "product_reference": "openexr-0:2.1.0-6.51.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-0:2.1.0-6.51.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.x86_64"
+        },
+        "product_reference": "openexr-0:2.1.0-6.51.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-devel-0:2.1.0-6.51.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.aarch64"
+        },
+        "product_reference": "openexr-devel-0:2.1.0-6.51.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-devel-0:2.1.0-6.51.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.ppc64le"
+        },
+        "product_reference": "openexr-devel-0:2.1.0-6.51.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-devel-0:2.1.0-6.51.1.s390x as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.s390x"
+        },
+        "product_reference": "openexr-devel-0:2.1.0-6.51.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-devel-0:2.1.0-6.51.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.x86_64"
+        },
+        "product_reference": "openexr-devel-0:2.1.0-6.51.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64"
+        },
+        "product_reference": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le"
+        },
+        "product_reference": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x"
+        },
+        "product_reference": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64"
+        },
+        "product_reference": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-0:2.1.0-6.51.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.aarch64"
+        },
+        "product_reference": "openexr-0:2.1.0-6.51.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-0:2.1.0-6.51.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le"
+        },
+        "product_reference": "openexr-0:2.1.0-6.51.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-0:2.1.0-6.51.1.s390x as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.s390x"
+        },
+        "product_reference": "openexr-0:2.1.0-6.51.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-0:2.1.0-6.51.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.x86_64"
+        },
+        "product_reference": "openexr-0:2.1.0-6.51.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-devel-0:2.1.0-6.51.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64"
+        },
+        "product_reference": "openexr-devel-0:2.1.0-6.51.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-devel-0:2.1.0-6.51.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le"
+        },
+        "product_reference": "openexr-devel-0:2.1.0-6.51.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-devel-0:2.1.0-6.51.1.s390x as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x"
+        },
+        "product_reference": "openexr-devel-0:2.1.0-6.51.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-devel-0:2.1.0-6.51.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64"
+        },
+        "product_reference": "openexr-devel-0:2.1.0-6.51.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64"
+        },
+        "product_reference": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le"
+        },
+        "product_reference": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x"
+        },
+        "product_reference": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64"
+        },
+        "product_reference": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-0:2.1.0-6.51.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.aarch64"
+        },
+        "product_reference": "openexr-0:2.1.0-6.51.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-0:2.1.0-6.51.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le"
+        },
+        "product_reference": "openexr-0:2.1.0-6.51.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-0:2.1.0-6.51.1.s390x as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.s390x"
+        },
+        "product_reference": "openexr-0:2.1.0-6.51.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-0:2.1.0-6.51.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.x86_64"
+        },
+        "product_reference": "openexr-0:2.1.0-6.51.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-devel-0:2.1.0-6.51.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64"
+        },
+        "product_reference": "openexr-devel-0:2.1.0-6.51.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-devel-0:2.1.0-6.51.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le"
+        },
+        "product_reference": "openexr-devel-0:2.1.0-6.51.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-devel-0:2.1.0-6.51.1.s390x as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x"
+        },
+        "product_reference": "openexr-devel-0:2.1.0-6.51.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-devel-0:2.1.0-6.51.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64"
+        },
+        "product_reference": "openexr-devel-0:2.1.0-6.51.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64"
+        },
+        "product_reference": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le"
+        },
+        "product_reference": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x"
+        },
+        "product_reference": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64"
+        },
+        "product_reference": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-0:2.1.0-6.51.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.aarch64"
+        },
+        "product_reference": "openexr-0:2.1.0-6.51.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-0:2.1.0-6.51.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le"
+        },
+        "product_reference": "openexr-0:2.1.0-6.51.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-0:2.1.0-6.51.1.s390x as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.s390x"
+        },
+        "product_reference": "openexr-0:2.1.0-6.51.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-0:2.1.0-6.51.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.x86_64"
+        },
+        "product_reference": "openexr-0:2.1.0-6.51.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-devel-0:2.1.0-6.51.1.aarch64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64"
+        },
+        "product_reference": "openexr-devel-0:2.1.0-6.51.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-devel-0:2.1.0-6.51.1.ppc64le as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le"
+        },
+        "product_reference": "openexr-devel-0:2.1.0-6.51.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-devel-0:2.1.0-6.51.1.s390x as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x"
+        },
+        "product_reference": "openexr-devel-0:2.1.0-6.51.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-devel-0:2.1.0-6.51.1.x86_64 as component of SUSE Linux Enterprise Server 12 SP5-LTSS",
+          "product_id": "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64"
+        },
+        "product_reference": "openexr-devel-0:2.1.0-6.51.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise High Performance Computing 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64 as component of SUSE Linux Enterprise Server LTSS Extended Security 12 SP5",
+          "product_id": "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64"
+        },
+        "product_reference": "libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-0:2.1.0-6.51.1.x86_64 as component of SUSE Linux Enterprise Server LTSS Extended Security 12 SP5",
+          "product_id": "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:openexr-0:2.1.0-6.51.1.x86_64"
+        },
+        "product_reference": "openexr-0:2.1.0-6.51.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "openexr-devel-0:2.1.0-6.51.1.x86_64 as component of SUSE Linux Enterprise Server LTSS Extended Security 12 SP5",
+          "product_id": "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64"
+        },
+        "product_reference": "openexr-devel-0:2.1.0-6.51.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-59186",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-59186"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "OpenEXR is the reference implementation and specification for the EXR image format, widely used in the motion picture industry. In versions before 3.2.11, 3.3.0 through 3.3.12, and 3.4.0 through 3.4.13, a crafted tiled EXR can trigger a heap out-of-bounds write on 32-bit/ILP32 builds when read through the public TiledRgbaInputFile RGBA API. The file uses a small 40x40 dataWindow but a 65537x65537 tile size. On ILP32, the Array2D\u003cRgba\u003e tile-conversion buffer size calculation overflows, allocates a much smaller heap buffer, and tile decode writes past that allocation. This issue is fixed in versions 3.2.11, 3.3.13, and 3.4.14.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-59186",
+          "url": "https://www.suse.com/security/cve/CVE-2026-59186"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1276850 for CVE-2026-59186",
+          "url": "https://bugzilla.suse.com/1276850"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-07T07:31:48Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-59186"
+    },
+    {
+      "cve": "CVE-2026-61555",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-61555"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "OpenEXR is the reference implementation and specification for the EXR image format, widely used in the motion picture industry. OpenEXR versions before 3.2.11, 3.3.0 through 3.3.12, and 3.4.0 through 3.4.13 are vulnerable to crashing. This occurs when Imf::GetChannelsInMultiPartFile() processes a crafted EXR with an empty multiView header attribute and Imf::viewFromChannelName() indexes the empty vector for a dotless channel name. This issue is fixed in versions 3.2.11, 3.3.13, and 3.4.14.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-61555",
+          "url": "https://www.suse.com/security/cve/CVE-2026-61555"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1276859 for CVE-2026-61555",
+          "url": "https://bugzilla.suse.com/1276859"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-07T07:31:48Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-61555"
+    },
+    {
+      "cve": "CVE-2026-68515",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-68515"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "OpenEXR is the reference implementation and specification for the EXR image format, widely used in the motion picture industry. In versions before 3.2.11, 3.3.0 through 3.3.12, and 3.4.0 through 3.4.13, exrmultiview can write past a heap allocation when it combines two attacker-supplied, individually valid scanline EXR files whose union dataWindow is not aligned to one view's channel subsampling. The utility allocates sampled channel storage using a truncated union_width / xSampling, then reads the sampled input through a Slice based on the misaligned union window, producing a heap out-of-bounds write. The trigger is normal public-tool processing, such as exrmultiview left A.exr right B.exr out.exr with crafted but valid inputs, so this is not solely an API or caller-precondition issue. This issue is fixed in versions 3.2.11, 3.3.13, and 3.4.14.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-68515",
+          "url": "https://www.suse.com/security/cve/CVE-2026-68515"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1276848 for CVE-2026-68515",
+          "url": "https://bugzilla.suse.com/1276848"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise High Performance Computing 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5-LTSS:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server LTSS Extended Security 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:libIlmImf-Imf_2_1-21-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-0:2.1.0-6.51.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 12 SP5:openexr-devel-0:2.1.0-6.51.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-09-07T07:31:48Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-68515"
+    }
+  ]
+}

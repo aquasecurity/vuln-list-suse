@@ -1,0 +1,488 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "moderate"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for go-sendxmpp",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for go-sendxmpp fixes the following issues:\n\nChanges in go-sendxmpp:\n\n- Update to 0.15.1:\n  Added\n  * Add XEP-0359 Origin-ID to messages (requires go-xmpp \u003e= v0.2.18).\n  Changed\n  * HTTP upload: Ignore timeouts on disco IQs as some components do\n    not reply.\n- Upgrades the embedded golang.org/x/net to 0.46.0\n  * Fixes: bsc#1251461, CVE-2025-47911: various algorithms with\n    quadratic complexity when parsing HTML documents\n  * Fixes: bsc#1251677, CVE-2025-58190: excessive memory consumption\n    by 'html.ParseFragment' when processing specially crafted input\n\n- Update to 0.15.0:\n  Added:\n  * Add flag --verbose to show debug information.\n  * Add flag --recipients to specify recipients by file.\n  * Add flag --retry-connect to try after a waiting time if the connection fails.\n  * Add flag --retry-connect-max to specify the amount of retry attempts.\n  * Add flag --legacy-pgp for using XEP-0027 PGP encryption with Ox keys.\n  * Add support for punycode domains.\n  Changed:\n  * Update gopenpgp library to v3.\n  * Improve error detection for MUC joins.\n  * Don't try to connect to other SRV record targets if error contains 'auth-failure'.\n  * Remove support for old SSDP version (via go-xmpp v0.2.15).\n  * Http-upload: Stop checking other disco items after finding upload component.\n  * Increase default TLS version to 1.3.\n- bsc#1241814 (CVE-2025-22872): This update includes golang.org/x/net/html 0.43.0\n\n- Update to 0.14.1:\n  * Use prettier date format for error messages.\n  * Update XEP-0474 to version 0.4.0 (requires go-xmpp \u003e= 0.2.10).\n\n- Update to 0.14.0:\n  Added:\n  * Add --fast-invalidate to allow invalidating the FAST token.\n  Changed:\n  * Don't create legacy Ox private key directory in ~/.local/share/go-sendxmpp/oxprivkeys.\n  * Delete legacy Ox private key directory if it's empty.\n  * Show proper error if saved FAST mechanism isn't usable with current TLS version (requires go-xmpp \u003e= 0.2.9).\n  * Print debug output to stdout, not stderr (requires go-xmpp \u003e= 0.2.9).\n  * Show RECV: and SEND: prefix for debug output (requires go-xmpp \u003e= 0.2.9).\n  * Delete stored fast token if --fast-invalidate and --fast-off are set.\n  * Show error when FAST creds are stored but non-FAST mechanism is requested.\n\n- Update to 0.13.0:\n  Added:\n  * Add --anonymous to support anonymous authentication (requires go-xmpp \u003e= 0.2.8).\n  * Add XEP-0480: SASL Upgrade Tasks support (requires go-xmpp \u003e= 0.2.8).\n  * Add support for see-other-host stream error (requires go-xmpp \u003e= 0.2.8).\n  Changed:\n  * Don't automatically try other auth mechanisms if FAST authentication fails.\n\n- Update to 0.12.1:\n  Changed:\n  * Print error instead of quitting if a message of type error is received.\n  * Allow upload of multiple files.\n  Added:\n  * Add flag --suppress-root-warning to suppress the warning when go-sendxmpp is used by the root user.\n\n- Update to 0.12.0:\n  Added:\n  * Add possibility to look up direct TLS connection endpoint via hostmeta2 (requires xmppsrv \u003e= 0.3.3).\n  * Add flag --allow-plain to allow PLAIN authentication (requires go-xmpp \u003e= 0.2.5).\n  Changed:\n  * Disable PLAIN authentication per default.\n  * Disable PLAIN authentication after first use of a SCRAM auth mechanism (overrides --allow-plain) (requires\n    go-xmpp \u003e= 0.2.5).\n\n- Update to 0.11.4:\n  * Fix bug in SCRAM-SHA-256-PLUS (via go-xmpp \u003e= 0.2.4).\n\n- Update to 0.11.3:\n  * Add go-xmpp library version to --version output (requires go-xmpp \u003e= 0.2.2).\n  * Fix XEP-0474: SASL SCRAM Downgrade Protection hash calculation bug (via go-xmpp \u003e= v0.2.3).\n  * [gocritic]: Improve code quality.\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-82",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/opensuse-su-2026_20058-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1241814",
+        "url": "https://bugzilla.suse.com/1241814"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1251461",
+        "url": "https://bugzilla.suse.com/1251461"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1251677",
+        "url": "https://bugzilla.suse.com/1251677"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-22872 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-22872/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-47911 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-47911/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-58190 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-58190/"
+      }
+    ],
+    "title": "Security update for go-sendxmpp",
+    "tracking": {
+      "current_release_date": "2026-09-17T17:25:38Z",
+      "generator": {
+        "date": "2026-01-17T09:30:33Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:20058-1",
+      "initial_release_date": "2026-01-17T09:30:33Z",
+      "revision_history": [
+        {
+          "date": "2026-01-17T09:30:33Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-09-16T20:29:07Z",
+          "number": "2",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-16T21:31:49Z",
+          "number": "3",
+          "summary": "unknown changes"
+        },
+        {
+          "date": "2026-09-17T17:25:38Z",
+          "number": "4",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "4"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "go-sendxmpp-0:0.15.1-bp160.1.1.aarch64",
+                "product": {
+                  "name": "go-sendxmpp-0:0.15.1-bp160.1.1.aarch64",
+                  "product_id": "go-sendxmpp-0:0.15.1-bp160.1.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/go-sendxmpp@0.15.1-bp160.1.1?arch=aarch64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "go-sendxmpp-0:0.15.1-bp160.1.1.ppc64le",
+                "product": {
+                  "name": "go-sendxmpp-0:0.15.1-bp160.1.1.ppc64le",
+                  "product_id": "go-sendxmpp-0:0.15.1-bp160.1.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/go-sendxmpp@0.15.1-bp160.1.1?arch=ppc64le"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "go-sendxmpp-0:0.15.1-bp160.1.1.s390x",
+                "product": {
+                  "name": "go-sendxmpp-0:0.15.1-bp160.1.1.s390x",
+                  "product_id": "go-sendxmpp-0:0.15.1-bp160.1.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/go-sendxmpp@0.15.1-bp160.1.1?arch=s390x"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "go-sendxmpp-0:0.15.1-bp160.1.1.x86_64",
+                "product": {
+                  "name": "go-sendxmpp-0:0.15.1-bp160.1.1.x86_64",
+                  "product_id": "go-sendxmpp-0:0.15.1-bp160.1.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/go-sendxmpp@0.15.1-bp160.1.1?arch=x86_64"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "go-sendxmpp-0:0.15.1-bp160.1.1.aarch64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.aarch64"
+        },
+        "product_reference": "go-sendxmpp-0:0.15.1-bp160.1.1.aarch64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "go-sendxmpp-0:0.15.1-bp160.1.1.ppc64le as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.ppc64le"
+        },
+        "product_reference": "go-sendxmpp-0:0.15.1-bp160.1.1.ppc64le",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "go-sendxmpp-0:0.15.1-bp160.1.1.s390x as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.s390x"
+        },
+        "product_reference": "go-sendxmpp-0:0.15.1-bp160.1.1.s390x",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "go-sendxmpp-0:0.15.1-bp160.1.1.x86_64 as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.x86_64"
+        },
+        "product_reference": "go-sendxmpp-0:0.15.1-bp160.1.1.x86_64",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-22872",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-22872"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The tokenizer incorrectly interprets tags with unquoted attribute values that end with a solidus character (/) as self-closing. When directly using Tokenizer, this can result in such tags incorrectly being marked as self-closing, and when using the Parse functions, this can result in content following such tags as being placed in the wrong scope during DOM construction, but only when tags are in foreign content (e.g. \u003cmath\u003e, \u003csvg\u003e, etc contexts).",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-22872",
+          "url": "https://www.suse.com/security/cve/CVE-2025-22872"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1241710 for CVE-2025-22872",
+          "url": "https://bugzilla.suse.com/1241710"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1265255 for CVE-2025-22872",
+          "url": "https://bugzilla.suse.com/1265255"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1265256 for CVE-2025-22872",
+          "url": "https://bugzilla.suse.com/1265256"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1265259 for CVE-2025-22872",
+          "url": "https://bugzilla.suse.com/1265259"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:L/I:L/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-01-17T09:30:33Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-22872"
+    },
+    {
+      "cve": "CVE-2025-47911",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-47911"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The html.Parse function in golang.org/x/net/html has quadratic parsing complexity when processing certain inputs, which can lead to denial of service (DoS) if an attacker provides specially crafted HTML content.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-47911",
+          "url": "https://www.suse.com/security/cve/CVE-2025-47911"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1251308 for CVE-2025-47911",
+          "url": "https://bugzilla.suse.com/1251308"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-01-17T09:30:33Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-47911"
+    },
+    {
+      "cve": "CVE-2025-58190",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-58190"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The html.Parse function in golang.org/x/net/html has an infinite parsing loop when processing certain inputs, which can lead to denial of service (DoS) if an attacker provides specially crafted HTML content.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.aarch64",
+          "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.ppc64le",
+          "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.s390x",
+          "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-58190",
+          "url": "https://www.suse.com/security/cve/CVE-2025-58190"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1251309 for CVE-2025-58190",
+          "url": "https://bugzilla.suse.com/1251309"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.aarch64",
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.ppc64le",
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.s390x",
+            "openSUSE Leap 16.0:go-sendxmpp-0:0.15.1-bp160.1.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-01-17T09:30:33Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-58190"
+    }
+  ]
+}
