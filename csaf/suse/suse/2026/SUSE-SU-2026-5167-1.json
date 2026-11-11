@@ -1,0 +1,1992 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for kubevirt",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for kubevirt fixes the following issues:\n\n- CVE-2026-56854,CVE-2026-56855,CVE-2026-78662: golang.org/x/crypto/ssh: authentication bypass and deadlocks in the\n  crypto/ssh library (bsc#1278574).\n- CVE-2026-78659: golang.org/x/net/http2: HTTP/2 server memory exhaustion due to Trailer headers (bsc#1286984).\n- CVE-2026-78660: golang.org/x/net/http2: HTTP/2 transport accepts malformed framing-related headers (bsc#1287039).\n- CVE-2026-78663: golang.org/x/net/http2: double flow control refund on HTTP/2 server streams (bsc#1287131).\n- CVE-2026-78669: golang.org/x/net/http2: excessive CPU consumption from repeated initial window changes (bsc#1285255).\n- CVE-2026-84303: google.golang.org/grpc: xDS RBAC HTTP filter implementation issue allows for bypass of authorization\n  policies via mixed-case or canonical-case header matches (bsc#1279276).\n- CVE-2026-84304: google.golang.org/grpc: heap memory exhaustion via HTTP/2 DATA frame fragmentation (bsc#1279184).\n- CVE-2026-84445: google.golang.org/grpc: DoS via crash due to missing ':authority' and 'Host' headers in gRPC-Go xDS\n  servers (bsc#1278869).\n- CVE-2026-97032: golang.org/x/net/http2: HTTP/2 server crash due to HPACK encoder race (bsc#1287260).\n\nRebuilt also against current go1.26.\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2026-5167,SUSE-SLE-Module-Containers-15-SP7-2026-5167",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/2026/suse-su-2026_5167-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2026:5167-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-20265167-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2026:5167-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-20265167-1/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1278574",
+        "url": "https://bugzilla.suse.com/1278574"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1278869",
+        "url": "https://bugzilla.suse.com/1278869"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1279184",
+        "url": "https://bugzilla.suse.com/1279184"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1279276",
+        "url": "https://bugzilla.suse.com/1279276"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1285255",
+        "url": "https://bugzilla.suse.com/1285255"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1286984",
+        "url": "https://bugzilla.suse.com/1286984"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1287039",
+        "url": "https://bugzilla.suse.com/1287039"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1287131",
+        "url": "https://bugzilla.suse.com/1287131"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1287260",
+        "url": "https://bugzilla.suse.com/1287260"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-56854 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-56854/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-56855 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-56855/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-78659 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-78659/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-78660 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-78660/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-78662 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-78662/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-78663 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-78663/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-78669 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-78669/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-84303 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-84303/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-84304 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-84304/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-84445 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-84445/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-97032 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-97032/"
+      }
+    ],
+    "title": "Security update for kubevirt",
+    "tracking": {
+      "current_release_date": "2026-11-11T11:58:21Z",
+      "generator": {
+        "date": "2026-11-10T14:20:28Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2026:5167-1",
+      "initial_release_date": "2026-11-10T14:20:28Z",
+      "revision_history": [
+        {
+          "date": "2026-11-10T14:20:28Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-11-11T11:58:21Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "kubevirt-container-disk-0:1.7.4-150700.3.42.1.aarch64",
+                "product": {
+                  "name": "kubevirt-container-disk-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_id": "kubevirt-container-disk-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-container-disk@1.7.4-150700.3.42.1?arch=aarch64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+                "product": {
+                  "name": "kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_id": "kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-manifests@1.7.4-150700.3.42.1?arch=aarch64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-pr-helper-conf-0:1.7.4-150700.3.42.1.aarch64",
+                "product": {
+                  "name": "kubevirt-pr-helper-conf-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_id": "kubevirt-pr-helper-conf-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-pr-helper-conf@1.7.4-150700.3.42.1?arch=aarch64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-tests-0:1.7.4-150700.3.42.1.aarch64",
+                "product": {
+                  "name": "kubevirt-tests-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_id": "kubevirt-tests-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-tests@1.7.4-150700.3.42.1?arch=aarch64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-virt-api-0:1.7.4-150700.3.42.1.aarch64",
+                "product": {
+                  "name": "kubevirt-virt-api-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_id": "kubevirt-virt-api-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-virt-api@1.7.4-150700.3.42.1?arch=aarch64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-virt-controller-0:1.7.4-150700.3.42.1.aarch64",
+                "product": {
+                  "name": "kubevirt-virt-controller-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_id": "kubevirt-virt-controller-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-virt-controller@1.7.4-150700.3.42.1?arch=aarch64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-virt-exportproxy-0:1.7.4-150700.3.42.1.aarch64",
+                "product": {
+                  "name": "kubevirt-virt-exportproxy-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_id": "kubevirt-virt-exportproxy-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-virt-exportproxy@1.7.4-150700.3.42.1?arch=aarch64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-virt-exportserver-0:1.7.4-150700.3.42.1.aarch64",
+                "product": {
+                  "name": "kubevirt-virt-exportserver-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_id": "kubevirt-virt-exportserver-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-virt-exportserver@1.7.4-150700.3.42.1?arch=aarch64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-virt-handler-0:1.7.4-150700.3.42.1.aarch64",
+                "product": {
+                  "name": "kubevirt-virt-handler-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_id": "kubevirt-virt-handler-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-virt-handler@1.7.4-150700.3.42.1?arch=aarch64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-virt-launcher-0:1.7.4-150700.3.42.1.aarch64",
+                "product": {
+                  "name": "kubevirt-virt-launcher-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_id": "kubevirt-virt-launcher-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-virt-launcher@1.7.4-150700.3.42.1?arch=aarch64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-virt-operator-0:1.7.4-150700.3.42.1.aarch64",
+                "product": {
+                  "name": "kubevirt-virt-operator-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_id": "kubevirt-virt-operator-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-virt-operator@1.7.4-150700.3.42.1?arch=aarch64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-virt-synchronization-controller-0:1.7.4-150700.3.42.1.aarch64",
+                "product": {
+                  "name": "kubevirt-virt-synchronization-controller-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_id": "kubevirt-virt-synchronization-controller-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kubevirt-virt-synchronization-controller@1.7.4-150700.3.42.1?arch=aarch64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+                "product": {
+                  "name": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_id": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-virtctl@1.7.4-150700.3.42.1?arch=aarch64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "obs-service-kubevirt_containers_meta-0:1.7.4-150700.3.42.1.aarch64",
+                "product": {
+                  "name": "obs-service-kubevirt_containers_meta-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_id": "obs-service-kubevirt_containers_meta-0:1.7.4-150700.3.42.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/obs-service-kubevirt_containers_meta@1.7.4-150700.3.42.1?arch=aarch64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "kubevirt-container-disk-0:1.7.4-150700.3.42.1.x86_64",
+                "product": {
+                  "name": "kubevirt-container-disk-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_id": "kubevirt-container-disk-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-container-disk@1.7.4-150700.3.42.1?arch=x86_64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+                "product": {
+                  "name": "kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_id": "kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-manifests@1.7.4-150700.3.42.1?arch=x86_64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-pr-helper-conf-0:1.7.4-150700.3.42.1.x86_64",
+                "product": {
+                  "name": "kubevirt-pr-helper-conf-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_id": "kubevirt-pr-helper-conf-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-pr-helper-conf@1.7.4-150700.3.42.1?arch=x86_64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-tests-0:1.7.4-150700.3.42.1.x86_64",
+                "product": {
+                  "name": "kubevirt-tests-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_id": "kubevirt-tests-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-tests@1.7.4-150700.3.42.1?arch=x86_64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-virt-api-0:1.7.4-150700.3.42.1.x86_64",
+                "product": {
+                  "name": "kubevirt-virt-api-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_id": "kubevirt-virt-api-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-virt-api@1.7.4-150700.3.42.1?arch=x86_64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-virt-controller-0:1.7.4-150700.3.42.1.x86_64",
+                "product": {
+                  "name": "kubevirt-virt-controller-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_id": "kubevirt-virt-controller-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-virt-controller@1.7.4-150700.3.42.1?arch=x86_64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-virt-exportproxy-0:1.7.4-150700.3.42.1.x86_64",
+                "product": {
+                  "name": "kubevirt-virt-exportproxy-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_id": "kubevirt-virt-exportproxy-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-virt-exportproxy@1.7.4-150700.3.42.1?arch=x86_64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-virt-exportserver-0:1.7.4-150700.3.42.1.x86_64",
+                "product": {
+                  "name": "kubevirt-virt-exportserver-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_id": "kubevirt-virt-exportserver-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-virt-exportserver@1.7.4-150700.3.42.1?arch=x86_64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-virt-handler-0:1.7.4-150700.3.42.1.x86_64",
+                "product": {
+                  "name": "kubevirt-virt-handler-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_id": "kubevirt-virt-handler-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-virt-handler@1.7.4-150700.3.42.1?arch=x86_64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-virt-launcher-0:1.7.4-150700.3.42.1.x86_64",
+                "product": {
+                  "name": "kubevirt-virt-launcher-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_id": "kubevirt-virt-launcher-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-virt-launcher@1.7.4-150700.3.42.1?arch=x86_64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-virt-operator-0:1.7.4-150700.3.42.1.x86_64",
+                "product": {
+                  "name": "kubevirt-virt-operator-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_id": "kubevirt-virt-operator-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-virt-operator@1.7.4-150700.3.42.1?arch=x86_64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-virt-synchronization-controller-0:1.7.4-150700.3.42.1.x86_64",
+                "product": {
+                  "name": "kubevirt-virt-synchronization-controller-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_id": "kubevirt-virt-synchronization-controller-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/kubevirt-virt-synchronization-controller@1.7.4-150700.3.42.1?arch=x86_64"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+                "product": {
+                  "name": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_id": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/kubevirt-virtctl@1.7.4-150700.3.42.1?arch=x86_64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              },
+              {
+                "category": "product_version",
+                "name": "obs-service-kubevirt_containers_meta-0:1.7.4-150700.3.42.1.x86_64",
+                "product": {
+                  "name": "obs-service-kubevirt_containers_meta-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_id": "obs-service-kubevirt_containers_meta-0:1.7.4-150700.3.42.1.x86_64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:kubevirt:kubevirt:1.7.4:*:*:*:*:kubernetes:*:*",
+                    "purl": "pkg:rpm/suse/obs-service-kubevirt_containers_meta@1.7.4-150700.3.42.1?arch=x86_64\u0026upstream=kubevirt-0:1.7.4-150700.3.42.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Containers 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Containers 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Module for Containers 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-containers:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "Open Enterprise Server 25.4",
+                "product": {
+                  "name": "Open Enterprise Server 25.4",
+                  "product_id": "Open Enterprise Server 25.4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:novell,inc:OES:25.4"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64"
+        },
+        "product_reference": "kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Containers 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64"
+        },
+        "product_reference": "kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Containers 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64"
+        },
+        "product_reference": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Containers 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+        },
+        "product_reference": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Containers 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64"
+        },
+        "product_reference": "kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64"
+        },
+        "product_reference": "kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64"
+        },
+        "product_reference": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+        },
+        "product_reference": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64"
+        },
+        "product_reference": "kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64"
+        },
+        "product_reference": "kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64"
+        },
+        "product_reference": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+        },
+        "product_reference": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64"
+        },
+        "product_reference": "kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64"
+        },
+        "product_reference": "kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64"
+        },
+        "product_reference": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64 as component of SUSE Linux Enterprise Module for Containers 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+        },
+        "product_reference": "kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-56854",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-56854"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The source-address critical option in the Permissions returned by an authentication callback was only enforced for the PublicKeyCallback and VerifiedPublicKeyCallback paths, extending the fix for CVE-2026-46595. Permissions returned by the PasswordCallback, KeyboardInteractiveCallback, NoClientAuthCallback, and GSSAPIWithMICConfig.AllowLogin callbacks were not validated against the client's remote address, so a source-address restriction set by those callbacks was silently ignored. The check is now applied to the Permissions returned by any authentication callback.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-56854",
+          "url": "https://www.suse.com/security/cve/CVE-2026-56854"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1278446 for CVE-2026-56854",
+          "url": "https://bugzilla.suse.com/1278446"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1280553 for CVE-2026-56854",
+          "url": "https://bugzilla.suse.com/1280553"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-10T14:20:28Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-56854"
+    },
+    {
+      "cve": "CVE-2026-56855",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-56855"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Previously, after a channel has been established, a malicious peer could send crafted messages that would deadlock the entire connection. Now, we handle all RFC 4254 channel messages; global requests are handled explicitly. Then, treat all other messages as a protocol error and tear the connection down instead of buffering and blocking.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-56855",
+          "url": "https://www.suse.com/security/cve/CVE-2026-56855"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1278446 for CVE-2026-56855",
+          "url": "https://bugzilla.suse.com/1278446"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1280553 for CVE-2026-56855",
+          "url": "https://bugzilla.suse.com/1280553"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-10T14:20:28Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-56855"
+    },
+    {
+      "cve": "CVE-2026-78659",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-78659"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "When \"Trailer\" headers are sent by a client, the HTTP server internally uses the header values to populate the Request.Trailer map passed to the server handler. Because Request.Trailer is a map, each entry incurs memory overhead. For HTTP/2 servers, a malicious client can exploit this by sending a \"Trailer\" header that declares a large number of fields, causing the server to allocate a disproportionate amount of memory while bypassing Server.MaxHeaderValueCount and Server.MaxHeaderBytes limits. This exploit is not applicable for HTTP/1 servers, which do not support multiplexing a large number of requests over one TCP connection, and whose Server.MaxHeaderBytes are calculated differently.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-78659",
+          "url": "https://www.suse.com/security/cve/CVE-2026-78659"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1284768 for CVE-2026-78659",
+          "url": "https://bugzilla.suse.com/1284768"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286134 for CVE-2026-78659",
+          "url": "https://bugzilla.suse.com/1286134"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-10T14:20:28Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-78659"
+    },
+    {
+      "cve": "CVE-2026-78660",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-78660"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Historically, we have been rather lax about malformed framing-related headers in our HTTP/2 implementation, as they cannot interfere with HTTP/2 framing. However, this makes it possible for our HTTP/2 implementation to forward responses containing such headers to an HTTP/1 client when acting as a reverse proxy. If the HTTP/1 client also does not behave strictly enough, this can result in response smuggling.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-78660",
+          "url": "https://www.suse.com/security/cve/CVE-2026-78660"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1284769 for CVE-2026-78660",
+          "url": "https://bugzilla.suse.com/1284769"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286129 for CVE-2026-78660",
+          "url": "https://bugzilla.suse.com/1286129"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.4,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-10T14:20:28Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-78660"
+    },
+    {
+      "cve": "CVE-2026-78662",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-78662"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Previously, a channel registered in the mux's chanList is not usable until it is established. A malicious peer was able flood the channel's incomingRequests, deadlocking the entire connection. Now, we add an atomic established state, set when a channel becomes usable. Until such a time, handlePacket drops every packet other than the open confirmation/failure, without blocking and without tearing down the connection.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-78662",
+          "url": "https://www.suse.com/security/cve/CVE-2026-78662"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1278446 for CVE-2026-78662",
+          "url": "https://bugzilla.suse.com/1278446"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1280553 for CVE-2026-78662",
+          "url": "https://bugzilla.suse.com/1280553"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-10T14:20:28Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-78662"
+    },
+    {
+      "cve": "CVE-2026-78663",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-78663"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The HTTP/2 server can refund connection-level flow control twice for the same data: Once when a client resets a stream (refunding data for any sent-but-unread portion of the stream), and again when a request handler reads the buffered data. A malicious client can exploit this to bypass the configured connection-level flow control limit (MaxReceiveBufferPerConnection). Total buffered data is still limited by the concurrent stream limit and stream-level flow control.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-78663",
+          "url": "https://www.suse.com/security/cve/CVE-2026-78663"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1284770 for CVE-2026-78663",
+          "url": "https://bugzilla.suse.com/1284770"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286126 for CVE-2026-78663",
+          "url": "https://bugzilla.suse.com/1286126"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-10T14:20:28Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-78663"
+    },
+    {
+      "cve": "CVE-2026-78669",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-78669"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "A malicious HTTP/2 peer can cause excessive CPU consumption in the client or server by opening a large number of streams and then sending many small SETTINGS frames containing SETTINGS_INITIAL_WINDOW_SIZE values.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-78669",
+          "url": "https://www.suse.com/security/cve/CVE-2026-78669"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1284772 for CVE-2026-78669",
+          "url": "https://bugzilla.suse.com/1284772"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-10T14:20:28Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-78669"
+    },
+    {
+      "cve": "CVE-2026-84303",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-84303"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "gRPC-Go is the Go language implementation of gRPC. Prior to 1.83.1, the xDS RBAC HTTP filter in internal/xds/httpfilter/rbac/rbac.go does not lowercase header matcher names in normalizeHeaderMatcher even though incoming metadata keys are lowercase. A DENY policy using a mixed-case name such as X-Role or User-Agent therefore does not match and fails open, allowing requests that should be rejected. The same case mismatch permits :Scheme or Grpc-Status to evade gRFC A41 validation and prevents Host from being rewritten to :authority. This issue is fixed in version 1.83.1.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-84303",
+          "url": "https://www.suse.com/security/cve/CVE-2026-84303"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1278268 for CVE-2026-84303",
+          "url": "https://bugzilla.suse.com/1278268"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1280553 for CVE-2026-84303",
+          "url": "https://bugzilla.suse.com/1280553"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 9.1,
+            "baseSeverity": "CRITICAL",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-10T14:20:28Z",
+          "details": "critical"
+        }
+      ],
+      "title": "CVE-2026-84303"
+    },
+    {
+      "cve": "CVE-2026-84304",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-84304"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "gRPC-Go is the Go language implementation of gRPC. Prior to 1.83.1, internal/transport/transport.go stores each fragmented HTTP/2 DATA frame as a separate recvMsg in recvBuffer, so millions of one-byte frames can consume disproportionate heap memory even when payload bytes remain within connection and stream flow-control windows. An unauthenticated remote attacker can use concurrent multiplexed streams to exhaust process memory and cause a runtime panic or out-of-memory termination. Receive-buffer compaction is enabled by default and can be controlled temporarily with GRPC_GO_EXPERIMENTAL_ENABLE_RECEIVE_BUFFER_COMPACTION. This issue is fixed in version 1.83.1.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-84304",
+          "url": "https://www.suse.com/security/cve/CVE-2026-84304"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1278271 for CVE-2026-84304",
+          "url": "https://bugzilla.suse.com/1278271"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1280553 for CVE-2026-84304",
+          "url": "https://bugzilla.suse.com/1280553"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-10T14:20:28Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-84304"
+    },
+    {
+      "cve": "CVE-2026-84445",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-84445"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "gRPC-Go is the Go language implementation of gRPC. Prior to 1.82.2 and 1.83.2, servers created with xds.NewGRPCServer() allow internal/transport/http2_server.go to accept an RPC containing neither the :authority header nor the Host header, while RouteAndProcess in internal/xds/server/routing.go assumes that an authority value exists and indexes the empty slice. A remote client that can complete transport connection establishment can trigger an index-out-of-bounds panic that is not recovered by the per-RPC goroutine and terminates the entire server process. In insecure or ordinary TLS deployments the request can be unauthenticated, while strict mTLS or ALTS deployments require valid transport credentials before the malformed RPC can reach the interceptor. This issue is fixed in versions 1.82.2 and 1.83.2.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-84445",
+          "url": "https://www.suse.com/security/cve/CVE-2026-84445"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1278687 for CVE-2026-84445",
+          "url": "https://bugzilla.suse.com/1278687"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1280553 for CVE-2026-84445",
+          "url": "https://bugzilla.suse.com/1280553"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1280617 for CVE-2026-84445",
+          "url": "https://bugzilla.suse.com/1280617"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-10T14:20:28Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-84445"
+    },
+    {
+      "cve": "CVE-2026-97032",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-97032"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "HTTP/2 servers could end up crashing due to inadvertently modifying its HPACK encoder concurrently. This happens because the server modifies the HPACK encoder from two goroutines without synchronization: one uses the encoder to encode a HEADERS frame as part of a response sent to a client and the other modifies the encoder's table size when handling a SETTINGS frame containing SETTINGS_HEADER_TABLE_SIZE that a client sends. A malicious client can repeatedly send a request while changing the header table size to crash the server.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-97032",
+          "url": "https://www.suse.com/security/cve/CVE-2026-97032"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1284780 for CVE-2026-97032",
+          "url": "https://bugzilla.suse.com/1284780"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286108 for CVE-2026-97032",
+          "url": "https://bugzilla.suse.com/1286108"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "Open Enterprise Server 25.4:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Module for Containers 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-manifests-0:1.7.4-150700.3.42.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:kubevirt-virtctl-0:1.7.4-150700.3.42.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-10T14:20:28Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-97032"
+    }
+  ]
+}
