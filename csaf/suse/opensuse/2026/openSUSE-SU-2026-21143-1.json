@@ -86,7 +86,7 @@
     ],
     "title": "Security update for gleam",
     "tracking": {
-      "current_release_date": "2026-11-10T15:54:27Z",
+      "current_release_date": "2026-11-10T19:41:53Z",
       "generator": {
         "date": "2026-06-23T09:40:09Z",
         "engine": {
@@ -121,10 +121,15 @@
           "date": "2026-11-10T15:54:27Z",
           "number": "5",
           "summary": "unknown changes"
+        },
+        {
+          "date": "2026-11-10T19:41:53Z",
+          "number": "6",
+          "summary": "unknown changes"
         }
       ],
       "status": "final",
-      "version": "5"
+      "version": "6"
     }
   },
   "product_tree": {
@@ -217,7 +222,7 @@
       "notes": [
         {
           "category": "general",
-          "text": "Path traversal vulnerability in Gleam's handling of custom documentation pages allows arbitrary file read and file write outside the intended documentation output directory.\n\nThe documentation.pages entries from gleam.toml are incorporated into filesystem paths without sufficient validation or confinement to the intended project and documentation output directories. The documentation.pages[].path field can be used to write generated documentation files outside the intended build/dev/docs/\u003cpackage\u003e/ output directory. The documentation.pages[].source field can be used to read files outside the project directory and embed their contents into generated documentation output.\n\nAn attacker who can convince a victim to run gleam docs build on an untrusted project, or with untrusted gleam.toml content, can cause local files readable by the victim to be included in generated documentation artifacts, and can cause generated documentation files to be written outside the intended docs output directory.\n\nThis issue affects Gleam from 1.16.0 until 1.17.0.",
+          "text": "Path traversal vulnerability in Gleam's handling of custom documentation pages allows arbitrary file read and file write outside the intended documentation output directory.\n\nThe documentation.pages entries from gleam.toml are incorporated into filesystem paths without sufficient validation or confinement to the intended project and documentation output directories. The documentation.pages[].path field can be used to write generated documentation files outside the intended build/dev/docs/\u003cpackage\u003e/ output directory. The documentation.pages[].source field can be used to read files outside the project directory and embed their contents into generated documentation output.\n\nAn attacker who can convince a victim to run gleam docs build on an untrusted project, or with untrusted gleam.toml content, can cause local files readable by the victim to be included in generated documentation artifacts, and can cause generated documentation files to be written outside the intended docs output directory.\n\nThis issue affects gleam: from 1.16.0 before 1.17.0.",
           "title": "CVE description"
         }
       ],
@@ -269,7 +274,7 @@
       "notes": [
         {
           "category": "general",
-          "text": "Symlink following vulnerability in Gleam's Hex package export allows files outside the project root to be embedded in the generated package tarball.\n\nThe file collection helpers (gleam_files, native_files, private_files) in compiler-cli/src/fs.rs use follow_links(true) when walking publishable directories such as src/ and priv/. The collected paths are added to the package archive via add_path_to_tar in compiler-cli/src/publish.rs without verifying that the resolved target remains within the project root. A symlink placed under a publishable directory will cause gleam export hex-tarball or gleam publish to embed the contents of the symlink target into the generated Hex package.\n\nAn attacker with write access to the project repository can place a symlink in src/ or priv/ pointing to an arbitrary file. When a maintainer or CI pipeline runs gleam publish or gleam export hex-tarball, local files readable by the publisher (such as secrets, tokens, or SSH keys) are silently embedded into the published package artifact.\n\nThis issue affects Gleam from 0.10.0-rc1 until 1.17.0.",
+          "text": "Symlink following vulnerability in Gleam's Hex package export allows files outside the project root to be embedded in the generated package tarball.\n\nThe file collection helpers (gleam_files, native_files, private_files) in compiler-cli/src/fs.rs use follow_links(true) when walking publishable directories such as src/ and priv/. The collected paths are added to the package archive via add_path_to_tar in compiler-cli/src/publish.rs without verifying that the resolved target remains within the project root. A symlink placed under a publishable directory will cause gleam export hex-tarball or gleam publish to embed the contents of the symlink target into the generated Hex package.\n\nAn attacker with write access to the project repository can place a symlink in src/ or priv/ pointing to an arbitrary file. When a maintainer or CI pipeline runs gleam publish or gleam export hex-tarball, local files readable by the publisher (such as secrets, tokens, or SSH keys) are silently embedded into the published package artifact.\n\nThis issue affects gleam: from 0.10.0-rc1 before 1.17.0.",
           "title": "CVE description"
         }
       ],
@@ -321,7 +326,7 @@
       "notes": [
         {
           "category": "general",
-          "text": "Path traversal vulnerability in Gleam's dependency management allows arbitrary directory deletion via malicious build/packages/packages.toml content.\n\nPackage keys read from build/packages/packages.toml by LocalPackages::read_from_disc are passed without validation to paths.build_packages_package(), which constructs a filesystem path by joining the project build directory with the attacker-controlled key. The resulting path is then passed to fs::delete_directory (which calls remove_dir_all). No check is performed to ensure the path remains within the intended build/packages/ directory. Both absolute paths and relative traversal sequences (e.g. ../) are accepted as package keys, allowing deletion of arbitrary directories.\n\nAn attacker who can cause a victim to run gleam deps download on a project containing a malicious build/packages/packages.toml (e.g. by committing the normally-gitignored file to a repository) can cause arbitrary directories on the victim's system to be recursively deleted.\n\nThis issue affects Gleam from 0.18.0-rc1 until 1.17.0.",
+          "text": "Path traversal vulnerability in Gleam's dependency management allows arbitrary directory deletion via malicious build/packages/packages.toml content.\n\nPackage keys read from build/packages/packages.toml by LocalPackages::read_from_disc are passed without validation to paths.build_packages_package(), which constructs a filesystem path by joining the project build directory with the attacker-controlled key. The resulting path is then passed to fs::delete_directory (which calls remove_dir_all). No check is performed to ensure the path remains within the intended build/packages/ directory. Both absolute paths and relative traversal sequences (e.g. ../) are accepted as package keys, allowing deletion of arbitrary directories.\n\nAn attacker who can cause a victim to run gleam deps download on a project containing a malicious build/packages/packages.toml (e.g. by committing the normally-gitignored file to a repository) can cause arbitrary directories on the victim's system to be recursively deleted.\n\nThis issue affects gleam: from 0.18.0-rc1 before 1.17.0.",
           "title": "CVE description"
         }
       ],
