@@ -1,0 +1,2568 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for psqlODBC",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for psqlODBC fixes the following issues:\n\n- CVE-2026-109448: denial of service via integer wraparound in SQLBindParameter (bsc#1285073).\n- CVE-2026-120057: large-object read overflows the application buffer (bsc#1289252).\n- CVE-2026-120058: row cache overflow when a later FETCH changes the column count (bsc#1289253).\n- CVE-2026-120059: driver uses a server-supplied column name as a format string (bsc#1289254).\n- CVE-2026-120060: driver does not validate server-supplied counts and lengths (bsc#1289255).\n- CVE-2026-120061: ODBC escape parser stack buffer overflow (bsc#1289256).\n- CVE-2026-120062: SQL injection through SQLSpecialColumns table and schema names (bsc#1289257).\n- CVE-2026-120063: stack buffer overflow when quoting long schema and table names (bsc#1289258).\n- CVE-2026-120064: driver does not validate column numbers and row indexes in binding and descriptor functions\n  (bsc#1289259).\n- CVE-2026-120065: driver does not escape a server-supplied column name in its updatable-cursor queries (bsc#1289260).\n- CVE-2026-120066: log files are created with default permissions at a predictable path and follow symbolic links\n  (bsc#1289261).\n- CVE-2026-120067: stack buffer overflow when reading the keyset (ctid/oid) columns of an updatable cursor\n  (bsc#1289262).\n\nChanges for psqlODBC:\n\n- Update to 18.00.0006:\n  * https://odbc.postgresql.org/docs/release.html\n  * Hardening: SQLSetDescRecW stored a freed buffer and the address\n    of a local variable as deferred bound data. It now stores the\n    application's pointers, as SQLSetDescRec does.\n  * Hardening: SQLColumns returned uninitialized relkind and table\n    OID values when the table query returned no rows.\n  * Hardening: convert_linefeeds could dereference a NULL pointer\n    in one build configuration.\n  * Hardening: secure_sscanf limits an over-wide %Ns width,\n    msgtowstr checks for a zero buffer length, and the MSDTC\n    connect-string append is bounded.\n- Update to 18.00.0005:\n  * https://odbc.postgresql.org/docs/release.html\n  * Fix the placeholder cast being truncated from parameter 1000\n    on, which failed with 'type 'timestam' does not exist'.\n  * Report the largest column size instead of SQL_NO_TOTAL (-4) as\n    COLUMN_SIZE for bytea in SQLGetTypeInfo, which broke bytea\n    parameters through MSDASQL.\n- Update to 18.00.0004:\n  * Fix the result-conversions regression test on big-endian\n    systems.\n- Update to 18.00.0003:\n  * Report SQLSTATE 22003 for out-of-range integer conversions\n    instead of silently returning the wrapped low bits.\n  * Fix statement level rollback (Protocol=7.4-2) discarding the\n    whole transaction on a syntax error.\n  * Do not wrap internal queries in a savepoint at\n    rollback-on-error level 0 (Protocol=7.4-0), which lost\n    transactions on servers without SAVEPOINT support.\n  * Redact the database password (ODBC PWD and libpq pqopt\n    password) in debug logs.\n  * Fix hang on COPY ... FROM STDIN / TO STDOUT: report it as\n    unsupported and keep the connection usable.\n  * Fix 'infinity'/'-infinity' dates being silently returned as\n    today's date.\n  * Document the connection string escaping rules.\n- Update to 18.00.0002:\n  * Use a signed type for the error status.\n  * Redact sensitive connection parameters in the driver logs.\n  * Fix double free / heap corruption during SQLDisconnect\n    cleanup.\n  * Clear PGresults from per-query rollback.\n  * Validate UTF-16 surrogate pairs before combining them.\n  * Pass SQLSetDescRec field values correctly.\n  * Avoid reading before leading string literals.\n  * Detach freed application descriptors from statements.\n  * Reject invalid SQLPutData lengths.\n  * Reject overlong cursor names.\n  * Fix version reporting.\n  * Handle ARD bookmark allocation failure.\n  * Validate percent escapes before decoding connection string\n    values.\n  * Avoid reading past the end of conn_settings.\n  * Fix stack buffer overflow in getPrecisionPart().\n  * Fix SQLPrimaryKeys to exclude INCLUDE columns from the result.\n- Update to 18.00.0000, 18.00.0001 and 17.00.0010:\n  * No code changes from 17.00.0009.\n- Update to 17.00.0009:\n  * Fix the test suite for PostgreSQL 19, where\n    standard_conforming_strings is always on.\n  * Upgrade the GitHub Actions workflow: use prebuilt PostgreSQL\n    binaries, parallel matrix builds and a separate release job.\n- Update to 17.00.0008:\n  * https://odbc.postgresql.org/docs/release.html\n- fix build for SLE-15 by forcing gcc 14\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-2026-5191,SUSE-SLE-Module-Basesystem-15-SP7-2026-5191,SUSE-SLE-Product-SLES-15-SP6-LTSS-2026-5191,SUSE-SLE-Product-SLES_SAP-15-SP6-2026-5191",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/2026/suse-su-2026_5191-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2026:5191-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-20265191-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2026:5191-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-20265191-1/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1285073",
+        "url": "https://bugzilla.suse.com/1285073"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1289252",
+        "url": "https://bugzilla.suse.com/1289252"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1289253",
+        "url": "https://bugzilla.suse.com/1289253"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1289254",
+        "url": "https://bugzilla.suse.com/1289254"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1289255",
+        "url": "https://bugzilla.suse.com/1289255"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1289256",
+        "url": "https://bugzilla.suse.com/1289256"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1289257",
+        "url": "https://bugzilla.suse.com/1289257"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1289258",
+        "url": "https://bugzilla.suse.com/1289258"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1289259",
+        "url": "https://bugzilla.suse.com/1289259"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1289260",
+        "url": "https://bugzilla.suse.com/1289260"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1289261",
+        "url": "https://bugzilla.suse.com/1289261"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1289262",
+        "url": "https://bugzilla.suse.com/1289262"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-109448 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-109448/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-120057 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-120057/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-120058 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-120058/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-120059 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-120059/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-120060 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-120060/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-120061 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-120061/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-120062 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-120062/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-120063 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-120063/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-120064 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-120064/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-120065 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-120065/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-120066 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-120066/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-120067 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-120067/"
+      }
+    ],
+    "title": "Security update for psqlODBC",
+    "tracking": {
+      "current_release_date": "2026-11-12T10:59:28Z",
+      "generator": {
+        "date": "2026-11-11T12:27:47Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2026:5191-1",
+      "initial_release_date": "2026-11-11T12:27:47Z",
+      "revision_history": [
+        {
+          "date": "2026-11-11T12:27:47Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-11-12T10:59:28Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+                "product": {
+                  "name": "psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+                  "product_id": "psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/psqlODBC@18.00.0006-150600.3.5.1?arch=aarch64\u0026upstream=psqlODBC-0:18.00.0006-150600.3.5.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "psqlODBC-0:18.00.0006-150600.3.5.1.i586",
+                "product": {
+                  "name": "psqlODBC-0:18.00.0006-150600.3.5.1.i586",
+                  "product_id": "psqlODBC-0:18.00.0006-150600.3.5.1.i586",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/psqlODBC@18.00.0006-150600.3.5.1?arch=i586\u0026upstream=psqlODBC-0:18.00.0006-150600.3.5.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "i586"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+                "product": {
+                  "name": "psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+                  "product_id": "psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/psqlODBC@18.00.0006-150600.3.5.1?arch=ppc64le\u0026upstream=psqlODBC-0:18.00.0006-150600.3.5.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "ppc64le"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+                "product": {
+                  "name": "psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+                  "product_id": "psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/psqlODBC@18.00.0006-150600.3.5.1?arch=s390x\u0026upstream=psqlODBC-0:18.00.0006-150600.3.5.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "s390x"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+                "product": {
+                  "name": "psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+                  "product_id": "psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/psqlODBC@18.00.0006-150600.3.5.1?arch=x86_64\u0026upstream=psqlODBC-0:18.00.0006-150600.3.5.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "x86_64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sle-module-basesystem:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Desktop 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Desktop 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Desktop 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sled:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp7"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "Open Enterprise Server 25.4",
+                "product": {
+                  "name": "Open Enterprise Server 25.4",
+                  "product_id": "Open Enterprise Server 25.4",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:novell,inc:OES:25.4"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP6-LTSS",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles-ltss:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Server 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:15:sp6"
+                  }
+                }
+              },
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                  "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles_sap:15:sp6"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Module for Basesystem 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Desktop 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP7"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.aarch64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.s390x as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.x86_64 as component of SUSE Linux Enterprise Module for Basesystem 15 SP7",
+          "product_id": "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+        "relates_to_product_reference": "Open Enterprise Server 25.4"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP6-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP6-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.s390x as component of SUSE Linux Enterprise Server 15 SP6-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP6-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6-LTSS"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP6-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP6-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.s390x as component of SUSE Linux Enterprise Server 15 SP6-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP6-LTSS",
+          "product_id": "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.aarch64 as component of SUSE Linux Enterprise Server 15 SP6-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le as component of SUSE Linux Enterprise Server 15 SP6-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.s390x as component of SUSE Linux Enterprise Server 15 SP6-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      },
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "psqlODBC-0:18.00.0006-150600.3.5.1.x86_64 as component of SUSE Linux Enterprise Server 15 SP6-LTSS",
+          "product_id": "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+        },
+        "product_reference": "psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for SAP Applications 15 SP6"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-109448",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-109448"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Integer wraparound in psqlODBC SQLBindParameter allows an application, or an attacker who controls how many parameters the application binds on one statement, to corrupt heap memory. psqlODBC stores the binding count in a signed 16-bit field. Binding parameter number 32768 wraps that count to -32768. Binding parameter 32769 then writes about 2.5 MB of zeros starting 1.25 MB before the binding array, which crashes the application or leaves it running on a corrupted heap. Applications that build parameter lists from untrusted input, such as an IN (?, ?, ...) list, are exposed. Versions before psqlODBC 18.00.0005 are affected.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-109448",
+          "url": "https://www.suse.com/security/cve/CVE-2026-109448"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1285073 for CVE-2026-109448",
+          "url": "https://bugzilla.suse.com/1285073"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-11T12:27:47Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-109448"
+    },
+    {
+      "cve": "CVE-2026-120057",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-120057"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "psqlODBC copies the reply to a large-object read (loread) into the application's buffer using the length sent by the server, without comparing it to the buffer size. A server not trusted under current SSL settings, or a man-in-the-middle, can return more bytes than the buffer holds and overwrite adjacent memory in the client process with server-chosen bytes. Fetching any large-object column is sufficient to trigger it. Versions before psqlODBC 18.00.0006 are affected.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-120057",
+          "url": "https://www.suse.com/security/cve/CVE-2026-120057"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1289252 for CVE-2026-120057",
+          "url": "https://bugzilla.suse.com/1289252"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-11T12:27:47Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-120057"
+    },
+    {
+      "cve": "CVE-2026-120058",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-120058"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "psqlODBC sizes its row cache from the column count of a cursor's first result, but recomputes the column count from each later FETCH reply without checking that it matches. A server not trusted under current SSL settings can answer a later FETCH with more columns and make the driver write tuple records past the end of the heap allocation. A keyset reply with fewer columns than the key fields also underflows the unsigned field count. This is reachable with UseDeclareFetch enabled. Versions before psqlODBC 18.00.0006 are affected.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-120058",
+          "url": "https://www.suse.com/security/cve/CVE-2026-120058"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1289253 for CVE-2026-120058",
+          "url": "https://bugzilla.suse.com/1289253"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-11T12:27:47Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-120058"
+    },
+    {
+      "cve": "CVE-2026-120059",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-120059"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "For an updatable cursor over a table without OIDs that has an auto-increment int4 column, psqlODBC places that column's name, as reported by the server, into a printf-style format string. It later expands that string with one argument while it builds the WHERE clause of its positioned SELECT, UPDATE, and DELETE statements. A column name that contains format directives makes the driver read unrelated memory, which can crash the application or copy client memory into query text sent to the server. The name can come from a server not trusted under current SSL settings, or from any database user who can create a table that the application reads with an updatable cursor. Versions before psqlODBC 18.00.0006 are affected.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-120059",
+          "url": "https://www.suse.com/security/cve/CVE-2026-120059"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1289254 for CVE-2026-120059",
+          "url": "https://bugzilla.suse.com/1289254"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.8,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-11T12:27:47Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-120059"
+    },
+    {
+      "cve": "CVE-2026-120060",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-120060"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "psqlODBC trusts counts and lengths in server data in three places. SQLBulkOperations uses a server-supplied row count in a size subtraction that can underflow. SQLStatistics iterates index keys using a server-supplied key count without bounding it to the fixed storage. Bytea octal decoding reads up to two bytes past the end of a truncated escape sequence. A server not trusted under current SSL settings can crash the client or make it read out of bounds. Versions before psqlODBC 18.00.0006 are affected.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-120060",
+          "url": "https://www.suse.com/security/cve/CVE-2026-120060"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1289255 for CVE-2026-120060",
+          "url": "https://bugzilla.suse.com/1289255"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-11T12:27:47Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-120060"
+    },
+    {
+      "cve": "CVE-2026-120061",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-120061"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The psqlODBC parser for ODBC escape sequences in application SQL text writes the argument offsets of a {fn} escape into a fixed 16-entry stack array without a bound and does not initialize the array. An escape with too many arguments overflows the stack, and a reference to an unsupplied argument copies arbitrary bytes into the query. The copy of a {d}, {t}, {ts}, or {escape} body also writes one byte past a 128-byte stack buffer. An application that forwards untrusted SQL text to the driver exposes its process to memory corruption. Versions before psqlODBC 18.00.0006 are affected.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-120061",
+          "url": "https://www.suse.com/security/cve/CVE-2026-120061"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1289256 for CVE-2026-120061",
+          "url": "https://bugzilla.suse.com/1289256"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-11T12:27:47Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-120061"
+    },
+    {
+      "cve": "CVE-2026-120062",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-120062"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "SQLSpecialColumns in psqlODBC splices the table and schema names it receives into its catalog query without escaping them, while the other catalog functions escape them. An application that passes an untrusted table or schema name to SQLSpecialColumns lets the caller execute arbitrary SQL with the privileges of the connection. Versions before psqlODBC 18.00.0006 are affected.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-120062",
+          "url": "https://www.suse.com/security/cve/CVE-2026-120062"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1289257 for CVE-2026-120062",
+          "url": "https://bugzilla.suse.com/1289257"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-11T12:27:47Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-120062"
+    },
+    {
+      "cve": "CVE-2026-120063",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-120063"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "When psqlODBC quotes a schema or table name into a 128-byte stack buffer, its length check lets it write up to two bytes past the end of the buffer for a long name. The names come from the application's SQL text: the table of a statement the driver parses to describe its columns, and the target of the last INSERT when the driver rewrites SELECT @@IDENTITY. In the @@IDENTITY rewrite, a column name sent by the server can also write one byte past the buffer. The bytes written past the buffer are a double quote and a NUL. An application that forwards untrusted SQL text to the driver exposes its process to stack corruption. Versions before psqlODBC 18.00.0006 are affected.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-120063",
+          "url": "https://www.suse.com/security/cve/CVE-2026-120063"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1289258 for CVE-2026-120063",
+          "url": "https://bugzilla.suse.com/1289258"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-11T12:27:47Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-120063"
+    },
+    {
+      "cve": "CVE-2026-120064",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-120064"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Several psqlODBC entry points use an application-supplied column number or row index as an array index without validating it. SQLBindCol with a column number above 32767 wraps the binding count negative and a later copy runs off the array. A negative SQL_DESC_COUNT on an application row descriptor unbinds columns at negative indexes. SQLColAttribute with a very large column number uses a negative index. SQLSetPos(SQL_ADD) does not check the row number against the rowset size. An application that forwards untrusted column or row numbers exposes its process to out-of-bounds reads and writes. Versions before psqlODBC 18.00.0006 are affected.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-120064",
+          "url": "https://www.suse.com/security/cve/CVE-2026-120064"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1289259 for CVE-2026-120064",
+          "url": "https://bugzilla.suse.com/1289259"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-11T12:27:47Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-120064"
+    },
+    {
+      "cve": "CVE-2026-120065",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-120065"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "For an updatable cursor over a table without OIDs that has an auto-increment int4 column, psqlODBC uses that column to identify rows. It places the column's name, as reported by the server, between double quotes in its keyset queries and in the WHERE clause of its positioned SELECT, UPDATE, and DELETE statements, without doubling any double quote in the name. A column name that contains a double quote therefore changes the SQL that the driver runs with the application's privileges, including which rows a positioned UPDATE or DELETE affects. Any database user who can create a table that the application reads with an updatable cursor can choose such a name, and so can a server not trusted under current SSL settings. Versions before psqlODBC 18.00.0006 are affected.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-120065",
+          "url": "https://www.suse.com/security/cve/CVE-2026-120065"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1289260 for CVE-2026-120065",
+          "url": "https://bugzilla.suse.com/1289260"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-11T12:27:47Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-120065"
+    },
+    {
+      "cve": "CVE-2026-120066",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-120066"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "On Unix-like systems, when logging is enabled, psqlODBC creates its log files in /tmp by default, named from the program name, user name, and process ID, with the default permissions, typically world-readable, and follows symbolic links when opening them. A local user can read query text and data from another user's logs, and can place a symbolic link at the predictable path so that the driver appends log data to a file of the attacker's choosing with the victim's privileges. Versions before psqlODBC 18.00.0006 are affected.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-120066",
+          "url": "https://www.suse.com/security/cve/CVE-2026-120066"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1289261 for CVE-2026-120066",
+          "url": "https://bugzilla.suse.com/1289261"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:L/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-11T12:27:47Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-120066"
+    },
+    {
+      "cve": "CVE-2026-120067",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-120067"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "For updatable cursors, which are enabled by default, psqlODBC adds hidden ctid and, for tables with OIDs, oid columns to the query. It copies each value into a 32-byte stack buffer using the length the server sent, without checking it against the buffer size, so a value of 32 bytes or more writes past the buffer. A server not trusted under current SSL settings can send such a value. So can any database user who can create a view with its own column named ctid that the application reads with an updatable cursor. Builds with _FORTIFY_SOURCE abort; other builds overwrite adjacent stack memory. Versions before psqlODBC 18.00.0006 are affected.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+          "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-120067",
+          "url": "https://www.suse.com/security/cve/CVE-2026-120067"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1289262 for CVE-2026-120067",
+          "url": "https://bugzilla.suse.com/1289262"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "Open Enterprise Server 25.4:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Desktop 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Module for Basesystem 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6-LTSS:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP6:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.aarch64",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.ppc64le",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.s390x",
+            "SUSE Linux Enterprise Server for SAP Applications 15 SP7:psqlODBC-0:18.00.0006-150600.3.5.1.x86_64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-11T12:27:47Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-120067"
+    }
+  ]
+}

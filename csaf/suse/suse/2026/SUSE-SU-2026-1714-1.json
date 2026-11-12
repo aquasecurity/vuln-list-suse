@@ -116,7 +116,7 @@
     ],
     "title": "Security update for erlang",
     "tracking": {
-      "current_release_date": "2026-11-09T13:40:15Z",
+      "current_release_date": "2026-11-12T10:57:40Z",
       "generator": {
         "date": "2026-05-06T12:08:10Z",
         "engine": {
@@ -151,10 +151,15 @@
           "date": "2026-11-09T13:40:15Z",
           "number": "5",
           "summary": "unknown changes"
+        },
+        {
+          "date": "2026-11-12T10:57:40Z",
+          "number": "6",
+          "summary": "unknown changes"
         }
       ],
       "status": "final",
-      "version": "5"
+      "version": "6"
     }
   },
   "product_tree": {
@@ -2944,7 +2949,7 @@
       "notes": [
         {
           "category": "general",
-          "text": "Relative Path Traversal, Improper Isolation or Compartmentalization vulnerability in erlang otp erlang/otp (tftp_file modules), erlang otp inets (tftp_file modules), erlang otp tftp (tftp_file modules) allows Relative Path Traversal. This vulnerability is associated with program files lib/tftp/src/tftp_file.erl, src/tftp_file.erl.\n\nThis issue affects OTP from OTP 17.0 before OTP  28.3.2, OTP  27.3.4.8 and OTP  26.2.5.17, corresponding to tftp from 1.0 before 1.2.4, 1.2.2.1 and 1.1.1.1; also inets from 5.10 before 7.0.",
+          "text": "Relative Path Traversal, Improper Isolation or Compartmentalization vulnerability in erlang otp erlang/otp (tftp_file modules), erlang otp inets (tftp_file modules), erlang otp tftp (tftp_file modules) allows Relative Path Traversal.\n\nThis vulnerability is associated with program files lib/tftp/src/tftp_file.erl, src/tftp_file.erl.\n\nThis issue affects OTP from OTP  17.0 before OTP  26.2.5.17, OTP  27.3.4.8, and OTP  28.3.2, corresponding to inets from 5.10 before 7.0, and tftp from 1.0 before 1.1.1.1, 1.2.2.1, and 1.2.4.",
           "title": "CVE description"
         }
       ],
@@ -3436,7 +3441,7 @@
       "notes": [
         {
           "category": "general",
-          "text": "Inconsistent Interpretation of HTTP Requests ('HTTP Request Smuggling') vulnerability in Erlang OTP (inets httpd module) allows HTTP Request Smuggling.\n\nThis vulnerability is associated with program files lib/inets/src/http_server/httpd_request.erl and program routines httpd_request:parse_headers/7.\n\nThe server does not reject or normalize duplicate Content-Length headers. The earliest Content-Length in the request is used for body parsing while common reverse proxies (nginx, Apache httpd, Envoy) honor the last Content-Length value. This violates RFC 9112 Section 6.3 and allows front-end/back-end desynchronization, leaving attacker-controlled bytes queued as the start of the next request.\n\nThis issue affects OTP from OTP 17.0 before OTP  28.4.1, OTP  27.3.4.9 and OTP  26.2.5.18, corresponding to inets from 5.10 before 9.6.1, 9.3.2.3 and 9.1.0.5.",
+          "text": "Inconsistent Interpretation of HTTP Requests ('HTTP Request Smuggling') vulnerability in Erlang OTP (inets httpd module) allows HTTP Request Smuggling.\n\nThis vulnerability is associated with program files lib/inets/src/http_server/httpd_request.erl and program routines httpd_request:parse_headers/7.\n\nThe server does not reject or normalize duplicate Content-Length headers. The earliest Content-Length in the request is used for body parsing while common reverse proxies (nginx, Apache httpd, Envoy) honor the last Content-Length value. This violates RFC 9112 Section 6.3 and allows front-end/back-end desynchronization, leaving attacker-controlled bytes queued as the start of the next request.\n\nThis issue affects OTP from OTP  17.0 before OTP  26.2.5.18, OTP  27.3.4.9, and OTP  28.4.1, corresponding to inets from 5.10 before 9.1.0.5, 9.3.2.3, and 9.6.1. Whether OTP before OTP  17.0, corresponding to inets before 5.10, is affected is unknown.",
           "title": "CVE description"
         }
       ],
@@ -3933,7 +3938,7 @@
       "notes": [
         {
           "category": "general",
-          "text": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Erlang OTP (ssh_sftpd module) allows Path Traversal.\n\nThis vulnerability is associated with program files lib/ssh/src/ssh_sftpd.erl and program routines ssh_sftpd:is_within_root/2.\n\nThe SFTP server uses string prefix matching via lists:prefix/2 rather than proper path component validation when checking if a path is within the configured root directory. This allows authenticated users to access sibling directories that share a common name prefix with the configured root directory. For example, if root is set to /home/user1, paths like /home/user10 or /home/user1_backup would incorrectly be considered within the root.\n\nThis issue affects OTP from OTP 17.0 before OTP  28.4.1, OTP  27.3.4.9 and OTP  26.2.5.18, corresponding to ssh from 3.0.1 before 5.5.1, 5.2.11.6 and 5.1.4.14.",
+          "text": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Erlang OTP (ssh_sftpd module) allows Path Traversal.\n\nThis vulnerability is associated with program files lib/ssh/src/ssh_sftpd.erl and program routines ssh_sftpd:is_within_root/2.\n\nThe SFTP server uses string prefix matching via lists:prefix/2 rather than proper path component validation when checking if a path is within the configured root directory. This allows authenticated users to access sibling directories that share a common name prefix with the configured root directory. For example, if root is set to /home/user1, paths like /home/user10 or /home/user1_backup would incorrectly be considered within the root.\n\nThis issue affects OTP from OTP  17.0 before OTP  26.2.5.18, OTP  27.3.4.9, and OTP  28.4.1, corresponding to ssh from 3.0.1 before 5.1.4.14, 5.2.11.6, and 5.5.1. Whether OTP before OTP  17.0, corresponding to ssh before 3.0.1, is affected is unknown.",
           "title": "CVE description"
         }
       ],
@@ -4425,7 +4430,7 @@
       "notes": [
         {
           "category": "general",
-          "text": "Improper Handling of Highly Compressed Data (Compression Bomb) vulnerability in Erlang OTP ssh (ssh_transport modules) allows Denial of Service via Resource Depletion.\n\nThe SSH transport layer advertises legacy zlib compression by default and inflates attacker-controlled payloads pre-authentication without any size limit, enabling reliable memory exhaustion DoS.\n\nTwo compression algorithms are affected:\n\n* zlib: Activates immediately after key exchange, enabling unauthenticated attacks\n* zlib@openssh.com: Activates post-authentication, enabling authenticated attacks\n\nEach SSH packet can decompress ~255 MB from 256 KB of wire data (1029:1 amplification ratio). Multiple packets can rapidly exhaust available memory, causing OOM kills in memory-constrained environments.\n\nThis vulnerability is associated with program files lib/ssh/src/ssh_transport.erl and program routines ssh_transport:decompress/2, ssh_transport:handle_packet_part/4.\n\nThis issue affects OTP from OTP 17.0 before OTP  28.4.1, OTP  27.3.4.9 and OTP  26.2.5.18, corresponding to ssh from 3.0.1 before 5.5.1, 5.2.11.6 and 5.1.4.14.",
+          "text": "Improper Handling of Highly Compressed Data (Compression Bomb) vulnerability in Erlang OTP ssh (ssh_transport modules) allows Denial of Service via Resource Depletion.\n\nThe SSH transport layer advertises legacy zlib compression by default and inflates attacker-controlled payloads pre-authentication without any size limit, enabling reliable memory exhaustion DoS.\n\nTwo compression algorithms are affected:\n\n* zlib: Activates immediately after key exchange, enabling unauthenticated attacks\n* zlib@openssh.com: Activates post-authentication, enabling authenticated attacks\n\nEach SSH packet can decompress ~255 MB from 256 KB of wire data (1029:1 amplification ratio). Multiple packets can rapidly exhaust available memory, causing OOM kills in memory-constrained environments.\n\nThis vulnerability is associated with program files lib/ssh/src/ssh_transport.erl and program routines ssh_transport:decompress/2, ssh_transport:handle_packet_part/4.\n\nThis issue affects OTP from OTP  17.0 before OTP  26.2.5.18, OTP  27.3.4.9, and OTP  28.4.1, corresponding to ssh from 3.0.1 before 5.1.4.14, 5.2.11.6, and 5.5.1.",
           "title": "CVE description"
         }
       ],

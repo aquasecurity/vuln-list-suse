@@ -131,7 +131,7 @@
     ],
     "title": "Security update for erlang",
     "tracking": {
-      "current_release_date": "2026-11-10T15:04:19Z",
+      "current_release_date": "2026-11-12T11:01:55Z",
       "generator": {
         "date": "2026-04-22T10:52:20Z",
         "engine": {
@@ -166,10 +166,15 @@
           "date": "2026-11-10T15:04:19Z",
           "number": "5",
           "summary": "unknown changes"
+        },
+        {
+          "date": "2026-11-12T11:01:55Z",
+          "number": "6",
+          "summary": "unknown changes"
         }
       ],
       "status": "final",
-      "version": "5"
+      "version": "6"
     }
   },
   "product_tree": {
@@ -1893,7 +1898,7 @@
       "notes": [
         {
           "category": "general",
-          "text": "Relative Path Traversal, Improper Isolation or Compartmentalization vulnerability in erlang otp erlang/otp (tftp_file modules), erlang otp inets (tftp_file modules), erlang otp tftp (tftp_file modules) allows Relative Path Traversal. This vulnerability is associated with program files lib/tftp/src/tftp_file.erl, src/tftp_file.erl.\n\nThis issue affects OTP from OTP 17.0 before OTP  28.3.2, OTP  27.3.4.8 and OTP  26.2.5.17, corresponding to tftp from 1.0 before 1.2.4, 1.2.2.1 and 1.1.1.1; also inets from 5.10 before 7.0.",
+          "text": "Relative Path Traversal, Improper Isolation or Compartmentalization vulnerability in erlang otp erlang/otp (tftp_file modules), erlang otp inets (tftp_file modules), erlang otp tftp (tftp_file modules) allows Relative Path Traversal.\n\nThis vulnerability is associated with program files lib/tftp/src/tftp_file.erl, src/tftp_file.erl.\n\nThis issue affects OTP from OTP  17.0 before OTP  26.2.5.17, OTP  27.3.4.8, and OTP  28.3.2, corresponding to inets from 5.10 before 7.0, and tftp from 1.0 before 1.1.1.1, 1.2.2.1, and 1.2.4.",
           "title": "CVE description"
         }
       ],
@@ -2190,7 +2195,7 @@
       "notes": [
         {
           "category": "general",
-          "text": "Inconsistent Interpretation of HTTP Requests ('HTTP Request Smuggling') vulnerability in Erlang OTP (inets httpd module) allows HTTP Request Smuggling.\n\nThis vulnerability is associated with program files lib/inets/src/http_server/httpd_request.erl and program routines httpd_request:parse_headers/7.\n\nThe server does not reject or normalize duplicate Content-Length headers. The earliest Content-Length in the request is used for body parsing while common reverse proxies (nginx, Apache httpd, Envoy) honor the last Content-Length value. This violates RFC 9112 Section 6.3 and allows front-end/back-end desynchronization, leaving attacker-controlled bytes queued as the start of the next request.\n\nThis issue affects OTP from OTP 17.0 before OTP  28.4.1, OTP  27.3.4.9 and OTP  26.2.5.18, corresponding to inets from 5.10 before 9.6.1, 9.3.2.3 and 9.1.0.5.",
+          "text": "Inconsistent Interpretation of HTTP Requests ('HTTP Request Smuggling') vulnerability in Erlang OTP (inets httpd module) allows HTTP Request Smuggling.\n\nThis vulnerability is associated with program files lib/inets/src/http_server/httpd_request.erl and program routines httpd_request:parse_headers/7.\n\nThe server does not reject or normalize duplicate Content-Length headers. The earliest Content-Length in the request is used for body parsing while common reverse proxies (nginx, Apache httpd, Envoy) honor the last Content-Length value. This violates RFC 9112 Section 6.3 and allows front-end/back-end desynchronization, leaving attacker-controlled bytes queued as the start of the next request.\n\nThis issue affects OTP from OTP  17.0 before OTP  26.2.5.18, OTP  27.3.4.9, and OTP  28.4.1, corresponding to inets from 5.10 before 9.1.0.5, 9.3.2.3, and 9.6.1. Whether OTP before OTP  17.0, corresponding to inets before 5.10, is affected is unknown.",
           "title": "CVE description"
         }
       ],
@@ -2492,7 +2497,7 @@
       "notes": [
         {
           "category": "general",
-          "text": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Erlang OTP (ssh_sftpd module) allows Path Traversal.\n\nThis vulnerability is associated with program files lib/ssh/src/ssh_sftpd.erl and program routines ssh_sftpd:is_within_root/2.\n\nThe SFTP server uses string prefix matching via lists:prefix/2 rather than proper path component validation when checking if a path is within the configured root directory. This allows authenticated users to access sibling directories that share a common name prefix with the configured root directory. For example, if root is set to /home/user1, paths like /home/user10 or /home/user1_backup would incorrectly be considered within the root.\n\nThis issue affects OTP from OTP 17.0 before OTP  28.4.1, OTP  27.3.4.9 and OTP  26.2.5.18, corresponding to ssh from 3.0.1 before 5.5.1, 5.2.11.6 and 5.1.4.14.",
+          "text": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Erlang OTP (ssh_sftpd module) allows Path Traversal.\n\nThis vulnerability is associated with program files lib/ssh/src/ssh_sftpd.erl and program routines ssh_sftpd:is_within_root/2.\n\nThe SFTP server uses string prefix matching via lists:prefix/2 rather than proper path component validation when checking if a path is within the configured root directory. This allows authenticated users to access sibling directories that share a common name prefix with the configured root directory. For example, if root is set to /home/user1, paths like /home/user10 or /home/user1_backup would incorrectly be considered within the root.\n\nThis issue affects OTP from OTP  17.0 before OTP  26.2.5.18, OTP  27.3.4.9, and OTP  28.4.1, corresponding to ssh from 3.0.1 before 5.1.4.14, 5.2.11.6, and 5.5.1. Whether OTP before OTP  17.0, corresponding to ssh before 3.0.1, is affected is unknown.",
           "title": "CVE description"
         }
       ],
@@ -2789,7 +2794,7 @@
       "notes": [
         {
           "category": "general",
-          "text": "Improper Handling of Highly Compressed Data (Compression Bomb) vulnerability in Erlang OTP ssh (ssh_transport modules) allows Denial of Service via Resource Depletion.\n\nThe SSH transport layer advertises legacy zlib compression by default and inflates attacker-controlled payloads pre-authentication without any size limit, enabling reliable memory exhaustion DoS.\n\nTwo compression algorithms are affected:\n\n* zlib: Activates immediately after key exchange, enabling unauthenticated attacks\n* zlib@openssh.com: Activates post-authentication, enabling authenticated attacks\n\nEach SSH packet can decompress ~255 MB from 256 KB of wire data (1029:1 amplification ratio). Multiple packets can rapidly exhaust available memory, causing OOM kills in memory-constrained environments.\n\nThis vulnerability is associated with program files lib/ssh/src/ssh_transport.erl and program routines ssh_transport:decompress/2, ssh_transport:handle_packet_part/4.\n\nThis issue affects OTP from OTP 17.0 before OTP  28.4.1, OTP  27.3.4.9 and OTP  26.2.5.18, corresponding to ssh from 3.0.1 before 5.5.1, 5.2.11.6 and 5.1.4.14.",
+          "text": "Improper Handling of Highly Compressed Data (Compression Bomb) vulnerability in Erlang OTP ssh (ssh_transport modules) allows Denial of Service via Resource Depletion.\n\nThe SSH transport layer advertises legacy zlib compression by default and inflates attacker-controlled payloads pre-authentication without any size limit, enabling reliable memory exhaustion DoS.\n\nTwo compression algorithms are affected:\n\n* zlib: Activates immediately after key exchange, enabling unauthenticated attacks\n* zlib@openssh.com: Activates post-authentication, enabling authenticated attacks\n\nEach SSH packet can decompress ~255 MB from 256 KB of wire data (1029:1 amplification ratio). Multiple packets can rapidly exhaust available memory, causing OOM kills in memory-constrained environments.\n\nThis vulnerability is associated with program files lib/ssh/src/ssh_transport.erl and program routines ssh_transport:decompress/2, ssh_transport:handle_packet_part/4.\n\nThis issue affects OTP from OTP  17.0 before OTP  26.2.5.18, OTP  27.3.4.9, and OTP  28.4.1, corresponding to ssh from 3.0.1 before 5.1.4.14, 5.2.11.6, and 5.5.1.",
           "title": "CVE description"
         }
       ],
@@ -3383,7 +3388,7 @@
       "notes": [
         {
           "category": "general",
-          "text": "Generation of Predictable Numbers or Identifiers vulnerability in Erlang/OTP kernel (inet_res, inet_db modules) allows DNS Cache Poisoning.\n\nThe built-in DNS resolver (inet_res) uses a sequential, process-global 16-bit transaction ID for UDP queries and does not implement source port randomization. Response validation relies almost entirely on this ID, making DNS cache poisoning practical for an attacker who can observe one query or predict the next ID. This conflicts with RFC 5452 recommendations for mitigating forged DNS answers.\n\ninet_res is intended for use in trusted network environments and with trusted recursive resolvers. Earlier documentation did not clearly state this deployment assumption, which could lead users to deploy the resolver in environments where spoofed DNS responses are possible.\n\nThis vulnerability is associated with program files lib/kernel/src/inet_db.erl and lib/kernel/src/inet_res.erl.\n\nThis issue affects OTP from OTP 17.0 before OTP  28.4.2, OTP  27.3.4.10 and OTP  26.2.5.19, corresponding to kernel from 3.0 before 10.6.2, 10.2.7.4 and 9.2.4.11.",
+          "text": "Generation of Predictable Numbers or Identifiers vulnerability in Erlang/OTP kernel (inet_res, inet_db modules) allows DNS Cache Poisoning.\n\nThe built-in DNS resolver (inet_res) uses a sequential, process-global 16-bit transaction ID for UDP queries and does not implement source port randomization. Response validation relies almost entirely on this ID, making DNS cache poisoning practical for an attacker who can observe one query or predict the next ID. This conflicts with RFC 5452 recommendations for mitigating forged DNS answers.\n\ninet_res is intended for use in trusted network environments and with trusted recursive resolvers. Earlier documentation did not clearly state this deployment assumption, which could lead users to deploy the resolver in environments where spoofed DNS responses are possible.\n\nThis vulnerability is associated with program files lib/kernel/src/inet_db.erl and lib/kernel/src/inet_res.erl.\n\nThis issue affects OTP from OTP  17.0 before OTP  26.2.5.19, OTP  27.3.4.10, and OTP  28.4.2, corresponding to kernel from 3.0 before 9.2.4.11, 10.2.7.4, and 10.6.2.",
           "title": "CVE description"
         }
       ],
@@ -3680,7 +3685,7 @@
       "notes": [
         {
           "category": "general",
-          "text": "Improper Certificate Validation vulnerability in Erlang OTP public_key (pubkey_ocsp module) allows OCSP designated-responder authorization bypass via missing signature verification.\n\nThe OCSP response validation in public_key:pkix_ocsp_validate/5 does not verify that a CA-designated responder certificate was cryptographically signed by the issuing CA. Instead, it only checks that the responder certificate's issuer name matches the CA's subject name and that the certificate has the OCSPSigning extended key usage. An attacker who can intercept or control OCSP responses can create a self-signed certificate with a matching issuer name and the OCSPSigning EKU, and use it to forge OCSP responses that mark revoked certificates as valid.\n\nThis affects SSL/TLS clients using OCSP stapling, which may accept connections to servers with revoked certificates, potentially transmitting sensitive data to compromised servers. Applications using the public_key:pkix_ocsp_validate/5 API directly are also affected, with impact depending on usage context.\n\nThis vulnerability is associated with program files lib/public_key/src/pubkey_ocsp.erl and program routines pubkey_ocsp:is_authorized_responder/3.\n\nThis issue affects OTP from OTP 27.0 before OTP  28.4.2 and OTP  27.3.4.10, corresponding to public_key from 1.16 before 1.20.3 and 1.17.1.2, and ssl from 11.2 before 11.5.4 and 11.2.12.7.",
+          "text": "Improper Certificate Validation vulnerability in Erlang OTP public_key (pubkey_ocsp module) allows OCSP designated-responder authorization bypass via missing signature verification.\n\nThe OCSP response validation in public_key:pkix_ocsp_validate/5 does not verify that a CA-designated responder certificate was cryptographically signed by the issuing CA. Instead, it only checks that the responder certificate's issuer name matches the CA's subject name and that the certificate has the OCSPSigning extended key usage. An attacker who can intercept or control OCSP responses can create a self-signed certificate with a matching issuer name and the OCSPSigning EKU, and use it to forge OCSP responses that mark revoked certificates as valid.\n\nThis affects SSL/TLS clients using OCSP stapling, which may accept connections to servers with revoked certificates, potentially transmitting sensitive data to compromised servers. Applications using the public_key:pkix_ocsp_validate/5 API directly are also affected, with impact depending on usage context.\n\nThis vulnerability is associated with program files lib/public_key/src/pubkey_ocsp.erl and program routines pubkey_ocsp:is_authorized_responder/3.\n\nThis issue affects OTP from OTP  27.0 before OTP  27.3.4.10 and OTP  28.4.2, corresponding to public_key from 1.16 before 1.17.1.2 and 1.20.3, and ssl from 11.2 before 11.2.12.7 and 11.5.4.",
           "title": "CVE description"
         }
       ],
