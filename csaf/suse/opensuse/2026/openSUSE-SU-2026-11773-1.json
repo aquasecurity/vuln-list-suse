@@ -616,7 +616,7 @@
     ],
     "title": "kernel-devel-7.2.5-1.1 on GA media",
     "tracking": {
-      "current_release_date": "2026-11-10T14:43:36Z",
+      "current_release_date": "2026-11-16T16:43:50Z",
       "generator": {
         "date": "2026-09-14T00:00:00Z",
         "engine": {
@@ -691,10 +691,15 @@
           "date": "2026-11-10T14:43:36Z",
           "number": "13",
           "summary": "unknown changes"
+        },
+        {
+          "date": "2026-11-16T16:43:50Z",
+          "number": "14",
+          "summary": "unknown changes"
         }
       ],
       "status": "final",
-      "version": "13"
+      "version": "14"
     }
   },
   "product_tree": {
@@ -12591,7 +12596,7 @@
       "notes": [
         {
           "category": "general",
-          "text": "In the Linux kernel, the following vulnerability has been resolved:\n\nio_uring: defer eventfd signaling when queued from a wakeup handler\n\nio_req_local_work_add() signals the CQ ring eventfd inline when it is the\none to push the first entry onto -\u003ework_list. For DEFER_TASKRUN rings that\nadd is frequently done from a waitqueue wakeup handler, where an\narbitrary waitqueue lock is held.\n\neventfd_signal_mask() only refuses to recurse when current-\u003ein_eventfd\nis set, but that bit is set by eventfd_signal_mask() itself. If the wake\nchain starts somewhere else, signal goes out inline and can feed back\ninto epoll.\n\nAdd IOU_F_TWQ_IN_WAKE, set it on the task_work add done from the three\nwaitqueue callbacks, and use it to force io_eventfd_signal() down the\nexisting call_rcu_hurry() deferral instead of signaling inline.",
+          "text": "This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
           "title": "CVE description"
         }
       ],
