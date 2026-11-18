@@ -76,7 +76,7 @@
     ],
     "title": "Security update for ansible-core",
     "tracking": {
-      "current_release_date": "2026-11-11T11:58:38Z",
+      "current_release_date": "2026-11-18T10:45:54Z",
       "generator": {
         "date": "2026-11-10T17:46:06Z",
         "engine": {
@@ -96,10 +96,15 @@
           "date": "2026-11-11T11:58:38Z",
           "number": "2",
           "summary": "unknown changes"
+        },
+        {
+          "date": "2026-11-18T10:45:54Z",
+          "number": "3",
+          "summary": "unknown changes"
         }
       ],
       "status": "final",
-      "version": "2"
+      "version": "3"
     }
   },
   "product_tree": {
@@ -461,7 +466,7 @@
       "notes": [
         {
           "category": "general",
-          "text": "A flaw was found in ansible-core. When installing a collection with\n`ansible-galaxy collection install`, the archive extractor validates member\npaths using lexical path normalisation (os.path.abspath) instead of resolving\nsymbolic links (os.path.realpath), and it performs no containment check on\nsymlink-typed directory members before creating them. A crafted collection\ntarball can chain symlink directory entries so that a subsequent file member is\nwritten outside the intended destination directory. This allows an attacker who\ncan get a victim to install a malicious collection to overwrite arbitrary files\nwith the privileges of the user running ansible-galaxy, leading to code\nexecution on the control node. This is a bypass of the fix for CVE-2020-10691.",
+          "text": "A flaw was found in ansible-core. When installing a collection with `ansible-galaxy collection install`, the archive extractor validates member paths using lexical path normalisation (os.path.abspath) instead of resolving symbolic links (os.path.realpath), and it performs no containment check on symlink-typed directory members before creating them. A crafted collection tarball can chain symlink directory entries so that a subsequent file member is written outside the intended destination directory. This allows an attacker who can get a victim to install a malicious collection to overwrite arbitrary files with the privileges of the user running ansible-galaxy, leading to code execution on the control node. This is a bypass of the fix for CVE-2020-10691.",
           "title": "CVE description"
         }
       ],
