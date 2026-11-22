@@ -1,0 +1,212 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for perl-Spreadsheet-XLSX",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for perl-Spreadsheet-XLSX fixes the following issues:\n\nChanges in perl-Spreadsheet-XLSX:\n\n- Lower requirement for Archive::Zip to the unnormalized version 1.18\n  to get the security update merged soon\n\n- updated to 0.200.0 (0.20)\n  * 0.20\n    - Security: limit ZIP entry counts and uncompressed sizes; read members\n      incrementally and reject inconsistent size metadata.\n    - Security: validate number format IDs and escape regex lookups to prevent\n      regex injection from crafted styles.\n    - Security: reject out-of-range date values to prevent excessive CPU usage.\n    - Security: validate cell references against XLSX worksheet limits before\n      indexing cell arrays, preventing excessive allocation from invalid rows.\n    - Add cpanfile for easy dependency installation.\n    - Improve Readme.\n  * 0.19\n    - Security: replace string eval of number-format conditions with strict\n      numeric comparisons; invalid conditions use the fallback format section.\n      CVE-2026-115943 bsc#1288922\n      Prevents arbitrary Perl code execution when parsing crafted XLSX files.\n    - Add regression tests for numeric conditions and malicious XLSX formats.\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "openSUSE-Leap-16.0-packagehub-756",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/2026/opensuse-su-2026_22410-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1288922",
+        "url": "https://bugzilla.suse.com/1288922"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-115943 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-115943/"
+      }
+    ],
+    "title": "Security update for perl-Spreadsheet-XLSX",
+    "tracking": {
+      "current_release_date": "2026-11-22T10:10:58Z",
+      "generator": {
+        "date": "2026-11-16T15:41:54Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "openSUSE-SU-2026:22410-1",
+      "initial_release_date": "2026-11-16T15:41:54Z",
+      "revision_history": [
+        {
+          "date": "2026-11-16T15:41:54Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-11-22T10:10:58Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "perl-Spreadsheet-XLSX-0:0.200.0-bp160.1.1.noarch",
+                "product": {
+                  "name": "perl-Spreadsheet-XLSX-0:0.200.0-bp160.1.1.noarch",
+                  "product_id": "perl-Spreadsheet-XLSX-0:0.200.0-bp160.1.1.noarch",
+                  "product_identification_helper": {
+                    "purl": "pkg:rpm/suse/perl-Spreadsheet-XLSX@0.200.0-bp160.1.1?arch=noarch"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "noarch"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "openSUSE Leap 16.0",
+                "product": {
+                  "name": "openSUSE Leap 16.0",
+                  "product_id": "openSUSE Leap 16.0"
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "perl-Spreadsheet-XLSX-0:0.200.0-bp160.1.1.noarch as component of openSUSE Leap 16.0",
+          "product_id": "openSUSE Leap 16.0:perl-Spreadsheet-XLSX-0:0.200.0-bp160.1.1.noarch"
+        },
+        "product_reference": "perl-Spreadsheet-XLSX-0:0.200.0-bp160.1.1.noarch",
+        "relates_to_product_reference": "openSUSE Leap 16.0"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2026-115943",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-115943"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Spreadsheet::XLSX versions before 0.19 for Perl allow code execution via string eval of number format conditions in ExcelFmt.\n\nWhen a number format has a condition such as [\u003e100], ExcelFmt chooses the format section by passing the condition and the cell value to a string eval. Both come from the workbook, and the eval runs while Spreadsheet::XLSX-\u003enew parses it.\n\nAn attacker who supplies an XLSX file can run arbitrary Perl code.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "openSUSE Leap 16.0:perl-Spreadsheet-XLSX-0:0.200.0-bp160.1.1.noarch"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-115943",
+          "url": "https://www.suse.com/security/cve/CVE-2026-115943"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1288922 for CVE-2026-115943",
+          "url": "https://bugzilla.suse.com/1288922"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "openSUSE Leap 16.0:perl-Spreadsheet-XLSX-0:0.200.0-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.8,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "openSUSE Leap 16.0:perl-Spreadsheet-XLSX-0:0.200.0-bp160.1.1.noarch"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-16T15:41:54Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-115943"
+    }
+  ]
+}
