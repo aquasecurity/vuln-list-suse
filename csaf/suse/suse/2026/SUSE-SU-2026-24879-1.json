@@ -1,0 +1,752 @@
+{
+  "document": {
+    "aggregate_severity": {
+      "namespace": "https://www.suse.com/support/security/rating/",
+      "text": "important"
+    },
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "distribution": {
+      "text": "Copyright 2024 SUSE LLC. All rights reserved.",
+      "tlp": {
+        "label": "WHITE",
+        "url": "https://www.first.org/tlp/"
+      }
+    },
+    "lang": "en",
+    "notes": [
+      {
+        "category": "summary",
+        "text": "Security update for amazon-ssm-agent",
+        "title": "Title of the patch"
+      },
+      {
+        "category": "description",
+        "text": "This update for amazon-ssm-agent fixes the following issues:\n\n- CVE-2025-47913: golang.org/x/crypto/ssh/agent: client process termination when receiving an unexpected message type\n  in response to a key listing or signing request (bsc#1253611).\n- CVE-2025-47914: golang.org/x/crypto/ssh/agent: missing validation of message sizes when processing new identity\n  requests can cause a panic due to an out-of-bounds read (bsc#1254082).\n- CVE-2025-58181: golang.org/x/crypto/ssh: missing validation of number of mechanisms specified in a request can cause\n  unbounded memory consumption (bsc#1253946).\n- CVE-2026-56854,CVE-2026-56855,CVE-2026-78662: golang.org/x/crypto/ssh: authentication bypass and deadlocks in the\n  crypto/ssh library (bsc#1278681).\n- CVE-2026-78663: golang.org/x/net/http2: double flow control refund on HTTP/2 server streams allows for flow control\n  limit bypass (bsc#1288254).\n- CVE-2026-97032: golang.org/x/net/http2: HPACK encoder race can lead to HTTP/2 server crash (bsc#1288255).\n\nChanges for amazon-ssm-agent:\n\n- Update to version 3.3.5708.0\n  * Send bucket-owner header on s3 http/https fallback\n  * Only write serial port messages when running in EC2\n  * Apply IMDS retry bound in fallback config path\n  * Harden input validation for Linux domain join parameters\n  * Add multicloud support enabling SSM Agent registration with GCP\n  * Add sqv fallthrough for setupcli when gpg is not installed\n- Update to version 3.3.5678.0\n  * Bump golang.org/x/sys from v0.47.0 to v0.48.0\n  * Bump golang.org/x/net from v0.57.0 to v0.60.0\n  * Upgrade Go version to 1.26.10\n- Raise minimum Go version to 1.26.10 in BuildRequires\n- Update to version 3.3.5538.0\n  * Bug fixes for aws-sdk-go-v2\n  * Upgrade Go version to 1.26.9\n- Raise minimum Go version to 1.26.9 in BuildRequires\n- Update to version 3.3.5390.0\n  * Bump github.com/gorilla/websocket from v1.4.2 to v1.5.3\n  * Bump golang.org/x/crypto from v0.53.0 to v0.56.0\n  * Bump golang.org/x/net from v0.56.0 to v0.57.0\n  * Bump golang.org/x/sys from v0.46.0 to v0.47.0\n  * Upgrade GoLang version from 1.25 to 1.26\n  * Mint control-channel token after dial to fix AZ-fault token expiry\n  * Resume patch documents interrupted by an external shutdown\n  * Use systemctl for systemd in aws: configureDocker on Amazon Linux\n  * Update greengrass component version to 1.3.5\n",
+        "title": "Description of the patch"
+      },
+      {
+        "category": "details",
+        "text": "SUSE-SLES-NVIDIA-16.1-54",
+        "title": "Patchnames"
+      },
+      {
+        "category": "legal_disclaimer",
+        "text": "CSAF 2.0 data is provided by SUSE under the Creative Commons License 4.0 with Attribution (CC-BY-4.0).",
+        "title": "Terms of use"
+      }
+    ],
+    "publisher": {
+      "category": "vendor",
+      "contact_details": "https://www.suse.com/support/security/contact/",
+      "name": "SUSE Product Security Team",
+      "namespace": "https://www.suse.com/"
+    },
+    "references": [
+      {
+        "category": "external",
+        "summary": "SUSE ratings",
+        "url": "https://www.suse.com/support/security/rating/"
+      },
+      {
+        "category": "self",
+        "summary": "URL of this CSAF notice",
+        "url": "https://ftp.suse.com/pub/projects/security/csaf/2026/suse-su-2026_24879-1.json"
+      },
+      {
+        "category": "self",
+        "summary": "URL for SUSE-SU-2026:24879-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-202624879-1/"
+      },
+      {
+        "category": "self",
+        "summary": "E-Mail link for SUSE-SU-2026:24879-1",
+        "url": "https://www.suse.com/support/update/announcement/2026/suse-su-202624879-1/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1253611",
+        "url": "https://bugzilla.suse.com/1253611"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1253946",
+        "url": "https://bugzilla.suse.com/1253946"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1254082",
+        "url": "https://bugzilla.suse.com/1254082"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1278681",
+        "url": "https://bugzilla.suse.com/1278681"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1288254",
+        "url": "https://bugzilla.suse.com/1288254"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE Bug 1288255",
+        "url": "https://bugzilla.suse.com/1288255"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-47913 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-47913/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-47914 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-47914/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2025-58181 page",
+        "url": "https://www.suse.com/security/cve/CVE-2025-58181/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-56854 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-56854/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-56855 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-56855/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-78662 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-78662/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-78663 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-78663/"
+      },
+      {
+        "category": "self",
+        "summary": "SUSE CVE CVE-2026-97032 page",
+        "url": "https://www.suse.com/security/cve/CVE-2026-97032/"
+      }
+    ],
+    "title": "Security update for amazon-ssm-agent",
+    "tracking": {
+      "current_release_date": "2026-11-26T10:25:48Z",
+      "generator": {
+        "date": "2026-11-18T08:50:59Z",
+        "engine": {
+          "name": "cve-database.git:bin/generate-csaf.pl",
+          "version": "1"
+        }
+      },
+      "id": "SUSE-SU-2026:24879-1",
+      "initial_release_date": "2026-11-18T08:50:59Z",
+      "revision_history": [
+        {
+          "date": "2026-11-18T08:50:59Z",
+          "number": "1",
+          "summary": "Current version"
+        },
+        {
+          "date": "2026-11-26T10:25:48Z",
+          "number": "2",
+          "summary": "unknown changes"
+        }
+      ],
+      "status": "final",
+      "version": "2"
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "branches": [
+          {
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64",
+                "product": {
+                  "name": "amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64",
+                  "product_id": "amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64",
+                  "product_identification_helper": {
+                    "cpe": "cpe:2.3:a:amazon:amazon_ssm_agent:3.3.5708.0:*:*:*:*:*:*:*",
+                    "purl": "pkg:rpm/suse/amazon-ssm-agent@3.3.5708.0-160100.1.1?arch=aarch64\u0026upstream=amazon-ssm-agent-0:3.3.5708.0-160100.1.1.src.rpm"
+                  }
+                }
+              }
+            ],
+            "category": "architecture",
+            "name": "aarch64"
+          },
+          {
+            "branches": [
+              {
+                "category": "product_name",
+                "name": "SUSE Linux Enterprise Server for NVIDIA 16.1",
+                "product": {
+                  "name": "SUSE Linux Enterprise Server for NVIDIA 16.1",
+                  "product_id": "SUSE Linux Enterprise Server for NVIDIA 16.1",
+                  "product_identification_helper": {
+                    "cpe": "cpe:/o:suse:sles:16:16.1:server-nvidia"
+                  }
+                }
+              }
+            ],
+            "category": "product_family",
+            "name": "SUSE Linux Enterprise"
+          }
+        ],
+        "category": "vendor",
+        "name": "SUSE"
+      }
+    ],
+    "relationships": [
+      {
+        "category": "default_component_of",
+        "full_product_name": {
+          "name": "amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64 as component of SUSE Linux Enterprise Server for NVIDIA 16.1",
+          "product_id": "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+        },
+        "product_reference": "amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64",
+        "relates_to_product_reference": "SUSE Linux Enterprise Server for NVIDIA 16.1"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-47913",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-47913"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "SSH clients receiving SSH_AGENT_SUCCESS when expecting a typed response will panic and cause early termination of the client process.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-47913",
+          "url": "https://www.suse.com/security/cve/CVE-2025-47913"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253506 for CVE-2025-47913",
+          "url": "https://bugzilla.suse.com/1253506"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-18T08:50:59Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2025-47913"
+    },
+    {
+      "cve": "CVE-2025-47914",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-47914"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "SSH Agent servers do not validate the size of messages when processing new identity requests, which may cause the program to panic if the message is malformed due to an out of bounds read.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-47914",
+          "url": "https://www.suse.com/security/cve/CVE-2025-47914"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253967 for CVE-2025-47914",
+          "url": "https://bugzilla.suse.com/1253967"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-18T08:50:59Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-47914"
+    },
+    {
+      "cve": "CVE-2025-58181",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2025-58181"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "SSH servers parsing GSSAPI authentication requests do not validate the number of mechanisms specified in the request, allowing an attacker to cause unbounded memory consumption.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2025-58181",
+          "url": "https://www.suse.com/security/cve/CVE-2025-58181"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1253784 for CVE-2025-58181",
+          "url": "https://bugzilla.suse.com/1253784"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-18T08:50:59Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2025-58181"
+    },
+    {
+      "cve": "CVE-2026-56854",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-56854"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The source-address critical option in the Permissions returned by an authentication callback was only enforced for the PublicKeyCallback and VerifiedPublicKeyCallback paths, extending the fix for CVE-2026-46595. Permissions returned by the PasswordCallback, KeyboardInteractiveCallback, NoClientAuthCallback, and GSSAPIWithMICConfig.AllowLogin callbacks were not validated against the client's remote address, so a source-address restriction set by those callbacks was silently ignored. The check is now applied to the Permissions returned by any authentication callback.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-56854",
+          "url": "https://www.suse.com/security/cve/CVE-2026-56854"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1278446 for CVE-2026-56854",
+          "url": "https://bugzilla.suse.com/1278446"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1280553 for CVE-2026-56854",
+          "url": "https://bugzilla.suse.com/1280553"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-18T08:50:59Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-56854"
+    },
+    {
+      "cve": "CVE-2026-56855",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-56855"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Previously, after a channel has been established, a malicious peer could send crafted messages that would deadlock the entire connection. Now, we handle all RFC 4254 channel messages; global requests are handled explicitly. Then, treat all other messages as a protocol error and tear the connection down instead of buffering and blocking.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-56855",
+          "url": "https://www.suse.com/security/cve/CVE-2026-56855"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1278446 for CVE-2026-56855",
+          "url": "https://bugzilla.suse.com/1278446"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1280553 for CVE-2026-56855",
+          "url": "https://bugzilla.suse.com/1280553"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-18T08:50:59Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-56855"
+    },
+    {
+      "cve": "CVE-2026-78662",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-78662"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "Previously, a channel registered in the mux's chanList is not usable until it is established. A malicious peer was able flood the channel's incomingRequests, deadlocking the entire connection. Now, we add an atomic established state, set when a channel becomes usable. Until such a time, handlePacket drops every packet other than the open confirmation/failure, without blocking and without tearing down the connection.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-78662",
+          "url": "https://www.suse.com/security/cve/CVE-2026-78662"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1278446 for CVE-2026-78662",
+          "url": "https://bugzilla.suse.com/1278446"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1280553 for CVE-2026-78662",
+          "url": "https://bugzilla.suse.com/1280553"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-18T08:50:59Z",
+          "details": "important"
+        }
+      ],
+      "title": "CVE-2026-78662"
+    },
+    {
+      "cve": "CVE-2026-78663",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-78663"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "The HTTP/2 server can refund connection-level flow control twice for the same data: Once when a client resets a stream (refunding data for any sent-but-unread portion of the stream), and again when a request handler reads the buffered data. A malicious client can exploit this to bypass the configured connection-level flow control limit (MaxReceiveBufferPerConnection). Total buffered data is still limited by the concurrent stream limit and stream-level flow control.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-78663",
+          "url": "https://www.suse.com/security/cve/CVE-2026-78663"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1284770 for CVE-2026-78663",
+          "url": "https://bugzilla.suse.com/1284770"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286126 for CVE-2026-78663",
+          "url": "https://bugzilla.suse.com/1286126"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-18T08:50:59Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-78663"
+    },
+    {
+      "cve": "CVE-2026-97032",
+      "ids": [
+        {
+          "system_name": "SUSE CVE Page",
+          "text": "https://www.suse.com/security/cve/CVE-2026-97032"
+        }
+      ],
+      "notes": [
+        {
+          "category": "general",
+          "text": "HTTP/2 servers could end up crashing due to inadvertently modifying its HPACK encoder concurrently. This happens because the server modifies the HPACK encoder from two goroutines without synchronization: one uses the encoder to encode a HEADERS frame as part of a response sent to a client and the other modifies the encoder's table size when handling a SETTINGS frame containing SETTINGS_HEADER_TABLE_SIZE that a client sends. A malicious client can repeatedly send a request while changing the header table size to crash the server.",
+          "title": "CVE description"
+        }
+      ],
+      "product_status": {
+        "recommended": [
+          "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+        ]
+      },
+      "references": [
+        {
+          "category": "external",
+          "summary": "CVE-2026-97032",
+          "url": "https://www.suse.com/security/cve/CVE-2026-97032"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1284780 for CVE-2026-97032",
+          "url": "https://bugzilla.suse.com/1284780"
+        },
+        {
+          "category": "external",
+          "summary": "SUSE Bug 1286108 for CVE-2026-97032",
+          "url": "https://bugzilla.suse.com/1286108"
+        }
+      ],
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "To install this SUSE Security Update use the SUSE recommended installation methods like YaST online_update or \"zypper patch\".\n",
+          "product_ids": [
+            "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.9,
+            "baseSeverity": "MEDIUM",
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "version": "3.1"
+          },
+          "products": [
+            "SUSE Linux Enterprise Server for NVIDIA 16.1:amazon-ssm-agent-0:3.3.5708.0-160100.1.1.aarch64"
+          ]
+        }
+      ],
+      "threats": [
+        {
+          "category": "impact",
+          "date": "2026-11-18T08:50:59Z",
+          "details": "moderate"
+        }
+      ],
+      "title": "CVE-2026-97032"
+    }
+  ]
+}
