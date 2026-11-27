@@ -66,7 +66,7 @@
     ],
     "title": "flatpak-1.18.6-1.1 on GA media",
     "tracking": {
-      "current_release_date": "2026-11-26T10:30:08Z",
+      "current_release_date": "2026-11-27T17:22:37Z",
       "generator": {
         "date": "2026-11-25T00:00:00Z",
         "engine": {
@@ -86,10 +86,15 @@
           "date": "2026-11-26T10:30:08Z",
           "number": "2",
           "summary": "unknown changes"
+        },
+        {
+          "date": "2026-11-27T17:22:37Z",
+          "number": "3",
+          "summary": "unknown changes"
         }
       ],
       "status": "final",
-      "version": "2"
+      "version": "3"
     }
   },
   "product_tree": {
@@ -829,7 +834,7 @@
       "notes": [
         {
           "category": "general",
-          "text": "unknown",
+          "text": "A flaw was found in Flatpak's flatpak-system-helper. When a system-wide app, runtime, or extension uses the extra-data mechanism and its apply_extra logic creates a deeply nested directory tree, permission canonicalization can fail (for example with EMFILE). Affected Flatpak versions can still report success without clearing setuid/setgid bits, leaving a setuid-root executable under /var/lib/flatpak. A local attacker who can install or update such content system-wide, or who can already execute code as a local user in cooperation with that content, can escalate privileges to root.",
           "title": "CVE description"
         }
       ],
@@ -936,7 +941,7 @@
       "notes": [
         {
           "category": "general",
-          "text": "unknown",
+          "text": "A flaw was found in Flatpak's flatpak-portal. When a sandboxed application invokes Spawn() and maps two different file descriptors to the same handle, dup2() can fail. Affected Flatpak versions do not handle that failure, so a file descriptor that was open inside flatpak-portal (commonly the unfiltered D-Bus session bus) can be passed into the subsandbox. A malicious or compromised Flatpak app with no special privileges can use this to escape the sandbox.",
           "title": "CVE description"
         }
       ],
